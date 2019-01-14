@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="leftMenuItemsArray">
+        <item>@string/rate_us</item>
+        <item>@string/more_apps</item>
+        <item>@string/information</item>
+        <item>@string/about_title</item>
+    </string-array>
+</resources>

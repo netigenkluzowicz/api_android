@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/rate_us_caps" />
+    <Preference
+        android:key="@string/rate_us_caps"
+        android:layout="@layout/layout_rate_us" />
+    <PreferenceCategory android:title="@string/follow_us_caps" />
+    <Preference
+        android:icon="@drawable/ic_netigen"
+        android:key="website"
+        android:summary="@string/visit_www"
+        android:title="@string/website" />
+    <Preference
+        android:icon="@drawable/ic_facebook"
+        android:key="facebook"
+        android:summary="@string/follow_facebook"
+        android:title="@string/facebook" />
+    <Preference
+        android:icon="@drawable/ic_twitter"
+        android:key="twitter"
+        android:summary="@string/follow_twitter"
+        android:title="@string/twitter" />
+    <Preference
+        android:icon="@drawable/ic_google_plus"
+        android:key="google"
+        android:summary="@string/follow_g_plus"
+        android:title="@string/google_plus" />
+</PreferenceScreen>

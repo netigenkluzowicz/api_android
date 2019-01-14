@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--ViewPager and rating-->
+    <string name="more_apps">More Apps</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="information">Information</string>
+    <string name="settings">Save Settings</string>
+    <string name="about_title">About</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="msg_browser_not_found">Browser not found!!!</string>
+
+    <!--  rating layout-->
+    <string name="rate_us_caps">RATE US</string>
+    <string name="follow_us_caps">FOLLOW US</string>
+    <string name="visit_www">Visit www.netigen.pl</string>
+    <string name="follow_facebook">Follow us on Facebook</string>
+    <string name="follow_twitter">Follow us on Twitter</string>
+    <string name="twitter">Twitter</string>
+    <string name="follow_g_plus">Follow us on Google+</string>
+    <string name="google_plus">Google+</string>
+    <string name="graph_points">Graph points</string>
+    <string name="max_number_points_graph">Maximum number of points on graph</string>
+    <string name="wrong_value">You typed wrong value</string>
+    <string name="help_summary">Show help dialog</string>
+    <string name="ask_to_rate_us">Do you want to rate this Application?</string>
+    <string name="website">Website</string>
+    <string name="facebook">Facebook</string>
+    <string name="about_txt">\n<b>Ringtones</b> for Android\n\nDeveloped by <b>NETIGEN</b> Kluzowicz\u00A0sp.j\n\nPlease, send comments, feature requests or report bugs to:\nmobile@netigen.pl\n</string>
+    <string name="yes" translatable="false">Yes</string>
+    <string name="no" translatable="false">No</string>
+    <string name="cancel">@android:string/cancel</string>
+
+    <string name="google_plus_url">https://plus.google.com/u/0/109924704449111632896/posts</string>
+    <string name="twitter_url">https://twitter.com/Netigenpl</string>
+    <string name="youtube">https://www.youtube.com/channel/UClgxDILaB9iAadDOvRctuhw</string>
+    <string name="www_url">http://www.netigen.pl</string>
+    <string name="facebook_url">https://www.facebook.com/netigenpl?fref=ts</string>
+    <string name="play_app_id_link">market://details?id=</string>
+    <string name="samsung_app_id_link">samsungapps://ProductDetail/</string>
+
+    <!--More aps urls-->
+    <string name="dino_the_beast">Dino The Beast</string>
+    <string name="dino_the_beast_url">pl.netigen.dinothebeast</string>
+
+    <string name="reset_ad_preferences">Reset ad preferences</string>
+
+
+</resources>
