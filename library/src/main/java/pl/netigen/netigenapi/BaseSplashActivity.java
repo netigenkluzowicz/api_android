@@ -15,7 +15,6 @@ import pl.netigen.rodo.RodoFragment;
 
 
 public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, LoadProgressListener, AdmobIds, RodoFragment.ClickListener {
-    public static final String PUB = "pub-4699516034931013";
     private static final String RODO_FRAGMENT_TAG = "rodo";
     private AdmobManager admobManager;
     private RodoFragment rodoFragment;
@@ -28,13 +27,13 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
+        Config.initialize(getConfigBuilder());
         boolean noAdsBought = getSharedPreferences(Const.PREFERENCES_NAME, MODE_PRIVATE).getBoolean(Const.NO_ADS, false);
         if (noAdsBought) {
             onRodoConfirmed();
         } else {
             final ConsentInformation consentInformation = ConsentInformation.getInstance(this);
-            String[] publisherIds = {PUB};
-            consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
+            consentInformation.requestConsentInfoUpdate(getPublisherIds(), new ConsentInfoUpdateListener() {
                 @Override
                 public void onConsentInfoUpdated(ConsentStatus consentStatus) {
                     boolean isInEea = ConsentInformation.getInstance(BaseSplashActivity.this).isRequestLocationInEeaOrUnknown();
@@ -45,7 +44,6 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
                         onRodoConfirmed();
                     }
                 }
-
                 @Override
                 public void onFailedToUpdateConsentInfo(String errorDescription) {
                     onRodoConfirmed();

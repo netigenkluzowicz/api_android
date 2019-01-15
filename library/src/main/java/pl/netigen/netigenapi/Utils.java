@@ -41,7 +41,7 @@ public class Utils {
 
     @NonNull
     private static String getMarketLink(Activity activity, String packageName) {
-        int link_id = Const.isSamsung() ? R.string.samsung_app_id_link : R.string.play_app_id_link;
+        int link_id = Config.isSamsung() ? R.string.samsung_app_id_link : R.string.play_app_id_link;
         return activity.getString(link_id) + packageName;
     }
 

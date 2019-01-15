@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import pl.netigen.netigenapi.Const;
+import pl.netigen.netigenapi.Config;
 import pl.netigen.netigenapi.MoreAppItem;
 import pl.netigen.netigenapi.R;
 import pl.netigen.netigenapi.Utils;
@@ -64,7 +64,7 @@ public class MoreAppsFragment extends PreferenceFragment implements Preference.O
     public MoreAppItem[] getLocalMoreAppsList() {
         if (localMoreAppItems == null) {
             try {
-                String moreAppsJson = Const.isSamsung() ? MORE_APPS_JSON_SAMSUNG : MORE_APPS_JSON;
+                String moreAppsJson = Config.isSamsung() ? MORE_APPS_JSON_SAMSUNG : MORE_APPS_JSON;
                 InputStream inputStream = getActivity().getAssets().open(moreAppsJson);
                 Gson gson = new Gson();
                 localMoreAppItems = gson.fromJson(new InputStreamReader(inputStream), MoreAppItem[].class);

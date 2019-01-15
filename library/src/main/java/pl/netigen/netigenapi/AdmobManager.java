@@ -26,7 +26,7 @@ import static pl.netigen.netigenapi.Const.PREFERENCES_NAME;
 
 public class AdmobManager {
     private static final long REFRESH_TIME = 333;
-    private static final long MIN_WAIT = 3500;
+    private static final long DEFAULT_MIN_WAIT = 2000;
     private static final long DEFAULT_MAX_WAIT = 7000;
     private static InterstitialAd interstitial;
     private static boolean fullAdError;
@@ -36,6 +36,7 @@ public class AdmobManager {
     private Activity activity;
     private AdView bannerView;
     private long loadingAdsStartTime;
+    private long minWaitForSplashFullScreen = DEFAULT_MIN_WAIT;
     private long maxWaitForSplashFullScreen = DEFAULT_MAX_WAIT;
     private boolean noAdsBought;
     private int loadedBannerOrientation = 0;
@@ -86,7 +87,7 @@ public class AdmobManager {
 
     private AdRequest getAdRequest() {
         AdRequest.Builder builder = new AdRequest.Builder();
-        if (BuildConfig.DEBUG) {
+        if (Config.isInDebugMode()) {
             builder.addTestDevice("F1F415DDE480395A4D21C26D6C6A9619") // Samsung 4'
                     .addTestDevice("9F65EEB1B6AED06CBE01CFEDA106BD29") // Talet Samsung
                     .addTestDevice("0F4B0296B48D2C6478D7E9A89DDD07F8") // Sony Oskar
@@ -266,6 +267,14 @@ public class AdmobManager {
         }
     }
 
+    public long getMinWaitForSplashFullScreen() {
+        return minWaitForSplashFullScreen;
+    }
+
+    public void setMinWaitForSplashFullScreen(long minWaitForSplashFullScreen) {
+        this.minWaitForSplashFullScreen = minWaitForSplashFullScreen;
+    }
+
     public interface ShowFullScreenListener {
         void onShowedOrNotLoaded(boolean success);
     }
@@ -306,7 +315,7 @@ public class AdmobManager {
         }
 
         private boolean refreshHandler() {
-            return System.currentTimeMillis() - loadingAdsStartTime < MIN_WAIT || isSplashInBackground;
+            return System.currentTimeMillis() - loadingAdsStartTime < minWaitForSplashFullScreen || isSplashInBackground;
         }
     }
 }
