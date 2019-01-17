@@ -69,7 +69,7 @@ public class RateUs {
         return false;
     }
 
-    private void openRateDialog() {
+    public void openRateDialog() {
         RateFragment.newInstance(this).show(appCompatActivity.getSupportFragmentManager(), "");
     }
 

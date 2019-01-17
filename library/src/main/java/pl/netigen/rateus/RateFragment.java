@@ -39,7 +39,7 @@ public class RateFragment extends AppCompatDialogFragment {
         }
         getDialog().setCancelable(true);
         getDialog().setCanceledOnTouchOutside(true);
-        View view = inflater.inflate(R.layout.fragment_rate, container, false);
+        View view = inflater.inflate(R.layout.netigen_api_rate_us_dialog, container, false);
         ((TextView) view.findViewById(R.id.rateUsFragmentTitleTextView)).setText(rateUs.titleResId);
         ((TextView) view.findViewById(R.id.rateUsFragmentsAppNameTextView)).setText(rateUs.appNameResId);
         ((TextView) view.findViewById(R.id.rateUsFragmentAskForRateTextView)).setText(rateUs.askForRateUsInfoId);
