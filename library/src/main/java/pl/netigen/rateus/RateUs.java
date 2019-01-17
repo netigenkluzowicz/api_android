@@ -11,7 +11,7 @@ public class RateUs {
     private static final String SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs";
     private static final String KEY_NUMBER_OF_OPENINGS = "KEY_NUMBER_OF_OPENINGS";
     private static final String KEY_IS_RATE_US_OPEN = "KEY_IS_RATE_US_OPEN";
-    private static final int NUMBER_OF_CLICKS_BEFORE_SHOWING_DIALOG = 4;
+    private static final int NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG = 4;
     int titleResId;
     int appNameResId;
     int askForRateUsInfoId;
@@ -34,6 +34,7 @@ public class RateUs {
         this.positiveResId = positiveResId;
         this.notAskAgainResId = notAskAgainResId;
         this.appIconResId = appIconResId;
+        this.sharedPreferences = this.appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
     }
 
     private int getNumberOfOpenings() {
@@ -57,16 +58,19 @@ public class RateUs {
     }
 
     public boolean openRateDialogIfNeeded() {
-        sharedPreferences = this.appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
         if (openRateUs()) {
             int open = getNumberOfOpenings();
             addOpen();
-            if (open % NUMBER_OF_CLICKS_BEFORE_SHOWING_DIALOG == NUMBER_OF_CLICKS_BEFORE_SHOWING_DIALOG - 1) {
-                RateFragment.newInstance(this).show(appCompatActivity.getSupportFragmentManager(), "");
-                return false;
+            if (open % NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG == NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG - 1) {
+                openRateDialog();
+                return true;
             }
         }
-        return true;
+        return false;
+    }
+
+    private void openRateDialog() {
+        RateFragment.newInstance(this).show(appCompatActivity.getSupportFragmentManager(), "");
     }
 
     private boolean openRateUs() {

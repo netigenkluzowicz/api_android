@@ -1,6 +1,5 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent"
@@ -28,11 +27,10 @@
         android:id="@+id/rateUsFragmentIconImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/guideline47"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline48" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineIconTop" />
 
     <TextView
         android:id="@+id/rateUsFragmentsAppNameTextView"
@@ -46,7 +44,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline47" />
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/rateUsFragmentTitleTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -55,58 +53,82 @@
         android:text="@string/rate_us"
         android:textColor="@android:color/white"
         android:textSize="26sp"
+        app:autoSizeMaxTextSize="60sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/guideline48"
         app:layout_constraintLeft_toLeftOf="@+id/guideline51"
         app:layout_constraintRight_toRightOf="@+id/guideline52"
         app:layout_constraintTop_toTopOf="@+id/guideline53" />
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/rateUsFragmentAskForRateTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center"
         android:layout_margin="7dp"
-        android:id="@+id/rateUsFragmentAskForRateTextView"
+        android:gravity="center"
+        android:maxLines="2"
+        android:padding="10dp"
+        android:text="@string/do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:autoSizeMaxTextSize="60sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/guideline50"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline49" />
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/rateUsFragmentNoTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_red"
         android:gravity="center"
+        android:padding="4dp"
+        android:text="@string/no_exclamation_mark"
         android:textColor="@android:color/white"
         android:textSize="22sp"
+        app:autoSizeMaxTextSize="30sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/guideline43"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/rateUsFragmentYesTextView"
         app:layout_constraintTop_toTopOf="@+id/guideline50" />
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/rateUsFragmentYesTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_red"
         android:gravity="center"
+        android:padding="4dp"
+        android:text="@string/yes_exclamation_mark"
         android:textColor="@android:color/white"
         android:textSize="22sp"
+        app:autoSizeMaxTextSize="30sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/guideline43"
         app:layout_constraintLeft_toRightOf="@+id/rateUsFragmentNoTextView"
         app:layout_constraintRight_toLeftOf="@+id/rateUsFragmentLaterTextView"
         app:layout_constraintTop_toTopOf="@+id/guideline50" />
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/rateUsFragmentLaterTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_red"
         android:gravity="center"
+        android:padding="4dp"
+        android:text="@string/later_exclamation_mark"
         android:textColor="@android:color/white"
         android:textSize="22sp"
+        app:autoSizeMaxTextSize="30sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/guideline43"
         app:layout_constraintLeft_toRightOf="@+id/rateUsFragmentYesTextView"
         app:layout_constraintRight_toRightOf="parent"
@@ -146,6 +168,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.32" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineIconTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline49"
