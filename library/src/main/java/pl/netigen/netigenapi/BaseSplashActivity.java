@@ -14,13 +14,11 @@ import pl.netigen.rodo.ConstRodo;
 import pl.netigen.rodo.RodoFragment;
 
 
-public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, LoadProgressListener, AdmobIds, RodoFragment.ClickListener {
+public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, AdmobIds, RodoFragment.ClickListener {
     private static final String RODO_FRAGMENT_TAG = "rodo";
     private AdmobManager admobManager;
     private RodoFragment rodoFragment;
     private boolean canCommitFragment;
-    private boolean isRodoConfirmed;
-    private boolean isLoaded;
     private Handler initAdmobHandler;
 
     @Override
@@ -28,33 +26,31 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
         Config.initialize(getConfigBuilder());
-        boolean noAdsBought = getSharedPreferences(Const.PREFERENCES_NAME, MODE_PRIVATE).getBoolean(Const.NO_ADS, false);
-        if (noAdsBought) {
-            onRodoConfirmed();
-        } else {
-            final ConsentInformation consentInformation = ConsentInformation.getInstance(this);
-            consentInformation.requestConsentInfoUpdate(getPublisherIds(), new ConsentInfoUpdateListener() {
-                @Override
-                public void onConsentInfoUpdated(ConsentStatus consentStatus) {
-                    boolean isInEea = ConsentInformation.getInstance(BaseSplashActivity.this).isRequestLocationInEeaOrUnknown();
-                    ConstRodo.setIsInEea(isInEea);
-                    if (isInEea && consentInformation.getConsentStatus() == ConsentStatus.UNKNOWN) {
-                        initRodoFragment();
-                    } else {
-                        onRodoConfirmed();
-                    }
-                }
-                @Override
-                public void onFailedToUpdateConsentInfo(String errorDescription) {
-                    onRodoConfirmed();
-                }
-            });
+        if (!isNoAdsPaymentAvailable()) {
+            Config.setNoAdsBought(false);
+            showConsent();
         }
     }
 
-    private void onRodoConfirmed() {
-        isRodoConfirmed = true;
-        init();
+    private void showConsent() {
+        final ConsentInformation consentInformation = ConsentInformation.getInstance(this);
+        consentInformation.requestConsentInfoUpdate(getPublisherIds(), new ConsentInfoUpdateListener() {
+            @Override
+            public void onConsentInfoUpdated(ConsentStatus consentStatus) {
+                boolean isInEea = ConsentInformation.getInstance(BaseSplashActivity.this).isRequestLocationInEeaOrUnknown();
+                ConstRodo.setIsInEea(isInEea);
+                if (isInEea && consentInformation.getConsentStatus() == ConsentStatus.UNKNOWN) {
+                    initRodoFragment();
+                } else {
+                    startAdmobSplash();
+                }
+            }
+
+            @Override
+            public void onFailedToUpdateConsentInfo(String errorDescription) {
+                startAdmobSplash();
+            }
+        });
     }
 
     @Override
@@ -94,12 +90,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
         }
     }
 
-    private void init() {
-        try {
-            onInit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void startAdmobSplash() {
         if (initAdmobHandler == null) {
             initAdmobHandler = new Handler();
             initAdmobHandler.post(this::initAdmob);
@@ -109,19 +100,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     private void initAdmob() {
         MobileAds.initialize(this, getAdmobAppID());
         admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
-        admobManager.splashScreenOnCreate();
-        if (!setUpLoaderClass() || isLoaded) {
-            onFinishLoading();
-        } else {
-            isRodoConfirmed = true;
-        }
-    }
-
-    protected abstract void onInit();
-
-    @Override
-    public void onLoadProgress(String progressText) {
-
+        admobManager.splashScreenOnCreate(getIntentToLaunch());
     }
 
     @Override
@@ -132,25 +111,11 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     }
 
     @Override
-    public void onFinishLoading() {
-        isLoaded = true;
-        if (isRodoConfirmed) {
-            if (admobManager == null) {
-                if (initAdmobHandler == null) {
-                    initAdmob();
-                }
-            } else {
-                admobManager.waitOrShowFullScreen(getIntentToLaunch(), true);
-            }
-        }
-    }
-
-    @Override
     public void clickYes() {
         ConsentInformation.getInstance(this)
                 .setConsentStatus(ConsentStatus.PERSONALIZED);
         closeRodoFragment();
-        onRodoConfirmed();
+        startAdmobSplash();
     }
 
     private void closeRodoFragment() {
@@ -166,8 +131,19 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     @Override
     public void clickAcceptPolicy() {
         closeRodoFragment();
-        onRodoConfirmed();
+        startAdmobSplash();
     }
 
     public abstract boolean isNoAdsPaymentAvailable();
+
+    @Override
+    public void onNoAdsPaymentProcessingFinished(boolean noAdsBought) {
+        Config.setNoAdsBought(noAdsBought);
+        if (noAdsBought) {
+            startActivity(getIntentToLaunch());
+            finish();
+        } else {
+            showConsent();
+        }
+    }
 }

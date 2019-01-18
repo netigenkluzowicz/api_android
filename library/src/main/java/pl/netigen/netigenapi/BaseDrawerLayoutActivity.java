@@ -1,6 +1,5 @@
 package pl.netigen.netigenapi;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,10 +31,6 @@ public abstract class BaseDrawerLayoutActivity extends BaseBannerActivity implem
         return drawerManager;
     }
 
-    public AdmobManager getAdmobManager() {
-        return super.getAdmobManager();
-    }
-
     @Override
     public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
 
@@ -55,20 +50,16 @@ public abstract class BaseDrawerLayoutActivity extends BaseBannerActivity implem
 
     @Override
     public void onDrawerOpened(@NonNull View drawerView) {
-        super.getAdmobManager().onBannerAdPause();
+        super.onBannerAdPause();
     }
 
     @Override
     public void onDrawerClosed(@NonNull View drawerView) {
-        super.getAdmobManager().onBannerAdResume(getBannerRelativeLayout());
+        super.onBannerAdResume();
     }
 
     @Override
     public void onDrawerStateChanged(int newState) {
 
-    }
-
-    public Fragment getMoreAppsFragment() {
-        return null;
     }
 }

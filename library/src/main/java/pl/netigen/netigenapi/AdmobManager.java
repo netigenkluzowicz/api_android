@@ -20,10 +20,6 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
-import static android.content.Context.MODE_PRIVATE;
-import static pl.netigen.netigenapi.Const.NO_ADS;
-import static pl.netigen.netigenapi.Const.PREFERENCES_NAME;
-
 public class AdmobManager {
     private static final long REFRESH_TIME = 333;
     private static final long DEFAULT_MIN_WAIT = 2000;
@@ -38,20 +34,29 @@ public class AdmobManager {
     private long loadingAdsStartTime;
     private long minWaitForSplashFullScreen = DEFAULT_MIN_WAIT;
     private long maxWaitForSplashFullScreen = DEFAULT_MAX_WAIT;
-    private boolean noAdsBought;
     private int loadedBannerOrientation = 0;
     private boolean isMultiFullscreenApp;
     private boolean isSplashInBackground;
+    private boolean noAdInstance;
 
     private AdmobManager(String bannerId, String fullScreenId, @NonNull Activity activity) {
         this.bannerId = bannerId;
         this.fullScreenId = fullScreenId;
-        noAdsBought = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE).getBoolean(NO_ADS, false);
         this.activity = activity;
+    }
+
+    private AdmobManager() {
+
     }
 
     public static AdmobManager create(String bannerId, String fullScreenId, Activity activity) {
         return new AdmobManager(bannerId, fullScreenId, activity);
+    }
+
+    public static AdmobManager createNoAdsInstance() {
+        AdmobManager admobManager = new AdmobManager();
+        admobManager.noAdInstance = true;
+        return admobManager;
     }
 
     public long getMaxWaitForSplashFullScreen() {
@@ -122,7 +127,7 @@ public class AdmobManager {
     }
 
     public void onBannerAdResume(RelativeLayout relativeLayout) {
-        if (noAdsBought) {
+        if (isNoAdsBought()) {
             return;
         }
         if (bannerView != null || loadedBannerOrientation != activity.getResources().getConfiguration().orientation) {
@@ -134,8 +139,12 @@ public class AdmobManager {
         bannerView.resume();
     }
 
+    private boolean isNoAdsBought() {
+        return Config.isNoAdsBought() || noAdInstance;
+    }
+
     public void onBannerAdPause() {
-        if (noAdsBought) {
+        if (isNoAdsBought()) {
             if (bannerView != null) {
                 ViewGroup parent = (ViewGroup) bannerView.getParent();
                 if (parent != null) parent.removeView(bannerView);
@@ -150,7 +159,7 @@ public class AdmobManager {
     }
 
     private void loadBanner() {
-        if (noAdsBought) {
+        if (isNoAdsBought()) {
             return;
         }
         if (bannerView == null || loadedBannerOrientation != activity.getResources().getConfiguration().orientation) {
@@ -162,16 +171,17 @@ public class AdmobManager {
         bannerView.loadAd(getAdRequest());
     }
 
-    public void waitOrShowFullScreen(Intent activityToLaunch, boolean finishActivity) {
+    private void launchSplashLoaderOrStartMainActivity(Intent activityToLaunch) {
+        loadingAdsStartTime = System.currentTimeMillis();
         fullScreenHandler.removeCallbacksAndMessages(null);
-        if (noAdsBought) {
-            launchTargetActivity(activityToLaunch, finishActivity);
+        if (isNoAdsBought()) {
+            launchTargetActivity(activityToLaunch, true);
             return;
         }
         if (interstitial.isLoaded()) {
-            showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch, finishActivity));
+            showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch, true));
         } else if (!isOnline()) {
-            launchTargetActivity(activityToLaunch, finishActivity);
+            launchTargetActivity(activityToLaunch, true);
         } else {
             SplashScreenLoader splashScreenLoader = new SplashScreenLoader(activityToLaunch);
             fullScreenHandler.postDelayed(splashScreenLoader, REFRESH_TIME);
@@ -179,7 +189,7 @@ public class AdmobManager {
     }
 
     public void showFullScreenIfPossible(@NonNull ShowFullScreenListener showFullScreenListener) {
-        if (noAdsBought) {
+        if (isNoAdsBought()) {
             showFullScreenListener.onShowedOrNotLoaded(false);
             return;
         }
@@ -202,13 +212,13 @@ public class AdmobManager {
         }
     }
 
-    void splashScreenOnCreate() {
+    void splashScreenOnCreate(Intent intentToLaunch) {
         loadInterstitialIfNeeded(activity);
-        loadingAdsStartTime = System.currentTimeMillis();
+        launchSplashLoaderOrStartMainActivity(intentToLaunch);
     }
 
     private void loadInterstitialIfNeeded(Context context) {
-        if (noAdsBought) {
+        if (isNoAdsBought()) {
             return;
         }
         if (interstitial == null) {
@@ -235,14 +245,6 @@ public class AdmobManager {
         if (finishActivity) {
             activity.finish();
         }
-    }
-
-    public boolean isNoAdsBought() {
-        return noAdsBought;
-    }
-
-    public void setNoAdsBought(boolean noAdsBought) {
-        this.noAdsBought = noAdsBought;
     }
 
     public void setIsMultiFullscreenApp(boolean isMultiFullscreenApp) {
@@ -291,7 +293,7 @@ public class AdmobManager {
             if (refreshHandler()) {
                 fullScreenHandler.postDelayed(this, REFRESH_TIME);
             } else {
-                if (noAdsBought) {
+                if (isNoAdsBought()) {
                     launchTargetActivity(activityToLaunch, true);
                     return;
                 }

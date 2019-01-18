@@ -25,23 +25,27 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     }
 
     protected void initAdmobBanner() {
-        admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
-        admobManager.setIsMultiFullscreenApp(isMultiFullScreenApp());
         bannerRelativeLayout = getBannerRelativeLayout();
         ViewGroup.LayoutParams layoutParams = bannerRelativeLayout.getLayoutParams();
-        if (!admobManager.isNoAdsBought()) {
-            int bannerHeightPixels = AdSize.SMART_BANNER.getHeightInPixels(this);
-            layoutParams.width = RelativeLayout.LayoutParams.MATCH_PARENT;
-            layoutParams.height = bannerHeightPixels;
-            bannerRelativeLayout.setGravity(Gravity.TOP);
-            bannerRelativeLayout.setLayoutParams(layoutParams);
+        if (Config.isNoAdsBought()) {
+            hideBanner(layoutParams);
         } else {
-            onNoAdsBought(layoutParams);
+            showBanner(layoutParams);
         }
+    }
+
+    private void showBanner(ViewGroup.LayoutParams layoutParams) {
+        admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
+        admobManager.setIsMultiFullscreenApp(isMultiFullScreenApp());
+        int bannerHeightPixels = AdSize.SMART_BANNER.getHeightInPixels(this);
+        layoutParams.width = RelativeLayout.LayoutParams.MATCH_PARENT;
+        layoutParams.height = bannerHeightPixels;
+        bannerRelativeLayout.setGravity(Gravity.TOP);
+        bannerRelativeLayout.setLayoutParams(layoutParams);
         admobManager.bannerActivityOnCreate();
     }
 
-    private void onNoAdsBought(ViewGroup.LayoutParams layoutParams) {
+    private void hideBanner(ViewGroup.LayoutParams layoutParams) {
         layoutParams.width = RelativeLayout.LayoutParams.MATCH_PARENT;
         layoutParams.height = 1;
         bannerRelativeLayout.setGravity(Gravity.TOP);
@@ -51,22 +55,37 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     @Override
     protected void onResume() {
         super.onResume();
-        admobManager.onBannerAdResume(bannerRelativeLayout);
+        onBannerAdResume();
     }
 
+    protected void onBannerAdResume() {
+        if (admobManager != null) {
+            admobManager.onBannerAdResume(bannerRelativeLayout);
+        }
+    }
 
     @Override
     protected void onPause() {
         super.onPause();
-        admobManager.onBannerAdPause();
+        onBannerAdPause();
     }
 
     public void onBannerAdPause() {
-        admobManager.onBannerAdPause();
+        if (admobManager != null) {
+            admobManager.onBannerAdPause();
+        }
     }
 
+    public void turnOffAds() {
+        Config.setNoAdsBought(true);
+        admobManager = AdmobManager.createNoAdsInstance();
+        initAdmobBanner();
+    }
 
     public AdmobManager getAdmobManager() {
+        if (admobManager == null) {
+            admobManager = AdmobManager.createNoAdsInstance();
+        }
         return admobManager;
     }
 }

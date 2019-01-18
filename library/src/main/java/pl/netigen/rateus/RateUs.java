@@ -1,8 +1,11 @@
 package pl.netigen.rateus;
 
 import android.content.SharedPreferences;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 
+import pl.netigen.netigenapi.R;
 import pl.netigen.netigenapi.Utils;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -93,5 +96,62 @@ public class RateUs {
 
     void clickLater() {
 
+    }
+
+    public static class RateUsBuilder {
+        private AppCompatActivity appCompatActivity;
+        @StringRes
+        private int titleResId = R.string.rate_us;
+        @StringRes
+        private int appNameResId;
+        @StringRes
+        private int askForRateUsInfoId = R.string.do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars;
+        @StringRes
+        private int notAskAgainResId = R.string.no_exclamation_mark;
+        @StringRes
+        private int positiveResId = R.string.yes_exclamation_mark;
+        @StringRes
+        private int neutralResId = R.string.later_exclamation_mark;
+        @DrawableRes
+        private int appIconResId;
+
+        public RateUsBuilder(AppCompatActivity appCompatActivity, @DrawableRes int appIconResId) {
+            this.appCompatActivity = appCompatActivity;
+            this.appIconResId = appIconResId;
+        }
+
+        public RateUsBuilder setTitleResId(int titleResId) {
+            this.titleResId = titleResId;
+            return this;
+        }
+
+        public RateUsBuilder setAppNameResId(int appNameResId) {
+            this.appNameResId = appNameResId;
+            return this;
+        }
+
+        public RateUsBuilder setAskForRateUsInfoId(int askForRateUsInfoId) {
+            this.askForRateUsInfoId = askForRateUsInfoId;
+            return this;
+        }
+
+        public RateUsBuilder setNotAskAgainResId(int notAskAgainResId) {
+            this.notAskAgainResId = notAskAgainResId;
+            return this;
+        }
+
+        public RateUsBuilder setPositiveResId(int positiveResId) {
+            this.positiveResId = positiveResId;
+            return this;
+        }
+
+        public RateUsBuilder setNeutralResId(int neutralResId) {
+            this.neutralResId = neutralResId;
+            return this;
+        }
+
+        public RateUs createRateUs() {
+            return new RateUs(appCompatActivity, titleResId, appNameResId, askForRateUsInfoId, notAskAgainResId, positiveResId, neutralResId, appIconResId);
+        }
     }
 }
