@@ -28,4 +28,6 @@ interface ISplashActivity {
         return PUBLISHER_IDS;
     }
 
+    void onNoAdsPaymentProcessingFinished(boolean noAdsBought);
+
 }
