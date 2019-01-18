@@ -119,7 +119,10 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     }
 
     private void closeRodoFragment() {
-        super.onBackPressed();
+        if (rodoFragment != null) {
+            super.onBackPressed();
+        }
+        rodoFragment = null;
     }
 
     @Override
@@ -138,6 +141,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
 
     @Override
     public void onNoAdsPaymentProcessingFinished(boolean noAdsBought) {
+        closeRodoFragment();
         Config.setNoAdsBought(noAdsBought);
         if (noAdsBought) {
             startActivity(getIntentToLaunch());
