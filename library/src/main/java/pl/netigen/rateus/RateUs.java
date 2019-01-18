@@ -3,7 +3,6 @@ package pl.netigen.rateus;
 import android.content.SharedPreferences;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import pl.netigen.netigenapi.R;
@@ -42,7 +41,6 @@ public class RateUs {
     }
 
     private int getNumberOfOpenings() {
-        AlertDialog alertDialog;
         return sharedPreferences.getInt(KEY_NUMBER_OF_OPENINGS, 0);
     }
 
@@ -109,11 +107,11 @@ public class RateUs {
         @StringRes
         private int askForRateUsInfoId = R.string.do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars;
         @StringRes
-        private int notAskAgainResId  = R.string.no_exclamation_mark;
+        private int notAskAgainResId = R.string.no_exclamation_mark;
         @StringRes
         private int positiveResId = R.string.yes_exclamation_mark;
         @StringRes
-        private int neutralResId= R.string.later_exclamation_mark;
+        private int neutralResId = R.string.later_exclamation_mark;
         @DrawableRes
         private int appIconResId;
 
