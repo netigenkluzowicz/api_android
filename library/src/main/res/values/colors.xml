@@ -3,7 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#CEA3D8</color>
-    <color name="textColor">#ffffff</color>
     <color name="textColorBlack">#000000</color>
     <color name="paper_line">#DABAE2</color>
     <color name="textColorTop">#8615a3</color>
@@ -15,4 +14,9 @@
     <color name="calendarColor">#EFEFEF</color>
     <color name="backDrawMenu">#9DC0F4</color>
     <color name="colorBlue">#1DB3D8</color>
+    <color name="radio_button_color_checked">#5E5E5E</color>
+    <color name="radio_button_color_not_checked">#5E5E5E</color>
+    <color name="dialog_divider_color">#a7a7a7</color>
+    <color name="dialog_buttons_text_color">#585858</color>
+    <color name="dialog_sub_text_color">#2B2B2B</color>
 </resources>
