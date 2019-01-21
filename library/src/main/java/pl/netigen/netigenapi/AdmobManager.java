@@ -38,6 +38,7 @@ public class AdmobManager {
     private boolean isMultiFullscreenApp;
     private boolean isSplashInBackground;
     private boolean noAdInstance;
+    private boolean launched;
 
     private AdmobManager(String bannerId, String fullScreenId, @NonNull Activity activity) {
         this.bannerId = bannerId;
@@ -250,8 +251,12 @@ public class AdmobManager {
     }
 
     private void launchTargetActivity(Intent activityToLaunch) {
-        activity.startActivity(activityToLaunch);
-        activity.finish();
+        fullScreenHandler.removeCallbacksAndMessages(null);
+        if (!launched) {
+            activity.startActivity(activityToLaunch);
+            activity.finish();
+            launched = true;
+        }
     }
 
     public void setIsMultiFullscreenApp(boolean isMultiFullscreenApp) {
