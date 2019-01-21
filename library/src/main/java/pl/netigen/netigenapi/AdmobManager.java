@@ -175,13 +175,13 @@ public class AdmobManager {
         loadingAdsStartTime = System.currentTimeMillis();
         fullScreenHandler.removeCallbacksAndMessages(null);
         if (isNoAdsBought()) {
-            launchTargetActivity(activityToLaunch, true);
+            launchTargetActivity(activityToLaunch);
             return;
         }
         if (interstitial.isLoaded()) {
-            showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch, true));
+            showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch));
         } else if (!isOnline()) {
-            launchTargetActivity(activityToLaunch, true);
+            launchTargetActivity(activityToLaunch);
         } else {
             SplashScreenLoader splashScreenLoader = new SplashScreenLoader(activityToLaunch);
             fullScreenHandler.postDelayed(splashScreenLoader, REFRESH_TIME);
@@ -190,6 +190,11 @@ public class AdmobManager {
 
     public void showFullScreenIfPossible(@NonNull ShowFullScreenListener showFullScreenListener) {
         if (isNoAdsBought()) {
+            showFullScreenListener.onShowedOrNotLoaded(false);
+            return;
+        }
+        if (interstitial == null) {
+            loadInterstitial(activity);
             showFullScreenListener.onShowedOrNotLoaded(false);
             return;
         }
@@ -212,6 +217,20 @@ public class AdmobManager {
         }
     }
 
+    private void loadInterstitial(Context context) {
+        if (context != null) {
+            interstitial = new InterstitialAd(context);
+            interstitial.setAdUnitId(fullScreenId);
+            interstitial.setAdListener(new AdListener() {
+                @Override
+                public void onAdFailedToLoad(int errorCode) {
+                    super.onAdFailedToLoad(errorCode);
+                    fullAdError = true;
+                }
+            });
+        }
+    }
+
     void splashScreenOnCreate(Intent intentToLaunch) {
         loadInterstitialIfNeeded(activity);
         launchSplashLoaderOrStartMainActivity(intentToLaunch);
@@ -222,17 +241,7 @@ public class AdmobManager {
             return;
         }
         if (interstitial == null) {
-            if (context != null) {
-                interstitial = new InterstitialAd(context);
-                interstitial.setAdUnitId(fullScreenId);
-                interstitial.setAdListener(new AdListener() {
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        super.onAdFailedToLoad(errorCode);
-                        fullAdError = true;
-                    }
-                });
-            }
+            loadInterstitial(context);
         }
         fullAdError = false;
         if (interstitial != null && !interstitial.isLoading()) {
@@ -240,11 +249,9 @@ public class AdmobManager {
         }
     }
 
-    private void launchTargetActivity(Intent activityToLaunch, boolean finishActivity) {
+    private void launchTargetActivity(Intent activityToLaunch) {
         activity.startActivity(activityToLaunch);
-        if (finishActivity) {
-            activity.finish();
-        }
+        activity.finish();
     }
 
     public void setIsMultiFullscreenApp(boolean isMultiFullscreenApp) {
@@ -294,24 +301,24 @@ public class AdmobManager {
                 fullScreenHandler.postDelayed(this, REFRESH_TIME);
             } else {
                 if (isNoAdsBought()) {
-                    launchTargetActivity(activityToLaunch, true);
+                    launchTargetActivity(activityToLaunch);
                     return;
                 }
                 if (interstitial.isLoaded()) {
-                    showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch, true));
+                    showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch));
                     fullScreenHandler.removeCallbacksAndMessages(null);
                 } else if (System.currentTimeMillis() - loadingAdsStartTime < maxWaitForSplashFullScreen) {
                     if (fullAdError) {
                         if (isOnline()) {
                             fullScreenHandler.postDelayed(this, REFRESH_TIME);
                         } else {
-                            launchTargetActivity(activityToLaunch, true);
+                            launchTargetActivity(activityToLaunch);
                         }
                     } else {
                         fullScreenHandler.postDelayed(this, REFRESH_TIME);
                     }
                 } else {
-                    launchTargetActivity(activityToLaunch, true);
+                    launchTargetActivity(activityToLaunch);
                 }
             }
         }
