@@ -17,4 +17,7 @@
     <color name="colorBlue">#1DB3D8</color>
     <color name="radio_button_color_checked">#5E5E5E</color>
     <color name="radio_button_color_not_checked">#5E5E5E</color>
+    <color name="dialog_divider_color">#a7a7a7</color>
+    <color name="dialog_buttons_text_color">#585858</color>
+    <color name="dialog_sub_text_color">#2B2B2B</color>
 </resources>
