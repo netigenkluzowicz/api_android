@@ -51,4 +51,12 @@
     <string name="yes_exclamation_mark">Yes!</string>
     <string name="later_exclamation_mark">Later!</string>
 
+    <string name="change_language">Change language</string>
+    <string name="translation_information_title">Translation information</string>
+    <string name="translation_information_content1">This application has been translated by Google Translate. English is the original language of this application. Please remember that there could be some mistakes in translation. </string>
+    <string name="translation_information_content2">If you want to change the app language to English you can do so in settings.</string>
+    <string name="settings_upper_case">SETTINGS</string>
+    <string name="ok_upper_case">OK</string>
+    <string name="cancel_upper_case">CANCEL</string>
+
 </resources>
