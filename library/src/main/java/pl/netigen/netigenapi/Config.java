@@ -1,10 +1,13 @@
 package pl.netigen.netigenapi;
 
+import java.util.List;
+
 public class Config {
     private static Config instance;
     private boolean noAdsBought;
     private boolean inDebugMode;
     private boolean isSamsung;
+    private List<String> testDevices;
 
     Config(boolean inDebugMode, boolean isSamsung) {
         this.inDebugMode = inDebugMode;
@@ -37,4 +40,14 @@ public class Config {
         }
         return instance;
     }
+
+    public static List<String> getTestDevices(){
+        return getInstance().testDevices;
+    }
+
+    public void setTestDevices(List<String> testDevices) {
+        this.testDevices = testDevices;
+    }
+
+
 }

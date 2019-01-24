@@ -20,6 +20,8 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.util.List;
+
 public class AdmobManager {
     private static final long REFRESH_TIME = 333;
     private static final long DEFAULT_MIN_WAIT = 2000;
@@ -113,9 +115,15 @@ public class AdmobManager {
                     .addTestDevice("3D1FCDD4B6DC7E453846A04D214FD12D")
                     .addTestDevice("43AAFCE5A6B9E8FCDC58E58087AEC4EF")
                     .addTestDevice("AD2180512DE8B1EE611AB4645A69E470")
-                    .addTestDevice("379BED7628AE4885B439939575F9F292")
                     .addTestDevice("379BED7628AE4885B439939575F9F292") // OP5 Spajdera
                     .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5");
+
+            List<String> testDevices = Config.getTestDevices();
+            if (testDevices != null) {
+                for (int i = 0; i < testDevices.size(); i++) {
+                    builder.addTestDevice(testDevices.get(i));
+                }
+            }
         }
         if (ConsentInformation.getInstance(activity).getConsentStatus() == ConsentStatus.NON_PERSONALIZED) {
             Bundle extras = new Bundle();
