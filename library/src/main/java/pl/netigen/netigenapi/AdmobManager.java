@@ -119,8 +119,8 @@ public class AdmobManager {
                     .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5");
 
             List<String> testDevices = Config.getTestDevices();
-            if(Config.getTestDevices()!=null) {
-                for(int i=0;i<testDevices.size();i++) {
+            if (testDevices != null) {
+                for (int i = 0; i < testDevices.size(); i++) {
                     builder.addTestDevice(testDevices.get(i));
                 }
             }
