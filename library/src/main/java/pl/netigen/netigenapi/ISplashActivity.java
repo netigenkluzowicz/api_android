@@ -28,6 +28,10 @@ interface ISplashActivity {
         return PUBLISHER_IDS;
     }
 
+    int getContentView();
+
+    int getSplashFragmentRodoContainerId();
+
     void onNoAdsPaymentProcessingFinished(boolean noAdsBought);
 
 }
