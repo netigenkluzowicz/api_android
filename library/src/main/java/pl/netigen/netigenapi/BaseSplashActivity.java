@@ -24,7 +24,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_activity);
+        setContentView(getContentView());
         Config.initialize(getConfigBuilder());
         if (!isNoAdsPaymentAvailable()) {
             Config.setNoAdsBought(false);
@@ -84,7 +84,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
             rodoFragment = RodoFragment.newInstance();
             rodoFragment.setIsPayOptions(isNoAdsPaymentAvailable());
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragmentRodo, rodoFragment, RODO_FRAGMENT_TAG)
+                    .add(getSplashFragmentRodoContainerId(), rodoFragment, RODO_FRAGMENT_TAG)
                     .addToBackStack(null)
                     .commitAllowingStateLoss();
         }
