@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.LocaleList;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -23,13 +24,13 @@ import pl.netigen.netigenapi.R;
 
 public class ChangeLanguageHelper {
 
-    private static final String[] arrayOfProperlyTranslatedLanguages = new String[]{"pl", "pt"/*, "ru"*/, "es", "de", "ko", "en"};
+    private static String[] arrayOfProperlyTranslatedLanguages = new String[]{"pl", "pt"/*, "ru"*/, "es", "de", "ko", "en"};
     private static SharedPreferences sharedPreferences;
     public static final String LANGUAGE_PREFERENCES = "LANGUAGE_PREFERENCES";
     private static final String KEY_WAS_TRANSLATION_DIALOG_SHOWN = "KEY_WAS_TRANSLATION_DIALOG_SHOWN";
     private static final String KEY_USER_LOCALE = "KEY_USER_LOCALE";
 
-    public static void setLocaleAndRestartApp(String lang, AppCompatActivity currentActivity, AppCompatActivity launcherActivity) {
+    public static void setLocaleAndRestartApp(String lang, AppCompatActivity currentActivity, Class activityToLaunch) {
         if (lang == null)
             return;
         setPreferencesLocale(lang);
@@ -39,7 +40,7 @@ public class ChangeLanguageHelper {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(currentActivity, launcherActivity.getClass());
+        Intent refresh = new Intent(currentActivity, activityToLaunch);
         refresh.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         currentActivity.startActivity(refresh);
         currentActivity.finish();
@@ -58,7 +59,6 @@ public class ChangeLanguageHelper {
     public static void setActivityLocale(Activity activity) {
         setSharedPreferences(activity);
         String savedLanguageCode = getPreferencesLocale();
-        Log.d(TAG, "setActivityLocale: savedLanguageCode: " + savedLanguageCode);
         if (savedLanguageCode != null) {
             if (!activity.getResources().getConfiguration().locale.getLanguage().equals(getPreferencesLocale())) {
                 setLocale(savedLanguageCode, activity);
@@ -66,27 +66,16 @@ public class ChangeLanguageHelper {
         }
     }
 
-    public static void setAppLocale(Context context) {
-        setSharedPreferences(context);
-        String savedLanguageCode = getPreferencesLocale();
-        if (savedLanguageCode != null) {
-            if (!context.getResources().getConfiguration().locale.getLanguage().equals(getPreferencesLocale())) {
-                Log.d(TAG, "setAppLocale: will set locale: " + savedLanguageCode + " null: " + (null == savedLanguageCode));
-                setLocale(savedLanguageCode, context);
-            }
-        }
-    }
-
     public static void setLocale(String lang, Context context) {
         if (lang == null)
             return;
+        setPreferencesLocale(lang);
         Locale myLocale = new Locale(lang);
         Resources res = context.getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        setPreferencesLocale(lang);
     }
 
     public static String getCurrentAppLocale(Context context) {
@@ -95,8 +84,6 @@ public class ChangeLanguageHelper {
         Configuration conf = res.getConfiguration();
         return conf.locale.getLanguage();
     }
-
-    private static final String TAG = "MainActivity";
 
     /*
      * Use only if DialogFragment doesn't properly fit the screen
@@ -123,6 +110,11 @@ public class ChangeLanguageHelper {
             }
         });
         alertDialog.show();
+    }
+
+    public static void showTranslationInfoDialog(TranslationInfoDialogFragment.DialogClickListener dialogClickListener, AppCompatActivity appCompatActivity, String[] excludedLanguages) {
+        arrayOfProperlyTranslatedLanguages = excludedLanguages;
+        showTranslationInfoDialog(dialogClickListener, appCompatActivity);
     }
 
     public static void showTranslationInfoDialog(TranslationInfoDialogFragment.DialogClickListener dialogClickListener, AppCompatActivity appCompatActivity) {
@@ -157,45 +149,50 @@ public class ChangeLanguageHelper {
     }
 
     public static void setPreferencesLocale(String userLocale) {
-        sharedPreferences.edit().putString(KEY_USER_LOCALE, userLocale).apply();
+        sharedPreferences.edit().putString(KEY_USER_LOCALE, userLocale).commit();
     }
 
     public static void setSharedPreferences(Context context) {
         sharedPreferences = context.getSharedPreferences(ChangeLanguageHelper.LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);
     }
 
-    private static Context updateResources(Context context) {
-        sharedPreferences = context.getSharedPreferences(LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);
+    private static final String TAG = "ChangeLanguageHelper";
 
+    private static Context updateResources(Context activityContext, Context applicationContext) {
+        sharedPreferences = activityContext.getSharedPreferences(LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);
         String language = getPreferencesLocale();
-
+        Log.d(TAG, "updateResources: language " + language);
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
-        Resources res = context.getResources();
+        Resources res = activityContext.getResources();
         Configuration config = new Configuration(res.getConfiguration());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             config.setLocale(locale);
+            Log.d(TAG, "updateResources: if1 config locale: " + config.getLocales().get(0).getDisplayLanguage());
         } else {
             config.locale = locale;
+            Log.d(TAG, "updateResources: else1 config locale: " + config.getLocales().get(0).getDisplayLanguage());
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            context.createConfigurationContext(config);
+            activityContext.createConfigurationContext(config);
+            applicationContext.createConfigurationContext(config);
+            Log.d(TAG, "updateResources: if2 config locale: " + activityContext.getResources().getConfiguration().getLocales().get(0).getDisplayLanguage());
         } else {
             res.updateConfiguration(config, res.getDisplayMetrics());
+            Log.d(TAG, "updateResources: else2 config locale: " + activityContext.getResources().getConfiguration().getLocales().get(0).getDisplayLanguage());
         }
-
-        return context;
+        Log.d(TAG, "updateResources: after update: " + activityContext.getResources().getConfiguration().getLocales().get(0).getDisplayLanguage());
+        return activityContext;
     }
 
-    public static Context setLocale(Context context) {
-        Log.d(TAG, "setLocale: contextNull " + (null == context));
-        return updateResources(context);
+    public static Context setLocale(Context activityContext, Context applicationContext) {
+        return updateResources(activityContext, applicationContext);
     }
 
-    public static Context setNewLocale(Context context, String language) {
+    public static Context setNewLocale(Context activityContext, Context applicationContext, String language) {
         setPreferencesLocale(language);
-        return updateResources(context);
+        return updateResources(activityContext, applicationContext);
     }
 }
