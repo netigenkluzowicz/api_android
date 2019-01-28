@@ -53,7 +53,9 @@ public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Languages
         public void onCheckedChanged(CompoundButton buttonView,
                                      boolean isChecked) {
             int tag = (int) buttonView.getTag();
-            selectedLanguageModel = languageModelArrayList.get(tag);
+            if (isChecked) {
+                selectedLanguageModel = languageModelArrayList.get(tag);
+            }
             if (lastCheckedRB == null) {
                 lastCheckedRB = (RadioButton) buttonView;
             } else if (tag != (int) lastCheckedRB.getTag()) {
@@ -76,6 +78,7 @@ public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Languages
     }
 
     public static class LanguageRowViewHolder extends RecyclerView.ViewHolder {
+
         public AppCompatRadioButton radioButtonSelectLanguage;
         private View itemView;
 
@@ -92,7 +95,6 @@ public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Languages
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 radioButtonSelectLanguage.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
             }
-
             ColorStateList colorStateList = new ColorStateList(
                     new int[][]{
                             new int[]{-android.R.attr.state_checked},
@@ -105,9 +107,5 @@ public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Languages
             );
             CompoundButtonCompat.setButtonTintList(radioButtonSelectLanguage, colorStateList);
         }
-    }
-
-    public interface ItemClickListener {
-        public void OnItemClicked(LanguageModel languageModel);
     }
 }
