@@ -70,6 +70,11 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         getDialog().setCanceledOnTouchOutside(true);
         View view = inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
 
+        if (translationInfoParams == null || dialogClickListener == null) {
+            dismiss();
+            return view;
+        }
+
         setTranslationInfoContent1(view);
 
         setTranslationInfoContent2(view);
