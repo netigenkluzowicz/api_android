@@ -101,6 +101,12 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
         getDialog().setCanceledOnTouchOutside(true);
 
         View view = inflater.inflate(R.layout.dialog_fragment_change_language, container, false);
+
+        if (changeLanguageParams == null || languageClickListener == null) {
+            dismiss();
+            return view;
+        }
+
         recyclerViewLanguages = view.findViewById(R.id.recyclerView_languages);
 
         setTitle(view);
