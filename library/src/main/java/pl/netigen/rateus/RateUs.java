@@ -22,13 +22,14 @@ public class RateUs {
     int positiveResId;
     int notAskAgainResId;
     int appIconResId;
+    int clicksBeforeShowingRateUs;
     private SharedPreferences sharedPreferences;
     private AppCompatActivity appCompatActivity;
 
-    public RateUs(AppCompatActivity appCompatActivity, int titleResId,
-                  int appNameResId, int askForRateUsInfoId,
-                  int negativeResId, int positiveResId,
-                  int notAskAgainResId, int appIconResId) {
+    private RateUs(AppCompatActivity appCompatActivity, int titleResId,
+                   int appNameResId, int askForRateUsInfoId,
+                   int negativeResId, int positiveResId,
+                   int notAskAgainResId, int appIconResId, int clicksBeforeShowingRateUs) {
         this.appCompatActivity = appCompatActivity;
         this.titleResId = titleResId;
         this.appNameResId = appNameResId;
@@ -38,6 +39,11 @@ public class RateUs {
         this.notAskAgainResId = notAskAgainResId;
         this.appIconResId = appIconResId;
         this.sharedPreferences = this.appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+        if (clicksBeforeShowingRateUs != 0) {
+            this.clicksBeforeShowingRateUs = clicksBeforeShowingRateUs;
+        } else {
+            this.clicksBeforeShowingRateUs = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG;
+        }
     }
 
     private int getNumberOfOpenings() {
@@ -64,7 +70,7 @@ public class RateUs {
         if (openRateUs()) {
             int open = getNumberOfOpenings();
             addOpen();
-            if (open % NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG == NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG - 1) {
+            if (open % clicksBeforeShowingRateUs == clicksBeforeShowingRateUs - 1) {
                 openRateDialog();
                 return true;
             }
@@ -114,6 +120,7 @@ public class RateUs {
         private int neutralResId = R.string.later_exclamation_mark;
         @DrawableRes
         private int appIconResId;
+        private int clicksBeforeShowingRateUs = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG;
 
         public RateUsBuilder(AppCompatActivity appCompatActivity, @DrawableRes int appIconResId) {
             this.appCompatActivity = appCompatActivity;
@@ -150,8 +157,13 @@ public class RateUs {
             return this;
         }
 
+        public RateUsBuilder setClicksBeforeShowingDialog(int numberOfClicksBeforeShwoingDialog) {
+            clicksBeforeShowingRateUs = numberOfClicksBeforeShwoingDialog;
+            return this;
+        }
+
         public RateUs createRateUs() {
-            return new RateUs(appCompatActivity, titleResId, appNameResId, askForRateUsInfoId, notAskAgainResId, positiveResId, neutralResId, appIconResId);
+            return new RateUs(appCompatActivity, titleResId, appNameResId, askForRateUsInfoId, notAskAgainResId, positiveResId, neutralResId, appIconResId, clicksBeforeShowingRateUs);
         }
     }
 }
