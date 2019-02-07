@@ -48,8 +48,7 @@
                     android:layout_height="80dp"
                     android:clickable="false"
                     android:src="@drawable/ic_star"
-                    android:tag="RateUsYes"
-                    android:textAllCaps="true" />
+                    android:tag="RateUsYes" />
 
             </LinearLayout>
         </LinearLayout>
