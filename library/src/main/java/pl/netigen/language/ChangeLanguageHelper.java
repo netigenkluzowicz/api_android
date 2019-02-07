@@ -163,20 +163,15 @@ public class ChangeLanguageHelper {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             config.setLocale(locale);
-            Log.d(TAG, "updateResources: if1 config locale: " + config.getLocales().get(0).getDisplayLanguage());
         } else {
             config.locale = locale;
-            Log.d(TAG, "updateResources: else1 config locale: " + config.getLocales().get(0).getDisplayLanguage());
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             activityContext.createConfigurationContext(config);
             applicationContext.createConfigurationContext(config);
-            Log.d(TAG, "updateResources: if2 config locale: " + activityContext.getResources().getConfiguration().getLocales().get(0).getDisplayLanguage());
         } else {
             res.updateConfiguration(config, res.getDisplayMetrics());
-            Log.d(TAG, "updateResources: else2 config locale: " + activityContext.getResources().getConfiguration().getLocales().get(0).getDisplayLanguage());
         }
-        Log.d(TAG, "updateResources: after update: " + activityContext.getResources().getConfiguration().getLocales().get(0).getDisplayLanguage());
         return activityContext;
     }
 
