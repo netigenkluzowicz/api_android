@@ -203,4 +203,40 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
             create().show(appCompatActivity.getSupportFragmentManager(), "translation_info");
         }
     }
+
+    private static class TranslationInfoParams {
+
+        @StringRes
+        public int titleResId = R.string.translation_information_title;
+        @StringRes
+        public int negativeButtonResId = R.string.cancel_upper_case;
+        @StringRes
+        public int positiveButtonResId = R.string.settings_upper_case;
+        @StringRes
+        public int textContentTopResId = R.string.translation_information_content1;
+        @StringRes
+        public int textContentBottomResId = R.string.translation_information_content2;
+
+        public String[] properTranslations;
+
+        public TranslationInfoDialogFragment.DialogClickListener dialogClickListener;
+
+        public TranslationInfoParams(int titleResId, int negativeButtonResId,
+                                     int positiveButtonResId, int textContentTopResId,
+                                     int textContentBottomResId,
+                                     @NonNull TranslationInfoDialogFragment.DialogClickListener dialogClickListener,
+                                     String[] properTranslations) {
+            if (titleResId != 0) this.titleResId = titleResId;
+            if (negativeButtonResId != 0) this.negativeButtonResId = negativeButtonResId;
+            if (positiveButtonResId != 0) this.positiveButtonResId = positiveButtonResId;
+            if (textContentTopResId != 0) this.textContentTopResId = textContentTopResId;
+            if (textContentBottomResId != 0) this.textContentBottomResId = textContentBottomResId;
+            this.dialogClickListener = dialogClickListener;
+            this.properTranslations = properTranslations;
+        }
+
+        public TranslationInfoParams() {
+
+        }
+    }
 }
