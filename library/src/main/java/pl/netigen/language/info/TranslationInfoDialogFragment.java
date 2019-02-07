@@ -5,9 +5,12 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -165,6 +168,10 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
             this.translationInfoParams = new TranslationInfoParams();
         }
 
+        public AppCompatActivity getActivity(){
+            return appCompatActivity;
+        }
+
         public Builder setDialogClickListener(DialogClickListener dialogClickListener) {
             this.translationInfoParams.dialogClickListener = dialogClickListener;
             return this;
@@ -192,6 +199,11 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
 
         public Builder setBottomText(int textContent2) {
             translationInfoParams.textContentBottomResId = textContent2;
+            return this;
+        }
+
+        public Builder setProperTranslations(String[] properTranslations){
+            translationInfoParams.properTranslations = properTranslations;
             return this;
         }
 

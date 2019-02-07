@@ -112,25 +112,18 @@ public class ChangeLanguageHelper {
         alertDialog.show();
     }
 
-    public static void showTranslationInfoDialog(TranslationInfoDialogFragment.DialogClickListener dialogClickListener, AppCompatActivity appCompatActivity, String[] excludedLanguages) {
-        arrayOfProperlyTranslatedLanguages = excludedLanguages;
-        showTranslationInfoDialog(dialogClickListener, appCompatActivity);
-    }
-
-    public static void showTranslationInfoDialog(TranslationInfoDialogFragment.DialogClickListener dialogClickListener, AppCompatActivity appCompatActivity) {
-        sharedPreferences = appCompatActivity.getSharedPreferences(LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);
+    public static void showTranslationInfoDialogIfNeeded(TranslationInfoDialogFragment.Builder builder) {
+        sharedPreferences = builder.getActivity().getSharedPreferences(LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);
         List<String> translatedLanguages = Arrays.asList(arrayOfProperlyTranslatedLanguages);
         Locale locale;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            locale = appCompatActivity.getResources().getConfiguration().getLocales().get(0);
+            locale = builder.getActivity().getResources().getConfiguration().getLocales().get(0);
         } else {
-            locale = appCompatActivity.getResources().getConfiguration().locale;
+            locale = builder.getActivity().getResources().getConfiguration().locale;
         }
         if (!translatedLanguages.contains(locale.getLanguage())) {
             if (!wasTranslationDialogShown()) {
-                new TranslationInfoDialogFragment.Builder(appCompatActivity)
-                        .setDialogClickListener(dialogClickListener)
-                        .show();
+                builder.show();
                 setTranslationDialogShown(true);
             }
         }
