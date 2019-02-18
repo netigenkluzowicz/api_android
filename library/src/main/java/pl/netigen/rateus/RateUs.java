@@ -104,7 +104,7 @@ public class RateUs {
 
     }
 
-    public static class RateUsBuilder {
+    public static class Builder {
         private AppCompatActivity appCompatActivity;
         @StringRes
         private int titleResId = R.string.rate_us;
@@ -121,43 +121,38 @@ public class RateUs {
         @DrawableRes
         private int appIconResId;
         private int clicksBeforeShowingRateUs = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG;
-
-        public RateUsBuilder(AppCompatActivity appCompatActivity, @DrawableRes int appIconResId) {
+        public Builder(AppCompatActivity appCompatActivity, int appNameResId, @DrawableRes int appIconResId) {
             this.appCompatActivity = appCompatActivity;
+            this.appNameResId = appNameResId;
             this.appIconResId = appIconResId;
         }
 
-        public RateUsBuilder setTitleResId(int titleResId) {
+        public Builder setTitleResId(int titleResId) {
             this.titleResId = titleResId;
             return this;
         }
 
-        public RateUsBuilder setAppNameResId(int appNameResId) {
-            this.appNameResId = appNameResId;
-            return this;
-        }
-
-        public RateUsBuilder setAskForRateUsInfoId(int askForRateUsInfoId) {
+        public Builder setAskForRateUsInfoId(int askForRateUsInfoId) {
             this.askForRateUsInfoId = askForRateUsInfoId;
             return this;
         }
 
-        public RateUsBuilder setNotAskAgainResId(int notAskAgainResId) {
+        public Builder setNotAskAgainResId(int notAskAgainResId) {
             this.notAskAgainResId = notAskAgainResId;
             return this;
         }
 
-        public RateUsBuilder setPositiveResId(int positiveResId) {
+        public Builder setPositiveResId(int positiveResId) {
             this.positiveResId = positiveResId;
             return this;
         }
 
-        public RateUsBuilder setNeutralResId(int neutralResId) {
+        public Builder setNeutralResId(int neutralResId) {
             this.neutralResId = neutralResId;
             return this;
         }
 
-        public RateUsBuilder setClicksBeforeShowingDialog(int numberOfClicksBeforeShwoingDialog) {
+        public Builder setClicksBeforeShowingDialog(int numberOfClicksBeforeShwoingDialog) {
             clicksBeforeShowingRateUs = numberOfClicksBeforeShwoingDialog;
             return this;
         }
