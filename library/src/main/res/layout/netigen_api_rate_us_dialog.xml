@@ -82,6 +82,24 @@
         app:layout_constraintTop_toBottomOf="@+id/rateUsFragmentsAppNameTextView" />
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/rateUsFragmentLaterTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_red"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="@string/later_exclamation_mark"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="10sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline43"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/rateUsFragmentNoTextView"
+        app:layout_constraintTop_toTopOf="@+id/guideline50" />
+
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/rateUsFragmentNoTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -95,7 +113,7 @@
         app:autoSizeMinTextSize="10sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/guideline43"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/rateUsFragmentLaterTextView"
         app:layout_constraintRight_toLeftOf="@+id/rateUsFragmentYesTextView"
         app:layout_constraintTop_toTopOf="@+id/guideline50" />
 
@@ -114,24 +132,6 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@+id/guideline43"
         app:layout_constraintLeft_toRightOf="@+id/rateUsFragmentNoTextView"
-        app:layout_constraintRight_toLeftOf="@+id/rateUsFragmentLaterTextView"
-        app:layout_constraintTop_toTopOf="@+id/guideline50" />
-
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/rateUsFragmentLaterTextView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/shape_red"
-        android:gravity="center"
-        android:padding="4dp"
-        android:text="@string/later_exclamation_mark"
-        android:textColor="@android:color/white"
-        android:textSize="22sp"
-        app:autoSizeMaxTextSize="24sp"
-        app:autoSizeMinTextSize="10sp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline43"
-        app:layout_constraintLeft_toRightOf="@+id/rateUsFragmentYesTextView"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline50" />
 
