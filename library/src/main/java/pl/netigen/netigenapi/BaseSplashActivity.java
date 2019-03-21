@@ -16,7 +16,7 @@ import pl.netigen.rodo.RodoFragment;
 
 public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, AdmobIds, RodoFragment.ClickListener {
     private static final String RODO_FRAGMENT_TAG = "rodo";
-    private AdmobManager admobManager;
+    AdmobManager admobManager;
     private RodoFragment rodoFragment;
     private boolean canCommitFragment;
     private Handler initAdmobHandler;
@@ -97,7 +97,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
         }
     }
 
-    private void initAdmob() {
+    void initAdmob() {
         MobileAds.initialize(this, getAdmobAppID());
         admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
         admobManager.splashScreenOnCreate(getIntentToLaunch());

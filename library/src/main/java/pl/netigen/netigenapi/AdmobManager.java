@@ -245,7 +245,7 @@ public class AdmobManager {
         launchSplashLoaderOrStartMainActivity(intentToLaunch);
     }
 
-    private void loadInterstitialIfNeeded(Context context) {
+    void loadInterstitialIfNeeded(Context context) {
         if (isNoAdsBought()) {
             return;
         }
