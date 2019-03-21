@@ -83,7 +83,7 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     public void turnOffAds() {
         Config.setNoAdsBought(true);
         admobManager = AdmobManager.createNoAdsInstance();
-        initAdmobBanner();
+        hideBanner();
     }
 
     public AdmobManager getAdmobManager() {
