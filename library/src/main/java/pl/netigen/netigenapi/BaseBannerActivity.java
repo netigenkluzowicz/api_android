@@ -25,16 +25,14 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     }
 
     protected void initAdmobBanner() {
-        bannerRelativeLayout = getBannerRelativeLayout();
-        ViewGroup.LayoutParams layoutParams = bannerRelativeLayout.getLayoutParams();
-        if (Config.isNoAdsBought()) {
-            hideBanner(layoutParams);
-        } else {
-            showBanner(layoutParams);
+        if (!Config.isNoAdsBought()) {
+            showBanner();
         }
     }
 
-    private void showBanner(ViewGroup.LayoutParams layoutParams) {
+    private void showBanner() {
+        bannerRelativeLayout = getBannerRelativeLayout();
+        ViewGroup.LayoutParams layoutParams = bannerRelativeLayout.getLayoutParams();
         admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
         admobManager.setIsMultiFullscreenApp(isMultiFullScreenApp());
         int bannerHeightPixels = AdSize.SMART_BANNER.getHeightInPixels(this);
@@ -45,7 +43,9 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
         admobManager.bannerActivityOnCreate();
     }
 
-    private void hideBanner(ViewGroup.LayoutParams layoutParams) {
+    private void hideBanner() {
+        bannerRelativeLayout = getBannerRelativeLayout();
+        ViewGroup.LayoutParams layoutParams = bannerRelativeLayout.getLayoutParams();
         layoutParams.width = RelativeLayout.LayoutParams.MATCH_PARENT;
         layoutParams.height = 1;
         bannerRelativeLayout.setGravity(Gravity.TOP);
@@ -55,7 +55,11 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     @Override
     protected void onResume() {
         super.onResume();
-        onBannerAdResume();
+        if (Config.isNoAdsBought()) {
+            hideBanner();
+        } else {
+            onBannerAdResume();
+        }
     }
 
     protected void onBannerAdResume() {
@@ -79,7 +83,7 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     public void turnOffAds() {
         Config.setNoAdsBought(true);
         admobManager = AdmobManager.createNoAdsInstance();
-        initAdmobBanner();
+        hideBanner();
     }
 
     public AdmobManager getAdmobManager() {

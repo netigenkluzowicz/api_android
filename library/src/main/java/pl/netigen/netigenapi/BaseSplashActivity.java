@@ -16,10 +16,11 @@ import pl.netigen.rodo.RodoFragment;
 
 public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, AdmobIds, RodoFragment.ClickListener {
     private static final String RODO_FRAGMENT_TAG = "rodo";
-    private AdmobManager admobManager;
+    AdmobManager admobManager;
     private RodoFragment rodoFragment;
     private boolean canCommitFragment;
     private Handler initAdmobHandler;
+    boolean consentFinished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
                 if (isInEea && consentInformation.getConsentStatus() == ConsentStatus.UNKNOWN) {
                     initRodoFragment();
                 } else {
+                    consentFinished = true;
                     startAdmobSplash();
                 }
             }
@@ -97,7 +99,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
         }
     }
 
-    private void initAdmob() {
+    void initAdmob() {
         MobileAds.initialize(this, getAdmobAppID());
         admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
         admobManager.splashScreenOnCreate(getIntentToLaunch());
@@ -116,6 +118,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
                 .setConsentStatus(ConsentStatus.PERSONALIZED);
         closeRodoFragment();
         startAdmobSplash();
+        consentFinished = true;
     }
 
     private void closeRodoFragment() {
@@ -135,6 +138,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     public void clickAcceptPolicy() {
         closeRodoFragment();
         startAdmobSplash();
+        consentFinished = true;
     }
 
     public abstract boolean isNoAdsPaymentAvailable();
