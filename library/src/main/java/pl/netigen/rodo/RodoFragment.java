@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
@@ -24,11 +24,11 @@ import pl.netigen.netigenapi.R;
 public class RodoFragment extends Fragment {
     public static final String HTTPS_WWW_NETIGEN_PL_PRIVACY_ONLY_FOR_MOBILE_APPS_NAME_APP = "https://www.netigen.pl/privacy/only-for-mobile-apps-name?app=";
     public static final String HTTPS_WWW_NETIGEN_PL_PRIVACY_ONLY_FOR_MOBILE_APPS = "https://www.netigen.pl/privacy/only-for-mobile-apps";
-    private android.support.v7.widget.AppCompatTextView rodoText;
-    private android.support.v7.widget.AppCompatTextView buttonYes;
-    private android.support.v7.widget.AppCompatTextView buttonNo;
-    private android.support.v7.widget.AppCompatTextView buttonPay;
-    private android.support.v7.widget.AppCompatTextView buttonPolicy;
+    private androidx.appcompat.widget.AppCompatTextView rodoText;
+    private androidx.appcompat.widget.AppCompatTextView buttonYes;
+    private androidx.appcompat.widget.AppCompatTextView buttonNo;
+    private androidx.appcompat.widget.AppCompatTextView buttonPay;
+    private androidx.appcompat.widget.AppCompatTextView buttonPolicy;
     private WebView webView;
     private ClickListener callback;
     private boolean admobText;
@@ -64,7 +64,7 @@ public class RodoFragment extends Fragment {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        android.support.v7.widget.AppCompatTextView appsName = view.findViewById(R.id.appsName);
+        androidx.appcompat.widget.AppCompatTextView appsName = view.findViewById(R.id.appsName);
         appsName.setText(getApplicationName(getContext()));
         buttonYes = view.findViewById(R.id.buttonYes);
         buttonYes.setOnClickListener(v -> callback.clickYes());
