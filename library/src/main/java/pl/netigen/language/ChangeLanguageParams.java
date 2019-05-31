@@ -1,8 +1,7 @@
 package pl.netigen.language;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pl.netigen.netigenapi.R;
