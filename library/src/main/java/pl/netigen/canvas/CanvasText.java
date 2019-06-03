@@ -2,7 +2,7 @@ package pl.netigen.canvas;
 
 import android.graphics.Canvas;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 
 public class CanvasText extends CanvasObjectDrawing {

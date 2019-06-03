@@ -1,9 +1,9 @@
 package pl.netigen.rateus;
 
 import android.content.SharedPreferences;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
 
 import pl.netigen.netigenapi.R;
 import pl.netigen.netigenapi.Utils;

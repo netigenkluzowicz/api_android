@@ -2,7 +2,7 @@ package pl.netigen.viewpager;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;

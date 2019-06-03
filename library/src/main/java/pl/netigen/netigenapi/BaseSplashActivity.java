@@ -3,7 +3,7 @@ package pl.netigen.netigenapi;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.ads.consent.ConsentInfoUpdateListener;
 import com.google.ads.consent.ConsentInformation;
