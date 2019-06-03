@@ -1,6 +1,8 @@
 package pl.netigen.rateus;
 
+
 import android.content.SharedPreferences;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,11 +27,14 @@ public class RateUs {
     int clicksBeforeShowingRateUs;
     private SharedPreferences sharedPreferences;
     private AppCompatActivity appCompatActivity;
+    boolean isDefaultPopUp;
+    int customLayoutId;
 
     private RateUs(AppCompatActivity appCompatActivity, int titleResId,
                    int appNameResId, int askForRateUsInfoId,
                    int negativeResId, int positiveResId,
-                   int notAskAgainResId, int appIconResId, int clicksBeforeShowingRateUs) {
+                   int notAskAgainResId, int appIconResId, int clicksBeforeShowingRateUs,
+                   boolean isDefaultPopUp) {
         this.appCompatActivity = appCompatActivity;
         this.titleResId = titleResId;
         this.appNameResId = appNameResId;
@@ -39,6 +44,27 @@ public class RateUs {
         this.notAskAgainResId = notAskAgainResId;
         this.appIconResId = appIconResId;
         this.sharedPreferences = this.appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+        this.isDefaultPopUp = isDefaultPopUp;
+        if (clicksBeforeShowingRateUs != 0) {
+            this.clicksBeforeShowingRateUs = clicksBeforeShowingRateUs;
+        } else {
+            this.clicksBeforeShowingRateUs = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG;
+        }
+    }
+
+    private RateUs(AppCompatActivity appCompatActivity, int titleResId,
+                   int askForRateUsInfoId, int negativeResId, int positiveResId,
+                   int notAskAgainResId, int clicksBeforeShowingRateUs,
+                   int customLayoutId, boolean isDefaultPopUp) {
+        this.appCompatActivity = appCompatActivity;
+        this.titleResId = titleResId;
+        this.askForRateUsInfoId = askForRateUsInfoId;
+        this.negativeResId = negativeResId;
+        this.positiveResId = positiveResId;
+        this.customLayoutId = customLayoutId;
+        this.notAskAgainResId = notAskAgainResId;
+        this.sharedPreferences = this.appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+        this.isDefaultPopUp = isDefaultPopUp;
         if (clicksBeforeShowingRateUs != 0) {
             this.clicksBeforeShowingRateUs = clicksBeforeShowingRateUs;
         } else {
@@ -121,10 +147,20 @@ public class RateUs {
         @DrawableRes
         private int appIconResId;
         private int clicksBeforeShowingRateUs = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG;
+        private boolean isDefaultPopUp;
+        private int customLayoutId;
+
         public Builder(AppCompatActivity appCompatActivity, int appNameResId, @DrawableRes int appIconResId) {
             this.appCompatActivity = appCompatActivity;
             this.appNameResId = appNameResId;
             this.appIconResId = appIconResId;
+            isDefaultPopUp = true;
+        }
+
+        public Builder(AppCompatActivity appCompatActivity, int customLayoutId) {
+            this.appCompatActivity = appCompatActivity;
+            isDefaultPopUp = false;
+            this.customLayoutId = customLayoutId;
         }
 
         public Builder setTitleResId(int titleResId) {
@@ -158,7 +194,11 @@ public class RateUs {
         }
 
         public RateUs createRateUs() {
-            return new RateUs(appCompatActivity, titleResId, appNameResId, askForRateUsInfoId, notAskAgainResId, positiveResId, neutralResId, appIconResId, clicksBeforeShowingRateUs);
+            if (isDefaultPopUp)
+                return new RateUs(appCompatActivity, titleResId, appNameResId, askForRateUsInfoId, notAskAgainResId, positiveResId, neutralResId, appIconResId, clicksBeforeShowingRateUs, isDefaultPopUp);
+            else
+                return new RateUs(appCompatActivity, titleResId, askForRateUsInfoId, notAskAgainResId, positiveResId, neutralResId, clicksBeforeShowingRateUs, customLayoutId, isDefaultPopUp);
+
         }
     }
 }
