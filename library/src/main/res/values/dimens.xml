@@ -3,4 +3,6 @@
     <dimen name="dialogInfoTextSize">16sp</dimen>
     <dimen name="dialogTitleTextSize">26sp</dimen>
     <dimen name="moreAppIconSize">60dp</dimen>
+    <dimen name="rewardItemDefaultSize">65dp</dimen>
+    <dimen name="defaultRewardItemsPadding">8dp</dimen>
 </resources>
