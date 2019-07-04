@@ -4,4 +4,6 @@ public interface RewardItem {
 
     String getPath();
 
+    long getId();
+
 }
