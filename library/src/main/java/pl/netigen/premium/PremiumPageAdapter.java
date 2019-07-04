@@ -16,16 +16,16 @@ import androidx.viewpager.widget.PagerAdapter;
 import pl.netigen.netigenapi.R;
 
 
-public class PremiumPageAdapterNetigenApi extends PagerAdapter {
+public class PremiumPageAdapter extends PagerAdapter {
     private ImageView image;
     private TextView title;
     private TextView text;
     private ImageView background;
     private int bgItem;
-    private List<PremiumItemNetigenApi> premiumItemNetigenApis;
+    private List<PremiumItem> premiumItems;
 
-    public PremiumPageAdapterNetigenApi(List<PremiumItemNetigenApi> premiumItemNetigenApis, int bgItem) {
-        this.premiumItemNetigenApis = premiumItemNetigenApis;
+    public PremiumPageAdapter(List<PremiumItem> premiumItems, int bgItem) {
+        this.premiumItems = premiumItems;
         this.bgItem = bgItem;
     }
 
@@ -47,7 +47,7 @@ public class PremiumPageAdapterNetigenApi extends PagerAdapter {
     }
 
     private void bind(int position, View view) {
-        PremiumItemNetigenApi item = premiumItemNetigenApis.get(position);
+        PremiumItem item = premiumItems.get(position);
         if (item != null) {
             title.setText(item.getTitle());
             text.setText(item.getNote());
@@ -64,10 +64,10 @@ public class PremiumPageAdapterNetigenApi extends PagerAdapter {
 
     @Override
     public int getCount() {
-        if (premiumItemNetigenApis == null) {
+        if (premiumItems == null) {
             return 0;
         }
-        return premiumItemNetigenApis.size();
+        return premiumItems.size();
     }
 
     @Override

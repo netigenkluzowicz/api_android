@@ -1,11 +1,11 @@
 package pl.netigen.premium;
 
-public class PremiumItemNetigenApi {
+public class PremiumItem {
     private int drawable;
     private String title;
     private String note;
 
-    public PremiumItemNetigenApi(int drawable, String title, String note) {
+    public PremiumItem(int drawable, String title, String note) {
         this.drawable = drawable;
         this.title = title;
         this.note = note;
