@@ -1,27 +1,47 @@
 package pl.netigen.rewards;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-
-import pl.netigen.netigenapi.R;
 
 class RewardParams {
 
     @StringRes
-    private int buttonWatchAdResId = (R.string.watch_ad);
+    public int buttonWatchAdResId = 0;
     @StringRes
-    private int contentDescriptionResId = (R.string.get_new_stickers_and_emoticons);
+    public int rewardDescrpitonTextResId = 0;
+    @DrawableRes
+    public int rewardedHeaderResId;
+    @DrawableRes
+    public int closeButtonResId;
+    @DrawableRes
+    public int watchAdButtonBackgroundResId;
 
-    private RewardList rewards;
-    private View background;
-    private Drawable rewardedHeader;
-    private Drawable closeButton;
-    private Drawable watchAdButtonBackground;
-    private boolean isHigher;
+    public List<RewardItem> rewards;
+    public View background;
+    public boolean isHigher;
+    public double sizeX = 0.0f, sizeY = 0.0f;
+
+    public RewardParams() {
+    }
+
+    public RewardParams(int buttonWatchAdResId, int rewardDescrpitonTextResId, List<RewardItem> rewards, View background,
+                        int rewardedHeaderResId, int closeButtonResId, int watchAdButtonBackgroundResId, boolean isHigher,
+                        double sizeX, double sizeY) {
+        this.buttonWatchAdResId = buttonWatchAdResId;
+        this.rewardDescrpitonTextResId = rewardDescrpitonTextResId;
+        this.rewards = rewards;
+        this.background = background;
+        this.rewardedHeaderResId = rewardedHeaderResId;
+        this.closeButtonResId = closeButtonResId;
+        this.watchAdButtonBackgroundResId = watchAdButtonBackgroundResId;
+        this.isHigher = isHigher;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+    }
+
 
 }

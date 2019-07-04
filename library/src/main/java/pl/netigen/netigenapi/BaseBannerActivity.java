@@ -1,8 +1,11 @@
 package pl.netigen.netigenapi;
 
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -22,6 +25,10 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
         super.onCreate(savedInstanceState);
         setContentView(getContentViewID());
         initAdmobBanner();
+        if (getRewardedAdId() != null) {
+            admobManager.createRewardedVideo(getRewardsListener());
+            admobManager.loadRewardedVideo(getRewardedAdId());
+        }
     }
 
     protected void initAdmobBanner() {
@@ -58,6 +65,9 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
         if (Config.isNoAdsBought()) {
             hideBanner();
         } else {
+            if (getRewardedAdId() != null) {
+                admobManager.getRewardedVideoAd().resume(this);
+            }
             onBannerAdResume();
         }
     }
@@ -72,6 +82,9 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     protected void onPause() {
         super.onPause();
         onBannerAdPause();
+        if (getRewardedAdId() != null) {
+            admobManager.getRewardedVideoAd().pause(this);
+        }
     }
 
     public void onBannerAdPause() {
@@ -91,5 +104,13 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
             admobManager = AdmobManager.createNoAdsInstance();
         }
         return admobManager;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (getRewardedAdId() != null) {
+            admobManager.getRewardedVideoAd().destroy(this);
+        }
     }
 }
