@@ -1,5 +1,6 @@
 package pl.netigen.premium;
 
+import android.view.Display;
 import android.view.View;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class PremiumBuilderNetigenApi {
+public class Premium {
 
     int bgImage;
     int titleImage;
@@ -18,13 +19,14 @@ public class PremiumBuilderNetigenApi {
     int imageButtonBuy;
     int premiumOptionsTitle;
     int textBuyButton;
+    Display display;
     String price;
     List<PremiumItemNetigenApi> premiumItemNetigenApis;
     View.OnClickListener clickBuyPremium;
 
-    private PremiumBuilderNetigenApi(int bgImage, int titleImage, int bgPremiumItem, int imageButtonBuy,
-                                     int premiumOptionsTitle, int textBuyButton, String price, List<PremiumItemNetigenApi> premiumItemNetigenApis,
-                                     View.OnClickListener clickBuyPremium) {
+    private Premium(int bgImage, int titleImage, int bgPremiumItem, int imageButtonBuy,
+                    int premiumOptionsTitle, int textBuyButton, String price, List<PremiumItemNetigenApi> premiumItemNetigenApis,
+                    View.OnClickListener clickBuyPremium,Display display) {
         this.bgImage = bgImage;
         this.titleImage = titleImage;
         this.bgPremiumItem = bgPremiumItem;
@@ -34,11 +36,12 @@ public class PremiumBuilderNetigenApi {
         this.price = price;
         this.premiumItemNetigenApis = premiumItemNetigenApis;
         this.clickBuyPremium = clickBuyPremium;
+        this.display = display;
     }
 
     public void openPremiumFragment(@NonNull FragmentManager fragmentManager,
                                     int frameId, String profile) {
-        testValues();
+
         PremiumFragmentNetigenApi premiumFragmentNetigenApi = PremiumFragmentNetigenApi.newInstance(this);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(frameId, premiumFragmentNetigenApi, profile);
@@ -46,23 +49,6 @@ public class PremiumBuilderNetigenApi {
         transaction.commit();
     }
 
-    private void testValues() {
-        if (bgImage == 0) {
-            throw new IllegalArgumentException("You must add bgImage");
-        }
-        if (premiumOptionsTitle == 0) {
-            throw new IllegalArgumentException("You must add premiumOptionsTitle");
-        }
-        if (textBuyButton == 0) {
-            throw new IllegalArgumentException("You must add textBuyButton");
-        }
-        if (price == null) {
-            throw new IllegalArgumentException("You must add price");
-        }
-        if (premiumItemNetigenApis == null) {
-            throw new IllegalArgumentException("You must add premiumItemNetigenApis");
-        }
-    }
 
     public static class Builder {
         @DrawableRes
@@ -77,16 +63,18 @@ public class PremiumBuilderNetigenApi {
         int premiumOptionsTitle;
         @StringRes
         int textBuyButton;
+        Display display;
         String price;
         List<PremiumItemNetigenApi> premiumItemNetigenApis;
         View.OnClickListener clickBuyPremium;
 
-        public Builder() {
-        }
-
-        public Builder setBgImage(int bgImage) {
+        public Builder(int bgImage, int premiumOptionsTitle, int textBuyButton, String price, List<PremiumItemNetigenApi> premiumItemNetigenApis, Display display) {
             this.bgImage = bgImage;
-            return this;
+            this.premiumOptionsTitle = premiumOptionsTitle;
+            this.textBuyButton = textBuyButton;
+            this.price = price;
+            this.premiumItemNetigenApis = premiumItemNetigenApis;
+            this.display = display;
         }
 
         public Builder setTitleImage(int titleImage) {
@@ -104,34 +92,14 @@ public class PremiumBuilderNetigenApi {
             return this;
         }
 
-        public Builder setPremiumOptionsTitle(int premiumOptionsTitle) {
-            this.premiumOptionsTitle = premiumOptionsTitle;
-            return this;
-        }
-
-        public Builder setTextBuyButton(int textBuyButton) {
-            this.textBuyButton = textBuyButton;
-            return this;
-        }
-
-        public Builder setPremiumItemListNetigenApis(List<PremiumItemNetigenApi> premiumItemNetigenApis) {
-            this.premiumItemNetigenApis = premiumItemNetigenApis;
-            return this;
-        }
-
         public Builder setClickBuyPremium(View.OnClickListener clickBuyPremium) {
             this.clickBuyPremium = clickBuyPremium;
             return this;
         }
 
-        public Builder setPrice(String price) {
-            this.price = price;
-            return this;
-        }
-
-        public PremiumBuilderNetigenApi createObject() {
-            return new PremiumBuilderNetigenApi(bgImage, titleImage, bgPremiumItem, imageButtonBuy,
-                    premiumOptionsTitle, textBuyButton, price, premiumItemNetigenApis, clickBuyPremium);
+        public Premium createObject() {
+            return new Premium(bgImage, titleImage, bgPremiumItem, imageButtonBuy,
+                    premiumOptionsTitle, textBuyButton, price, premiumItemNetigenApis, clickBuyPremium,display);
         }
     }
 }

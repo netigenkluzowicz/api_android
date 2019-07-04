@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="widthScale">80</integer>
-    <integer name="marginScale">42</integer>
+    <integer name="widthScalePremiumNetigenApi">80</integer>
+    <integer name="marginScalePremiumNetigenApi">42</integer>
 </resources>
