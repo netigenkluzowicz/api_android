@@ -2,7 +2,6 @@ https://jitpack.io/#netigenkluzowicz/api_android
 
 ## Add premium fragment to application:
 
-
 You need to add this code to your Splash activity:
 
 ```Java
@@ -17,9 +16,7 @@ You need to add this code to your Splash activity:
             }
         });
     }
-
-
-
+    
     public void setSkuDetailsList(List<SkuDetails> skuDetailsList) {
         if (skuDetailsList == null || skuDetailsList.size() == 0) {
             return;
@@ -33,7 +30,6 @@ You need to add this code to your Splash activity:
 ```
 
 Add to the activity in which you open the fragment:
-
 
 ```Java
 public void openStatistic() {
