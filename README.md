@@ -52,7 +52,7 @@ public void openStatistic() {
                 .setImageButtonBuy(imageButtonBuy)
                 .setClickBuyPremium(clickBuyPremium)
                 .createObject();
-        premium.openPremiumFragment(fragmentManager, R.id.calendarViewFrameNew, "PremiumFragment");
+        premium.openPremiumFragment(fragmentManager, R.id.fullSizeFrame, "PremiumFragment");
 }
         
 private List<PremiumItem> addList() {
