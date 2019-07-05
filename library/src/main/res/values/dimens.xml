@@ -3,4 +3,6 @@
     <dimen name="dialogInfoTextSize">16sp</dimen>
     <dimen name="dialogTitleTextSize">26sp</dimen>
     <dimen name="moreAppIconSize">60dp</dimen>
+    <integer name="widthScalePremiumNetigenApi">24</integer>
+    <integer name="marginScalePremiumNetigenApi">16</integer>
 </resources>
