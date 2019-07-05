@@ -20,7 +20,9 @@ import androidx.viewpager.widget.ViewPager;
 import pl.netigen.netigenapi.R;
 
 
+
 public class PremiumFragment extends AppCompatDialogFragment {
+
 
 
     private int bgImage;
@@ -48,6 +50,7 @@ public class PremiumFragment extends AppCompatDialogFragment {
 
     public static PremiumFragment newInstance(Premium premiumBuilder) {
         PremiumFragment fragment = new PremiumFragment();
+
         fragment.setArguments(premiumBuilder);
         return fragment;
     }

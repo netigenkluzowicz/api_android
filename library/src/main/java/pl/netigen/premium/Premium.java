@@ -25,7 +25,9 @@ public class Premium {
     View.OnClickListener clickBuyPremium;
 
     private Premium(int bgImage, int titleImage, int bgPremiumItem, int imageButtonBuy,
+
                     int premiumOptionsTitle, int textBuyButton, String price, List<PremiumItem> premiumItems,
+
                     View.OnClickListener clickBuyPremium,Display display) {
         this.bgImage = bgImage;
         this.titleImage = titleImage;
@@ -69,11 +71,13 @@ public class Premium {
         View.OnClickListener clickBuyPremium;
 
         public Builder(int bgImage, int premiumOptionsTitle, int textBuyButton, String price, List<PremiumItem> premiumItems, Display display) {
+
             this.bgImage = bgImage;
             this.premiumOptionsTitle = premiumOptionsTitle;
             this.textBuyButton = textBuyButton;
             this.price = price;
             this.premiumItems = premiumItems;
+
             this.display = display;
         }
 
@@ -100,6 +104,7 @@ public class Premium {
         public Premium createObject() {
             return new Premium(bgImage, titleImage, bgPremiumItem, imageButtonBuy,
                     premiumOptionsTitle, textBuyButton, price, premiumItems, clickBuyPremium,display);
+
         }
     }
 }
