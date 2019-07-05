@@ -32,7 +32,7 @@ You need to add this code to your Splash activity:
 Add to the activity in which you open the fragment:
 
 ```Java
-public void openStatistic() {
+public void openPremiumFragment() {
         int bgImage = R.drawable.bg_uni_premium; 
         int titleImage = R.drawable.premium_title_; 
         int bgPremiumItem = R.drawable.bg_ttext; 
