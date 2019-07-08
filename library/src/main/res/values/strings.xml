@@ -58,7 +58,5 @@
     <string name="settings_upper_case">SETTINGS</string>
     <string name="ok_upper_case">OK</string>
     <string name="cancel_upper_case">CANCEL</string>
-    <string name="watch_ad">Watch ad</string>
-    <string name="get_new_stickers_and_emoticons"><![CDATA[Watch ad and get new stickers & emoticons.]]></string>
 
 </resources>
