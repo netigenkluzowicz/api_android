@@ -41,11 +41,11 @@
         android:id="@+id/textViewRewardDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_reward_dialog_description"
-        android:layout_marginTop="@dimen/margin_default_rewarded_dialog"
-        android:layout_marginBottom="@dimen/margin_default_rewarded_dialog"
         android:layout_marginLeft="@dimen/margin_default_rewarded_dialog"
+        android:layout_marginTop="@dimen/margin_default_rewarded_dialog"
         android:layout_marginRight="@dimen/margin_default_rewarded_dialog"
+        android:layout_marginBottom="@dimen/margin_default_rewarded_dialog"
+        android:textSize="@dimen/text_size_reward_dialog_description"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,14 +68,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal" />
 
         <LinearLayout
             android:id="@+id/linearLayoutBottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal" />
 
     </LinearLayout>
 
