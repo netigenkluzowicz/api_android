@@ -37,6 +37,8 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 public class AdmobManager implements RewardedVideoAdListener {
 
+    private static final String TAG = "AdmobManager";
+
     @IntDef({RewardError.FAILED_TO_LOAD, RewardError.NOT_LOADED_YET})
     @Retention(SOURCE)
     public @interface RewardError {
@@ -89,17 +91,14 @@ public class AdmobManager implements RewardedVideoAdListener {
     }
 
     void createRewardedVideo(RewardsListener rewardsListener) {
-        Log.d(TAG, "createRewardedVideo: ");
         this.rewardsListener = rewardsListener;
         MobileAds.initialize(activity);
         rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
         rewardedVideoAd.setRewardedVideoAdListener(this);
     }
 
-    private static final String TAG = "AdmobManager";
     void loadRewardedVideo(String rewardedAdId) {
         lastLoadedRewardedAdId = rewardedAdId;
-        Log.d(TAG, "loadRewardedVideo: isLoaded " + rewardedVideoAd.isLoaded());
         if (!rewardedVideoAd.isLoaded()) {
             rewardedVideoAd.loadAd(rewardedAdId, new AdRequest.Builder().build());
             isRewardedAdLoading = true;
@@ -151,12 +150,12 @@ public class AdmobManager implements RewardedVideoAdListener {
     private AdRequest getAdRequest() {
         AdRequest.Builder builder = new AdRequest.Builder();
         if (Config.isInDebugMode()) {
-            builder.addTestDevice("F1F415DDE480395A4D21C26D6C6A9619") // Samsung 4'
-                    .addTestDevice("9F65EEB1B6AED06CBE01CFEDA106BD29") // Talet Samsung
-                    .addTestDevice("0F4B0296B48D2C6478D7E9A89DDD07F8") // Sony Oskar
-                    .addTestDevice("593C1BC2C754805F5EFBCD8D4E288805") // Genymotion Galaxy S2
-                    .addTestDevice("E4347B3256669EAB2235222F475C8492") // SONY Kasi
-                    .addTestDevice("0BFB00BFF8850BE0B8D40286BEDF317E") // nexus 4
+            builder.addTestDevice("F1F415DDE480395A4D21C26D6C6A9619")
+                    .addTestDevice("9F65EEB1B6AED06CBE01CFEDA106BD29")
+                    .addTestDevice("0F4B0296B48D2C6478D7E9A89DDD07F8")
+                    .addTestDevice("593C1BC2C754805F5EFBCD8D4E288805")
+                    .addTestDevice("E4347B3256669EAB2235222F475C8492")
+                    .addTestDevice("0BFB00BFF8850BE0B8D40286BEDF317E")
                     .addTestDevice("59E58CCD5AB9F4ED41033F114E088239")
                     .addTestDevice("E42C3769BD763551CAC733B6AD662C0D")
                     .addTestDevice("14D51CBB5AB10BDC1FF61BAECA19C9AA")
@@ -170,7 +169,7 @@ public class AdmobManager implements RewardedVideoAdListener {
                     .addTestDevice("3D1FCDD4B6DC7E453846A04D214FD12D")
                     .addTestDevice("43AAFCE5A6B9E8FCDC58E58087AEC4EF")
                     .addTestDevice("AD2180512DE8B1EE611AB4645A69E470")
-                    .addTestDevice("379BED7628AE4885B439939575F9F292") // OP5 Spajdera
+                    .addTestDevice("379BED7628AE4885B439939575F9F292")
                     .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5");
 
             List<String> testDevices = Config.getTestDevices();
