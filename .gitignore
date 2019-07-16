@@ -5,3 +5,4 @@ local.properties
 *.log
 .gradle/
 .DS_Store
+library/src/main/res/layout/dialog_fragment_reward.xml.rej
