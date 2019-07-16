@@ -1,6 +1,5 @@
 package pl.netigen.rewards;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
@@ -11,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 
@@ -31,23 +31,21 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
 
     private static final String TAG = "RewardDialogFragment";
 
-    private ImageView imageViewRewardedHeader;
-    private ImageView imageViewWatchButton;
-    private ImageView imageViewCloseButton;
+    public static double MATCH_PARENT = ViewGroup.LayoutParams.MATCH_PARENT;
+    public static double WRAP_CONTENT = 0.0;
 
+    private ImageView imageViewRewardedHeader;
+    private ImageView imageViewCloseButton;
+    private ImageView imageViewButtonPositive;
+    private AppCompatTextView textViewRewardDescription;
+    private AppCompatTextView textViewPositiveButton;
     private LinearLayout linearLayoutTop;
     private LinearLayout linearLayoutBottom;
     private LinearLayout linearLayoutContainer;
-
-    private AppCompatTextView textViewButtonPossitive;
-    private AppCompatTextView textViewRewardDescription;
-
-    private View backgroundView;
-    private GridLayoutManager recyclerViewGridLayoutManager;
+    private FrameLayout backgroundView;
 
     private RewardParams rewardParams;
     private BaseBannerActivity baseBannerActivity;
-    private Activity Activity;
 
     private static RewardDialogFragment newInstance(RewardParams rewardParams, BaseBannerActivity baseBannerActivity) {
         RewardDialogFragment rewardDialogFragment = new RewardDialogFragment();
@@ -62,51 +60,92 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         setDialog();
         View view = inflater.inflate(R.layout.dialog_fragment_reward, container, false);
 
-        setDialogSize(rewardParams.sizeY, rewardParams.sizeX);
-
         if (rewardParams == null || getActivity() == null) {
             dismiss();
             return view;
         }
 
-        textViewButtonPossitive = view.findViewById(R.id.textViewPositiveButtonText);
-        if(rewardParams.buttonWatchAdResId!=0){
-            textViewButtonPossitive.setText(rewardParams.buttonWatchAdResId);
-        }
+        setLayoutViews(view);
 
+        setDescriptionText();
+        setHeader(view);
+        setPositiveButton();
+        setCloseButton(view);
+        setBackground(view);
+        setRewardedContent(view);
+        setLayoutMargins();
+
+        return view;
+    }
+
+    private void setLayoutViews(View view) {
         textViewRewardDescription = view.findViewById(R.id.textViewRewardDescription);
-        if(rewardParams.rewardDescrpitonTextResId !=0){
-            textViewRewardDescription.setText(rewardParams.rewardDescrpitonTextResId);
-        }
-
         imageViewRewardedHeader = view.findViewById(R.id.imageViewRewardedHeader);
+        imageViewButtonPositive = view.findViewById(R.id.imageViewButtonPositive);
+        textViewPositiveButton = view.findViewById(R.id.textViewButtonPositive);
+        imageViewCloseButton = view.findViewById(R.id.imageViewClose);
+        linearLayoutContainer = view.findViewById(R.id.linearLayoutContainer);
+        linearLayoutTop = view.findViewById(R.id.linearLayoutTop);
+        linearLayoutBottom = view.findViewById(R.id.linearLayoutBottom);
+        backgroundView = view.findViewById(R.id.backgroundView);
+    }
+
+    private void setHeader(View view) {
         if (rewardParams.rewardedHeaderResId != 0) {
             Glide.with(view).load(rewardParams.rewardedHeaderResId).into(imageViewRewardedHeader);
         }
+    }
 
-        imageViewWatchButton = view.findViewById(R.id.buttonPositive);
-        if (rewardParams.watchAdButtonBackgroundResId != 0) {
-            Glide.with(view).load(rewardParams.watchAdButtonBackgroundResId).into(imageViewWatchButton);
+    private void setDescriptionText() {
+        if (rewardParams.rewardDescrpitonTextResId != 0) {
+            textViewRewardDescription.setText(rewardParams.rewardDescrpitonTextResId);
         }
-        imageViewWatchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                baseBannerActivity.getAdmobManager().showRewardedVideoForItems(rewardParams.rewards);
-                dismiss();
-            }
-        });
+        if (rewardParams.descriptionTextColor != null) {
+            textViewRewardDescription.setTextColor(rewardParams.descriptionTextColor);
+        }
+        if (rewardParams.textSizeDimenRes != 0) {
+            textViewRewardDescription.setTextSize(getResources().getDimension(rewardParams.textSizeDimenRes));
+        }
+    }
 
-        imageViewCloseButton = view.findViewById(R.id.imageViewClose);
+    private void setPositiveButton() {
+        if (rewardParams.buttonPositiveTextResId != 0) {
+            textViewPositiveButton.setText(rewardParams.buttonPositiveTextResId);
+        }
+
+        if (rewardParams.buttonPositiveTextColor != null) {
+            textViewPositiveButton.setTextColor(rewardParams.buttonPositiveTextColor);
+        }
+
+        if (rewardParams.buttonPositiveBackgroundDrawableId != 0) {
+            imageViewButtonPositive.setBackground(ContextCompat.getDrawable(getActivity(), rewardParams.buttonPositiveBackgroundDrawableId));
+        }
+
+        imageViewButtonPositive.setOnClickListener(v -> {
+            baseBannerActivity.getAdmobManager().showRewardedVideoForItems(rewardParams.rewards);
+            dismiss();
+        });
+    }
+
+    private void setCloseButton(View view) {
         if (rewardParams.closeButtonResId != 0) {
             Glide.with(view).load(rewardParams.closeButtonResId).into(imageViewCloseButton);
+            imageViewCloseButton.setOnClickListener(v -> dismiss());
         }
+    }
 
-        linearLayoutContainer = view.findViewById(R.id.linearLayoutContainer);
+    private void setBackground(View view) {
+        if (rewardParams.background != null) {
+            backgroundView.addView(rewardParams.background);
+        } else {
+            ImageView imageViewBackground = new ImageView(getActivity());
+            Glide.with(view).load(R.drawable.background_language_dialog).into(imageViewBackground);
+            backgroundView.addView(imageViewBackground);
+        }
+    }
 
-        linearLayoutTop = view.findViewById(R.id.linearLayoutTop);
-
-        linearLayoutBottom = view.findViewById(R.id.linearLayoutBottom);
-        ImageView imageView = null;
+    private void setRewardedContent(View view) {
+        ImageView imageView;
         for (int i = 0; i < rewardParams.rewards.size(); i++) {
             imageView = new ImageView(view.getContext());
             if (i % 2 == 0) {
@@ -114,13 +153,30 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             } else {
                 linearLayoutBottom.addView(imageView);
             }
-            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = (int) getResources().getDimension(R.dimen.defaultRewardItemsPadding);
-            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).rightMargin = (int) getResources().getDimension(R.dimen.defaultRewardItemsPadding);
+            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = (int) getResources().getDimension(R.dimen.default_rewarded_line_padding);
+            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).rightMargin = (int) getResources().getDimension(R.dimen.default_rewarded_line_padding);
             imageView.getLayoutParams().height = (int) getResources().getDimension(R.dimen.rewardItemDefaultSize);
             imageView.getLayoutParams().width = (int) getResources().getDimension(R.dimen.rewardItemDefaultSize);
             Glide.with(view).load(rewardParams.rewards.get(i).getPath()).into(imageView);
         }
-        return view;
+    }
+
+    private void setLayoutMargins() {
+        if (rewardParams.marginsParamsHeader != null) {
+            rewardParams.marginsParamsHeader.setNewLayoutParamsForView(imageViewRewardedHeader);
+        }
+
+        if (rewardParams.marginsParamsPositiveButton != null) {
+            rewardParams.marginsParamsPositiveButton.setNewLayoutParamsForView(imageViewRewardedHeader);
+        }
+
+        if (rewardParams.marginsParamsDescription != null) {
+            rewardParams.marginsParamsDescription.setNewLayoutParamsForView(imageViewRewardedHeader);
+        }
+
+        if (rewardParams.marginsParamsRewardsContainer != null) {
+            rewardParams.marginsParamsRewardsContainer.setNewLayoutParamsForView(imageViewRewardedHeader);
+        }
     }
 
     private void setDialog() {
@@ -164,7 +220,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        setDialogSize(0, 0.75);
+        setDialogSize(rewardParams.heightMultiplier, rewardParams.widthMultiplier);
     }
 
     public static class Builder {
@@ -177,13 +233,13 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             this.rewardParams = new RewardParams();
         }
 
-        public Builder setButtonWatchAdResId(int buttonWatchAdResId) {
-            this.rewardParams.buttonWatchAdResId = buttonWatchAdResId;
+        public Builder setDescriptionTextStringId(int descriptionTextStringId) {
+            this.rewardParams.rewardDescrpitonTextResId = descriptionTextStringId;
             return this;
         }
 
-        public Builder setContentDescriptionResId(int contentDescriptionResId) {
-            this.rewardParams.rewardDescrpitonTextResId = contentDescriptionResId;
+        public Builder setDescriptionTextColor(Integer descriptionTextColor) {
+            this.rewardParams.descriptionTextColor = descriptionTextColor;
             return this;
         }
 
@@ -197,39 +253,74 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
-        public Builder setRewardedHeader(int rewardedHeaderResId) {
-            this.rewardParams.rewardedHeaderResId = rewardedHeaderResId;
+        public Builder setRewardedHeader(int rewardedHeaderDrawableId) {
+            this.rewardParams.rewardedHeaderResId = rewardedHeaderDrawableId;
             return this;
         }
 
-        public Builder setCloseButton(int closeButtonResId) {
-            this.rewardParams.closeButtonResId = closeButtonResId;
+        public Builder setCloseButton(int closeButtonDrawableId) {
+            this.rewardParams.closeButtonResId = closeButtonDrawableId;
             return this;
         }
 
-        public Builder setWatchAdButtonBackground(int watchAdButtonBackgroundResId) {
-            this.rewardParams.watchAdButtonBackgroundResId = watchAdButtonBackgroundResId;
+        public Builder setButtonPositiveBackground(int buttonPositiveBackgroundDrawableId) {
+            this.rewardParams.buttonPositiveBackgroundDrawableId = buttonPositiveBackgroundDrawableId;
             return this;
         }
 
-        public Builder setIsHigher(boolean isHigher) {
-            this.rewardParams.isHigher = isHigher;
+        public Builder setButtonPositiveTextColor(Integer buttonPositiveTextColor) {
+            this.rewardParams.buttonPositiveTextColor = buttonPositiveTextColor;
             return this;
         }
 
-        public Builder setSizeX(double sizeX) {
-            this.rewardParams.sizeX = sizeX;
+        public Builder setButtonPositiveText(int buttonPositiveTextResId) {
+            this.rewardParams.buttonPositiveTextResId = buttonPositiveTextResId;
             return this;
         }
 
-        public Builder setSizeY(double sizeY) {
-            this.rewardParams.sizeY = sizeY;
+        public Builder setWidthMultiplier(double widthMultiplier) {
+            this.rewardParams.widthMultiplier = widthMultiplier;
             return this;
         }
 
-        public Builder setSize(double sizeX, double sizeY) {
-            this.rewardParams.sizeY = sizeY;
-            this.rewardParams.sizeX = sizeX;
+        public Builder setHeightMultiplier(double heightMultiplier) {
+            this.rewardParams.heightMultiplier = heightMultiplier;
+            return this;
+        }
+
+        public Builder setSize(double widthMultiplier, double heightMultiplier) {
+            this.rewardParams.heightMultiplier = heightMultiplier;
+            this.rewardParams.widthMultiplier = widthMultiplier;
+            return this;
+        }
+
+        public Builder setTopMarginForHeader(Integer headerTopMargin) {
+            this.rewardParams.headerTopMargin = headerTopMargin;
+            return this;
+        }
+
+        public Builder setDescriptionMargins(LayoutMargins layoutMargins) {
+            this.rewardParams.marginsParamsDescription = layoutMargins;
+            return this;
+        }
+
+        public Builder setRewardContainerMargins(LayoutMargins layoutMargins) {
+            this.rewardParams.marginsParamsRewardsContainer = layoutMargins;
+            return this;
+        }
+
+        public Builder setPositiveButtonMargins(LayoutMargins layoutMargins) {
+            this.rewardParams.marginsParamsPositiveButton = layoutMargins;
+            return this;
+        }
+
+        public Builder setTextSize(int textSize) {
+            rewardParams.textSizeDimenRes = textSize;
+            return this;
+        }
+
+        public Builder setHeaderMargins(LayoutMargins layoutMargins) {
+            this.rewardParams.marginsParamsHeader = layoutMargins;
             return this;
         }
 

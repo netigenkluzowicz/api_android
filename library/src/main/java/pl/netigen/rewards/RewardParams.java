@@ -2,6 +2,7 @@ package pl.netigen.rewards;
 
 import android.view.View;
 
+import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
@@ -10,38 +11,30 @@ import java.util.List;
 class RewardParams {
 
     @StringRes
-    public int buttonWatchAdResId = 0;
+    int buttonPositiveTextResId = 0;
     @StringRes
-    public int rewardDescrpitonTextResId = 0;
+    int rewardDescrpitonTextResId = 0;
     @DrawableRes
-    public int rewardedHeaderResId;
+    int rewardedHeaderResId;
     @DrawableRes
-    public int closeButtonResId;
+    int closeButtonResId;
     @DrawableRes
-    public int watchAdButtonBackgroundResId;
+    int buttonPositiveBackgroundDrawableId;
+    @DimenRes
+    int textSizeDimenRes;
 
     public List<RewardItem> rewards;
     public View background;
-    public boolean isHigher;
-    public double sizeX = 0.0f, sizeY = 0.0f;
+    double widthMultiplier = 0.0, heightMultiplier = 0.0;
+    Integer descriptionTextColor;
+    Integer buttonPositiveTextColor;
+    Integer headerTopMargin;
+    LayoutMargins marginsParamsHeader = null;
+    LayoutMargins marginsParamsDescription = null;
+    LayoutMargins marginsParamsRewardsContainer = null;
+    LayoutMargins marginsParamsPositiveButton = null;
 
-    public RewardParams() {
+    RewardParams() {
     }
-
-    public RewardParams(int buttonWatchAdResId, int rewardDescrpitonTextResId, List<RewardItem> rewards, View background,
-                        int rewardedHeaderResId, int closeButtonResId, int watchAdButtonBackgroundResId, boolean isHigher,
-                        double sizeX, double sizeY) {
-        this.buttonWatchAdResId = buttonWatchAdResId;
-        this.rewardDescrpitonTextResId = rewardDescrpitonTextResId;
-        this.rewards = rewards;
-        this.background = background;
-        this.rewardedHeaderResId = rewardedHeaderResId;
-        this.closeButtonResId = closeButtonResId;
-        this.watchAdButtonBackgroundResId = watchAdButtonBackgroundResId;
-        this.isHigher = isHigher;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
-    }
-
 
 }
