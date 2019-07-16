@@ -15,7 +15,7 @@ public class LayoutMargins {
     }
 
     void setNewLayoutParamsForView(View view){
-        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) view.getLayoutParams();
+        ConstraintLayout.MarginLayoutParams layoutParams = (ConstraintLayout.MarginLayoutParams) view.getLayoutParams();
         if(left!=null){
             layoutParams.leftMargin = left;
         }
