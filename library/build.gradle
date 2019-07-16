@@ -9,7 +9,7 @@ repositories {
 }
 
 group = 'com.github.netigenkluzowicz'
-version = '2.1.0'
+version = '2.2.0'
 
 android {
     compileSdkVersion 28
