@@ -3,7 +3,10 @@ package pl.netigen.rewards;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,7 +41,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     private ImageView imageViewRewardedHeader;
     private ImageView imageViewCloseButton;
     private ImageView imageViewButtonPositive;
-    private AppCompatTextView textViewRewardDescription;
+    private TextView textViewRewardDescription;
     private AppCompatTextView textViewPositiveButton;
     private LinearLayout linearLayoutTop;
     private LinearLayout linearLayoutBottom;
@@ -99,18 +103,24 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     private void setDescriptionText() {
         if (rewardParams.rewardDescrpitonTextResId != 0) {
             textViewRewardDescription.setText(rewardParams.rewardDescrpitonTextResId);
+        }else{
+            textViewRewardDescription.setVisibility(View.GONE);
+            return;
         }
         if (rewardParams.descriptionTextColor != null) {
             textViewRewardDescription.setTextColor(rewardParams.descriptionTextColor);
         }
         if (rewardParams.textSizeDimenRes != 0) {
-            textViewRewardDescription.setTextSize(getResources().getDimension(rewardParams.textSizeDimenRes));
+                textViewRewardDescription.setTextSize(getResources().getDimension(rewardParams.textSizeDimenRes) /
+                        getResources().getDisplayMetrics().scaledDensity);
         }
     }
 
     private void setPositiveButton() {
         if (rewardParams.buttonPositiveTextResId != 0) {
             textViewPositiveButton.setText(rewardParams.buttonPositiveTextResId);
+        }else{
+            textViewPositiveButton.setVisibility(View.GONE);
         }
 
         if (rewardParams.buttonPositiveTextColor != null) {
@@ -199,6 +209,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         Window window = getDialog().getWindow();
         Point size = new Point();
         Display display;
+        Log.d(TAG, "setDialogSize: heightMultiplier " + heightMultiplier + " widthMultiplier " + widthMultiplier);
         if (window != null) {
             display = window.getWindowManager().getDefaultDisplay();
             display.getSize(size);
@@ -314,8 +325,8 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
-        public Builder setTextSize(int textSize) {
-            rewardParams.textSizeDimenRes = textSize;
+        public Builder setTextSize(int textSizeDimenResId) {
+            rewardParams.textSizeDimenRes = textSizeDimenResId;
             return this;
         }
 
