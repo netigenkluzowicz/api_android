@@ -1,8 +1,14 @@
 <resources>
     <dimen name="menuItemTextSize">20sp</dimen>
     <dimen name="dialogInfoTextSize">16sp</dimen>
+    <dimen name="text_size_rewarded_dialog">20sp</dimen>
     <dimen name="dialogTitleTextSize">26sp</dimen>
     <dimen name="moreAppIconSize">60dp</dimen>
     <dimen name="rewardItemDefaultSize">65dp</dimen>
-    <dimen name="defaultRewardItemsPadding">8dp</dimen>
+    <dimen name="default_rewarded_line_padding">8dp</dimen>
+    <dimen name="default_rewarded_line_margin">8dp</dimen>
+    <dimen name="default_reward_header_size">120dp</dimen>
+    <dimen name="margin_default_rewarded_dialog">8dp</dimen>
+    <dimen name="min_width_rewarded_header">120dp</dimen>
+    <dimen name="size_default_rewarded_close_btn">50dp</dimen>
 </resources>
