@@ -99,8 +99,8 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     }
 
     private void setDescriptionText() {
-        if (rewardParams.rewardDescrpitonTextResId != 0) {
-            textViewRewardDescription.setText(rewardParams.rewardDescrpitonTextResId);
+        if (rewardParams.rewardDescriptionTextResId != 0) {
+            textViewRewardDescription.setText(rewardParams.rewardDescriptionTextResId);
         }else{
             textViewRewardDescription.setVisibility(View.GONE);
             return;
@@ -243,7 +243,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         public Builder setDescriptionTextStringId(int descriptionTextStringId) {
-            this.rewardParams.rewardDescrpitonTextResId = descriptionTextStringId;
+            this.rewardParams.rewardDescriptionTextResId = descriptionTextStringId;
             return this;
         }
 

@@ -13,7 +13,7 @@ class RewardParams {
     @StringRes
     int buttonPositiveTextResId = 0;
     @StringRes
-    int rewardDescrpitonTextResId = 0;
+    int rewardDescriptionTextResId = 0;
     @DrawableRes
     int rewardedHeaderResId;
     @DrawableRes
