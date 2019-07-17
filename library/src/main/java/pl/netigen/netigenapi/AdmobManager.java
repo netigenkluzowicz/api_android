@@ -7,7 +7,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
@@ -19,10 +23,29 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
+import java.lang.annotation.Retention;
 import java.util.List;
 
-public class AdmobManager {
+import pl.netigen.rewards.RewardItem;
+import pl.netigen.rewards.RewardsListener;
+
+import static java.lang.annotation.RetentionPolicy.SOURCE;
+
+public class AdmobManager implements RewardedVideoAdListener {
+
+    private static final String TAG = "AdmobManager";
+
+    @IntDef({RewardError.FAILED_TO_LOAD, RewardError.NOT_LOADED_YET})
+    @Retention(SOURCE)
+    public @interface RewardError {
+        int FAILED_TO_LOAD = 0;
+        int NOT_LOADED_YET = 1;
+    }
+
     private static final long REFRESH_TIME = 333;
     private static final long DEFAULT_MIN_WAIT = 2000;
     private static final long DEFAULT_MAX_WAIT = 7000;
@@ -41,6 +64,11 @@ public class AdmobManager {
     private boolean isSplashInBackground;
     private boolean noAdInstance;
     private boolean launched;
+    private RewardedVideoAd rewardedVideoAd;
+    private RewardsListener rewardsListener;
+    private String lastLoadedRewardedAdId;
+    private boolean isRewardedAdLoading = false;
+    private List<RewardItem> rewardItems;
 
     private AdmobManager(String bannerId, String fullScreenId, @NonNull Activity activity) {
         this.bannerId = bannerId;
@@ -60,6 +88,33 @@ public class AdmobManager {
         AdmobManager admobManager = new AdmobManager();
         admobManager.noAdInstance = true;
         return admobManager;
+    }
+
+    void createRewardedVideo(RewardsListener rewardsListener) {
+        this.rewardsListener = rewardsListener;
+        MobileAds.initialize(activity);
+        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
+        rewardedVideoAd.setRewardedVideoAdListener(this);
+    }
+
+    void loadRewardedVideo(String rewardedAdId) {
+        lastLoadedRewardedAdId = rewardedAdId;
+        if (!rewardedVideoAd.isLoaded()) {
+            rewardedVideoAd.loadAd(rewardedAdId, new AdRequest.Builder().build());
+            isRewardedAdLoading = true;
+        }
+    }
+
+    public void showRewardedVideoForItems(List<pl.netigen.rewards.RewardItem> rewardItems) {
+        if(Config.isNoAdsBought()) return;
+        this.rewardItems = rewardItems;
+        if (rewardedVideoAd != null && rewardedVideoAd.isLoaded()) {
+            rewardedVideoAd.show();
+        } else {
+            if(rewardsListener!=null){
+                rewardsListener.onFail(RewardError.NOT_LOADED_YET);
+            }
+        }
     }
 
     public long getMaxWaitForSplashFullScreen() {
@@ -96,12 +151,12 @@ public class AdmobManager {
     private AdRequest getAdRequest() {
         AdRequest.Builder builder = new AdRequest.Builder();
         if (Config.isInDebugMode()) {
-            builder.addTestDevice("F1F415DDE480395A4D21C26D6C6A9619") // Samsung 4'
-                    .addTestDevice("9F65EEB1B6AED06CBE01CFEDA106BD29") // Talet Samsung
-                    .addTestDevice("0F4B0296B48D2C6478D7E9A89DDD07F8") // Sony Oskar
-                    .addTestDevice("593C1BC2C754805F5EFBCD8D4E288805") // Genymotion Galaxy S2
-                    .addTestDevice("E4347B3256669EAB2235222F475C8492") // SONY Kasi
-                    .addTestDevice("0BFB00BFF8850BE0B8D40286BEDF317E") // nexus 4
+            builder.addTestDevice("F1F415DDE480395A4D21C26D6C6A9619")
+                    .addTestDevice("9F65EEB1B6AED06CBE01CFEDA106BD29")
+                    .addTestDevice("0F4B0296B48D2C6478D7E9A89DDD07F8")
+                    .addTestDevice("593C1BC2C754805F5EFBCD8D4E288805")
+                    .addTestDevice("E4347B3256669EAB2235222F475C8492")
+                    .addTestDevice("0BFB00BFF8850BE0B8D40286BEDF317E")
                     .addTestDevice("59E58CCD5AB9F4ED41033F114E088239")
                     .addTestDevice("E42C3769BD763551CAC733B6AD662C0D")
                     .addTestDevice("14D51CBB5AB10BDC1FF61BAECA19C9AA")
@@ -115,7 +170,7 @@ public class AdmobManager {
                     .addTestDevice("3D1FCDD4B6DC7E453846A04D214FD12D")
                     .addTestDevice("43AAFCE5A6B9E8FCDC58E58087AEC4EF")
                     .addTestDevice("AD2180512DE8B1EE611AB4645A69E470")
-                    .addTestDevice("379BED7628AE4885B439939575F9F292") // OP5 Spajdera
+                    .addTestDevice("379BED7628AE4885B439939575F9F292")
                     .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5");
 
             List<String> testDevices = Config.getTestDevices();
@@ -295,6 +350,60 @@ public class AdmobManager {
 
     public void setMinWaitForSplashFullScreen(long minWaitForSplashFullScreen) {
         this.minWaitForSplashFullScreen = minWaitForSplashFullScreen;
+    }
+
+    public RewardedVideoAd getRewardedVideoAd() {
+        return rewardedVideoAd;
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+        Log.i(TAG, "onRewardedVideoAdLoaded: ");
+        isRewardedAdLoading = false;
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+        Log.i(TAG, "onRewardedVideoAdOpened: ");
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+        Log.i(TAG, "onRewardedVideoStarted: ");
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Log.i(TAG, "onRewardedVideoAdClosed: ");
+        loadRewardedVideo(lastLoadedRewardedAdId);
+    }
+
+    @Override
+    public void onRewarded(com.google.android.gms.ads.reward.RewardItem rewardItem) {
+        Log.i(TAG, "onRewarded: rewardItem " + rewardItem.getType());
+        if(rewardsListener!=null){
+            rewardsListener.onSuccess(rewardItems);
+        }
+        loadRewardedVideo(lastLoadedRewardedAdId);
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+        Log.i(TAG, "onRewardedVideoAdLeftApplication: ");
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+        Log.i(TAG, "onRewardedVideoAdFailedToLoad: i " + i);
+        if(rewardsListener!=null){
+            rewardsListener.onFail(RewardError.FAILED_TO_LOAD);
+        }
+        loadRewardedVideo(lastLoadedRewardedAdId);
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+        Log.i(TAG, "onRewardedVideoCompleted: ");
     }
 
     public interface ShowFullScreenListener {
