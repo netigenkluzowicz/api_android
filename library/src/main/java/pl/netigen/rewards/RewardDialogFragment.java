@@ -27,6 +27,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import pl.netigen.netigenapi.BaseBannerActivity;
+import pl.netigen.netigenapi.Config;
 import pl.netigen.netigenapi.R;
 
 public class RewardDialogFragment extends AppCompatDialogFragment {
@@ -105,9 +106,11 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             textViewRewardDescription.setVisibility(View.GONE);
             return;
         }
+
         if (rewardParams.descriptionTextColor != null) {
             textViewRewardDescription.setTextColor(rewardParams.descriptionTextColor);
         }
+
         if (rewardParams.textSizeDimenRes != 0) {
                 textViewRewardDescription.setTextSize(getResources().getDimension(rewardParams.textSizeDimenRes) /
                         getResources().getDisplayMetrics().scaledDensity);
@@ -338,6 +341,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         public void show() {
+            if(Config.isNoAdsBought()) return;
             create(baseBannerActivity).show(baseBannerActivity.getSupportFragmentManager(), TAG);
         }
     }

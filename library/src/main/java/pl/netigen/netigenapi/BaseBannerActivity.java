@@ -25,7 +25,7 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
         super.onCreate(savedInstanceState);
         setContentView(getContentViewID());
         initAdmobBanner();
-        if (getRewardedAdId() != null) {
+        if (getRewardedAdId() != null && !Config.isNoAdsBought()) {
             admobManager.createRewardedVideo(getRewardsListener());
             admobManager.loadRewardedVideo(getRewardedAdId());
         }
@@ -82,7 +82,7 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     protected void onPause() {
         super.onPause();
         onBannerAdPause();
-        if (getRewardedAdId() != null) {
+        if (getRewardedAdId() != null && !Config.isNoAdsBought()) {
             admobManager.getRewardedVideoAd().pause(this);
         }
     }
@@ -109,7 +109,7 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (getRewardedAdId() != null) {
+        if (getRewardedAdId() != null && !Config.isNoAdsBought()) {
             admobManager.getRewardedVideoAd().destroy(this);
         }
     }

@@ -106,6 +106,7 @@ public class AdmobManager implements RewardedVideoAdListener {
     }
 
     public void showRewardedVideoForItems(List<pl.netigen.rewards.RewardItem> rewardItems) {
+        if(Config.isNoAdsBought()) return;
         this.rewardItems = rewardItems;
         if (rewardedVideoAd != null && rewardedVideoAd.isLoaded()) {
             rewardedVideoAd.show();
