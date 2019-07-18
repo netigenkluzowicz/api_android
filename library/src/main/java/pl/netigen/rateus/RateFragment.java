@@ -47,11 +47,8 @@ public class RateFragment extends AppCompatDialogFragment {
             if (rateUs == null) {
                 dismiss();
                 return view;
+                setDefaultPopupViews(view);
             }
-            ((TextView) view.findViewById(R.id.rateUsFragmentTitleTextView)).setText(rateUs.titleResId);
-            ((TextView) view.findViewById(R.id.rateUsFragmentsAppNameTextView)).setText(rateUs.appNameResId);
-            ((TextView) view.findViewById(R.id.rateUsFragmentAskForRateTextView)).setText(rateUs.askForRateUsInfoId);
-            ((ImageView) view.findViewById(R.id.rateUsFragmentIconImageView)).setImageResource(rateUs.appIconResId);
 
         }
         else
@@ -66,21 +63,41 @@ public class RateFragment extends AppCompatDialogFragment {
         noTextView.setText(rateUs.negativeResId);
         noTextView.setOnClickListener(v -> {
             rateUs.clickNo();
-            dismiss();
-        });
-        TextView yesTextView = view.findViewById(R.id.rateUsFragmentYesTextView);
-        yesTextView.setText(rateUs.positiveResId);
-        yesTextView.setOnClickListener(v -> {
-            rateUs.clickYes();
-            dismiss();
-        });
+        setNegativeButton(view);
+        setPositiveButton(view);
+        setNeutralButton(view);
+    private void setDefaultPopupViews(View view) {
+        ((TextView) view.findViewById(R.id.rateUsFragmentTitleTextView)).setText(rateUs.titleResId);
+        ((TextView) view.findViewById(R.id.rateUsFragmentsAppNameTextView)).setText(rateUs.appNameResId);
+        ((TextView) view.findViewById(R.id.rateUsFragmentAskForRateTextView)).setText(rateUs.askForRateUsInfoId);
+        ((ImageView) view.findViewById(R.id.rateUsFragmentIconImageView)).setImageResource(rateUs.appIconResId);
+    }
+
+    private void setNeutralButton(View view) {
         TextView laterTextView = view.findViewById(R.id.rateUsFragmentLaterTextView);
         laterTextView.setText(rateUs.notAskAgainResId);
         laterTextView.setOnClickListener(v -> {
             rateUs.clickLater();
             dismiss();
         });
-        return view;
+    }
+
+    private void setPositiveButton(View view) {
+        TextView yesTextView = view.findViewById(R.id.rateUsFragmentYesTextView);
+        yesTextView.setText(rateUs.positiveResId);
+        yesTextView.setOnClickListener(v -> {
+            rateUs.clickYes();
+            dismiss();
+        });
+    }
+
+    private void setNegativeButton(View view) {
+        TextView noTextView = view.findViewById(R.id.rateUsFragmentNoTextView);
+        noTextView.setText(rateUs.negativeResId);
+        noTextView.setOnClickListener(v -> {
+            rateUs.clickNo();
+            dismiss();
+        });
     }
 
     @Override
