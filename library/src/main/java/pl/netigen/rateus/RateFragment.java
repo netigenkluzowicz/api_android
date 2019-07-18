@@ -40,47 +40,58 @@ public class RateFragment extends AppCompatDialogFragment {
         getDialog().setCancelable(true);
         getDialog().setCanceledOnTouchOutside(true);
 
-        View view;
+        View view = inflater.inflate(R.layout.netigen_api_rate_us_dialog, container, false);
 
-        if(rateUs.isDefaultPopUp) {
-            view = inflater.inflate(R.layout.netigen_api_rate_us_dialog, container, false);
-            if (rateUs == null) {
-                dismiss();
-                return view;
-            }
-            ((TextView) view.findViewById(R.id.rateUsFragmentTitleTextView)).setText(rateUs.titleResId);
-            ((TextView) view.findViewById(R.id.rateUsFragmentsAppNameTextView)).setText(rateUs.appNameResId);
-            ((TextView) view.findViewById(R.id.rateUsFragmentAskForRateTextView)).setText(rateUs.askForRateUsInfoId);
-            ((ImageView) view.findViewById(R.id.rateUsFragmentIconImageView)).setImageResource(rateUs.appIconResId);
-
-        }
-        else
-        {      view = inflater.inflate(getResources().getLayout(rateUs.customLayoutId), container, false);
-            if (rateUs == null) {
-                dismiss();
-                return view;
-            }
-
-        }
-        TextView noTextView = view.findViewById(R.id.rateUsFragmentNoTextView);
-        noTextView.setText(rateUs.negativeResId);
-        noTextView.setOnClickListener(v -> {
-            rateUs.clickNo();
+        if (rateUs == null) {
             dismiss();
-        });
-        TextView yesTextView = view.findViewById(R.id.rateUsFragmentYesTextView);
-        yesTextView.setText(rateUs.positiveResId);
-        yesTextView.setOnClickListener(v -> {
-            rateUs.clickYes();
-            dismiss();
-        });
+            return view;
+        } else {
+            if(rateUs.isDefaultPopUp) {
+                setDefaultPopupViews(view);
+            }
+            else {
+                view = inflater.inflate(getResources().getLayout(rateUs.customLayoutId), container, false);
+            }
+        }
+
+        setNegativeButton(view);
+        setPositiveButton(view);
+        setNeutralButton(view);
+        return view;
+    }
+
+    private void setDefaultPopupViews(View view) {
+        ((TextView) view.findViewById(R.id.rateUsFragmentTitleTextView)).setText(rateUs.titleResId);
+        ((TextView) view.findViewById(R.id.rateUsFragmentsAppNameTextView)).setText(rateUs.appNameResId);
+        ((TextView) view.findViewById(R.id.rateUsFragmentAskForRateTextView)).setText(rateUs.askForRateUsInfoId);
+        ((ImageView) view.findViewById(R.id.rateUsFragmentIconImageView)).setImageResource(rateUs.appIconResId);
+    }
+
+    private void setNeutralButton(View view) {
         TextView laterTextView = view.findViewById(R.id.rateUsFragmentLaterTextView);
         laterTextView.setText(rateUs.notAskAgainResId);
         laterTextView.setOnClickListener(v -> {
             rateUs.clickLater();
             dismiss();
         });
-        return view;
+    }
+
+    private void setPositiveButton(View view) {
+        TextView yesTextView = view.findViewById(R.id.rateUsFragmentYesTextView);
+        yesTextView.setText(rateUs.positiveResId);
+        yesTextView.setOnClickListener(v -> {
+            rateUs.clickYes();
+            dismiss();
+        });
+    }
+
+    private void setNegativeButton(View view) {
+        TextView noTextView = view.findViewById(R.id.rateUsFragmentNoTextView);
+        noTextView.setText(rateUs.negativeResId);
+        noTextView.setOnClickListener(v -> {
+            rateUs.clickNo();
+            dismiss();
+        });
     }
 
     @Override
