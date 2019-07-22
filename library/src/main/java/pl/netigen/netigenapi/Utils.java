@@ -31,12 +31,16 @@ public class Utils {
      * @return true when permission is granted
      */
     public static boolean checkAndAskAndroidPermission(AppCompatActivity activity, String permissionString) {
-        if (ActivityCompat.checkSelfPermission(activity, permissionString) != PackageManager.PERMISSION_GRANTED) {
+        if (!isPermissionGranted(activity, permissionString)) {
             String[] permissionsArray = {permissionString};
             ActivityCompat.requestPermissions(activity, permissionsArray, 0);
             return false;
         }
         return true;
+    }
+
+    public static boolean isPermissionGranted(AppCompatActivity activity, String permissionString) {
+            return ActivityCompat.checkSelfPermission(activity, permissionString) == PackageManager.PERMISSION_GRANTED;
     }
 
     @NonNull
