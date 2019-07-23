@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="pl.netigen.cropper.ImageSourcePickerDialog">
+
+    <ImageView
+        android:id="@+id/backgroundLoginPopup"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleSourcePickerDialog"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:padding="2dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/gallery_or_photo"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/backgroundLoginPopup"
+        app:layout_constraintRight_toRightOf="@+id/backgroundLoginPopup"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/galleryButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/photoButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleSourcePickerDialog" />
+
+    <ImageView
+        android:id="@+id/photoButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/galleryButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

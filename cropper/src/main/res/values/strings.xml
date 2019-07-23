@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">cropper</string>
+    <string name="per_save_photo">Permission to save photos</string>
+    <string name="we_need_photo">We need a permission to save photos on your device.</string>
+    <string name="per_image">Permission to save images</string>
+    <string name="need_per_save_image">We need a permission to save images on your device.</string>
+    <string name="confirm">Confirm</string>
+    <string name="gallery_or_photo">Gallery or photo</string>
+</resources>
