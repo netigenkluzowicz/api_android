@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -194,44 +193,48 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         }
     }
 
-    @Override
-    public void closedFragment() {
-        FragmentActivity activity = getActivity();
-        if (activity != null)
-            activity.onBackPressed();
+    private Uri getUri() {
+        if (getActivity() == null) {
+            return null;
+        }
+        File path = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File imageFile = new File(path, System.currentTimeMillis() + ".jpeg");
+        FileOutputStream fileOutPutStream;
+        try {
+            fileOutPutStream = new FileOutputStream(imageFile);
+            fileOutPutStream.flush();
+            fileOutPutStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Context context = getActivity();
+
+        if (context == null)
+            return null;
+
+        return FileProvider.getUriForFile(context,
+                context.getPackageName() + ".provider",
+                imageFile);
     }
 
     @Override
-    public void onDismiss(boolean shouldDismissCropper) {
-        if(shouldDismissCropper){
+    public void closeFragment() {
+        FragmentActivity activity = getActivity();
+        if (activity != null)
             dismiss();
-        }
+    }
+
+    @Override
+    public void onDismiss() {
+        dismiss();
     }
 
     public interface OnCropFragmentInteractionListener {
         void saveCroppedImage(Uri uri);
+
         void onPermissionNotGranted();
-    }
-
-    public void show(FragmentManager fragmentManager, String tag) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        Fragment prevFragment = fragmentManager.findFragmentByTag(tag);
-        if (prevFragment != null) {
-            transaction.remove(prevFragment);
-        }
-        transaction.addToBackStack(null);
-        show(transaction, tag);
-    }
-
-    void setDialogSize(double heightMultiplier, double widthMultiplier) {
-        Window window = getDialog().getWindow();
-        Point size = new Point();
-        Display display;
-        if (window != null) {
-            display = window.getWindowManager().getDefaultDisplay();
-            display.getSize(size);
-            window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            window.setGravity(Gravity.CENTER);
-        }
     }
 }

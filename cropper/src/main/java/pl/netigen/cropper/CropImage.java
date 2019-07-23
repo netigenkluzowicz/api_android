@@ -2,7 +2,6 @@ package pl.netigen.cropper;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -11,26 +10,24 @@ import androidx.core.app.ActivityCompat;
 public class CropImage {
 
     CropParams cropParams;
-    CropFragment.OnCropFragmentInteractionListener listener;
+    private CropFragment.OnCropFragmentInteractionListener listener;
 
     private CropImage(CropParams cropParams) {
         this.cropParams = cropParams;
     }
 
-    private static final String TAG = "CropImage";
     private void tryShowCropFragment(CropParams cropParams) {
         this.listener = cropParams.listener;
         if (ActivityCompat.checkSelfPermission(cropParams.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             openCropFragment();
-        }else{
-            Log.d(TAG, "tryShowCropFragment: ");
+        } else {
             listener.onPermissionNotGranted();
         }
     }
 
     private void openCropFragment() {
         CropFragment cropFragment = CropFragment.newInstance(this);
-        cropFragment.show(cropParams.fragmentManager, "");
+        cropFragment.show(cropParams.fragmentManager, CropFragment.class.getSimpleName());
     }
 
     public static class Builder {
@@ -72,7 +69,5 @@ public class CropImage {
         public void tryShowCropFragment() {
             create().tryShowCropFragment(cropParams);
         }
-
     }
-
 }

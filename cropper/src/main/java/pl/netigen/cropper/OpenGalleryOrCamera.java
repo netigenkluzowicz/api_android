@@ -6,8 +6,8 @@ public interface OpenGalleryOrCamera {
 
     void openCamera();
 
-    void closedFragment();
+    void closeFragment();
 
-    void onDismiss(boolean shouldDismissCropper);
+    void onDismiss();
 
 }

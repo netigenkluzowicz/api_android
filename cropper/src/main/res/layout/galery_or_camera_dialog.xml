@@ -17,14 +17,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/titleSourcePickerDialog"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:padding="2dp"
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="@string/gallery_or_photo"
-        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@+id/backgroundLoginPopup"
         app:layout_constraintRight_toRightOf="@+id/backgroundLoginPopup"
@@ -38,7 +37,7 @@
         app:layout_constraintBottom_toTopOf="@+id/photoButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+        app:layout_constraintTop_toBottomOf="@id/titleSourcePickerDialog" />
 
     <ImageView
         android:id="@+id/photoButton"
