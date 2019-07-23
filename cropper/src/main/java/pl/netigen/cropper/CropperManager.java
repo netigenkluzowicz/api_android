@@ -6,13 +6,12 @@ import android.content.pm.PackageManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-
-public class CropImage {
+public class CropperManager {
 
     CropParams cropParams;
     private CropFragment.OnCropFragmentInteractionListener listener;
 
-    private CropImage(CropParams cropParams) {
+    private CropperManager(CropParams cropParams) {
         this.cropParams = cropParams;
     }
 
@@ -62,8 +61,8 @@ public class CropImage {
             return this;
         }
 
-        public CropImage create() {
-            return new CropImage(cropParams);
+        public CropperManager create() {
+            return new CropperManager(cropParams);
         }
 
         public void tryShowCropFragment() {

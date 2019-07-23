@@ -49,10 +49,10 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
 
     }
 
-    public static CropFragment newInstance(CropImage cropImage) {
+    public static CropFragment newInstance(CropperManager cropperManager) {
         CropFragment fragment = new CropFragment();
-        fragment.cropParams = cropImage.cropParams;
-        fragment.setListener(cropImage.cropParams.listener);
+        fragment.cropParams = cropperManager.cropParams;
+        fragment.setListener(cropperManager.cropParams.listener);
         return fragment;
     }
 
