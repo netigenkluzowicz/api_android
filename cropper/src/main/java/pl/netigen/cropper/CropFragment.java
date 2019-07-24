@@ -45,7 +45,7 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
     private OnCropFragmentInteractionListener listener;
     private Uri value;
 
-    private CropFragment() {
+    public CropFragment() {
 
     }
 
