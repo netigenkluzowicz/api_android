@@ -47,7 +47,12 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.galery_or_camera_dialog, container, false);
+        if(cropParams==null){
+            dismiss();
+            return view;
+        }
         initViews(view);
         setTitleTextView();
         setClickListeners(view);
