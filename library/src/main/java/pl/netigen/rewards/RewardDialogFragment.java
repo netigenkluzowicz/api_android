@@ -336,6 +336,11 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
+        public Builder setSecondaryListener(RewardsListener listener) {
+            this.rewardParams.secondaryListener = listener;
+            return this;
+        }
+
         public RewardDialogFragment create(BaseBannerActivity baseBannerActivity) {
             return RewardDialogFragment.newInstance(rewardParams, baseBannerActivity);
         }

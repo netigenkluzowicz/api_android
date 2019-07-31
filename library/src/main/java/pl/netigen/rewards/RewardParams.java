@@ -10,6 +10,7 @@ import java.util.List;
 
 class RewardParams {
 
+    public RewardsListener secondaryListener;
     @StringRes
     int buttonPositiveTextResId = 0;
     @StringRes
