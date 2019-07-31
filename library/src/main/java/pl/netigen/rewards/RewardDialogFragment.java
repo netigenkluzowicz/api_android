@@ -84,7 +84,6 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     private void setLayoutViews(View view) {
         textViewRewardDescription = view.findViewById(R.id.textViewRewardDescription);
         imageViewRewardedHeader = view.findViewById(R.id.imageViewRewardedHeader);
-        imageViewButtonPositive = view.findViewById(R.id.imageViewButtonPositive);
         textViewPositiveButton = view.findViewById(R.id.textViewButtonPositive);
         imageViewCloseButton = view.findViewById(R.id.imageViewClose);
         linearLayoutContainer = view.findViewById(R.id.linearLayoutContainer);
@@ -132,7 +131,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             textViewPositiveButton.setBackground(ContextCompat.getDrawable(getActivity(), rewardParams.buttonPositiveBackgroundDrawableId));
         }
 
-        imageViewButtonPositive.setOnClickListener(v -> {
+        textViewPositiveButton.setOnClickListener(v -> {
             baseBannerActivity.getAdmobManager().showRewardedVideoForItems(rewardParams.rewards, rewardParams.secondaryListener);
             dismiss();
         });
