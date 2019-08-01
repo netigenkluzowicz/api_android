@@ -30,7 +30,7 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
     private boolean click = false;
     private CropParams cropParams;
 
-    private ImageSourcePickerDialog() {
+    public ImageSourcePickerDialog() {
 
     }
 
