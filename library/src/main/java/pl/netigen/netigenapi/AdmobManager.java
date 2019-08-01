@@ -123,6 +123,9 @@ public class AdmobManager implements RewardedVideoAdListener {
         if (rewardedVideoAd != null && rewardedVideoAd.isLoaded()) {
             rewardedVideoAd.show();
         } else {
+            if(!isRewardedAdLoading){
+                loadRewardedVideo(lastLoadedRewardedAdId);
+            }
             if (rewardsListeners != null) {
                 for (RewardsListener listener : rewardsListeners) {
                     if (listener != null)
@@ -400,7 +403,6 @@ public class AdmobManager implements RewardedVideoAdListener {
             if (rewardsListeners != null) {
                 rewardsListeners.callOnSuccess(rewardItems);
             }
-            loadRewardedVideo(lastLoadedRewardedAdId);
             wasRewardAdSuccessful = true;
         } catch (Exception e) {
             e.printStackTrace();
