@@ -9,7 +9,6 @@ class CropParams {
     FragmentManager fragmentManager;
     AppCompatActivity activity;
     CropFragment.OnCropFragmentInteractionListener listener;
-    int frameId;
     Integer textColor;
     @DrawableRes
     int bgPopupAskCameraOrPhoto;
