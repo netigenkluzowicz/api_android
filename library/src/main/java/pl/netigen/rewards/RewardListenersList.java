@@ -19,4 +19,10 @@ public class RewardListenersList extends ArrayList<RewardsListener> {
         }
     }
 
+    @Override
+    public boolean add(RewardsListener rewardsListener) {
+        if (!this.contains(rewardsListener))
+            return super.add(rewardsListener);
+        else return false;
+    }
 }

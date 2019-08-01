@@ -34,10 +34,10 @@ class RewardParams {
     LayoutMargins marginsParamsDescription = null;
     LayoutMargins marginsParamsRewardsContainer = null;
     LayoutMargins marginsParamsPositiveButton = null;
-    public List<RewardsListener> listeners;
+    RewardListenersList listeners;
 
     RewardParams() {
-        listeners = new ArrayList<>();
+        listeners = new RewardListenersList() ;
     }
 
 }
