@@ -33,11 +33,10 @@ public class CropperManager {
 
         private CropParams cropParams;
 
-        public Builder(AppCompatActivity activity, CropFragment.OnCropFragmentInteractionListener listener, int frameId) {
+        public Builder(AppCompatActivity activity, CropFragment.OnCropFragmentInteractionListener listener) {
             cropParams = new CropParams();
             cropParams.listener = listener;
             cropParams.fragmentManager = activity.getSupportFragmentManager();
-            cropParams.frameId = frameId;
             cropParams.activity = activity;
         }
 
