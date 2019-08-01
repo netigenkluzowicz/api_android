@@ -132,7 +132,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         textViewPositiveButton.setOnClickListener(v -> {
-            baseBannerActivity.getAdmobManager().showRewardedVideoForItems(rewardParams.rewards, rewardParams.secondaryListener);
+            baseBannerActivity.getAdmobManager().showRewardedVideoForItems(rewardParams.rewards, rewardParams.listeners);
             dismiss();
         });
     }
@@ -335,8 +335,8 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
-        public Builder setSecondaryListener(RewardsListener listener) {
-            this.rewardParams.secondaryListener = listener;
+        public Builder addListener(RewardsListener listener) {
+            this.rewardParams.listeners.add(listener);
             return this;
         }
 

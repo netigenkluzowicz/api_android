@@ -6,11 +6,11 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class RewardParams {
 
-    public RewardsListener secondaryListener;
     @StringRes
     int buttonPositiveTextResId = 0;
     @StringRes
@@ -34,8 +34,10 @@ class RewardParams {
     LayoutMargins marginsParamsDescription = null;
     LayoutMargins marginsParamsRewardsContainer = null;
     LayoutMargins marginsParamsPositiveButton = null;
+    public List<RewardsListener> listeners;
 
     RewardParams() {
+        listeners = new ArrayList<>();
     }
 
 }
