@@ -84,7 +84,6 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     private void setLayoutViews(View view) {
         textViewRewardDescription = view.findViewById(R.id.textViewRewardDescription);
         imageViewRewardedHeader = view.findViewById(R.id.imageViewRewardedHeader);
-        imageViewButtonPositive = view.findViewById(R.id.imageViewButtonPositive);
         textViewPositiveButton = view.findViewById(R.id.textViewButtonPositive);
         imageViewCloseButton = view.findViewById(R.id.imageViewClose);
         linearLayoutContainer = view.findViewById(R.id.linearLayoutContainer);
@@ -102,7 +101,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     private void setDescriptionText() {
         if (rewardParams.rewardDescriptionTextResId != 0) {
             textViewRewardDescription.setText(rewardParams.rewardDescriptionTextResId);
-        }else{
+        } else {
             textViewRewardDescription.setVisibility(View.GONE);
             return;
         }
@@ -112,15 +111,15 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         if (rewardParams.textSizeDimenRes != 0) {
-                textViewRewardDescription.setTextSize(getResources().getDimension(rewardParams.textSizeDimenRes) /
-                        getResources().getDisplayMetrics().scaledDensity);
+            textViewRewardDescription.setTextSize(getResources().getDimension(rewardParams.textSizeDimenRes) /
+                    getResources().getDisplayMetrics().scaledDensity);
         }
     }
 
     private void setPositiveButton() {
         if (rewardParams.buttonPositiveTextResId != 0) {
             textViewPositiveButton.setText(rewardParams.buttonPositiveTextResId);
-        }else{
+        } else {
             textViewPositiveButton.setVisibility(View.GONE);
         }
 
@@ -129,11 +128,11 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         if (rewardParams.buttonPositiveBackgroundDrawableId != 0) {
-            imageViewButtonPositive.setBackground(ContextCompat.getDrawable(getActivity(), rewardParams.buttonPositiveBackgroundDrawableId));
+            textViewPositiveButton.setBackground(ContextCompat.getDrawable(getActivity(), rewardParams.buttonPositiveBackgroundDrawableId));
         }
 
-        imageViewButtonPositive.setOnClickListener(v -> {
-            baseBannerActivity.getAdmobManager().showRewardedVideoForItems(rewardParams.rewards);
+        textViewPositiveButton.setOnClickListener(v -> {
+            baseBannerActivity.getAdmobManager().showRewardedVideoForItems(rewardParams.rewards, rewardParams.listeners);
             dismiss();
         });
     }
@@ -336,12 +335,17 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
+        public Builder addListener(RewardsListener listener) {
+            this.rewardParams.listeners.add(listener);
+            return this;
+        }
+
         public RewardDialogFragment create(BaseBannerActivity baseBannerActivity) {
             return RewardDialogFragment.newInstance(rewardParams, baseBannerActivity);
         }
 
         public void show() {
-            if(Config.isNoAdsBought()) return;
+            if (Config.isNoAdsBought()) return;
             create(baseBannerActivity).show(baseBannerActivity.getSupportFragmentManager(), TAG);
         }
     }

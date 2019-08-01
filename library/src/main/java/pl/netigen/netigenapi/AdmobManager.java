@@ -10,6 +10,7 @@ import android.os.Handler;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import android.util.Log;
 import android.view.ViewGroup;
@@ -28,9 +29,11 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import java.lang.annotation.Retention;
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.netigen.rewards.RewardItem;
+import pl.netigen.rewards.RewardListenersList;
 import pl.netigen.rewards.RewardsListener;
 
 import static java.lang.annotation.RetentionPolicy.SOURCE;
@@ -39,11 +42,12 @@ public class AdmobManager implements RewardedVideoAdListener {
 
     private static final String TAG = "AdmobManager";
 
-    @IntDef({RewardError.FAILED_TO_LOAD, RewardError.NOT_LOADED_YET})
+    @IntDef({RewardError.FAILED_TO_LOAD, RewardError.NOT_LOADED_YET, RewardError.FAILED_TO_REWARD})
     @Retention(SOURCE)
     public @interface RewardError {
         int FAILED_TO_LOAD = 0;
         int NOT_LOADED_YET = 1;
+        int FAILED_TO_REWARD = 2;
     }
 
     private static final long REFRESH_TIME = 333;
@@ -65,15 +69,17 @@ public class AdmobManager implements RewardedVideoAdListener {
     private boolean noAdInstance;
     private boolean launched;
     private RewardedVideoAd rewardedVideoAd;
-    private RewardsListener rewardsListener;
     private String lastLoadedRewardedAdId;
     private boolean isRewardedAdLoading = false;
     private List<RewardItem> rewardItems;
+    private boolean wasRewardAdSuccessful = false;
+    private RewardListenersList rewardsListeners;
 
     private AdmobManager(String bannerId, String fullScreenId, @NonNull Activity activity) {
         this.bannerId = bannerId;
         this.fullScreenId = fullScreenId;
         this.activity = activity;
+        rewardsListeners = new RewardListenersList();
     }
 
     private AdmobManager() {
@@ -91,7 +97,11 @@ public class AdmobManager implements RewardedVideoAdListener {
     }
 
     void createRewardedVideo(RewardsListener rewardsListener) {
-        this.rewardsListener = rewardsListener;
+        if (rewardsListeners == null) {
+            rewardsListeners = new RewardListenersList();
+        }
+        rewardsListeners.add(rewardsListener);
+
         MobileAds.initialize(activity);
         rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
         rewardedVideoAd.setRewardedVideoAdListener(this);
@@ -105,14 +115,22 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
     }
 
-    public void showRewardedVideoForItems(List<pl.netigen.rewards.RewardItem> rewardItems) {
-        if(Config.isNoAdsBought()) return;
+    public void showRewardedVideoForItems(@NonNull List<pl.netigen.rewards.RewardItem> rewardItems, @Nullable List<RewardsListener> listeners) {
+        if (listeners != null)
+            rewardsListeners.addAll(listeners);
+        if (Config.isNoAdsBought()) return;
         this.rewardItems = rewardItems;
         if (rewardedVideoAd != null && rewardedVideoAd.isLoaded()) {
             rewardedVideoAd.show();
         } else {
-            if(rewardsListener!=null){
-                rewardsListener.onFail(RewardError.NOT_LOADED_YET);
+            if(!isRewardedAdLoading){
+                loadRewardedVideo(lastLoadedRewardedAdId);
+            }
+            if (rewardsListeners != null) {
+                for (RewardsListener listener : rewardsListeners) {
+                    if (listener != null)
+                        listener.onFail(RewardError.NOT_LOADED_YET);
+                }
             }
         }
     }
@@ -380,11 +398,18 @@ public class AdmobManager implements RewardedVideoAdListener {
 
     @Override
     public void onRewarded(com.google.android.gms.ads.reward.RewardItem rewardItem) {
-        Log.i(TAG, "onRewarded: rewardItem " + rewardItem.getType());
-        if(rewardsListener!=null){
-            rewardsListener.onSuccess(rewardItems);
+        Log.i(TAG, "onRewarded: rewardItem type" + rewardItem.getType() + " amount " + rewardItem.getAmount());
+        try {
+            if (rewardsListeners != null) {
+                rewardsListeners.callOnSuccess(rewardItems);
+            }
+            wasRewardAdSuccessful = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (rewardsListeners != null) {
+                rewardsListeners.callOnFail(RewardError.NOT_LOADED_YET);
+            }
         }
-        loadRewardedVideo(lastLoadedRewardedAdId);
     }
 
     @Override
@@ -395,8 +420,8 @@ public class AdmobManager implements RewardedVideoAdListener {
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
         Log.i(TAG, "onRewardedVideoAdFailedToLoad: i " + i);
-        if(rewardsListener!=null){
-            rewardsListener.onFail(RewardError.FAILED_TO_LOAD);
+        if (rewardsListeners != null) {
+            rewardsListeners.callOnFail(RewardError.FAILED_TO_LOAD);
         }
         loadRewardedVideo(lastLoadedRewardedAdId);
     }
