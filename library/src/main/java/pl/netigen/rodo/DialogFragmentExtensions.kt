@@ -1,12 +1,12 @@
-package pl.netigen.gdpr
+package pl.netigen.rodo
 
 import android.graphics.Point
 import android.view.Display
 import android.view.Gravity
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.fragment.app.DialogFragment
 
-fun AppCompatDialogFragment.setDialogSize(widthMultiplier: Double, heightMultiplier: Double) {
+fun DialogFragment.setDialogSize(widthMultiplier: Double, heightMultiplier: Double) {
     val window = dialog.window
     val size = Point()
     val display: Display
