@@ -124,7 +124,14 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             webViewGdpr.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
             noInternetAdmob()
+    private fun isNetworkOn(): Boolean {
+        if (context == null) {
+            return false
         }
+        val connectivityManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+                ?: return false
+        val netInfo = connectivityManager.activeNetworkInfo
+        return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
     private fun noInternetAdmob() {
