@@ -1,9 +1,7 @@
 package pl.netigen.netigenapi;
 
-
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,14 +13,14 @@ import com.google.android.gms.ads.MobileAds;
 import pl.netigen.rodo.ConstRodo;
 import pl.netigen.rodo.GDPRDialogFragment;
 
+public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, AdmobIds, GDPRDialogFragment.GDPRClickListener {
 
-public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, AdmobIds, GDPRDialogFragment.ClickListener {
-    private static final String RODO_FRAGMENT_TAG = "rodo";
     AdmobManager admobManager;
+    boolean consentFinished;
+
     private GDPRDialogFragment gdprDialogFragment;
     private boolean canCommitFragment;
     private Handler initAdmobHandler;
-    boolean consentFinished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,9 +83,7 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
 
     private void initRodoFragment() {
         if (canCommitFragment) {
-//            rodoFragment = RodoFragment.newInstance();
             gdprDialogFragment = GDPRDialogFragment.Companion.newInstance();
-//            rodoFragment.setIsPayOptions(isNoAdsPaymentAvailable());
             gdprDialogFragment.setIsPayOptions(isNoAdsPaymentAvailable());
             gdprDialogFragment.show(getSupportFragmentManager().beginTransaction().addToBackStack(null), "");
         }
@@ -106,15 +102,8 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
         admobManager.splashScreenOnCreate(getIntentToLaunch());
     }
 
-    private static final String TAG = "BaseSplashActivity";
-
     @Override
     public void onBackPressed() {
-        Log.d(TAG, "onBackPressed: gdprDialogFragment null " + (gdprDialogFragment == null));
-
-//        if (rodoFragment != null) {
-//            rodoFragment.showAdmobText();
-//        }
         if (gdprDialogFragment != null) {
             gdprDialogFragment.showAdmobText();
         }
@@ -134,10 +123,6 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
             super.onBackPressed();
         }
         gdprDialogFragment = null;
-//        if (rodoFragment != null) {
-//            super.onBackPressed();
-//        }
-//        rodoFragment = null;
     }
 
     @Override
