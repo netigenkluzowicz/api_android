@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.StyleSpan
@@ -17,12 +16,8 @@ import pl.netigen.netigenapi.R
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
 
-    var isNoAdsAvailable = false
-
-    val HTTPS_WWW_NETIGEN_PL_PRIVACY_ONLY_FOR_MOBILE_APPS_NAME_APP = "https://www.netigen.pl/privacy/only-for-mobile-apps-name?app="
-    val HTTPS_WWW_NETIGEN_PL_PRIVACY_ONLY_FOR_MOBILE_APPS = "https://www.netigen.pl/privacy/only-for-mobile-apps"
-
-    private var callback: ClickListener? = null
+    private var isNoAdsAvailable = false
+    private var gdprClickListener: GDPRClickListener? = null
     private var admobText: Boolean = false
 
     override fun onStart() {
@@ -52,24 +47,24 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
         appNameTextViewGdpr.text = getApplicationName(activity!!)
         setButtons()
-        addTextAdmob()
+        showGDPRText()
     }
 
     private fun setButtons() {
-        buttonYes.setOnClickListener { v -> callback?.clickYes() }
+        buttonYes.setOnClickListener { v -> gdprClickListener?.clickYes() }
         buttonNo.setOnClickListener { v ->
-            callback!!.clickNo()
-            addPolityText()
+            gdprClickListener!!.clickNo()
+            showPrivacyPolicy()
         }
         buttonBack.setOnClickListener { v ->
             showAdmobText()
         }
         if (isNoAdsAvailable) {
-            buttonPay.setOnClickListener { v -> callback?.clickPay() }
+            buttonPay.setOnClickListener { v -> gdprClickListener?.clickPay() }
         } else {
             buttonPay.visibility = View.GONE
         }
-        buttonPolicy.setOnClickListener { v -> callback?.clickAcceptPolicy() }
+        buttonPolicy.setOnClickListener { v -> gdprClickListener?.clickAcceptPolicy() }
     }
 
     private fun setIcon() {
@@ -81,7 +76,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         }
     }
 
-    fun getApplicationName(context: Context): String {
+    private fun getApplicationName(context: Context): String {
         val applicationInfo = context.applicationInfo
         val stringId = applicationInfo.labelRes
         return if (stringId == 0) applicationInfo.nonLocalizedLabel.toString() else context.getString(stringId)
@@ -91,22 +86,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         this.isNoAdsAvailable = isNoAdsAvailable
     }
 
-    fun isNetworkOn(): Boolean {
-        val context = context
-        val cm: ConnectivityManager?
-        if (context == null) {
-            return false
-        }
-        cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo: NetworkInfo?
-        if (cm == null) {
-            return false
-        }
-        netInfo = cm.activeNetworkInfo
-        return netInfo != null && netInfo.isConnectedOrConnecting
-    }
-
-    private fun addTextAdmob() {
+    private fun showGDPRText() {
         if (isNoAdsAvailable) {
             buttonPay.visibility = View.VISIBLE
         }
@@ -119,11 +99,14 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         if (isNetworkOn()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr.visibility = View.VISIBLE
-            webViewGdpr.loadUrl(HTTPS_WWW_NETIGEN_PL_PRIVACY_ONLY_FOR_MOBILE_APPS_NAME_APP + getApplicationName(context!!))
+            webViewGdpr.loadUrl(NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(context!!))
         } else {
             webViewGdpr.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
-            noInternetAdmob()
+            setOfflineText()
+        }
+    }
+
     private fun isNetworkOn(): Boolean {
         if (context == null) {
             return false
@@ -134,7 +117,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
-    private fun noInternetAdmob() {
+    private fun setOfflineText() {
         offlinePrivacyPolicyTextView.text = ""
         val ss1 = SpannableString(ConstRodo.text1)
         ss1.setSpan(StyleSpan(Typeface.BOLD), 0, ss1.length, 0)
@@ -147,7 +130,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         offlinePrivacyPolicyTextView.append(ConstRodo.text5 + "\n")
     }
 
-    private fun addPolityText() {
+    private fun showPrivacyPolicy() {
         if (isNoAdsAvailable) {
             buttonPay.visibility = View.GONE
         }
@@ -159,15 +142,15 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         if (isNetworkOn()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr.visibility = View.VISIBLE
-            webViewGdpr.loadUrl(HTTPS_WWW_NETIGEN_PL_PRIVACY_ONLY_FOR_MOBILE_APPS)
+            webViewGdpr.loadUrl(NETIGEN_PRIVACY_MOBILE_URL)
         } else {
             webViewGdpr.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
-            noInternetPolicy()
+            onNoInternetConnection()
         }
     }
 
-    private fun noInternetPolicy() {
+    private fun onNoInternetConnection() {
         offlinePrivacyPolicyTextView.text = ""
         offlinePrivacyPolicyTextView.append(ConstRodo.textPolicy1 + "\n")
         offlinePrivacyPolicyTextView.append(ConstRodo.textPolicy2)
@@ -175,8 +158,8 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if (context is ClickListener) {
-            callback = context
+        if (context is GDPRClickListener) {
+            gdprClickListener = context
         } else {
             throw RuntimeException(context.toString() + " must implement InitAdmobAds")
         }
@@ -184,16 +167,16 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     override fun onDetach() {
         super.onDetach()
-        callback = null
+        gdprClickListener = null
     }
 
     fun showAdmobText() {
         if (!admobText) {
-            addTextAdmob()
+            showGDPRText()
         }
     }
 
-    interface ClickListener {
+    interface GDPRClickListener {
         fun clickYes()
 
         fun clickNo()
@@ -204,6 +187,9 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     }
 
     companion object {
+
+        private const val NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps-name?app="
+        private const val NETIGEN_PRIVACY_MOBILE_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps"
 
         fun newInstance(): GDPRDialogFragment {
             val dialogFragment = GDPRDialogFragment()
