@@ -1,8 +1,8 @@
 package pl.netigen.netigenapi;
 
-
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.ads.consent.ConsentInfoUpdateListener;
@@ -11,16 +11,16 @@ import com.google.ads.consent.ConsentStatus;
 import com.google.android.gms.ads.MobileAds;
 
 import pl.netigen.rodo.ConstRodo;
-import pl.netigen.rodo.RodoFragment;
+import pl.netigen.rodo.GDPRDialogFragment;
 
+public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, AdmobIds, GDPRDialogFragment.GDPRClickListener {
 
-public abstract class BaseSplashActivity extends AppCompatActivity implements ISplashActivity, AdmobIds, RodoFragment.ClickListener {
-    private static final String RODO_FRAGMENT_TAG = "rodo";
     AdmobManager admobManager;
-    private RodoFragment rodoFragment;
+    boolean consentFinished;
+
+    private GDPRDialogFragment gdprDialogFragment;
     private boolean canCommitFragment;
     private Handler initAdmobHandler;
-    boolean consentFinished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,12 +83,9 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
 
     private void initRodoFragment() {
         if (canCommitFragment) {
-            rodoFragment = RodoFragment.newInstance();
-            rodoFragment.setIsPayOptions(isNoAdsPaymentAvailable());
-            getSupportFragmentManager().beginTransaction()
-                    .add(getSplashFragmentRodoContainerId(), rodoFragment, RODO_FRAGMENT_TAG)
-                    .addToBackStack(null)
-                    .commitAllowingStateLoss();
+            gdprDialogFragment = GDPRDialogFragment.Companion.newInstance();
+            gdprDialogFragment.setIsPayOptions(isNoAdsPaymentAvailable());
+            gdprDialogFragment.show(getSupportFragmentManager().beginTransaction().addToBackStack(null), "");
         }
     }
 
@@ -107,8 +104,8 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
 
     @Override
     public void onBackPressed() {
-        if (rodoFragment != null) {
-            rodoFragment.showAdmobText();
+        if (gdprDialogFragment != null) {
+            gdprDialogFragment.showAdmobText();
         }
     }
 
@@ -122,10 +119,10 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
     }
 
     private void closeRodoFragment() {
-        if (rodoFragment != null) {
+        if (gdprDialogFragment != null) {
             super.onBackPressed();
         }
-        rodoFragment = null;
+        gdprDialogFragment = null;
     }
 
     @Override

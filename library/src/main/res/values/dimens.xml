@@ -14,4 +14,7 @@
     <dimen name="min_width_rewarded_header">120dp</dimen>
     <dimen name="size_default_rewarded_close_btn">50dp</dimen>
     <dimen name="text_size_reward_dialog_description">18sp</dimen>
+    <dimen name="max_gdpr_button_text_size">18sp</dimen>
+    <dimen name="min_gdpr_button_text_size">14sp</dimen>
+    <dimen name="gdpr_button_height">42dp</dimen>
 </resources>
