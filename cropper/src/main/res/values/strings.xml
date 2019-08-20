@@ -6,4 +6,5 @@
     <string name="need_per_save_image">We need a permission to save images on your device.</string>
     <string name="confirm">Confirm</string>
     <string name="gallery_or_photo">Gallery or photo</string>
+    <string name="select_picture">Select Picture</string>
 </resources>

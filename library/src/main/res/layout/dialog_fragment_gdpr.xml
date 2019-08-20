@@ -134,27 +134,6 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/buttonNo"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/gdpr_button_height"
-            android:layout_margin="5dp"
-            android:background="@drawable/background_button_gdpr"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/no_see_ads_that_are_less_relevant"
-            android:textColor="@color/colorWhite"
-            app:autoSizeMaxTextSize="@dimen/max_gdpr_button_text_size"
-            app:autoSizeMinTextSize="@dimen/min_gdpr_button_text_size"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/buttonYes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/webViewButtonsSpace"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintWidth_percent="0.8" />
-
-        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/buttonYes"
             android:layout_width="0dp"
             android:layout_height="@dimen/gdpr_button_height"
@@ -168,12 +147,34 @@
             app:autoSizeMinTextSize="@dimen/min_gdpr_button_text_size"
             app:autoSizeStepGranularity="2sp"
             app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/webViewButtonsSpace"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/buttonNo"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/gdpr_button_height"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_button_gdpr"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/no_see_ads_that_are_less_relevant"
+            android:textColor="@color/colorWhite"
+            app:autoSizeMaxTextSize="@dimen/max_gdpr_button_text_size"
+            app:autoSizeMinTextSize="@dimen/min_gdpr_button_text_size"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/buttonPay"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNo"
+            app:layout_constraintTop_toBottomOf="@+id/buttonYes"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintWidth_percent="0.8" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/buttonPay"
@@ -192,7 +193,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bottomSpaceGDPR"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonYes"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNo"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintWidth_percent="0.8" />
 

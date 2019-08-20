@@ -196,7 +196,7 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_IMAGE);
+        startActivityForResult(Intent.createChooser(intent, getContext().getString(R.string.select_picture)), SELECT_IMAGE);
     }
 
     @Override
