@@ -89,10 +89,17 @@ public abstract class BaseSplashActivity extends AppCompatActivity implements IS
         }
     }
 
+    public abstract boolean showFullscreen();
+
     private void startAdmobSplash() {
-        if (initAdmobHandler == null) {
-            initAdmobHandler = new Handler();
-            initAdmobHandler.post(this::initAdmob);
+        if (showFullscreen()) {
+            if (initAdmobHandler == null) {
+                initAdmobHandler = new Handler();
+                initAdmobHandler.post(this::initAdmob);
+            }
+        } else {
+            startActivity(getIntentToLaunch());
+            finish();
         }
     }
 
