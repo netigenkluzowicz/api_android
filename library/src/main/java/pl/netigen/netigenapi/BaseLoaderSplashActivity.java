@@ -7,22 +7,22 @@ public abstract class BaseLoaderSplashActivity extends BaseSplashActivity implem
 
     void initAdmob() {
         MobileAds.initialize(this, getAdmobAppID());
-        admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
+        setAdmobManager(AdmobManager.create(getBannerId(), getFullScreenId(), this));
         if (loadingFinished) {
-            admobManager.splashScreenOnCreate(getIntentToLaunch());
+            getAdmobManager().splashScreenOnCreate(getIntentToLaunch());
         } else {
-            admobManager.loadInterstitialIfNeeded(this);
+            getAdmobManager().loadInterstitialIfNeeded(this);
         }
     }
 
     @Override
     public void onFinishLoading() {
         loadingFinished = true;
-        if (consentFinished) {
-            if (admobManager == null) {
-                admobManager = AdmobManager.create(getBannerId(), getFullScreenId(), this);
+        if (getConsentFinished()) {
+            if (getAdmobManager() == null) {
+                setAdmobManager(AdmobManager.create(getBannerId(), getFullScreenId(), this));
             }
-            admobManager.splashScreenOnCreate(getIntentToLaunch());
+            getAdmobManager().splashScreenOnCreate(getIntentToLaunch());
         }
     }
 }

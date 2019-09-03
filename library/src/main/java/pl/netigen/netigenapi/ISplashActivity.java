@@ -1,6 +1,7 @@
 package pl.netigen.netigenapi;
 
 import android.content.Intent;
+
 import androidx.annotation.NonNull;
 
 
@@ -24,5 +25,9 @@ interface ISplashActivity {
     int getSplashFragmentRodoContainerId();
 
     void onNoAdsPaymentProcessingFinished(boolean noAdsBought);
+
+    default Boolean shouldShowInterstitialAd() {
+        return true;
+    }
 
 }
