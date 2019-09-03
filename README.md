@@ -1,5 +1,10 @@
 https://jitpack.io/#netigenkluzowicz/api_android
 
+<h1>Current develop branch is Kotlin branch</h1>
+We strongly recommend working on Kotlin branch only for now.
+2.x branches are AndroidX migration branches
+1.x branches are old Android support branches
+
 ## Add premium fragment to application:
 
 You need to add this code to your Splash activity:
