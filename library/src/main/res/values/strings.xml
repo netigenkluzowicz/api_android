@@ -3,65 +3,65 @@
 
 
     <!--ViewPager and rating-->
-    <string name="more_apps_netigen_api">More Apps</string>
-    <string name="rate_us_netigen_api">Rate Us</string>
-    <string name="information_netigen_api">Information</string>
-    <string name="settings_netigen_api">Save Settings</string>
-    <string name="about_title_netigen_api">About</string>
-    <string name="ok_netigen_api" translatable="false">OK</string>
-    <string name="msg_browser_not_found_netigen_api">Browser not found!!!</string>
+    <string name="more_apps_netigen">More Apps</string>
+    <string name="rate_us_netigen">Rate Us</string>
+    <string name="information_netigen">Information</string>
+    <string name="settings_netigen">Save Settings</string>
+    <string name="about_title_netigen">About</string>
+    <string name="ok_netigen" translatable="false">OK</string>
+    <string name="msg_browser_not_found_netigen">Browser not found!!!</string>
 
     <!--  rating layout-->
-    <string name="rate_us_caps_netigen_api">RATE US</string>
-    <string name="follow_us_caps_netigen_api">FOLLOW US</string>
-    <string name="visit_www_netigen_api">Visit www.netigen.pl</string>
-    <string name="follow_facebook_netigen_api">Follow us on Facebook</string>
-    <string name="follow_twitter_netigen_api">Follow us on Twitter</string>
-    <string name="twitter_netigen_api">Twitter</string>
-    <string name="follow_g_plus_netigen_api">Follow us on Google+</string>
-    <string name="google_plus_netigen_api">Google+</string>
+    <string name="rate_us_caps_netigen">RATE US</string>
+    <string name="follow_us_caps_netigen">FOLLOW US</string>
+    <string name="visit_www_netigen">Visit www.netigen.pl</string>
+    <string name="follow_facebook_netigen">Follow us on Facebook</string>
+    <string name="follow_twitter_netigen">Follow us on Twitter</string>
+    <string name="twitter_netigen">Twitter</string>
+    <string name="follow_g_plus_netigen">Follow us on Google+</string>
+    <string name="google_plus_netigen">Google+</string>
     <!--                        <string name="graph_points">Graph points</string>-->
     <!--                        <string name="max_number_points_graph">Maximum number of points on graph</string>-->
     <!--                        <string name="wrong_value">You typed wrong value</string>-->
     <!--                        <string name="help_summary">Show help dialog</string>-->
-    <string name="ask_to_rate_us_netigen_api">Do you want to rate this Application?</string>
-    <string name="website_netigen_api">Website</string>
-    <string name="facebook_netigen_api">Facebook</string>
-    <string name="about_txt_netigen_api">\n<b>Ringtones</b> for Android\n\nDeveloped by <b>NETIGEN</b> Kluzowicz\u00A0sp.j\n\nPlease, send comments, feature requests or report bugs to:\nmobile@netigen.pl\n</string>
-    <string name="yes_netigen_api" translatable="false">Yes</string>
-    <string name="no_netigen_api" translatable="false">No</string>
-    <string name="cancel_netigen_api">@android:string/cancel</string>
+    <string name="ask_to_rate_us_netigen">Do you want to rate this Application?</string>
+    <string name="website_netigen">Website</string>
+    <string name="facebook_netigen">Facebook</string>
+    <string name="about_txt_netigen">\n<b>Ringtones</b> for Android\n\nDeveloped by <b>NETIGEN</b> Kluzowicz\u00A0sp.j\n\nPlease, send comments, feature requests or report bugs to:\nmobile@netigen.pl\n</string>
+    <string name="yes_netigen" translatable="false">Yes</string>
+    <string name="no_netigen" translatable="false">No</string>
+    <string name="cancel_netigen">@android:string/cancel</string>
 
-    <string name="google_plus_url_netigen_api">https://plus.google.com/u/0/109924704449111632896/posts</string>
-    <string name="twitter_url_netigen_api">https://twitter.com/Netigenpl</string>
-    <string name="youtube_netigen_api">https://www.youtube.com/channel/UClgxDILaB9iAadDOvRctuhw</string>
-    <string name="www_url_netigen_api">http://www.netigen.pl</string>
-    <string name="facebook_url_netigen_api">https://www.facebook.com/netigenpl?fref=ts</string>
-    <string name="play_app_id_link_netigen_api">market://details?id=</string>
-    <string name="samsung_app_id_link_netigen_api">samsungapps://ProductDetail/</string>
+    <string name="google_plus_url_netigen">https://plus.google.com/u/0/109924704449111632896/posts</string>
+    <string name="twitter_url_netigen">https://twitter.com/Netigenpl</string>
+    <string name="youtube_netigen">https://www.youtube.com/channel/UClgxDILaB9iAadDOvRctuhw</string>
+    <string name="www_url_netigen">http://www.netigen.pl</string>
+    <string name="facebook_url_netigen">https://www.facebook.com/netigenpl?fref=ts</string>
+    <string name="play_app_id_link_netigen">market://details?id=</string>
+    <string name="samsung_app_id_link_netigen">samsungapps://ProductDetail/</string>
 
     <!--More aps urls-->
     <!--                    <string name="dino_the_beast">Dino The Beast</string>-->
     <!--                    <string name="dino_the_beast_url">pl.netigen.dinothebeast</string>-->
 
-    <string name="do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars_netigen_api">Do you like this app? Please support us by rating this app. Thank you!</string>
-    <string name="no_exclamation_mark_netigen_api">No!</string>
-    <string name="yes_exclamation_mark_netigen_api">Yes!</string>
-    <string name="later_exclamation_mark_netigen_api">Later!</string>
+    <string name="do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars_netigen">Do you like this app? Please support us by rating this app. Thank you!</string>
+    <string name="no_exclamation_mark_netigen">No!</string>
+    <string name="yes_exclamation_mark_netigen">Yes!</string>
+    <string name="later_exclamation_mark_netigen">Later!</string>
 
-    <string name="change_language_netigen_api">Change language</string>
-    <string name="translation_information_title_netigen_api">Translation information</string>
-    <string name="translation_information_content1_netigen_api">This application has been translated by Google Translate. English is the original language of this application. Please remember that there could be some mistakes in translation. </string>
-    <string name="translation_information_content2_netigen_api">If you want to change the app language to English you can do so in settings.</string>
-    <string name="settings_upper_case_netigen_api">SETTINGS</string>
-    <string name="ok_upper_case_netigen_api">OK</string>
-    <string name="cancel_upper_case_netigen_api">CANCEL</string>
-    <string name="we_care_about_your_privacy_netigen_api">We care about your privacy and data security. We keep this app free by showing ads.</string>
-    <string name="we_care_about_your_privacy_landscape_netigen_api">We care about your privacy and data security.\nWe keep this app free by showing ads.</string>
-    <string name="i_accept_privacy_policy_netigen_api">I accept Netigen’s Privacy Policy</string>
-    <string name="pay_for_the_ad_free_version_netigen_api">Pay for the ad-free version</string>
-    <string name="back_netigen_api">Back</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen_api">Yes, continue to see relevant ads</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen_api">No, see ads that are less relevant</string>
+    <string name="change_language_netigen">Change language</string>
+    <string name="translation_information_title_netigen">Translation information</string>
+    <string name="translation_information_content1_netigen">This application has been translated by Google Translate. English is the original language of this application. Please remember that there could be some mistakes in translation. </string>
+    <string name="translation_information_content2_netigen">If you want to change the app language to English you can do so in settings.</string>
+    <string name="settings_upper_case_netigen">SETTINGS</string>
+    <string name="ok_upper_case_netigen">OK</string>
+    <string name="cancel_upper_case_netigen">CANCEL</string>
+    <string name="we_care_about_your_privacy_netigen">We care about your privacy and data security. We keep this app free by showing ads.</string>
+    <string name="we_care_about_your_privacy_landscape_netigen">We care about your privacy and data security.\nWe keep this app free by showing ads.</string>
+    <string name="i_accept_privacy_policy_netigen">I accept Netigen’s Privacy Policy</string>
+    <string name="pay_for_the_ad_free_version_netigen">Pay for the ad-free version</string>
+    <string name="back_netigen">Back</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Yes, continue to see relevant ads</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">No, see ads that are less relevant</string>
 
 </resources>
