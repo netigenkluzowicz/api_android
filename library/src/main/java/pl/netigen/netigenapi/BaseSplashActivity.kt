@@ -79,10 +79,8 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
         }
     }
 
-    abstract fun showFullscreen(): Boolean
-
     private fun startAdmobSplash() {
-        if (showFullscreen()) {
+        if (shouldShowInterstitialAd()) {
             if (!::initAdmobHandler.isInitialized) {
                 initAdmobHandler = Handler()
                 initAdmobHandler.post { this.initAdmob() }
