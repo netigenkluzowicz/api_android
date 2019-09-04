@@ -1,5 +1,7 @@
 https://jitpack.io/#netigenkluzowicz/api_android
 
+<h1>All project Strings are updated by adding a library name</h1>
+
 <h1>Current develop branch is Kotlin branch</h1>
 We strongly recommend working on Kotlin branch only for now.
 2.x branches are AndroidX migration branches
