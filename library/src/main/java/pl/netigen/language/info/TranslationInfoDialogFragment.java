@@ -218,15 +218,15 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
     private static class TranslationInfoParams {
 
         @StringRes
-        public int titleResId = R.string.translation_information_title;
+        public int titleResId = R.string.translation_information_title_netigen;
         @StringRes
-        public int negativeButtonResId = R.string.cancel_upper_case;
+        public int negativeButtonResId = R.string.cancel_upper_case_netigen;
         @StringRes
-        public int positiveButtonResId = R.string.settings_upper_case;
+        public int positiveButtonResId = R.string.settings_upper_case_netigen;
         @StringRes
-        public int textContentTopResId = R.string.translation_information_content1;
+        public int textContentTopResId = R.string.translation_information_content1_netigen;
         @StringRes
-        public int textContentBottomResId = R.string.translation_information_content2;
+        public int textContentBottomResId = R.string.translation_information_content2_netigen;
 
         public String[] properTranslations;
 

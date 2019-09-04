@@ -45,7 +45,7 @@ public class Utils {
 
     @NonNull
     private static String getMarketLink(Activity activity, String packageName) {
-        int link_id = Config.isSamsung() ? R.string.samsung_app_id_link : R.string.play_app_id_link;
+        int link_id = Config.isSamsung() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
         return activity.getString(link_id) + packageName;
     }
 
@@ -58,7 +58,7 @@ public class Utils {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(string));
             activity.startActivity(intent);
         } catch (Exception e) {
-            showShortToast(activity, activity.getResources().getString(R.string.msg_browser_not_found));
+            showShortToast(activity, activity.getResources().getString(R.string.msg_browser_not_found_netigen));
         }
     }
 
@@ -78,7 +78,7 @@ public class Utils {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
         builder.setTitle(titleId);
         builder.setMessage(activity.getString(stringID))
-                .setPositiveButton(R.string.ok,
+                .setPositiveButton(R.string.ok_netigen,
                         (d, id) -> d.dismiss());
         final AlertDialog dialog = builder.create();
         dialog.show();
@@ -124,7 +124,7 @@ public class Utils {
                 showRateUsDialog(activity);
                 break;
             case Const.ABOUT_DIALOG:
-                showLinkifyDialog(activity, R.string.about_title, R.string.about_txt);
+                showLinkifyDialog(activity, R.string.about_title_netigen, R.string.about_txt_netigen);
                 break;
         }
     }

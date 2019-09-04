@@ -149,7 +149,7 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
         if (languageCodes.contains(Locale.getDefault().getLanguage())) {
             buttonChangeLanguageOk.setText(getString(android.R.string.ok));
         } else {
-            buttonChangeLanguageOk.setText(getString(R.string.ok));
+            buttonChangeLanguageOk.setText(getString(R.string.ok_netigen));
         }
     }
 

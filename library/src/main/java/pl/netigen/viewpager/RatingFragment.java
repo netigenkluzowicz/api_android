@@ -32,7 +32,7 @@ public class RatingFragment extends PreferenceFragment implements Preference.OnP
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        if (preference.getKey().equals(getString(R.string.rate_us_caps))) {
+        if (preference.getKey().equals(getString(R.string.rate_us_caps_netigen))) {
             final Activity activity = getActivity();
             if (activity != null) {
                 final String packageName = activity.getPackageName();
@@ -41,19 +41,19 @@ public class RatingFragment extends PreferenceFragment implements Preference.OnP
         }
         switch (preference.getKey()) {
             case "website":
-                Utils.openLink(getActivity(), getString(R.string.www_url));
+                Utils.openLink(getActivity(), getString(R.string.www_url_netigen));
                 break;
             case "facebook":
-                Utils.openLink(getActivity(), getString(R.string.facebook_url));
+                Utils.openLink(getActivity(), getString(R.string.facebook_url_netigen));
                 break;
             case "twitter":
-                Utils.openLink(getActivity(), getString(R.string.twitter_url));
+                Utils.openLink(getActivity(), getString(R.string.twitter_url_netigen));
                 break;
             case "google":
-                Utils.openLink(getActivity(), getString(R.string.google_plus_url));
+                Utils.openLink(getActivity(), getString(R.string.google_plus_url_netigen));
                 break;
             case "youtube":
-                Utils.openLink(getActivity(), getString(R.string.youtube));
+                Utils.openLink(getActivity(), getString(R.string.youtube_netigen));
                 break;
         }
         return true;
