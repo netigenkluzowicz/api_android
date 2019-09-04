@@ -8,11 +8,11 @@ import pl.netigen.netigenapi.R;
 
 public class ChangeLanguageParams {
     @StringRes
-    public int titleResId = R.string.change_language;
+    public int titleResId = R.string.change_language_netigen;
     @StringRes
-    public int negativeButtonResId = R.string.cancel_upper_case;
+    public int negativeButtonResId = R.string.cancel_upper_case_netigen;
     @StringRes
-    public int positiveButtonResId = R.string.ok_upper_case;
+    public int positiveButtonResId = R.string.ok_upper_case_netigen;
     String jsonLanguageCodes;
     List<String> languageCodes;
     ChangeLanguageDialogFragment.LanguageClickListener languageClickListener;

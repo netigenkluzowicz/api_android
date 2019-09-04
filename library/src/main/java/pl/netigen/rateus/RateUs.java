@@ -133,17 +133,17 @@ public class RateUs {
     public static class Builder {
         private AppCompatActivity appCompatActivity;
         @StringRes
-        private int titleResId = R.string.rate_us;
+        private int titleResId = R.string.rate_us_netigen;
         @StringRes
         private int appNameResId;
         @StringRes
-        private int askForRateUsInfoId = R.string.do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars;
+        private int askForRateUsInfoId = R.string.do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars_netigen;
         @StringRes
-        private int notAskAgainResId = R.string.no_exclamation_mark;
+        private int notAskAgainResId = R.string.no_exclamation_mark_netigen;
         @StringRes
-        private int positiveResId = R.string.yes_exclamation_mark;
+        private int positiveResId = R.string.yes_exclamation_mark_netigen;
         @StringRes
-        private int neutralResId = R.string.later_exclamation_mark;
+        private int neutralResId = R.string.later_exclamation_mark_netigen;
         @DrawableRes
         private int appIconResId;
         private int clicksBeforeShowingRateUs = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG;

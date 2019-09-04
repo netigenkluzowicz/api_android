@@ -83,9 +83,9 @@ public class ViewPagerFragment extends Fragment {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case RATING:
-                    return getResources().getString(R.string.information);
+                    return getResources().getString(R.string.information_netigen);
                 case MORE_APPS:
-                    return getResources().getString(R.string.more_apps);
+                    return getResources().getString(R.string.more_apps_netigen);
             }
             return "";
         }
