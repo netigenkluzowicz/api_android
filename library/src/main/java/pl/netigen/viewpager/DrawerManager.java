@@ -2,13 +2,13 @@ package pl.netigen.viewpager;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import androidx.drawerlayout.widget.DrawerLayout;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;

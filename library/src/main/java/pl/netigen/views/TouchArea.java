@@ -1,6 +1,7 @@
 package pl.netigen.views;
 
 import android.graphics.RectF;
+
 import androidx.annotation.NonNull;
 
 public class TouchArea {

@@ -6,7 +6,6 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class RewardParams {
@@ -37,7 +36,7 @@ class RewardParams {
     RewardListenersList listeners;
 
     RewardParams() {
-        listeners = new RewardListenersList() ;
+        listeners = new RewardListenersList();
     }
 
 }

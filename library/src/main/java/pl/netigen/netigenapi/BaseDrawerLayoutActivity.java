@@ -1,11 +1,12 @@
 package pl.netigen.netigenapi;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
-import android.view.KeyEvent;
-import android.view.View;
 
 import pl.netigen.viewpager.DrawerManager;
 

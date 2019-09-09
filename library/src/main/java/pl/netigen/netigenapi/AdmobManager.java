@@ -7,14 +7,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.google.ads.consent.ConsentInformation;
 import com.google.ads.consent.ConsentStatus;
@@ -29,7 +28,6 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import java.lang.annotation.Retention;
-import java.util.ArrayList;
 import java.util.List;
 
 import pl.netigen.rewards.RewardItem;
@@ -123,7 +121,7 @@ public class AdmobManager implements RewardedVideoAdListener {
         if (rewardedVideoAd != null && rewardedVideoAd.isLoaded()) {
             rewardedVideoAd.show();
         } else {
-            if(!isRewardedAdLoading){
+            if (!isRewardedAdLoading) {
                 loadRewardedVideo(lastLoadedRewardedAdId);
             }
             if (rewardsListeners != null) {

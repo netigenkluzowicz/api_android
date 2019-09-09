@@ -3,12 +3,13 @@ package pl.netigen.viewpager;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.legacy.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.legacy.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import pl.netigen.netigenapi.R;
 

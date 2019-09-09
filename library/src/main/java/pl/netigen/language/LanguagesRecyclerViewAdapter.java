@@ -3,15 +3,16 @@ package pl.netigen.language;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.core.widget.CompoundButtonCompat;
-import androidx.appcompat.widget.AppCompatRadioButton;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatRadioButton;
+import androidx.core.widget.CompoundButtonCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 

@@ -6,13 +6,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.viewpager.widget.PagerAdapter;
+
 import com.bumptech.glide.Glide;
-
-
 
 import java.util.List;
 
-import androidx.viewpager.widget.PagerAdapter;
 import pl.netigen.netigenapi.R;
 
 

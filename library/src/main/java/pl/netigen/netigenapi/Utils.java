@@ -5,16 +5,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.core.app.ActivityCompat;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class Utils {
@@ -40,7 +42,7 @@ public class Utils {
     }
 
     public static boolean isPermissionGranted(AppCompatActivity activity, String permissionString) {
-            return ActivityCompat.checkSelfPermission(activity, permissionString) == PackageManager.PERMISSION_GRANTED;
+        return ActivityCompat.checkSelfPermission(activity, permissionString) == PackageManager.PERMISSION_GRANTED;
     }
 
     @NonNull

@@ -32,7 +32,7 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
             Config.setNoAdsBought(false)
             if (shouldShowInterstitialAd())
                 showConsent()
-            else{
+            else {
                 clickNo()
                 startNextActivity()
             }

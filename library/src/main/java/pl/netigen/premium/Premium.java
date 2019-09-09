@@ -3,13 +3,13 @@ package pl.netigen.premium;
 import android.view.Display;
 import android.view.View;
 
-import java.util.List;
-
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import java.util.List;
 
 public class Premium {
 
@@ -28,7 +28,7 @@ public class Premium {
 
                     int premiumOptionsTitle, int textBuyButton, String price, List<PremiumItem> premiumItems,
 
-                    View.OnClickListener clickBuyPremium,Display display) {
+                    View.OnClickListener clickBuyPremium, Display display) {
         this.bgImage = bgImage;
         this.titleImage = titleImage;
         this.bgPremiumItem = bgPremiumItem;
@@ -103,7 +103,7 @@ public class Premium {
 
         public Premium createObject() {
             return new Premium(bgImage, titleImage, bgPremiumItem, imageButtonBuy,
-                    premiumOptionsTitle, textBuyButton, price, premiumItems, clickBuyPremium,display);
+                    premiumOptionsTitle, textBuyButton, price, premiumItems, clickBuyPremium, display);
 
         }
     }
