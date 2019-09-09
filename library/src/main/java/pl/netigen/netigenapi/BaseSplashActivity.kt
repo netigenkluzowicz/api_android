@@ -30,7 +30,12 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
         Config.initialize(configBuilder)
         if (!isNoAdsPaymentAvailable()) {
             Config.setNoAdsBought(false)
-            showConsent()
+            if (shouldShowInterstitialAd())
+                showConsent()
+            else{
+                clickNo()
+                startNextActivity()
+            }
         }
     }
 
@@ -86,9 +91,14 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
                 initAdmobHandler.post { this.initAdmob() }
             }
         } else {
-            startActivity(intentToLaunch)
-            finish()
+            clickNo()
+            startNextActivity()
         }
+    }
+
+    private fun startNextActivity() {
+        startActivity(intentToLaunch)
+        finish()
     }
 
     internal open fun initAdmob() {
@@ -126,11 +136,9 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
     override fun onNoAdsPaymentProcessingFinished(noAdsBought: Boolean) {
         closeRodoFragment()
         Config.setNoAdsBought(noAdsBought)
-        if (noAdsBought) {
-            startActivity(intentToLaunch)
-            finish()
-        } else {
+        if (noAdsBought)
+            startNextActivity()
+        else
             showConsent()
-        }
     }
 }
