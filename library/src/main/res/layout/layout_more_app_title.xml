@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="@string/more_apps"
+                android:text="@string/more_apps_netigen"
                 android:textColor="@color/colorWhite"
                 android:textSize="30sp" />
 

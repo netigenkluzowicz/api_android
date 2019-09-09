@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:gravity="center"
-        android:text="@string/rate_us"
+        android:text="@string/rate_us_netigen"
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/ask_to_rate_us"
+                android:text="@string/ask_to_rate_us_netigen"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="@string/yes" />
+            android:text="@string/yes_netigen" />
 
         <Button
             android:id="@+id/button_no"
@@ -71,6 +71,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="@string/no"/>
+            android:text="@string/no_netigen"/>
     </LinearLayout>
 </LinearLayout>
