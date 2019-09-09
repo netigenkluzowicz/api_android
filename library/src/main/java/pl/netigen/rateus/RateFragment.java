@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +13,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatDialogFragment;
 
 import pl.netigen.netigenapi.R;
 
@@ -46,10 +47,9 @@ public class RateFragment extends AppCompatDialogFragment {
             dismiss();
             return view;
         } else {
-            if(rateUs.isDefaultPopUp) {
+            if (rateUs.isDefaultPopUp) {
                 setDefaultPopupViews(view);
-            }
-            else {
+            } else {
                 view = inflater.inflate(getResources().getLayout(rateUs.customLayoutId), container, false);
             }
         }

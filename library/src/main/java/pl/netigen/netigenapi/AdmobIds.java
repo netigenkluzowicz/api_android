@@ -19,5 +19,7 @@ public interface AdmobIds {
         return null;
     }
 
-    default boolean shouldLoadRewardedAd() { return false; }
+    default boolean shouldLoadRewardedAd() {
+        return false;
+    }
 }

@@ -1,8 +1,5 @@
 package pl.netigen.netigenapi;
 
-import android.content.Context;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class TextUtils {

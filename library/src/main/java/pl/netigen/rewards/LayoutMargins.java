@@ -14,18 +14,18 @@ public class LayoutMargins {
     private LayoutMargins() {
     }
 
-    void setNewLayoutParamsForView(View view){
+    void setNewLayoutParamsForView(View view) {
         ConstraintLayout.MarginLayoutParams layoutParams = (ConstraintLayout.MarginLayoutParams) view.getLayoutParams();
-        if(left!=null){
+        if (left != null) {
             layoutParams.leftMargin = left;
         }
-        if(right!=null){
+        if (right != null) {
             layoutParams.rightMargin = right;
         }
-        if(top!=null){
+        if (top != null) {
             layoutParams.topMargin = top;
         }
-        if(bottom!=null){
+        if (bottom != null) {
             layoutParams.bottomMargin = bottom;
         }
     }
@@ -58,7 +58,7 @@ public class LayoutMargins {
             return this;
         }
 
-        public LayoutMargins create(){
+        public LayoutMargins create() {
             return this.layoutMargins;
         }
 

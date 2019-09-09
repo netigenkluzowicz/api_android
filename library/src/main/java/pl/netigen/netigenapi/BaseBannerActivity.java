@@ -1,14 +1,12 @@
 package pl.netigen.netigenapi;
 
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdSize;
 

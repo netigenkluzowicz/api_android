@@ -4,12 +4,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.appcompat.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -19,6 +13,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDialogFragment;
 
 import pl.netigen.netigenapi.R;
 
@@ -167,7 +166,7 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
             this.translationInfoParams = new TranslationInfoParams();
         }
 
-        public AppCompatActivity getActivity(){
+        public AppCompatActivity getActivity() {
             return appCompatActivity;
         }
 
@@ -201,7 +200,7 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
-        public Builder setProperTranslations(String[] properTranslations){
+        public Builder setProperTranslations(String[] properTranslations) {
             translationInfoParams.properTranslations = properTranslations;
             return this;
         }

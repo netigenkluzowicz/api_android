@@ -3,7 +3,6 @@ package pl.netigen.premium;
 import android.os.Build;
 import android.view.View;
 
-
 import androidx.viewpager.widget.ViewPager;
 
 public class CarouselEffectTransformer implements ViewPager.PageTransformer {

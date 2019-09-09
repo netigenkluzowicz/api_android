@@ -10,19 +10,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.viewpager.widget.ViewPager;
+
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.viewpager.widget.ViewPager;
 import pl.netigen.netigenapi.R;
 
 
-
 public class PremiumFragment extends AppCompatDialogFragment {
-
 
 
     private int bgImage;
@@ -83,7 +82,7 @@ public class PremiumFragment extends AppCompatDialogFragment {
 
     private void initValues() {
         point = new Point();
-        if(premiumBuilder != null) {
+        if (premiumBuilder != null) {
             bgImage = premiumBuilder.bgImage;
             titleImage = premiumBuilder.titleImage;
             bgPremiumItem = premiumBuilder.bgPremiumItem;

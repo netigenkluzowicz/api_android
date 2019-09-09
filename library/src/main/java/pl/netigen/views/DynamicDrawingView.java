@@ -2,9 +2,10 @@ package pl.netigen.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 /**
  * This class represents the basic building block for drawing dynamic views.

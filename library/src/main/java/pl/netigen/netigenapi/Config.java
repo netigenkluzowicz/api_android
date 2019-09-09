@@ -41,7 +41,7 @@ public class Config {
         return instance;
     }
 
-    public static List<String> getTestDevices(){
+    public static List<String> getTestDevices() {
         return getInstance().testDevices;
     }
 
