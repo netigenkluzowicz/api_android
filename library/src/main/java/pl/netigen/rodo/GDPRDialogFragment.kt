@@ -28,10 +28,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         if (dialog != null) {
-            val window = dialog.window
+            val window = dialog?.window
             if (window != null) {
                 window.requestFeature(Window.FEATURE_NO_TITLE)
-                dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             }
         }
         return inflater.inflate(R.layout.dialog_fragment_gdpr, container, false)
@@ -156,7 +156,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         offlinePrivacyPolicyTextView.append(ConstRodo.textPolicy2)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is GDPRClickListener) {
             gdprClickListener = context
