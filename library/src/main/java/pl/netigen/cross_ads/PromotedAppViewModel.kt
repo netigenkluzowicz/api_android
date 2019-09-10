@@ -1,7 +1,6 @@
 package pl.netigen.cross_ads
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +10,6 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
-import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -57,14 +55,12 @@ class PromotedAppViewModel(application: Application) : AndroidViewModel(applicat
         return try {
             webservice.getPromoteApplicationAsync(packageName)
         } catch (exception: Exception) {
-            Log.e("PromotedAppViewModel", "getPromotedApplication: error: ${exception.message} " +
-                    "\nstack: ${exception.stackTrace.joinToString(separator = "\n")}")
             null
         }
     }
 
-    public fun preparePromotedIconPath(promotedIcon: PromotedAppModel): String {
-        return PromotedAppViewModel.BASE_URL + promotedIcon.iconLink!!
+     fun preparePromotedIconPath(promotedIcon: PromotedAppModel): String {
+        return BASE_URL + promotedIcon.iconLink!!
     }
 
     companion object {

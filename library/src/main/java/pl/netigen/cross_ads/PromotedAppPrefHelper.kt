@@ -1,8 +1,6 @@
 package pl.netigen.cross_ads
 
 import android.content.Context
-import android.util.Log
-
 
 internal class PromotedAppPrefHelper(val context: Context) {
 
@@ -51,7 +49,6 @@ internal class PromotedAppPrefHelper(val context: Context) {
         val crossAdModel = PromotedAppModel()
         crossAdModel.iconLink = getPromotedAppIconPath()
         crossAdModel.promotePackageName = getPromotedAppPackageName()
-        Log.d("PromotedAppPrefHelper", " getSavedCrossAdModel: iconLink ${crossAdModel.iconLink} + packageName: ${crossAdModel.promotePackageName}");
         return crossAdModel
     }
 
@@ -63,7 +60,6 @@ internal class PromotedAppPrefHelper(val context: Context) {
 
     companion object {
         var defaultPackageName = "pl.netigen.notepad"
-        var png = ".png"
         private const val LAST_UPDATE_KEY = "lastUpdateKey"
         private const val PROMOTED_APP_PREFERENCES_NAME = "promote"
         private const val PROMOTE_PACKAGE_NAME = "promote_packagename"
