@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 
 fun DialogFragment.setDialogSize(widthMultiplier: Double, heightMultiplier: Double) {
-    val window = dialog.window
+    val window = dialog?.window
     val size = Point()
     val display: Display
     if (window != null) {
