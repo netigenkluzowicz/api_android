@@ -26,7 +26,7 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        contentView = contentView
+        setContentView(splashContentView)
         Config.initialize(configBuilder)
         if (!isNoAdsPaymentAvailable()) {
             Config.setNoAdsBought(false)
@@ -37,6 +37,10 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
                 startNextActivity()
             }
         }
+    }
+
+    override fun showFullscreen(): Boolean {
+        return super.showFullscreen()
     }
 
     private fun showConsent() {

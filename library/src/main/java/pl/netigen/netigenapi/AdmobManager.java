@@ -280,6 +280,7 @@ public class AdmobManager implements RewardedVideoAdListener {
         showFullScreenIfPossible(showFullScreenListener);
     }
 
+    @java.lang.Deprecated
     @Deprecated(message = "use showInterstitialAdIfPossible instead")
     public void showFullScreenIfPossible(@NonNull ShowFullScreenListener showFullScreenListener) {
         if (isNoAdsBought()) {
