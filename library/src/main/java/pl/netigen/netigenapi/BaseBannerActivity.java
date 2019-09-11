@@ -35,7 +35,7 @@ public abstract class BaseBannerActivity extends AppCompatActivity implements Ad
         }
     }
 
-    protected void setFullscreenDelay(long fullscreenDelay) {
+    protected void setDelayBetweenInterstitialAds(long fullscreenDelay) {
         admobManager.setDelayBetweenInterstitialAds(fullscreenDelay);
     }
 
