@@ -30,6 +30,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import java.lang.annotation.Retention;
 import java.util.List;
 
+import kotlin.Deprecated;
 import pl.netigen.rewards.RewardItem;
 import pl.netigen.rewards.RewardListenersList;
 import pl.netigen.rewards.RewardsListener;
@@ -51,16 +52,16 @@ public class AdmobManager implements RewardedVideoAdListener {
     private static final long REFRESH_TIME = 333;
     private static final long DEFAULT_MIN_WAIT = 2000;
     private static final long DEFAULT_MAX_WAIT = 7000;
-    private static InterstitialAd interstitial;
-    private static boolean fullAdError;
-    private final Handler fullScreenHandler = new Handler();
-    private String fullScreenId;
+    private static InterstitialAd interstitialAd;
+    private static boolean interstitialAdError;
+    private final Handler interstitialAdHandler = new Handler();
+    private String interstitialAdId;
     private String bannerId;
     private Activity activity;
     private AdView bannerView;
-    private long loadingAdsStartTime;
-    private long minWaitForSplashFullScreen = DEFAULT_MIN_WAIT;
-    private long maxWaitForSplashFullScreen = DEFAULT_MAX_WAIT;
+    private long lastInterstitialAdDisplayTime;
+    private long minWaitForInterstitialAfterSplash = DEFAULT_MIN_WAIT;
+    private long maxWaitForInterstitialAfterSplash = DEFAULT_MAX_WAIT;
     private int loadedBannerOrientation = 0;
     private boolean isMultiFullscreenApp;
     private boolean isSplashInBackground;
@@ -72,10 +73,12 @@ public class AdmobManager implements RewardedVideoAdListener {
     private List<RewardItem> rewardItems;
     private boolean wasRewardAdSuccessful = false;
     private RewardListenersList rewardsListeners;
+    private long timeToDelayInterstitial = 0;
 
-    private AdmobManager(String bannerId, String fullScreenId, @NonNull Activity activity) {
+
+    private AdmobManager(String bannerId, String interstitialAdId, @NonNull Activity activity) {
         this.bannerId = bannerId;
-        this.fullScreenId = fullScreenId;
+        this.interstitialAdId = interstitialAdId;
         this.activity = activity;
         rewardsListeners = new RewardListenersList();
     }
@@ -84,8 +87,8 @@ public class AdmobManager implements RewardedVideoAdListener {
 
     }
 
-    public static AdmobManager create(String bannerId, String fullScreenId, Activity activity) {
-        return new AdmobManager(bannerId, fullScreenId, activity);
+    public static AdmobManager create(String bannerId, String interstitialAdId, Activity activity) {
+        return new AdmobManager(bannerId, interstitialAdId, activity);
     }
 
     public static AdmobManager createNoAdsInstance() {
@@ -113,6 +116,10 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
     }
 
+    public void setDelayBetweenInterstitialAds(long delayTime) {
+        this.timeToDelayInterstitial = delayTime;
+    }
+
     public void showRewardedVideoForItems(@NonNull List<pl.netigen.rewards.RewardItem> rewardItems, @Nullable List<RewardsListener> listeners) {
         if (listeners != null)
             rewardsListeners.addAll(listeners);
@@ -133,12 +140,12 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
     }
 
-    public long getMaxWaitForSplashFullScreen() {
-        return maxWaitForSplashFullScreen;
+    public long getMaxWaitForInterstitialAfterSplash() {
+        return maxWaitForInterstitialAfterSplash;
     }
 
-    public void setMaxWaitForSplashFullScreen(long maxWaitForSplashFullScreen) {
-        this.maxWaitForSplashFullScreen = maxWaitForSplashFullScreen;
+    public void setMaxWaitForInterstitialAfterSplash(long maxWaitForInterstitialAfterSplash) {
+        this.maxWaitForInterstitialAfterSplash = maxWaitForInterstitialAfterSplash;
     }
 
     private void addView(RelativeLayout layout, AdView adView) {
@@ -252,60 +259,82 @@ public class AdmobManager implements RewardedVideoAdListener {
     }
 
     private void launchSplashLoaderOrStartMainActivity(Intent activityToLaunch) {
-        loadingAdsStartTime = System.currentTimeMillis();
-        fullScreenHandler.removeCallbacksAndMessages(null);
+        lastInterstitialAdDisplayTime = System.currentTimeMillis();
+        interstitialAdHandler.removeCallbacksAndMessages(null);
         if (isNoAdsBought()) {
             launchTargetActivity(activityToLaunch);
             return;
         }
-        if (interstitial.isLoaded()) {
-            showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch));
+        if (interstitialAd.isLoaded()) {
+            showInterstitialAdIfPossible(success -> launchTargetActivity(activityToLaunch));
         } else if (!isOnline()) {
             launchTargetActivity(activityToLaunch);
         } else {
             SplashScreenLoader splashScreenLoader = new SplashScreenLoader(activityToLaunch);
-            fullScreenHandler.postDelayed(splashScreenLoader, REFRESH_TIME);
+            interstitialAdHandler.postDelayed(splashScreenLoader, REFRESH_TIME);
         }
     }
 
+    public void showInterstitialAdIfPossible(@NonNull ShowFullScreenListener showFullScreenListener) {
+        showFullScreenIfPossible(showFullScreenListener);
+    }
+
+    @java.lang.Deprecated
+    @Deprecated(message = "use showInterstitialAdIfPossible instead")
     public void showFullScreenIfPossible(@NonNull ShowFullScreenListener showFullScreenListener) {
         if (isNoAdsBought()) {
             showFullScreenListener.onShowedOrNotLoaded(false);
             return;
         }
-        if (interstitial == null) {
+        if (interstitialAd == null) {
             loadInterstitial(activity);
             showFullScreenListener.onShowedOrNotLoaded(false);
             return;
         }
-        if (interstitial.isLoaded()) {
-            interstitial.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    showFullScreenListener.onShowedOrNotLoaded(true);
-                    if (isMultiFullscreenApp) {
-                        loadInterstitialIfNeeded(activity);
-                    }
-                }
-            });
-            interstitial.show();
-        } else {
-            showFullScreenListener.onShowedOrNotLoaded(false);
-            if (!interstitial.isLoading()) {
-                loadInterstitialIfNeeded(activity);
+        if (interstitialAd.isLoaded())
+            manageInterstitialIfIsLoaded(showFullScreenListener);
+        else
+            manageInterstitialIfNotLoaded(showFullScreenListener);
+
+    }
+
+    private void manageInterstitialIfNotLoaded(@NonNull ShowFullScreenListener showFullScreenListener) {
+        showFullScreenListener.onShowedOrNotLoaded(false);
+        if (!interstitialAd.isLoading())
+            loadInterstitialIfNeeded(activity);
+    }
+
+    private void manageInterstitialIfIsLoaded(@NonNull ShowFullScreenListener showFullScreenListener) {
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                showFullScreenListener.onShowedOrNotLoaded(true);
+                if (isMultiFullscreenApp)
+                    loadInterstitialIfNeeded(activity);
+            }
+        });
+
+
+        if (timeToDelayInterstitial == 0)
+            interstitialAd.show();
+        else {
+            long currentTime = System.currentTimeMillis();
+            if (lastInterstitialAdDisplayTime == 0 || ((lastInterstitialAdDisplayTime + timeToDelayInterstitial) < currentTime)) {
+                interstitialAd.show();
+                lastInterstitialAdDisplayTime = currentTime;
             }
         }
     }
 
     private void loadInterstitial(Context context) {
         if (context != null) {
-            interstitial = new InterstitialAd(context);
-            interstitial.setAdUnitId(fullScreenId);
-            interstitial.setAdListener(new AdListener() {
+            interstitialAd = new InterstitialAd(context);
+            interstitialAd.setAdUnitId(interstitialAdId);
+            interstitialAd.setAdListener(new AdListener() {
                 @Override
                 public void onAdFailedToLoad(int errorCode) {
                     super.onAdFailedToLoad(errorCode);
-                    fullAdError = true;
+                    interstitialAdError = true;
                 }
             });
         }
@@ -320,17 +349,17 @@ public class AdmobManager implements RewardedVideoAdListener {
         if (isNoAdsBought()) {
             return;
         }
-        if (interstitial == null) {
+        if (interstitialAd == null) {
             loadInterstitial(context);
         }
-        fullAdError = false;
-        if (interstitial != null && !interstitial.isLoading()) {
-            interstitial.loadAd(getAdRequest());
+        interstitialAdError = false;
+        if (interstitialAd != null && !interstitialAd.isLoading()) {
+            interstitialAd.loadAd(getAdRequest());
         }
     }
 
     private void launchTargetActivity(Intent activityToLaunch) {
-        fullScreenHandler.removeCallbacksAndMessages(null);
+        interstitialAdHandler.removeCallbacksAndMessages(null);
         if (!launched) {
             activity.startActivity(activityToLaunch);
             activity.finish();
@@ -351,21 +380,21 @@ public class AdmobManager implements RewardedVideoAdListener {
     }
 
     public void splashScreenOnDestroy() {
-        fullScreenHandler.removeCallbacksAndMessages(null);
+        interstitialAdHandler.removeCallbacksAndMessages(null);
     }
 
     public void bannerActivityOnCreate() {
-        if (fullAdError && isMultiFullscreenApp) {
+        if (interstitialAdError && isMultiFullscreenApp) {
             loadInterstitialIfNeeded(activity);
         }
     }
 
-    public long getMinWaitForSplashFullScreen() {
-        return minWaitForSplashFullScreen;
+    public long getMinWaitForInterstitialAfterSplash() {
+        return minWaitForInterstitialAfterSplash;
     }
 
-    public void setMinWaitForSplashFullScreen(long minWaitForSplashFullScreen) {
-        this.minWaitForSplashFullScreen = minWaitForSplashFullScreen;
+    public void setMinWaitForInterstitialAfterSplash(long minWaitForInterstitialAfterSplash) {
+        this.minWaitForInterstitialAfterSplash = minWaitForInterstitialAfterSplash;
     }
 
     public RewardedVideoAd getRewardedVideoAd() {
@@ -443,24 +472,24 @@ public class AdmobManager implements RewardedVideoAdListener {
         @Override
         public void run() {
             if (refreshHandler()) {
-                fullScreenHandler.postDelayed(this, REFRESH_TIME);
+                interstitialAdHandler.postDelayed(this, REFRESH_TIME);
             } else {
                 if (isNoAdsBought()) {
                     launchTargetActivity(activityToLaunch);
                     return;
                 }
-                if (interstitial.isLoaded()) {
-                    showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch));
-                    fullScreenHandler.removeCallbacksAndMessages(null);
-                } else if (System.currentTimeMillis() - loadingAdsStartTime < maxWaitForSplashFullScreen) {
-                    if (fullAdError) {
+                if (interstitialAd.isLoaded()) {
+                    showInterstitialAdIfPossible(success -> launchTargetActivity(activityToLaunch));
+                    interstitialAdHandler.removeCallbacksAndMessages(null);
+                } else if (System.currentTimeMillis() - lastInterstitialAdDisplayTime < maxWaitForInterstitialAfterSplash) {
+                    if (interstitialAdError) {
                         if (isOnline()) {
-                            fullScreenHandler.postDelayed(this, REFRESH_TIME);
+                            interstitialAdHandler.postDelayed(this, REFRESH_TIME);
                         } else {
                             launchTargetActivity(activityToLaunch);
                         }
                     } else {
-                        fullScreenHandler.postDelayed(this, REFRESH_TIME);
+                        interstitialAdHandler.postDelayed(this, REFRESH_TIME);
                     }
                 } else {
                     launchTargetActivity(activityToLaunch);
@@ -469,7 +498,7 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
 
         private boolean refreshHandler() {
-            return System.currentTimeMillis() - loadingAdsStartTime < minWaitForSplashFullScreen || isSplashInBackground;
+            return System.currentTimeMillis() - lastInterstitialAdDisplayTime < minWaitForInterstitialAfterSplash || isSplashInBackground;
         }
     }
 }
