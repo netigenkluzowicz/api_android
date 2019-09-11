@@ -275,7 +275,6 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
     }
 
-
     public void showInterstitialAdIfPossible(@NonNull ShowFullScreenListener showFullScreenListener) {
         showFullScreenIfPossible(showFullScreenListener);
     }

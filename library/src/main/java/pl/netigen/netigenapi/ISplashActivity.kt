@@ -25,7 +25,7 @@ internal interface ISplashActivity {
     }
 
     @Deprecated("", replaceWith = ReplaceWith("shouldShowInterstitialAd()"))
-    open fun showFullscreen(): Boolean {
+    fun showFullscreen(): Boolean {
         return true
     }
 }

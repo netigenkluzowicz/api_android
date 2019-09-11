@@ -39,10 +39,6 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
         }
     }
 
-    override fun showFullscreen(): Boolean {
-        return super.showFullscreen()
-    }
-
     private fun showConsent() {
         val consentInformation = ConsentInformation.getInstance(this)
         consentInformation.requestConsentInfoUpdate(getPublisherIds(), object : ConsentInfoUpdateListener {
