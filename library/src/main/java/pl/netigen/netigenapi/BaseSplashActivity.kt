@@ -26,8 +26,8 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(splashContentView)
-        Config.initialize(configBuilder)
+        setContentView(getContentView())
+        Config.initialize(getConfigBuilder())
         if (!isNoAdsPaymentAvailable()) {
             Config.setNoAdsBought(false)
             if (shouldShowInterstitialAd())
@@ -45,7 +45,7 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
 
     private fun showConsent() {
         val consentInformation = ConsentInformation.getInstance(this)
-        consentInformation.requestConsentInfoUpdate(publisherIds, object : ConsentInfoUpdateListener {
+        consentInformation.requestConsentInfoUpdate(getPublisherIds(), object : ConsentInfoUpdateListener {
             override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
                 val isInEea = ConsentInformation.getInstance(this@BaseSplashActivity).isRequestLocationInEeaOrUnknown
                 ConstRodo.setIsInEea(isInEea)
@@ -101,14 +101,14 @@ abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobI
     }
 
     private fun startNextActivity() {
-        startActivity(intentToLaunch)
+        startActivity(getIntentToLaunch())
         finish()
     }
 
     internal open fun initAdmob() {
         MobileAds.initialize(this, admobAppID)
         admobManager = AdmobManager.create(bannerId, fullScreenId, this)
-        admobManager?.splashScreenOnCreate(intentToLaunch)
+        admobManager?.splashScreenOnCreate(getIntentToLaunch())
     }
 
     override fun onBackPressed() {

@@ -8,16 +8,15 @@ internal interface ISplashActivity {
     /**
      * @return Intent(Activity) to launch after initialization
      */
-    var intentToLaunch: Intent
+    fun getIntentToLaunch(): Intent
 
-    var configBuilder: ConfigBuilder
+    fun getConfigBuilder(): ConfigBuilder
 
-    val publisherIds: Array<String>
-        get() = PUBLISHER_IDS
+    fun getPublisherIds() = arrayOf("pub-4699516034931013")
 
-    var splashContentView: Int
+    fun getContentView(): Int
 
-    var splashFragmentRodoContainerId: Int
+    fun getSplashFragmentRodoContainerId(): Int
 
     fun onNoAdsPaymentProcessingFinished(noAdsBought: Boolean)
 
@@ -28,9 +27,5 @@ internal interface ISplashActivity {
     @Deprecated("", replaceWith = ReplaceWith("shouldShowInterstitialAd()"))
     open fun showFullscreen(): Boolean {
         return true
-    }
-
-    companion object {
-        val PUBLISHER_IDS = arrayOf("pub-4699516034931013")
     }
 }
