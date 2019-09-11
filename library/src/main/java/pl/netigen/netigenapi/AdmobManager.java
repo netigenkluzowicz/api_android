@@ -58,7 +58,7 @@ public class AdmobManager implements RewardedVideoAdListener {
     private String bannerId;
     private Activity activity;
     private AdView bannerView;
-    private long loadingAdsStartTime;
+    private long lastShowedFullScreenTime;
     private long minWaitForSplashFullScreen = DEFAULT_MIN_WAIT;
     private long maxWaitForSplashFullScreen = DEFAULT_MAX_WAIT;
     private int loadedBannerOrientation = 0;
@@ -72,6 +72,8 @@ public class AdmobManager implements RewardedVideoAdListener {
     private List<RewardItem> rewardItems;
     private boolean wasRewardAdSuccessful = false;
     private RewardListenersList rewardsListeners;
+    private long timeToDelay = 0;
+
 
     private AdmobManager(String bannerId, String fullScreenId, @NonNull Activity activity) {
         this.bannerId = bannerId;
@@ -82,6 +84,10 @@ public class AdmobManager implements RewardedVideoAdListener {
 
     private AdmobManager() {
 
+    }
+
+    public void setTimeToDelayFullscreen(long timeToDelay) {
+        this.timeToDelay = timeToDelay;
     }
 
     public static AdmobManager create(String bannerId, String fullScreenId, Activity activity) {
@@ -252,7 +258,7 @@ public class AdmobManager implements RewardedVideoAdListener {
     }
 
     private void launchSplashLoaderOrStartMainActivity(Intent activityToLaunch) {
-        loadingAdsStartTime = System.currentTimeMillis();
+        lastShowedFullScreenTime = System.currentTimeMillis();
         fullScreenHandler.removeCallbacksAndMessages(null);
         if (isNoAdsBought()) {
             launchTargetActivity(activityToLaunch);
@@ -294,6 +300,45 @@ public class AdmobManager implements RewardedVideoAdListener {
             if (!interstitial.isLoading()) {
                 loadInterstitialIfNeeded(activity);
             }
+        }
+    }
+
+    public void showFullScreenIfPossiblee(@NonNull ShowFullScreenListener showFullScreenListener) {
+        if (isNoAdsBought()) {
+            showFullScreenListener.onShowedOrNotLoaded(false);
+            return;
+        }
+        if (interstitial == null) {
+            loadInterstitial(activity);
+            showFullScreenListener.onShowedOrNotLoaded(false);
+            return;
+        }
+        if (interstitial.isLoaded()) {
+            interstitial.setAdListener(new AdListener() {
+                @Override
+                public void onAdClosed() {
+                    showFullScreenListener.onShowedOrNotLoaded(true);
+                    if (isMultiFullscreenApp) {
+                        loadInterstitialIfNeeded(activity);
+                    }
+                }
+            });
+
+
+            if (timeToDelay == 0)
+                interstitial.show();
+            else {
+                long currentTime = System.currentTimeMillis();
+                if (lastShowedFullScreenTime == 0 || ((lastShowedFullScreenTime + timeToDelay) < currentTime)) {
+                    interstitial.show();
+                    lastShowedFullScreenTime = currentTime;
+                }
+            }
+
+        } else {
+            showFullScreenListener.onShowedOrNotLoaded(false);
+            if (!interstitial.isLoading())
+                loadInterstitialIfNeeded(activity);
         }
     }
 
@@ -452,7 +497,7 @@ public class AdmobManager implements RewardedVideoAdListener {
                 if (interstitial.isLoaded()) {
                     showFullScreenIfPossible(success -> launchTargetActivity(activityToLaunch));
                     fullScreenHandler.removeCallbacksAndMessages(null);
-                } else if (System.currentTimeMillis() - loadingAdsStartTime < maxWaitForSplashFullScreen) {
+                } else if (System.currentTimeMillis() - lastShowedFullScreenTime < maxWaitForSplashFullScreen) {
                     if (fullAdError) {
                         if (isOnline()) {
                             fullScreenHandler.postDelayed(this, REFRESH_TIME);
@@ -469,7 +514,7 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
 
         private boolean refreshHandler() {
-            return System.currentTimeMillis() - loadingAdsStartTime < minWaitForSplashFullScreen || isSplashInBackground;
+            return System.currentTimeMillis() - lastShowedFullScreenTime < minWaitForSplashFullScreen || isSplashInBackground;
         }
     }
 }
