@@ -32,6 +32,7 @@ interface ISplashActivity {
         return showFullscreen();
     }
 
+    @java.lang.Deprecated
     @Deprecated(message = "use shouldShowInterstitialAd() instead")
     default boolean showFullscreen() {
         return true;
