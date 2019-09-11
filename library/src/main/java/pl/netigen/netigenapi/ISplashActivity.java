@@ -4,6 +4,8 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 
+import kotlin.Deprecated;
+
 
 interface ISplashActivity {
     String[] PUBLISHER_IDS = {"pub-4699516034931013"};
@@ -26,8 +28,12 @@ interface ISplashActivity {
 
     void onNoAdsPaymentProcessingFinished(boolean noAdsBought);
 
-    default Boolean shouldShowInterstitialAd() {
-        return true;
+    default boolean shouldShowInterstitialAd() {
+        return showFullscreen();
     }
 
+    @Deprecated(message = "use shouldShowInterstitialAd() instead")
+    default boolean showFullscreen() {
+        return true;
+    }
 }
