@@ -4,40 +4,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-repositories {
-    google()
-    jcenter()
-    mavenCentral()
-    maven { url "https://jitpack.io" }
-}
+apply from: '../repositories.gradle'
+apply from: '../android.gradle'
 
 group = Config.group
 version = '2.5.0'
-
-android {
-    compileSdkVersion Config.compileSdk
-    buildToolsVersion Config.buildTools
-
-    defaultConfig {
-        minSdkVersion Config.minSdk
-        targetSdkVersion Config.targetSdk
-        versionName version
-    }
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility Config.javaVersion
-        targetCompatibility Config.javaVersion
-    }
-}
 
 dependencies {
 
