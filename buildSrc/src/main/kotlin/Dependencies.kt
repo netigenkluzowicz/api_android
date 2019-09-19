@@ -90,7 +90,7 @@ object Dependencies {
 
     //Testing
     val junit = "junit:junit:${Versions.junit}"
-    val testRunner = "androidx.test:runner${Versions.testRunner}"
+    val testRunner = "androidx.test:runner:${Versions.testRunner}"
     val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
 
     val cropper = "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}"
