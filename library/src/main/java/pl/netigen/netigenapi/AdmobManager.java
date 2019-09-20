@@ -110,7 +110,7 @@ public class AdmobManager implements RewardedVideoAdListener {
 
     void loadRewardedVideo(String rewardedAdId) {
         lastLoadedRewardedAdId = rewardedAdId;
-        if (!rewardedVideoAd.isLoaded()) {
+        if (!rewardedVideoAd.isLoaded() && !isRewardedAdLoading) {
             rewardedVideoAd.loadAd(rewardedAdId, new AdRequest.Builder().build());
             isRewardedAdLoading = true;
         }
@@ -409,17 +409,20 @@ public class AdmobManager implements RewardedVideoAdListener {
 
     @Override
     public void onRewardedVideoAdOpened() {
+        isRewardedAdLoading = false;
         Log.i(TAG, "onRewardedVideoAdOpened: ");
     }
 
     @Override
     public void onRewardedVideoStarted() {
+        isRewardedAdLoading = false;
         Log.i(TAG, "onRewardedVideoStarted: ");
     }
 
     @Override
     public void onRewardedVideoAdClosed() {
         Log.i(TAG, "onRewardedVideoAdClosed: ");
+        isRewardedAdLoading = false;
         loadRewardedVideo(lastLoadedRewardedAdId);
     }
 
@@ -447,10 +450,10 @@ public class AdmobManager implements RewardedVideoAdListener {
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
         Log.i(TAG, "onRewardedVideoAdFailedToLoad: i " + i);
+        isRewardedAdLoading = false;
         if (rewardsListeners != null) {
             rewardsListeners.callOnFail(RewardError.FAILED_TO_LOAD);
         }
-        loadRewardedVideo(lastLoadedRewardedAdId);
     }
 
     @Override
