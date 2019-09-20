@@ -1,7 +1,7 @@
 package pl.netigen.cross_ads
 
 import com.google.gson.annotations.SerializedName
-import pl.netigen.netigenapi.R
+import pl.netigen.crossads.R
 
 class PromotedAppModel {
     @SerializedName("name")
@@ -17,6 +17,5 @@ class PromotedAppModel {
         const val defaultPromotedAppPackageName = "pl.netigen.notepad"
         val defaultPromotedAppIconResId = R.drawable.default_promoted_app
     }
-
 
 }

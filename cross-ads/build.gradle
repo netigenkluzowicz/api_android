@@ -7,29 +7,23 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply from: '../repositories.gradle'
 apply from: '../android.gradle'
 
-group = Config.group
-version = '2.5.0'
 
 dependencies {
-
-    implementation Dependencies.legacySupportV4
-    api Dependencies.legacySupportV13
-
-    api Dependencies.constraintLayout
-
-    api Dependencies.playServicesAds
-    api Dependencies.consentLibrary
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api Dependencies.appcompat
-
-    api Dependencies.material
-
-    implementation Dependencies.glide
-    kapt Dependencies.glideCompiler
 
     implementation Dependencies.coreKTX
     implementation Dependencies.kotlinStdlibJdk7
 
+    implementation Dependencies.lifecycleExt
+    implementation Dependencies.viewmodelKTX
+    implementation Dependencies.livedataKTX
+    implementation Dependencies.runtimeKTX
+    implementation Dependencies.okhttp
+    implementation Dependencies.okio
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofitConverterGson
     api Dependencies.gson
 }
 

@@ -1,1 +1,1 @@
-include ':library', ':cropper'
+include ':library', ':cropper', ':cross-ads', ':premium'
