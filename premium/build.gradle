@@ -8,28 +8,22 @@ apply from: '../repositories.gradle'
 apply from: '../android.gradle'
 
 group = Config.group
-version = '2.5.0'
+version = '0.1.0'
 
 dependencies {
-    implementation Dependencies.legacySupportV4
-    api Dependencies.legacySupportV13
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api Dependencies.constraintLayout
-
-    api Dependencies.playServicesAds
-    api Dependencies.consentLibrary
-
-    api Dependencies.material
+    implementation Dependencies.constraintLayout
 
     api Dependencies.appcompat
 
     implementation Dependencies.coreKTX
     implementation Dependencies.kotlinStdlibJdk7
 
-    api Dependencies.gson
-
+    api Dependencies.material
     implementation Dependencies.glide
     kapt Dependencies.glideCompiler
+
 }
 
 task sourcesJar(type: Jar) {
