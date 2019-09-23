@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
+
+apply from: '../repositories.gradle'
+apply from: '../android.gradle'
+
+group = Config.group
+version = '1.2.1'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Dependencies.coreKTX
+    implementation Dependencies.kotlinStdlibJdk7
+
+    api Dependencies.billing
+}
