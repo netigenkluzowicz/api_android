@@ -7,6 +7,8 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply from: '../repositories.gradle'
 apply from: '../android.gradle'
 
+group = Config.group
+version = '2.5.0'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -17,8 +19,8 @@ dependencies {
     implementation Dependencies.kotlinStdlibJdk7
 
     implementation Dependencies.lifecycleExt
-    implementation Dependencies.viewmodelKTX
-    implementation Dependencies.livedataKTX
+    implementation Dependencies.viewModelKTX
+    implementation Dependencies.liveDataKTX
     implementation Dependencies.runtimeKTX
     implementation Dependencies.okhttp
     implementation Dependencies.okio
