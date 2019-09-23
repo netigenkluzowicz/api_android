@@ -11,9 +11,9 @@ group = Config.group
 version = '2.5.0'
 
 dependencies {
-    implementation project(':payments')
+    api "com.github.netigenkluzowicz:billingandroid:1.1.0"
 
-    implementation Dependencies.legacySupportV4
+    api Dependencies.legacySupportV4
     api Dependencies.legacySupportV13
 
     api Dependencies.constraintLayout
@@ -25,12 +25,12 @@ dependencies {
 
     api Dependencies.appcompat
 
-    implementation Dependencies.coreKTX
-    implementation Dependencies.kotlinStdlibJdk7
+    api Dependencies.coreKTX
+    api Dependencies.kotlinStdlibJdk7
 
     api Dependencies.gson
 
-    implementation Dependencies.glide
+    api Dependencies.glide
     kapt Dependencies.glideCompiler
 }
 
