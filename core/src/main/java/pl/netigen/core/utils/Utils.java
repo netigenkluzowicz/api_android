@@ -18,10 +18,8 @@ import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import pl.netigen.netigenapi.Config;
-import pl.netigen.netigenapi.Const;
-import pl.netigen.netigenapi.R;
-
+import pl.netigen.core.R;
+import pl.netigen.core.config.Config;
 
 public class Utils {
 
@@ -29,13 +27,6 @@ public class Utils {
         openLink(activity, getMarketLink(activity, packageName));
     }
 
-    /**
-     * check if permission is granted, when not asks user for it
-     *
-     * @param activity         calling activity
-     * @param permissionString permission The name of the permission being checked.
-     * @return true when permission is granted
-     */
     public static boolean checkAndAskAndroidPermission(AppCompatActivity activity, String permissionString) {
         if (!isPermissionGranted(activity, permissionString)) {
             String[] permissionsArray = {permissionString};
@@ -51,7 +42,7 @@ public class Utils {
 
     @NonNull
     private static String getMarketLink(Activity activity, String packageName) {
-        int link_id = Config.isSamsung() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
+        int link_id = Config.Companion.isSamsung() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
         return activity.getString(link_id) + packageName;
     }
 
@@ -122,17 +113,6 @@ public class Utils {
         }
         final AlertDialog dialog = builder.create();
         dialog.show();
-    }
-
-    public static void showDialog(int dialog, Activity activity) {
-        switch (dialog) {
-            case Const.RATE_US_DIALOG:
-                showRateUsDialog(activity);
-                break;
-            case Const.ABOUT_DIALOG:
-                showLinkifyDialog(activity, R.string.about_title_netigen, R.string.about_txt_netigen);
-                break;
-        }
     }
 
     public static void showDialog(Activity activity, @Nullable final View.OnClickListener okClick, @Nullable final View.OnClickListener cancelClick, String title, String msg) {

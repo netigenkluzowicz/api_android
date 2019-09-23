@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.google.ads.consent.ConsentInformation;
 import com.google.ads.consent.ConsentStatus;
 
-import pl.netigen.netigenapi.BaseSplashActivity;
+import pl.netigen.core.netigenapi.NetigenSplashFragment;
 
 public class ConstRodo {
     public static final String HTTPS_ADS_SETTINGS_GOOGLE_COM = "https://adssettings.google.com";
@@ -206,9 +206,10 @@ public class ConstRodo {
         ConstRodo.isInEea = isInEea;
     }
 
-    public static void resetRodoSetings(Activity activity, Class<? extends BaseSplashActivity> splashActivity) {
+    public static void resetRodoSetings(Activity activity, Class<? extends NetigenSplashFragment> splashFragment) {
+        //TODO change required
         ConsentInformation.getInstance(activity).setConsentStatus(ConsentStatus.UNKNOWN);
-        activity.startActivity(new Intent(activity, splashActivity));
+        activity.startActivity(new Intent(activity, splashFragment));
         activity.finish();
     }
 }

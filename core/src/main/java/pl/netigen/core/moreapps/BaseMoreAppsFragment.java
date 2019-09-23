@@ -25,8 +25,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import pl.netigen.utils.BitmapHelper;
-import pl.netigen.utils.Utils;
+import pl.netigen.core.utils.BitmapHelper;
+import pl.netigen.core.utils.Utils;
 
 public abstract class BaseMoreAppsFragment extends Fragment {
     public static final String MOREAPPS = "moreapps/";

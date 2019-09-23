@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import pl.netigen.netigenapi.R;
+import pl.netigen.core.R;
 
 public class RateFragment extends AppCompatDialogFragment {
     private RateUs rateUs;

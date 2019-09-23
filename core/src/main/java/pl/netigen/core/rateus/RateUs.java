@@ -7,8 +7,8 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import pl.netigen.netigenapi.R;
-import pl.netigen.utils.Utils;
+import pl.netigen.core.R;
+import pl.netigen.core.utils.Utils;
 
 import static android.content.Context.MODE_PRIVATE;
 

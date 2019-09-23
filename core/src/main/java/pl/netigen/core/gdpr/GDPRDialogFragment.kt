@@ -15,7 +15,8 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.appcompat.app.AppCompatDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
-import pl.netigen.netigenapi.R
+import pl.netigen.core.R
+import pl.netigen.core.gdpr.ConstRodo
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
 
