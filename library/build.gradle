@@ -11,6 +11,7 @@ group = Config.group
 version = '2.5.0'
 
 dependencies {
+
     implementation Dependencies.legacySupportV4
     api Dependencies.legacySupportV13
 
