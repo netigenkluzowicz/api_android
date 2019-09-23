@@ -1,4 +1,4 @@
-package pl.netigen.canvas;
+package pl.netigen.legacy.canvas;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

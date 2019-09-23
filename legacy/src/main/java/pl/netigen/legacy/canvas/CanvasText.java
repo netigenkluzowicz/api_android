@@ -1,12 +1,12 @@
-package pl.netigen.canvas;
+package pl.netigen.legacy.canvas;
 
 import android.graphics.Canvas;
 import android.graphics.Typeface;
 
 import androidx.annotation.Nullable;
 
-
 public class CanvasText extends CanvasObjectDrawing {
+
     private String text;
     private float textSize;
     private float textHeight;
