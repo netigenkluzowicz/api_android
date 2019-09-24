@@ -48,33 +48,35 @@ public class AdmobManager implements RewardedVideoAdListener {
         int NOT_LOADED_YET = 1;
         int FAILED_TO_REWARD = 2;
     }
+    private Activity activity;
 
     private static final long REFRESH_TIME = 333;
     private static final long DEFAULT_MIN_WAIT = 2000;
     private static final long DEFAULT_MAX_WAIT = 7000;
-    private static InterstitialAd interstitialAd;
-    private static boolean interstitialAdError;
-    private final Handler interstitialAdHandler = new Handler();
-    private String interstitialAdId;
-    private String bannerId;
-    private Activity activity;
-    private AdView bannerView;
     private long lastInterstitialAdDisplayTime;
     private long minWaitForInterstitialAfterSplash = DEFAULT_MIN_WAIT;
     private long maxWaitForInterstitialAfterSplash = DEFAULT_MAX_WAIT;
-    private int loadedBannerOrientation = 0;
+    private static InterstitialAd interstitialAd;
+    private static boolean interstitialAdError;
+    private long timeToDelayInterstitial = 0;
+    private final Handler interstitialAdHandler = new Handler();
+    private String interstitialAdId;
+
     private boolean isMultiFullscreenApp;
     private boolean isSplashInBackground;
     private boolean noAdInstance;
     private boolean launched;
+
+    private String bannerId;
+    private AdView bannerView;
+    private int loadedBannerOrientation = 0;
+
     private RewardedVideoAd rewardedVideoAd;
     private String lastLoadedRewardedAdId;
     private boolean isRewardedAdLoading = false;
     private List<RewardItem> rewardItems;
     private boolean wasRewardAdSuccessful = false;
     private RewardListenersList rewardsListeners;
-    private long timeToDelayInterstitial = 0;
-
 
     private AdmobManager(String bannerId, String interstitialAdId, @NonNull Activity activity) {
         this.bannerId = bannerId;
@@ -97,78 +99,34 @@ public class AdmobManager implements RewardedVideoAdListener {
         return admobManager;
     }
 
-    void createRewardedVideo(RewardsListener rewardsListener) {
-        if (rewardsListeners == null) {
-            rewardsListeners = new RewardListenersList();
+    public void onBannerAdResume(RelativeLayout relativeLayout) {
+        if (isNoAdsBought()) {
+            return;
         }
-        rewardsListeners.add(rewardsListener);
-
-        MobileAds.initialize(activity);
-        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
-        rewardedVideoAd.setRewardedVideoAdListener(this);
-    }
-
-    void loadRewardedVideo(String rewardedAdId) {
-        lastLoadedRewardedAdId = rewardedAdId;
-        if (!rewardedVideoAd.isLoaded() && !isRewardedAdLoading) {
-            rewardedVideoAd.loadAd(rewardedAdId, new AdRequest.Builder().build());
-            isRewardedAdLoading = true;
+        if (bannerView != null || loadedBannerOrientation != activity.getResources().getConfiguration().orientation) {
+            loadBanner();
         }
-    }
-
-    public void setDelayBetweenInterstitialAds(long delayTime) {
-        this.timeToDelayInterstitial = delayTime;
-    }
-
-    public void showRewardedVideoForItems(@NonNull List<pl.netigen.rewards.RewardItem> rewardItems, @Nullable List<RewardsListener> listeners) {
-        if (listeners != null)
-            rewardsListeners.addAll(listeners);
-        if (Config.isNoAdsBought()) return;
-        this.rewardItems = rewardItems;
-        if (rewardedVideoAd != null && rewardedVideoAd.isLoaded()) {
-            rewardedVideoAd.show();
-        } else {
-            if (!isRewardedAdLoading) {
-                loadRewardedVideo(lastLoadedRewardedAdId);
-            }
-            if (rewardsListeners != null) {
-                for (RewardsListener listener : rewardsListeners) {
-                    if (listener != null)
-                        listener.onFail(RewardError.NOT_LOADED_YET);
-                }
-            }
+        if (relativeLayout.getChildCount() == 0 || relativeLayout.getChildAt(0) != bannerView) {
+            addView(relativeLayout, bannerView);
         }
+        bannerView.resume();
     }
 
-    public long getMaxWaitForInterstitialAfterSplash() {
-        return maxWaitForInterstitialAfterSplash;
+    private boolean isNoAdsBought() {
+        return Config.isNoAdsBought() || noAdInstance;
     }
 
-    public void setMaxWaitForInterstitialAfterSplash(long maxWaitForInterstitialAfterSplash) {
-        this.maxWaitForInterstitialAfterSplash = maxWaitForInterstitialAfterSplash;
-    }
-
-    private void addView(RelativeLayout layout, AdView adView) {
-        if (adView.getParent() != null) {
-            ((ViewGroup) adView.getParent()).removeView(adView);
+    private void loadBanner() {
+        if (isNoAdsBought()) {
+            return;
         }
-        layout.addView(adView);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-
-        adView.setLayoutParams(params);
-        adView.requestLayout();
-    }
-
-    private boolean isOnline() {
-        ConnectivityManager cm = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = null;
-        if (cm != null) {
-            netInfo = cm.getActiveNetworkInfo();
+        if (bannerView == null || loadedBannerOrientation != activity.getResources().getConfiguration().orientation) {
+            loadedBannerOrientation = activity.getResources().getConfiguration().orientation;
+            bannerView = new AdView(activity);
+            bannerView.setAdSize(AdSize.SMART_BANNER);
+            bannerView.setAdUnitId(bannerId);
         }
-        return netInfo != null && netInfo.isConnectedOrConnecting();
+        bannerView.loadAd(getAdRequest());
     }
 
     private AdRequest getAdRequest() {
@@ -209,25 +167,21 @@ public class AdmobManager implements RewardedVideoAdListener {
             return builder.addNetworkExtrasBundle(AdMobAdapter.class, extras)
                     .build();
         }
-
         return builder.build();
     }
 
-    public void onBannerAdResume(RelativeLayout relativeLayout) {
-        if (isNoAdsBought()) {
-            return;
+    private void addView(RelativeLayout layout, AdView adView) {
+        if (adView.getParent() != null) {
+            ((ViewGroup) adView.getParent()).removeView(adView);
         }
-        if (bannerView != null || loadedBannerOrientation != activity.getResources().getConfiguration().orientation) {
-            loadBanner();
-        }
-        if (relativeLayout.getChildCount() == 0 || relativeLayout.getChildAt(0) != bannerView) {
-            addView(relativeLayout, bannerView);
-        }
-        bannerView.resume();
-    }
+        layout.addView(adView);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 
-    private boolean isNoAdsBought() {
-        return Config.isNoAdsBought() || noAdInstance;
+        adView.setLayoutParams(params);
+        adView.requestLayout();
     }
 
     public void onBannerAdPause() {
@@ -245,34 +199,20 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
     }
 
-    private void loadBanner() {
-        if (isNoAdsBought()) {
-            return;
-        }
-        if (bannerView == null || loadedBannerOrientation != activity.getResources().getConfiguration().orientation) {
-            loadedBannerOrientation = activity.getResources().getConfiguration().orientation;
-            bannerView = new AdView(activity);
-            bannerView.setAdSize(AdSize.SMART_BANNER);
-            bannerView.setAdUnitId(bannerId);
-        }
-        bannerView.loadAd(getAdRequest());
+    public long getMaxWaitForInterstitialAfterSplash() {
+        return maxWaitForInterstitialAfterSplash;
     }
 
-    private void launchSplashLoaderOrStartMainActivity(Intent activityToLaunch) {
-        lastInterstitialAdDisplayTime = System.currentTimeMillis();
-        interstitialAdHandler.removeCallbacksAndMessages(null);
-        if (isNoAdsBought()) {
-            launchTargetActivity(activityToLaunch);
-            return;
-        }
-        if (interstitialAd.isLoaded()) {
-            showInterstitialAdIfPossible(success -> launchTargetActivity(activityToLaunch));
-        } else if (!isOnline()) {
-            launchTargetActivity(activityToLaunch);
-        } else {
-            SplashScreenLoader splashScreenLoader = new SplashScreenLoader(activityToLaunch);
-            interstitialAdHandler.postDelayed(splashScreenLoader, REFRESH_TIME);
-        }
+    public void setMaxWaitForInterstitialAfterSplash(long maxWaitForInterstitialAfterSplash) {
+        this.maxWaitForInterstitialAfterSplash = maxWaitForInterstitialAfterSplash;
+    }
+
+    public interface ShowFullScreenListener {
+        void onShowedOrNotLoaded(boolean success);
+    }
+
+    public void setDelayBetweenInterstitialAds(long delayTime) {
+        this.timeToDelayInterstitial = delayTime;
     }
 
     public void showInterstitialAdIfPossible(@NonNull ShowFullScreenListener showFullScreenListener) {
@@ -313,8 +253,6 @@ public class AdmobManager implements RewardedVideoAdListener {
                     loadInterstitialIfNeeded(activity);
             }
         });
-
-
         if (timeToDelayInterstitial == 0)
             interstitialAd.show();
         else {
@@ -340,9 +278,33 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
     }
 
+    private void launchTargetActivity(Intent activityToLaunch) {
+        interstitialAdHandler.removeCallbacksAndMessages(null);
+        if (!launched) {
+            activity.startActivity(activityToLaunch);
+            activity.finish();
+            launched = true;
+        }
+    }
+
+    private boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = null;
+        if (cm != null) {
+            netInfo = cm.getActiveNetworkInfo();
+        }
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
     void splashScreenOnCreate(Intent intentToLaunch) {
         loadInterstitialIfNeeded(activity);
         launchSplashLoaderOrStartMainActivity(intentToLaunch);
+    }
+
+    public void bannerActivityOnCreate() {
+        if (interstitialAdError && isMultiFullscreenApp) {
+            loadInterstitialIfNeeded(activity);
+        }
     }
 
     void loadInterstitialIfNeeded(Context context) {
@@ -358,17 +320,21 @@ public class AdmobManager implements RewardedVideoAdListener {
         }
     }
 
-    private void launchTargetActivity(Intent activityToLaunch) {
+    private void launchSplashLoaderOrStartMainActivity(Intent activityToLaunch) {
+        lastInterstitialAdDisplayTime = System.currentTimeMillis();
         interstitialAdHandler.removeCallbacksAndMessages(null);
-        if (!launched) {
-            activity.startActivity(activityToLaunch);
-            activity.finish();
-            launched = true;
+        if (isNoAdsBought()) {
+            launchTargetActivity(activityToLaunch);
+            return;
         }
-    }
-
-    public void setIsMultiFullscreenApp(boolean isMultiFullscreenApp) {
-        this.isMultiFullscreenApp = isMultiFullscreenApp;
+        if (interstitialAd.isLoaded()) {
+            showInterstitialAdIfPossible(success -> launchTargetActivity(activityToLaunch));
+        } else if (!isOnline()) {
+            launchTargetActivity(activityToLaunch);
+        } else {
+            SplashScreenLoader splashScreenLoader = new SplashScreenLoader(activityToLaunch);
+            interstitialAdHandler.postDelayed(splashScreenLoader, REFRESH_TIME);
+        }
     }
 
     public void splashScreenOnStop() {
@@ -383,18 +349,16 @@ public class AdmobManager implements RewardedVideoAdListener {
         interstitialAdHandler.removeCallbacksAndMessages(null);
     }
 
-    public void bannerActivityOnCreate() {
-        if (interstitialAdError && isMultiFullscreenApp) {
-            loadInterstitialIfNeeded(activity);
-        }
-    }
-
     public long getMinWaitForInterstitialAfterSplash() {
         return minWaitForInterstitialAfterSplash;
     }
 
     public void setMinWaitForInterstitialAfterSplash(long minWaitForInterstitialAfterSplash) {
         this.minWaitForInterstitialAfterSplash = minWaitForInterstitialAfterSplash;
+    }
+
+    public void setIsMultiFullscreenApp(boolean isMultiFullscreenApp) {
+        this.isMultiFullscreenApp = isMultiFullscreenApp;
     }
 
     public RewardedVideoAd getRewardedVideoAd() {
@@ -461,8 +425,43 @@ public class AdmobManager implements RewardedVideoAdListener {
         Log.i(TAG, "onRewardedVideoCompleted: ");
     }
 
-    public interface ShowFullScreenListener {
-        void onShowedOrNotLoaded(boolean success);
+    void createRewardedVideo(RewardsListener rewardsListener) {
+        if (rewardsListeners == null) {
+            rewardsListeners = new RewardListenersList();
+        }
+        rewardsListeners.add(rewardsListener);
+
+        MobileAds.initialize(activity);
+        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
+        rewardedVideoAd.setRewardedVideoAdListener(this);
+    }
+
+    void loadRewardedVideo(String rewardedAdId) {
+        lastLoadedRewardedAdId = rewardedAdId;
+        if (!rewardedVideoAd.isLoaded() && !isRewardedAdLoading) {
+            rewardedVideoAd.loadAd(rewardedAdId, new AdRequest.Builder().build());
+            isRewardedAdLoading = true;
+        }
+    }
+
+    public void showRewardedVideoForItems(@NonNull List<pl.netigen.rewards.RewardItem> rewardItems, @Nullable List<RewardsListener> listeners) {
+        if (listeners != null)
+            rewardsListeners.addAll(listeners);
+        if (Config.isNoAdsBought()) return;
+        this.rewardItems = rewardItems;
+        if (rewardedVideoAd != null && rewardedVideoAd.isLoaded()) {
+            rewardedVideoAd.show();
+        } else {
+            if (!isRewardedAdLoading) {
+                loadRewardedVideo(lastLoadedRewardedAdId);
+            }
+            if (rewardsListeners != null) {
+                for (RewardsListener listener : rewardsListeners) {
+                    if (listener != null)
+                        listener.onFail(RewardError.NOT_LOADED_YET);
+                }
+            }
+        }
     }
 
     private class SplashScreenLoader implements Runnable {
