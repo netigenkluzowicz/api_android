@@ -107,11 +107,10 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
                     .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5")
 
             val testDevices = viewModel.getTestDevices()
-            if (testDevices != null) {
-                for (i in testDevices!!.indices) {
-                    builder.addTestDevice(testDevices!!.get(i))
-                }
+            for (i in testDevices.indices) {
+                builder.addTestDevice(testDevices[i])
             }
+
         }
         if (ConsentInformation.getInstance(activity).consentStatus == ConsentStatus.NON_PERSONALIZED) {
             val extras = Bundle()
