@@ -323,7 +323,8 @@ public class AdmobManager implements RewardedVideoAdListener {
             if (lastInterstitialAdDisplayTime == 0 || ((lastInterstitialAdDisplayTime + timeToDelayInterstitial) < currentTime)) {
                 interstitialAd.show();
                 lastInterstitialAdDisplayTime = currentTime;
-            }
+            } else
+                showFullScreenListener.onShowedOrNotLoaded(false);
         }
     }
 
