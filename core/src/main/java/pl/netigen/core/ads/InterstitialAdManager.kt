@@ -30,7 +30,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         interstitialAd = InterstitialAd(activity)
     }
 
-    fun activityOnCreate() {
+    fun loadIfPossible() {
         if (interstitialAdError && viewModel.isMultiFullscreenApp) {
             load(activity)
         }
@@ -40,12 +40,8 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         this.timeToDelayInterstitial = delayTime
     }
 
-    interface ShowInterstitialListener {
-        fun onShowedOrNotLoaded(success: Boolean)
-    }
-
     fun show(showInterstitialListener: ShowInterstitialListener) {
-        if (viewModel.isNoAdsBought()) {
+        if (viewModel.isNoAdsBought) {
             showInterstitialListener.onShowedOrNotLoaded(false)
             return
         }
@@ -101,7 +97,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     private fun launchSplashLoaderOrStartFragment(fragmentToOpen: Fragment) {
         lastInterstitialAdDisplayTime = System.currentTimeMillis()
         interstitialAdHandler.removeCallbacksAndMessages(null)
-        if (viewModel.isNoAdsBought()) {
+        if (viewModel.isNoAdsBought) {
             launchTargetFragment(fragmentToOpen)
             return
         }
@@ -137,12 +133,12 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
             if (refreshHandler()) {
                 interstitialAdHandler.postDelayed(this, REFRESH_TIME)
             } else {
-                if (viewModel.isNoAdsBought()) {
+                if (viewModel.isNoAdsBought) {
                     launchTargetFragment(fragmentToOpen)
                     return
                 }
                 if (interstitialAd.isLoaded) {
-                    show(object : InterstitialAdManager.ShowInterstitialListener {
+                    show(object : ShowInterstitialListener {
                         override fun onShowedOrNotLoaded(success: Boolean) {
                             if (success) launchTargetFragment(fragmentToOpen)
                         }
@@ -167,5 +163,9 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         private fun refreshHandler(): Boolean {
             return System.currentTimeMillis() - lastInterstitialAdDisplayTime < minWaitForInterstitialAfterSplash || isSplashInBackground
         }
+    }
+
+    interface ShowInterstitialListener {
+        fun onShowedOrNotLoaded(success: Boolean)
     }
 }

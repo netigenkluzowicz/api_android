@@ -15,6 +15,7 @@ import com.google.android.gms.ads.MobileAds
 
 import pl.netigen.core.netigenapi.NetigenViewModel
 import pl.netigen.core.rewards.RewardItem
+import pl.netigen.core.rewards.RewardListenersList
 import pl.netigen.core.rewards.RewardsListener
 import java.lang.NullPointerException
 
@@ -28,6 +29,10 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         MobileAds.initialize(activity)
         this.bannerAdManager = BannerAdManager(viewModel, activity, this)
         this.interstitialAdManager = InterstitialAdManager(viewModel, activity, this)
+    }
+
+    fun loadInterstitialIfPossible() {
+        interstitialAdManager.loadIfPossible()
     }
 
     fun showInterstitialAd(ShowInterstitialListener: InterstitialAdManager.ShowInterstitialListener) {
@@ -44,22 +49,22 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         rewardedAdManager?.onPause()
     }
 
-    fun initRewardedVideoAd(rewardsListener: RewardsListener){
+    fun initRewardedVideoAd(rewardsListener: RewardsListener) {
         rewardedAdManager = RewardedAd(viewModel, activity, rewardsListener)
     }
 
     fun loadRewardedVideoForAdId(rewardedAdId: String?) {
-        if(rewardedAdManager==null) throw NullPointerException("Trying to load RewardedAd without initialization")
+        if (rewardedAdManager == null) throw NullPointerException("Trying to load RewardedAd without initialization")
         rewardedAdManager?.loadRewardedVideoForAdId(rewardedAdId)
     }
 
     fun loadRewardedVideo() {
-        if(rewardedAdManager==null) throw NullPointerException("Trying to load RewardedAd without initialization")
+        if (rewardedAdManager == null) throw NullPointerException("Trying to load RewardedAd without initialization")
         rewardedAdManager?.loadRewardedVideo()
     }
 
-    fun resetCustomRewardedAdId(){
-        if(rewardedAdManager==null) throw NullPointerException("Trying to reset RewardedAd without initialization")
+    fun resetCustomRewardedAdId() {
+        if (rewardedAdManager == null) throw NullPointerException("Trying to reset RewardedAd without initialization")
         rewardedAdManager?.customRewardedAdId = null
     }
 
@@ -72,7 +77,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     }
 
     fun showRewardedVideo() {
-        if(rewardedAdManager==null) throw NullPointerException("Trying to show RewardedAd without initialization")
+        if (rewardedAdManager == null) throw NullPointerException("Trying to show RewardedAd without initialization")
         rewardedAdManager?.showRewardedVideoAd()
     }
 

@@ -52,5 +52,6 @@
     <string name="back_netigen">Back</string>
     <string name="yes_continue_to_see_relevant_ads_netigen">Yes, continue to see relevant ads</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">No, see ads that are less relevant</string>
+    <string name="payment_error">Payment error:</string>
 
 </resources>

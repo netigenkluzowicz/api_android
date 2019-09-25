@@ -55,7 +55,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     }
 
     fun showRewardedVideoForItems(rewardItems: List<RewardItem>) {
-        if (viewModel.isNoAdsBought()) return
+        if (viewModel.isNoAdsBought) return
         this.rewardItems = rewardItems
         if (rewardedVideoAd != null && rewardedVideoAd.isLoaded) {
             rewardedVideoAd.show()

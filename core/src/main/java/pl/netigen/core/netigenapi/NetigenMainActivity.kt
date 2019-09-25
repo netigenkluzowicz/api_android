@@ -1,25 +1,32 @@
 package pl.netigen.core.netigenapi
 
 import android.os.Bundle
+import android.view.Gravity
+import android.widget.RelativeLayout
+import android.widget.Toast
+import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdSize
 import pl.netigen.billingandroid.IPaymentManager
 import pl.netigen.billingandroid.PaymentManager
 import pl.netigen.billingandroid.PurchaseListener
+import pl.netigen.core.R
 import pl.netigen.core.ads.AdsManager
+import pl.netigen.core.rewards.RewardsListener
+import java.lang.NullPointerException
 
 abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActivity(), PurchaseListener {
 
-    lateinit var adsManager: AdsManager
-    lateinit var paymentManager: IPaymentManager
-
     open lateinit var viewModel: ViewModel
     lateinit var paymentManager: IPaymentManager
+    private var bannerRelativeLayout: RelativeLayout? = null
+    var adsManager: AdsManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getContentViewID())
-        adsManager = AdsManager(viewModel, this)
         initPayments()
+        initAdsManager()
     }
 
     abstract fun getContentViewID(): Int
@@ -28,6 +35,20 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         paymentManager = PaymentManager.createIPaymentManager(this)
         paymentManager.isItemPurchased(viewModel.noAdsSku, this)
     }
+
+    private fun initAdsManager() {
+        if (!viewModel.isNoAdsBought) {
+            adsManager = AdsManager(viewModel, this)
+            if (viewModel.config.rewardedAdId != null) {
+                if (prepareRewardedAdsListener() == null)
+                    throw NullPointerException("Trying to load rewardedAds without a callback, prepareRewardedAdsListener should be overriden")
+                adsManager?.loadRewardedVideo()
+            }
+        }
+    }
+
+    open fun prepareRewardedAdsListener(): RewardsListener? = null
+
     @CallSuper
     override fun onItemNotBought(sku: String?) {
         if (!sku.isNullOrEmpty() && sku == viewModel.noAdsSku) {

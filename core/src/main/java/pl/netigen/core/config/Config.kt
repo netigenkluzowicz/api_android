@@ -6,13 +6,13 @@ class Config private constructor(val inDebugMode: Boolean, val isSamsung: Boolea
 
     private val testRewardedAdId = "ca-app-pub-3940256099942544/5224354917"
     private val testBannerAdId = "ca-app-pub-3940256099942544/6300978111"
-    private val testInterstitalAdId = "ca-app-pub-3940256099942544/1033173712"
+    private val testInterstitialAdId = "ca-app-pub-3940256099942544/1033173712"
 
     var isNoAdsBought: Boolean = false
 
     var rewardedAdId: String? = null
-    var bannerAdId: String? = null
-    var interstitalAdId: String? = null
+    var bannerAdId: String = testBannerAdId
+    var interstitalAdId: String = testInterstitialAdId
 
     var adMobAppId: String? = null
 
@@ -21,9 +21,8 @@ class Config private constructor(val inDebugMode: Boolean, val isSamsung: Boolea
 
     init {
         if(inDebugMode){
-            rewardedAdId = testRewardedAdId
             bannerAdId = testBannerAdId
-            interstitalAdId = testInterstitalAdId
+            interstitalAdId = testInterstitialAdId
         }
         testDevices = ArrayList<String>()
     }
