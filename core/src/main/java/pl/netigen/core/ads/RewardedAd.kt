@@ -71,6 +71,9 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         }
     }
 
+    fun onDestroy() {
+        rewardedVideoAd.destroy(activity)
+    }
     override fun onRewardedVideoAdLoaded() {
         Log.i(TAG, "onRewardedVideoAdLoaded: ")
         viewModel.isRewardedAdLoading = false

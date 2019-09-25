@@ -132,4 +132,8 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
+    fun onDestroy() {
+        rewardedAdManager?.onDestroy()
+    }
+
 }

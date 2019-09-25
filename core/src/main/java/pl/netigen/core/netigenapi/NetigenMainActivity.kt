@@ -118,4 +118,10 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if (!viewModel.isNoAdsBought) {
+            adsManager?.onDestroy()
+        }
+    }
 }
