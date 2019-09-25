@@ -103,14 +103,10 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     override fun onRewarded(rewardItem: com.google.android.gms.ads.reward.RewardItem) {
         Log.i(TAG, "onRewarded: rewardItem type" + rewardItem.type + " amount " + rewardItem.amount)
         try {
-            if (rewardsListeners != null) {
-                rewardsListeners.callOnSuccess(rewardItems)
-            }
+            rewardsListeners.callOnSuccess(rewardItems)
         } catch (e: Exception) {
             e.printStackTrace()
-            if (rewardsListeners != null) {
-                rewardsListeners.callOnFail(RewardError.NOT_LOADED_YET)
-            }
+            rewardsListeners.callOnFail(RewardError.NOT_LOADED_YET)
         }
     }
 
@@ -121,9 +117,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     override fun onRewardedVideoAdFailedToLoad(i: Int) {
         Log.i(TAG, "onRewardedVideoAdFailedToLoad: i $i")
         viewModel.isRewardedAdLoading = false
-        if (rewardsListeners != null) {
-            rewardsListeners.callOnFail(RewardError.FAILED_TO_LOAD)
-        }
+        rewardsListeners.callOnFail(RewardError.FAILED_TO_LOAD)
     }
 
     override fun onRewardedVideoCompleted() {
@@ -136,6 +130,14 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     fun onPause() {
         rewardedVideoAd.pause(activity)
+    }
+
+    fun addListeners(listeners: RewardListenersList) {
+        rewardsListeners.addAll(listeners)
+    }
+
+    fun removeListeners(listeners: RewardListenersList){
+        rewardsListeners.removeAll(listeners)
     }
 
     private val TAG = "RewardedAd"
