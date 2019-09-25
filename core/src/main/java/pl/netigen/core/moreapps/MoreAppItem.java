@@ -6,9 +6,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import pl.netigen.netigenapi.Const;
-import pl.netigen.netigenapi.R;
-import pl.netigen.utils.BitmapHelper;
+
+import pl.netigen.core.R;
+import pl.netigen.core.utils.BitmapHelper;
+import pl.netigen.core.utils.Const;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -17,13 +18,11 @@ public class MoreAppItem extends AppInfo {
 
     public MoreAppItem(String packageName, String appName, String iconLink, String fullAdLink, boolean isAd, int version) {
         super(packageName, appName, iconLink, fullAdLink, isAd, version);
-
         isAd = false;
     }
 
     public MoreAppItem(AppInfo appInfo) {
         super(appInfo.packageName, appInfo.appName, appInfo.iconLink, appInfo.fullAdLink, false, appInfo.version);
-
     }
 
     public Bitmap getIconBitmap(Resources resources) {

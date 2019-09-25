@@ -42,7 +42,8 @@ public class Utils {
 
     @NonNull
     private static String getMarketLink(Activity activity, String packageName) {
-        int link_id = Config.Companion.isSamsung() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
+        int link_id = true ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
+//        int link_id = Config.Companion.isSamsung() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
         return activity.getString(link_id) + packageName;
     }
 

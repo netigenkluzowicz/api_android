@@ -28,6 +28,7 @@ class Config private constructor(val inDebugMode: Boolean, val isSamsung: Boolea
     }
 
     companion object : SingletonHolder<Config, Boolean, Boolean>(::Config){
+
     }
 
 }
