@@ -13,7 +13,7 @@ class BannerAdManager(var viewModel: NetigenViewModel, val activity: Activity, v
     private var loadedBannerOrientation = 0
 
     private fun loadBanner() {
-        if (viewModel.isNoAdsBought()) {
+        if (viewModel.isNoAdsBought) {
             return
         }
         if (bannerView == null || loadedBannerOrientation != activity.resources.configuration.orientation) {
@@ -25,8 +25,8 @@ class BannerAdManager(var viewModel: NetigenViewModel, val activity: Activity, v
         bannerView?.loadAd(adsManager.getAdRequest())
     }
 
-    fun onBannerAdResume(relativeLayout: RelativeLayout) {
-        if (viewModel.isNoAdsBought()) {
+    fun onResume(relativeLayout: RelativeLayout) {
+        if (viewModel.isNoAdsBought) {
             return
         }
         if (bannerView != null || loadedBannerOrientation != activity.resources.configuration.orientation) {
@@ -52,8 +52,8 @@ class BannerAdManager(var viewModel: NetigenViewModel, val activity: Activity, v
         adView?.requestLayout()
     }
 
-    fun onBannerAdPause() {
-        if (viewModel.isNoAdsBought()) {
+    fun onPause() {
+        if (viewModel.isNoAdsBought) {
             if (bannerView != null) {
                 val parent = bannerView?.parent as ViewGroup
                 parent.removeView(bannerView)
@@ -66,13 +66,4 @@ class BannerAdManager(var viewModel: NetigenViewModel, val activity: Activity, v
             parent.removeView(bannerView)
         }
     }
-
-    fun showBannerAd(){
-
-    }
-
-    fun hideBannerAd(){
-
-    }
-
 }

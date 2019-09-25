@@ -24,4 +24,21 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
 
     abstract fun getContentViewID(): Int
 
+    override fun onResume() {
+        super.onResume()
+        if (viewModel.isNoAdsBought) {
+            hideBanner()
+        } else {
+            adsManager?.onResume(getBannerRelativeLayout())
+        }
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        if (!viewModel.isNoAdsBought) {
+            adsManager?.onPause()
+        }
+    }
+
 }

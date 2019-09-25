@@ -34,12 +34,14 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         interstitialAdManager.show(ShowInterstitialListener)
     }
 
-    fun onBannerAdResume(relativeLayout: RelativeLayout) {
-        bannerAdManager.onBannerAdResume(relativeLayout)
+    fun onResume(relativeLayout: RelativeLayout) {
+        bannerAdManager.onResume(relativeLayout)
+        rewardedAdManager?.onResume()
     }
 
-    fun onBannerAdPause() {
-        bannerAdManager.onBannerAdPause()
+    fun onPause() {
+        bannerAdManager.onPause()
+        rewardedAdManager?.onPause()
     }
 
     fun initRewardedVideoAd(rewardsListener: RewardsListener){

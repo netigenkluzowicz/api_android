@@ -130,6 +130,14 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         Log.i(TAG, "onRewardedVideoCompleted: ")
     }
 
+    fun onResume() {
+        rewardedVideoAd.resume(activity)
+    }
+
+    fun onPause() {
+        rewardedVideoAd.pause(activity)
+    }
+
     private val TAG = "RewardedAd"
 
 }
