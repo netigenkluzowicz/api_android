@@ -194,7 +194,8 @@ public class AdmobManager implements RewardedVideoAdListener {
                     .addTestDevice("43AAFCE5A6B9E8FCDC58E58087AEC4EF")
                     .addTestDevice("AD2180512DE8B1EE611AB4645A69E470")
                     .addTestDevice("379BED7628AE4885B439939575F9F292")
-                    .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5");
+                    .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5")
+                    .addTestDevice("FF95B2E1EDD1123D8BE140052B302607");
 
             List<String> testDevices = Config.getTestDevices();
             if (testDevices != null) {
