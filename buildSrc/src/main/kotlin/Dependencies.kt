@@ -1,7 +1,6 @@
 object Versions {
     val legacySupportV4 = "1.0.0"
     val legacySupportV13 = "1.0.0"
-    val recyclerview = "1.0.0"
     val playServicesAds = "18.1.1"
     val constraintLayout = "1.1.3"
     val material = "1.0.0"
