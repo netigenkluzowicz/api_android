@@ -41,33 +41,33 @@ android {
 
 dependencies {
 
-    implementation libraries.legacySupportV4
-    api libraries.legacySupportV13
+    implementation Libraries.legacySupportV4
+    api Libraries.legacySupportV13
 
-    api libraries.constraintLayout
+    api Libraries.constraintLayout
 
-    api libraries.playServicesAds
-    api libraries.consentLibrary
+    api Libraries.playServicesAds
+    api Libraries.consentLibrary
 
-    api libraries.appcompat
+    api Libraries.appcompat
 
-    api libraries.material
+    api Libraries.material
 
-    implementation libraries.glide
-    kapt libraries.glideCompiler
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
 
-    implementation libraries.coreKTX
-    implementation libraries.kotlinStdlibJdk7
+    implementation Libraries.coreKTX
+    implementation Libraries.kotlinStdlibJdk7
 
-    implementation libraries.lifecycleExt
-    implementation libraries.viewmodelKTX
-    implementation libraries.livedataKTX
-    implementation libraries.runtimeKTX
-    implementation libraries.okhttp
-    implementation libraries.okio
-    implementation libraries.retrofit
-    implementation libraries.retrofitConverterGson
-    api libraries.gson
+    implementation Libraries.lifecycleExt
+    implementation Libraries.viewModelKTX
+    implementation Libraries.liveDataKTX
+    implementation Libraries.runtimeKTX
+    implementation Libraries.okhttp
+    implementation Libraries.okio
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitConverterGson
+    api Libraries.gson
 }
 
 // build a jar with source files

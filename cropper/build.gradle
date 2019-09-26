@@ -42,14 +42,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api libraries.cropper
-    implementation libraries.glide
-    kapt libraries.glideCompiler
-    testImplementation libraries.junit
-    androidTestImplementation libraries.testRunner
-    androidTestImplementation libraries.espressoCore
-    implementation libraries.appcompat
+    api Libraries.cropper
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
+    testImplementation Libraries.junit
+    androidTestImplementation Libraries.testRunner
+    androidTestImplementation Libraries.espressoCore
+    implementation Libraries.appcompat
 
-    implementation libraries.coreKTX
-    implementation libraries.kotlinStdlibJdk7
+    implementation Libraries.coreKTX
+    implementation Libraries.kotlinStdlibJdk7
 }
