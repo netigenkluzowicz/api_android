@@ -4,41 +4,63 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-apply from: '../repositories.gradle'
-apply from: '../android.gradle'
+group = 'com.github.netigenkluzowicz'
+version = '2.4.2'
 
-group = Config.group
-version = '2.5.0'
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionName version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
 
 dependencies {
 
-    implementation Dependencies.legacySupportV4
-    api Dependencies.legacySupportV13
+    implementation Libraries.legacySupportV4
+    api Libraries.legacySupportV13
 
-    api Dependencies.constraintLayout
+    api Libraries.constraintLayout
 
-    api Dependencies.playServicesAds
-    api Dependencies.consentLibrary
+    api Libraries.playServicesAds
+    api Libraries.consentLibrary
 
-    api Dependencies.appcompat
+    api Libraries.appcompat
 
-    api Dependencies.material
+    api Libraries.material
 
-    implementation Dependencies.glide
-    kapt Dependencies.glideCompiler
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
 
-    implementation Dependencies.coreKTX
-    implementation Dependencies.kotlinStdlibJdk7
+    implementation Libraries.coreKTX
+    implementation Libraries.kotlinStdlibJdk7
 
-    implementation Dependencies.lifecycleExt
-    implementation Dependencies.viewmodelKTX
-    implementation Dependencies.livedataKTX
-    implementation Dependencies.runtimeKTX
-    implementation Dependencies.okhttp
-    implementation Dependencies.okio
-    implementation Dependencies.retrofit
-    implementation Dependencies.retrofitConverterGson
-    api Dependencies.gson
+    implementation Libraries.lifecycleExt
+    implementation Libraries.viewModelKTX
+    implementation Libraries.liveDataKTX
+    implementation Libraries.runtimeKTX
+    implementation Libraries.okhttp
+    implementation Libraries.okio
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitConverterGson
+    api Libraries.gson
 }
 
 // build a jar with source files
