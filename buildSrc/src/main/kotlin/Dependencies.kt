@@ -1,27 +1,3 @@
-import org.gradle.api.JavaVersion
-
-object LibraryPlugins {
-    val library = "com.android.library"
-    val kotlinAndroid = "kotlin-android"
-    val kotlinKapt = "kotlin-kapt"
-    val androidExtensions = "kotlin-android-extensions"
-    val githubDcendents = "com.github.dcendents.android-maven"
-}
-
-object BuildPlugins {
-    val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.gradle}"
-    val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-}
-
-object Config {
-    val minSdk = 16
-    val compileSdk = 28
-    val targetSdk = 28
-    val buildTools = "28.0.3"
-    val group = "com.github.netigenkluzowicz"
-    val javaVersion = JavaVersion.VERSION_1_8
-}
-
 object Versions {
     val legacySupportV4 = "1.0.0"
     val legacySupportV13 = "1.0.0"
@@ -46,13 +22,6 @@ object Versions {
     val junit = "4.12"
     val testRunner = "1.2.0"
     val espressoCore = "3.2.0"
-    val crashlytics = "2.10.1"
-    val butterknife = "10.1.0"
-    val billing = "1.1.0"
-    val coroutines = "1.3.1"
-    val dagger = "2.21"
-    val api_android = "2.4.0-rc01"
-    val location = "17.0.0"
 }
 
 object Libraries {
