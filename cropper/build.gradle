@@ -42,14 +42,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    api libraries.cropper
+    implementation libraries.glide
+    kapt libraries.glideCompiler
+    testImplementation libraries.junit
+    androidTestImplementation libraries.testRunner
+    androidTestImplementation libraries.espressoCore
+    implementation libraries.appcompat
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "androidx.core:core-ktx:1.1.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+    implementation libraries.coreKTX
+    implementation libraries.kotlinStdlibJdk7
 }
