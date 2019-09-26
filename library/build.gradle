@@ -4,40 +4,76 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-apply from: '../android.gradle'
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
 
-group = "com.github.netigenkluzowicz"
-version = '2.5.0'
+group = 'com.github.netigenkluzowicz'
+version = '2.3.0-rc02'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionName version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
 
 dependencies {
 
-    implementation Dependencies.legacySupportV4
-    api Dependencies.legacySupportV13
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:customtabs:28.0.0'
+    }
 
-    api Dependencies.constraintLayout
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'com.google.android.gms:play-services-ads:18.1.1'
+    api 'androidx.legacy:legacy-support-v13:1.0.0'
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'com.google.code.gson:gson:2.8.5'
+    api 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
-    api Dependencies.playServicesAds
-    api Dependencies.consentLibrary
+    //RODO
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'com.google.android.ads.consent:consent-library:1.0.7'
+    implementation "androidx.core:core-ktx:1.1.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 
-    api Dependencies.appcompat
+    def arch_version = '2.2.0-alpha05'
 
-    api Dependencies.material
+    implementation "androidx.lifecycle:lifecycle-extensions:$arch_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$arch_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$arch_version"
 
-    implementation Dependencies.glide
-    kapt Dependencies.glideCompiler
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.okio:okio:2.2.2'
 
-    implementation Dependencies.coreKTX
-    implementation Dependencies.kotlinStdlibJdk7
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
 
-    implementation Dependencies.lifecycleExt
-    implementation Dependencies.viewmodelKTX
-    implementation Dependencies.livedataKTX
-    implementation Dependencies.runtimeKTX
-    implementation Dependencies.okhttp
-    implementation Dependencies.okio
-    implementation Dependencies.retrofit
-    implementation Dependencies.retrofitConverterGson
-    api Dependencies.gson
 }
 
 // build a jar with source files
