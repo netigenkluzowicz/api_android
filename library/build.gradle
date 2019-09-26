@@ -4,33 +4,54 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-apply from: '../repositories.gradle'
-apply from: '../android.gradle'
+group = 'com.github.netigenkluzowicz'
+version = '2.4.2'
 
-group = Config.group
-version = '2.5.0'
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionName version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
 dependencies {
 
-    implementation Dependencies.legacySupportV4
-    api Dependencies.legacySupportV13
+    implementation Libraries.legacySupportV4
+    api Libraries.legacySupportV13
 
-    api Dependencies.constraintLayout
+    api Libraries.constraintLayout
 
-    api Dependencies.playServicesAds
-    api Dependencies.consentLibrary
+    api Libraries.playServicesAds
+    api Libraries.consentLibrary
 
-    api Dependencies.material
+    api Libraries.material
 
-    api Dependencies.appcompat
+    api Libraries.appcompat
 
-    implementation Dependencies.coreKTX
-    implementation Dependencies.kotlinStdlibJdk7
+    implementation Libraries.coreKTX
+    implementation Libraries.kotlinStdlibJdk7
 
-    api Dependencies.gson
+    api Libraries.gson
 
-    implementation Dependencies.glide
-    kapt Dependencies.glideCompiler
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
 }
 
 task sourcesJar(type: Jar) {

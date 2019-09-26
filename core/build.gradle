@@ -4,54 +4,53 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-apply from: '../repositories.gradle'
-apply from: '../android.gradle'
+group = 'com.github.netigenkluzowicz'
+version = '0.1.0'
 
-group = Config.group
-version = '2.5.0'
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionName version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
 dependencies {
     api "com.github.netigenkluzowicz:billingandroid:1.1.0"
 
-    api Dependencies.legacySupportV4
-    api Dependencies.legacySupportV13
+    api Libraries.legacySupportV4
+    api Libraries.legacySupportV13
 
-    api Dependencies.constraintLayout
+    api Libraries.constraintLayout
 
-    api Dependencies.playServicesAds
-    api Dependencies.consentLibrary
+    api Libraries.playServicesAds
+    api Libraries.consentLibrary
 
-    api Dependencies.material
+    api Libraries.material
 
-    api Dependencies.appcompat
+    api Libraries.appcompat
 
-    api Dependencies.coreKTX
-    api Dependencies.kotlinStdlibJdk7
+    api Libraries.coreKTX
+    api Libraries.kotlinStdlibJdk7
 
-    api Dependencies.gson
+    api Libraries.gson
 
-    api Dependencies.glide
-    kapt Dependencies.glideCompiler
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
+    api Libraries.glide
+    kapt Libraries.glideCompiler
 }

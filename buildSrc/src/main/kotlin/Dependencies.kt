@@ -1,31 +1,6 @@
-import org.gradle.api.JavaVersion
-
-object LibraryPlugins {
-    val library = "com.android.library"
-    val kotlinAndroid = "kotlin-android"
-    val kotlinKapt = "kotlin-kapt"
-    val androidExtensions = "kotlin-android-extensions"
-    val githubDcendents = "com.github.dcendents.android-maven"
-}
-
-object BuildPlugins {
-    val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.gradle}"
-    val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-}
-
-object Config {
-    val minSdk = 16
-    val compileSdk = 28
-    val targetSdk = 28
-    val buildTools = "28.0.3"
-    val group = "com.github.netigenkluzowicz"
-    val javaVersion = JavaVersion.VERSION_1_8
-}
-
 object Versions {
     val legacySupportV4 = "1.0.0"
     val legacySupportV13 = "1.0.0"
-    val recyclerview = "1.0.0"
     val playServicesAds = "18.1.1"
     val constraintLayout = "1.1.3"
     val material = "1.0.0"
@@ -34,7 +9,6 @@ object Versions {
     val appcompat = "1.1.0"
     val consentLibrary = "1.0.7"
     val coreKTX = "1.1.0"
-    //lifecycle and its KTX should have same version
     val lifecycle = "2.2.0-alpha05"
     val lifecycleKTX = "2.2.0-alpha05"
     val okhttp = "3.12.0"
@@ -50,7 +24,7 @@ object Versions {
     val billing = "2.0.1"
 }
 
-object Dependencies {
+object Libraries {
     val legacySupportV4 = "androidx.legacy:legacy-support-v4:${Versions.legacySupportV4}"
     val legacySupportV13 = "androidx.legacy:legacy-support-v13:${Versions.legacySupportV13}"
 
