@@ -1,7 +1,71 @@
 buildscript {
-    ext.versions = [
-            'kotlin'      : '1.3.50',
+    ext.Versions = [
+            "legacySupportV4": "1.0.0",
+            "legacySupportV13": "1.0.0",
+            "recyclerview": "1.0.0",
+            "playServicesAds": "18.1.1",
+            "constraintLayout": "1.1.3",
+            "material": "1.1.0-alpha04",
+            "gson": "2.8.5",
+            "glide": "4.9.0",
+            "appcompat": "1.1.0",
+            "consentLibrary": "1.0.7",
+            "coreKTX": "1.1.0",
+            "archVersion": "2.2.0-alpha04",
+            "okhttp": "3.12.0",
+            "okio": "2.2.2",
+            "retrofit": "2.6.1",
+            "kotlin": "1.3.50",
+            "androidMavenGradlePlugin": "2.1",
+            "gradle": "3.5.0",
+            "buildToolsVersion": "28.0.3",
+            "cropper": "2.8.0",
+            "junit": "4.12",
+            "testRunner": "1.2.0",
+            "espressoCore": "3.2.0"
     ]
+
+    ext.Dependencies = [
+            "legacySupportV4" : "androidx.legacy:legacy-support-v4:${Versions.legacySupportV4}",
+            "legacySupportV13" : "androidx.legacy:legacy-support-v13:${Versions.legacySupportV13}",
+            "material" : "com.google.android.material:material:${Versions.material}",
+
+            "constraintLayout" : "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}",
+
+            "playServicesAds" : "com.google.android.gms:play-services-ads:${Versions.playServicesAds}",
+            "consentLibrary" : "com.google.android.ads.consent:consent-library:${Versions.consentLibrary}",
+
+            "lifecycleExt" : "androidx.lifecycle:lifecycle-extensions:${Versions.archVersion}",
+            "viewmodelKTX" : "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.archVersion}",
+            "livedataKTX" : "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.archVersion}",
+            "runtimeKTX" : "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.archVersion}",
+
+            "appcompat" : "androidx.appcompat:appcompat:${Versions.appcompat}",
+
+            "gson" : "com.google.code.gson:gson:${Versions.gson}",
+
+            "glide" : "com.github.bumptech.glide:glide:${Versions.glide}",
+            "glideCompiler" : "com.github.bumptech.glide:compiler:${Versions.glide}",
+
+            "coreKTX" : "androidx.core:core-ktx:${Versions.coreKTX}",
+            "kotlinStdlibJdk7" : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}",
+
+            "okhttp" : "com.squareup.okhttp3:okhttp:${Versions.okhttp}",
+            "okio" : "com.squareup.okio:okio:${Versions.okio}",
+            "retrofit" : "com.squareup.retrofit2:retrofit:${Versions.retrofit}",
+            "retrofitConverterGson" : "com.squareup.retrofit2:converter-gson:${Versions.retrofit}",
+
+            "junit" : "junit:junit:${Versions.junit}",
+            "testRunner" : "androidx.test:runner:${Versions.testRunner}",
+            "espressoCore" : "androidx.test.espresso:espresso-core:${Versions.espressoCore}",
+
+            "cropper" : "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}",
+            "buildGradle" : "com.android.tools.build:gradle:${Versions.gradle}",
+            "dcendantsMavenGradle" : "com.github.dcendents:android-maven-gradle-plugin:${Versions.androidMavenGradlePlugin}",
+            "kotlinGradlePlugin" : "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}",
+            "kotlinAndroidExtensions" : "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.kotlin}",
+    ]
+
     repositories {
         google()
         jcenter()
@@ -10,8 +74,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:${versions.kotlin}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.kotlin}"
     }
 }
 

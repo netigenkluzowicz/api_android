@@ -1,11 +1,11 @@
 android {
-    compileSdkVersion Config.compileSdk
-    buildToolsVersion Config.buildTools
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
-        minSdkVersion Config.minSdk
-        targetSdkVersion Config.targetSdk
-        versionName version
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionName "2.4.2"
     }
     buildTypes {
         release {
@@ -18,7 +18,7 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility Config.javaVersion
-        targetCompatibility Config.javaVersion
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
