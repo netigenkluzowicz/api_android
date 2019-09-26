@@ -4,10 +4,9 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-apply from: '../repositories.gradle'
 apply from: '../android.gradle'
 
-group = Config.group
+group = "com.github.netigenkluzowicz"
 version = '0.1.0'
 
 dependencies {
@@ -23,26 +22,6 @@ dependencies {
 
     implementation Dependencies.coreKTX
     implementation Dependencies.kotlinStdlibJdk7
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
+    implementation Dependencies.coreKTX
+    implementation Dependencies.kotlinStdlibJdk7
 }
