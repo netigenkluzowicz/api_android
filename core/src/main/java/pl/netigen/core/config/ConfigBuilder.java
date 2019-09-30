@@ -1,4 +1,6 @@
 package pl.netigen.core.config;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class ConfigBuilder {
@@ -39,7 +41,23 @@ public class ConfigBuilder {
         return this;
     }
 
+    public ConfigBuilder setNoAdsPaymentAvailable(boolean isNoAdsPaymentAvailable) {
+        config.setNoAdsPaymentAvailable(isNoAdsPaymentAvailable);
+        return this;
+    }
+
+    public ConfigBuilder setShouldShowInterstitial(boolean shouldShowInterstitial) {
+        config.setShouldShowInterstitialAd(shouldShowInterstitial);
+        return this;
+    }
+
+    public ConfigBuilder setAppId(@NotNull String appId) {
+        config.setAdMobAppId(appId);
+        return this;
+    }
+
     public Config createConfig() {
         return config;
     }
+
 }

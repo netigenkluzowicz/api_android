@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
+import android.os.Handler
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.ads.consent.ConsentInformation
@@ -124,15 +125,24 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     fun isOnline(): Boolean {
         val cm = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        var netInfo: NetworkInfo? = null
-        if (cm != null) {
-            netInfo = cm.activeNetworkInfo
-        }
+        val netInfo: NetworkInfo? = cm.activeNetworkInfo
         return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
     fun onDestroy() {
         rewardedAdManager?.onDestroy()
+    }
+
+    fun splashScreenOnStop() {
+        viewModel.isSplashInBackground = true
+    }
+
+    fun splashScreenOnStart() {
+        viewModel.isSplashInBackground = false
+    }
+
+    fun splashScreenOnDestroy() {
+        interstitialAdManager.interstitialAdHandler.removeCallbacksAndMessages(null)
     }
 
 }

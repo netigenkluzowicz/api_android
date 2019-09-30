@@ -165,7 +165,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         if (context is GDPRClickListener) {
             gdprClickListener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement InitAdmobAds")
+            throw RuntimeException(context.toString() + " must implement GDPRClickListener")
         }
     }
 

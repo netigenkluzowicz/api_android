@@ -14,7 +14,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     private val DEFAULT_MIN_WAIT: Long = 2000
     private val DEFAULT_MAX_WAIT: Long = 7000
 
-    private val interstitialAdHandler = Handler()
+    val interstitialAdHandler = Handler()
 
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAdError: Boolean = false

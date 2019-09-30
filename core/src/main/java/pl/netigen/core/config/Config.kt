@@ -9,14 +9,15 @@ class Config private constructor(val inDebugMode: Boolean, val isSamsung: Boolea
     private val testInterstitialAdId = "ca-app-pub-3940256099942544/1033173712"
 
     var isNoAdsBought: Boolean = false
-
+    var isNoAdsPaymentAvailable: Boolean = true
+    var shouldShowInterstitialAd: Boolean = false
     var rewardedAdId: String? = null
+    var adMobAppId: String? = null
+    var publishersId = arrayOf("pub-4699516034931013")
+    var isMultiScreen = false
     var bannerAdId: String = testBannerAdId
     var interstitalAdId: String = testInterstitialAdId
 
-    var adMobAppId: String? = null
-
-    var isMultiScreen = false
     lateinit var testDevices: List<String>
 
     init {
