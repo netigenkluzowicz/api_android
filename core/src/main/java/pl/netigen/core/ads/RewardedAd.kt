@@ -30,7 +30,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     private lateinit var rewardedVideoAd: RewardedVideoAd
     var customRewardedAdId: String? = null
 
-    internal fun init() {
+    init {
         rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity)
         rewardedVideoAd.rewardedVideoAdListener = this
     }
@@ -72,6 +72,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     fun onDestroy() {
         rewardedVideoAd.destroy(activity)
     }
+
     override fun onRewardedVideoAdLoaded() {
         Log.i(TAG, "onRewardedVideoAdLoaded: ")
         viewModel.isRewardedAdLoading = false
@@ -137,7 +138,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         rewardsListeners.addAll(listeners)
     }
 
-    fun removeListeners(listeners: RewardListenersList){
+    fun removeListeners(listeners: RewardListenersList) {
         rewardsListeners.removeAll(listeners)
     }
 
