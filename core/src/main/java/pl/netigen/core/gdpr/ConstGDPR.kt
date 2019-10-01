@@ -1,19 +1,19 @@
-package pl.netigen.core.gdpr;
+package pl.netigen.core.gdpr
 
-import android.app.Activity;
-import android.content.Intent;
+import android.app.Activity
+import android.content.Intent
 
-import com.google.ads.consent.ConsentInformation;
-import com.google.ads.consent.ConsentStatus;
+import com.google.ads.consent.ConsentInformation
+import com.google.ads.consent.ConsentStatus
 
-import pl.netigen.core.netigenapi.NetigenSplashFragment;
+import pl.netigen.core.netigenapi.NetigenSplashFragment
 
-public class ConstRodo {
-    public static final String HTTPS_ADS_SETTINGS_GOOGLE_COM = "https://adssettings.google.com";
-    public static String textPolicy1 = "We are committed to protecting your information\n" +
+object ConstGDPR {
+    val HTTPS_ADS_SETTINGS_GOOGLE_COM = "https://adssettings.google.com"
+    var textPolicy1 = "We are committed to protecting your information\n" +
             "\n" +
-            "Your consent is important to us, we want you to understand our terms and know how we collect and use your information in keeping with the EU’s General Data Protection Regulation (GDPR). Read our Privacy Policy:\n\n";
-    public static String textPolicy2 = "Introduction\n" +
+            "Your consent is important to us, we want you to understand our terms and know how we collect and use your information in keeping with the EU’s General Data Protection Regulation (GDPR). Read our Privacy Policy:\n\n"
+    var textPolicy2 = "Introduction\n" +
             "NETIGEN Kluzowicz sp. j. and its affiliates (“Company” or “We”) respect your privacy and are committed to protecting it through our compliance with this policy.\n" +
             "\n" +
             "This privacy policy has been compiled to better serve those who are concerned with how their 'Personally identifiable information' (PII) is being used online. In order for you to be able to utilize our Services and play our games, and for us to process your orders and requests, you do need to give us some personal information. However, we want you to know what information we need and why we need it.\n" +
@@ -186,30 +186,18 @@ public class ConstRodo {
             "www.netigen.pl\n" +
             "Netigen Kluzowicz sp.j.\n" +
             "ul. Dobrego Pasterza 19A/U3,\n" +
-            "31-416 Kraków";
+            "31-416 Kraków"
 
+    var text1 = "We care about your privacy and data security. We keep this app free by showing ads.\n\n"
+    var text2 = "Choose if you’d prefer to turn on ad personalization or turn it off.\n" + "- If ad personalization is turned off, Google won’t collect information to create an ad profile. You will still see ads, but they may not be as useful.\n"
+    var text3 = "You can change your choice anytime  in the app settings.\n\n"
+    var text4 = "Our partners will collect data and use a unique identifier on your device to show you ads.\n" + "Learn how and our partners collect and use data.\n\n"
+    var text5 = "Can we continue to use your data to tailor ads for you?"
+    var isInEea: Boolean = false
 
-    public static String text1 = "We care about your privacy and data security. We keep this app free by showing ads.\n\n";
-    public static String text2 = "Choose if you’d prefer to turn on ad personalization or turn it off.\n" +
-            "- If ad personalization is turned off, Google won’t collect information to create an ad profile. You will still see ads, but they may not be as useful.\n";
-    public static String text3 = "You can change your choice anytime  in the app settings.\n\n";
-    public static String text4 = "Our partners will collect data and use a unique identifier on your device to show you ads.\n" +
-            "Learn how and our partners collect and use data.\n\n";
-    public static String text5 = "Can we continue to use your data to tailor ads for you?";
-    private static boolean isInEea;
-
-    public static boolean isIsInEea() {
-        return isInEea;
-    }
-
-    public static void setIsInEea(boolean isInEea) {
-        ConstRodo.isInEea = isInEea;
-    }
-
-    public static void resetRodoSetings(Activity activity, Class<? extends NetigenSplashFragment> splashFragment) {
-        //TODO change required
-        ConsentInformation.getInstance(activity).setConsentStatus(ConsentStatus.UNKNOWN);
-        activity.startActivity(new Intent(activity, splashFragment));
-        activity.finish();
+    fun resetGDPRConsent(activity: Activity) {
+        ConsentInformation.getInstance(activity).consentStatus = ConsentStatus.UNKNOWN
+        activity.finish()
+        activity.startActivity(activity.intent)
     }
 }
