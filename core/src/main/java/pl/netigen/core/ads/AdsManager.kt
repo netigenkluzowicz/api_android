@@ -32,6 +32,10 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         this.interstitialAdManager = InterstitialAdManager(viewModel, activity, this)
     }
 
+    fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit){
+        interstitialAdManager.launchSplashLoaderOrOpenFragment(openFragment)
+    }
+
     fun loadInterstitialIfPossible() {
         interstitialAdManager.loadIfPossible()
     }

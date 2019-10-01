@@ -2,6 +2,7 @@ package pl.netigen.core.ads
 
 import android.content.Context
 import android.os.Handler
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.gms.ads.AdListener
@@ -28,6 +29,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
 
     init {
         interstitialAd = InterstitialAd(activity)
+        load(activity)
     }
 
     fun loadIfPossible() {
@@ -85,62 +87,44 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
                 interstitialAdError = true
             }
         }
+        interstitialAd.loadAd(adsManager.getAdRequest())
     }
 
-    internal fun reloadInterstitial(context: Context) {
-        interstitialAdError = false
-        if (!interstitialAd.isLoading) {
-            interstitialAd.loadAd(adsManager.getAdRequest())
-        }
-    }
-
-    private fun launchSplashLoaderOrStartFragment(fragmentToOpen: Fragment) {
+    fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit) {
         lastInterstitialAdDisplayTime = System.currentTimeMillis()
         interstitialAdHandler.removeCallbacksAndMessages(null)
         if (viewModel.isNoAdsBought) {
-            launchTargetFragment(fragmentToOpen)
+            openFragment()
             return
         }
         if (interstitialAd.isLoaded) {
             show(object : ShowInterstitialListener {
                 override fun onShowedOrNotLoaded(success: Boolean) {
-                    if (success) launchTargetFragment(fragmentToOpen)
+                    if (success) openFragment()
                 }
             })
         } else if (!adsManager.isOnline()) {
-            launchTargetFragment(fragmentToOpen)
+            openFragment()
         } else {
-            //TODO should implement stuff to load splash fragment here
-            val splashScreenLoader = SplashLoader(fragmentToOpen)
+            val splashScreenLoader = SplashLoader { openFragment() }
             interstitialAdHandler.postDelayed(splashScreenLoader, REFRESH_TIME)
         }
     }
 
-    private fun launchTargetFragment(fragmentToOpen: Fragment) {
-        interstitialAdHandler.removeCallbacksAndMessages(null)
-        val transaction = activity.supportFragmentManager.beginTransaction()
-        transaction.add(fragmentToOpen, "")
-        transaction.commit()
-    }
-
-    private suspend fun test() {
-
-    }
-
-    inner class SplashLoader constructor(var fragmentToOpen: Fragment) : Runnable {
+    inner class SplashLoader constructor(var openFragment: () -> Unit) : Runnable {
 
         override fun run() {
             if (refreshHandler()) {
                 interstitialAdHandler.postDelayed(this, REFRESH_TIME)
             } else {
                 if (viewModel.isNoAdsBought) {
-                    launchTargetFragment(fragmentToOpen)
+                    openFragment()
                     return
                 }
                 if (interstitialAd.isLoaded) {
                     show(object : ShowInterstitialListener {
                         override fun onShowedOrNotLoaded(success: Boolean) {
-                            if (success) launchTargetFragment(fragmentToOpen)
+                            if (success) openFragment()
                         }
                     })
                     interstitialAdHandler.removeCallbacksAndMessages(null)
@@ -149,13 +133,13 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
                         if (adsManager.isOnline()) {
                             interstitialAdHandler.postDelayed(this, REFRESH_TIME)
                         } else {
-                            launchTargetFragment(fragmentToOpen)
+                            openFragment()
                         }
                     } else {
                         interstitialAdHandler.postDelayed(this, REFRESH_TIME)
                     }
                 } else {
-                    launchTargetFragment(fragmentToOpen)
+                    openFragment()
                 }
             }
         }
