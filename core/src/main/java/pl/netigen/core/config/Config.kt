@@ -10,7 +10,7 @@ class Config private constructor(val inDebugMode: Boolean, val isSamsung: Boolea
 
     var isNoAdsBought: Boolean = false
     var isNoAdsPaymentAvailable: Boolean = true
-    var shouldShowInterstitialAd: Boolean = false
+    var isDesignedForFamily: Boolean = false
     var rewardedAdId: String? = null
     var adMobAppId: String? = null
     var publishersId = arrayOf("pub-4699516034931013")

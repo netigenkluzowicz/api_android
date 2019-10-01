@@ -18,7 +18,7 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
     val noAdsSku = application.packageName + ".noads"
     var isRewardedAdLoading: Boolean = false
     var isNoAdsPaymentAvailable: Boolean = config.isNoAdsPaymentAvailable
-    var isDesignedForFamily: Boolean = config.shouldShowInterstitialAd
+    var isDesignedForFamily: Boolean = config.isDesignedForFamily
     var publishersIds = config.publishersId
     var isNoAdsBought: Boolean = false
         get() = config.isNoAdsBought

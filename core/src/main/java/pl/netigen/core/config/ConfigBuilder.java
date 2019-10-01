@@ -46,8 +46,8 @@ public class ConfigBuilder {
         return this;
     }
 
-    public ConfigBuilder setShouldShowInterstitial(boolean shouldShowInterstitial) {
-        config.setShouldShowInterstitialAd(shouldShowInterstitial);
+    public ConfigBuilder setDesignedForFamily(boolean isDesignedForFamily) {
+        config.setDesignedForFamily(isDesignedForFamily);
         return this;
     }
 
