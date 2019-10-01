@@ -26,6 +26,8 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
             noAdsLiveData.value = isNoAdsBought
             field = isNoAdsBought
         }
+    var isInEea = false
+    val isMultiFullscreenApp: Boolean = config.isMultiScreen
 
     val interstitialAdId: String = config.interstitalAdId
     fun getRewardedAdId() = config.rewardedAdId
@@ -33,6 +35,4 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
     fun isInDebugMode() = config.inDebugMode
     fun getTestDevices() = config.testDevices
     fun isSamsung() = config.isSamsung
-    val isMultiFullscreenApp: Boolean = config.isMultiScreen
-
 }

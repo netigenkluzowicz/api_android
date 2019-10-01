@@ -1,7 +1,6 @@
 package pl.netigen.core.netigenapi
 
 import android.content.Context
-import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
 import pl.netigen.gdpr.GDPRDialogFragment
@@ -10,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInfoUpdateListener
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
-import pl.netigen.core.gdpr.ConstRodo
+import pl.netigen.core.gdpr.ConstGDPR
 
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(), GDPRDialogFragment.GDPRClickListener {
 
@@ -22,16 +21,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     override fun onAttach(context: Context) {
         super.onAttach(context)
         setupParentActivity(context)
-        netigenMainActivity.checkIfNoAdsBought()
-        viewModel.noAdsLiveData.observe(this, Observer {
-            if (it) {
-                showHomeFragment()
-                gdprDialogFragment?.dialog?.dismiss()
-            } else {
-                showConsent()
-            }
-        })
-        onNoAdsPaymentNotAvailable()
+        startNoAdsLogic()
         netigenMainActivity.hideAds()
     }
 
@@ -47,25 +37,55 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         }
     }
 
-    private fun onNoAdsPaymentNotAvailable() {
-        if (!viewModel.isNoAdsPaymentAvailable) {
-            viewModel.isNoAdsBought = false
-            if (viewModel.isDesignedForFamily) {
-                showConsent()
-            } else {
-                clickNo()
-                showHomeFragment()
-            }
+    private fun startNoAdsLogic() {
+        if (viewModel.isNoAdsPaymentAvailable) {
+            netigenMainActivity.checkIfNoAdsBought()
+            observeNoAds()
+        } else {
+            onNoAdsPaymentNotAvailable()
         }
     }
 
+    private fun observeNoAds() {
+        viewModel.noAdsLiveData.observe(this, Observer {
+            if (it) {
+                onAttachWithoutAds()
+            } else {
+                onAttachWithAds()
+            }
+        })
+    }
+
+    private fun onAttachWithoutAds() {
+        showHomeFragment()
+        gdprDialogFragment?.dialog?.dismiss()
+    }
+
+    abstract fun showHomeFragment()
+
+    private fun onAttachWithAds() {
+        if (viewModel.isDesignedForFamily) {
+            onDesignedForFamily()
+        } else {
+            showConsent()
+        }
+    }
+
+    private fun onNoAdsPaymentNotAvailable() {
+        viewModel.isNoAdsBought = false
+        onAttachWithAds()
+    }
+
+    private fun onDesignedForFamily() {
+        showHomeFragment()
+        clickNo()
+    }
+
     private fun showConsent() {
-        val consentInformation = ConsentInformation.getInstance(context)
-        consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
+        netigenMainActivity.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
             override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                val isInEea = ConsentInformation.getInstance(this@NetigenSplashFragment.context).isRequestLocationInEeaOrUnknown
-                ConstRodo.setIsInEea(isInEea)
-                if (isInEea && consentInformation.consentStatus == ConsentStatus.UNKNOWN) {
+                ConstGDPR.isInEea = viewModel.isInEea
+                if (ConstGDPR.isInEea && netigenMainActivity.consentInformation.consentStatus == ConsentStatus.UNKNOWN) {
                     initGDPRFragment()
                 } else {
                     startAdsSplash()
@@ -81,8 +101,6 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     override fun clickNo() {
         ConsentInformation.getInstance(context).consentStatus = ConsentStatus.NON_PERSONALIZED
     }
-
-    abstract fun showHomeFragment()
 
     private fun initGDPRFragment() {
         gdprDialogFragment = GDPRDialogFragment.newInstance()
