@@ -9,14 +9,18 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.StyleSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.lifecycle.ViewModel
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
 import pl.netigen.core.R
 import pl.netigen.core.gdpr.ConstRodo
+import pl.netigen.core.netigenapi.NetigenSplashFragment
+import pl.netigen.core.netigenapi.NetigenViewModel
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
 
@@ -55,7 +59,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     }
 
     private fun setButtons() {
-        buttonYes.setOnClickListener { v -> gdprClickListener?.clickYes() }
+        buttonYes.setOnClickListener { v ->
+            gdprClickListener?.clickYes()
+            dismiss()
+        }
         buttonNo.setOnClickListener { v ->
             gdprClickListener!!.clickNo()
             showPrivacyPolicy()
@@ -68,7 +75,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         } else {
             buttonPay.visibility = View.GONE
         }
-        buttonPolicy.setOnClickListener { v -> gdprClickListener?.clickAcceptPolicy() }
+        buttonPolicy.setOnClickListener { v ->
+            gdprClickListener?.clickAcceptPolicy()
+            dismiss()
+        }
     }
 
     private fun setIcon() {
@@ -160,15 +170,6 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         offlinePrivacyPolicyTextView.append(ConstRodo.textPolicy2)
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is GDPRClickListener) {
-            gdprClickListener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement GDPRClickListener")
-        }
-    }
-
     override fun onDetach() {
         super.onDetach()
         gdprClickListener = null
@@ -179,6 +180,11 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             showGDPRText()
         }
     }
+
+    fun bindGDPRListener(gdprClickListener: GDPRClickListener) {
+        this.gdprClickListener = gdprClickListener
+    }
+
 
     interface GDPRClickListener {
         fun clickYes()
