@@ -14,7 +14,7 @@ import pl.netigen.core.gdpr.ConstGDPR
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(), GDPRDialogFragment.GDPRClickListener {
 
     open lateinit var viewModel: ViewModel
-    lateinit var netigenMainActivity: NetigenMainActivity<NetigenViewModel>
+    var netigenMainActivity: NetigenMainActivity<NetigenViewModel>? = null
     private var gdprDialogFragment: GDPRDialogFragment? = null
     private lateinit var initAdsHandler: Handler
 
@@ -22,24 +22,24 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         super.onAttach(context)
         setupParentActivity(context)
         startNoAdsLogic()
-        netigenMainActivity.hideAds()
+        netigenMainActivity?.hideAds()
     }
 
     private fun setupParentActivity(context: Context) {
         if (context is Activity) {
             if (context is NetigenMainActivity<*>) {
                 netigenMainActivity = context as NetigenMainActivity<NetigenViewModel>
-                viewModel = netigenMainActivity.viewModel as ViewModel
+                viewModel = netigenMainActivity?.viewModel as ViewModel
             } else {
                 throw IllegalStateException("Parent activity should be of type NetigenMainActivity<VM: NetigenViewModel>")
             }
-            netigenMainActivity.hideBanner()
+            netigenMainActivity?.hideBanner()
         }
     }
 
     private fun startNoAdsLogic() {
         if (viewModel.isNoAdsPaymentAvailable) {
-            netigenMainActivity.checkIfNoAdsBought()
+            netigenMainActivity?.checkIfNoAdsBought()
             observeNoAds()
         } else {
             onNoAdsPaymentNotAvailable()
@@ -82,20 +82,22 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     private fun showConsent() {
-        netigenMainActivity.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
-            override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                ConstGDPR.isInEea = viewModel.isInEea
-                if (ConstGDPR.isInEea && netigenMainActivity.consentInformation.consentStatus == ConsentStatus.UNKNOWN) {
-                    initGDPRFragment()
-                } else {
+        netigenMainActivity?.let {
+            it.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
+                override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
+                    ConstGDPR.isInEea = viewModel.isInEea
+                    if (ConstGDPR.isInEea && it.consentInformation.consentStatus == ConsentStatus.UNKNOWN) {
+                        initGDPRFragment()
+                    } else {
+                        startAdsSplash()
+                    }
+                }
+
+                override fun onFailedToUpdateConsentInfo(errorDescription: String) {
                     startAdsSplash()
                 }
-            }
-
-            override fun onFailedToUpdateConsentInfo(errorDescription: String) {
-                startAdsSplash()
-            }
-        })
+            })
+        }
     }
 
     override fun clickNo() {
@@ -105,7 +107,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     private fun initGDPRFragment() {
         gdprDialogFragment = GDPRDialogFragment.newInstance()
         gdprDialogFragment?.setIsPayOptions(viewModel.isNoAdsPaymentAvailable)
-        gdprDialogFragment?.show(netigenMainActivity.supportFragmentManager.beginTransaction().addToBackStack(null), "")
+        netigenMainActivity?.let { gdprDialogFragment?.show(it.supportFragmentManager.beginTransaction().addToBackStack(null), "") }
         gdprDialogFragment?.bindGDPRListener(this)
     }
 
@@ -122,8 +124,8 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     internal open fun initAds() {
-        netigenMainActivity.initAdsManager()
-        netigenMainActivity.adsManager?.launchSplashLoaderOrOpenFragment {
+        netigenMainActivity?.initAdsManager()
+        netigenMainActivity?.adsManager?.launchSplashLoaderOrOpenFragment {
             showHomeFragment()
         }
     }
@@ -134,18 +136,18 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
 
     override fun onStart() {
         super.onStart()
-        netigenMainActivity.adsManager?.splashScreenOnStart()
+        netigenMainActivity?.adsManager?.splashScreenOnStart()
     }
 
     override fun onStop() {
         super.onStop()
-        netigenMainActivity.adsManager?.splashScreenOnStop()
+        netigenMainActivity?.adsManager?.splashScreenOnStop()
     }
 
     override fun onDestroyView() {
-        netigenMainActivity.showAds()
-        netigenMainActivity.showBanner()
-        netigenMainActivity.adsManager?.splashScreenOnDestroy()
+        netigenMainActivity?.showAds()
+        netigenMainActivity?.showBanner()
+        netigenMainActivity?.adsManager?.splashScreenOnDestroy()
         super.onDestroyView()
     }
 
