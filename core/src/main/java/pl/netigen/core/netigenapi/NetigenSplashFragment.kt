@@ -26,15 +26,13 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     private fun setupParentActivity(context: Context) {
-        if (context is Activity) {
-            if (context is NetigenMainActivity<*>) {
-                netigenMainActivity = context as NetigenMainActivity<NetigenViewModel>
-                viewModel = netigenMainActivity?.viewModel as ViewModel
-            } else {
-                throw IllegalStateException("Parent activity should be of type NetigenMainActivity<VM: NetigenViewModel>")
-            }
-            netigenMainActivity?.hideBanner()
+        if (context is NetigenMainActivity<*>) {
+            netigenMainActivity = context as NetigenMainActivity<NetigenViewModel>
+            viewModel = netigenMainActivity?.viewModel as ViewModel
+        } else {
+            throw IllegalStateException("Parent activity should be of type NetigenMainActivity<VM: NetigenViewModel>")
         }
+        netigenMainActivity?.hideBanner()
     }
 
     private fun startNoAdsLogic() {
