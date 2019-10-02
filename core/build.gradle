@@ -32,7 +32,8 @@ android {
     }
 }
 dependencies {
-    api "com.github.netigenkluzowicz:billingandroid:1.1.0"
+//    api "com.github.netigenkluzowicz:billingandroid:1.1.0"
+    implementation project(path: ':payments')
 
     api Libraries.legacySupportV4
     api Libraries.legacySupportV13

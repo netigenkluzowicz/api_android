@@ -10,11 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInformation
 import com.google.android.gms.ads.AdSize
-import pl.netigen.billingandroid.IPaymentManager
-import pl.netigen.billingandroid.PaymentManager
-import pl.netigen.billingandroid.PurchaseListener
 import pl.netigen.core.ads.AdsManager
 import pl.netigen.core.rewards.RewardsListener
+import pl.netigen.payments.IPaymentManager
+import pl.netigen.payments.PaymentManager
+import pl.netigen.payments.PurchaseListener
 
 abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActivity(), PurchaseListener {
 
@@ -72,8 +72,13 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     @CallSuper
     override fun onItemNotBought(sku: String?) {
         if (!sku.isNullOrEmpty() && sku == viewModel.noAdsSku) {
+            onNoAdsNotBought()
             adsManager?.loadInterstitialIfPossible()
         }
+    }
+
+    private fun onNoAdsNotBought() {
+        viewModel.isNoAdsBought = false
     }
 
     abstract fun showAds()
@@ -105,10 +110,6 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     @CallSuper
     override fun onPaymentsError(errorMsg: String?) {
         onNoAdsNotBought()
-    }
-
-    private fun onNoAdsNotBought() {
-        viewModel.isNoAdsBought = false
     }
 
     fun initAdsManager() {
