@@ -21,14 +21,17 @@ class Config private constructor(val inDebugMode: Boolean, val isSamsung: Boolea
     lateinit var testDevices: List<String>
 
     init {
-        if(inDebugMode){
+        if (inDebugMode) {
             bannerAdId = testBannerAdId
             interstitalAdId = testInterstitialAdId
+            if (rewardedAdId != null) {
+                rewardedAdId = testRewardedAdId
+            }
         }
         testDevices = ArrayList<String>()
     }
 
-    companion object : SingletonHolder<Config, Boolean, Boolean>(::Config){
+    companion object : SingletonHolder<Config, Boolean, Boolean>(::Config) {
 
     }
 
