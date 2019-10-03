@@ -143,8 +143,10 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     override fun onDestroyView() {
-        netigenMainActivity?.showAds()
-        netigenMainActivity?.showBanner()
+        if(!viewModel.isNoAdsBought){
+            netigenMainActivity?.showAds()
+            netigenMainActivity?.showBanner()
+        }
         netigenMainActivity?.adsManager?.splashScreenOnDestroy()
         super.onDestroyView()
     }
@@ -157,5 +159,4 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         ConsentInformation.getInstance(context).consentStatus = ConsentStatus.PERSONALIZED
         startAdsSplash()
     }
-
 }
