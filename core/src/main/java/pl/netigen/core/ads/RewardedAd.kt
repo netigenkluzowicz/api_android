@@ -1,6 +1,5 @@
 package pl.netigen.core.ads
 
-import android.app.Activity
 import android.util.Log
 import androidx.annotation.IntDef
 import androidx.appcompat.app.AppCompatActivity

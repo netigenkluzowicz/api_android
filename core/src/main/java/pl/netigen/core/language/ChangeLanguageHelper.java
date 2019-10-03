@@ -22,7 +22,6 @@ import java.util.Locale;
 import pl.netigen.core.R;
 import pl.netigen.core.language.info.TranslationInfoDialogFragment;
 
-
 public class ChangeLanguageHelper {
 
     private static String[] arrayOfProperlyTranslatedLanguages = new String[]{"pl", "pt"/*, "ru"*/, "es", "de", "ko", "en"};

@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-
 import pl.netigen.core.R;
 import pl.netigen.core.utils.BitmapHelper;
 import pl.netigen.core.utils.Const;

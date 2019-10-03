@@ -14,6 +14,8 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
         prepareConfigBuilder()
     }
 
+    var isInEea = false
+    val isMultiFullscreenApp: Boolean = config.isMultiScreen
     var noAdsLiveData = MutableLiveData<Boolean>()
     var delayBetweenInterstitialAds = 60L * 1000L
     var noAdsSku = application.packageName + ".noads"
@@ -24,7 +26,6 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
                 getApplication<Application>().packageName + ".noads"
             }
         }
-
 
     var isRewardedAdLoading: Boolean = false
     var isNoAdsPaymentAvailable: Boolean = config.isNoAdsPaymentAvailable
@@ -40,8 +41,6 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
             field = isNoAdsBought
         }
 
-    var isInEea = false
-    val isMultiFullscreenApp: Boolean = config.isMultiScreen
     fun getInterstitialAdId() = config.interstitialAdId
     fun getRewardedAdId() = config.rewardedAdId
     fun getBannerId() = config.bannerAdId

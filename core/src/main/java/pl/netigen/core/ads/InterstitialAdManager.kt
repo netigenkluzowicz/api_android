@@ -60,7 +60,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         }
         if (lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + timeToDelayInterstitial < currentTime) {
             showInterstitialAd()
-        }else{
+        } else {
             showInterstitialListener.onShowedOrNotLoaded(false)
         }
     }

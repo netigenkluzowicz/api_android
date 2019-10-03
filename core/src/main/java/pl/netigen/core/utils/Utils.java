@@ -19,7 +19,6 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.material.snackbar.Snackbar;
 
 import pl.netigen.core.R;
-import pl.netigen.core.config.Config;
 
 public class Utils {
 

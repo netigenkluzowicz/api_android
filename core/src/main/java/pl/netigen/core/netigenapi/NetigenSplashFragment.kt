@@ -143,7 +143,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     override fun onDestroyView() {
-        if(!viewModel.isNoAdsBought){
+        if (!viewModel.isNoAdsBought) {
             netigenMainActivity?.showAds()
             netigenMainActivity?.showBanner()
         }

@@ -27,7 +27,6 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import pl.netigen.core.R;
-import pl.netigen.core.config.Config;
 import pl.netigen.core.netigenapi.NetigenMainActivity;
 
 public class RewardDialogFragment extends AppCompatDialogFragment {

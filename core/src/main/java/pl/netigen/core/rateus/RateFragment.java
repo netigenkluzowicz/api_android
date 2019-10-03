@@ -1,6 +1,5 @@
 package pl.netigen.core.rateus;
 
-
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;

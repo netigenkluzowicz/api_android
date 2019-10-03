@@ -41,12 +41,10 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         void onPositiveButtonClicked();
     }
 
-    private static final String TAG = "TranslationInfoDialogFr";
 
     public static TranslationInfoDialogFragment newInstance(TranslationInfoParams translationInfoParams) {
         TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment();
         fragment.translationInfoParams = translationInfoParams;
-        Log.d(TAG, "newInstance: translationInfoParams.dialogClickListener null: " + (null == translationInfoParams.dialogClickListener));
         fragment.dialogClickListener = translationInfoParams.dialogClickListener;
         return fragment;
     }
@@ -134,7 +132,7 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         setDialogSize(0, 0.85);
     }
 
-    public void setDialogSize(double heightMultiplier, double widthMultiplier) {
+    private void setDialogSize(double heightMultiplier, double widthMultiplier) {
         Window window = getDialog().getWindow();
         Point size = new Point();
         Display display;

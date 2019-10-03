@@ -4,21 +4,17 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
-import android.os.Handler
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
-
 import com.google.android.gms.ads.MobileAds
-
 import pl.netigen.core.netigenapi.NetigenViewModel
 import pl.netigen.core.rewards.RewardItem
 import pl.netigen.core.rewards.RewardListenersList
 import pl.netigen.core.rewards.RewardsListener
-import java.lang.NullPointerException
 
 class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivity) {
 

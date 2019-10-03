@@ -1,8 +1,9 @@
 package pl.netigen.core.utils
 
-open class SingletonHolder<out T: Any, in A, in B>(creator: (A, B) -> T) {
+open class SingletonHolder<out T : Any, in A, in B>(creator: (A, B) -> T) {
     private var creator: ((A, B) -> T)? = creator
-    @Volatile private var instance: T? = null
+    @Volatile
+    private var instance: T? = null
 
     fun getInstance(arg1: A, arg2: B): T {
         val i = instance

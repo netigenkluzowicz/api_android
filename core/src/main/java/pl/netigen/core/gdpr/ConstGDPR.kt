@@ -1,12 +1,8 @@
 package pl.netigen.core.gdpr
 
 import android.app.Activity
-import android.content.Intent
-
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
-
-import pl.netigen.core.netigenapi.NetigenSplashFragment
 
 object ConstGDPR {
     val HTTPS_ADS_SETTINGS_GOOGLE_COM = "https://adssettings.google.com"
