@@ -3,13 +3,12 @@ package pl.netigen.core.netigenapi
 import android.content.Context
 import android.os.Handler
 import androidx.fragment.app.Fragment
-import pl.netigen.gdpr.GDPRDialogFragment
-import android.app.Activity
 import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInfoUpdateListener
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import pl.netigen.core.gdpr.ConstGDPR
+import pl.netigen.gdpr.GDPRDialogFragment
 
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(), GDPRDialogFragment.GDPRClickListener {
 
@@ -77,6 +76,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     private fun onDesignedForFamily() {
         showHomeFragment()
         clickNo()
+        initAds()
     }
 
     private fun showConsent() {
