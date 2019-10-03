@@ -4,14 +4,15 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import pl.netigen.core.config.Config
-import pl.netigen.core.config.ConfigBuilder
 
 abstract class NetigenViewModel(application: Application) : AndroidViewModel(application) {
 
     var isSplashInBackground: Boolean = false
 
-    abstract fun prepareConfigBuilder(): ConfigBuilder
-    val config: Config by lazy { prepareConfigBuilder().createConfig() }
+    abstract fun prepareConfigBuilder(): Config
+    open val config: Config by lazy {
+        prepareConfigBuilder()
+    }
 
     var noAdsLiveData = MutableLiveData<Boolean>()
     var delayBetweenInterstitialAds = 60L * 1000L
@@ -29,8 +30,7 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
 
     var isInEea = false
     val isMultiFullscreenApp: Boolean = config.isMultiScreen
-    val interstitialAdId: String = config.interstitalAdId
-    
+    fun getInterstitialAdId() = config.interstitialAdId
     fun getRewardedAdId() = config.rewardedAdId
     fun getBannerId() = config.bannerAdId
     fun isInDebugMode() = config.inDebugMode
