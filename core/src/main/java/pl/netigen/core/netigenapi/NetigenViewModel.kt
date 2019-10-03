@@ -4,11 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import pl.netigen.core.config.Config
+import pl.netigen.payments.PaymentManager
 
 abstract class NetigenViewModel(application: Application) : AndroidViewModel(application) {
 
     var isSplashInBackground: Boolean = false
-
     abstract fun prepareConfigBuilder(): Config
     open val config: Config by lazy {
         prepareConfigBuilder()
@@ -16,15 +16,27 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
 
     var noAdsLiveData = MutableLiveData<Boolean>()
     var delayBetweenInterstitialAds = 60L * 1000L
-    val noAdsSku = application.packageName + ".noads"
+    var noAdsSku = application.packageName + ".noads"
+        get() {
+            return if (config.inDebugMode) {
+                PaymentManager.TEST_PURCHASED
+            } else {
+                getApplication<Application>().packageName + ".noads"
+            }
+        }
+
+
     var isRewardedAdLoading: Boolean = false
     var isNoAdsPaymentAvailable: Boolean = config.isNoAdsPaymentAvailable
     var isDesignedForFamily: Boolean = config.isDesignedForFamily
     var publishersIds = config.publishersId
     var isNoAdsBought: Boolean = false
-        get() = config.isNoAdsBought
+        get() {
+            return config.isNoAdsBought
+        }
         set(isNoAdsBought) {
             noAdsLiveData.value = isNoAdsBought
+            config.isNoAdsBought = isNoAdsBought
             field = isNoAdsBought
         }
 
