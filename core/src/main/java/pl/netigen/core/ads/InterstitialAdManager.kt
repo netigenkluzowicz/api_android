@@ -3,7 +3,6 @@ package pl.netigen.core.ads
 import android.content.Context
 import android.os.Handler
 import android.os.SystemClock
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
@@ -61,6 +60,8 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         }
         if (lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + timeToDelayInterstitial < currentTime) {
             showInterstitialAd()
+        }else{
+            showInterstitialListener.onShowedOrNotLoaded(false)
         }
     }
 
