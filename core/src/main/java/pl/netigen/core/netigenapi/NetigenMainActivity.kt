@@ -1,7 +1,6 @@
 package pl.netigen.core.netigenapi
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.RelativeLayout
@@ -155,5 +154,6 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         if (!viewModel.isNoAdsBought) {
             adsManager?.onDestroy()
         }
+        paymentManager.onDestroy()
     }
 }
