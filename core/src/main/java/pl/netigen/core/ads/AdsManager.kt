@@ -32,7 +32,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         this.interstitialAdManager = InterstitialAdManager(viewModel, activity, this)
     }
 
-    fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit){
+    fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit) {
         interstitialAdManager.launchSplashLoaderOrOpenFragment(openFragment)
     }
 
@@ -75,7 +75,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     fun showRewardedVideoForItems(rewardItems: MutableList<out RewardItem>, listeners: RewardListenersList? = null) {
         if (rewardedAdManager == null) throw NullPointerException("Trying to show RewardedAd without initialization")
-        listeners?.let{
+        listeners?.let {
             rewardedAdManager?.addListeners(it)
         }
         rewardedAdManager?.showRewardedVideoForItems(rewardItems)
@@ -109,7 +109,6 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
                     .addTestDevice("43AAFCE5A6B9E8FCDC58E58087AEC4EF")
                     .addTestDevice("AD2180512DE8B1EE611AB4645A69E470")
                     .addTestDevice("379BED7628AE4885B439939575F9F292")
-                    .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5")
 
             val testDevices = viewModel.getTestDevices()
             for (i in testDevices.indices) {
