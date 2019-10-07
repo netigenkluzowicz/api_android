@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.material.snackbar.Snackbar;
 
 import pl.netigen.core.R;
+import pl.netigen.core.config.Config;
 
 public class Utils {
 
@@ -41,8 +42,7 @@ public class Utils {
 
     @NonNull
     private static String getMarketLink(Activity activity, String packageName) {
-        int link_id = true ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
-//        int link_id = Config.Companion.isSamsung() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
+        int link_id = Config.Companion.isSamsungStatic() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
         return activity.getString(link_id) + packageName;
     }
 
