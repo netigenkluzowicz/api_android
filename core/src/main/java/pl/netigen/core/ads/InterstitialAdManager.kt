@@ -1,6 +1,5 @@
 package pl.netigen.core.ads
 
-import android.content.Context
 import android.os.Handler
 import android.os.SystemClock
 import androidx.appcompat.app.AppCompatActivity
@@ -13,26 +12,21 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     private var interstitialAdError: Boolean = false
     val interstitialAdHandler = Handler()
 
+    private var adLoadingStartTime = 0L
     private var lastInterstitialAdDisplayTime: Long = 0
     private var timeToDelayInterstitial: Long = viewModel.delayBetweenInterstitialAds
-    private var isSplashInBackground: Boolean = false
     private var interstitialAd: InterstitialAd
 
-    var minWaitForInterstitialAfterSplash = minWaitTimeForSplashInterstitial
     var maxWaitForInterstitialAfterSplash = maxWaitTimeForSplashInterstitial
 
     init {
         interstitialAd = InterstitialAd(activity)
-        load(activity)
+        load()
     }
 
-    fun loadIfPossible() {
-        load(activity)
-    }
-
-    private fun load(context: Context) {
+    fun load() {
         if (interstitialAd.isLoading || interstitialAd.isLoaded) return
-        interstitialAd = InterstitialAd(context)
+        interstitialAd = InterstitialAd(activity)
         interstitialAd.adUnitId = viewModel.getInterstitialAdId()
         interstitialAd.adListener = object : AdListener() {
             override fun onAdFailedToLoad(errorCode: Int) {
@@ -60,7 +54,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
                 showInterstitialListener.onShowedOrNotLoaded(true)
-                load(activity)
+                load()
             }
         }
         if (shouldShowAd(currentTime)) {
@@ -75,7 +69,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
 
     private fun onNotLoaded(showInterstitialListener: ShowInterstitialListener) {
         showInterstitialListener.onShowedOrNotLoaded(false)
-        load(activity)
+        load()
     }
 
     private fun showInterstitialAd() {
@@ -84,7 +78,6 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     }
 
     fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit) {
-        lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
         interstitialAdHandler.removeCallbacksAndMessages(null)
         if (viewModel.isNoAdsBought) {
             openFragment()
@@ -99,6 +92,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         } else if (!adsManager.isOnline()) {
             openFragment()
         } else {
+            adLoadingStartTime = SystemClock.elapsedRealtime()
             val splashScreenLoader = SplashLoader { openFragment() }
             interstitialAdHandler.postDelayed(splashScreenLoader, handlerRefreshTime)
         }
@@ -113,7 +107,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
             interstitialAd.adListener = object : AdListener() {
                 override fun onAdClosed() {
                     showInterstitialListener.onShowedOrNotLoaded(true)
-                    load(activity)
+                    load()
                 }
             }
             showInterstitialAd()
@@ -125,38 +119,47 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     inner class SplashLoader constructor(var openFragment: () -> Unit) : Runnable {
 
         override fun run() {
-            if (refreshHandler()) {
-                interstitialAdHandler.postDelayed(this, handlerRefreshTime)
-            } else {
-                if (viewModel.isNoAdsBought) {
-                    openFragment()
-                    return
-                }
-                if (interstitialAd.isLoaded) {
-                    showInterstitialAfterSplash(object : ShowInterstitialListener {
-                        override fun onShowedOrNotLoaded(success: Boolean) {
-                            openFragment()
-                        }
-                    })
+            when {
+                interstitialAd.isLoaded -> {
+                    showAd()
                     interstitialAdHandler.removeCallbacksAndMessages(null)
-                } else if (SystemClock.elapsedRealtime() - lastInterstitialAdDisplayTime < maxWaitForInterstitialAfterSplash) {
-                    if (interstitialAdError) {
-                        if (adsManager.isOnline()) {
-                            interstitialAdHandler.postDelayed(this, handlerRefreshTime)
-                        } else {
-                            openFragment()
-                        }
-                    } else {
-                        interstitialAdHandler.postDelayed(this, handlerRefreshTime)
-                    }
-                } else {
-                    openFragment()
                 }
+                doesMaxLoadingTimeNotPassed() -> {
+                    onAdLoading()
+                }
+                else -> openFragment()
             }
         }
 
-        private fun refreshHandler(): Boolean {
-            return SystemClock.elapsedRealtime() - lastInterstitialAdDisplayTime < minWaitForInterstitialAfterSplash || isSplashInBackground
+        private fun showAd() {
+            showInterstitialAfterSplash(object : ShowInterstitialListener {
+                override fun onShowedOrNotLoaded(success: Boolean) {
+                    openFragment()
+                }
+            })
+        }
+
+        private fun doesMaxLoadingTimeNotPassed() =
+                SystemClock.elapsedRealtime() - adLoadingStartTime < maxWaitForInterstitialAfterSplash
+
+        private fun onAdLoading() {
+            if (interstitialAdError) {
+                onAdError()
+            } else {
+                refreshHandler()
+            }
+        }
+
+        private fun onAdError() {
+            if (adsManager.isOnline()) {
+                refreshHandler()
+            } else {
+                openFragment()
+            }
+        }
+
+        private fun refreshHandler() {
+            interstitialAdHandler.postDelayed(this, handlerRefreshTime)
         }
     }
 
@@ -166,7 +169,6 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
 
     companion object {
         const val handlerRefreshTime: Long = 333
-        const val minWaitTimeForSplashInterstitial: Long = 2000
         const val maxWaitTimeForSplashInterstitial: Long = 7000
     }
 }

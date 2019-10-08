@@ -33,7 +33,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     }
 
     fun loadInterstitialIfPossible() {
-        interstitialAdManager.loadIfPossible()
+        interstitialAdManager.load()
     }
 
     fun showInterstitialAd(ShowInterstitialListener: InterstitialAdManager.ShowInterstitialListener) {
