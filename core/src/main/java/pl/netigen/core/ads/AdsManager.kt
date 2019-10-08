@@ -77,6 +77,14 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         rewardedAdManager?.showRewardedVideoForItems(rewardItems)
     }
 
+    fun removeRewardedVideoCallbacks(listeners: RewardListenersList) {
+        rewardedAdManager?.removeListeners(listeners)
+    }
+
+    fun removeRewardedVideoCallback(listener: RewardsListener) {
+        rewardedAdManager?.removeListener(listener)
+    }
+
     fun showRewardedVideo() {
         if (rewardedAdManager == null) throw NullPointerException("Trying to show RewardedAd without initialization")
         rewardedAdManager?.showRewardedVideoAd()
