@@ -45,9 +45,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     private fun observeNoAds() {
         viewModel.noAdsLiveData.observe(this, Observer {
             if (it) {
-                hideAds()
-                hideBanner()
-                adsManager = null
+                onNoAdsBought()
             }
         })
     }
@@ -96,12 +94,14 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     @CallSuper
     override fun onItemBought(sku: String?) {
         if (!sku.isNullOrEmpty() && sku == viewModel.noAdsSku) {
-            onNoAdsBought()
+            viewModel.isNoAdsBought = true
         }
     }
 
     private fun onNoAdsBought() {
-        viewModel.isNoAdsBought = true
+        hideAds()
+        hideBanner()
+        adsManager = null
     }
 
     @CallSuper
