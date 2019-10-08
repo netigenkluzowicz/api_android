@@ -70,6 +70,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     }
 
     fun onDestroy() {
+        rewardsListeners.clear()
         rewardedVideoAd.destroy(activity)
     }
 
