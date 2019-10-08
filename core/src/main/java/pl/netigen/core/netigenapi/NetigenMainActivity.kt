@@ -101,8 +101,6 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     }
 
     private fun onNoAdsBought() {
-        hideBanner()
-        hideAds()
         viewModel.isNoAdsBought = true
     }
 
@@ -111,7 +109,8 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         onNoAdsNotBought()
     }
 
-    fun initAdsManager() {
+    @CallSuper
+    open fun initAdsManager() {
         if (!viewModel.isNoAdsBought) {
             adsManager = AdsManager(viewModel, this)
             if (viewModel.config.rewardedAdId != null) {
