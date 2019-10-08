@@ -15,7 +15,6 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
     }
 
     var isInEea = false
-    val isMultiFullscreenApp: Boolean = config.isMultiScreen
     var noAdsLiveData = MutableLiveData<Boolean>()
     var delayBetweenInterstitialAds = 60L * 1000L
     var noAdsSku = application.packageName + ".noads"

@@ -27,9 +27,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     }
 
     fun loadIfPossible() {
-        if (viewModel.isMultiFullscreenApp) {
-            load(activity)
-        }
+        load(activity)
     }
 
     private fun load(context: Context) {
@@ -62,8 +60,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
                 showInterstitialListener.onShowedOrNotLoaded(true)
-                if (viewModel.isMultiFullscreenApp)
-                    load(activity)
+                load(activity)
             }
         }
         if (shouldShowAd(currentTime)) {
@@ -116,8 +113,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
             interstitialAd.adListener = object : AdListener() {
                 override fun onAdClosed() {
                     showInterstitialListener.onShowedOrNotLoaded(true)
-                    if (viewModel.isMultiFullscreenApp)
-                        load(activity)
+                    load(activity)
                 }
             }
             showInterstitialAd()
