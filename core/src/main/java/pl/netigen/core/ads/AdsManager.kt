@@ -140,12 +140,4 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         rewardedAdManager?.onDestroy()
         interstitialAdManager.onDestroy()
     }
-
-    fun splashScreenOnStop() {
-        viewModel.isSplashInBackground = true
-    }
-
-    fun splashScreenOnStart() {
-        viewModel.isSplashInBackground = false
-    }
 }

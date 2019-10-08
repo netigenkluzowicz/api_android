@@ -132,22 +132,11 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         startAdsSplash()
     }
 
-    override fun onStart() {
-        super.onStart()
-        netigenMainActivity?.adsManager?.splashScreenOnStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        netigenMainActivity?.adsManager?.splashScreenOnStop()
-    }
-
     override fun onDestroyView() {
         if (!viewModel.isNoAdsBought) {
             netigenMainActivity?.showAds()
             netigenMainActivity?.showBanner()
         }
-        netigenMainActivity?.adsManager?.splashScreenOnDestroy()
         super.onDestroyView()
     }
 
