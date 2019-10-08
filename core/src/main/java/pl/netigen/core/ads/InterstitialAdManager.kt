@@ -10,7 +10,7 @@ import pl.netigen.core.netigenapi.NetigenViewModel
 class InterstitialAdManager(private val viewModel: NetigenViewModel, val activity: AppCompatActivity, val adsManager: AdsManager) {
 
     private var interstitialAdError: Boolean = false
-    val interstitialAdHandler = Handler()
+    private val interstitialAdHandler = Handler()
 
     private var adLoadingStartTime = 0L
     private var lastInterstitialAdDisplayTime: Long = 0
@@ -165,6 +165,10 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
 
     interface ShowInterstitialListener {
         fun onShowedOrNotLoaded(success: Boolean)
+    }
+
+    fun onDestroy(){
+        interstitialAdHandler.removeCallbacksAndMessages(null)
     }
 
     companion object {
