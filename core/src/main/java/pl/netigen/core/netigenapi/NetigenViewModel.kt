@@ -10,7 +10,7 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
 
     var isSplashInBackground: Boolean = false
     abstract fun prepareConfigBuilder(): Config
-    open val config: Config by lazy {
+    val config: Config by lazy {
         prepareConfigBuilder()
     }
 
@@ -46,5 +46,5 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
     fun getBannerId() = config.bannerAdId
     fun isInDebugMode() = config.inDebugMode
     fun getTestDevices() = config.testDevices
-    fun isSamsung() = config.isSamsung
+    fun isSamsung() = Config.isSamsung
 }
