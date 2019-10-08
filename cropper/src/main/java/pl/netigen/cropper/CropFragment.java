@@ -113,7 +113,6 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         ImageSourcePickerDialog imageSourcePickerDialog = ImageSourcePickerDialog.newInstance(cropParams);
         imageSourcePickerDialog.setListener(this);
         FragmentActivity activity = getActivity();
-
         if (activity != null) {
             FragmentManager supportFragmentManager = activity.getSupportFragmentManager();
             imageSourcePickerDialog.openDialog(imageSourcePickerDialog, supportFragmentManager);

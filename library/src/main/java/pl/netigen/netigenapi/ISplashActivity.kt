@@ -5,9 +5,6 @@ import android.content.Intent
 
 internal interface ISplashActivity {
 
-    /**
-     * @return Intent(Activity) to launch after initialization
-     */
     fun getIntentToLaunch(): Intent
 
     fun getConfigBuilder(): ConfigBuilder

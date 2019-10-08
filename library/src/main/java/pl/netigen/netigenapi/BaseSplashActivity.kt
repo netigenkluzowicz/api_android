@@ -10,8 +10,8 @@ import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import com.google.android.gms.ads.MobileAds
 
-import pl.netigen.rodo.ConstRodo
-import pl.netigen.rodo.GDPRDialogFragment
+import pl.netigen.gdpr.ConstRodo
+import pl.netigen.gdpr.GDPRDialogFragment
 
 abstract class BaseSplashActivity : AppCompatActivity(), ISplashActivity, AdmobIds, GDPRDialogFragment.GDPRClickListener {
 

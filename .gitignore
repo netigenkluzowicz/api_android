@@ -6,3 +6,9 @@ local.properties
 .gradle/
 .DS_Store
 library/src/main/res/layout/dialog_fragment_reward.xml.rej
+legacy/src/androidTest/java/pl/netigen/legacy/ExampleInstrumentedTest.kt
+legacy/src/test/java/pl/netigen/legacy/ExampleUnitTest.kt
+core/src/androidTest/java/pl/netigen/core/ExampleInstrumentedTest.kt
+core/src/test/java/pl/netigen/core/ExampleUnitTest.kt
+payments/src/androidTest/java/pl/netigen/payments/ExampleInstrumentedTest.kt
+payments/src/test/java/pl/netigen/payments/ExampleUnitTest.kt

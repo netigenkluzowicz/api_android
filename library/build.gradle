@@ -31,7 +31,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
 dependencies {
 
     implementation Libraries.legacySupportV4
@@ -42,28 +41,19 @@ dependencies {
     api Libraries.playServicesAds
     api Libraries.consentLibrary
 
-    api Libraries.appcompat
-
     api Libraries.material
 
-    implementation Libraries.glide
-    kapt Libraries.glideCompiler
+    api Libraries.appcompat
 
     implementation Libraries.coreKTX
     implementation Libraries.kotlinStdlibJdk7
 
-    implementation Libraries.lifecycleExt
-    implementation Libraries.viewModelKTX
-    implementation Libraries.liveDataKTX
-    implementation Libraries.runtimeKTX
-    implementation Libraries.okhttp
-    implementation Libraries.okio
-    implementation Libraries.retrofit
-    implementation Libraries.retrofitConverterGson
     api Libraries.gson
+
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
 }
 
-// build a jar with source files
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'

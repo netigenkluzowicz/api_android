@@ -21,6 +21,7 @@ object Versions {
     val junit = "4.12"
     val testRunner = "1.2.0"
     val espressoCore = "3.2.0"
+    val billing = "2.0.1"
 }
 
 object Libraries {
@@ -59,5 +60,7 @@ object Libraries {
     val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
 
     val cropper = "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}"
+
+    val billing = "com.android.billingclient:billing:${Versions.billing}"
 }
 
