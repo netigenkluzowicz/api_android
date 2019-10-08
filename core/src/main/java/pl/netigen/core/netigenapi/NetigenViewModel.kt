@@ -8,7 +8,6 @@ import pl.netigen.payments.PaymentManager
 
 abstract class NetigenViewModel(application: Application) : AndroidViewModel(application) {
 
-    var isSplashInBackground: Boolean = false
     abstract fun prepareConfigBuilder(): Config
     val config: Config by lazy {
         prepareConfigBuilder()
@@ -17,14 +16,14 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
     var isInEea = false
     var noAdsLiveData = MutableLiveData<Boolean>()
     var delayBetweenInterstitialAds = 60L * 1000L
-    open var noAdsSku = application.packageName + ".noads"
-        get() {
-            return if (config.inDebugMode) {
-                PaymentManager.TEST_PURCHASED
-            } else {
-                getApplication<Application>().packageName + ".noads"
+    open val noAdsSku: String
+            get() {
+                return if (config.inDebugMode) {
+                    PaymentManager.TEST_PURCHASED
+                } else {
+                    getApplication<Application>().packageName + ".noads"
+                }
             }
-        }
 
     var isRewardedAdLoading: Boolean = false
     var isNoAdsPaymentAvailable: Boolean = config.isNoAdsPaymentAvailable
