@@ -1,6 +1,5 @@
 package pl.netigen.core.ads
 
-import android.app.Activity
 import android.util.Log
 import androidx.annotation.IntDef
 import androidx.appcompat.app.AppCompatActivity
@@ -27,12 +26,13 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     private var rewardItems: List<RewardItem> = ArrayList()
     private var rewardsListeners: RewardListenersList = RewardListenersList()
-    private lateinit var rewardedVideoAd: RewardedVideoAd
+    private var rewardedVideoAd: RewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity)
+
     var customRewardedAdId: String? = null
 
-    internal fun init() {
-        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity)
+    init {
         rewardedVideoAd.rewardedVideoAdListener = this
+        rewardsListeners.add(rewardsListener)
     }
 
     internal fun loadRewardedVideo() {
@@ -57,18 +57,21 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     fun showRewardedVideoForItems(rewardItems: List<RewardItem>) {
         if (viewModel.isNoAdsBought) return
         this.rewardItems = rewardItems
-        if (rewardedVideoAd != null && rewardedVideoAd.isLoaded) {
+        if (rewardedVideoAd.isLoaded) {
             rewardedVideoAd.show()
         } else {
             if (!viewModel.isRewardedAdLoading) {
                 reloadAd()
             }
-            if (rewardsListeners != null) {
-                for (listener in rewardsListeners) {
-                    listener?.onFail(RewardError.NOT_LOADED_YET)
-                }
+            for (listener in rewardsListeners) {
+                listener?.onFail(RewardError.NOT_LOADED_YET)
             }
         }
+    }
+
+    fun onDestroy() {
+        rewardsListeners.clear()
+        rewardedVideoAd.destroy(activity)
     }
 
     override fun onRewardedVideoAdLoaded() {
@@ -136,8 +139,12 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         rewardsListeners.addAll(listeners)
     }
 
-    fun removeListeners(listeners: RewardListenersList){
+    fun removeListeners(listeners: RewardListenersList) {
         rewardsListeners.removeAll(listeners)
+    }
+
+    fun removeListener(listener: RewardsListener) {
+        rewardsListeners.remove(listener)
     }
 
     private val TAG = "RewardedAd"

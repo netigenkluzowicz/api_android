@@ -8,7 +8,6 @@ import android.graphics.Matrix;
 
 import java.io.IOException;
 
-
 @SuppressWarnings("SameParameterValue")
 public class BitmapHelper {
 

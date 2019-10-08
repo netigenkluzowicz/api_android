@@ -10,14 +10,11 @@ import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
-
 import com.google.android.gms.ads.MobileAds
-
 import pl.netigen.core.netigenapi.NetigenViewModel
 import pl.netigen.core.rewards.RewardItem
 import pl.netigen.core.rewards.RewardListenersList
 import pl.netigen.core.rewards.RewardsListener
-import java.lang.NullPointerException
 
 class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivity) {
 
@@ -31,8 +28,12 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         this.interstitialAdManager = InterstitialAdManager(viewModel, activity, this)
     }
 
+    fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit) {
+        interstitialAdManager.launchSplashLoaderOrOpenFragment(openFragment)
+    }
+
     fun loadInterstitialIfPossible() {
-        interstitialAdManager.loadIfPossible()
+        interstitialAdManager.load()
     }
 
     fun showInterstitialAd(ShowInterstitialListener: InterstitialAdManager.ShowInterstitialListener) {
@@ -70,10 +71,18 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     fun showRewardedVideoForItems(rewardItems: MutableList<out RewardItem>, listeners: RewardListenersList? = null) {
         if (rewardedAdManager == null) throw NullPointerException("Trying to show RewardedAd without initialization")
-        listeners?.let{
+        listeners?.let {
             rewardedAdManager?.addListeners(it)
         }
         rewardedAdManager?.showRewardedVideoForItems(rewardItems)
+    }
+
+    fun removeRewardedVideoCallbacks(listeners: RewardListenersList) {
+        rewardedAdManager?.removeListeners(listeners)
+    }
+
+    fun removeRewardedVideoCallback(listener: RewardsListener) {
+        rewardedAdManager?.removeListener(listener)
     }
 
     fun showRewardedVideo() {
@@ -104,14 +113,12 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
                     .addTestDevice("43AAFCE5A6B9E8FCDC58E58087AEC4EF")
                     .addTestDevice("AD2180512DE8B1EE611AB4645A69E470")
                     .addTestDevice("379BED7628AE4885B439939575F9F292")
-                    .addTestDevice("15E1CF40903FB9938FFBFDBA8A9076E5")
 
             val testDevices = viewModel.getTestDevices()
-            if (testDevices != null) {
-                for (i in testDevices!!.indices) {
-                    builder.addTestDevice(testDevices!!.get(i))
-                }
+            for (i in testDevices.indices) {
+                builder.addTestDevice(testDevices[i])
             }
+
         }
         if (ConsentInformation.getInstance(activity).consentStatus == ConsentStatus.NON_PERSONALIZED) {
             val extras = Bundle()
@@ -125,11 +132,12 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     fun isOnline(): Boolean {
         val cm = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        var netInfo: NetworkInfo? = null
-        if (cm != null) {
-            netInfo = cm.activeNetworkInfo
-        }
+        val netInfo: NetworkInfo? = cm.activeNetworkInfo
         return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
+    fun onDestroy() {
+        rewardedAdManager?.onDestroy()
+        interstitialAdManager.onDestroy()
+    }
 }

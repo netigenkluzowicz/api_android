@@ -16,7 +16,7 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
 import pl.netigen.core.R
-import pl.netigen.core.gdpr.ConstRodo
+import pl.netigen.core.gdpr.ConstGDPR
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
 
@@ -55,7 +55,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     }
 
     private fun setButtons() {
-        buttonYes.setOnClickListener { v -> gdprClickListener?.clickYes() }
+        buttonYes.setOnClickListener { v ->
+            gdprClickListener?.clickYes()
+            dismiss()
+        }
         buttonNo.setOnClickListener { v ->
             gdprClickListener!!.clickNo()
             showPrivacyPolicy()
@@ -68,7 +71,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         } else {
             buttonPay.visibility = View.GONE
         }
-        buttonPolicy.setOnClickListener { v -> gdprClickListener?.clickAcceptPolicy() }
+        buttonPolicy.setOnClickListener { v ->
+            gdprClickListener?.clickAcceptPolicy()
+            dismiss()
+        }
     }
 
     private fun setIcon() {
@@ -123,15 +129,15 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     private fun setOfflineText() {
         offlinePrivacyPolicyTextView.text = ""
-        val ss1 = SpannableString(ConstRodo.text1)
+        val ss1 = SpannableString(ConstGDPR.text1)
         ss1.setSpan(StyleSpan(Typeface.BOLD), 0, ss1.length, 0)
-        val ss2 = SpannableString(ConstRodo.text3)
+        val ss2 = SpannableString(ConstGDPR.text3)
         ss2.setSpan(StyleSpan(Typeface.BOLD), 0, ss2.length, 0)
         offlinePrivacyPolicyTextView.append(ss1)
-        offlinePrivacyPolicyTextView.append(ConstRodo.text2 + "\n")
+        offlinePrivacyPolicyTextView.append(ConstGDPR.text2 + "\n")
         offlinePrivacyPolicyTextView.append(ss2)
-        offlinePrivacyPolicyTextView.append(ConstRodo.text4 + "\n")
-        offlinePrivacyPolicyTextView.append(ConstRodo.text5 + "\n")
+        offlinePrivacyPolicyTextView.append(ConstGDPR.text4 + "\n")
+        offlinePrivacyPolicyTextView.append(ConstGDPR.text5 + "\n")
     }
 
     private fun showPrivacyPolicy() {
@@ -156,17 +162,8 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     private fun onNoInternetConnection() {
         offlinePrivacyPolicyTextView.text = ""
-        offlinePrivacyPolicyTextView.append(ConstRodo.textPolicy1 + "\n")
-        offlinePrivacyPolicyTextView.append(ConstRodo.textPolicy2)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is GDPRClickListener) {
-            gdprClickListener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement InitAdmobAds")
-        }
+        offlinePrivacyPolicyTextView.append(ConstGDPR.textPolicy1 + "\n")
+        offlinePrivacyPolicyTextView.append(ConstGDPR.textPolicy2)
     }
 
     override fun onDetach() {
@@ -179,6 +176,11 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             showGDPRText()
         }
     }
+
+    fun bindGDPRListener(gdprClickListener: GDPRClickListener) {
+        this.gdprClickListener = gdprClickListener
+    }
+
 
     interface GDPRClickListener {
         fun clickYes()
