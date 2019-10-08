@@ -17,7 +17,7 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
     var isInEea = false
     var noAdsLiveData = MutableLiveData<Boolean>()
     var delayBetweenInterstitialAds = 60L * 1000L
-    var noAdsSku = application.packageName + ".noads"
+    open var noAdsSku = application.packageName + ".noads"
         get() {
             return if (config.inDebugMode) {
                 PaymentManager.TEST_PURCHASED
