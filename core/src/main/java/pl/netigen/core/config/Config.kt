@@ -5,7 +5,7 @@ import kotlin.properties.Delegates
 class Config constructor(val inDebugMode: Boolean, isSamsung: Boolean,
                          var isNoAdsBought: Boolean = false, var isNoAdsPaymentAvailable: Boolean = true,
                          var isDesignedForFamily: Boolean = false, var rewardedAdId: String? = null,
-                         var adMobAppId: String? = null, var publishersId: Array<String> = arrayOf("pub-4699516034931013"),
+                         var publishersId: Array<String> = arrayOf("pub-4699516034931013"),
                          var bannerAdId: String = testBannerAdId,
                          var interstitialAdId: String = testInterstitialAdId, var testDevices: ArrayList<String> = ArrayList()) {
 

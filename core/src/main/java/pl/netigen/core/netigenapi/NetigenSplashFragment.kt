@@ -151,10 +151,6 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         super.onDestroyView()
     }
 
-    fun onNoAdsPaymentProcessingFinished(noAdsBought: Boolean) {
-        viewModel.isNoAdsBought = noAdsBought
-    }
-
     override fun clickYes() {
         ConsentInformation.getInstance(context).consentStatus = ConsentStatus.PERSONALIZED
         startAdsSplash()
