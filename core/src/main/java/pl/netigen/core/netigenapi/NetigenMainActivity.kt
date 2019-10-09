@@ -29,7 +29,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         initPayments()
         observeNoAds()
         setConsentInformation()
-        if(viewModel.isDesignedForFamily){
+        if (viewModel.isDesignedForFamily) {
             initAdsManager()
         }
     }
@@ -141,7 +141,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
             hideBanner()
         } else {
             adsManager?.onResume(getBannerRelativeLayout())
-            if(viewModel.isDesignedForFamily){
+            if (viewModel.isDesignedForFamily) {
                 showBanner()
             }
         }
