@@ -29,11 +29,9 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         initPayments()
         observeNoAds()
         setConsentInformation()
-    }
-
-    private fun setConsentInformation() {
-        consentInformation = ConsentInformation.getInstance(this)
-        viewModel.isInEea = consentInformation.isRequestLocationInEeaOrUnknown
+        if(viewModel.isDesignedForFamily){
+            initAdsManager()
+        }
     }
 
     abstract fun getContentViewID(): Int
@@ -48,6 +46,11 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
                 onNoAdsBought()
             }
         })
+    }
+
+    private fun setConsentInformation() {
+        consentInformation = ConsentInformation.getInstance(this)
+        viewModel.isInEea = consentInformation.isRequestLocationInEeaOrUnknown
     }
 
     abstract fun hideAds()
@@ -138,6 +141,9 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
             hideBanner()
         } else {
             adsManager?.onResume(getBannerRelativeLayout())
+            if(viewModel.isDesignedForFamily){
+                showBanner()
+            }
         }
     }
 
