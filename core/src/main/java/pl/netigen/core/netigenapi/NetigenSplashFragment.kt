@@ -5,7 +5,6 @@ import android.os.Handler
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInfoUpdateListener
-import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import pl.netigen.core.gdpr.ConstGDPR
 import pl.netigen.gdpr.GDPRDialogFragment
@@ -80,10 +79,13 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     private fun showConsent() {
+        gdprDialogFragment?.let{
+            if(it.isAdded) return
+        }
         netigenMainActivity?.let {
             it.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
                 override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                    ConstGDPR.isInEea = viewModel.isInEea
+                    ConstGDPR.isInEea = it.consentInformation.isRequestLocationInEeaOrUnknown
                     if (ConstGDPR.isInEea && it.consentInformation.consentStatus == ConsentStatus.UNKNOWN) {
                         initGDPRFragment()
                     } else {
@@ -99,7 +101,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     override fun clickNo() {
-        ConsentInformation.getInstance(context).consentStatus = ConsentStatus.NON_PERSONALIZED
+        netigenMainActivity?.let {
+            it.consentInformation.consentStatus = ConsentStatus.NON_PERSONALIZED
+        }
     }
 
     private fun initGDPRFragment() {
@@ -141,7 +145,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     override fun clickYes() {
-        ConsentInformation.getInstance(context).consentStatus = ConsentStatus.PERSONALIZED
+        netigenMainActivity?.let {
+            it.consentInformation.consentStatus = ConsentStatus.PERSONALIZED
+        }
         startAdsSplash()
     }
 }
