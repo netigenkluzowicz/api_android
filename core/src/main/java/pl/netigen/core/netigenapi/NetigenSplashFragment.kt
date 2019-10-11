@@ -5,7 +5,6 @@ import android.os.Handler
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInfoUpdateListener
-import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import pl.netigen.core.gdpr.ConstGDPR
 import pl.netigen.gdpr.GDPRDialogFragment
@@ -86,7 +85,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         netigenMainActivity?.let {
             it.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
                 override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                    ConstGDPR.isInEea = viewModel.isInEea
+                    ConstGDPR.isInEea = it.consentInformation.isRequestLocationInEeaOrUnknown
                     if (ConstGDPR.isInEea && it.consentInformation.consentStatus == ConsentStatus.UNKNOWN) {
                         initGDPRFragment()
                     } else {
