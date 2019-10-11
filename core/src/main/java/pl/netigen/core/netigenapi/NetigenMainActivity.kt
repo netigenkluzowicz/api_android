@@ -8,6 +8,7 @@ import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInformation
+import com.google.ads.consent.ConsentStatus
 import com.google.android.gms.ads.AdSize
 import pl.netigen.core.ads.AdsManager
 import pl.netigen.core.rewards.RewardsListener
@@ -25,13 +26,17 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setConsentInformation()
         setContentView(getContentViewID())
         initPayments()
         observeNoAds()
-        setConsentInformation()
         if (viewModel.isDesignedForFamily) {
-            initAdsManager()
+            onDesignForFamily()
         }
+    }
+
+    private fun setConsentInformation() {
+        consentInformation = ConsentInformation.getInstance(this)
     }
 
     abstract fun getContentViewID(): Int
@@ -48,11 +53,10 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         })
     }
 
-    private fun setConsentInformation() {
-        consentInformation = ConsentInformation.getInstance(this)
-        viewModel.isInEea = consentInformation.isRequestLocationInEeaOrUnknown
+    private fun onDesignForFamily() {
+        initAdsManager()
+        consentInformation.consentStatus = ConsentStatus.NON_PERSONALIZED
     }
-
     abstract fun hideAds()
 
     fun hideBanner() {
