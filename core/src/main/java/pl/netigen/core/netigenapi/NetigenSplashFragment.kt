@@ -101,7 +101,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     override fun clickNo() {
-        ConsentInformation.getInstance(context).consentStatus = ConsentStatus.NON_PERSONALIZED
+        netigenMainActivity?.let {
+            it.consentInformation.consentStatus = ConsentStatus.NON_PERSONALIZED
+        }
     }
 
     private fun initGDPRFragment() {
@@ -143,7 +145,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     override fun clickYes() {
-        ConsentInformation.getInstance(context).consentStatus = ConsentStatus.PERSONALIZED
+        netigenMainActivity?.let {
+            it.consentInformation.consentStatus = ConsentStatus.PERSONALIZED
+        }
         startAdsSplash()
     }
 }
