@@ -80,6 +80,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     private fun showConsent() {
+        gdprDialogFragment?.let{
+            if(it.isAdded) return
+        }
         netigenMainActivity?.let {
             it.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
                 override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
