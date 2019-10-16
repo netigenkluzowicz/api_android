@@ -55,23 +55,23 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     }
 
     private fun setButtons() {
-        buttonYes.setOnClickListener { v ->
+        buttonYes.setOnClickListener {
             gdprClickListener?.clickYes()
             dismiss()
         }
-        buttonNo.setOnClickListener { v ->
-            gdprClickListener!!.clickNo()
+        buttonNo.setOnClickListener {
+            gdprClickListener?.clickNo()
             showPrivacyPolicy()
         }
-        buttonBack.setOnClickListener { v ->
+        buttonBack.setOnClickListener {
             showAdmobText()
         }
         if (isNoAdsAvailable) {
-            buttonPay.setOnClickListener { v -> gdprClickListener?.clickPay() }
+            buttonPay.setOnClickListener { gdprClickListener?.clickPay() }
         } else {
             buttonPay.visibility = View.GONE
         }
-        buttonPolicy.setOnClickListener { v ->
+        buttonPolicy.setOnClickListener {
             gdprClickListener?.clickAcceptPolicy()
             dismiss()
         }
@@ -171,7 +171,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         gdprClickListener = null
     }
 
-    fun showAdmobText() {
+    private fun showAdmobText() {
         if (!admobText) {
             showGDPRText()
         }
