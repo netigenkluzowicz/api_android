@@ -19,7 +19,6 @@ import pl.netigen.core.R
 import pl.netigen.core.gdpr.ConstGDPR
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
-
     private var isNoAdsAvailable = false
     private var gdprClickListener: GDPRClickListener? = null
     private var admobText: Boolean = false
@@ -67,6 +66,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             showAdmobText()
         }
         if (isNoAdsAvailable) {
+            buttonPay.visibility = View.VISIBLE
             buttonPay.setOnClickListener { gdprClickListener?.clickPay() }
         } else {
             buttonPay.visibility = View.GONE
@@ -94,6 +94,9 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     fun setIsPayOptions(isNoAdsAvailable: Boolean) {
         this.isNoAdsAvailable = isNoAdsAvailable
+        if (isAdded) {
+            setButtons()
+        }
     }
 
     private fun showGDPRText() {

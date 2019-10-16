@@ -7,7 +7,6 @@ import pl.netigen.core.config.Config
 import pl.netigen.payments.PaymentManager
 
 abstract class NetigenViewModel(application: Application) : AndroidViewModel(application) {
-
     abstract fun prepareConfigBuilder(): Config
     val config: Config by lazy {
         prepareConfigBuilder()

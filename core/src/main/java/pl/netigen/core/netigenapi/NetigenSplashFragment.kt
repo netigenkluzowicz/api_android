@@ -106,6 +106,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         netigenMainActivity.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
             override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
                 if (canCommitFragments) {
+                    consentNotShowed = false
                     onConsentInfoUpdated(netigenMainActivity)
                 } else {
                     consentNotShowed = true
@@ -132,9 +133,14 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     private fun initGDPRFragment() {
-        gdprDialogFragment = GDPRDialogFragment.newInstance()
+        val fragment = netigenMainActivity.supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
+        if (fragment != null) {
+            gdprDialogFragment = fragment
+        } else {
+            gdprDialogFragment = GDPRDialogFragment.newInstance()
+            gdprDialogFragment?.show(netigenMainActivity.supportFragmentManager.beginTransaction().addToBackStack(null), GDPR_POP_UP_TAG)
+        }
         gdprDialogFragment?.setIsPayOptions(viewModel.isNoAdsPaymentAvailable)
-        gdprDialogFragment?.show(netigenMainActivity.supportFragmentManager.beginTransaction().addToBackStack(null), "")
         gdprDialogFragment?.bindGDPRListener(this)
     }
 
@@ -177,3 +183,5 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         startAdsSplash()
     }
 }
+
+private const val GDPR_POP_UP_TAG = "GDPR_POP_UP"
