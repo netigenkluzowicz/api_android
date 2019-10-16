@@ -1,6 +1,7 @@
 package pl.netigen.core.netigenapi
 
 import android.content.Context
+import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -10,7 +11,6 @@ import pl.netigen.core.gdpr.ConstGDPR
 import pl.netigen.gdpr.GDPRDialogFragment
 
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(), GDPRDialogFragment.GDPRClickListener {
-
     open lateinit var viewModel: ViewModel
     var netigenMainActivity: NetigenMainActivity<NetigenViewModel>? = null
     private var gdprDialogFragment: GDPRDialogFragment? = null
@@ -19,6 +19,10 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     override fun onAttach(context: Context) {
         super.onAttach(context)
         setupParentActivity(context)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         startNoAdsLogic()
         netigenMainActivity?.hideAds()
     }
@@ -45,21 +49,21 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     private fun observeNoAds() {
         viewModel.noAdsLiveData.observe(this, Observer {
             if (it) {
-                onAttachWithoutAds()
+                onCreateWithoutAds()
             } else {
-                onAttachWithAds()
+                onCreateWithAds()
             }
         })
     }
 
-    private fun onAttachWithoutAds() {
+    private fun onCreateWithoutAds() {
         showHomeFragment()
         gdprDialogFragment?.dialog?.dismiss()
     }
 
     abstract fun showHomeFragment()
 
-    private fun onAttachWithAds() {
+    private fun onCreateWithAds() {
         if (viewModel.isDesignedForFamily) {
             onDesignedForFamily()
         } else {
@@ -69,7 +73,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
 
     private fun onNoAdsPaymentNotAvailable() {
         viewModel.isNoAdsBought = false
-        onAttachWithAds()
+        onCreateWithAds()
     }
 
     private fun onDesignedForFamily() {
@@ -79,8 +83,8 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     }
 
     private fun showConsent() {
-        gdprDialogFragment?.let{
-            if(it.isAdded) return
+        gdprDialogFragment?.let {
+            if (it.isAdded) return
         }
         netigenMainActivity?.let {
             it.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
