@@ -19,7 +19,6 @@ import pl.netigen.core.R
 import pl.netigen.core.gdpr.ConstGDPR
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
-
     private var isNoAdsAvailable = false
     private var gdprClickListener: GDPRClickListener? = null
     private var admobText: Boolean = false
@@ -55,23 +54,24 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     }
 
     private fun setButtons() {
-        buttonYes.setOnClickListener { v ->
+        buttonYes.setOnClickListener {
             gdprClickListener?.clickYes()
             dismiss()
         }
-        buttonNo.setOnClickListener { v ->
-            gdprClickListener!!.clickNo()
+        buttonNo.setOnClickListener {
+            gdprClickListener?.clickNo()
             showPrivacyPolicy()
         }
-        buttonBack.setOnClickListener { v ->
+        buttonBack.setOnClickListener {
             showAdmobText()
         }
         if (isNoAdsAvailable) {
-            buttonPay.setOnClickListener { v -> gdprClickListener?.clickPay() }
+            buttonPay.visibility = View.VISIBLE
+            buttonPay.setOnClickListener { gdprClickListener?.clickPay() }
         } else {
             buttonPay.visibility = View.GONE
         }
-        buttonPolicy.setOnClickListener { v ->
+        buttonPolicy.setOnClickListener {
             gdprClickListener?.clickAcceptPolicy()
             dismiss()
         }
@@ -94,6 +94,9 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     fun setIsPayOptions(isNoAdsAvailable: Boolean) {
         this.isNoAdsAvailable = isNoAdsAvailable
+        if (isAdded) {
+            setButtons()
+        }
     }
 
     private fun showGDPRText() {
@@ -171,7 +174,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         gdprClickListener = null
     }
 
-    fun showAdmobText() {
+    private fun showAdmobText() {
         if (!admobText) {
             showGDPRText()
         }
