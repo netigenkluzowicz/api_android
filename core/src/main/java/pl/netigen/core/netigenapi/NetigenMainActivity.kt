@@ -57,6 +57,9 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         super.onRestoreInstanceState(savedInstanceState)
         if (adsManager == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
             initAdsManager()
+            adsManager?.let{
+                it.rewardedAdManager?.reloadAd()
+            }
             showBanner()
         }
     }
