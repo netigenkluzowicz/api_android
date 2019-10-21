@@ -1,6 +1,7 @@
 package pl.netigen.core.netigenapi
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.RelativeLayout
@@ -17,6 +18,7 @@ import pl.netigen.payments.PaymentManager
 import pl.netigen.payments.PurchaseListener
 
 abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActivity(), PurchaseListener {
+
     open lateinit var viewModel: ViewModel
     private lateinit var paymentManager: IPaymentManager
     private var bannerRelativeLayout: RelativeLayout? = null
@@ -31,6 +33,23 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         observeNoAds()
         if (viewModel.isDesignedForFamily) {
             onDesignForFamily()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.onStartActivity()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (viewModel.isNoAdsBought) {
+            hideBanner()
+        } else {
+            adsManager?.onResume(getBannerRelativeLayout())
+            if (viewModel.isDesignedForFamily) {
+                showBanner()
+            }
         }
     }
 
@@ -147,16 +166,8 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         paymentManager.initiatePurchase(viewModel.noAdsSku, this, this)
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (viewModel.isNoAdsBought) {
-            hideBanner()
-        } else {
-            adsManager?.onResume(getBannerRelativeLayout())
-            if (viewModel.isDesignedForFamily) {
-                showBanner()
-            }
-        }
+    fun canCommitFragments(): Boolean {
+        return viewModel.canCommitFragments
     }
 
     override fun onPause() {
@@ -166,6 +177,11 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        viewModel.onStopActivity()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         if (!viewModel.isNoAdsBought) {
@@ -173,4 +189,5 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         }
         paymentManager.onDestroy()
     }
+
 }

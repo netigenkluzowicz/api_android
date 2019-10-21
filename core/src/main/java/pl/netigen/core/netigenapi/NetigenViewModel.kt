@@ -16,13 +16,13 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
     var noAdsLiveData = MutableLiveData<Boolean>()
     var delayBetweenInterstitialAds = 60L * 1000L
     open val noAdsSku: String
-            get() {
-                return if (config.inDebugMode) {
-                    PaymentManager.TEST_PURCHASED
-                } else {
-                    getApplication<Application>().packageName + ".noads"
-                }
+        get() {
+            return if (config.inDebugMode) {
+                PaymentManager.TEST_PURCHASED
+            } else {
+                getApplication<Application>().packageName + ".noads"
             }
+        }
 
     var isRewardedAdLoading: Boolean = false
     var isNoAdsPaymentAvailable: Boolean = config.isNoAdsPaymentAvailable
@@ -37,6 +37,17 @@ abstract class NetigenViewModel(application: Application) : AndroidViewModel(app
             config.isNoAdsBought = isNoAdsBought
             field = isNoAdsBought
         }
+
+    internal var canCommitFragments: Boolean = false
+        private set
+
+    fun onStartActivity() {
+        canCommitFragments = true
+    }
+
+    fun onStopActivity() {
+        canCommitFragments = false
+    }
 
     fun getInterstitialAdId() = config.interstitialAdId
     fun getRewardedAdId() = config.rewardedAdId
