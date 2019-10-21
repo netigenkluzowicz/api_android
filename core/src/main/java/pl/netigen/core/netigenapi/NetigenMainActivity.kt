@@ -34,6 +34,14 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         }
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (adsManager == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
+            initAdsManager()
+            showBanner()
+        }
+    }
+
     private fun setConsentInformation() {
         consentInformation = ConsentInformation.getInstance(this)
     }
@@ -56,6 +64,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         initAdsManager()
         consentInformation.consentStatus = ConsentStatus.NON_PERSONALIZED
     }
+
     abstract fun hideAds()
 
     fun hideBanner() {
