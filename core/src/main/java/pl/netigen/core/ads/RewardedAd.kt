@@ -146,4 +146,4 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     }
 }
 
-private val TAG = "RewardedAd"
+private const val TAG = "RewardedAd"

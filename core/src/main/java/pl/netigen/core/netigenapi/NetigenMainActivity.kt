@@ -1,7 +1,6 @@
 package pl.netigen.core.netigenapi
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.RelativeLayout
@@ -57,7 +56,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         super.onRestoreInstanceState(savedInstanceState)
         if (adsManager == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
             initAdsManager()
-            adsManager?.let{
+            adsManager?.let {
                 it.rewardedAdManager?.reloadAd()
             }
             showBanner()

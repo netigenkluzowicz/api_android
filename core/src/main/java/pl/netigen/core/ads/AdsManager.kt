@@ -77,7 +77,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         rewardedAdManager?.showRewardedVideoForItems(rewardItems)
     }
 
-    fun reloadRewardedAd(){
+    fun reloadRewardedAd() {
         rewardedAdManager?.reloadAd()
     }
 

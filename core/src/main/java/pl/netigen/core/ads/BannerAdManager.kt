@@ -44,8 +44,9 @@ class BannerAdManager(var viewModel: NetigenViewModel, val activity: Activity, v
         }
         layout.addView(adView)
         val params = RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT)
+            RelativeLayout.LayoutParams.MATCH_PARENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP)
 
         adView?.layoutParams = params
