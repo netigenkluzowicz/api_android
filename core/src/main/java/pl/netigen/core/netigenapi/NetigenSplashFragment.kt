@@ -12,7 +12,6 @@ import pl.netigen.gdpr.GDPRDialogFragment
 
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(), GDPRDialogFragment.GDPRClickListener {
     private var consentNotShowed: Boolean = false
-    private var canCommitFragments: Boolean = false
     open lateinit var viewModel: ViewModel
     lateinit var netigenMainActivity: NetigenMainActivity<NetigenViewModel>
     private var gdprDialogFragment: GDPRDialogFragment? = null
@@ -50,16 +49,10 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
 
     override fun onStart() {
         super.onStart()
-        canCommitFragments = true
         if (consentNotShowed) {
             onConsentInfoUpdated(netigenMainActivity)
             consentNotShowed = false
         }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        canCommitFragments = false
     }
 
     private fun observeNoAds() {
@@ -105,7 +98,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
 
         netigenMainActivity.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
             override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                if (canCommitFragments) {
+                if (netigenMainActivity.canCommitFragments()) {
                     consentNotShowed = false
                     onConsentInfoUpdated(netigenMainActivity)
                 } else {

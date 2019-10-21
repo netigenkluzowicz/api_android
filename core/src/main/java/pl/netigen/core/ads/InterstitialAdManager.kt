@@ -65,7 +65,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     }
 
     private fun shouldShowAd(currentTime: Long) =
-            lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + timeToDelayInterstitial < currentTime
+        lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + timeToDelayInterstitial < currentTime
 
     private fun onNotLoaded(showInterstitialListener: ShowInterstitialListener) {
         showInterstitialListener.onShowedOrNotLoaded(false)
@@ -140,7 +140,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         }
 
         private fun doesMaxLoadingTimeNotPassed() =
-                SystemClock.elapsedRealtime() - adLoadingStartTime < maxWaitForInterstitialAfterSplash
+            SystemClock.elapsedRealtime() - adLoadingStartTime < maxWaitForInterstitialAfterSplash
 
         private fun onAdLoading() {
             if (interstitialAdError) {
@@ -167,7 +167,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         fun onShowedOrNotLoaded(success: Boolean)
     }
 
-    fun onDestroy(){
+    fun onDestroy() {
         interstitialAdHandler.removeCallbacksAndMessages(null)
     }
 
