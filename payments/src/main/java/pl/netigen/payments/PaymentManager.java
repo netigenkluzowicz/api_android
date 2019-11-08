@@ -144,7 +144,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                 listener);
     }
 
-    public void getSkuDetailsList(ArrayList<String> skuList, SkuDetailsResponseListener listener) {
+    public void getSkuDetailsList(@NonNull ArrayList<String> skuList,@NonNull SkuDetailsResponseListener listener) {
         SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
         params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
         //Not sure if the line below is really necessary
@@ -165,7 +165,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         };
     }
 
-    public void initiatePurchase(String sku, PurchaseListener purchaseListener, Activity activity) {
+    public void initiatePurchase(@NonNull String sku, @NonNull PurchaseListener purchaseListener, @NonNull Activity activity) {
         this.purchaseListener = purchaseListener;
         this.sku = sku;
 
@@ -246,7 +246,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         purchaseListener = null;
     }
 
-    public void isItemPurchased(String itemSku, PurchaseListener purchaseListener) {
+    public void isItemPurchased(@NonNull String itemSku, @NonNull PurchaseListener purchaseListener) {
         checkSharedInSharedPreferences(itemSku, purchaseListener);
         this.sku = itemSku;
         if (skuList == null) {
