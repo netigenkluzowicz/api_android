@@ -47,8 +47,8 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         if (consentNotShowed) {
             onConsentInfoUpdated(netigenMainActivity)
             consentNotShowed = false
