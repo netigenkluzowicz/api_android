@@ -23,11 +23,6 @@ import java.util.List;
 
 public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener, TestPaymentManager, AcknowledgePurchaseResponseListener {
 
-    private BillingClient billingClient;
-    private PurchaseListener purchaseListener;
-    private boolean isServiceConnected;
-    private String sku;
-
     public static final String OK = "OK";
     public static final String BILLING_UNAVAILABLE = "BILLING_UNAVAILABLE";
     public static final String DEVELOPER_ERROR = "DEVELOPER_ERROR";
@@ -42,25 +37,14 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     public static final String TEST_PURCHASED = "android.test.purchased";
     public static final String TEST_CANCELED = "android.test.canceled";
     public static final String TEST_ITEM_UNAVAILABLE = "android.test.item_unavailable";
-
+    private BillingClient billingClient;
+    private PurchaseListener purchaseListener;
+    private boolean isServiceConnected;
+    private String sku;
     private List<SkuDetails> skuDetailsList;
     private ArrayList<String> skuList;
     private BillingPreferencesHelper billingPreferencesHelper;
     private Activity activity;
-
-    public static IPaymentManager createIPaymentManager(Activity activity) {
-        return new PaymentManager(activity);
-    }
-
-    public static TestPaymentManager createTestPaymentManager(Activity activity) {
-        TestPaymentManager testPaymentManager = new PaymentManager(activity);
-        ArrayList<String> skuList = new ArrayList<>();
-        skuList.add(TEST_PURCHASED);
-        skuList.add(TEST_ITEM_UNAVAILABLE);
-        skuList.add(TEST_CANCELED);
-        ((PaymentManager) testPaymentManager).skuList = skuList;
-        return testPaymentManager;
-    }
 
     private PaymentManager(Activity activity) {
         this.activity = activity;
@@ -68,8 +52,18 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         billingClient = buildBillingClient();
     }
 
-    private BillingClient buildBillingClient() {
-        return BillingClient.newBuilder(activity).enablePendingPurchases().setListener(this).build();
+    public static IPaymentManager createIPaymentManager(Activity activity) {
+        return new PaymentManager(activity);
+    }
+
+    public static TestPaymentManager createTestPaymentManager(Activity activity) {
+        PaymentManager testPaymentManager = new PaymentManager(activity);
+        ArrayList<String> skuList = new ArrayList<>();
+        skuList.add(TEST_PURCHASED);
+        skuList.add(TEST_ITEM_UNAVAILABLE);
+        skuList.add(TEST_CANCELED);
+        testPaymentManager.skuList = skuList;
+        return testPaymentManager;
     }
 
     private static String getErrorMessage(int errorCode) {
@@ -80,8 +74,6 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                 return BILLING_UNAVAILABLE;
             case BillingClient.BillingResponseCode.DEVELOPER_ERROR:
                 return DEVELOPER_ERROR;
-            case BillingClient.BillingResponseCode.ERROR:
-                return ERROR;
             case BillingClient.BillingResponseCode.FEATURE_NOT_SUPPORTED:
                 return FEATURE_NOT_SUPPORTED;
             case BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED:
@@ -96,9 +88,14 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                 return ITEM_UNAVAILABLE;
             case BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE:
                 return SERVICE_UNAVAILABLE;
+            case BillingClient.BillingResponseCode.ERROR:
             default:
                 return ERROR;
         }
+    }
+
+    private BillingClient buildBillingClient() {
+        return BillingClient.newBuilder(activity).enablePendingPurchases().setListener(this).build();
     }
 
     private void queryPurchases() {
@@ -120,8 +117,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         } else {
             if (billingClient == null) return;
             billingClient = buildBillingClient();
-            if (billingClient.isReady()) {
-            } else {
+            if (!billingClient.isReady()) {
                 startServiceConnectionAndRun(runnable);
             }
         }
@@ -144,7 +140,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     private Runnable prepareInitPurchaseRunnable(SkuDetails skuDetails) {
-        Runnable purchaseFlowRequest = () -> {
+        return () -> {
             BillingFlowParams purchaseParams = BillingFlowParams.newBuilder()
                     .setSkuDetails(skuDetails)
                     .build();
@@ -153,7 +149,6 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
             }
             billingClient.launchBillingFlow(activity, purchaseParams);
         };
-        return purchaseFlowRequest;
     }
 
     public void initiatePurchase(String sku, PurchaseListener purchaseListener, Activity activity) {
@@ -169,23 +164,15 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
             SkuDetails skuDetails = getSkuDetailsForSku(sku);
             executeServiceRequest(prepareInitPurchaseRunnable(skuDetails));
         } else {
-            executeServiceRequest(new Runnable() {
-                @Override
-                public void run() {
-                    PaymentManager.this.getSkuDetailsList(new SkuDetailsResponseListener() {
-                        @Override
-                        public void onSkuDetailsResponse(BillingResult billingResult, List<SkuDetails> skuDetailsList) {
-                            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-                                PaymentManager.this.skuDetailsList = skuDetailsList;
-                                SkuDetails skuDetails = getSkuDetailsForSku(sku);
-                                executeServiceRequest(prepareInitPurchaseRunnable(skuDetails));
-                            } else {
-                                purchaseListener.onPaymentsError(billingResult.getDebugMessage());
-                            }
-                        }
-                    });
+            executeServiceRequest(() -> PaymentManager.this.getSkuDetailsList((billingResult, skuDetailsList) -> {
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    PaymentManager.this.skuDetailsList = skuDetailsList;
+                    SkuDetails skuDetails = getSkuDetailsForSku(sku);
+                    executeServiceRequest(prepareInitPurchaseRunnable(skuDetails));
+                } else {
+                    purchaseListener.onPaymentsError(billingResult.getDebugMessage());
                 }
-            });
+            }));
         }
     }
 
@@ -349,7 +336,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         }
     }
 
-    void handlePurchase(Purchase purchase) {
+    private void handlePurchase(Purchase purchase) {
         if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
             purchaseListener.onItemBought(sku);
             billingPreferencesHelper.setSkuBought(sku, true);
@@ -361,15 +348,17 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                                 .build();
                 billingClient.acknowledgePurchase(acknowledgePurchaseParams, this);
             }
-        }else if(purchase.getPurchaseState() == Purchase.PurchaseState.PENDING){
+        } else if (purchase.getPurchaseState() == Purchase.PurchaseState.PENDING) {
             purchaseListener.onItemNotBought(sku);
-        }else{
+        } else {
             purchaseListener.onItemNotBought(sku);
         }
     }
 
-    /** This callback returns failure(response code BILLING_UNAVAILABLE with message API_VERSION_NOT_V9),
-     * even though everything seems to be going fine */
+    /**
+     * This callback returns failure(response code BILLING_UNAVAILABLE with message API_VERSION_NOT_V9),
+     * even though everything seems to be going fine
+     */
     @Override
     public void onAcknowledgePurchaseResponse(BillingResult billingResult) {
 
