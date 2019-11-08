@@ -2,6 +2,7 @@ package pl.netigen.payments;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.billingclient.api.AcknowledgePurchaseParams;
@@ -19,6 +20,7 @@ import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener, TestPaymentManager, AcknowledgePurchaseResponseListener {
@@ -38,17 +40,23 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     public static final String TEST_CANCELED = "android.test.canceled";
     public static final String TEST_ITEM_UNAVAILABLE = "android.test.item_unavailable";
     private BillingClient billingClient;
+    @Nullable
     private PurchaseListener purchaseListener;
     private boolean isServiceConnected;
+    @Nullable
     private String sku;
+    @Nullable
     private List<SkuDetails> skuDetailsList;
+    @Nullable
     private ArrayList<String> skuList;
+    @NonNull
     private BillingPreferencesHelper billingPreferencesHelper;
+    @Nullable
     private Activity activity;
 
-    private PaymentManager(Activity activity) {
+    private PaymentManager(@NonNull Activity activity) {
         this.activity = activity;
-        billingPreferencesHelper = BillingPreferencesHelper.getInstance(activity);
+        billingPreferencesHelper = BillingPreferencesHelper.getInstance(activity.getApplication());
         billingClient = buildBillingClient();
     }
 
@@ -94,13 +102,15 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         }
     }
 
-    private BillingClient buildBillingClient() {
+    private @Nullable
+    BillingClient buildBillingClient() {
+        if (activity == null) return null;
         return BillingClient.newBuilder(activity).enablePendingPurchases().setListener(this).build();
     }
 
     private void queryPurchases() {
         Runnable queryToExecute = () -> {
-            if (billingClient == null) return;
+            if (billingClient == null || purchaseListener == null) return;
             Purchase.PurchasesResult purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
             int responseCode = purchasesResult.getResponseCode();
             if (responseCode != BillingClient.BillingResponseCode.OK) {
@@ -115,8 +125,8 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         if (isServiceConnected) {
             runnable.run();
         } else {
-            if (billingClient == null) return;
             billingClient = buildBillingClient();
+            if (billingClient == null) return;
             if (!billingClient.isReady()) {
                 startServiceConnectionAndRun(runnable);
             }
@@ -124,6 +134,10 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     private void getSkuDetailsList(SkuDetailsResponseListener listener) {
+        if (skuList == null) {
+            BillingResult billingResult = BillingResult.newBuilder().setResponseCode(BillingClient.BillingResponseCode.DEVELOPER_ERROR).build();
+            listener.onSkuDetailsResponse(billingResult, Collections.emptyList());
+        }
         SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
         params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
         billingClient.querySkuDetailsAsync(params.build(),
@@ -179,6 +193,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     @Nullable
     private SkuDetails getSkuDetailsForSku(String sku) {
         SkuDetails skuDetails = null;
+        if (skuDetailsList == null) return null;
         for (int i = 0; i < skuDetailsList.size(); i++) {
             if (sku.equals(skuDetailsList.get(i).getSku())) {
                 skuDetails = skuDetailsList.get(i);
@@ -189,7 +204,9 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
 
     private void onQueryPurchasesFinished(Purchase.PurchasesResult result) {
         if (billingClient == null || result.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-            purchaseListener.onPaymentsError(getErrorMessage(result.getResponseCode()));
+            if (purchaseListener != null) {
+                purchaseListener.onPaymentsError(getErrorMessage(result.getResponseCode()));
+            }
             return;
         }
         onPurchasesUpdated(result.getBillingResult(), result.getPurchasesList());
@@ -206,7 +223,9 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                         executeOnSuccess.run();
                     }
                 } else {
-                    purchaseListener.onPaymentsError(getErrorMessage(billingResult.getResponseCode()));
+                    if (purchaseListener != null) {
+                        purchaseListener.onPaymentsError(getErrorMessage(billingResult.getResponseCode()));
+                    }
                 }
             }
 
@@ -224,10 +243,11 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         }
         billingClient = null;
         activity = null;
+        purchaseListener = null;
     }
 
     public void isItemPurchased(String itemSku, PurchaseListener purchaseListener) {
-        isItemInSharedPreferences(itemSku, purchaseListener);
+        checkIsPurchased(itemSku, purchaseListener);
         this.sku = itemSku;
         if (skuList == null) {
             skuList = new ArrayList<>();
@@ -239,7 +259,6 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                 queryPurchases();
             } else {
                 billingClient.startConnection(new BillingClientStateListener() {
-
                     @Override
                     public void onBillingSetupFinished(BillingResult billingResult) {
                         queryPurchases();
@@ -258,16 +277,14 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         }
     }
 
-    private boolean isItemInSharedPreferences(String itemSku, PurchaseListener purchaseListener) {
+    private void checkIsPurchased(String itemSku, PurchaseListener purchaseListener) {
         if (billingPreferencesHelper.wasSkuChecked(itemSku)) {
             if (billingPreferencesHelper.isSkuBought(itemSku)) {
                 purchaseListener.onItemBought(itemSku);
             } else {
                 purchaseListener.onItemNotBought(itemSku);
             }
-            return true;
         }
-        return false;
     }
 
     public void consumeAsync(final String purchaseToken, ItemConsumedListener itemConsumedListener) {
@@ -320,6 +337,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
 
     @Override
     public void onPurchasesUpdated(BillingResult billingResult, List<Purchase> purchases) {
+        if (purchaseListener == null) return;
         if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchases != null) {
             purchaseListener.onPurchasedItemsLoaded(purchases);
             for (Purchase purchase : purchases) {
@@ -337,6 +355,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     private void handlePurchase(Purchase purchase) {
+        if (purchaseListener == null) return;
         if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
             purchaseListener.onItemBought(sku);
             billingPreferencesHelper.setSkuBought(sku, true);

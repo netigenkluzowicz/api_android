@@ -3,18 +3,21 @@ package pl.netigen.payments;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.annotation.NonNull;
+
 class BillingPreferencesHelper {
 
     private static final String NETIGEN_BILLING_PREFERENCES_NAME = "NETIGEN_BILLING_PREFERENCES_NAME";
     private static final String WAS_CHECKED = "_WAS_CHECKED";
-    public static BillingPreferencesHelper billingPreferencesHelper;
+    private static BillingPreferencesHelper billingPreferencesHelper;
     private SharedPreferences sharedPreferences;
 
-    public BillingPreferencesHelper(Context context) {
+    private BillingPreferencesHelper(Context context) {
         sharedPreferences = context.getSharedPreferences(NETIGEN_BILLING_PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
-    public static BillingPreferencesHelper getInstance(Context context) {
+    @NonNull
+    public static BillingPreferencesHelper getInstance(@NonNull Context context) {
         if (billingPreferencesHelper == null) {
             billingPreferencesHelper = new BillingPreferencesHelper(context);
         }
