@@ -12,7 +12,7 @@ import pl.netigen.gdpr.GDPRDialogFragment
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
 
     var shouldShowHomeFragmentOnResume = false
-
+        private set
     private var consentNotShowed: Boolean = false
     open lateinit var viewModel: ViewModel
     lateinit var netigenMainActivity: NetigenMainActivity<NetigenViewModel>

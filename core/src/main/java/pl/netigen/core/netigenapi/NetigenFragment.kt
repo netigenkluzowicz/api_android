@@ -4,8 +4,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 
 open class NetigenFragment : Fragment() {
-    
+
     var canCommitFragments = false
+        private set
 
     override fun onResume() {
         super.onResume()
