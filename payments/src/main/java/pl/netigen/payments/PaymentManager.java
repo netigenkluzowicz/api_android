@@ -247,7 +247,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     public void isItemPurchased(String itemSku, PurchaseListener purchaseListener) {
-        checkIsPurchased(itemSku, purchaseListener);
+        checkSharedInSharedPreferences(itemSku, purchaseListener);
         this.sku = itemSku;
         if (skuList == null) {
             skuList = new ArrayList<>();
@@ -277,7 +277,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         }
     }
 
-    private void checkIsPurchased(String itemSku, PurchaseListener purchaseListener) {
+    private void checkSharedInSharedPreferences(String itemSku, PurchaseListener purchaseListener) {
         if (billingPreferencesHelper.wasSkuChecked(itemSku)) {
             if (billingPreferencesHelper.isSkuBought(itemSku)) {
                 purchaseListener.onItemBought(itemSku);
@@ -288,7 +288,8 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     public void consumeAsync(final String purchaseToken, ItemConsumedListener itemConsumedListener) {
-        final ConsumeResponseListener onConsumeListener = (billingResult, purchaseToken1) -> itemConsumedListener.onItemConsumed(getErrorMessage(billingResult.getResponseCode()), purchaseToken1);
+        final ConsumeResponseListener onConsumeListener = (billingResult, purchaseToken1) ->
+                itemConsumedListener.onItemConsumed(getErrorMessage(billingResult.getResponseCode()), purchaseToken1);
 
         Runnable consumeRequest = new Runnable() {
             @Override
