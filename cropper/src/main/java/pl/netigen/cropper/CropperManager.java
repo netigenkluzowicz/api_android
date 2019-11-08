@@ -9,14 +9,13 @@ import androidx.core.app.ActivityCompat;
 public class CropperManager {
 
     CropParams cropParams;
-    private CropFragment.OnCropFragmentInteractionListener listener;
 
     private CropperManager(CropParams cropParams) {
         this.cropParams = cropParams;
     }
 
     private void tryShowCropFragment(CropParams cropParams) {
-        this.listener = cropParams.listener;
+        CropFragment.OnCropFragmentInteractionListener listener = cropParams.listener;
         if (ActivityCompat.checkSelfPermission(cropParams.activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             openCropFragment();
         } else {

@@ -20,6 +20,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
 
+import org.jetbrains.annotations.NotNull;
+
 public class ImageSourcePickerDialog extends AppCompatDialogFragment {
 
     private ImageView backgroundLoginPopup;
@@ -49,7 +51,7 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.galery_or_camera_dialog, container, false);
-        if(cropParams==null){
+        if (cropParams == null) {
             dismiss();
             return view;
         }
@@ -74,23 +76,17 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
     }
 
     private void setClickListeners(View view) {
-        view.findViewById(R.id.photoButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null)
-                    listener.openCamera();
-                click = true;
-                ImageSourcePickerDialog.this.dismiss();
-            }
+        view.findViewById(R.id.photoButton).setOnClickListener(v -> {
+            if (listener != null)
+                listener.openCamera();
+            click = true;
+            ImageSourcePickerDialog.this.dismiss();
         });
-        view.findViewById(R.id.galleryButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null)
-                    listener.openGallery();
-                click = true;
-                ImageSourcePickerDialog.this.dismiss();
-            }
+        view.findViewById(R.id.galleryButton).setOnClickListener(v -> {
+            if (listener != null)
+                listener.openGallery();
+            click = true;
+            ImageSourcePickerDialog.this.dismiss();
         });
     }
 
@@ -106,14 +102,15 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Dialog dialog = getDialog();
+        if (dialog == null || dialog.getWindow() == null)
+            return;
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCanceledOnTouchOutside(false);
-        if (dialog.getWindow() != null)
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     @Override
-    public void onDismiss(DialogInterface dialog) {
+    public void onDismiss(@NotNull DialogInterface dialog) {
         if (!click) {
             if (listener != null)
                 listener.onDismiss();
