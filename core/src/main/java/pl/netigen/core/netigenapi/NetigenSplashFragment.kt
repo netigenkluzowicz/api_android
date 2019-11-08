@@ -3,14 +3,16 @@ package pl.netigen.core.netigenapi
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInfoUpdateListener
 import com.google.ads.consent.ConsentStatus
 import pl.netigen.core.gdpr.ConstGDPR
 import pl.netigen.gdpr.GDPRDialogFragment
 
-abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(), GDPRDialogFragment.GDPRClickListener {
+abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
+
+    var shouldShowHomeFragmentOnResume = false
+        private set
     private var consentNotShowed: Boolean = false
     open lateinit var viewModel: ViewModel
     lateinit var netigenMainActivity: NetigenMainActivity<NetigenViewModel>
@@ -47,12 +49,16 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         if (consentNotShowed) {
             onConsentInfoUpdated(netigenMainActivity)
             consentNotShowed = false
         }
+        if (shouldShowHomeFragmentOnResume) {
+            showHomeFragment()
+        }
+        shouldShowHomeFragmentOnResume = false
     }
 
     private fun observeNoAds() {
@@ -174,6 +180,16 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : Fragment(),
     override fun clickYes() {
         netigenMainActivity.consentInformation.consentStatus = ConsentStatus.PERSONALIZED
         startAdsSplash()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        shouldShowHomeFragmentOnResume = true
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        shouldShowHomeFragmentOnResume = true
     }
 }
 
