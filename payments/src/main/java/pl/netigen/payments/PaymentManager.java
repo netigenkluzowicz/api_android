@@ -39,6 +39,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     public static final String TEST_PURCHASED = "android.test.purchased";
     public static final String TEST_CANCELED = "android.test.canceled";
     public static final String TEST_ITEM_UNAVAILABLE = "android.test.item_unavailable";
+    private static final String ANDROID_TEST = "android.test.";
     private BillingClient billingClient;
     @Nullable
     private PurchaseListener purchaseListener;
@@ -166,6 +167,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     public void initiatePurchase(@NonNull String sku, @NonNull PurchaseListener purchaseListener, @NonNull Activity activity) {
+        validateSku(sku);
         this.purchaseListener = purchaseListener;
         this.sku = sku;
 
@@ -187,6 +189,12 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                     purchaseListener.onPaymentsError(billingResult.getDebugMessage());
                 }
             }));
+        }
+    }
+
+    private void validateSku(@NonNull String sku) {
+        if (sku.contains(ANDROID_TEST) && !BuildConfig.DEBUG) {
+            throw new IllegalArgumentException("Test SKU in production :" + sku);
         }
     }
 
@@ -247,6 +255,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     public void isItemPurchased(@NonNull String itemSku, @NonNull PurchaseListener purchaseListener) {
+        validateSku(itemSku);
         checkSharedInSharedPreferences(itemSku, purchaseListener);
         this.sku = itemSku;
         if (skuList == null) {
