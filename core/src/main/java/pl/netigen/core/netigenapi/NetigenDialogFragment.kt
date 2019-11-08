@@ -1,0 +1,25 @@
+package pl.netigen.core.netigenapi
+
+import android.os.Bundle
+import androidx.fragment.app.DialogFragment
+
+open class NetigenDialogFragment : DialogFragment() {
+
+    var canCommitFragments = false
+        private set
+
+    override fun onResume() {
+        super.onResume()
+        canCommitFragments = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        canCommitFragments = false
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        canCommitFragments = false
+    }
+}
