@@ -15,14 +15,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ImageSourcePickerDialog extends AppCompatDialogFragment {
+import pl.netigen.core.netigenapi.NetigenDialogFragment;
+
+public class ImageSourcePickerDialog extends NetigenDialogFragment {
 
     private ImageView backgroundLoginPopup;
     private ImageView galleryButton;
@@ -52,7 +53,9 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
 
         View view = inflater.inflate(R.layout.galery_or_camera_dialog, container, false);
         if (cropParams == null) {
-            dismiss();
+            if (getCanCommitFragments()) {
+                dismiss();
+            }
             return view;
         }
         initViews(view);

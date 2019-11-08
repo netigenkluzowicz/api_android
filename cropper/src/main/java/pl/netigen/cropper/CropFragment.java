@@ -1,6 +1,7 @@
 package pl.netigen.cropper;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,7 +16,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -23,6 +23,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,7 +34,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class CropFragment extends AppCompatDialogFragment implements OpenGalleryOrCamera {
+import pl.netigen.core.netigenapi.NetigenDialogFragment;
+
+public class CropFragment extends NetigenDialogFragment implements OpenGalleryOrCamera {
 
     private static final int CAMERA_PIC_REQUEST = 1235;
     private static final int SELECT_IMAGE = 54612;
@@ -62,7 +66,8 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         this.listener = listener;
     }
 
-    public void show(FragmentManager fragmentManager, String tag) {
+    public void show(@NotNull FragmentManager fragmentManager, String tag) {
+        if (!getCanCommitFragments()) return;
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Fragment prevFragment = fragmentManager.findFragmentByTag(tag);
         if (prevFragment != null) {
@@ -115,10 +120,10 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         ImageSourcePickerDialog imageSourcePickerDialog = ImageSourcePickerDialog.newInstance(cropParams);
         imageSourcePickerDialog.setListener(this);
         FragmentActivity activity = getActivity();
-        if (activity != null) {
-            FragmentManager supportFragmentManager = activity.getSupportFragmentManager();
-            imageSourcePickerDialog.openDialog(imageSourcePickerDialog, supportFragmentManager);
-        }
+        if (activity == null)
+            return;
+        FragmentManager supportFragmentManager = activity.getSupportFragmentManager();
+        imageSourcePickerDialog.openDialog(imageSourcePickerDialog, supportFragmentManager);
     }
 
     private void initViews(View view) {
@@ -160,9 +165,9 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
     private View.OnClickListener onSaveClicked() {
         return v -> {
             FragmentActivity activity = CropFragment.this.getActivity();
-            if (activity != null) {
-                cropImageView.saveCroppedImageAsync(Uri.fromFile(CropFragment.this.getFileForSaving()));
-            }
+            if (activity == null)
+                return;
+            cropImageView.saveCroppedImageAsync(Uri.fromFile(CropFragment.this.getFileForSaving()));
         };
     }
 
@@ -177,10 +182,9 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
                 cropImageView.setImageUriAsync(value);
             }
             if (requestCode == SELECT_IMAGE) {
-                if (data != null) {
-                    Uri selectedImageUri = data.getData();
-                    cropImageView.setImageUriAsync(selectedImageUri);
-                }
+                if (data == null) return;
+                Uri selectedImageUri = data.getData();
+                cropImageView.setImageUriAsync(selectedImageUri);
             }
         }
     }
@@ -190,7 +194,10 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, getContext().getString(R.string.select_picture_cropper)), SELECT_IMAGE);
+        Context context = getContext();
+        if (context == null)
+            return;
+        startActivityForResult(Intent.createChooser(intent, context.getString(R.string.select_picture_cropper)), SELECT_IMAGE);
     }
 
     @Override
@@ -226,6 +233,7 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
 
     @Override
     public void closeFragment() {
+        if (!getCanCommitFragments()) return;
         FragmentActivity activity = getActivity();
         if (activity != null)
             dismiss();
@@ -233,6 +241,7 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
 
     @Override
     public void onDismiss() {
+        if (!getCanCommitFragments()) return;
         dismiss();
     }
 
