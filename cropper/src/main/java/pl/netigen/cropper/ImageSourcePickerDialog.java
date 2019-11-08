@@ -83,22 +83,27 @@ public class ImageSourcePickerDialog extends NetigenDialogFragment {
             if (listener != null)
                 listener.openCamera();
             click = true;
-            ImageSourcePickerDialog.this.dismiss();
+            if (getCanCommitFragments()) {
+                dismiss();
+            }
         });
         view.findViewById(R.id.galleryButton).setOnClickListener(v -> {
             if (listener != null)
                 listener.openGallery();
             click = true;
-            ImageSourcePickerDialog.this.dismiss();
+            if (getCanCommitFragments()) {
+                dismiss();
+            }
         });
     }
 
     private void setImages() {
-        if (cropParams != null) {
-            Glide.with(this).load(cropParams.bgPopupAskCameraOrPhoto).into(backgroundLoginPopup);
-            Glide.with(this).load(cropParams.btnGallery).into(galleryButton);
-            Glide.with(this).load(cropParams.btnPhoto).into(photoButton);
+        if (cropParams == null) {
+            return;
         }
+        Glide.with(this).load(cropParams.bgPopupAskCameraOrPhoto).into(backgroundLoginPopup);
+        Glide.with(this).load(cropParams.btnGallery).into(galleryButton);
+        Glide.with(this).load(cropParams.btnPhoto).into(photoButton);
     }
 
     @Override

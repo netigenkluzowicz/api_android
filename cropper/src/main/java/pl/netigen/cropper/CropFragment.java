@@ -67,7 +67,6 @@ public class CropFragment extends NetigenDialogFragment implements OpenGalleryOr
     }
 
     public void show(@NotNull FragmentManager fragmentManager, String tag) {
-        if (!getCanCommitFragments()) return;
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Fragment prevFragment = fragmentManager.findFragmentByTag(tag);
         if (prevFragment != null) {
@@ -116,6 +115,12 @@ public class CropFragment extends NetigenDialogFragment implements OpenGalleryOr
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (listener == null) dismiss();
+    }
+
     private void openDialog() {
         ImageSourcePickerDialog imageSourcePickerDialog = ImageSourcePickerDialog.newInstance(cropParams);
         imageSourcePickerDialog.setListener(this);
@@ -136,7 +141,7 @@ public class CropFragment extends NetigenDialogFragment implements OpenGalleryOr
             if (listener != null) {
                 listener.saveCroppedImage(result.getUri());
             }
-            dismiss();
+            dismissIfPossible();
         });
     }
 
@@ -233,16 +238,18 @@ public class CropFragment extends NetigenDialogFragment implements OpenGalleryOr
 
     @Override
     public void closeFragment() {
+        dismissIfPossible();
+    }
+
+    private void dismissIfPossible() {
+        listener = null;
         if (!getCanCommitFragments()) return;
-        FragmentActivity activity = getActivity();
-        if (activity != null)
-            dismiss();
+        dismiss();
     }
 
     @Override
     public void onDismiss() {
-        if (!getCanCommitFragments()) return;
-        dismiss();
+        dismissIfPossible();
     }
 
     public interface OnCropFragmentInteractionListener {
