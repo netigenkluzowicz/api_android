@@ -381,7 +381,10 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
      */
     @Override
     public void onAcknowledgePurchaseResponse(BillingResult billingResult) {
-
+        if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK || sku == null || purchaseListener == null) {
+            return;
+        }
+        isItemPurchased(sku, purchaseListener);
     }
 
 }
