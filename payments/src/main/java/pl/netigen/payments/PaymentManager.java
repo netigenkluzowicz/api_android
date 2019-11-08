@@ -144,7 +144,7 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                 listener);
     }
 
-    public void getSkuDetailsList(@NonNull ArrayList<String> skuList,@NonNull SkuDetailsResponseListener listener) {
+    public void getSkuDetailsList(@NonNull ArrayList<String> skuList, @NonNull SkuDetailsResponseListener listener) {
         SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
         params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
         //Not sure if the line below is really necessary
@@ -375,10 +375,6 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
         }
     }
 
-    /**
-     * This callback returns failure(response code BILLING_UNAVAILABLE with message API_VERSION_NOT_V9),
-     * even though everything seems to be going fine
-     */
     @Override
     public void onAcknowledgePurchaseResponse(BillingResult billingResult) {
         if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK || sku == null || purchaseListener == null) {
