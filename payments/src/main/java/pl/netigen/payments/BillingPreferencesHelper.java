@@ -3,23 +3,25 @@ package pl.netigen.payments;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.annotation.NonNull;
+
 class BillingPreferencesHelper {
 
-    private SharedPreferences sharedPreferences;
     private static final String NETIGEN_BILLING_PREFERENCES_NAME = "NETIGEN_BILLING_PREFERENCES_NAME";
     private static final String WAS_CHECKED = "_WAS_CHECKED";
+    private static BillingPreferencesHelper billingPreferencesHelper;
+    private SharedPreferences sharedPreferences;
 
-    public static BillingPreferencesHelper billingPreferencesHelper;
+    private BillingPreferencesHelper(Context context) {
+        sharedPreferences = context.getSharedPreferences(NETIGEN_BILLING_PREFERENCES_NAME, Context.MODE_PRIVATE);
+    }
 
-    public static BillingPreferencesHelper getInstance(Context context){
-        if(billingPreferencesHelper==null){
+    @NonNull
+    public static BillingPreferencesHelper getInstance(@NonNull Context context) {
+        if (billingPreferencesHelper == null) {
             billingPreferencesHelper = new BillingPreferencesHelper(context);
         }
         return billingPreferencesHelper;
-    }
-
-    public BillingPreferencesHelper(Context context) {
-        sharedPreferences = context.getSharedPreferences(NETIGEN_BILLING_PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
     public boolean isSkuBought(String sku) {
