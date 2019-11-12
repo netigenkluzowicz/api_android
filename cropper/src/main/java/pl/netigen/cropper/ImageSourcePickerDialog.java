@@ -15,12 +15,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
 
-public class ImageSourcePickerDialog extends AppCompatDialogFragment {
+import org.jetbrains.annotations.NotNull;
+
+import pl.netigen.core.netigenapi.NetigenDialogFragment;
+
+public class ImageSourcePickerDialog extends NetigenDialogFragment {
 
     private ImageView backgroundLoginPopup;
     private ImageView galleryButton;
@@ -49,8 +52,10 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.galery_or_camera_dialog, container, false);
-        if(cropParams==null){
-            dismiss();
+        if (cropParams == null) {
+            if (getCanCommitFragments()) {
+                dismiss();
+            }
             return view;
         }
         initViews(view);
@@ -74,46 +79,46 @@ public class ImageSourcePickerDialog extends AppCompatDialogFragment {
     }
 
     private void setClickListeners(View view) {
-        view.findViewById(R.id.photoButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null)
-                    listener.openCamera();
-                click = true;
-                ImageSourcePickerDialog.this.dismiss();
+        view.findViewById(R.id.photoButton).setOnClickListener(v -> {
+            if (listener != null)
+                listener.openCamera();
+            click = true;
+            if (getCanCommitFragments()) {
+                dismiss();
             }
         });
-        view.findViewById(R.id.galleryButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null)
-                    listener.openGallery();
-                click = true;
-                ImageSourcePickerDialog.this.dismiss();
+        view.findViewById(R.id.galleryButton).setOnClickListener(v -> {
+            if (listener != null)
+                listener.openGallery();
+            click = true;
+            if (getCanCommitFragments()) {
+                dismiss();
             }
         });
     }
 
     private void setImages() {
-        if (cropParams != null) {
-            Glide.with(this).load(cropParams.bgPopupAskCameraOrPhoto).into(backgroundLoginPopup);
-            Glide.with(this).load(cropParams.btnGallery).into(galleryButton);
-            Glide.with(this).load(cropParams.btnPhoto).into(photoButton);
+        if (cropParams == null) {
+            return;
         }
+        Glide.with(this).load(cropParams.bgPopupAskCameraOrPhoto).into(backgroundLoginPopup);
+        Glide.with(this).load(cropParams.btnGallery).into(galleryButton);
+        Glide.with(this).load(cropParams.btnPhoto).into(photoButton);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Dialog dialog = getDialog();
+        if (dialog == null || dialog.getWindow() == null)
+            return;
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCanceledOnTouchOutside(false);
-        if (dialog.getWindow() != null)
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     @Override
-    public void onDismiss(DialogInterface dialog) {
+    public void onDismiss(@NotNull DialogInterface dialog) {
         if (!click) {
             if (listener != null)
                 listener.onDismiss();

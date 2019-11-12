@@ -16,7 +16,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -24,6 +23,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,10 +34,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class CropFragment extends AppCompatDialogFragment implements OpenGalleryOrCamera {
+import pl.netigen.core.netigenapi.NetigenDialogFragment;
+
+public class CropFragment extends NetigenDialogFragment implements OpenGalleryOrCamera {
 
     private static final int CAMERA_PIC_REQUEST = 1235;
     private static final int SELECT_IMAGE = 54612;
+    private static final int ROTATE_DEGREES = -90;
+    private static final String DATE_PATTERN = "ddMMyyyy_HHmmssSS";
 
     private CropImageView cropImageView;
     private ImageView roundImageButton;
@@ -61,7 +66,7 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         this.listener = listener;
     }
 
-    public void show(FragmentManager fragmentManager, String tag) {
+    public void show(@NotNull FragmentManager fragmentManager, String tag) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Fragment prevFragment = fragmentManager.findFragmentByTag(tag);
         if (prevFragment != null) {
@@ -92,12 +97,13 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         return dialog;
     }
 
-    void setDialogMatchParent() {
-        Window window = getDialog().getWindow();
-        if (window != null) {
-            window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            window.setGravity(Gravity.CENTER);
-        }
+    private void setDialogMatchParent() {
+        Dialog dialog = getDialog();
+        if (dialog == null) return;
+        Window window = dialog.getWindow();
+        if (window == null) return;
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        window.setGravity(Gravity.CENTER);
     }
 
     @Override
@@ -109,14 +115,20 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (listener == null) dismiss();
+    }
+
     private void openDialog() {
         ImageSourcePickerDialog imageSourcePickerDialog = ImageSourcePickerDialog.newInstance(cropParams);
         imageSourcePickerDialog.setListener(this);
         FragmentActivity activity = getActivity();
-        if (activity != null) {
-            FragmentManager supportFragmentManager = activity.getSupportFragmentManager();
-            imageSourcePickerDialog.openDialog(imageSourcePickerDialog, supportFragmentManager);
-        }
+        if (activity == null)
+            return;
+        FragmentManager supportFragmentManager = activity.getSupportFragmentManager();
+        imageSourcePickerDialog.openDialog(imageSourcePickerDialog, supportFragmentManager);
     }
 
     private void initViews(View view) {
@@ -124,27 +136,27 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         this.cropImageView = view.findViewById(R.id.cropImageView);
         roundImageButton = view.findViewById(R.id.rotateImageView);
         cropImageButton.setOnClickListener(onSaveClicked());
-        roundImageButton.setOnClickListener(v -> {
-            cropImageView.rotateImage(-90);
-        });
+        roundImageButton.setOnClickListener(v -> cropImageView.rotateImage(ROTATE_DEGREES));
         cropImageView.setOnCropImageCompleteListener((view1, result) -> {
             if (listener != null) {
                 listener.saveCroppedImage(result.getUri());
             }
-            dismiss();
+            dismissIfPossible();
         });
     }
 
     private File getFileForSaving() {
-        if (getActivity() == null) return null;
+        if (getActivity() == null)
+            return null;
         File mediaStorageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        if (mediaStorageDir == null) return null;
+        if (mediaStorageDir == null)
+            return null;
         if (!mediaStorageDir.exists()) {
             if (!mediaStorageDir.mkdirs()) {
                 return null;
             }
         }
-        String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmssSS", Locale.US).format(new Date());
+        String timeStamp = new SimpleDateFormat(DATE_PATTERN, Locale.US).format(new Date());
         String imageName = timeStamp + ".jpg";
         return new File(mediaStorageDir.getPath() + File.separator + imageName);
     }
@@ -156,14 +168,11 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
     }
 
     private View.OnClickListener onSaveClicked() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentActivity activity = CropFragment.this.getActivity();
-                if (activity != null) {
-                    cropImageView.saveCroppedImageAsync(Uri.fromFile(CropFragment.this.getFileForSaving()));
-                }
-            }
+        return v -> {
+            FragmentActivity activity = CropFragment.this.getActivity();
+            if (activity == null)
+                return;
+            cropImageView.saveCroppedImageAsync(Uri.fromFile(CropFragment.this.getFileForSaving()));
         };
     }
 
@@ -178,10 +187,9 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
                 cropImageView.setImageUriAsync(value);
             }
             if (requestCode == SELECT_IMAGE) {
-                if (data != null) {
-                    Uri selectedImageUri = data.getData();
-                    cropImageView.setImageUriAsync(selectedImageUri);
-                }
+                if (data == null) return;
+                Uri selectedImageUri = data.getData();
+                cropImageView.setImageUriAsync(selectedImageUri);
             }
         }
     }
@@ -191,24 +199,28 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, getContext().getString(R.string.select_picture_cropper)), SELECT_IMAGE);
+        Context context = getContext();
+        if (context == null)
+            return;
+        startActivityForResult(Intent.createChooser(intent, context.getString(R.string.select_picture_cropper)), SELECT_IMAGE);
     }
 
     @Override
     public void openCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         value = getUri();
-        if (value != null) {
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, value);
-            startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
-        }
+        if (value == null)
+            return;
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, value);
+        startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
     }
 
     private Uri getUri() {
-        if (getActivity() == null) {
+        FragmentActivity activity = getActivity();
+        if (activity == null)
             return null;
-        }
-        File path = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+        File path = activity.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File imageFile = new File(path, System.currentTimeMillis() + ".jpeg");
         FileOutputStream fileOutPutStream;
         try {
@@ -221,26 +233,23 @@ public class CropFragment extends AppCompatDialogFragment implements OpenGallery
             e.printStackTrace();
         }
 
-        Context context = getActivity();
-
-        if (context == null)
-            return null;
-
-        return FileProvider.getUriForFile(context,
-                context.getPackageName() + ".provider",
-                imageFile);
+        return FileProvider.getUriForFile(activity, activity.getPackageName() + ".provider", imageFile);
     }
 
     @Override
     public void closeFragment() {
-        FragmentActivity activity = getActivity();
-        if (activity != null)
-            dismiss();
+        dismissIfPossible();
+    }
+
+    private void dismissIfPossible() {
+        listener = null;
+        if (!getCanCommitFragments()) return;
+        dismiss();
     }
 
     @Override
     public void onDismiss() {
-        dismiss();
+        dismissIfPossible();
     }
 
     public interface OnCropFragmentInteractionListener {
