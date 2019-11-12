@@ -1,9 +1,9 @@
 package pl.netigen.core.netigenapi
 
 import android.os.Bundle
-import androidx.fragment.app.DialogFragment
+import androidx.appcompat.app.AppCompatDialogFragment
 
-open class NetigenDialogFragment : DialogFragment() {
+open class NetigenDialogFragment : AppCompatDialogFragment() {
 
     var canCommitFragments = false
         private set
