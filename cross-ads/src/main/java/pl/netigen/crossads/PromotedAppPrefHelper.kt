@@ -55,7 +55,7 @@ internal class PromotedAppPrefHelper(val context: Context) {
     fun updatePromotedApp(promotedAppModel: PromotedAppModel?) {
         updateLastCallTime()
         updatePromotedAppIconLink(promotedAppModel?.iconLink)
-        updatePromotedAppPackageName(promotedAppModel?.packageName)
+        updatePromotedAppPackageName(promotedAppModel?.promotePackageName)
     }
 
     companion object {
