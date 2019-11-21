@@ -11,7 +11,7 @@ object Versions {
     val coreKTX = "1.1.0"
     val lifecycle = "2.2.0-beta01"
     val lifecycleKTX = "2.2.0-beta01"
-    val okhttp = "4.2.1"
+    val okhttp = "3.12.0"
     val okio = "2.4.1"
     val retrofit = "2.6.1"
     val kotlin = "1.3.50"
