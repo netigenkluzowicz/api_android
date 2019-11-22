@@ -138,12 +138,18 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
         val fragment = netigenMainActivity.supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
         if (fragment != null) {
             gdprDialogFragment = fragment
+            bindGdprFragment(fragment)
         } else {
-            gdprDialogFragment = GDPRDialogFragment.newInstance()
-            gdprDialogFragment?.show(netigenMainActivity.supportFragmentManager.beginTransaction().addToBackStack(null), GDPR_POP_UP_TAG)
+            val newInstance = GDPRDialogFragment.newInstance()
+            gdprDialogFragment = newInstance
+            newInstance.show(netigenMainActivity.supportFragmentManager.beginTransaction().addToBackStack(null), GDPR_POP_UP_TAG)
+            bindGdprFragment(newInstance)
         }
-        gdprDialogFragment?.setIsPayOptions(viewModel.isNoAdsPaymentAvailable)
-        gdprDialogFragment?.bindGDPRListener(this)
+    }
+
+    private fun bindGdprFragment(fragment: GDPRDialogFragment) {
+        fragment.setIsPayOptions(viewModel.isNoAdsPaymentAvailable)
+        fragment.bindGDPRListener(this)
     }
 
     private fun startAdsSplash() {
