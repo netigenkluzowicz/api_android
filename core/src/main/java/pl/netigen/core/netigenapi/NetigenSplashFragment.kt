@@ -10,7 +10,6 @@ import pl.netigen.core.gdpr.ConstGDPR
 import pl.netigen.gdpr.GDPRDialogFragment
 
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
-
     var shouldShowHomeFragmentOnResume = false
         private set
     private var consentNotShowed: Boolean = false
@@ -54,11 +53,12 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
         if (consentNotShowed) {
             onConsentInfoUpdated(netigenMainActivity)
             consentNotShowed = false
+            return
         }
         if (shouldShowHomeFragmentOnResume) {
             showHomeFragment()
+            shouldShowHomeFragmentOnResume = false
         }
-        shouldShowHomeFragmentOnResume = false
     }
 
     private fun observeNoAds() {
@@ -72,8 +72,8 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
     }
 
     private fun onCreateWithoutAds() {
-        showHomeFragment()
-        gdprDialogFragment?.dialog?.dismiss()
+        if (canCommitFragments) gdprDialogFragment?.dialog?.dismiss()
+        showHomeFragmentOrSetFlag()
     }
 
     abstract fun showHomeFragment()
@@ -92,9 +92,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
     }
 
     private fun onDesignedForFamily() {
-        showHomeFragment()
         clickNo()
         initAds()
+        showHomeFragmentOrSetFlag()
     }
 
     private fun showConsent() {
@@ -104,8 +104,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
 
         netigenMainActivity.consentInformation.requestConsentInfoUpdate(viewModel.publishersIds, object : ConsentInfoUpdateListener {
             override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                if (netigenMainActivity.canCommitFragments()) {
-                    consentNotShowed = false
+                if (canCommitFragments) {
                     onConsentInfoUpdated(netigenMainActivity)
                 } else {
                     consentNotShowed = true
@@ -132,6 +131,10 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
     }
 
     private fun initGDPRFragment() {
+        if (!canCommitFragments) {
+            consentNotShowed = true
+            return
+        }
         val fragment = netigenMainActivity.supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
         if (fragment != null) {
             gdprDialogFragment = fragment
@@ -146,7 +149,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
     private fun startAdsSplash() {
         if (viewModel.isDesignedForFamily) {
             clickNo()
-            showHomeFragment()
+            showHomeFragmentOrSetFlag()
         } else {
             if (!::initAdsHandler.isInitialized) {
                 initAdsHandler = Handler()
@@ -159,9 +162,17 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
         netigenMainActivity.initAdsManager()
         val adsManager = netigenMainActivity.adsManager
         if (adsManager != null) {
-            adsManager.launchSplashLoaderOrOpenFragment { showHomeFragment() }
+            adsManager.launchSplashLoaderOrOpenFragment { showHomeFragmentOrSetFlag() }
         } else {
+            showHomeFragmentOrSetFlag()
+        }
+    }
+
+    private fun showHomeFragmentOrSetFlag() {
+        if (canCommitFragments) {
             showHomeFragment()
+        } else {
+            shouldShowHomeFragmentOnResume = true
         }
     }
 
@@ -182,15 +193,6 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
         startAdsSplash()
     }
 
-    override fun onPause() {
-        super.onPause()
-        shouldShowHomeFragmentOnResume = true
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        shouldShowHomeFragmentOnResume = true
-    }
 }
 
 private const val GDPR_POP_UP_TAG = "GDPR_POP_UP"
