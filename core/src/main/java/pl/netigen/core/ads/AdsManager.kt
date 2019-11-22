@@ -33,7 +33,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     }
 
     fun loadInterstitialIfPossible() {
-        interstitialAdManager.load()
+        interstitialAdManager.loadIfShouldBeLoaded()
     }
 
     fun showInterstitialAd(ShowInterstitialListener: InterstitialAdManager.ShowInterstitialListener) {
@@ -42,11 +42,13 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     fun onResume(relativeLayout: RelativeLayout) {
         bannerAdManager.onResume(relativeLayout)
+        interstitialAdManager.onResume()
         rewardedAdManager?.onResume()
     }
 
     fun onPause() {
         bannerAdManager.onPause()
+        interstitialAdManager.onPause()
         rewardedAdManager?.onPause()
     }
 
