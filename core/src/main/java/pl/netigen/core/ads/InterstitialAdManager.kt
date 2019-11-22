@@ -87,7 +87,9 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
     private fun onLoadedOnSplash(openFragment: () -> Unit) {
         interstitialAdHandler.removeCallbacksAndMessages(null)
         onLoaded(object : ShowInterstitialListener {
-            override fun onShowedOrNotLoaded(success: Boolean) = openFragment()
+            override fun onShowedOrNotLoaded(success: Boolean) {
+                openFragment()
+            }
         })
     }
 
