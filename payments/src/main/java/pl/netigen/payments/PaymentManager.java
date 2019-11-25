@@ -1,6 +1,7 @@
 package pl.netigen.payments;
 
 import android.app.Activity;
+import android.content.pm.ApplicationInfo;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,11 +55,13 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     private BillingPreferencesHelper billingPreferencesHelper;
     @Nullable
     private Activity activity;
+    private boolean isReleaseConfig;
 
     private PaymentManager(@NonNull Activity activity) {
         this.activity = activity;
         billingPreferencesHelper = BillingPreferencesHelper.getInstance(activity.getApplication());
         billingClient = buildBillingClient();
+        isReleaseConfig = ((activity.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) == 0);
     }
 
     public static IPaymentManager createIPaymentManager(Activity activity) {
@@ -193,10 +196,11 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
     }
 
     private void validateSku(@NonNull String sku) {
-        if (sku.contains(ANDROID_TEST) && !BuildConfig.DEBUG) {
+        if (sku.contains(ANDROID_TEST) && isReleaseConfig) {
             throw new IllegalArgumentException("Test SKU in production :" + sku);
         }
     }
+
 
     @Nullable
     private SkuDetails getSkuDetailsForSku(String sku) {
