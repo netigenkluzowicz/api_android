@@ -26,6 +26,10 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
 
     fun loadIfShouldBeLoaded() {
         if (interstitialAd.isLoading || interstitialAd.isLoaded || viewModel.isNoAdsBought) return
+        load()
+    }
+
+    private fun load() {
         interstitialAd = InterstitialAd(activity)
         interstitialAd.adUnitId = viewModel.getInterstitialAdId()
         interstitialAd.adListener = object : AdListener() {
