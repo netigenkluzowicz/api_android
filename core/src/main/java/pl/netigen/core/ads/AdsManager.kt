@@ -125,7 +125,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
                 builder.addTestDevice(testDevices[i])
             }
         }
-        if (ConsentInformation.getInstance(activity).consentStatus == ConsentStatus.NON_PERSONALIZED) {
+        if (ConsentInformation.getInstance(activity).consentStatus != ConsentStatus.PERSONALIZED) {
             val extras = Bundle()
             extras.putString("npa", "1")
             return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
