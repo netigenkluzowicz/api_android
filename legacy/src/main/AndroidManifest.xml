@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pl.netigen.legacy" />
+<manifest package="pl.netigen.legacy" />

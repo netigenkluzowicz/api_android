@@ -48,6 +48,7 @@ public class AdmobManager implements RewardedVideoAdListener {
         int NOT_LOADED_YET = 1;
         int FAILED_TO_REWARD = 2;
     }
+
     private Activity activity;
 
     private static final long REFRESH_TIME = 333;

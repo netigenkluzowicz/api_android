@@ -6,9 +6,9 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import pl.netigen.utils.BitmapHelper;
 import pl.netigen.netigenapi.Const;
 import pl.netigen.netigenapi.R;
+import pl.netigen.utils.BitmapHelper;
 
 import static android.content.Context.MODE_PRIVATE;
 
