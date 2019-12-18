@@ -144,6 +144,9 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     fun removeListener(listener: RewardsListener) {
         rewardsListeners.remove(listener)
     }
+
+    fun isRewardedVideoAdLoaded(): Boolean = rewardedVideoAd.isLoaded
+
 }
 
 private const val TAG = "RewardedAd"
