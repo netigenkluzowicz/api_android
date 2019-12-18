@@ -18,9 +18,9 @@ import pl.netigen.core.rewards.RewardsListener
 
 class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivity) {
 
-    var rewardedAdManager: RewardedAd? = null
-    var bannerAdManager: BannerAdManager
-    var interstitialAdManager: InterstitialAdManager
+    private var rewardedAdManager: RewardedAd? = null
+    private var bannerAdManager: BannerAdManager
+    private var interstitialAdManager: InterstitialAdManager
 
     init {
         MobileAds.initialize(activity)
