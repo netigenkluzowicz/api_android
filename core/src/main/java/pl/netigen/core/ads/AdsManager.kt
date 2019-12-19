@@ -145,4 +145,6 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         rewardedAdManager?.onDestroy()
         interstitialAdManager.onDestroy()
     }
+
+    fun isRewardedVideoAdLoaded(): Boolean = rewardedAdManager?.isRewardedVideoAdLoaded() ?: false
 }
