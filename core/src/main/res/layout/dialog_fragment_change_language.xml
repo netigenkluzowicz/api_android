@@ -14,7 +14,7 @@
         android:layout_marginLeft="8dp"
         android:gravity="center|start"
         android:text="@string/change_language_netigen"
-        android:textColor="@color/textColorBlack"
+        android:textColor="@android:color/black"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView_languages"
         app:layout_constraintLeft_toLeftOf="parent"
