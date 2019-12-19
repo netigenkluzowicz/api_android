@@ -60,18 +60,6 @@ public class Utils {
         }
     }
 
-    public static void showLinkifyDialog(final Activity activity, int titleId, int stringID) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
-        LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.linkify_dialog_netigen, null);
-        builder.setView(dialogView);
-        final AlertDialog dialog = builder.create();
-        ((TextView) dialogView.findViewById(R.id.title)).setText(activity.getString(titleId));
-        ((TextView) dialogView.findViewById(R.id.infoText)).setText(activity.getString(stringID));
-        dialogView.findViewById(R.id.button_ok).setOnClickListener(v -> dialog.dismiss());
-        dialog.show();
-    }
-
     public static void showInfoDialog(Activity activity, int titleId, int stringID) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         builder.setTitle(titleId);
@@ -79,20 +67,6 @@ public class Utils {
                 .setPositiveButton(R.string.ok_netigen,
                         (d, id) -> d.dismiss());
         final AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private static void showRateUsDialog(final Activity activity) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
-        LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_rate_us_netigen, null);
-        builder.setView(dialogView);
-        final AlertDialog dialog = builder.create();
-        dialogView.findViewById(R.id.button_rate_us_stars).setOnClickListener(v -> {
-            openMarketLink(activity, activity.getPackageName());
-            dialog.dismiss();
-        });
-        dialogView.findViewById(R.id.button_no).setOnClickListener(v -> dialog.dismiss());
         dialog.show();
     }
 

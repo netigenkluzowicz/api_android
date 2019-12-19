@@ -56,7 +56,6 @@
 
     <Button
         android:id="@+id/button_positive"
-        style="@style/AlertDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -70,7 +69,6 @@
 
     <Button
         android:id="@+id/button_negative"
-        style="@style/AlertDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
