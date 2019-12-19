@@ -61,7 +61,7 @@ public class Utils {
     }
 
     public static void showLinkifyDialog(final Activity activity, int titleId, int stringID) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         LayoutInflater inflater = activity.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.linkify_dialog, null);
         builder.setView(dialogView);
@@ -73,7 +73,7 @@ public class Utils {
     }
 
     public static void showInfoDialog(Activity activity, int titleId, int stringID) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         builder.setTitle(titleId);
         builder.setMessage(activity.getString(stringID))
                 .setPositiveButton(R.string.ok_netigen,
@@ -83,7 +83,7 @@ public class Utils {
     }
 
     private static void showRateUsDialog(final Activity activity) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         LayoutInflater inflater = activity.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_rate_us, null);
         builder.setView(dialogView);
@@ -103,7 +103,7 @@ public class Utils {
                                   DialogInterface.OnClickListener positiveOnClickListener,
                                   String negativeText,
                                   DialogInterface.OnClickListener noOnClickListener) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         builder.setTitle(titleId);
         builder.setMessage(activity.getString(stringID));
         if (positiveOnClickListener != null) {
@@ -117,7 +117,7 @@ public class Utils {
     }
 
     public static void showDialog(Activity activity, @Nullable final View.OnClickListener okClick, @Nullable final View.OnClickListener cancelClick, String title, String msg) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         LayoutInflater inflater = activity.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.custom_dialog, null);
         builder.setView(dialogView);
