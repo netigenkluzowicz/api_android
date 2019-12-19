@@ -39,7 +39,7 @@ public class MoreAppItem extends AppInfo {
     }
 
     private void loadIconBitmap(Resources resources, Activity activity) {
-        int size = resources.getDimensionPixelSize(R.dimen.moreAppIconSize);
+        int size = resources.getDimensionPixelSize(R.dimen.moreAppIconSizeNetigen);
         SharedPreferences sharedPref = activity.getSharedPreferences(Const.MOREAPPS, MODE_PRIVATE);
         String path = sharedPref.getString(packageName, null);
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -48,7 +48,7 @@ public class MoreAppItem extends AppInfo {
     }
 
     private void loadIconBitmap(Resources resources) {
-        int size = resources.getDimensionPixelSize(R.dimen.moreAppIconSize);
+        int size = resources.getDimensionPixelSize(R.dimen.moreAppIconSizeNetigen);
         iconBitmap = BitmapHelper.loadAndScaleBitmap(resources.getAssets(), "moreapps/" + packageName + ".png", size, size);
     }
 

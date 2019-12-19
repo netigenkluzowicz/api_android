@@ -162,10 +162,10 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             } else {
                 linearLayoutBottom.addView(imageView);
             }
-            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = (int) getResources().getDimension(R.dimen.default_rewarded_line_padding);
-            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).rightMargin = (int) getResources().getDimension(R.dimen.default_rewarded_line_padding);
-            imageView.getLayoutParams().height = (int) getResources().getDimension(R.dimen.rewardItemDefaultSize);
-            imageView.getLayoutParams().width = (int) getResources().getDimension(R.dimen.rewardItemDefaultSize);
+            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = (int) getResources().getDimension(R.dimen.defaultRewardedLinePaddingNetigen);
+            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).rightMargin = (int) getResources().getDimension(R.dimen.defaultRewardedLinePaddingNetigen);
+            imageView.getLayoutParams().height = (int) getResources().getDimension(R.dimen.rewardItemDefaultSizeNetigen);
+            imageView.getLayoutParams().width = (int) getResources().getDimension(R.dimen.rewardItemDefaultSizeNetigen);
             Glide.with(view).load(rewardParams.rewards.get(i).getPath()).into(imageView);
         }
     }

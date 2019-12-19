@@ -13,7 +13,7 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/dialogTitleTextSize" />
+        android:textSize="@dimen/linkifyDialogTitleTextSizeNetigen" />
 
 
     <TextView
@@ -29,7 +29,7 @@
         android:paddingTop="10dp"
         android:textColor="@android:color/white"
         android:textColorLink="#18ffff"
-        android:textSize="@dimen/dialogInfoTextSize" />
+        android:textSize="@dimen/linkifyDialogInfoTextSizeNetigen" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,6 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ok_netigen"
-            android:textSize="@dimen/dialogTitleTextSize" />
+            android:textSize="@dimen/linkifyDialogTitleTextSizeNetigen" />
     </LinearLayout>
 </LinearLayout>
