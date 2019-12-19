@@ -148,7 +148,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             backgroundView.addView(rewardParams.background);
         } else {
             ImageView imageViewBackground = new ImageView(getActivity());
-            Glide.with(view).load(R.drawable.background_language_dialog).into(imageViewBackground);
+            Glide.with(view).load(R.drawable.background_language_dialog_netigen).into(imageViewBackground);
             backgroundView.addView(imageViewBackground);
         }
     }
