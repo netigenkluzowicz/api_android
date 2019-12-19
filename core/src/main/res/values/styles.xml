@@ -31,9 +31,9 @@
     </style>
 
     <style name="SelectedLanguageRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="colorAccent">@color/radio_button_color_checked</item>
-        <item name="android:color">@color/radio_button_color_checked</item>
-        <item name="android:textColor">@color/textColorBlack</item>
+        <item name="colorAccent">@color/language_radio_button_color_checked_netigen</item>
+        <item name="android:color">@color/language_radio_button_color_checked_netigen</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
     </style>
 

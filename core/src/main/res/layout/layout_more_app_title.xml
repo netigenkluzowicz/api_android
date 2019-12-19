@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="@string/more_apps_netigen"
-                android:textColor="@color/colorWhite"
+                android:textColor="@android:color/white"
                 android:textSize="30sp" />
 
         </RelativeLayout>
