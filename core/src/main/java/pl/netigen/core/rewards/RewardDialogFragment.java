@@ -60,7 +60,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setDialog();
-        View view = inflater.inflate(R.layout.dialog_fragment_reward, container, false);
+        View view = inflater.inflate(R.layout.dialog_fragment_reward_netigen, container, false);
 
         if (rewardParams == null || getActivity() == null) {
             dismiss();

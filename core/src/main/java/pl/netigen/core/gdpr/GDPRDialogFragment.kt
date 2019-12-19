@@ -14,7 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.appcompat.app.AppCompatDialogFragment
-import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
+import kotlinx.android.synthetic.main.dialog_fragment_gdpr_netigen.*
 import pl.netigen.core.R
 import pl.netigen.core.gdpr.ConstGDPR
 
@@ -37,7 +37,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
                 dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             }
         }
-        return inflater.inflate(R.layout.dialog_fragment_gdpr, container, false)
+        return inflater.inflate(R.layout.dialog_fragment_gdpr_netigen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

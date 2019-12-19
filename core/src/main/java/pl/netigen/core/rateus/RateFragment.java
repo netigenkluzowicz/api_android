@@ -40,7 +40,7 @@ public class RateFragment extends AppCompatDialogFragment {
         getDialog().setCancelable(true);
         getDialog().setCanceledOnTouchOutside(true);
 
-        View view = inflater.inflate(R.layout.netigen_api_rate_us_dialog, container, false);
+        View view = inflater.inflate(R.layout.netigen_api_rate_us_dialog_netigen, container, false);
 
         if (rateUs == null) {
             dismiss();

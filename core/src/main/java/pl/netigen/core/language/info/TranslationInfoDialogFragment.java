@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -67,7 +66,7 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
 
         getDialog().setCancelable(true);
         getDialog().setCanceledOnTouchOutside(true);
-        View view = inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
+        View view = inflater.inflate(R.layout.dialog_fragment_translation_info_netigen, container, false);
 
         if (translationInfoParams == null || dialogClickListener == null) {
             dismiss();

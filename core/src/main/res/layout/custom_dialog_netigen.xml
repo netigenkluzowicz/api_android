@@ -40,7 +40,6 @@
 
         <Button
             android:id="@+id/button_cancel"
-            style="@style/AlertDialogButton"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -49,7 +48,6 @@
 
         <Button
             android:id="@+id/button_ok"
-            style="@style/AlertDialogButton"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

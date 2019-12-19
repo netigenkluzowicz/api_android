@@ -89,7 +89,7 @@ public class ChangeLanguageHelper {
      * Use only if DialogFragment doesn't properly fit the screen
      * */
     public static void showTranslationInfoAlertDialog(TranslationInfoDialogFragment.DialogClickListener dialogClickListener, AppCompatActivity appCompatActivity) {
-        View dialogView = appCompatActivity.getLayoutInflater().inflate(R.layout.dialog_fragment_translation_info, null);
+        View dialogView = appCompatActivity.getLayoutInflater().inflate(R.layout.dialog_fragment_translation_info_netigen, null);
         AlertDialog alertDialog = new AlertDialog.Builder(appCompatActivity)
                 .setView(dialogView)
                 .create();

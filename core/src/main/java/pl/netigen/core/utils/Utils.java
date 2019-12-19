@@ -63,7 +63,7 @@ public class Utils {
     public static void showLinkifyDialog(final Activity activity, int titleId, int stringID) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.linkify_dialog, null);
+        View dialogView = inflater.inflate(R.layout.linkify_dialog_netigen, null);
         builder.setView(dialogView);
         final AlertDialog dialog = builder.create();
         ((TextView) dialogView.findViewById(R.id.title)).setText(activity.getString(titleId));
@@ -85,7 +85,7 @@ public class Utils {
     private static void showRateUsDialog(final Activity activity) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_rate_us, null);
+        View dialogView = inflater.inflate(R.layout.dialog_rate_us_netigen, null);
         builder.setView(dialogView);
         final AlertDialog dialog = builder.create();
         dialogView.findViewById(R.id.button_rate_us_stars).setOnClickListener(v -> {
@@ -119,7 +119,7 @@ public class Utils {
     public static void showDialog(Activity activity, @Nullable final View.OnClickListener okClick, @Nullable final View.OnClickListener cancelClick, String title, String msg) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialogNetigenUtils);
         LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        View dialogView = inflater.inflate(R.layout.custom_dialog_netigen, null);
         builder.setView(dialogView);
         final AlertDialog dialog = builder.create();
         dialog.setCancelable(false);
