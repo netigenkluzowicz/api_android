@@ -4,8 +4,6 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.netigenkluzowicz'
-version = '1.0.0'
 
 android {
     compileSdkVersion 28

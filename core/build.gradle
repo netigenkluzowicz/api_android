@@ -4,8 +4,6 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.netigenkluzowicz'
-version = '0.1.0'
 
 android {
     compileSdkVersion 28
@@ -32,7 +30,6 @@ android {
     }
 }
 dependencies {
-//    api "com.github.netigenkluzowicz:billingandroid:1.1.0"
     implementation project(path: ':payments')
 
     api Libraries.legacySupportV4
