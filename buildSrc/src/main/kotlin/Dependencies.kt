@@ -22,6 +22,8 @@ object Versions {
     val testRunner = "1.2.0"
     val espressoCore = "3.2.0"
     val billing = "2.0.3"
+    val navigation = "2.1.0"
+    val coroutines = "1.3.3"
 }
 
 object Libraries {
@@ -39,6 +41,14 @@ object Libraries {
     val viewModelKTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     val liveDataKTX = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     val runtimeKTX = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKTX}"
+
+    val navigationFragment = "androidx.navigation:navigation-fragment:${Versions.navigation}"
+    val navigationUi = "androidx.navigation:navigation-ui:${Versions.navigation}"
+
+    val navigationFragmentKTX = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    val navigationUiKTX = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+
+    val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
     val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
 
