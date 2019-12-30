@@ -10,7 +10,7 @@ fun NavController.safeNavigate(@IdRes resId: Int, args: Bundle? = null, navOptio
     try {
         this.navigate(resId, args, navOptions)
     } catch (e: Exception) {
-        Log.e("wrobel", "safeNavigate: Double navigation on id:${NavDestination.getDisplayName(context, resId)}")
+        Log.e("NavController", "safeNavigate: Double navigation on id:${NavDestination.getDisplayName(context, resId)}")
     }
 }
 

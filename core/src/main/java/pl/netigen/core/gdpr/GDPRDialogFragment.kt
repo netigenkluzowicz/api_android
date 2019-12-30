@@ -1,4 +1,4 @@
-package pl.netigen.gdpr
+package pl.netigen.core.gdpr
 
 import android.content.Context
 import android.content.pm.PackageManager
@@ -16,7 +16,7 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
 import pl.netigen.core.R
-import pl.netigen.core.gdpr.ConstGDPR
+import pl.netigen.extensions.setDialogSize
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
     private var isNoAdsAvailable = false
