@@ -1,4 +1,4 @@
-package pl.netigen.core.netigenapi
+package pl.netigen.splash
 
 import java.util.*
 import kotlin.concurrent.timer

@@ -5,4 +5,5 @@ interface IAds {
     fun removeInterstitialListener(loadInterstitialListener: LoadInterstitialListener)
     fun loadInterstitial()
     fun showInterstitial(onClosedOrNotShowed: (Boolean) -> Unit)
+    fun setConsentStatus(personalizedAdsApproved: Boolean)
 }

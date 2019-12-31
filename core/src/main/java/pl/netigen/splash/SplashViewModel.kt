@@ -1,4 +1,4 @@
-package pl.netigen.core.netigenapi
+package pl.netigen.splash
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +9,7 @@ import pl.netigen.core.gdpr.CheckGDPRLocationStatus
 import pl.netigen.core.gdpr.IGDPRConsent
 
 class SplashViewModel : ViewModel(), ISplashViewModel, LoadInterstitialListener {
-    override val currentSplashState: MutableLiveData<ISplashViewModel.SplashState> = MutableLiveData(ISplashViewModel.SplashState.IDLE)
+    override val currentSplashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
     private val splashTimer: ISplashTimer = SplashTimer()
     private val gdprConsent: IGDPRConsent = TODO()
     private val ads: IAds = TODO()
@@ -21,7 +21,7 @@ class SplashViewModel : ViewModel(), ISplashViewModel, LoadInterstitialListener 
     }
 
     private fun isRunning() =
-        currentSplashState.value != ISplashViewModel.SplashState.IDLE && currentSplashState.value != ISplashViewModel.SplashState.FINISHED
+        currentSplashState.value != SplashState.IDLE && currentSplashState.value != SplashState.FINISHED
 
     private fun onNextLaunch() {
         startLoadingInterstitial()
@@ -41,6 +41,17 @@ class SplashViewModel : ViewModel(), ISplashViewModel, LoadInterstitialListener 
         }
     }
 
+    override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
+        val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) {
+            AdConsentStatus.PERSONALIZED_SHOWED
+        } else {
+            AdConsentStatus.NON_PERSONALIZED_SHOWED
+        }
+        gdprConsent.saveAdConsentStatus(adConsentStatus)
+        ads.setConsentStatus(personalizedAdsApproved)
+        startLoadingInterstitial()
+    }
+
     override fun loadInteristialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
 
     private fun onInterstitialLoaded() {
@@ -49,7 +60,7 @@ class SplashViewModel : ViewModel(), ISplashViewModel, LoadInterstitialListener 
     }
 
     private fun onFirstLaunch() {
-        updateState(ISplashViewModel.SplashState.LOADING_FIRST_LAUNCH)
+        updateState(SplashState.LOADING_FIRST_LAUNCH)
         splashTimer.startConsentTimer(this::showGdprPopUp)
         gdprConsent.checkGDPRLocation {
             splashTimer.cancelConsentTimer()
@@ -59,12 +70,13 @@ class SplashViewModel : ViewModel(), ISplashViewModel, LoadInterstitialListener 
     }
 
     private fun initOnNonUeLocation() {
+        ads.setConsentStatus(true)
         gdprConsent.saveAdConsentStatus(AdConsentStatus.PERSONALIZED_NON_UE)
         startLoadingInterstitial()
     }
 
     private fun startLoadingInterstitial() {
-        updateState(ISplashViewModel.SplashState.LOADING_INTERSTITIAL)
+        updateState(SplashState.LOADING_INTERSTITIAL)
         ads.addLoadInterstitialListener(this)
         ads.loadInterstitial()
         splashTimer.startInterstitialTimer(this::finish)
@@ -73,14 +85,14 @@ class SplashViewModel : ViewModel(), ISplashViewModel, LoadInterstitialListener 
     private fun finish() {
         splashTimer.cancelTimers()
         ads.removeInterstitialListener(this)
-        updateState(ISplashViewModel.SplashState.FINISHED)
+        updateState(SplashState.FINISHED)
     }
 
-    private fun updateState(splashState: ISplashViewModel.SplashState) {
+    private fun updateState(splashState: SplashState) {
         currentSplashState.value = splashState
     }
 
-    private fun showGdprPopUp() = updateState(ISplashViewModel.SplashState.GDPR_POP_UP)
+    private fun showGdprPopUp() = updateState(SplashState.GDPR_POP_UP)
 
     private fun isFirstLaunch(): Boolean = gdprConsent.lastKnownAdConsentStatus == AdConsentStatus.UNINITIALIZED
 
