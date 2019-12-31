@@ -8,11 +8,12 @@ import pl.netigen.core.gdpr.AdConsentStatus
 import pl.netigen.core.gdpr.CheckGDPRLocationStatus
 import pl.netigen.core.gdpr.IGDPRConsent
 
-class SplashViewModel : ViewModel(), ISplashViewModel, LoadInterstitialListener {
-    override val currentSplashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
+class SplashViewModel(
+    private val gdprConsent: IGDPRConsent,
+    private val ads: IAds,
     private val splashTimer: ISplashTimer = SplashTimer()
-    private val gdprConsent: IGDPRConsent = TODO()
-    private val ads: IAds = TODO()
+) : ViewModel(), ISplashViewModel, LoadInterstitialListener {
+    override val currentSplashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
 
     override fun onStart() = when {
         isRunning() -> Unit //do Nothing
