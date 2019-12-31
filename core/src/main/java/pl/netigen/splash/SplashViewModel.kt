@@ -31,10 +31,10 @@ class SplashViewModel(
     }
 
     private fun checkConsentNextLaunch() {
-        splashTimer.startConsentTimer { gdprConsent.cancelLocating() }
-        gdprConsent.checkGDPRLocation {
+        splashTimer.startConsentTimer { gdprConsent.cancelRequest() }
+        gdprConsent.requestGDPRLocation { gdprLocationStatus ->
             splashTimer.cancelConsentTimer()
-            if (it == CheckGDPRLocationStatus.UE) {
+            if (gdprLocationStatus == CheckGDPRLocationStatus.UE) {
                 splashTimer.cancelInterstitialTimer()
                 ads.removeInterstitialListener(this)
                 showGdprPopUp()
@@ -43,27 +43,28 @@ class SplashViewModel(
     }
 
     override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
-        val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) {
-            AdConsentStatus.PERSONALIZED_SHOWED
-        } else {
-            AdConsentStatus.NON_PERSONALIZED_SHOWED
-        }
+        val adConsentStatus: AdConsentStatus =
+            if (personalizedAdsApproved) {
+                AdConsentStatus.PERSONALIZED_SHOWED
+            } else {
+                AdConsentStatus.NON_PERSONALIZED_SHOWED
+            }
         gdprConsent.saveAdConsentStatus(adConsentStatus)
         ads.setConsentStatus(personalizedAdsApproved)
         startLoadingInterstitial()
     }
 
-    override fun loadInteristialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
+    override fun loadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
 
     private fun onInterstitialLoaded() {
         splashTimer.cancelTimers()
-        ads.showInterstitial { finish() }
+        ads.showInterstitialAd { finish() }
     }
 
     private fun onFirstLaunch() {
         updateState(SplashState.LOADING_FIRST_LAUNCH)
         splashTimer.startConsentTimer(this::showGdprPopUp)
-        gdprConsent.checkGDPRLocation {
+        gdprConsent.requestGDPRLocation {
             splashTimer.cancelConsentTimer()
             if (it == CheckGDPRLocationStatus.NON_UE) initOnNonUeLocation()
             else showGdprPopUp()
@@ -79,7 +80,7 @@ class SplashViewModel(
     private fun startLoadingInterstitial() {
         updateState(SplashState.LOADING_INTERSTITIAL)
         ads.addLoadInterstitialListener(this)
-        ads.loadInterstitial()
+        ads.loadInterstitialAd()
         splashTimer.startInterstitialTimer(this::finish)
     }
 

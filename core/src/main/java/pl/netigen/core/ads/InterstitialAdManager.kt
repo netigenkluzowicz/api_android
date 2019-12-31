@@ -7,7 +7,7 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
 import pl.netigen.core.netigenapi.NetigenViewModel
 
-class InterstitialAdManager(private val viewModel: NetigenViewModel, val activity: AppCompatActivity, val adsManager: AdsManager) {
+class InterstitialAdManager(private val viewModel: NetigenViewModel, val activity: AppCompatActivity, val admobManager: AdmobManager) {
     private var isInBackground: Boolean = false
     private var interstitialAdError: Boolean = false
     private val interstitialAdHandler = Handler()
@@ -38,7 +38,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
                 interstitialAdError = true
             }
         }
-        interstitialAd.loadAd(adsManager.getAdRequest())
+        interstitialAd.loadAd(admobManager.getAdRequest())
     }
 
     fun show(showInterstitialListener: ShowInterstitialListener) {
@@ -83,7 +83,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
         when {
             viewModel.isNoAdsBought -> openFragment()
             interstitialAd.isLoaded -> onLoadedOnSplash(openFragment)
-            !adsManager.isOnline() -> openFragment()
+            !admobManager.isOnline() -> openFragment()
             else -> startBackgroundLoading(openFragment)
         }
     }
@@ -118,7 +118,7 @@ class InterstitialAdManager(private val viewModel: NetigenViewModel, val activit
 
         private fun onAdLoading() = if (interstitialAdError) onAdError() else refreshHandler()
 
-        private fun onAdError() = if (adsManager.isOnline()) refreshHandler() else openFragment()
+        private fun onAdError() = if (admobManager.isOnline()) refreshHandler() else openFragment()
 
         private fun refreshHandler() {
             interstitialAdHandler.postDelayed(this, handlerRefreshTime)

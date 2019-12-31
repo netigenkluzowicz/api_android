@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import com.google.android.gms.ads.AdSize
-import pl.netigen.core.ads.AdsManager
+import pl.netigen.core.ads.AdmobManager
 import pl.netigen.core.rewards.RewardsListener
 import pl.netigen.payments.IPaymentManager
 import pl.netigen.payments.PaymentManager
@@ -21,7 +21,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     open lateinit var viewModel: ViewModel
     lateinit var paymentManager: IPaymentManager
     private var bannerRelativeLayout: RelativeLayout? = null
-    var adsManager: AdsManager? = null
+    var admobManager: AdmobManager? = null
     lateinit var consentInformation: ConsentInformation
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,20 +43,15 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     override fun onResume() {
         super.onResume()
         if (viewModel.isNoAdsBought) {
-            hideBanner()
-        } else {
-            adsManager?.onResume(getBannerRelativeLayout())
-            if (viewModel.isDesignedForFamily) {
-                showBanner()
-            }
+           admobManager?.onNoAdsBought()
         }
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        if (adsManager == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
+        if (admobManager == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
             initAdsManager()
-            adsManager?.let {
+            admobManager?.let {
                 it.rewardedAdManager?.reloadAd()
             }
             showBanner()
@@ -106,7 +101,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     override fun onItemNotBought(sku: String?) {
         if (!sku.isNullOrEmpty() && sku == viewModel.noAdsSku) {
             onNoAdsNotBought()
-            adsManager?.loadInterstitialIfPossible()
+            admobManager?.loadInterstitialIfPossible()
         }
     }
 
@@ -137,7 +132,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     private fun onNoAdsBought() {
         hideAds()
         hideBanner()
-        adsManager = null
+        admobManager = null
     }
 
     @CallSuper
@@ -148,12 +143,12 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     @CallSuper
     open fun initAdsManager() {
         if (!viewModel.isNoAdsBought) {
-            adsManager = AdsManager(viewModel, this)
+            admobManager = AdmobManager(viewModel, this, getBannerRelativeLayout())
             if (viewModel.config.rewardedAdId != null) {
                 if (prepareRewardedAdsListener() == null)
                     throw NullPointerException("Trying to load rewardedAds without a callback, prepareRewardedAdsListener should be overriden")
-                adsManager?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
-                adsManager?.loadRewardedVideo()
+                admobManager?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
+                admobManager?.loadRewardedVideo()
             }
         }
     }
@@ -171,14 +166,6 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     fun canCommitFragments(): Boolean {
         return viewModel.canCommitFragments
     }
-
-    override fun onPause() {
-        super.onPause()
-        if (!viewModel.isNoAdsBought) {
-            adsManager?.onPause()
-        }
-    }
-
     override fun onStop() {
         super.onStop()
         viewModel.onStopActivity()
@@ -186,9 +173,6 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
 
     override fun onDestroy() {
         super.onDestroy()
-        if (!viewModel.isNoAdsBought) {
-            adsManager?.onDestroy()
-        }
         paymentManager.onDestroy()
     }
 

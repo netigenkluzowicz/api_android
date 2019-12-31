@@ -166,7 +166,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
 
     internal open fun initAds() {
         netigenMainActivity.initAdsManager()
-        val adsManager = netigenMainActivity.adsManager
+        val adsManager = netigenMainActivity.admobManager
         if (adsManager != null) {
             adsManager.launchSplashLoaderOrOpenFragment { showHomeFragmentOrSetFlag() }
         } else {

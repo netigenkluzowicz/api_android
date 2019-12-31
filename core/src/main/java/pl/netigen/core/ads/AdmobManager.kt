@@ -6,6 +6,9 @@ import android.net.NetworkInfo
 import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import com.google.ads.mediation.admob.AdMobAdapter
@@ -16,13 +19,19 @@ import pl.netigen.core.rewards.RewardItem
 import pl.netigen.core.rewards.RewardListenersList
 import pl.netigen.core.rewards.RewardsListener
 
-class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivity) {
-
+class AdmobManager(
+    var viewModel: NetigenViewModel,
+    val activity: AppCompatActivity,
+    private val bannerLayout: RelativeLayout?
+) : IAds, LifecycleObserver {
+    private var personalizedAdsApproved: Boolean = false
+    private val loadInterstitialListeners: MutableList<LoadInterstitialListener> = mutableListOf()
     var rewardedAdManager: RewardedAd? = null
     var bannerAdManager: BannerAdManager
     var interstitialAdManager: InterstitialAdManager
 
     init {
+        activity.lifecycle.addObserver(this)
         MobileAds.initialize(activity)
         this.bannerAdManager = BannerAdManager(viewModel, activity, this)
         this.interstitialAdManager = InterstitialAdManager(viewModel, activity, this)
@@ -36,21 +45,7 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         interstitialAdManager.loadIfShouldBeLoaded()
     }
 
-    fun showInterstitialAd(ShowInterstitialListener: InterstitialAdManager.ShowInterstitialListener) {
-        interstitialAdManager.show(ShowInterstitialListener)
-    }
-
-    fun onResume(relativeLayout: RelativeLayout) {
-        bannerAdManager.onResume(relativeLayout)
-        interstitialAdManager.onResume()
-        rewardedAdManager?.onResume()
-    }
-
-    fun onPause() {
-        bannerAdManager.onPause()
-        interstitialAdManager.onPause()
-        rewardedAdManager?.onPause()
-    }
+    override fun onNoAdsBought(): Unit = TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
     fun initRewardedVideoAd(rewardsListener: RewardsListener) {
         rewardedAdManager = RewardedAd(viewModel, activity, rewardsListener)
@@ -135,16 +130,53 @@ class AdsManager(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         return builder.build()
     }
 
+    fun isRewardedVideoAdLoaded(): Boolean = rewardedAdManager?.isRewardedVideoAdLoaded() ?: false
+
     fun isOnline(): Boolean {
         val cm = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo: NetworkInfo? = cm.activeNetworkInfo
         return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
-    fun onDestroy() {
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    private fun onDestroy() {
         rewardedAdManager?.onDestroy()
         interstitialAdManager.onDestroy()
     }
 
-    fun isRewardedVideoAdLoaded(): Boolean = rewardedAdManager?.isRewardedVideoAdLoaded() ?: false
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    private fun onResume() {
+        bannerLayout?.let { bannerAdManager.onResume(it) }
+        interstitialAdManager.onResume()
+        rewardedAdManager?.onResume()
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    private fun onPause() {
+        bannerAdManager.onPause()
+        interstitialAdManager.onPause()
+        rewardedAdManager?.onPause()
+    }
+
+    override fun addLoadInterstitialListener(loadInterstitialListener: LoadInterstitialListener) {
+        loadInterstitialListeners.add(loadInterstitialListener)
+    }
+
+    override fun removeInterstitialListener(loadInterstitialListener: LoadInterstitialListener) {
+        loadInterstitialListeners.remove(loadInterstitialListener)
+    }
+
+    override fun loadInterstitialAd() = TODO()
+
+    override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {
+        interstitialAdManager.show(object : InterstitialAdManager.ShowInterstitialListener {
+            override fun onShowedOrNotLoaded(success: Boolean) {
+                onClosedOrNotShowed(success)
+            }
+        })
+    }
+
+    override fun setConsentStatus(personalizedAdsApproved: Boolean) {
+        this.personalizedAdsApproved = personalizedAdsApproved
+    }
 }
