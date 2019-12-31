@@ -28,8 +28,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         setDialogSize(0.9, 0.9)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         if (dialog != null) {
             val window = dialog?.window
             if (window != null) {
@@ -125,7 +127,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             return false
         }
         val connectivityManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
-                ?: return false
+            ?: return false
         val netInfo = connectivityManager.activeNetworkInfo
         return netInfo != null && netInfo.isConnectedOrConnecting
     }

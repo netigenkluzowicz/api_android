@@ -3,7 +3,9 @@ package pl.netigen.core.netigenapi
 interface ISplashTimer {
     fun startConsentTimer(onConsentTimeLimit: () -> Unit)
     fun startInterstitialTimer(onLoadSplashLimit: () -> Unit)
-    fun stopTimer()
+    fun cancelConsentTimer()
+    fun cancelInterstitialTimer()
+    fun cancelTimers()
 }
 
 const val MAX_CONSENT_WAIT_TIME_MS = 5000L
