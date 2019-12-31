@@ -24,11 +24,12 @@ import pl.netigen.core.language.info.TranslationInfoDialogFragment;
 
 public class ChangeLanguageHelper {
 
-    private static String[] arrayOfProperlyTranslatedLanguages = new String[]{"pl", "pt"/*, "ru"*/, "es", "de", "ko", "en"};
-    private static SharedPreferences sharedPreferences;
     public static final String LANGUAGE_PREFERENCES = "LANGUAGE_PREFERENCES";
     private static final String KEY_WAS_TRANSLATION_DIALOG_SHOWN = "KEY_WAS_TRANSLATION_DIALOG_SHOWN";
     private static final String KEY_USER_LOCALE = "KEY_USER_LOCALE";
+    private static final String TAG = "ChangeLanguageHelper";
+    private static String[] arrayOfProperlyTranslatedLanguages = new String[]{"pl", "pt"/*, "ru"*/, "es", "de", "ko", "en"};
+    private static SharedPreferences sharedPreferences;
 
     public static void setLocaleAndRestartApp(String lang, AppCompatActivity currentActivity, Class activityToLaunch) {
         if (lang == null)
@@ -148,8 +149,6 @@ public class ChangeLanguageHelper {
     public static void setSharedPreferences(Context context) {
         sharedPreferences = context.getSharedPreferences(ChangeLanguageHelper.LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);
     }
-
-    private static final String TAG = "ChangeLanguageHelper";
 
     private static Context updateResources(Context activityContext, Context applicationContext) {
         sharedPreferences = activityContext.getSharedPreferences(LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);

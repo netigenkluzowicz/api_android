@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -34,13 +33,6 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
     public TranslationInfoDialogFragment() {
 
     }
-
-    public interface DialogClickListener {
-        void onNegativeButtonClicked();
-
-        void onPositiveButtonClicked();
-    }
-
 
     public static TranslationInfoDialogFragment newInstance(TranslationInfoParams translationInfoParams) {
         TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment();
@@ -101,7 +93,6 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         textViewTranslationInfoTitle.setText(translationInfoParams.titleResId);
     }
 
-
     public void setPositiveButton(View view) {
         buttonChangeLanguageOk = view.findViewById(R.id.button_positive);
         buttonChangeLanguageOk.setText(translationInfoParams.positiveButtonResId);
@@ -152,6 +143,12 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
             }
             window.setGravity(Gravity.CENTER);
         }
+    }
+
+    public interface DialogClickListener {
+        void onNegativeButtonClicked();
+
+        void onPositiveButtonClicked();
     }
 
     public static class Builder {

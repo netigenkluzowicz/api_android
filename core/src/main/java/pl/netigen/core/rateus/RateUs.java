@@ -25,10 +25,10 @@ public class RateUs {
     int notAskAgainResId;
     int appIconResId;
     int clicksBeforeShowingRateUs;
-    private SharedPreferences sharedPreferences;
-    private AppCompatActivity appCompatActivity;
     boolean isDefaultPopUp;
     int customLayoutId;
+    private SharedPreferences sharedPreferences;
+    private AppCompatActivity appCompatActivity;
 
     private RateUs(AppCompatActivity appCompatActivity, int titleResId,
                    int appNameResId, int askForRateUsInfoId,

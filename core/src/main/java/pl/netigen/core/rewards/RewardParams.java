@@ -10,6 +10,8 @@ import java.util.List;
 
 class RewardParams {
 
+    public List<RewardItem> rewards;
+    public View background;
     @StringRes
     int buttonPositiveTextResId = 0;
     @StringRes
@@ -22,9 +24,6 @@ class RewardParams {
     int buttonPositiveBackgroundDrawableId;
     @DimenRes
     int textSizeDimenRes;
-
-    public List<RewardItem> rewards;
-    public View background;
     double widthMultiplier = 0.0, heightMultiplier = 0.0;
     Integer descriptionTextColor;
     Integer buttonPositiveTextColor;

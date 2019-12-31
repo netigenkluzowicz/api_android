@@ -24,6 +24,22 @@ public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Languages
     private RadioButton lastCheckedRB;
     private LanguageModel selectedLanguageModel;
     private Typeface typeface;
+    private CompoundButton.OnCheckedChangeListener ls = (new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView,
+                                     boolean isChecked) {
+            int tag = (int) buttonView.getTag();
+            if (isChecked) {
+                selectedLanguageModel = languageModelArrayList.get(tag);
+            }
+            if (lastCheckedRB == null) {
+                lastCheckedRB = (RadioButton) buttonView;
+            } else if (tag != (int) lastCheckedRB.getTag()) {
+                lastCheckedRB.setChecked(false);
+                lastCheckedRB = (RadioButton) buttonView;
+            }
+        }
+    });
 
     public LanguagesRecyclerViewAdapter(ArrayList<LanguageModel> languageModelArrayList, Typeface typeface) {
         this.typeface = typeface;
@@ -48,23 +64,6 @@ public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Languages
         holder.radioButtonSelectLanguage.setOnCheckedChangeListener(ls);
         holder.radioButtonSelectLanguage.setTag(position);
     }
-
-    private CompoundButton.OnCheckedChangeListener ls = (new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView,
-                                     boolean isChecked) {
-            int tag = (int) buttonView.getTag();
-            if (isChecked) {
-                selectedLanguageModel = languageModelArrayList.get(tag);
-            }
-            if (lastCheckedRB == null) {
-                lastCheckedRB = (RadioButton) buttonView;
-            } else if (tag != (int) lastCheckedRB.getTag()) {
-                lastCheckedRB.setChecked(false);
-                lastCheckedRB = (RadioButton) buttonView;
-            }
-        }
-    });
 
     @Override
     public int getItemCount() {
