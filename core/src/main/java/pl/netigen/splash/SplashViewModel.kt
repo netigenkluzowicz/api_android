@@ -98,10 +98,7 @@ class SplashViewModel(
     }
 
     private fun finish() {
-        gdprConsent.cancelRequest()
-        splashTimer.cancelTimers()
-        noAdsPurchases.removeNoAdsPurchaseListener(this)
-        ads.removeInterstitialListener(this)
+        cleanUp()
         updateState(SplashState.FINISHED)
     }
 
@@ -120,4 +117,12 @@ class SplashViewModel(
         }
     }
 
+    override fun onCleared() = cleanUp()
+
+    private fun cleanUp() {
+        gdprConsent.cancelRequest()
+        splashTimer.cancelTimers()
+        noAdsPurchases.removeNoAdsPurchaseListener(this)
+        ads.removeInterstitialListener(this)
+    }
 }
