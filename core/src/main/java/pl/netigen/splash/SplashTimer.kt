@@ -4,8 +4,8 @@ import java.util.*
 import kotlin.concurrent.timer
 
 class SplashTimer(
-    private val consentTimeLimit: Long = MAX_CONSENT_WAIT_TIME_MS,
-    private val maxInterstitialWaitTime: Long = MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
+    private val consentTimeLimit: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
+    private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
 ) : ISplashTimer {
     private var consentTimer: Timer? = null
     private var interstitialTimer: Timer? = null
@@ -31,3 +31,6 @@ class SplashTimer(
         cancelInterstitialTimer()
     }
 }
+
+const val DEFAULT_MAX_CONSENT_WAIT_TIME_MS = 5000L
+const val DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7000L

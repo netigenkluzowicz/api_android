@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
+import android.util.Log
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -25,16 +26,16 @@ class AdmobManager(
     private val bannerLayout: RelativeLayout?
 ) : IAds, LifecycleObserver {
     private var personalizedAdsApproved: Boolean = false
-    private val loadInterstitialListeners: MutableList<LoadInterstitialListener> = mutableListOf()
+    private val interstitialAdListeners: MutableList<InterstitialAdListener> = mutableListOf()
     var rewardedAdManager: RewardedAd? = null
     var bannerAdManager: BannerAdManager
     var interstitialAdManager: InterstitialAdManager
 
     init {
-        activity.lifecycle.addObserver(this)
         MobileAds.initialize(activity)
         this.bannerAdManager = BannerAdManager(viewModel, activity, this)
         this.interstitialAdManager = InterstitialAdManager(viewModel, activity, this)
+        activity.lifecycle.addObserver(this)
     }
 
     fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit) {
@@ -44,8 +45,6 @@ class AdmobManager(
     fun loadInterstitialIfPossible() {
         interstitialAdManager.loadIfShouldBeLoaded()
     }
-
-    override fun onNoAdsBought(): Unit = TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
     fun initRewardedVideoAd(rewardsListener: RewardsListener) {
         rewardedAdManager = RewardedAd(viewModel, activity, rewardsListener)
@@ -146,6 +145,7 @@ class AdmobManager(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
+        Log.d("wrobel", "onResume() called ")
         bannerLayout?.let { bannerAdManager.onResume(it) }
         interstitialAdManager.onResume()
         rewardedAdManager?.onResume()
@@ -153,17 +153,18 @@ class AdmobManager(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
+        Log.d("wrobel", "onPause() called ")
         bannerAdManager.onPause()
         interstitialAdManager.onPause()
         rewardedAdManager?.onPause()
     }
 
-    override fun addLoadInterstitialListener(loadInterstitialListener: LoadInterstitialListener) {
-        loadInterstitialListeners.add(loadInterstitialListener)
+    override fun addInterstitialListener(interstitialAdListener: InterstitialAdListener) {
+        interstitialAdListeners.add(interstitialAdListener)
     }
 
-    override fun removeInterstitialListener(loadInterstitialListener: LoadInterstitialListener) {
-        loadInterstitialListeners.remove(loadInterstitialListener)
+    override fun removeInterstitialListener(interstitialAdListener: InterstitialAdListener) {
+        interstitialAdListeners.remove(interstitialAdListener)
     }
 
     override fun loadInterstitialAd() = TODO()

@@ -3,7 +3,7 @@ package pl.netigen.splash
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import pl.netigen.core.ads.IAds
-import pl.netigen.core.ads.LoadInterstitialListener
+import pl.netigen.core.ads.InterstitialAdListener
 import pl.netigen.core.gdpr.AdConsentStatus
 import pl.netigen.core.gdpr.CheckGDPRLocationStatus
 import pl.netigen.core.gdpr.IGDPRConsent
@@ -12,7 +12,7 @@ class SplashViewModel(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val splashTimer: ISplashTimer = SplashTimer()
-) : ViewModel(), ISplashViewModel, LoadInterstitialListener {
+) : ViewModel(), ISplashViewModel, InterstitialAdListener {
     override val currentSplashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
 
     override fun onStart() = when {
@@ -34,12 +34,18 @@ class SplashViewModel(
         splashTimer.startConsentTimer { gdprConsent.cancelRequest() }
         gdprConsent.requestGDPRLocation { gdprLocationStatus ->
             splashTimer.cancelConsentTimer()
-            if (gdprLocationStatus == CheckGDPRLocationStatus.UE) {
-                splashTimer.cancelInterstitialTimer()
-                ads.removeInterstitialListener(this)
-                showGdprPopUp()
-            }
+            if (gdprLocationStatus == CheckGDPRLocationStatus.UE) onLocationChangeToEu()
         }
+    }
+
+    private fun onLocationChangeToEu() {
+        stopAdLoading()
+        showGdprPopUp()
+    }
+
+    private fun stopAdLoading() {
+        splashTimer.cancelInterstitialTimer()
+        ads.removeInterstitialListener(this)
     }
 
     override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
@@ -57,6 +63,7 @@ class SplashViewModel(
     override fun loadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
 
     private fun onInterstitialLoaded() {
+        gdprConsent.cancelRequest()
         splashTimer.cancelTimers()
         ads.showInterstitialAd { finish() }
     }
@@ -79,12 +86,13 @@ class SplashViewModel(
 
     private fun startLoadingInterstitial() {
         updateState(SplashState.LOADING_INTERSTITIAL)
-        ads.addLoadInterstitialListener(this)
+        ads.addInterstitialListener(this)
         ads.loadInterstitialAd()
         splashTimer.startInterstitialTimer(this::finish)
     }
 
     private fun finish() {
+        gdprConsent.cancelRequest()
         splashTimer.cancelTimers()
         ads.removeInterstitialListener(this)
         updateState(SplashState.FINISHED)

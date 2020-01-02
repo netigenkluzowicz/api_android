@@ -1,5 +1,5 @@
 package pl.netigen.core.ads
 
-interface LoadInterstitialListener {
+interface InterstitialAdListener {
     fun loadInterstitialResult(success: Boolean)
 }
