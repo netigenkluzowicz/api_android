@@ -7,6 +7,8 @@ import pl.netigen.core.ads.InterstitialAdListener
 import pl.netigen.core.gdpr.AdConsentStatus
 import pl.netigen.core.gdpr.CheckGDPRLocationStatus
 import pl.netigen.core.gdpr.IGDPRConsent
+import pl.netigen.core.network.INetworkStatus
+import pl.netigen.core.network.NetworkStatusChangeListener
 import pl.netigen.core.purchases.INoAdsPurchases
 import pl.netigen.core.purchases.NoAdsPurchaseListener
 
@@ -14,8 +16,9 @@ class SplashViewModel(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAdsPurchases,
+    private val networkStatus: INetworkStatus,
     private val splashTimer: ISplashTimer = SplashTimer()
-) : ViewModel(), ISplashViewModel, InterstitialAdListener, NoAdsPurchaseListener {
+) : ViewModel(), ISplashViewModel, InterstitialAdListener, NoAdsPurchaseListener, NetworkStatusChangeListener {
     override val currentSplashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
 
     override fun onStart() {
@@ -23,6 +26,7 @@ class SplashViewModel(
         noAdsPurchases.addNoAdsPurchaseListener(this)
         when {
             isRunning() -> Unit //do Nothing
+            !networkStatus.isConnected -> if (isFirstLaunch()) showGdprPopUp() else finish()
             isFirstLaunch() -> onFirstLaunch()
             else -> onNextLaunch()
         }
@@ -42,8 +46,8 @@ class SplashViewModel(
 
     private fun onNextLaunch() {
         startLoadingInterstitial()
-        if (gdprConsent.isConsentShowed()) return
-        checkConsentNextLaunch()
+        if (!gdprConsent.isConsentShowed()) checkConsentNextLaunch()
+
     }
 
     private fun checkConsentNextLaunch() {
@@ -91,6 +95,8 @@ class SplashViewModel(
     }
 
     private fun startLoadingInterstitial() {
+        if (!networkStatus.isConnected) return finish()
+        networkStatus.addNetworkStatusChangeListener(this)
         updateState(SplashState.LOADING_INTERSTITIAL)
         ads.addInterstitialListener(this)
         ads.loadInterstitialAd()
@@ -122,7 +128,12 @@ class SplashViewModel(
     private fun cleanUp() {
         gdprConsent.cancelRequest()
         splashTimer.cancelTimers()
+        networkStatus.removeNetworkStatusChangeListener(this)
         noAdsPurchases.removeNoAdsPurchaseListener(this)
         ads.removeInterstitialListener(this)
+    }
+
+    override fun onNetworkStatusChanged(isConnected: Boolean) {
+        if (!isConnected && currentSplashState.value == SplashState.LOADING_INTERSTITIAL) finish()
     }
 }
