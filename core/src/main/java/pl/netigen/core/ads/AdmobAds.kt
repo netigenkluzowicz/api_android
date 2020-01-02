@@ -4,14 +4,11 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.ads.consent.ConsentInformation
-import com.google.ads.consent.ConsentStatus
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
@@ -20,30 +17,28 @@ import pl.netigen.core.rewards.RewardItem
 import pl.netigen.core.rewards.RewardListenersList
 import pl.netigen.core.rewards.RewardsListener
 
-class AdmobManager(
-    var viewModel: NetigenViewModel,
-    val activity: AppCompatActivity,
-    private val bannerLayout: RelativeLayout?
+class AdmobAds(
+    private val viewModel: NetigenViewModel,
+    private val activity: AppCompatActivity,
+    private val bannerLayout: RelativeLayout?,
+    private val isInDebugMode: Boolean = viewModel.isInDebugMode(),
+    private val testDevices: ArrayList<String> = viewModel.getTestDevices()
 ) : IAds, LifecycleObserver {
     private var personalizedAdsApproved: Boolean = false
     private val interstitialAdListeners: MutableList<InterstitialAdListener> = mutableListOf()
     var rewardedAdManager: RewardedAd? = null
-    var bannerAdManager: BannerAdManager
-    var interstitialAdManager: InterstitialAdManager
+    var admobBanner: AdmobBanner
+    var admobInterstitial: AdmobInterstitial
 
     init {
         MobileAds.initialize(activity)
-        this.bannerAdManager = BannerAdManager(viewModel, activity, this)
-        this.interstitialAdManager = InterstitialAdManager(viewModel, activity, this)
+        this.admobBanner = AdmobBanner(viewModel, activity, this)
+        this.admobInterstitial = AdmobInterstitial(viewModel, activity, this)
         activity.lifecycle.addObserver(this)
     }
 
-    fun launchSplashLoaderOrOpenFragment(openFragment: () -> Unit) {
-        interstitialAdManager.launchSplashLoaderOrOpenFragment(openFragment)
-    }
-
     fun loadInterstitialIfPossible() {
-        interstitialAdManager.loadIfShouldBeLoaded()
+        admobInterstitial.loadIfShouldBeLoaded()
     }
 
     fun initRewardedVideoAd(rewardsListener: RewardsListener) {
@@ -92,7 +87,7 @@ class AdmobManager(
 
     fun getAdRequest(): AdRequest {
         val builder = AdRequest.Builder()
-        if (viewModel.isInDebugMode()) {
+        if (isInDebugMode) {
             builder.addTestDevice("F1F415DDE480395A4D21C26D6C6A9619")
                 .addTestDevice("9F65EEB1B6AED06CBE01CFEDA106BD29")
                 .addTestDevice("0F4B0296B48D2C6478D7E9A89DDD07F8")
@@ -114,19 +109,16 @@ class AdmobManager(
                 .addTestDevice("AD2180512DE8B1EE611AB4645A69E470")
                 .addTestDevice("379BED7628AE4885B439939575F9F292")
 
-            val testDevices = viewModel.getTestDevices()
+
             for (i in testDevices.indices) {
                 builder.addTestDevice(testDevices[i])
             }
         }
-        if (ConsentInformation.getInstance(activity).consentStatus != ConsentStatus.PERSONALIZED) {
-            val extras = Bundle()
-            extras.putString("npa", "1")
-            return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
-                .build()
-        }
+        if (personalizedAdsApproved) return builder.build()
 
-        return builder.build()
+        val extras = Bundle()
+        extras.putString("npa", "1")
+        return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()
     }
 
     fun isRewardedVideoAdLoaded(): Boolean = rewardedAdManager?.isRewardedVideoAdLoaded() ?: false
@@ -140,22 +132,19 @@ class AdmobManager(
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private fun onDestroy() {
         rewardedAdManager?.onDestroy()
-        interstitialAdManager.onDestroy()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
-        Log.d("wrobel", "onResume() called ")
-        bannerLayout?.let { bannerAdManager.onResume(it) }
-        interstitialAdManager.onResume()
+        bannerLayout?.let { admobBanner.onResume(it) }
+        admobInterstitial.onResume()
         rewardedAdManager?.onResume()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
-        Log.d("wrobel", "onPause() called ")
-        bannerAdManager.onPause()
-        interstitialAdManager.onPause()
+        admobBanner.onPause()
+        admobInterstitial.onPause()
         rewardedAdManager?.onPause()
     }
 
@@ -170,7 +159,7 @@ class AdmobManager(
     override fun loadInterstitialAd() = TODO()
 
     override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {
-        interstitialAdManager.show(object : InterstitialAdManager.ShowInterstitialListener {
+        admobInterstitial.show(object : AdmobInterstitial.ShowInterstitialListener {
             override fun onShowedOrNotLoaded(success: Boolean) {
                 onClosedOrNotShowed(success)
             }

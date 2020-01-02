@@ -7,7 +7,7 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import pl.netigen.core.netigenapi.NetigenViewModel
 
-class BannerAdManager(var viewModel: NetigenViewModel, val activity: Activity, val admobManager: AdmobManager) {
+class AdmobBanner(var viewModel: NetigenViewModel, val activity: Activity, val admobAds: AdmobAds) {
 
     var bannerView: AdView? = null
     private var loadedBannerOrientation = 0
@@ -22,7 +22,7 @@ class BannerAdManager(var viewModel: NetigenViewModel, val activity: Activity, v
             bannerView?.adSize = AdSize.SMART_BANNER
             bannerView?.adUnitId = viewModel.getBannerId()
         }
-        bannerView?.loadAd(admobManager.getAdRequest())
+        bannerView?.loadAd(admobAds.getAdRequest())
     }
 
     fun onResume(relativeLayout: RelativeLayout) {

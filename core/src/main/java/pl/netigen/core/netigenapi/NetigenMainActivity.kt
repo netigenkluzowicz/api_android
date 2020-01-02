@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import com.google.android.gms.ads.AdSize
-import pl.netigen.core.ads.AdmobManager
+import pl.netigen.core.ads.AdmobAds
 import pl.netigen.core.rewards.RewardsListener
 import pl.netigen.payments.IPaymentManager
 import pl.netigen.payments.PaymentManager
@@ -21,7 +21,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     open lateinit var viewModel: ViewModel
     lateinit var paymentManager: IPaymentManager
     private var bannerRelativeLayout: RelativeLayout? = null
-    var admobManager: AdmobManager? = null
+    var admobAds: AdmobAds? = null
     lateinit var consentInformation: ConsentInformation
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,15 +43,19 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     override fun onResume() {
         super.onResume()
         if (viewModel.isNoAdsBought) {
-           admobManager?.onNoAdsBought()
+            hideBanner()
+        } else {
+            if (viewModel.isDesignedForFamily) {
+                showBanner()
+            }
         }
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        if (admobManager == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
+        if (admobAds == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
             initAdsManager()
-            admobManager?.let {
+            admobAds?.let {
                 it.rewardedAdManager?.reloadAd()
             }
             showBanner()
@@ -101,7 +105,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     override fun onItemNotBought(sku: String?) {
         if (!sku.isNullOrEmpty() && sku == viewModel.noAdsSku) {
             onNoAdsNotBought()
-            admobManager?.loadInterstitialIfPossible()
+            admobAds?.loadInterstitialIfPossible()
         }
     }
 
@@ -132,7 +136,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     private fun onNoAdsBought() {
         hideAds()
         hideBanner()
-        admobManager = null
+        admobAds = null
     }
 
     @CallSuper
@@ -143,12 +147,12 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     @CallSuper
     open fun initAdsManager() {
         if (!viewModel.isNoAdsBought) {
-            admobManager = AdmobManager(viewModel, this, getBannerRelativeLayout())
+            admobAds = AdmobAds(viewModel, this, getBannerRelativeLayout())
             if (viewModel.config.rewardedAdId != null) {
                 if (prepareRewardedAdsListener() == null)
                     throw NullPointerException("Trying to load rewardedAds without a callback, prepareRewardedAdsListener should be overriden")
-                admobManager?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
-                admobManager?.loadRewardedVideo()
+                admobAds?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
+                admobAds?.loadRewardedVideo()
             }
         }
     }

@@ -62,7 +62,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
     }
 
     private fun observeNoAds() {
-        viewModel.noAdsLiveData.observe(this, Observer {
+        viewModel.noAdsLiveData.observe(viewLifecycleOwner, Observer {
             if (it) {
                 onCreateWithoutAds()
             } else {
@@ -166,9 +166,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
 
     internal open fun initAds() {
         netigenMainActivity.initAdsManager()
-        val adsManager = netigenMainActivity.admobManager
+        val adsManager = netigenMainActivity.admobAds
         if (adsManager != null) {
-            adsManager.launchSplashLoaderOrOpenFragment { showHomeFragmentOrSetFlag() }
+            adsManager.showInterstitialAd { showHomeFragmentOrSetFlag() }
         } else {
             showHomeFragmentOrSetFlag()
         }
