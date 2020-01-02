@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.core.purchases
 
 interface INoAdsPurchases {
     fun isNoAdsActive(): Boolean
