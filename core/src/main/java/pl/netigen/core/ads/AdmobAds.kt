@@ -1,89 +1,28 @@
 package pl.netigen.core.ads
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.Bundle
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import pl.netigen.core.netigenapi.NetigenViewModel
-import pl.netigen.core.rewards.RewardItem
-import pl.netigen.core.rewards.RewardListenersList
-import pl.netigen.core.rewards.RewardsListener
 
 class AdmobAds(
-    private val viewModel: NetigenViewModel,
-    private val activity: AppCompatActivity,
-    private val bannerLayout: RelativeLayout?,
-    private val isInDebugMode: Boolean = viewModel.isInDebugMode(),
-    private val testDevices: ArrayList<String> = viewModel.getTestDevices()
-) : IAds, LifecycleObserver {
+    viewModel: NetigenViewModel,
+    activity: AppCompatActivity,
+    override val bannerRelativeLayout: RelativeLayout,
+    private val testDevices: ArrayList<String> = viewModel.getTestDevices(),
+    private val isInDebugMode: Boolean = viewModel.isInDebugMode()
+) : IAds {
     private var personalizedAdsApproved: Boolean = false
-    private val interstitialAdListeners: MutableList<InterstitialAdListener> = mutableListOf()
-    val bannerId: String = TODO("not implemented")
-    var rewardedAdManager: RewardedAd? = null
-    var admobBanner: AdmobBanner
-    var admobInterstitial: AdmobInterstitial
+    override val bannerAd: IBannerAd
+    override val interstitialAd: IInterstitialAd
 
     init {
         MobileAds.initialize(activity)
-        this.admobBanner = AdmobBanner(activity, this)
-        this.admobInterstitial = AdmobInterstitial(viewModel, activity, this)
-        activity.lifecycle.addObserver(this)
-    }
-
-    fun loadInterstitialIfPossible() {
-        admobInterstitial.loadIfShouldBeLoaded()
-    }
-
-    fun initRewardedVideoAd(rewardsListener: RewardsListener) {
-        rewardedAdManager = RewardedAd(viewModel, activity, rewardsListener)
-    }
-
-    fun loadRewardedVideoForAdId(rewardedAdId: String?) {
-        if (rewardedAdManager == null) throw NullPointerException("Trying to load RewardedAd without initialization")
-        rewardedAdManager?.loadIfNotLoadingForAdId(rewardedAdId)
-    }
-
-    fun loadRewardedVideo() {
-        if (rewardedAdManager == null) throw NullPointerException("Trying to load RewardedAd without initialization")
-        rewardedAdManager?.loadIfNotLoading()
-    }
-
-    fun resetCustomRewardedAdId() {
-        if (rewardedAdManager == null) throw NullPointerException("Trying to reset RewardedAd without initialization")
-        rewardedAdManager?.customRewardedAdId = null
-    }
-
-    fun showRewardedVideoForItems(rewardItems: MutableList<out RewardItem>, listeners: RewardListenersList? = null) {
-        if (rewardedAdManager == null) throw NullPointerException("Trying to show RewardedAd without initialization")
-        listeners?.let {
-            rewardedAdManager?.addListeners(it)
-        }
-        rewardedAdManager?.showRewardedVideoForItems(rewardItems)
-    }
-
-    fun reloadRewardedAd() {
-        rewardedAdManager?.reloadAd()
-    }
-
-    fun removeRewardedVideoCallbacks(listeners: RewardListenersList) {
-        rewardedAdManager?.removeListeners(listeners)
-    }
-
-    fun removeRewardedVideoCallback(listener: RewardsListener) {
-        rewardedAdManager?.removeListener(listener)
-    }
-
-    fun showRewardedVideo() {
-        if (rewardedAdManager == null) throw NullPointerException("Trying to show RewardedAd without initialization")
-        rewardedAdManager?.showRewardedVideoAd()
+        this.bannerAd = AdmobBanner(activity, this, AdId(viewModel.getBannerId()), bannerRelativeLayout)
+        this.interstitialAd = AdmobInterstitial(activity, this, AdId(viewModel.getInterstitialAdId()))
     }
 
     fun getAdRequest(): AdRequest {
@@ -122,59 +61,16 @@ class AdmobAds(
         return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()
     }
 
-    fun isRewardedVideoAdLoaded(): Boolean = rewardedAdManager?.isRewardedVideoAdLoaded() ?: false
+    override fun enable() = setEnabled(true)
 
-    fun isOnline(): Boolean {
-        val cm = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo: NetworkInfo? = cm.activeNetworkInfo
-        return netInfo != null && netInfo.isConnectedOrConnecting
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    private fun onDestroy() {
-        rewardedAdManager?.onDestroy()
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    private fun onResume() {
-        admobInterstitial.onResume()
-        rewardedAdManager?.onResume()
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    private fun onPause() {
-        admobInterstitial.onPause()
-        rewardedAdManager?.onPause()
-    }
-
-    override fun addInterstitialListener(interstitialAdListener: InterstitialAdListener) {
-        interstitialAdListeners.add(interstitialAdListener)
-    }
-
-    override fun removeInterstitialListener(interstitialAdListener: InterstitialAdListener) {
-        interstitialAdListeners.remove(interstitialAdListener)
-    }
-
-    override fun loadInterstitialAd() = TODO()
-
-    override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {
-        admobInterstitial.show(object : AdmobInterstitial.ShowInterstitialListener {
-            override fun onShowedOrNotLoaded(success: Boolean) {
-                onClosedOrNotShowed(success)
-            }
-        })
-    }
-
-    override fun enable() {
-        admobBanner.enabled = true
-    }
-
-    override fun disable() {
-        admobBanner.enabled = false
-    }
+    override fun disable() = setEnabled(false)
 
     override fun setConsentStatus(personalizedAdsApproved: Boolean) {
         this.personalizedAdsApproved = personalizedAdsApproved
     }
 
+    private fun setEnabled(enabled: Boolean) {
+        bannerAd.enabled = enabled
+        interstitialAd.enabled = enabled
+    }
 }

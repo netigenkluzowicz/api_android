@@ -168,7 +168,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
         netigenMainActivity.initAdsManager()
         val adsManager = netigenMainActivity.admobAds
         if (adsManager != null) {
-            adsManager.showInterstitialAd { showHomeFragmentOrSetFlag() }
+            adsManager.interstitialAd.showInterstitialAd { showHomeFragmentOrSetFlag() }
         } else {
             showHomeFragmentOrSetFlag()
         }

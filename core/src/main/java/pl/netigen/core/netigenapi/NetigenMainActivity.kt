@@ -56,7 +56,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         if (admobAds == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
             initAdsManager()
             admobAds?.let {
-                it.rewardedAdManager?.reloadAd()
+             //todo   it.rewardedAdManager?.reloadAd()
             }
             showBanner()
         }
@@ -105,7 +105,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     override fun onItemNotBought(sku: String?) {
         if (!sku.isNullOrEmpty() && sku == viewModel.noAdsSku) {
             onNoAdsNotBought()
-            admobAds?.loadInterstitialIfPossible()
+            admobAds?.interstitialAd?.loadInterstitialAd()
         }
     }
 
@@ -151,8 +151,8 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
             if (viewModel.config.rewardedAdId != null) {
                 if (prepareRewardedAdsListener() == null)
                     throw NullPointerException("Trying to load rewardedAds without a callback, prepareRewardedAdsListener should be overriden")
-                admobAds?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
-                admobAds?.loadRewardedVideo()
+              /*todo  admobAds?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
+                admobAds?.loadRewardedVideo()*/
             }
         }
     }

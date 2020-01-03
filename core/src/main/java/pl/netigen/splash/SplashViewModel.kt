@@ -66,7 +66,7 @@ class SplashViewModel(
 
     private fun stopAdLoading() {
         splashTimer.cancelInterstitialTimer()
-        ads.removeInterstitialListener(this)
+        ads.interstitialAd.removeInterstitialListener(this)
     }
 
     override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
@@ -86,7 +86,7 @@ class SplashViewModel(
     private fun onInterstitialLoaded() {
         gdprConsent.cancelRequest()
         splashTimer.cancelTimers()
-        ads.showInterstitialAd { finish() }
+        ads.interstitialAd.showInterstitialAd { finish() }
     }
 
     private fun initOnNonUeLocation() {
@@ -99,8 +99,8 @@ class SplashViewModel(
         if (!networkStatus.lastKnownStatus) return finish()
         networkStatus.addNetworkStatusChangeListener(this)
         updateState(SplashState.LOADING_INTERSTITIAL)
-        ads.addInterstitialListener(this)
-        ads.loadInterstitialAd()
+        ads.interstitialAd.addInterstitialListener(this)
+        ads.interstitialAd.loadInterstitialAd()
         splashTimer.startInterstitialTimer(this::finish)
     }
 
@@ -133,7 +133,7 @@ class SplashViewModel(
         splashTimer.cancelTimers()
         networkStatus.removeNetworkStatusChangeListener(this)
         noAdsPurchases.removeNoAdsPurchaseListener(this)
-        ads.removeInterstitialListener(this)
+        ads.interstitialAd.removeInterstitialListener(this)
     }
 
     override fun onNetworkStatusChanged(isConnected: Boolean) {

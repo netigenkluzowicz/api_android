@@ -131,7 +131,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         textViewPositiveButton.setOnClickListener(v -> {
-            netigenMainActivity.getAdmobAds().showRewardedVideoForItems(rewardParams.rewards, rewardParams.listeners);
+            //todo  netigenMainActivity.getAdmobAds().showRewardedVideoForItems(rewardParams.rewards, rewardParams.listeners);
             dismiss();
         });
     }
