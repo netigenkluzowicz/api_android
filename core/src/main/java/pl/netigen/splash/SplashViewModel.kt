@@ -119,8 +119,10 @@ class SplashViewModel(
 
     override fun onNoAdsPurchaseChanged(purchased: Boolean) {
         if (purchased) {
-            ads.destroy()
+            ads.disable()
             finish()
+        } else {
+            ads.enable()
         }
     }
 

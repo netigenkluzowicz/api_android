@@ -26,13 +26,14 @@ class AdmobAds(
 ) : IAds, LifecycleObserver {
     private var personalizedAdsApproved: Boolean = false
     private val interstitialAdListeners: MutableList<InterstitialAdListener> = mutableListOf()
+    val bannerId: String = TODO("not implemented")
     var rewardedAdManager: RewardedAd? = null
     var admobBanner: AdmobBanner
     var admobInterstitial: AdmobInterstitial
 
     init {
         MobileAds.initialize(activity)
-        this.admobBanner = AdmobBanner(viewModel, activity, this)
+        this.admobBanner = AdmobBanner(activity, this)
         this.admobInterstitial = AdmobInterstitial(viewModel, activity, this)
         activity.lifecycle.addObserver(this)
     }
@@ -136,14 +137,12 @@ class AdmobAds(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
-        bannerLayout?.let { admobBanner.onResume(it) }
         admobInterstitial.onResume()
         rewardedAdManager?.onResume()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
-        admobBanner.onPause()
         admobInterstitial.onPause()
         rewardedAdManager?.onPause()
     }
@@ -166,11 +165,16 @@ class AdmobAds(
         })
     }
 
-    override fun destroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun enable() {
+        admobBanner.enabled = true
+    }
+
+    override fun disable() {
+        admobBanner.enabled = false
     }
 
     override fun setConsentStatus(personalizedAdsApproved: Boolean) {
         this.personalizedAdsApproved = personalizedAdsApproved
     }
+
 }
