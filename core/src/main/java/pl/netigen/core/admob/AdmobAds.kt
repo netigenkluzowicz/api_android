@@ -1,12 +1,10 @@
 package pl.netigen.core.admob
 
 import android.os.Bundle
-import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
-import pl.netigen.core.ads.AdId
 import pl.netigen.core.ads.IAds
 import pl.netigen.core.ads.IBannerAd
 import pl.netigen.core.ads.IInterstitialAd
@@ -15,16 +13,16 @@ import pl.netigen.core.netigenapi.NetigenViewModel
 class AdmobAds(
     viewModel: NetigenViewModel,
     activity: AppCompatActivity,
-    override val bannerRelativeLayout: RelativeLayout,
+    override val bannerAd: IBannerAd,
+    override val interstitialAd: IInterstitialAd,
     private val testDevices: ArrayList<String> = viewModel.getTestDevices(),
     private val isInDebugMode: Boolean = viewModel.isInDebugMode()
 ) : IAds {
     private var personalizedAdsApproved: Boolean = false
-    override val bannerAd: IBannerAd
-    override val interstitialAd: IInterstitialAd
 
     init {
         MobileAds.initialize(activity)
+       /*// TODO: 03.01.2020
         this.bannerAd = AdmobBanner(
             activity,
             this,
@@ -35,7 +33,7 @@ class AdmobAds(
             activity,
             this,
             AdId(viewModel.getInterstitialAdId())
-        )
+        )*/
     }
 
     fun getAdRequest(): AdRequest {

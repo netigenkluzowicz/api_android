@@ -15,7 +15,7 @@ class AdmobBanner(
     val activity: AppCompatActivity,
     private val admobAds: AdmobAds,
     override val adId: AdId<String>,
-    override var bannerLayout: RelativeLayout,
+    override var bannerRelativeLayout: RelativeLayout,
     override var enabled: Boolean = true
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView = AdView(activity)
@@ -47,7 +47,7 @@ class AdmobBanner(
         if (loadedBannerOrientation != activity.resources.configuration.orientation) {
             loadBanner()
         }
-        val layout = bannerLayout
+        val layout = bannerRelativeLayout
         if (layout.childCount == 0 || layout.getChildAt(0) !== bannerView) {
             addView(layout, bannerView)
         }
