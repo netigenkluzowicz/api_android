@@ -1,4 +1,4 @@
-package pl.netigen.splash
+package pl.netigen.core.splash
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
