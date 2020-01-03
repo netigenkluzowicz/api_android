@@ -4,6 +4,6 @@ import androidx.lifecycle.LiveData
 
 interface ISplashViewModel {
     fun onStart()
-    val currentSplashState: LiveData<SplashState>
+    val splashState: LiveData<SplashState>
     fun onGdprDialogResult(personalizedAdsApproved: Boolean)
 }

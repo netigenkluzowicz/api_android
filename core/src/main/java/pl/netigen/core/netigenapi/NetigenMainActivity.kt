@@ -56,7 +56,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
         if (admobAds == null && !viewModel.isNoAdsBought && consentInformation.consentStatus != ConsentStatus.UNKNOWN) {
             initAdsManager()
             admobAds?.let {
-             //todo   it.rewardedAdManager?.reloadAd()
+                //todo   it.rewardedAdManager?.reloadAd()
             }
             showBanner()
         }
@@ -147,13 +147,14 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     @CallSuper
     open fun initAdsManager() {
         if (!viewModel.isNoAdsBought) {
-            admobAds = AdmobAds(viewModel, this, getBannerRelativeLayout())
-            if (viewModel.config.rewardedAdId != null) {
-                if (prepareRewardedAdsListener() == null)
-                    throw NullPointerException("Trying to load rewardedAds without a callback, prepareRewardedAdsListener should be overriden")
-              /*todo  admobAds?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
-                admobAds?.loadRewardedVideo()*/
-            }
+            /*todo
+         admobAds = AdmobAds(viewModel, this, getBannerRelativeLayout())
+         if (viewModel.config.rewardedAdId != null) {
+             if (prepareRewardedAdsListener() == null)
+                 throw NullPointerException("Trying to load rewardedAds without a callback, prepareRewardedAdsListener should be overriden")
+         admobAds?.initRewardedVideoAd(prepareRewardedAdsListener()!!)
+             admobAds?.loadRewardedVideo()
+            }*/
         }
     }
 
@@ -170,6 +171,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActi
     fun canCommitFragments(): Boolean {
         return viewModel.canCommitFragments
     }
+
     override fun onStop() {
         super.onStop()
         viewModel.onStopActivity()

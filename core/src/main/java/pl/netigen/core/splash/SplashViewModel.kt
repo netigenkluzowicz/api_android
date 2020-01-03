@@ -20,7 +20,7 @@ class SplashViewModel(
     private val networkStatus: INetworkStatus = NetworkStatus(),
     private val splashTimer: ISplashTimer = SplashTimer()
 ) : ViewModel(), ISplashViewModel, InterstitialAdListener, NoAdsPurchaseListener, NetworkStatusChangeListener {
-    override val currentSplashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
+    override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
 
     override fun onStart() {
         if (noAdsPurchases.isNoAdsActive()) return finish()
@@ -33,15 +33,18 @@ class SplashViewModel(
         }
     }
 
-    private fun isRunning() = currentSplashState.value != SplashState.IDLE && currentSplashState.value != SplashState.FINISHED
+    private fun isRunning() = splashState.value != SplashState.IDLE && splashState.value != SplashState.FINISHED
 
     private fun onFirstLaunch() {
         updateState(SplashState.LOADING_FIRST_LAUNCH)
         splashTimer.startConsentTimer(this::showGdprPopUp)
         gdprConsent.requestGDPRLocation {
             splashTimer.cancelConsentTimer()
-            if (it == CheckGDPRLocationStatus.NON_UE) initOnNonUeLocation()
-            else showGdprPopUp()
+            when (it) {
+                CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
+                CheckGDPRLocationStatus.UE -> showGdprPopUp()
+                CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
+            }
         }
     }
 
@@ -110,7 +113,7 @@ class SplashViewModel(
     }
 
     private fun updateState(splashState: SplashState) {
-        currentSplashState.value = splashState
+        this.splashState.value = splashState
     }
 
     private fun showGdprPopUp() = updateState(SplashState.GDPR_POP_UP)
@@ -137,6 +140,6 @@ class SplashViewModel(
     }
 
     override fun onNetworkStatusChanged(isConnected: Boolean) {
-        if (!isConnected && currentSplashState.value == SplashState.LOADING_INTERSTITIAL) finish()
+        if (!isConnected && splashState.value == SplashState.LOADING_INTERSTITIAL) finish()
     }
 }

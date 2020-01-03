@@ -16,9 +16,9 @@ class AdmobAds(
     override val bannerAd: IBannerAd,
     override val interstitialAd: IInterstitialAd,
     private val testDevices: ArrayList<String> = viewModel.getTestDevices(),
-    private val isInDebugMode: Boolean = viewModel.isInDebugMode()
-) : IAds {
+    private val isInDebugMode: Boolean = viewModel.isInDebugMode(),
     private var personalizedAdsApproved: Boolean = false
+) : IAds {
 
     init {
         MobileAds.initialize(activity)
