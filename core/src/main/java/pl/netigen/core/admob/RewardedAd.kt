@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.core.admob
 
 import android.util.Log
 import androidx.annotation.IntDef
@@ -14,7 +14,11 @@ import pl.netigen.core.rewards.RewardsListener
 
 class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivity, rewardsListener: RewardsListener) : RewardedVideoAdListener {
 
-    @IntDef(RewardError.FAILED_TO_LOAD, RewardError.NOT_LOADED_YET, RewardError.FAILED_TO_REWARD)
+    @IntDef(
+        RewardError.FAILED_TO_LOAD,
+        RewardError.NOT_LOADED_YET,
+        RewardError.FAILED_TO_REWARD
+    )
     @Retention(AnnotationRetention.SOURCE)
     annotation class RewardError {
         companion object {

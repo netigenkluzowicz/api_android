@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.core.admob
 
 import android.os.SystemClock
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,9 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
+import pl.netigen.core.ads.AdId
+import pl.netigen.core.ads.IInterstitialAd
+import pl.netigen.core.ads.InterstitialAdListener
 
 class AdmobInterstitial(
     val activity: AppCompatActivity,

@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import com.google.android.gms.ads.AdSize
-import pl.netigen.core.ads.AdmobAds
+import pl.netigen.core.admob.AdmobAds
 import pl.netigen.core.rewards.RewardsListener
 import pl.netigen.payments.IPaymentManager
 import pl.netigen.payments.PaymentManager

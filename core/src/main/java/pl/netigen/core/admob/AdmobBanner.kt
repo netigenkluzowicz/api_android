@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.core.admob
 
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -8,6 +8,8 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import pl.netigen.core.ads.AdId
+import pl.netigen.core.ads.IBannerAd
 
 class AdmobBanner(
     val activity: AppCompatActivity,

@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.core.admob
 
 import android.os.Bundle
 import android.widget.RelativeLayout
@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import pl.netigen.core.ads.AdId
+import pl.netigen.core.ads.IAds
+import pl.netigen.core.ads.IBannerAd
+import pl.netigen.core.ads.IInterstitialAd
 import pl.netigen.core.netigenapi.NetigenViewModel
 
 class AdmobAds(
@@ -21,8 +25,17 @@ class AdmobAds(
 
     init {
         MobileAds.initialize(activity)
-        this.bannerAd = AdmobBanner(activity, this, AdId(viewModel.getBannerId()), bannerRelativeLayout)
-        this.interstitialAd = AdmobInterstitial(activity, this, AdId(viewModel.getInterstitialAdId()))
+        this.bannerAd = AdmobBanner(
+            activity,
+            this,
+            AdId(viewModel.getBannerId()),
+            bannerRelativeLayout
+        )
+        this.interstitialAd = AdmobInterstitial(
+            activity,
+            this,
+            AdId(viewModel.getInterstitialAdId())
+        )
     }
 
     fun getAdRequest(): AdRequest {
