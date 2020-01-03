@@ -30,7 +30,9 @@ class SplashTimer(
         cancelConsentTimer()
         cancelInterstitialTimer()
     }
-}
 
-const val DEFAULT_MAX_CONSENT_WAIT_TIME_MS = 5000L
-const val DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7000L
+    companion object {
+        const val DEFAULT_MAX_CONSENT_WAIT_TIME_MS = 5000L
+        const val DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7000L
+    }
+}

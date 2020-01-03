@@ -8,6 +8,7 @@ import pl.netigen.core.gdpr.AdConsentStatus
 import pl.netigen.core.gdpr.CheckGDPRLocationStatus
 import pl.netigen.core.gdpr.IGDPRConsent
 import pl.netigen.core.network.INetworkStatus
+import pl.netigen.core.network.NetworkStatus
 import pl.netigen.core.network.NetworkStatusChangeListener
 import pl.netigen.core.purchases.INoAdsPurchases
 import pl.netigen.core.purchases.NoAdsPurchaseListener
@@ -16,7 +17,7 @@ class SplashViewModel(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAdsPurchases,
-    private val networkStatus: INetworkStatus,
+    private val networkStatus: INetworkStatus = NetworkStatus(),
     private val splashTimer: ISplashTimer = SplashTimer()
 ) : ViewModel(), ISplashViewModel, InterstitialAdListener, NoAdsPurchaseListener, NetworkStatusChangeListener {
     override val currentSplashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
@@ -26,7 +27,7 @@ class SplashViewModel(
         noAdsPurchases.addNoAdsPurchaseListener(this)
         when {
             isRunning() -> Unit //do Nothing
-            !networkStatus.isConnected -> if (isFirstLaunch()) showGdprPopUp() else finish()
+            !networkStatus.lastKnownStatus -> if (isFirstLaunch()) showGdprPopUp() else finish()
             isFirstLaunch() -> onFirstLaunch()
             else -> onNextLaunch()
         }
@@ -95,7 +96,7 @@ class SplashViewModel(
     }
 
     private fun startLoadingInterstitial() {
-        if (!networkStatus.isConnected) return finish()
+        if (!networkStatus.lastKnownStatus) return finish()
         networkStatus.addNetworkStatusChangeListener(this)
         updateState(SplashState.LOADING_INTERSTITIAL)
         ads.addInterstitialListener(this)
