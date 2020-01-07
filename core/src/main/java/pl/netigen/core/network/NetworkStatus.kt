@@ -3,6 +3,8 @@ package pl.netigen.core.network
 import android.content.Context
 import android.net.ConnectivityManager
 import androidx.core.content.ContextCompat.getSystemService
+import pl.netigen.coreapi.network.INetworkStatus
+import pl.netigen.coreapi.network.NetworkStatusChangeListener
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -31,7 +33,10 @@ class NetworkStatus(private val context: Context) : INetworkStatus {
         }
         return try {
             val sock = Socket()
-            val socketAddress: SocketAddress = InetSocketAddress(GOOGLE_DNS_HOSTNAME, GOOGLE_DNS_PORT)
+            val socketAddress: SocketAddress = InetSocketAddress(
+                GOOGLE_DNS_HOSTNAME,
+                GOOGLE_DNS_PORT
+            )
             sock.connect(socketAddress, CONNECTION_CHECK_TIMEOUT_MS)
             sock.close()
             postValue(true)

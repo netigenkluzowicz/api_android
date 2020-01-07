@@ -8,8 +8,8 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import pl.netigen.core.ads.AdId
-import pl.netigen.core.ads.IBannerAd
+import pl.netigen.coreapi.ads.AdId
+import pl.netigen.coreapi.ads.IBannerAd
 
 class AdmobBanner(
     val activity: AppCompatActivity,

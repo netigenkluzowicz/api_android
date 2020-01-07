@@ -1,4 +1,4 @@
-package pl.netigen.core.network
+package pl.netigen.coreapi.network
 
 interface NetworkStatusChangeListener {
     fun onNetworkStatusChanged(isConnected: Boolean)

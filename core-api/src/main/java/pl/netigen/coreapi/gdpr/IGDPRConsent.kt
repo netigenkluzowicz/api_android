@@ -1,4 +1,4 @@
-package pl.netigen.core.gdpr
+package pl.netigen.coreapi.gdpr
 
 interface IGDPRConsent {
     val lastKnownAdConsentStatus: AdConsentStatus

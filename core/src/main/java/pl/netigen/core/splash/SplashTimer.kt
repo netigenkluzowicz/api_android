@@ -1,5 +1,6 @@
 package pl.netigen.core.splash
 
+import pl.netigen.coreapi.splash.ISplashTimer
 import java.util.*
 import kotlin.concurrent.timer
 

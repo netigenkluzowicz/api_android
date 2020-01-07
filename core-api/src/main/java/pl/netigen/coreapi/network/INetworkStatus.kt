@@ -1,4 +1,4 @@
-package pl.netigen.core.network
+package pl.netigen.coreapi.network
 
 interface INetworkStatus {
     val isConnectedOrConnecting: Boolean

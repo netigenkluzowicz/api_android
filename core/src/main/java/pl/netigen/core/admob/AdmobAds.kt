@@ -5,9 +5,9 @@ import android.os.Bundle
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
-import pl.netigen.core.ads.IAds
-import pl.netigen.core.ads.IBannerAd
-import pl.netigen.core.ads.IInterstitialAd
+import pl.netigen.coreapi.ads.IAds
+import pl.netigen.coreapi.ads.IBannerAd
+import pl.netigen.coreapi.ads.IInterstitialAd
 
 class AdmobAds(
     activity: Activity,

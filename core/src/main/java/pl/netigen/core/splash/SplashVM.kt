@@ -2,15 +2,18 @@ package pl.netigen.core.splash
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import pl.netigen.core.ads.IAds
-import pl.netigen.core.ads.InterstitialAdListener
-import pl.netigen.core.gdpr.AdConsentStatus
-import pl.netigen.core.gdpr.CheckGDPRLocationStatus
-import pl.netigen.core.gdpr.IGDPRConsent
-import pl.netigen.core.network.INetworkStatus
-import pl.netigen.core.network.NetworkStatusChangeListener
-import pl.netigen.core.purchases.INoAdsPurchases
-import pl.netigen.core.purchases.NoAdsPurchaseListener
+import pl.netigen.coreapi.ads.IAds
+import pl.netigen.coreapi.ads.InterstitialAdListener
+import pl.netigen.coreapi.gdpr.AdConsentStatus
+import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
+import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.network.INetworkStatus
+import pl.netigen.coreapi.network.NetworkStatusChangeListener
+import pl.netigen.coreapi.purchases.INoAdsPurchases
+import pl.netigen.coreapi.purchases.NoAdsPurchaseListener
+import pl.netigen.coreapi.splash.ISplashTimer
+import pl.netigen.coreapi.splash.ISplashVM
+import pl.netigen.coreapi.splash.SplashState
 
 class SplashVM(
     private val gdprConsent: IGDPRConsent,

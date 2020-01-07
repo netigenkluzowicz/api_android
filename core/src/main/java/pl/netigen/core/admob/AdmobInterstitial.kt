@@ -7,9 +7,9 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
-import pl.netigen.core.ads.AdId
-import pl.netigen.core.ads.IInterstitialAd
-import pl.netigen.core.ads.InterstitialAdListener
+import pl.netigen.coreapi.ads.AdId
+import pl.netigen.coreapi.ads.IInterstitialAd
+import pl.netigen.coreapi.ads.InterstitialAdListener
 
 class AdmobInterstitial(
     val activity: AppCompatActivity,

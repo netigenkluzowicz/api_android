@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.coreapi.ads
 
 import android.widget.RelativeLayout
 

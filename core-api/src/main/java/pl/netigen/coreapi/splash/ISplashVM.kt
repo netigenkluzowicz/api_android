@@ -1,4 +1,4 @@
-package pl.netigen.core.splash
+package pl.netigen.coreapi.splash
 
 import androidx.lifecycle.LiveData
 

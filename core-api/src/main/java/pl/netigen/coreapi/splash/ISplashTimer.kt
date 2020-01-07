@@ -1,4 +1,4 @@
-package pl.netigen.core.splash
+package pl.netigen.coreapi.splash
 
 interface ISplashTimer {
     fun startConsentTimer(onConsentTimeLimit: () -> Unit)

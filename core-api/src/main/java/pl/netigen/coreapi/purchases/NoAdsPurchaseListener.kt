@@ -1,4 +1,4 @@
-package pl.netigen.core.purchases
+package pl.netigen.coreapi.purchases
 
 interface NoAdsPurchaseListener {
     fun onNoAdsPurchaseChanged(purchased: Boolean)

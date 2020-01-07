@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.coreapi.ads
 
 interface IAds {
     fun setConsentStatus(personalizedAdsApproved: Boolean)
