@@ -14,7 +14,7 @@ import pl.netigen.coreapi.ads.IBannerAd
 
 class AdmobBanner(
     private val activity: AppCompatActivity,
-    private val admobAds: AdmobAds,
+    private val admobRequest: IAdmobRequest,
     override val adId: AdId<String>,
     override var bannerRelativeLayout: RelativeLayout,
     override var enabled: Boolean = true
@@ -39,7 +39,7 @@ class AdmobBanner(
             bannerView.adSize = AdSize.SMART_BANNER
             bannerView.adUnitId = adId.id
         }
-        bannerView.loadAd(admobAds.getAdRequest())
+        bannerView.loadAd(admobRequest.getAdRequest())
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)

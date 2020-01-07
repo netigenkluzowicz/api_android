@@ -13,7 +13,7 @@ import pl.netigen.coreapi.ads.InterstitialAdListener
 
 class AdmobInterstitial(
     private val activity: AppCompatActivity,
-    private val admobAds: AdmobAds,
+    private val admobRequest: IAdmobRequest,
     override val adId: AdId<String>,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
     override var enabled: Boolean = true
@@ -45,7 +45,7 @@ class AdmobInterstitial(
                 interstitialAdError = true
             }
         }
-        interstitialAd.loadAd(admobAds.getAdRequest())
+        interstitialAd.loadAd(admobRequest.getAdRequest())
     }
 
     fun show(showInterstitialListener: ShowInterstitialListener) {
