@@ -7,12 +7,12 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
-import pl.netigen.core.netigenapi.NetigenViewModel
+import pl.netigen.core.netigenapi.NetigenMainVM
 import pl.netigen.core.rewards.RewardItem
 import pl.netigen.core.rewards.RewardListenersList
 import pl.netigen.core.rewards.RewardsListener
 
-class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivity, rewardsListener: RewardsListener) : RewardedVideoAdListener {
+class RewardedAd(var mainVM: NetigenMainVM, val activity: AppCompatActivity, rewardsListener: RewardsListener) : RewardedVideoAdListener {
 
     @IntDef(
         RewardError.FAILED_TO_LOAD,
@@ -44,7 +44,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
     }
 
     fun showRewardedVideoForItems(rewardItems: List<RewardItem>) {
-        if (viewModel.isNoAdsBought) return
+        if (mainVM.isNoAdsBought) return
         this.rewardItems = rewardItems
         if (rewardedVideoAd.isLoaded) {
             rewardedVideoAd.show()
@@ -63,27 +63,27 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     override fun onRewardedVideoAdLoaded() {
         Log.i(TAG, "onRewardedVideoAdLoaded: ")
-        viewModel.isRewardedAdLoading = false
+        mainVM.isRewardedAdLoading = false
     }
 
     override fun onRewardedVideoAdOpened() {
-        viewModel.isRewardedAdLoading = false
+        mainVM.isRewardedAdLoading = false
         Log.i(TAG, "onRewardedVideoAdOpened: ")
     }
 
     override fun onRewardedVideoStarted() {
-        viewModel.isRewardedAdLoading = false
+        mainVM.isRewardedAdLoading = false
         Log.i(TAG, "onRewardedVideoStarted: ")
     }
 
     override fun onRewardedVideoAdClosed() {
         Log.i(TAG, "onRewardedVideoAdClosed: ")
-        viewModel.isRewardedAdLoading = false
+        mainVM.isRewardedAdLoading = false
         loadIfNotLoading()
     }
 
     internal fun loadIfNotLoading() {
-        if (!rewardedVideoAd.isLoaded && !viewModel.isRewardedAdLoading) {
+        if (!rewardedVideoAd.isLoaded && !mainVM.isRewardedAdLoading) {
             load()
         }
     }
@@ -92,9 +92,9 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
         if (customRewardedAdId != null) {
             rewardedVideoAd.loadAd(customRewardedAdId, AdRequest.Builder().build())
         } else {
-            rewardedVideoAd.loadAd(viewModel.getRewardedAdId(), AdRequest.Builder().build())
+            rewardedVideoAd.loadAd(mainVM.getRewardedAdId(), AdRequest.Builder().build())
         }
-        viewModel.isRewardedAdLoading = true
+        mainVM.isRewardedAdLoading = true
     }
 
     internal fun reloadAd() {
@@ -121,7 +121,7 @@ class RewardedAd(var viewModel: NetigenViewModel, val activity: AppCompatActivit
 
     override fun onRewardedVideoAdFailedToLoad(i: Int) {
         Log.i(TAG, "onRewardedVideoAdFailedToLoad: i $i")
-        viewModel.isRewardedAdLoading = false
+        mainVM.isRewardedAdLoading = false
         rewardsListeners.callOnFail(RewardError.FAILED_TO_LOAD)
     }
 
