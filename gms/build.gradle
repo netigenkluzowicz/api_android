@@ -31,32 +31,7 @@ android {
 }
 dependencies {
     api project(path: ':core-api')
-
-    api Libraries.legacySupportV4
-    api Libraries.legacySupportV13
-
-    api Libraries.constraintLayout
-
-    api Libraries.consentLibrary
-
-    api Libraries.material
-
+    api project(path: ':payments')
+    api Libraries.playServicesAds
     api Libraries.appcompat
-
-    api Libraries.coreKTX
-    api Libraries.kotlinStdlibJdk7
-
-    api Libraries.lifecycleExt
-    api Libraries.viewModelKTX
-
-    api Libraries.navigationFragment
-    api Libraries.navigationUi
-    api Libraries.navigationFragmentKTX
-    api Libraries.navigationUiKTX
-    api Libraries.coroutines
-
-    api Libraries.gson
-
-    api Libraries.glide
-    kapt Libraries.glideCompiler
 }

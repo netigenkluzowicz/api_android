@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import pl.netigen.core.config.Config
-import pl.netigen.payments.PaymentManager
 
 abstract class NetigenMainVM(application: Application) : AndroidViewModel(application) {
     abstract fun prepareConfigBuilder(): Config
@@ -18,7 +17,7 @@ abstract class NetigenMainVM(application: Application) : AndroidViewModel(applic
     open val noAdsSku: String
         get() {
             return if (config.inDebugMode) {
-                PaymentManager.TEST_PURCHASED
+                TODO() // PaymentManager.TEST_PURCHASED
             } else {
                 getApplication<Application>().packageName + ".noads"
             }
