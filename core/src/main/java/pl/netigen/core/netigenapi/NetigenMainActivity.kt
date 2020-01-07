@@ -16,7 +16,7 @@ import pl.netigen.payments.IPaymentManager
 import pl.netigen.payments.PaymentManager
 import pl.netigen.payments.PurchaseListener
 
-abstract class NetigenMainActivity<ViewModel : NetigenViewModel> : AppCompatActivity(), PurchaseListener {
+abstract class NetigenMainActivity<ViewModel : NetigenMainVM> : AppCompatActivity(), PurchaseListener {
 
     open lateinit var viewModel: ViewModel
     lateinit var paymentManager: IPaymentManager

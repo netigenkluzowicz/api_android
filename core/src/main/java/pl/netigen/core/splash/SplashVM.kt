@@ -8,32 +8,31 @@ import pl.netigen.core.gdpr.AdConsentStatus
 import pl.netigen.core.gdpr.CheckGDPRLocationStatus
 import pl.netigen.core.gdpr.IGDPRConsent
 import pl.netigen.core.network.INetworkStatus
-import pl.netigen.core.network.NetworkStatus
 import pl.netigen.core.network.NetworkStatusChangeListener
 import pl.netigen.core.purchases.INoAdsPurchases
 import pl.netigen.core.purchases.NoAdsPurchaseListener
 
-class SplashViewModel(
+class SplashVM(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAdsPurchases,
-    private val networkStatus: INetworkStatus = NetworkStatus(),
+    private val networkStatus: INetworkStatus,
     private val splashTimer: ISplashTimer = SplashTimer()
-) : ViewModel(), ISplashViewModel, InterstitialAdListener, NoAdsPurchaseListener, NetworkStatusChangeListener {
-    override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.IDLE)
+) : ViewModel(), ISplashVM, InterstitialAdListener, NoAdsPurchaseListener, NetworkStatusChangeListener {
+    override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
 
     override fun onStart() {
         if (noAdsPurchases.isNoAdsActive()) return finish()
         noAdsPurchases.addNoAdsPurchaseListener(this)
         when {
             isRunning() -> Unit //do Nothing
-            !networkStatus.lastKnownStatus -> if (isFirstLaunch()) showGdprPopUp() else finish()
+            !networkStatus.isConnectedOrConnecting -> if (isFirstLaunch()) showGdprPopUp() else finish()
             isFirstLaunch() -> onFirstLaunch()
             else -> onNextLaunch()
         }
     }
 
-    private fun isRunning() = splashState.value != SplashState.IDLE && splashState.value != SplashState.FINISHED
+    private fun isRunning() = splashState.value != SplashState.UNINITIALIZED && splashState.value != SplashState.FINISHED
 
     private fun onFirstLaunch() {
         updateState(SplashState.LOADING_FIRST_LAUNCH)
@@ -99,7 +98,7 @@ class SplashViewModel(
     }
 
     private fun startLoadingInterstitial() {
-        if (!networkStatus.lastKnownStatus) return finish()
+        if (!networkStatus.isConnectedOrConnecting) return finish()
         networkStatus.addNetworkStatusChangeListener(this)
         updateState(SplashState.LOADING_INTERSTITIAL)
         ads.interstitialAd.addInterstitialListener(this)
@@ -122,14 +121,16 @@ class SplashViewModel(
 
     override fun onNoAdsPurchaseChanged(purchased: Boolean) {
         if (purchased) {
-            ads.disable()
             finish()
-        } else {
-            ads.enable()
         }
     }
 
-    override fun onCleared() = cleanUp()
+    override fun onCleared() {
+        if (isRunning()) {
+            cleanUp()
+            updateState(SplashState.UNINITIALIZED)
+        }
+    }
 
     private fun cleanUp() {
         gdprConsent.cancelRequest()
