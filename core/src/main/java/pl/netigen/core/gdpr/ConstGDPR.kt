@@ -185,9 +185,11 @@ object ConstGDPR {
             "31-416 Kraków"
 
     var text1 = "We care about your privacy and data security. We keep this app free by showing ads.\n\n"
-    var text2 = "Choose if you’d prefer to turn on ad personalization or turn it off.\n" + "- If ad personalization is turned off, Google won’t collect information to create an ad profile. You will still see ads, but they may not be as useful.\n"
+    var text2 =
+        "Choose if you’d prefer to turn on ad personalization or turn it off.\n" + "- If ad personalization is turned off, Google won’t collect information to create an ad profile. You will still see ads, but they may not be as useful.\n"
     var text3 = "You can change your choice anytime  in the app settings.\n\n"
-    var text4 = "Our partners will collect data and use a unique identifier on your device to show you ads.\n" + "Learn how and our partners collect and use data.\n\n"
+    var text4 =
+        "Our partners will collect data and use a unique identifier on your device to show you ads.\n" + "Learn how and our partners collect and use data.\n\n"
     var text5 = "Can we continue to use your data to tailor ads for you?"
     var isInEea: Boolean = false
 

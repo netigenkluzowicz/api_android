@@ -21,6 +21,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,7 +42,7 @@ public abstract class BaseMoreAppsFragment extends Fragment {
 
     private void updateMoreApps(List<ImageView> imageViews, Activity activity) {
         try {
-            Reader reader = new InputStreamReader(activity.getAssets().open(MOREAPPS_JSON), UTF_8);
+            Reader reader = new InputStreamReader(activity.getAssets().open(MOREAPPS_JSON), StandardCharsets.UTF_8);
             List<MoreAppItem> listApps = (new Gson()).fromJson(reader, TypeToken.getParameterized(ArrayList.class, MoreAppItem.class).getType());
             loadLocalMoreApps(imageViews, activity, listApps);
         } catch (IOException e) {

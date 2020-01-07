@@ -9,12 +9,12 @@ import com.google.ads.consent.ConsentStatus
 import pl.netigen.core.gdpr.ConstGDPR
 import pl.netigen.core.gdpr.GDPRDialogFragment
 
-abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
+abstract class NetigenSplashFragment<ViewModel : NetigenMainVM> : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
     var shouldShowHomeFragmentOnResume = false
         private set
     private var consentNotShowed: Boolean = false
     open lateinit var viewModel: ViewModel
-    lateinit var netigenMainActivity: NetigenMainActivity<NetigenViewModel>
+    lateinit var netigenMainActivity: NetigenMainActivity<NetigenMainVM>
     private var gdprDialogFragment: GDPRDialogFragment? = null
     private lateinit var initAdsHandler: Handler
 
@@ -32,7 +32,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
 
     private fun setupParentActivity(context: Context) {
         if (context is NetigenMainActivity<*>) {
-            netigenMainActivity = context as NetigenMainActivity<NetigenViewModel>
+            netigenMainActivity = context as NetigenMainActivity<NetigenMainVM>
             viewModel = netigenMainActivity.viewModel as ViewModel
         } else {
             throw IllegalStateException("Parent activity should be of type NetigenMainActivity<VM: NetigenViewModel>")
@@ -62,7 +62,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
     }
 
     private fun observeNoAds() {
-        viewModel.noAdsLiveData.observe(this, Observer {
+        viewModel.noAdsLiveData.observe(viewLifecycleOwner, Observer {
             if (it) {
                 onCreateWithoutAds()
             } else {
@@ -117,7 +117,7 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
         })
     }
 
-    private fun onConsentInfoUpdated(it: NetigenMainActivity<NetigenViewModel>) {
+    private fun onConsentInfoUpdated(it: NetigenMainActivity<NetigenMainVM>) {
         ConstGDPR.isInEea = it.consentInformation.isRequestLocationInEeaOrUnknown
         if (ConstGDPR.isInEea && it.consentInformation.consentStatus == ConsentStatus.UNKNOWN) {
             initGDPRFragment()
@@ -166,9 +166,9 @@ abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFrag
 
     internal open fun initAds() {
         netigenMainActivity.initAdsManager()
-        val adsManager = netigenMainActivity.adsManager
+        val adsManager = netigenMainActivity.admobAds
         if (adsManager != null) {
-            adsManager.launchSplashLoaderOrOpenFragment { showHomeFragmentOrSetFlag() }
+            adsManager.interstitialAd.showInterstitialAd { showHomeFragmentOrSetFlag() }
         } else {
             showHomeFragmentOrSetFlag()
         }
