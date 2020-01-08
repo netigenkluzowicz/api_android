@@ -24,6 +24,7 @@ object Versions {
     val billing = "2.0.3"
     val navigation = "2.1.0"
     val coroutines = "1.3.3"
+    val room = "2.2.3"
 }
 
 object Libraries {
@@ -72,5 +73,8 @@ object Libraries {
     val cropper = "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}"
 
     val billing = "com.android.billingclient:billing:${Versions.billing}"
+
+    val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    val roomCompiler = "androidx.room:room-runtime:${Versions.room}"
 }
 
