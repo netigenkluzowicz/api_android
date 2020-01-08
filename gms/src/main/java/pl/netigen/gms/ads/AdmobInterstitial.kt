@@ -19,7 +19,6 @@ class AdmobInterstitial(
     override var enabled: Boolean = true
 ) : IInterstitialAd, LifecycleObserver {
     private var isInBackground: Boolean = false
-    private var interstitialAdError: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd
     private val interstitialAdListeners: MutableList<InterstitialAdListener> = mutableListOf()
@@ -27,66 +26,41 @@ class AdmobInterstitial(
 
     init {
         interstitialAd = InterstitialAd(activity)
-        loadIfShouldBeLoaded()
         activity.lifecycle.addObserver(this)
     }
 
-    fun loadIfShouldBeLoaded() {
+    private fun loadIfShouldBeLoaded() {
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        load()
+        loadInterstitialAd()
     }
 
-    private fun load() {
-        interstitialAd = InterstitialAd(activity)
-        interstitialAd.adUnitId = adId.id
-        interstitialAd.adListener = object : AdListener() {
-            override fun onAdFailedToLoad(errorCode: Int) {
-                super.onAdFailedToLoad(errorCode)
-                interstitialAdError = true
-            }
-        }
-        interstitialAd.loadAd(admobRequest.getAdRequest())
-    }
 
-    fun show(showInterstitialListener: ShowInterstitialListener) {
-        when {
-            disabled -> showInterstitialListener.onShowedOrNotLoaded(false)
-            isInBackground -> onCanNotShow(showInterstitialListener)
-            interstitialAd.isLoaded -> onLoaded(showInterstitialListener)
-            else -> onCanNotShow(showInterstitialListener)
-        }
-    }
-
-    private fun onLoaded(showInterstitialListener: ShowInterstitialListener) {
+    private fun onLoaded(onClosedOrNotShowed: (Boolean) -> Unit) {
         val currentTime = SystemClock.elapsedRealtime()
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
-                showInterstitialListener.onShowedOrNotLoaded(true)
+                onClosedOrNotShowed(true)
                 loadIfShouldBeLoaded()
             }
         }
         when {
-            isInBackground -> onCanNotShow(showInterstitialListener)
+            isInBackground -> onClosedOrNotShowed(false)
             validateLastShowTime(currentTime) -> show()
-            else -> showInterstitialListener.onShowedOrNotLoaded(false)
+            else -> onClosedOrNotShowed(false)
         }
     }
 
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
-    private fun onCanNotShow(showInterstitialListener: ShowInterstitialListener) {
-        showInterstitialListener.onShowedOrNotLoaded(false)
+    private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
+        onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
     }
 
     private fun show() {
         lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
         interstitialAd.show()
-    }
-
-    interface ShowInterstitialListener {
-        fun onShowedOrNotLoaded(success: Boolean)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
@@ -108,11 +82,34 @@ class AdmobInterstitial(
     }
 
     override fun loadInterstitialAd() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        interstitialAd = InterstitialAd(activity)
+        interstitialAd.adUnitId = adId.id
+        interstitialAd.adListener = object : AdListener() {
+            override fun onAdFailedToLoad(errorCode: Int) {
+                postLoadedCallback(false)
+            }
+
+            override fun onAdLoaded() {
+                postLoadedCallback(true)
+            }
+        }
+        interstitialAd.loadAd(admobRequest.getAdRequest())
+    }
+
+    private fun postLoadedCallback(value: Boolean) {
+        for (interstitialAdListener in interstitialAdListeners) {
+            interstitialAdListener.loadInterstitialResult(value)
+        }
     }
 
     override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        when {
+            disabled -> onClosedOrNotShowed(false)
+            isInBackground -> onCanNotShow(onClosedOrNotShowed)
+            interstitialAd.isLoaded -> onLoaded(onClosedOrNotShowed)
+            else -> onCanNotShow(onClosedOrNotShowed)
+        }
     }
 
     companion object {
