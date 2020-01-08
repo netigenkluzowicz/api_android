@@ -1,10 +1,13 @@
 package pl.netigen.coreapi.payments
 
-import androidx.lifecycle.MutableLiveData
-import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import android.app.Application
 
-abstract class Payments : INoAds, IPayments {
-    override val noAdsActive by lazy { MutableLiveData<Boolean>() }
-    override val inAppSkuDetails by lazy { MutableLiveData<NetigenSkuDetails>() }
-    override val subsSkuDetails by lazy { MutableLiveData<NetigenSkuDetails>() }
+abstract class Payments(private val application: Application) : INoAds, IPayments {
+
+    abstract val paymentsRepo: IPaymentsRepo
+//INoAds
+    override val noAdsActive by lazy { paymentsRepo.noAdsActive }
+//IPayments
+    override val inAppSkuDetails by lazy { paymentsRepo.inAppSkuDetails }
+    override val subsSkuDetails by lazy { paymentsRepo.subsSkuDetails }
 }
