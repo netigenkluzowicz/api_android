@@ -1,1 +1,9 @@
-<manifest package="pl.netigen.gms" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pl.netigen.gms">
+
+    <application>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="${admobId}" />
+    </application>
+</manifest>
