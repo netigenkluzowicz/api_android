@@ -2,21 +2,23 @@ package pl.netigen.core.splash
 
 import pl.netigen.coreapi.splash.ISplashTimer
 import java.util.*
-import kotlin.concurrent.timer
+import kotlin.concurrent.schedule
 
 class SplashTimer(
     private val consentTimeLimit: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
 ) : ISplashTimer {
-    private var consentTimer: Timer? = null
-    private var interstitialTimer: Timer? = null
+    private var consentTimer: TimerTask? = null
+    private var interstitialTimer: TimerTask? = null
 
     override fun startConsentTimer(onConsentTimeLimit: () -> Unit) {
-        consentTimer = timer(period = consentTimeLimit) { onConsentTimeLimit() }
+        consentTimer?.cancel()
+        consentTimer = Timer().schedule(consentTimeLimit) { onConsentTimeLimit() }
     }
 
     override fun startInterstitialTimer(onLoadSplashLimit: () -> Unit) {
-        interstitialTimer = timer(period = maxInterstitialWaitTime) { onLoadSplashLimit() }
+        interstitialTimer?.cancel()
+        interstitialTimer = Timer().schedule(maxInterstitialWaitTime) { onLoadSplashLimit() }
     }
 
     override fun cancelConsentTimer() {
