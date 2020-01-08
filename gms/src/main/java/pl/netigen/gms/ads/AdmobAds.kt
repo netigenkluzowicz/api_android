@@ -13,7 +13,7 @@ import pl.netigen.coreapi.ads.IInterstitialAd
 
 class AdmobAds(
     activity: AppCompatActivity,
-    bannerId: String,
+    bannerAdId: String,
     interstitialAdId: String,
     bannerRelativeLayout: RelativeLayout,
     private val testDevices: List<String> = emptyList(),
@@ -25,8 +25,15 @@ class AdmobAds(
 
     init {
         MobileAds.initialize(activity)
-        bannerAd = AdmobBanner(activity, this, AdId(bannerId), bannerRelativeLayout)
-        interstitialAd = AdmobInterstitial(activity, this, AdId(interstitialAdId))
+        val (bannerId, interstitialId) = getIds(bannerAdId, interstitialAdId)
+        bannerAd = AdmobBanner(activity, this, bannerId, bannerRelativeLayout)
+        interstitialAd = AdmobInterstitial(activity, this, interstitialId)
+    }
+
+    private fun getIds(bannerAdId: String, interstitialAdId: String): Pair<AdId<String>, AdId<String>> {
+        val bannerId = if (isInDebugMode) AdId(TEST_BANNER_ID) else AdId(bannerAdId)
+        val interstitialId = if (isInDebugMode) AdId(TEST_INTERSTITIAL_ID) else AdId(interstitialAdId)
+        return Pair(bannerId, interstitialId)
     }
 
     override fun getAdRequest(): AdRequest {
@@ -54,5 +61,11 @@ class AdmobAds(
     private fun setEnabled(enabled: Boolean) {
         bannerAd.enabled = enabled
         interstitialAd.enabled = enabled
+    }
+
+    companion object {
+        const val TEST_BANNER_ID: String = "ca-app-pub-3940256099942544/6300978111"
+        const val TEST_INTERSTITIAL_ID: String = "ca-app-pub-3940256099942544/1033173712"
+        const val TEST_REWARDED_ID: String = "ca-app-pub-3940256099942544/5224354917"
     }
 }
