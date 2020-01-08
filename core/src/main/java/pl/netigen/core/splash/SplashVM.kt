@@ -114,9 +114,7 @@ class SplashVM(
         updateState(SplashState.FINISHED)
     }
 
-    private fun updateState(splashState: SplashState) {
-        this.splashState.value = splashState
-    }
+    private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
 
     private fun showGdprPopUp() = updateState(SplashState.GDPR_POP_UP)
 
