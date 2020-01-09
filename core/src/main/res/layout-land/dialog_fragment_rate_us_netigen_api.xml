@@ -48,7 +48,7 @@
         android:gravity="center"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:text="@string/do_you_like_this_app"
+        android:text="@string/do_you_like_this_app_netigen_api"
         android:textColor="@color/dialog_accent_netigen_api"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
