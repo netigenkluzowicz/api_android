@@ -53,4 +53,10 @@
     <string name="no_see_ads_that_are_less_relevant_netigen">No, see ads that are less relevant</string>
     <string name="payment_error">Payment error:</string>
 
+
+
+    <string name="do_you_like_this_app_netigen_api">Do you like this app?</string>
+    <string name="please_support_us_netigen_api">Please support us by rating this app. Thank you!</string>
+    <string name="later_netigen_api">Later</string>
+    <string name="rate_us_netigen_api">Rate us</string>
 </resources>

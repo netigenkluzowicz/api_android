@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="410dp"
+    android:layout_height="280dp"
+    android:layout_gravity="center"
+    android:minWidth="410dp"
+    android:maxWidth="410dp"
+    android:minHeight="280dp"
+    android:maxHeight="280dp"
+    android:background="@drawable/background_language_dialog">
+
+    <ImageView
+        android:id="@+id/rateUsImage"
+        android:layout_width="0dp"
+        android:layout_height="148dp"
+        android:src="@drawable/img_rate_us"
+        app:layout_constraintDimensionRatio="84:60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/rateUsImageTint"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/img_rate_us_tint"
+        android:tint="@color/dialog_accent_netigen_api"
+        app:layout_constraintBottom_toBottomOf="@id/rateUsImage"
+        app:layout_constraintEnd_toEndOf="@id/rateUsImage"
+        app:layout_constraintStart_toStartOf="@id/rateUsImage"
+        app:layout_constraintTop_toTopOf="@id/rateUsImage" />
+
+    <ImageView
+        android:id="@+id/closeRateUs"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        android:src="@drawable/bnt_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rateUsTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/do_you_like_this_app"
+        android:textColor="@color/dialog_accent_netigen_api"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rateUsImage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/rateUsFragmentAskForRateTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/please_support_us_netigen_api"
+        android:textColor="#535368"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rateUsTitle" />
+
+    <TextView
+        android:id="@+id/rateUsFragmentLaterTextView"
+        style="@style/NeutralDialogButtonNetigenApi"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginRight="12dp"
+        android:gravity="center"
+        android:minWidth="76dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/later_netigen_api"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/rateUsFragmentYesTextView"
+        app:layout_constraintEnd_toStartOf="@id/rateUsFragmentYesTextView"
+        app:layout_constraintTop_toTopOf="@id/rateUsFragmentYesTextView" />
+
+    <TextView
+        android:id="@+id/rateUsFragmentYesTextView"
+        style="@style/PositiveDialogButtonNetigenApi"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:minWidth="76dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/rate_us_netigen_api"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rateUsFragmentAskForRateTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
