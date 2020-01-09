@@ -94,7 +94,7 @@ class RateFragment : AppCompatDialogFragment() {
         if (resources != null) {
             when (resources.configuration.orientation) {
                 Configuration.ORIENTATION_LANDSCAPE -> window.setLayout(410.toPx(), 280.toPx())
-                else -> window.setLayout(280.toPx(), 380.toPx())
+                else -> window.setLayout(280.toPx(),   ViewGroup.LayoutParams.WRAP_CONTENT)
             }
 
             val displayMetrics = resources.displayMetrics
