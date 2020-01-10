@@ -27,3 +27,11 @@ fun DialogFragment.setDialogSize(widthMultiplier: Double, heightMultiplier: Doub
         window.setGravity(Gravity.CENTER)
     }
 }
+
+fun DialogFragment.setDialogSizeAsMatchParent() {
+    val window = dialog?.window
+    if (window != null) {
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        window.setGravity(Gravity.CENTER)
+    }
+}
