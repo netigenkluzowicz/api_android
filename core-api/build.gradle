@@ -34,6 +34,9 @@ dependencies {
     api Libraries.lifecycleExt
 
     api Libraries.coroutines
-    implementation Libraries.roomRuntime
+    api Libraries.roomRuntime
     kapt Libraries.roomCompiler
+
+    api Libraries.lifecycleExt
+    api Libraries.viewModelKTX
 }
