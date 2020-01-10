@@ -129,7 +129,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         if (isNetworkOn()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr.visibility = View.VISIBLE
-            webViewGdpr.loadUrl(NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(context!!))
+            webViewGdpr.loadUrl(getLinkForPrivacy())
         } else {
             webViewGdpr.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
@@ -172,7 +172,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         if (isNetworkOn()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr.visibility = View.VISIBLE
-            webViewGdpr.loadUrl(NETIGEN_PRIVACY_MOBILE_URL)
+            webViewGdpr.loadUrl(getLinkForMobiles())
         } else {
             webViewGdpr.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
@@ -206,6 +206,16 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         this.gdprClickListener = gdprClickListener
     }
 
+    private fun getLinkForPrivacy(): String {
+        return if (context != null) {
+            val netigenApiAccentColor =
+                String.format("#%06x", ContextCompat.getColor(context!!, R.color.dialog_accent_netigen_api) and 0xffffff).replace("#", "")
+            NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(context!!) + NETIGEN_APP_COLOR + netigenApiAccentColor + MARGIN_0
+        } else
+            NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL
+    }
+
+    private fun getLinkForMobiles() = NETIGEN_PRIVACY_MOBILE_URL + MARGIN_0
 
     interface GDPRClickListener {
         fun clickYes()
@@ -220,7 +230,9 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     companion object {
 
         private const val NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps-name?app="
-        private const val NETIGEN_PRIVACY_MOBILE_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps"
+        private const val NETIGEN_APP_COLOR = "&color="
+        private const val MARGIN_0 = "&containerPadding=0&bodyMargin=0"
+        private const val NETIGEN_PRIVACY_MOBILE_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps?app=2&containerPadding=0&bodyMargin=0"
 
         fun newInstance(): GDPRDialogFragment {
             val dialogFragment = GDPRDialogFragment()
