@@ -1,4 +1,4 @@
-package pl.netigen.gdpr
+package pl.netigen.core.gdpr
 
 import android.content.Context
 import android.content.pm.PackageManager

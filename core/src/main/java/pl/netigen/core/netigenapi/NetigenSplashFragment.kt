@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import com.google.ads.consent.ConsentInfoUpdateListener
 import com.google.ads.consent.ConsentStatus
 import pl.netigen.core.gdpr.ConstGDPR
-import pl.netigen.gdpr.GDPRDialogFragment
+import pl.netigen.core.gdpr.GDPRDialogFragment
 
 abstract class NetigenSplashFragment<ViewModel : NetigenViewModel> : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
     var shouldShowHomeFragmentOnResume = false
