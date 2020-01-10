@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="48dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground">
@@ -11,20 +12,15 @@
         android:id="@+id/radio_button_select_language"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="0dp"
-        android:supportsRtl="false"
-        android:textAlignment="viewStart"
-        android:gravity="left|center"
-        android:textColor="@color/textColorBlack"
-        android:text="Polish"
         android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="left|center"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:supportsRtl="false"
+        android:textColor="@color/dialog_text_view_netigen_api"
         android:theme="@style/SelectedLanguageRadioButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Polish" />
 </androidx.constraintlayout.widget.ConstraintLayout>
