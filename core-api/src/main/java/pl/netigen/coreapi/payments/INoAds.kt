@@ -1,9 +1,9 @@
 package pl.netigen.coreapi.payments
 
-import androidx.lifecycle.LiveData
+import kotlinx.coroutines.flow.Flow
 
 interface INoAds {
-    val noAdsActive: LiveData<Boolean>
+    val noAdsActive: Flow<Boolean>
 
     fun makeNoAdsPayment()
 }
