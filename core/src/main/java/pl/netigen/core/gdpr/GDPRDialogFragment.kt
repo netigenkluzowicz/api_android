@@ -19,9 +19,10 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
 import pl.netigen.core.R
+import pl.netigen.core.gdpr.ConstGDPR
+import pl.netigen.extensions.setDialogSize
 import pl.netigen.extensions.setTint
 import pl.netigen.gdpr.setDialogSizeAsMatchParent
-
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
     private var isNoAdsAvailable = false
