@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:background="@drawable/background_language_dialog"
-    android:maxWidth="280dp"
-    android:maxHeight="370dp"
-    android:minWidth="280dp"
-    android:minHeight="370dp">
+    android:maxWidth="270dp"
+    android:maxHeight="270dp"
+    android:minWidth="270dp"
+    android:layout_gravity="center|top"
+    android:layout_marginTop="16dp"
+    android:minHeight="270dp">
 
     <TextView
         android:id="@+id/textView_choose_language_title"
