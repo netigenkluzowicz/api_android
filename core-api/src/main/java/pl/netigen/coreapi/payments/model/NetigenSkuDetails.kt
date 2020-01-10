@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class NetigenSkuDetails(
     @PrimaryKey val sku: String,
     val type: String?,
-    val isNoAds: Boolean?,
+    val isNoAds: Boolean,
     val price: String?,
     val title: String?,
     val description: String?,
