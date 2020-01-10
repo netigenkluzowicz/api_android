@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_language_dialog">
+    android:layout_width="280dp"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_language_dialog"
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/textView_translation_info_title"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="66dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:gravity="center|start"
         android:text="@string/translation_information_title_netigen"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-        android:textColor="@color/textColorBlack"
+        android:textColor="@color/dialog_text_view_netigen_api"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView_translation_info_content1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -30,7 +33,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/translation_information_content1_netigen"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/dialog_sub_text_color"
+        android:textColor="@color/dialog_text_view_netigen_api"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView_translation_info_content2"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -47,39 +50,46 @@
         android:layout_marginBottom="8dp"
         android:text="@string/translation_information_content2_netigen"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/dialog_sub_text_color"
+        android:textColor="@color/dialog_text_view_netigen_api"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button_positive"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_translation_info_content1" />
 
-    <Button
+
+    <TextView
         android:id="@+id/button_positive"
-        style="@style/AlertDialogButton"
+        style="@style/PositiveDialogButtonNetigenApi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="?android:attr/selectableItemBackground"
+        android:layout_height="36dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:minWidth="76dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:text="@string/settings_upper_case_netigen"
-        android:textColor="@color/dialog_buttons_text_color"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_translation_info_content2" />
 
-    <Button
+    <TextView
         android:id="@+id/button_negative"
-        style="@style/AlertDialogButton"
+        style="@style/NeutralDialogButtonNetigenApi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="?android:attr/selectableItemBackground"
+        android:layout_height="36dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:minWidth="76dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:text="@string/ok_upper_case_netigen"
-        android:textColor="@color/dialog_buttons_text_color"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_positive"
         app:layout_constraintRight_toLeftOf="@+id/button_positive"
         app:layout_constraintTop_toTopOf="@+id/button_positive" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

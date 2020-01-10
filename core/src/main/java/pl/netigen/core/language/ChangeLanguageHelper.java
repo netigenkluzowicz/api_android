@@ -6,14 +6,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 
 import java.util.Arrays;
 import java.util.List;
@@ -93,7 +95,9 @@ public class ChangeLanguageHelper {
         AlertDialog alertDialog = new AlertDialog.Builder(appCompatActivity)
                 .setView(dialogView)
                 .create();
-        Button buttonPositive = dialogView.findViewById(R.id.button_positive);
+        AppCompatTextView buttonPositive = dialogView.findViewById(R.id.button_positive);
+
+        buttonPositive.getBackground().setColorFilter(ContextCompat.getColor(appCompatActivity, R.color.dialog_accent_netigen_api), PorterDuff.Mode.MULTIPLY);
         buttonPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +105,9 @@ public class ChangeLanguageHelper {
                 alertDialog.dismiss();
             }
         });
-        Button buttonNegative = dialogView.findViewById(R.id.button_negative);
+        AppCompatTextView buttonNegative = dialogView.findViewById(R.id.button_negative);
+        buttonNegative.getBackground().setColorFilter(ContextCompat.getColor(appCompatActivity, R.color.dialog_neutral_button_bg_netigen_api), PorterDuff.Mode.MULTIPLY);
+
         buttonNegative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

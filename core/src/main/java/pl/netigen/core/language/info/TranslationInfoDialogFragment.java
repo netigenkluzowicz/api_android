@@ -126,34 +126,6 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        setDialogSize(0, 0.85);
-    }
-
-    private void setDialogSize(double heightMultiplier, double widthMultiplier) {
-        Window window = getDialog().getWindow();
-        Point size = new Point();
-        Display display;
-        if (window != null) {
-            display = window.getWindowManager().getDefaultDisplay();
-            display.getSize(size);
-            int maxWidth = size.x;
-            int maxHeight = size.y;
-            if (heightMultiplier == 0.0 && widthMultiplier == 0.0) {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else if (widthMultiplier != 0.0 && heightMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), (int) (maxHeight * heightMultiplier));
-            } else if (widthMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, (int) (maxHeight * heightMultiplier));
-            }
-            window.setGravity(Gravity.CENTER);
-        }
-    }
-
     public static class Builder {
 
         private TranslationInfoParams translationInfoParams;
