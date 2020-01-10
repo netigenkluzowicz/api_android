@@ -1,6 +1,6 @@
 package pl.netigen.coreapi.payments
 
-abstract class Payments : INoAds, IPayments {
+abstract class Payments : IPayments {
 
     abstract val paymentsRepo: IPaymentsRepo
 
