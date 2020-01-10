@@ -164,7 +164,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         if (isNoAdsAvailable) {
             buttonPay.visibility = View.INVISIBLE
         }
-        buttonYes.visibility = View.INVISIBLE
+        buttonYes.visibility = View.GONE
         buttonNo.visibility = View.INVISIBLE
         buttonPolicy.visibility = View.VISIBLE
         buttonBack.visibility = View.VISIBLE
