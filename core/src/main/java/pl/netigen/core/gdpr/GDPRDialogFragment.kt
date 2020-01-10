@@ -3,33 +3,32 @@ package pl.netigen.core.gdpr
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.SpannableString
+import android.text.method.ScrollingMovementMethod
 import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
 import pl.netigen.core.R
-import pl.netigen.core.gdpr.ConstGDPR
+import pl.netigen.extensions.setTint
+import pl.netigen.gdpr.setDialogSizeAsMatchParent
+
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
     private var isNoAdsAvailable = false
     private var gdprClickListener: GDPRClickListener? = null
     private var admobText: Boolean = false
 
-    override fun onStart() {
-        super.onStart()
-        setDialogSize(0.9, 0.9)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (dialog != null) {
             val window = dialog?.window
             if (window != null) {
@@ -51,6 +50,24 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         appNameTextViewGdpr.text = getApplicationName(activity!!)
         setButtons()
         showGDPRText()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setDialogSizeAsMatchParent()
+        setButtonsBackgroundTints()
+    }
+
+    private fun setButtonsBackgroundTints() {
+        context?.let {
+            buttonYes.background.setTint(it, R.color.dialog_accent_netigen_api, PorterDuff.Mode.MULTIPLY)
+            buttonPolicy.background.setTint(it, R.color.dialog_accent_netigen_api, PorterDuff.Mode.MULTIPLY)
+
+
+            buttonNo.background.setTint(it, R.color.dialog_neutral_button_bg_netigen_api, PorterDuff.Mode.MULTIPLY)
+            buttonPay.background.setTint(it, R.color.dialog_neutral_button_bg_netigen_api, PorterDuff.Mode.MULTIPLY)
+            buttonBack.background.setTint(it, R.color.dialog_neutral_button_bg_netigen_api, PorterDuff.Mode.MULTIPLY)
+        }
     }
 
     private fun setButtons() {
@@ -125,7 +142,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             return false
         }
         val connectivityManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
-                ?: return false
+            ?: return false
         val netInfo = connectivityManager.activeNetworkInfo
         return netInfo != null && netInfo.isConnectedOrConnecting
     }
@@ -145,10 +162,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     private fun showPrivacyPolicy() {
         if (isNoAdsAvailable) {
-            buttonPay.visibility = View.GONE
+            buttonPay.visibility = View.INVISIBLE
         }
-        buttonYes.visibility = View.GONE
-        buttonNo.visibility = View.GONE
+        buttonYes.visibility = View.INVISIBLE
+        buttonNo.visibility = View.INVISIBLE
         buttonPolicy.visibility = View.VISIBLE
         buttonBack.visibility = View.VISIBLE
         admobText = false
@@ -159,6 +176,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         } else {
             webViewGdpr.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
+            setScrollToOfflinePolicy()
             onNoInternetConnection()
         }
     }
@@ -167,6 +185,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         offlinePrivacyPolicyTextView.text = ""
         offlinePrivacyPolicyTextView.append(ConstGDPR.textPolicy1 + "\n")
         offlinePrivacyPolicyTextView.append(ConstGDPR.textPolicy2)
+    }
+
+    private fun setScrollToOfflinePolicy() {
+        offlinePrivacyPolicyTextView.movementMethod = ScrollingMovementMethod()
     }
 
     override fun onDetach() {
