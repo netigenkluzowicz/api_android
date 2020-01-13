@@ -11,12 +11,12 @@ import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import pl.netigen.core.rewards.RewardsListener
 import pl.netigen.coreapi.ads.IAds
-import pl.netigen.coreapi.purchases.INoAdsPurchases
+import pl.netigen.coreapi.payments.INoAds
 
 abstract class NetigenMainActivity<ViewModel : NetigenMainVM> : AppCompatActivity() {
 
     open lateinit var viewModel: ViewModel
-    lateinit var noAdsPurchases: INoAdsPurchases
+    lateinit var noAds: INoAds
     private var bannerRelativeLayout: RelativeLayout? = null
     var admobAds: IAds? = null
     lateinit var consentInformation: ConsentInformation
@@ -66,7 +66,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenMainVM> : AppCompatActivit
     abstract fun getContentViewID(): Int
 
     private fun initPayments() {
-        noAdsPurchases = TODO()
+        noAds = TODO()
     }
 
     private fun observeNoAds() {
@@ -158,11 +158,11 @@ abstract class NetigenMainActivity<ViewModel : NetigenMainVM> : AppCompatActivit
     open fun prepareRewardedAdsListener(): RewardsListener? = null
 
     fun checkIfNoAdsBought() {
-        noAdsPurchases.isNoAdsActive()
+        // TODO: 13.01.2020  
     }
 
     fun initiateNoAdsPayment() {
-        noAdsPurchases.isNoAdsActive()
+        // TODO: 13.01.2020  
     }
 
     fun canCommitFragments(): Boolean {

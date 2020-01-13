@@ -2,6 +2,9 @@ package pl.netigen.core.splash
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collect
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.InterstitialAdListener
 import pl.netigen.coreapi.gdpr.AdConsentStatus
@@ -9,24 +12,23 @@ import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.network.NetworkStatusChangeListener
-import pl.netigen.coreapi.purchases.INoAdsPurchases
-import pl.netigen.coreapi.purchases.NoAdsPurchaseListener
+import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.ISplashTimer
 import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
+import pl.netigen.extensions.launchIO
 
 class SplashVM(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
-    private val noAdsPurchases: INoAdsPurchases,
+    private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,
     private val splashTimer: ISplashTimer = SplashTimer()
-) : ViewModel(), ISplashVM, InterstitialAdListener, NoAdsPurchaseListener, NetworkStatusChangeListener {
+) : ViewModel(), ISplashVM, InterstitialAdListener, NetworkStatusChangeListener {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
 
     override fun onStart() {
-        if (noAdsPurchases.isNoAdsActive()) return finish()
-        noAdsPurchases.addNoAdsPurchaseListener(this)
+        launchIO { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
         when {
             isRunning() -> Unit //do Nothing
             !networkStatus.isConnectedOrConnecting -> if (isFirstLaunch()) showGdprPopUp() else finish()
@@ -120,7 +122,7 @@ class SplashVM(
 
     private fun isFirstLaunch(): Boolean = gdprConsent.lastKnownAdConsentStatus == AdConsentStatus.UNINITIALIZED
 
-    override fun onNoAdsPurchaseChanged(purchased: Boolean) {
+    private fun onAdsFlowChanged(purchased: Boolean) {
         if (purchased) {
             finish()
         }
@@ -134,10 +136,10 @@ class SplashVM(
     }
 
     private fun cleanUp() {
+        viewModelScope.cancel()
         gdprConsent.cancelRequest()
         splashTimer.cancelTimers()
         networkStatus.removeNetworkStatusChangeListener(this)
-        noAdsPurchases.removeNoAdsPurchaseListener(this)
         ads.interstitialAd.removeInterstitialListener(this)
     }
 
