@@ -46,9 +46,6 @@ dependencies {
     api Libraries.coreKTX
     api Libraries.kotlinStdlibJdk7
 
-    api Libraries.lifecycleExt
-    api Libraries.viewModelKTX
-
     api Libraries.navigationFragment
     api Libraries.navigationUi
     api Libraries.navigationFragmentKTX
