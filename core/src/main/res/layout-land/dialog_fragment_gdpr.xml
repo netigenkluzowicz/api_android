@@ -40,7 +40,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="center_vertical"
                 android:textColor="@color/colorWhite"
-                android:textSize="20sp"
+                android:textSize="@dimen/title_text_size_netigen_api"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/middleDividerHeaderGdpr"
                 app:layout_constraintStart_toEndOf="@id/appIconImageViewGdpr"

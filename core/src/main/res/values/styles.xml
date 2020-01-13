@@ -36,10 +36,11 @@
         <item name="android:textColor">@color/textColorBlack</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
     </style>
-  
+
     <style name="NeutralDialogButtonNetigenApi" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
         <item name="android:backgroundTint">@color/dialog_neutral_button_bg_netigen_api</item>
         <item name="android:background">@drawable/dialog_button_netigen_api</item>
     </style>
@@ -47,6 +48,7 @@
     <style name="PositiveDialogButtonNetigenApi" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
         <item name="android:backgroundTint">@color/dialog_accent_netigen_api</item>
         <item name="android:background">@drawable/dialog_button_netigen_api</item>
     </style>
@@ -54,23 +56,23 @@
     <style name="GDPR_AccentTextButton" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:backgroundTint">@color/dialog_accent_netigen_api</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
         <item name="android:background">@drawable/dialog_button_netigen_api</item>
     </style>
 
     <style name="GDPR_NeutralTextButton" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
         <item name="android:backgroundTint">@color/dialog_neutral_button_bg_netigen_api</item>
         <item name="android:background">@drawable/dialog_button_netigen_api</item>
     </style>
-  
-   <style name="GDPR_BoldTextButton" parent="Widget.AppCompat.TextView">
+
+    <style name="GDPR_BoldTextButton" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:backgroundTint">@color/dialog_neutral_button_bg_netigen_api</item>
         <item name="android:background">@drawable/dialog_button_netigen_api</item>
     </style>
-  
+
 </resources>

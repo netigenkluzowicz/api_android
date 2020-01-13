@@ -44,7 +44,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="center_vertical"
                 android:textColor="@color/colorWhite"
-                android:textSize="20sp"
+                android:textSize="@dimen/title_text_size_netigen_api"
                 app:layout_constraintBottom_toTopOf="@+id/middleDividerHeaderGdpr"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/appIconImageViewGdpr"
@@ -125,7 +125,6 @@
             android:layout_marginBottom="12dp"
             android:gravity="center"
             android:text="@string/yes_continue_to_see_relevant_ads_netigen"
-            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/buttonNo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -141,7 +140,6 @@
             app:layout_goneMarginBottom="@dimen/default_margin_netigen_api"
             android:gravity="center"
             android:text="@string/no_see_ads_that_are_less_relevant_netigen"
-            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/buttonPay"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -156,7 +154,6 @@
             android:layout_marginBottom="@dimen/default_margin_netigen_api"
             android:gravity="center"
             android:text="@string/pay_for_the_ad_free_version_netigen"
-            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -169,7 +166,6 @@
             android:layout_marginLeft="@dimen/default_margin_netigen_api"
             android:layout_marginRight="@dimen/default_margin_netigen_api"
             android:layout_marginBottom="12dp"
-            android:textSize="14sp"
             android:gravity="center"
             android:text="@string/i_accept_privacy_policy_netigen"
             android:visibility="gone"
@@ -189,7 +185,6 @@
             android:gravity="center"
             android:visibility="gone"
             android:text="@string/back_netigen"
-            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
