@@ -75,6 +75,7 @@ object Libraries {
     val billing = "com.android.billingclient:billing:${Versions.billing}"
 
     val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
-    val roomCompiler = "androidx.room:room-runtime:${Versions.room}"
+    val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    val roomKTX = "androidx.room:room-ktx:${Versions.room}"
 }
 
