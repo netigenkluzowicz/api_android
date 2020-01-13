@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Browser tidak ditemukan !!!</string>
+    <string name="change_language_netigen">Ganti BAHASA</string>
+    <string name="translation_information_title_netigen">Informasi terjemahan</string>
+    <string name="translation_information_content1_netigen">Aplikasi ini telah diterjemahkan oleh Google Translate. Bahasa Inggris adalah bahasa asli aplikasi
+        ini. Harap diingat bahwa mungkin ada beberapa kesalahan dalam terjemahan.
+    </string>
+    <string name="translation_information_content2_netigen">Jika Anda ingin mengubah bahasa aplikasi ke Bahasa Inggris, Anda dapat melakukannya di
+        pengaturan.
+    </string>
+    <string name="ok_upper_case_netigen">baik</string>
+    <string name="do_you_like_this_app_netigen">Apakah Anda suka aplikasi ini?</string>
+    <string name="please_support_us_netigen">Tolong dukung kami dengan memberi peringkat aplikasi ini. Terima kasih!</string>
+    <string name="later_netigen">Kemudian</string>
+    <string name="rate_us_netigen">Beri kami</string>
+    <string name="cancel_upper_case_netigen">MEMBATALKAN</string>
+    <string name="settings_upper_case_netigen">PENGATURAN</string>
+    <string name="we_care_about_your_privacy_netigen">Kami peduli dengan privasi dan keamanan data Anda. Kami menjaga aplikasi ini gratis dengan
+        menampilkan iklan.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Saya menerima Kebijakan Privasi Netigen</string>
+    <string name="pay_for_the_ad_free_version_netigen">Bayar untuk versi bebas iklan</string>
+    <string name="back_netigen">Kembali</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Ya, terus melihat iklan yang relevan</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Tidak, lihat iklan yang kurang relevan</string>
+    <string name="payment_error_netigen">Kesalahan pembayaran:</string>
+</resources>

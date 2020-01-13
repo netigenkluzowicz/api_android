@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Webbläsaren hittades inte !!!</string>
+    <string name="change_language_netigen">Ändra språk</string>
+    <string name="translation_information_title_netigen">Översättningsinformation</string>
+    <string name="translation_information_content1_netigen">Den här applikationen har översatts av Google Translate. Engelska är
+        originalspråket för denna ansökan. Kom ihåg att det kan finnas några misstag i översättning.
+    </string>
+    <string name="translation_information_content2_netigen">Om du vill ändra app språk till engelska kan du göra det i
+        inställningarna.
+    </string>
+    <string name="ok_upper_case_netigen">ok</string>
+    <string name="do_you_like_this_app_netigen">Gillar du den här appen?</string>
+    <string name="please_support_us_netigen">Stöd oss genom att betygsätta denna app. Tack!</string>
+    <string name="later_netigen">Senare</string>
+    <string name="rate_us_netigen">Gradera oss</string>
+    <string name="cancel_upper_case_netigen">ANNULLERA</string>
+    <string name="settings_upper_case_netigen">INSTÄLLNINGAR</string>
+    <string name="we_care_about_your_privacy_netigen">Vi bryr oss om din integritet och datasäkerhet. Vi håller denna app fri genom att visa
+        annonser.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Jag accepterar Netigens sekretesspolicy</string>
+    <string name="pay_for_the_ad_free_version_netigen">Betala för den annonsfria versionen</string>
+    <string name="back_netigen">Tillbaka</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Ja, fortsätt att se relevanta annonser</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Nej, se annonser som är mindre relevanta</string>
+    <string name="payment_error_netigen">Betalningsfel:</string>
+</resources>

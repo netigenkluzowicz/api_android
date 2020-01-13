@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">ไม่พบเบราว์เซอร์ !!!</string>
+    <string name="change_language_netigen">เปลี่ยนภาษา</string>
+    <string name="translation_information_title_netigen">ข้อมูลการแปล</string>
+    <string name="translation_information_content1_netigen">แอปพลิเคชันนี้ได้รับการแปลโดย Google Translate ภาษาอังกฤษเป็นภาษาดั้งเดิมของแอปพลิเคชันนี้
+        โปรดจำไว้ว่าอาจมีข้อผิดพลาดในการแปล
+    </string>
+    <string name="translation_information_content2_netigen">หากคุณต้องการเปลี่ยนภาษาของแอพเป็นภาษาอังกฤษคุณสามารถทำได้ในการตั้งค่า</string>
+    <string name="ok_upper_case_netigen">ตกลง</string>
+    <string name="do_you_like_this_app_netigen">คุณชอบแอพนี้หรือไม่?</string>
+    <string name="please_support_us_netigen">กรุณาสนับสนุนพวกเราด้วยการให้คะแนนแอพนี้ ขอขอบคุณ!</string>
+    <string name="later_netigen">ต่อมา</string>
+    <string name="rate_us_netigen">ให้คะแนนเรา</string>
+    <string name="cancel_upper_case_netigen">ยกเลิก</string>
+    <string name="settings_upper_case_netigen">การตั้งค่า</string>
+    <string name="we_care_about_your_privacy_netigen">เราใส่ใจเกี่ยวกับความเป็นส่วนตัวและความปลอดภัยของข้อมูลของคุณ เราทำให้แอพนี้ฟรีโดยแสดงโฆษณา
+    </string>
+    <string name="i_accept_privacy_policy_netigen">ฉันยอมรับนโยบายความเป็นส่วนตัวของ Netigen</string>
+    <string name="pay_for_the_ad_free_version_netigen">จ่ายสำหรับรุ่นที่ไม่มีโฆษณา</string>
+    <string name="back_netigen">กลับ</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">ใช่ดำเนินการต่อเพื่อดูโฆษณาที่เกี่ยวข้อง</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">ไม่เห็นโฆษณาที่มีความเกี่ยวข้องน้อยกว่า</string>
+    <string name="payment_error_netigen">ข้อผิดพลาดการชำระเงิน:</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">مرورگر یافت نشد !!!</string>
+    <string name="change_language_netigen">تغییر زبان</string>
+    <string name="translation_information_title_netigen">اطلاعات ترجمه</string>
+    <string name="translation_information_content1_netigen">این نرم افزار توسط Google Translate ترجمه شده است. انگلیسی زبان اصلی این برنامه است. لطفا به یاد
+        داشته باشید که ممکن است اشتباهاتی در ترجمه وجود داشته باشد.
+    </string>
+    <string name="translation_information_content2_netigen">اگر می خواهید زبان برنامه را به زبان انگلیسی تغییر دهید، می توانید این کار را در تنظیمات انجام
+        دهید.
+    </string>
+    <string name="ok_upper_case_netigen">خوب</string>
+    <string name="do_you_like_this_app_netigen">آیا این برنامه را دوست دارید؟</string>
+    <string name="please_support_us_netigen">لطفا با رتبه بندی این برنامه از ما حمایت کنید. متشکرم!</string>
+    <string name="later_netigen">بعد</string>
+    <string name="rate_us_netigen">به ما رای دهید</string>
+    <string name="cancel_upper_case_netigen">کنسرو</string>
+    <string name="settings_upper_case_netigen">تنظیمات</string>
+    <string name="we_care_about_your_privacy_netigen">ما به حفظ حریم خصوصی و امنیت داده های شما اهمیت می دهیم. ما این برنامه را با نمایش تبلیغات
+        رایگان نگه می داریم.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">من خط مشی رازداری Netigen را می پذیرم</string>
+    <string name="pay_for_the_ad_free_version_netigen">هزینه نسخه آگهی را بپردازید</string>
+    <string name="back_netigen">بازگشت</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">بله ، به تبلیغات مربوطه ادامه دهید</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">خیر ، به آگهی هایی که اهمیت کمتری دارند مراجعه کنید</string>
+    <string name="payment_error_netigen">خطای پرداخت:</string>
+</resources>

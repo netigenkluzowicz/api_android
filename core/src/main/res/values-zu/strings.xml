@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Isiphequluli asitholakali !!!</string>
+    <string name="change_language_netigen">Shintsha ulimi</string>
+    <string name="translation_information_title_netigen">Ulwazi lokuhumusha</string>
+    <string name="translation_information_content1_netigen">Lolu hlelo lokusebenza luhunyushwe yi-Google Translate. IsiNgisi ulimi lwangempela lolu hlelo
+        lokusebenza. Sicela ukhumbule ukuthi kungaba khona amaphutha ekuhumusheni.
+    </string>
+    <string name="translation_information_content2_netigen">Uma ufuna ukushintsha ulimi lohlelo lokusebenza ku-English ungakwenza kanjalo kuzilungiselelo.
+    </string>
+    <string name="ok_upper_case_netigen">KULUNGILE</string>
+    <string name="do_you_like_this_app_netigen">Ingabe uyayithanda le app?</string>
+    <string name="please_support_us_netigen">Sicela usisekele ngokulinganisa lolu hlelo lokusebenza. Ngiyabonga!</string>
+    <string name="later_netigen">Kamuva</string>
+    <string name="rate_us_netigen">Linganisa nathi</string>
+    <string name="cancel_upper_case_netigen">KULULA</string>
+    <string name="settings_upper_case_netigen">IZINGENISO</string>
+    <string name="we_care_about_your_privacy_netigen">Sikhathalela ubumfihlo bakho nokuphepha kwedatha. Sigcina lolu hlelo lokusebenza lukhululekile
+        ngokukhombisa izikhangiso.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Ngiyayemukela inqubomgomo yobumfihlo kaNegengen</string>
+    <string name="pay_for_the_ad_free_version_netigen">Khokhela inguqulo engenazikhangiso</string>
+    <string name="back_netigen">Emuva</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Yebo, qhubeka ubone izikhangiso ezifanele</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Cha, bona izikhangiso ezingasebenzi kangako</string>
+    <string name="payment_error_netigen">Iphutha lokukhokha:</string>
+</resources>

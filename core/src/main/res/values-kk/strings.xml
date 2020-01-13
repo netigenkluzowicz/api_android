@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Браузер табылмады !!!</string>
+    <string name="change_language_netigen">Тілді өзгерту</string>
+    <string name="translation_information_title_netigen">Аударма ақпараты</string>
+    <string name="translation_information_content1_netigen">Бұл бағдарламаны Google Translate аударған. Ағылшын - бұл бағдарламаның түпнұсқа тілі. Аудармада
+        кейбір қателер болуы мүмкін екенін есте сақтаңыз.
+    </string>
+    <string name="translation_information_content2_netigen">Қолданбалар тілін ағылшын тіліне ауыстырғыңыз келсе, оны параметрлерде орындауға болады.</string>
+    <string name="ok_upper_case_netigen">ЖАРАЙДЫ МА</string>
+    <string name="do_you_like_this_app_netigen">Сізге бұл бағдарлама ұнай ма?</string>
+    <string name="please_support_us_netigen">Осы бағдарламаны бағалау арқылы бізге қолдау көрсетіңіз. Рақмет сізге!</string>
+    <string name="later_netigen">Кейінірек</string>
+    <string name="rate_us_netigen">Бізге баға беріңіз</string>
+    <string name="cancel_upper_case_netigen">Жою</string>
+    <string name="settings_upper_case_netigen">ОРНАТУ</string>
+    <string name="we_care_about_your_privacy_netigen">Біз сіздің құпиялылығыңыз бен деректер қауіпсіздігі туралы қамқорлық жасаймыз. Біз бұл
+        бағдарламаны жарнамаларды көрсету арқылы тегін ұстаймыз.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Мен Netigen құпиялылық саясатын қабылдаймын</string>
+    <string name="pay_for_the_ad_free_version_netigen">Жарнамасыз нұсқасын төлеңіз</string>
+    <string name="back_netigen">Артқа</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Ия, тиісті жарнамаларды көруді жалғастырыңыз</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Жоқ, онша маңызды емес жарнамаларды қараңыз</string>
+    <string name="payment_error_netigen">Төлем қатесі:</string>
+</resources>

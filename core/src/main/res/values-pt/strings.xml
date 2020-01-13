@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Navegador não encontrado !!!</string>
+    <string name="change_language_netigen">Mudar idioma</string>
+    <string name="translation_information_title_netigen">Informação de tradução</string>
+    <string name="translation_information_content1_netigen">Este aplicativo foi traduzido pelo Google Translate. Inglês é o
+        idioma original desta aplicação. Por favor, lembre-se de que pode haver alguns erros na tradução.
+    </string>
+    <string name="translation_information_content2_netigen">Se você quiser alterar o idioma do aplicativo para inglês, poderá
+        fazê-lo nas configurações.
+    </string>
+    <string name="ok_upper_case_netigen">OK</string>
+    <string name="do_you_like_this_app_netigen">Você gosta deste app?</string>
+    <string name="please_support_us_netigen">Por favor, ajudem-nos classificando este aplicativo. Obrigado!</string>
+    <string name="later_netigen">Mais tarde</string>
+    <string name="rate_us_netigen">Avalie-nos</string>
+    <string name="cancel_upper_case_netigen">CANCELAR</string>
+    <string name="settings_upper_case_netigen">DEFINIÇÕES</string>
+    <string name="we_care_about_your_privacy_netigen">Preocupamo-nos com a sua privacidade e segurança de dados. Mantemos este aplicativo gratuito,
+        exibindo anúncios.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Aceito a Política de Privacidade da Netigen</string>
+    <string name="pay_for_the_ad_free_version_netigen">Pague pela versão sem anúncios</string>
+    <string name="back_netigen">Costas</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Sim, continue vendo anúncios relevantes</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Não, veja anúncios menos relevantes</string>
+    <string name="payment_error_netigen">Erro de pagamento:</string>
+</resources>

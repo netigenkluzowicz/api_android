@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">ब्राउज़र नहीं मिला !!!</string>
+    <string name="change_language_netigen">भाषा बदलो</string>
+    <string name="translation_information_title_netigen">अनुवाद की जानकारी</string>
+    <string name="translation_information_content1_netigen">इस एप्लिकेशन का अनुवाद Google अनुवाद द्वारा किया गया है। अंग्रेजी इस एप्लिकेशन की मूल भाषा है।
+        कृपया याद रखें कि अनुवाद में कुछ गलतियाँ हो सकती हैं।
+    </string>
+    <string name="translation_information_content2_netigen">यदि आप ऐप भाषा को अंग्रेजी में बदलना चाहते हैं तो आप सेटिंग में ऐसा कर सकते हैं।</string>
+    <string name="ok_upper_case_netigen">ठीक</string>
+    <string name="do_you_like_this_app_netigen">क्या आपको यह ऐप पसंद है?</string>
+    <string name="please_support_us_netigen">कृपया इस ऐप को रेटिंग देकर हमारा समर्थन करें। धन्यवाद!</string>
+    <string name="later_netigen">बाद में</string>
+    <string name="rate_us_netigen">हमें रेटिंग दें</string>
+    <string name="cancel_upper_case_netigen">रद्द करना</string>
+    <string name="settings_upper_case_netigen">समायोजन</string>
+    <string name="we_care_about_your_privacy_netigen">हमें आपकी गोपनीयता और डेटा सुरक्षा की परवाह है। हम विज्ञापन दिखा कर इस ऐप को फ्री रखते हैं।
+    </string>
+    <string name="i_accept_privacy_policy_netigen">मैं नेटिजेन की गोपनीयता नीति को स्वीकार करता हूं</string>
+    <string name="pay_for_the_ad_free_version_netigen">विज्ञापन-मुक्त संस्करण के लिए भुगतान करें</string>
+    <string name="back_netigen">वापस</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">हां, संबंधित विज्ञापन देखना जारी रखें</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">नहीं, ऐसे विज्ञापन देखें जो कम प्रासंगिक हों</string>
+    <string name="payment_error_netigen">भुगतान त्रुटि:</string>
+</resources>

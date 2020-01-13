@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">הדפדפן לא נמצא !!!</string>
+    <string name="change_language_netigen">שנה שפה</string>
+    <string name="translation_information_title_netigen">מידע על התרגום</string>
+    <string name="translation_information_content1_netigen">יישום זה תורגם על ידי Google Translate. אנגלית היא השפה המקורית של יישום זה. יש לזכור כי יכול
+        להיות כמה טעויות בתרגום.
+    </string>
+    <string name="translation_information_content2_netigen">אם ברצונך לשנות את שפת האפליקציה לאנגלית, תוכל לעשות זאת בהגדרות.</string>
+    <string name="ok_upper_case_netigen">בסדר</string>
+    <string name="do_you_like_this_app_netigen">האם אתה אוהב את האפליקציה הזו?</string>
+    <string name="please_support_us_netigen">אנא תמכו בנו על ידי דירוג אפליקציה זו. תודה!</string>
+    <string name="later_netigen">יותר מאוחר</string>
+    <string name="rate_us_netigen">דרג אותנו</string>
+    <string name="cancel_upper_case_netigen">בטל</string>
+    <string name="settings_upper_case_netigen">הגדרות</string>
+    <string name="we_care_about_your_privacy_netigen">אכפת לנו מהפרטיות שלך ואבטחת הנתונים. אנו שומרים על אפליקציה זו בחינם על ידי הצגת מודעות.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">אני מקבל את מדיניות הפרטיות של Netigen</string>
+    <string name="pay_for_the_ad_free_version_netigen">שלם עבור הגרסה ללא מודעות</string>
+    <string name="back_netigen">חזור</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">כן, המשך לראות מודעות רלוונטיות</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">לא, ראה מודעות פחות רלוונטיות</string>
+    <string name="payment_error_netigen">שגיאת תשלום:</string>
+</resources>

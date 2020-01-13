@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Penyemak imbas tidak dijumpai !!!</string>
+    <string name="change_language_netigen">Tukar bahasa</string>
+    <string name="translation_information_title_netigen">Maklumat terjemahan</string>
+    <string name="translation_information_content1_netigen">Permohonan ini telah diterjemahkan oleh Terjemahan Google. Bahasa Inggeris adalah bahasa asal
+        permohonan ini. Sila ingat bahawa terdapat beberapa kesilapan dalam terjemahan.
+    </string>
+    <string name="translation_information_content2_netigen">Jika anda ingin menukar bahasa apl kepada bahasa Inggeris, anda boleh melakukannya dalam
+        tetapan.
+    </string>
+    <string name="ok_upper_case_netigen">okey</string>
+    <string name="do_you_like_this_app_netigen">Adakah anda suka aplikasi ini?</string>
+    <string name="please_support_us_netigen">Sila menyokong kami dengan menilai aplikasi ini. Terima kasih!</string>
+    <string name="later_netigen">Kemudian</string>
+    <string name="rate_us_netigen">Beri Nilai Kami</string>
+    <string name="cancel_upper_case_netigen">CANCEL</string>
+    <string name="settings_upper_case_netigen">SETENGAH</string>
+    <string name="we_care_about_your_privacy_netigen">Kami mengambil berat tentang privasi dan keselamatan data anda. Kami menyimpan aplikasi ini
+        percuma dengan menunjukkan iklan.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Saya menerima Dasar Privasi Netigen</string>
+    <string name="pay_for_the_ad_free_version_netigen">Bayar untuk versi iklan percuma</string>
+    <string name="back_netigen">Kembali</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Ya, terus lihat iklan yang berkaitan</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Tidak, lihat iklan yang kurang relevan</string>
+    <string name="payment_error_netigen">Kesalahan pembayaran:</string>
+</resources>

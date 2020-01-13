@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Претраживач није пронађен !!!</string>
+    <string name="change_language_netigen">Промените језик</string>
+    <string name="translation_information_title_netigen">Информације о преводу</string>
+    <string name="translation_information_content1_netigen">Ову апликацију је превео Гоогле Преводилац. Енглески језик је оригинални језик ове апликације.
+        Имајте на уму да може доћи до грешака у преводу.
+    </string>
+    <string name="translation_information_content2_netigen">Ако желите да промените језик апликације на енглески, можете то да урадите у подешавањима.
+    </string>
+    <string name="ok_upper_case_netigen">У реду</string>
+    <string name="do_you_like_this_app_netigen">Да ли вам се свиђа ова апликација?</string>
+    <string name="please_support_us_netigen">Подржите нас рејтингом ове апликације. Хвала вам!</string>
+    <string name="later_netigen">Касније</string>
+    <string name="rate_us_netigen">Оцените нас</string>
+    <string name="cancel_upper_case_netigen">ПОНИШТИТИ, ОТКАЗАТИ</string>
+    <string name="settings_upper_case_netigen">СЕТТИНГС</string>
+    <string name="we_care_about_your_privacy_netigen">Бринемо о вашој приватности и сигурности података. Ову апликацију држимо бесплатном приказивањем
+        огласа.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Прихватам Нетиген-ову политику приватности</string>
+    <string name="pay_for_the_ad_free_version_netigen">Платите за верзију без огласа</string>
+    <string name="back_netigen">Назад</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Да, наставите да видите релевантне огласе</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Не, погледајте огласе који су мање релевантни</string>
+    <string name="payment_error_netigen">Грешка плаћања:</string>
+</resources>

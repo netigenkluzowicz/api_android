@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Brauzer tapılmadı !!!</string>
+    <string name="change_language_netigen">Dili dəyişin</string>
+    <string name="translation_information_title_netigen">Tərcümə məlumatları</string>
+    <string name="translation_information_content1_netigen">Bu proqram Google Translate tərəfindən tərcümə edilmişdir. İngilis dili bu proqramın orijinal
+        dili. Tərcümədə bəzi səhvlər ola biləcəyini unutmayın.
+    </string>
+    <string name="translation_information_content2_netigen">Proqram dilini ingilis dilinə dəyişmək istəyirsinizsə, bunu ayarlarda edə bilərsiniz.</string>
+    <string name="ok_upper_case_netigen">tamam</string>
+    <string name="do_you_like_this_app_netigen">Bu proqramlar xoşunuza gəlirmi?</string>
+    <string name="please_support_us_netigen">Xahiş edirəm bu tətbiqə reytinq verərək bizə dəstək olun. Çox sağ ol!</string>
+    <string name="later_netigen">Daha sonra</string>
+    <string name="rate_us_netigen">Bizi qiymətləndirin</string>
+    <string name="cancel_upper_case_netigen">Ləğv et</string>
+    <string name="settings_upper_case_netigen">AYARLAR</string>
+    <string name="we_care_about_your_privacy_netigen">Gizlilik və məlumat təhlükəsizliyinizə əhəmiyyət veririk. Reklamlar göstərməklə bu tətbiqini
+        pulsuz saxlayırıq.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">Netigen-in Məxfilik Siyasətini qəbul edirəm</string>
+    <string name="pay_for_the_ad_free_version_netigen">Reklamsız versiyasını ödəyin</string>
+    <string name="back_netigen">Geri</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">Bəli, müvafiq reklamlara baxmağa davam edin</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">Xeyr, daha az aid olan reklamlara baxın</string>
+    <string name="payment_error_netigen">Ödəniş xətası:</string>
+</resources>

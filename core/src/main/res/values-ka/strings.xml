@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">ბროუზერი ვერ მოიძებნა !!!</string>
+    <string name="change_language_netigen">Ენის შეცვლა</string>
+    <string name="translation_information_title_netigen">თარგმანი ინფორმაცია</string>
+    <string name="translation_information_content1_netigen">ეს პროგრამა თარგმნილია Google Translate- ით. ინგლისური ამ განაცხადის ორიგინალური ენაა. გახსოვდეთ,
+        რომ თარგმანში შეცდომები შეიძლება იყოს.
+    </string>
+    <string name="translation_information_content2_netigen">თუ გსურთ ენის ენის შეცვლა ინგლისურ ენაზე, შეგიძლიათ გააკეთოთ ეს პარამეტრებში.</string>
+    <string name="ok_upper_case_netigen">კარგი</string>
+    <string name="do_you_like_this_app_netigen">მოგწონთ ეს პროგრამა?</string>
+    <string name="please_support_us_netigen">გთხოვთ, დაგვიკავშირდეთ ამ აპლიკაციის შეფასებით. Გმადლობთ!</string>
+    <string name="later_netigen">მოგვიანებით</string>
+    <string name="rate_us_netigen">Შეგვაფასეთ</string>
+    <string name="cancel_upper_case_netigen">კანკალი</string>
+    <string name="settings_upper_case_netigen">პირობები</string>
+    <string name="we_care_about_your_privacy_netigen">ჩვენ ვზრუნავთ თქვენს კონფიდენციალურობასა და მონაცემთა უსაფრთხოებაზე. ჩვენ ამ პროგრამას უფასოდ
+        ვაგრძელებთ რეკლამების ჩვენებით.
+    </string>
+    <string name="i_accept_privacy_policy_netigen">მე ვიღებ Netigen– ის კონფიდენციალურობის პოლიტიკას</string>
+    <string name="pay_for_the_ad_free_version_netigen">გადაიხადეთ სარეკლამო ვერსია</string>
+    <string name="back_netigen">უკან</string>
+    <string name="yes_continue_to_see_relevant_ads_netigen">დიახ, განაგრძეთ შესაბამისი რეკლამების ნახვა</string>
+    <string name="no_see_ads_that_are_less_relevant_netigen">არა, იხილეთ რეკლამები, რომლებიც ნაკლებად აქტუალურია</string>
+    <string name="payment_error_netigen">გადახდის შეცდომა:</string>
+</resources>
