@@ -23,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -30,11 +31,14 @@ android {
 }
 
 dependencies {
+
     api Libraries.kotlinStdlibJdk7
     api Libraries.lifecycleExt
 
     api Libraries.coroutines
+
     api Libraries.roomRuntime
+    api Libraries.roomKTX
     kapt Libraries.roomCompiler
 
     api Libraries.lifecycleExt
