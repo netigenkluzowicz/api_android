@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gdpr_yes_continue_to_see_relevant_ads_netigen" translatable="false">Tak, pokaż personalizowane reklamy</string>
-    <string name="gdpr_no_see_ads_that_are_less_relevant_netigen" translatable="false">Nie, zobacz niepersonalizowane reklamy</string>
-    <string name="gdpr_pay_for_the_ad_free_version_netigen" translatable="false">Kup wersję bez reklam</string>
-    <string name="gdpr_i_accept_privacy_policy_netigen" translatable="false">Akceptuję politykę prywatności Netigen</string>
-    <string name="gdpr_back_netigen" translatable="false">Wstecz</string>
-    <string name="gdpr_we_care_about_your_privacy_netigen" translatable="false">Dbamy o Twoją prywatność i bezpieczeństwo danych. Utrzymujemy tę aplikację bezpłatną, wyświetlając reklamy.</string>
-
     <string name="msg_browser_not_found_netigen">Nie znaleziono przeglądarki</string>
     <string name="cancel_netigen">Anuluj</string>
     <string name="change_language_netigen">Zmień język</string>
