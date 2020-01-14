@@ -1,12 +1,8 @@
 package pl.netigen.core.language.info;
 
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -189,9 +185,9 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         @StringRes
         public int titleResId = R.string.translation_information_title_netigen;
         @StringRes
-        public int negativeButtonResId = R.string.cancel_upper_case_netigen;
+        public int negativeButtonResId = R.string.cancel_netigen;
         @StringRes
-        public int positiveButtonResId = R.string.settings_upper_case_netigen;
+        public int positiveButtonResId = R.string.settings_normal_netigen;
         @StringRes
         public int textContentTopResId = R.string.translation_information_content1_netigen;
         @StringRes

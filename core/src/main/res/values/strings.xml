@@ -6,17 +6,14 @@
     <string name="facebook_url_netigen" translatable="false">https://www.facebook.com/netigenpl?fref=ts</string>
     <string name="play_app_id_link_netigen" translatable="false">market://details?id=</string>
     <string name="samsung_app_id_link_netigen" translatable="false">samsungapps://ProductDetail/</string>
-
     <string name="ok_netigen" translatable="false">OK</string>
+
     <string name="msg_browser_not_found_netigen">Browser not found!!!</string>
-    <string name="cancel_netigen">@android:string/cancel</string>
+    <string name="cancel_netigen">Cancel</string>
     <string name="change_language_netigen">Change language</string>
     <string name="translation_information_title_netigen">Translation information</string>
     <string name="translation_information_content1_netigen">This application has been translated by Google Translate. English is the original language of this application. Please remember that there could be some mistakes in translation. </string>
     <string name="translation_information_content2_netigen">If you want to change the app language to English you can do so in settings.</string>
-    <string name="settings_upper_case_netigen">SETTINGS</string>
-    <string name="ok_upper_case_netigen">OK</string>
-    <string name="cancel_upper_case_netigen">CANCEL</string>
     <string name="we_care_about_your_privacy_netigen">We care about your privacy and data security. We keep this app free by showing ads.</string>
     <string name="i_accept_privacy_policy_netigen">I accept Netigen’s Privacy Policy</string>
     <string name="pay_for_the_ad_free_version_netigen">Pay for the ad-free version</string>
@@ -28,4 +25,5 @@
     <string name="please_support_us_netigen">Please support us by rating this app. Thank you!</string>
     <string name="later_netigen">Later</string>
     <string name="rate_us_netigen">Rate Us</string>
+    <string name="settings_normal_netigen">Settings</string>
 </resources>

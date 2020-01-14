@@ -10,9 +10,9 @@ public class ChangeLanguageParams {
     @StringRes
     public int titleResId = R.string.change_language_netigen;
     @StringRes
-    public int negativeButtonResId = R.string.cancel_upper_case_netigen;
+    public int negativeButtonResId = R.string.cancel_netigen;
     @StringRes
-    public int positiveButtonResId = R.string.ok_upper_case_netigen;
+    public int positiveButtonResId = R.string.ok_netigen;
     String jsonLanguageCodes;
     List<String> languageCodes;
     ChangeLanguageDialogFragment.LanguageClickListener languageClickListener;
