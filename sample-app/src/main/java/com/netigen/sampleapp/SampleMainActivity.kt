@@ -3,6 +3,8 @@ package com.netigen.sampleapp
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import pl.netigen.core.network.NetworkStatus
 import pl.netigen.core.splash.SplashVM
 import pl.netigen.coreapi.gdpr.AdConsentStatus
@@ -16,14 +18,12 @@ import pl.netigen.gms.ads.AdmobAds
 class SampleMainActivity : AppCompatActivity() {
 
     private val gdprConsent = object : IGDPRConsent {
-        override val lastKnownAdConsentStatus: AdConsentStatus
-            get() = AdConsentStatus.PERSONALIZED_NON_UE
+        override val adConsentStatus: Flow<AdConsentStatus>
+            get() = flow { emit(AdConsentStatus.PERSONALIZED_NON_UE) }
 
-        override fun requestGDPRLocation(gdprLocationStatusListener: (result: CheckGDPRLocationStatus) -> Unit) {}
+        override fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> = flow { emit(CheckGDPRLocationStatus.NON_UE) }
 
-        override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {}
-
-        override fun cancelRequest() {}
+        override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) = Unit
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +41,8 @@ class SampleMainActivity : AppCompatActivity() {
         val splashVM: ISplashVM = SplashVM(
             gdprConsent = gdprConsent,
             ads = ads,
-            networkStatus = NetworkStatus(this),
-            noAdsPurchases = NoAdsNoAvailable()
+            noAdsPurchases = NoAdsNoAvailable(),
+            networkStatus = NetworkStatus(this)
         )
         splashVM.splashState.observe(this) {
             Log.d("wrobel", "splashState.observe: $it")
