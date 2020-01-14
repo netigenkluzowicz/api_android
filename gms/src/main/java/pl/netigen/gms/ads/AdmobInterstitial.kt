@@ -7,9 +7,12 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IInterstitialAd
-import pl.netigen.coreapi.ads.InterstitialAdListener
 
 class AdmobInterstitial(
     private val activity: AppCompatActivity,
@@ -21,7 +24,6 @@ class AdmobInterstitial(
     private var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd
-    private val interstitialAdListeners: MutableList<InterstitialAdListener> = mutableListOf()
     private val disabled get() = !enabled
 
     init {
@@ -73,35 +75,25 @@ class AdmobInterstitial(
         isInBackground = true
     }
 
-    override fun addInterstitialListener(interstitialAdListener: InterstitialAdListener) {
-        interstitialAdListeners.add(interstitialAdListener)
-    }
 
-    override fun removeInterstitialListener(interstitialAdListener: InterstitialAdListener) {
-        interstitialAdListeners.remove(interstitialAdListener)
-    }
+    override fun loadInterstitialAd(): Flow<Boolean> =
+        callbackFlow {
+            interstitialAd = InterstitialAd(activity)
+            interstitialAd.adUnitId = adId.id
+            interstitialAd.adListener = object : AdListener() {
+                override fun onAdFailedToLoad(errorCode: Int) {
+                    offer(false)
+                    close()
+                }
 
-    override fun loadInterstitialAd() {
-
-        interstitialAd = InterstitialAd(activity)
-        interstitialAd.adUnitId = adId.id
-        interstitialAd.adListener = object : AdListener() {
-            override fun onAdFailedToLoad(errorCode: Int) {
-                postLoadedCallback(false)
+                override fun onAdLoaded() {
+                    offer(true)
+                    close()
+                }
             }
-
-            override fun onAdLoaded() {
-                postLoadedCallback(true)
-            }
+            interstitialAd.loadAd(admobRequest.getAdRequest())
+            awaitClose { cancel() }
         }
-        interstitialAd.loadAd(admobRequest.getAdRequest())
-    }
-
-    private fun postLoadedCallback(value: Boolean) {
-        for (interstitialAdListener in interstitialAdListeners) {
-            interstitialAdListener.loadInterstitialResult(value)
-        }
-    }
 
     override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {
         when {

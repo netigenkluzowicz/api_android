@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.withTimeout
 import pl.netigen.coreapi.ads.IAds
-import pl.netigen.coreapi.ads.InterstitialAdListener
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.AdConsentStatus.*
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
@@ -20,7 +19,6 @@ import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.network.NetworkStatusChangeListener
 import pl.netigen.coreapi.payments.INoAds
-import pl.netigen.coreapi.splash.ISplashTimer
 import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.extensions.launch
@@ -30,10 +28,10 @@ class SplashVM(
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,
-    private val splashTimer: ISplashTimer = SplashTimer(),
-    private val maxConsentWaitTime: Long = (DEFAULT_MAX_CONSENT_WAIT_TIME_MS),
+    private val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
+    private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
-) : ViewModel(), ISplashVM, InterstitialAdListener, NetworkStatusChangeListener {
+) : ViewModel(), ISplashVM, NetworkStatusChangeListener {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
 
     override fun onStart() {
@@ -97,14 +95,10 @@ class SplashVM(
     }
 
     private fun onLocationChangeToEu() {
-        stopAdLoading()
+        cleanUp()
         showGdprPopUp()
     }
 
-    private fun stopAdLoading() {
-        splashTimer.cancelInterstitialTimer()
-        ads.interstitialAd.removeInterstitialListener(this)
-    }
 
     override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
         val adConsentStatus: AdConsentStatus =
@@ -118,11 +112,10 @@ class SplashVM(
         startLoadingInterstitial()
     }
 
-    override fun loadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
+    private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
 
     private fun onInterstitialLoaded() {
         viewModelScope.cancel()
-        splashTimer.cancelTimers()
         ads.interstitialAd.showInterstitialAd { finish() }
     }
 
@@ -136,9 +129,16 @@ class SplashVM(
         if (!networkStatus.isConnectedOrConnecting) return finish()
         networkStatus.addNetworkStatusChangeListener(this)
         updateState(SplashState.LOADING_INTERSTITIAL)
-        ads.interstitialAd.addInterstitialListener(this)
-        ads.interstitialAd.loadInterstitialAd()
-        splashTimer.startInterstitialTimer(this::finish)
+        launch(coroutineDispatcherIo) {
+            ads.interstitialAd.loadInterstitialAd()
+                .catch { onLoadInterstitialResult(false) }
+                .collect {
+                    withTimeout(maxInterstitialWaitTime)
+                    {
+                        onLoadInterstitialResult(it)
+                    }
+                }
+        }
     }
 
     private fun finish() {
@@ -165,9 +165,7 @@ class SplashVM(
 
     private fun cleanUp() {
         viewModelScope.cancel()
-        splashTimer.cancelTimers()
         networkStatus.removeNetworkStatusChangeListener(this)
-        ads.interstitialAd.removeInterstitialListener(this)
     }
 
     override fun onNetworkStatusChanged(isConnected: Boolean) {
@@ -176,5 +174,6 @@ class SplashVM(
 
     companion object {
         const val DEFAULT_MAX_CONSENT_WAIT_TIME_MS = 5000L
+        const val DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7000L
     }
 }
