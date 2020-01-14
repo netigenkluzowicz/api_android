@@ -1,6 +1,7 @@
 package pl.netigen.gms.payments
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.SkuDetails
@@ -11,17 +12,22 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 interface NetigenSkuDetailsDao {
 
     @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.SUBS}'")
-    fun getSubscriptionSkuDetailsFlow(): Flow<List<NetigenSkuDetails>>
+    fun subscriptionSkuDetailsFlow(): Flow<List<NetigenSkuDetails>>
 
     @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.INAPP}'")
-    fun getInAppSkuDetailsFlow(): Flow<List<NetigenSkuDetails>>
+    fun inAppSkuDetailsFlow(): Flow<List<NetigenSkuDetails>>
+
+    @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.SUBS}'")
+    fun subscriptionSkuDetailsLiveData(): LiveData<List<NetigenSkuDetails>>
+
+    @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.INAPP}'")
+    fun inAppSkuDetailsLiveData(): LiveData<List<NetigenSkuDetails>>
 
     @Transaction
     fun insertOrUpdate(skuDetails: SkuDetails, isNoAds: Boolean = false) = skuDetails.apply {
         val originalJson = toString().substring("SkuDetails: ".length)
         val detail = NetigenSkuDetails(sku, type, isNoAds, price, title, description, originalJson)
         insert(detail)
-        Log.d("NetigenSkuDetailsDao", " insertOrUpdate: $detail")
     }
 
     @Transaction

@@ -2,8 +2,6 @@ package pl.netigen.gms.payments
 
 import android.app.Activity
 import android.app.Application
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.MutableLiveData
 import com.android.billingclient.api.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
@@ -18,8 +16,7 @@ import java.util.*
 class GMSPaymentsRepo(
 
     private val application: Application,
-    private val inAppSkuList: List<String>,
-    private val lifecycleOwner: LifecycleOwner = application.life
+    private val inAppSkuList: List<String>
 
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
 
@@ -31,19 +28,8 @@ class GMSPaymentsRepo(
         .setListener(this)
         .build()
 
-    val inAppSkuDetailsFlow: Flow<List<NetigenSkuDetails>> by lazy { localCacheBillingClient.skuDetailsDao().getInAppSkuDetailsFlow() }
-    val subsSkuDetailsFlow: Flow<List<NetigenSkuDetails>> by lazy { localCacheBillingClient.skuDetailsDao().getSubscriptionSkuDetailsFlow() }
-
-    override val inAppSkuDetails by lazy { MutableLiveData<List<NetigenSkuDetails>>() }
-    override val subsSkuDetails by lazy { MutableLiveData<List<NetigenSkuDetails>>() }
-
-    private fun noAdsFlow(): Flow<Boolean> {
-        return flow {
-            localCacheBillingClient.purchaseDao().getPurchasesFlow().collect { list ->
-                emit(list.count { it.isNoAds } > 0)
-            }
-        }
-    }
+    override val inAppSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
+    override val subsSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
 
     override val noAdsActive by lazy {
         noAdsFlow()
@@ -51,6 +37,14 @@ class GMSPaymentsRepo(
 
     init {
         connectToPlayBillingService()
+    }
+
+    private fun noAdsFlow(): Flow<Boolean> {
+        return flow {
+            localCacheBillingClient.purchaseDao().getPurchasesFlow().collect { list ->
+                emit(list.count { it.isNoAds } > 0)
+            }
+        }
     }
 
     private fun connectToPlayBillingService(): Boolean {
