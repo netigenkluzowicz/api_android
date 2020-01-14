@@ -24,4 +24,5 @@
     <string name="no_exclamation_mark_netigen">No!</string>
     <string name="yes_exclamation_mark_netigen">Yes!</string>
     <string name="later_exclamation_mark_netigen">Later!</string>
+    <string name="payment_error">Payment error:</string>
 </resources>

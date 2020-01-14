@@ -8,15 +8,6 @@
         pozabite, da lahko pride do napak pri prevajanju.
     </string>
     <string name="translation_information_content2_netigen">Če želite spremeniti jezik aplikacije v angleščino, lahko to storite v nastavitvah.</string>
-    <string name="we_care_about_your_privacy_netigen">Skrbimo za vašo zasebnost in varnost podatkov. To aplikacijo ohranjamo brez prikazovanja
-        oglasov.
-    </string>
-    <string name="i_accept_privacy_policy_netigen">Sprejemam Netigenino politiko zasebnosti</string>
-    <string name="pay_for_the_ad_free_version_netigen">Plačajte za različico brez oglasov</string>
-    <string name="back_netigen">Nazaj</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">Da, še naprej si oglejte ustrezne oglase</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">Ne, poglejte oglase, ki so manj ustrezni</string>
-    <string name="payment_error_netigen">Napaka pri plačilu:</string>
     <string name="do_you_like_this_app_netigen">Vam je všeč ta aplikacija?</string>
     <string name="please_support_us_netigen">Podprite nas z oceno te aplikacije. Hvala vam!</string>
     <string name="later_netigen">Pozneje</string>

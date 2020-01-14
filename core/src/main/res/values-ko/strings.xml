@@ -8,13 +8,6 @@
         실수가있을 수 있음을 기억하십시오.
     </string>
     <string name="translation_information_content2_netigen">앱 언어를 영어로 변경하려면 설정에서 변경할 수 있습니다.</string>
-    <string name="we_care_about_your_privacy_netigen">우리는 귀하의 개인 정보 및 데이터 보안에 관심이 있습니다. 광고를 게재하여이 앱을 무료로 유지합니다.</string>
-    <string name="i_accept_privacy_policy_netigen">Netigen의 개인 정보 보호 정책에 동의합니다</string>
-    <string name="pay_for_the_ad_free_version_netigen">광고없는 버전을 지불하십시오</string>
-    <string name="back_netigen">뒤</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">예, 계속 관련 광고를 볼 수 있습니다</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">아니요, 관련성이 낮은 광고를 봅니다.</string>
-    <string name="payment_error_netigen">결제 오류 :</string>
     <string name="do_you_like_this_app_netigen">이 앱이 마음에 드십니까?</string>
     <string name="please_support_us_netigen">이 응용 프로그램을 평가하여 우리를 지원하십시오. 감사합니다!</string>
     <string name="later_netigen">나중</string>

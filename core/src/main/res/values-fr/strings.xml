@@ -10,15 +10,6 @@
     <string name="translation_information_content2_netigen">Si vous souhaitez modifier la langue de l\'application en anglais, vous pouvez le faire dans les
         paramètres.
     </string>
-    <string name="we_care_about_your_privacy_netigen">Nous nous soucions de votre confidentialité et de la sécurité de vos données. Nous gardons cette
-        application gratuite en affichant des annonces.
-    </string>
-    <string name="i_accept_privacy_policy_netigen">J\'accepte la politique de confidentialité de Netigen</string>
-    <string name="pay_for_the_ad_free_version_netigen">Payer pour la version sans publicité</string>
-    <string name="back_netigen">Retour</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">Oui, continuez à voir les annonces pertinentes</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">Non, voir les annonces moins pertinentes</string>
-    <string name="payment_error_netigen">Erreur de paiement:</string>
     <string name="do_you_like_this_app_netigen">Aimez-vous cette application?</string>
     <string name="please_support_us_netigen">Veuillez nous soutenir en notant cette application. Je vous remercie!</string>
     <string name="later_netigen">Plus tard</string>

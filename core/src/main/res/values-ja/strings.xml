@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">翻訳情報</string>
     <string name="translation_information_content1_netigen">このアプリケーションはGoogle翻訳によって翻訳されています。このアプリケーションの元の言語は英語です。翻訳に間違いがあるかもしれないことを覚えておいてください。</string>
     <string name="translation_information_content2_netigen">アプリの言語を英語に変更したい場合は、設定で変更できます。</string>
-    <string name="we_care_about_your_privacy_netigen">私たちはあなたのプライバシーとデータセキュリティを大切にします。広告を表示することで、このアプリを無料にしています。</string>
-    <string name="i_accept_privacy_policy_netigen">Netigenのプライバシーポリシーに同意します</string>
-    <string name="pay_for_the_ad_free_version_netigen">広告なしのバージョンの支払い</string>
-    <string name="back_netigen">バック</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">はい、関連する広告を引き続き表示します</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">いいえ、関連性の低い広告を表示します</string>
-    <string name="payment_error_netigen">支払いエラー：</string>
     <string name="do_you_like_this_app_netigen">このアプリが好きですか？</string>
     <string name="please_support_us_netigen">このアプリを評価してください。ありがとうございました！</string>
     <string name="later_netigen">後</string>

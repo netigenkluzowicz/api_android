@@ -8,19 +8,19 @@
     <string name="samsung_app_id_link_netigen" translatable="false">samsungapps://ProductDetail/</string>
     <string name="ok_netigen" translatable="false">OK</string>
 
+    <string name="gdpr_yes_continue_to_see_relevant_ads_netigen" translatable="false">Yes, continue to see relevant ads</string>
+    <string name="gdpr_no_see_ads_that_are_less_relevant_netigen" translatable="false">No, see ads that are less relevant</string>
+    <string name="gdpr_pay_for_the_ad_free_version_netigen" translatable="false">Pay for the ad-free version</string>
+    <string name="gdpr_i_accept_privacy_policy_netigen" translatable="false">I accept Netigen’s Privacy Policy</string>
+    <string name="gdpr_back_netigen" translatable="false">Back</string>
+    <string name="gdpr_we_care_about_your_privacy_netigen" translatable="false">We care about your privacy and data security. We keep this app free by showing ads.</string>
+
     <string name="msg_browser_not_found_netigen">Browser not found!!!</string>
     <string name="cancel_netigen">Cancel</string>
     <string name="change_language_netigen">Change language</string>
     <string name="translation_information_title_netigen">Translation information</string>
     <string name="translation_information_content1_netigen">This application has been translated by Google Translate. English is the original language of this application. Please remember that there could be some mistakes in translation. </string>
     <string name="translation_information_content2_netigen">If you want to change the app language to English you can do so in settings.</string>
-    <string name="we_care_about_your_privacy_netigen">We care about your privacy and data security. We keep this app free by showing ads.</string>
-    <string name="i_accept_privacy_policy_netigen">I accept Netigen’s Privacy Policy</string>
-    <string name="pay_for_the_ad_free_version_netigen">Pay for the ad-free version</string>
-    <string name="back_netigen">Back</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">Yes, continue to see relevant ads</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">No, see ads that are less relevant</string>
-    <string name="payment_error_netigen">Payment error:</string>
     <string name="do_you_like_this_app_netigen">Do you like this app?</string>
     <string name="please_support_us_netigen">Please support us by rating this app. Thank you!</string>
     <string name="later_netigen">Later</string>

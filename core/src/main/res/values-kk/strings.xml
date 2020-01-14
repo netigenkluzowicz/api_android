@@ -8,15 +8,6 @@
         кейбір қателер болуы мүмкін екенін есте сақтаңыз.
     </string>
     <string name="translation_information_content2_netigen">Қолданбалар тілін ағылшын тіліне ауыстырғыңыз келсе, оны параметрлерде орындауға болады.</string>
-    <string name="we_care_about_your_privacy_netigen">Біз сіздің құпиялылығыңыз бен деректер қауіпсіздігі туралы қамқорлық жасаймыз. Біз бұл
-        бағдарламаны жарнамаларды көрсету арқылы тегін ұстаймыз.
-    </string>
-    <string name="i_accept_privacy_policy_netigen">Мен Netigen құпиялылық саясатын қабылдаймын</string>
-    <string name="pay_for_the_ad_free_version_netigen">Жарнамасыз нұсқасын төлеңіз</string>
-    <string name="back_netigen">Артқа</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">Ия, тиісті жарнамаларды көруді жалғастырыңыз</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">Жоқ, онша маңызды емес жарнамаларды қараңыз</string>
-    <string name="payment_error_netigen">Төлем қатесі:</string>
     <string name="do_you_like_this_app_netigen">Сізге бұл бағдарлама ұнай ма?</string>
     <string name="please_support_us_netigen">Осы бағдарламаны бағалау арқылы бізге қолдау көрсетіңіз. Рақмет сізге!</string>
     <string name="later_netigen">Кейінірек</string>

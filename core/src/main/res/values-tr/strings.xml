@@ -8,15 +8,6 @@
         Lütfen çeviride bazı hatalar olabileceğini unutmayın.
     </string>
     <string name="translation_information_content2_netigen">Uygulama dilini İngilizce olarak değiştirmek istiyorsanız ayarlarda bunu yapabilirsiniz.</string>
-    <string name="we_care_about_your_privacy_netigen">Gizliliğinizi ve veri güvenliğinizi önemsiyoruz. Biz reklam göstererek bu uygulamayı ücretsiz
-        tutmak.
-    </string>
-    <string name="i_accept_privacy_policy_netigen">Netigen Gizlilik Politikasını kabul ediyorum</string>
-    <string name="pay_for_the_ad_free_version_netigen">Reklamsız sürüm için ödeme yapın</string>
-    <string name="back_netigen">Geri</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">Evet, alakalı reklamları görmeye devam et</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">Hayır, daha az alakalı reklamlara bakın</string>
-    <string name="payment_error_netigen">Ödeme hatası:</string>
     <string name="do_you_like_this_app_netigen">Bu uygulamayı beğendin mi?</string>
     <string name="please_support_us_netigen">Bu uygulamayı derecelendirerek bize destek olun. Teşekkür ederim!</string>
     <string name="later_netigen">Sonra</string>

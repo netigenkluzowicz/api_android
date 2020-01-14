@@ -8,15 +8,6 @@
         Muista, että käännöksessä voi olla virheitä.
     </string>
     <string name="translation_information_content2_netigen">Jos haluat muuttaa sovelluskielen englanniksi, voit tehdä sen asetuksissa.</string>
-    <string name="we_care_about_your_privacy_netigen">Me välitämme yksityisyydestäsi ja tietoturvallisuudestasi. Pidämme tämän sovelluksen ilmaisena
-        näyttämällä mainoksia.
-    </string>
-    <string name="i_accept_privacy_policy_netigen">Hyväksyn Netigenin tietosuojakäytännön</string>
-    <string name="pay_for_the_ad_free_version_netigen">Maksa ilmainen versio</string>
-    <string name="back_netigen">Takaisin</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">Kyllä, jatka osuvien mainosten näyttämistä</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">Ei, katso vähemmän osuvia mainoksia</string>
-    <string name="payment_error_netigen">Maksuvirhe:</string>
     <string name="do_you_like_this_app_netigen">Pidätkö tästä sovelluksesta?</string>
     <string name="please_support_us_netigen">Ole hyvä ja tue meitä arvioimalla tämä sovellus. Kiitos!</string>
     <string name="later_netigen">Myöhemmin</string>

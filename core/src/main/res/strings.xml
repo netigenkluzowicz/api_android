@@ -23,5 +23,4 @@
     <string name="back_netigen">Zurück</string>
     <string name="yes_continue_to_see_relevant_ads_netigen">Ja, relevante Anzeigen werden weiterhin angezeigt</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Nein, sehen Sie Anzeigen, die weniger relevant sind</string>
-    <string name="payment_error_netigen">Zahlungsfehler:</string>
 </resources>

@@ -8,15 +8,6 @@
         Pidage meeles, et tõlkimisel võib esineda vigu.
     </string>
     <string name="translation_information_content2_netigen">Kui soovite muuta rakenduse keelt inglise keelde, saate seda teha seadetes.</string>
-    <string name="we_care_about_your_privacy_netigen">Me hoolime teie privaatsusest ja andmete turvalisusest. Hoiame selle rakenduse reklaamide
-        näitamisega tasuta.
-    </string>
-    <string name="i_accept_privacy_policy_netigen">Nõustun Netigeni privaatsuspoliitikaga</string>
-    <string name="pay_for_the_ad_free_version_netigen">Makske reklaamivaba versiooni eest</string>
-    <string name="back_netigen">tagasi</string>
-    <string name="yes_continue_to_see_relevant_ads_netigen">Jah, jätkake asjakohaste reklaamide kuvamist</string>
-    <string name="no_see_ads_that_are_less_relevant_netigen">Ei, vaadake vähem asjakohaseid reklaame</string>
-    <string name="payment_error_netigen">Makseviga:</string>
     <string name="do_you_like_this_app_netigen">Kas teile meeldib see rakendus?</string>
     <string name="please_support_us_netigen">Toetage meid, hinnates seda rakendust. Aitäh!</string>
     <string name="later_netigen">Hiljem</string>
