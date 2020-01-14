@@ -40,7 +40,9 @@ dependencies {
     api Libraries.roomRuntime
     api Libraries.roomKTX
     kapt Libraries.roomCompiler
-
+    
     api Libraries.lifecycleExt
     api Libraries.viewModelKTX
+    
+    api Libraries.timber
 }
