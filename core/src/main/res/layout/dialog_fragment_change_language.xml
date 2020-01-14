@@ -48,14 +48,6 @@
     <TextView
         android:id="@+id/button_change_language_ok"
         style="@style/PositiveDialogButtonNetigenApi"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height_netigen_api"
-        android:layout_marginRight="@dimen/default_margin_netigen_api"
-        android:layout_marginBottom="@dimen/default_margin_netigen_api"
-        android:gravity="center"
-        android:minWidth="@dimen/button_min_width_netigen_api"
-        android:paddingLeft="@dimen/default_margin_netigen_api"
-        android:paddingRight="@dimen/default_margin_netigen_api"
         android:text="@string/ok_netigen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,15 +56,7 @@
     <TextView
         android:id="@+id/button_change_language_dismiss"
         style="@style/NeutralDialogButtonNetigenApi"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height_netigen_api"
-        android:layout_marginRight="@dimen/default_margin_netigen_api"
-        android:gravity="center"
-        android:minWidth="@dimen/button_min_width_netigen_api"
-        android:paddingLeft="@dimen/default_margin_netigen_api"
-        android:paddingRight="@dimen/default_margin_netigen_api"
         android:text="@string/cancel_netigen"
-        app:layout_constraintBottom_toBottomOf="@id/button_change_language_ok"
         app:layout_constraintEnd_toStartOf="@id/button_change_language_ok"
         app:layout_constraintTop_toTopOf="@id/button_change_language_ok" />
 </androidx.constraintlayout.widget.ConstraintLayout>
