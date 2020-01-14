@@ -31,7 +31,7 @@ class SplashVM(
     private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,
     private val splashTimer: ISplashTimer = SplashTimer(),
-    private val maxConsentWaitTime: Long = (SplashTimer.DEFAULT_MAX_CONSENT_WAIT_TIME_MS),
+    private val maxConsentWaitTime: Long = (DEFAULT_MAX_CONSENT_WAIT_TIME_MS),
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel(), ISplashVM, InterstitialAdListener, NetworkStatusChangeListener {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
@@ -172,5 +172,9 @@ class SplashVM(
 
     override fun onNetworkStatusChanged(isConnected: Boolean) {
         if (!isConnected && splashState.value == SplashState.LOADING_INTERSTITIAL) finish()
+    }
+
+    companion object {
+        const val DEFAULT_MAX_CONSENT_WAIT_TIME_MS = 5000L
     }
 }
