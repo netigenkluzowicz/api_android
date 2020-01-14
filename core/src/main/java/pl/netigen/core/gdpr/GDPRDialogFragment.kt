@@ -19,8 +19,6 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
 import pl.netigen.core.R
-import pl.netigen.core.gdpr.ConstGDPR
-import pl.netigen.extensions.setDialogSize
 import pl.netigen.extensions.setTint
 import pl.netigen.gdpr.setDialogSizeAsMatchParent
 
@@ -211,12 +209,12 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         return if (context != null) {
             val netigenApiAccentColor =
                 String.format("#%06x", ContextCompat.getColor(context!!, R.color.dialog_accent_netigen_api) and 0xffffff).replace("#", "")
-            NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(context!!) + NETIGEN_APP_COLOR + netigenApiAccentColor + MARGIN_0
+            NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(context!!) + NETIGEN_APP_COLOR + netigenApiAccentColor + INSIDE_WEB_VIEW_MARGIN_0
         } else
             NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL
     }
 
-    private fun getLinkForMobiles() = NETIGEN_PRIVACY_MOBILE_URL + MARGIN_0
+    private fun getLinkForMobiles() = NETIGEN_PRIVACY_MOBILE_URL + INSIDE_WEB_VIEW_MARGIN_0
 
     interface GDPRClickListener {
         fun clickYes()
@@ -232,7 +230,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
         private const val NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps-name?app="
         private const val NETIGEN_APP_COLOR = "&color="
-        private const val MARGIN_0 = "&containerPadding=0&bodyMargin=0"
+        private const val INSIDE_WEB_VIEW_MARGIN_0 = "&containerPadding=0&bodyMargin=0"
         private const val NETIGEN_PRIVACY_MOBILE_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps?app=2&containerPadding=0&bodyMargin=0"
 
         fun newInstance(): GDPRDialogFragment {
