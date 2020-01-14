@@ -25,6 +25,7 @@ object Versions {
     val navigation = "2.1.0"
     val coroutines = "1.3.3"
     val room = "2.2.3"
+    val timber = "4.7.1"
 }
 
 object Libraries {
@@ -77,5 +78,8 @@ object Libraries {
     val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     val roomKTX = "androidx.room:room-ktx:${Versions.room}"
+
+    val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
 }
 
