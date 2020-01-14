@@ -4,11 +4,7 @@
     android:layout_width="410dp"
     android:layout_height="280dp"
     android:layout_gravity="center"
-    android:background="@drawable/background_language_dialog"
-    android:maxWidth="410dp"
-    android:maxHeight="280dp"
-    android:minWidth="410dp"
-    android:minHeight="280dp">
+    android:background="@drawable/background_language_dialog">
 
     <ImageView
         android:id="@+id/rateUsImage"

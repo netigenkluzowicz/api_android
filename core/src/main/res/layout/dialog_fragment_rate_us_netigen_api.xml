@@ -4,8 +4,6 @@
     android:layout_width="280dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:minWidth="280dp"
-    android:maxWidth="280dp"
     android:background="@drawable/background_language_dialog">
 
     <ImageView
