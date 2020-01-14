@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/default_margin_netigen_api"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:paddingBottom="@dimen/default_margin_netigen_api">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,12 +39,9 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/appNameTextViewGdpr"
+                style="@style/GDPR_AppName"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/roboto_bold"
-                android:gravity="center_vertical"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/title_text_size_netigen_api"
                 app:layout_constraintBottom_toTopOf="@+id/middleDividerHeaderGdpr"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/appIconImageViewGdpr"
@@ -137,12 +134,12 @@
             android:layout_marginLeft="@dimen/default_margin_netigen_api"
             android:layout_marginRight="@dimen/default_margin_netigen_api"
             android:layout_marginBottom="12dp"
-            app:layout_goneMarginBottom="@dimen/default_margin_netigen_api"
             android:gravity="center"
             android:text="@string/gdpr_no_see_ads_that_are_less_relevant_netigen"
             app:layout_constraintBottom_toTopOf="@+id/buttonPay"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginBottom="@dimen/default_margin_netigen_api" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/buttonPay"
@@ -183,8 +180,8 @@
             android:layout_marginRight="@dimen/default_margin_netigen_api"
             android:layout_marginBottom="@dimen/default_margin_netigen_api"
             android:gravity="center"
-            android:visibility="gone"
             android:text="@string/gdpr_back_netigen"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

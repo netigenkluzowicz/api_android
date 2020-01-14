@@ -81,13 +81,22 @@
     </style>
 
 
-    <style name="TitleTextView" parent="Widget.AppCompat.TextView">
+    <style name="DialogTitleTextView" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">66dp</item>
         <item name="android:layout_marginLeft">@dimen/default_margin_netigen_api</item>
         <item name="android:layout_marginRight">@dimen/default_margin_netigen_api</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textColor">@color/dialog_text_view</item>
+        <item name="android:textSize">@dimen/title_text_size_netigen_api</item>
+        <item name="android:gravity">center|start</item>
+    </style>
+
+    <style name="GDPR_AppName" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginLeft">@dimen/default_margin_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/default_margin_netigen_api</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/title_text_size_netigen_api</item>
         <item name="android:gravity">center|start</item>
     </style>
