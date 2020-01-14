@@ -1,5 +1,6 @@
 package pl.netigen.core.language;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
@@ -155,9 +156,10 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
     }
 
     private void setButtonsBackgroundTints() {//there is ext for tint
-        if (getContext() != null) {
-            buttonChangeLanguageOk.getBackground().setColorFilter(ContextCompat.getColor(getContext(), R.color.dialog_accent_netigen_api), PorterDuff.Mode.MULTIPLY);
-            buttonChangeLanguageDismiss.getBackground().setColorFilter(ContextCompat.getColor(getContext(), R.color.dialog_neutral_button_bg_netigen_api), PorterDuff.Mode.MULTIPLY);
+        Context context = getContext();
+        if (context != null) {
+            buttonChangeLanguageOk.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.dialog_accent_netigen_api), PorterDuff.Mode.MULTIPLY);
+            buttonChangeLanguageDismiss.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.dialog_neutral_button_bg_netigen_api), PorterDuff.Mode.MULTIPLY);
         }
     }
 
