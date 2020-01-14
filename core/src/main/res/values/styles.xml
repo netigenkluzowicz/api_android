@@ -40,14 +40,14 @@
     <style name="BaseDialogButtonStyle" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/gdpr_button_height</item>
-        <item name="android:layout_marginLeft">@dimen/default_margin_netigen_api</item>
-        <item name="android:layout_marginRight">@dimen/default_margin_netigen_api</item>
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:gravity">center</item>
         <item name="android:minWidth">@dimen/button_min_width_netigen_api</item>
-        <item name="android:paddingLeft">@dimen/default_margin_netigen_api</item>
-        <item name="android:paddingRight">@dimen/default_margin_netigen_api</item>
-        <item name="android:layout_marginBottom">@dimen/default_margin_netigen_api</item>
+        <item name="android:paddingLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:paddingRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginBottom">@dimen/medium_space_netigen_api</item>
     </style>
 
     <style name="NeutralDialogButtonNetigenApi" parent="BaseDialogButtonStyle">
@@ -69,14 +69,14 @@
     <style name="GDPR_BaseDialogButtonStyle" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/gdpr_button_height</item>
-        <item name="android:layout_marginLeft">@dimen/default_margin_netigen_api</item>
-        <item name="android:layout_marginRight">@dimen/default_margin_netigen_api</item>
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:gravity">center</item>
         <item name="android:minWidth">@dimen/button_min_width_netigen_api</item>
-        <item name="android:paddingLeft">@dimen/default_margin_netigen_api</item>
-        <item name="android:paddingRight">@dimen/default_margin_netigen_api</item>
-        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:paddingLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:paddingRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginBottom">@dimen/small_space_netigen_api</item>
 
     </style>
 
@@ -105,8 +105,8 @@
     <style name="DialogTitleTextView" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">66dp</item>
-        <item name="android:layout_marginLeft">@dimen/default_margin_netigen_api</item>
-        <item name="android:layout_marginRight">@dimen/default_margin_netigen_api</item>
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textColor">@color/dialog_text_view</item>
         <item name="android:textSize">@dimen/title_text_size_netigen_api</item>
@@ -114,8 +114,8 @@
     </style>
 
     <style name="GDPR_AppName" parent="Widget.AppCompat.TextView">
-        <item name="android:layout_marginLeft">@dimen/default_margin_netigen_api</item>
-        <item name="android:layout_marginRight">@dimen/default_margin_netigen_api</item>
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/title_text_size_netigen_api</item>
