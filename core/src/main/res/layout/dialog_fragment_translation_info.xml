@@ -9,15 +9,8 @@
 
     <TextView
         android:id="@+id/textView_translation_info_title"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginLeft="@dimen/default_margin_netigen_api"
-        android:layout_marginRight="@dimen/default_margin_netigen_api"
-        android:gravity="center|start"
+        style="@style/TitleTextView"
         android:text="@string/translation_information_title_netigen"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-        android:textColor="@color/dialog_text_view"
-        android:textSize="@dimen/title_text_size_netigen_api"
         app:layout_constraintBottom_toTopOf="@+id/textView_translation_info_content1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

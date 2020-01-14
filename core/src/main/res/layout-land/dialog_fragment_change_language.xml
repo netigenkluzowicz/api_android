@@ -4,23 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="270dp"
     android:layout_height="270dp"
-    android:background="@drawable/background_language_dialog"
     android:layout_gravity="center|top"
-    android:layout_marginTop="@dimen/default_margin_netigen_api">
+    android:layout_marginTop="@dimen/default_margin_netigen_api"
+    android:background="@drawable/background_language_dialog">
 
     <TextView
         android:id="@+id/textView_choose_language_title"
-        android:layout_width="wrap_content"
-        android:layout_height="66dp"
-        android:layout_marginLeft="@dimen/default_margin_netigen_api"
-        android:layout_marginRight="@dimen/default_margin_netigen_api"
-        android:fontFamily="@font/roboto_bold"
-        android:gravity="center|start"
+        style="@style/TitleTextView"
         android:text="@string/change_language_netigen"
-        android:textColor="@color/dialog_text_view"
-        android:textSize="@dimen/title_text_size_netigen_api"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView_languages"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
