@@ -5,11 +5,13 @@ import io.mockk.*
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.channels.ConflatedBroadcastChannel
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -19,6 +21,7 @@ import org.junit.Test
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IInterstitialAd
 import pl.netigen.coreapi.gdpr.AdConsentStatus
+import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
@@ -49,7 +52,7 @@ class SplashVMTest {
     fun before() {
         Dispatchers.setMain(testDispatcher)
         MockKAnnotations.init(this)
-        splashVM = SplashVM(gdprConsent, ads, noAdsPurchases, networkStatus, splashTimer)
+        splashVM = SplashVM(gdprConsent, ads, noAdsPurchases, networkStatus, splashTimer, coroutineDispatcherIo = Dispatchers.Main)
         every { ads.interstitialAd } returns interstitialAd
     }
 
@@ -69,33 +72,41 @@ class SplashVMTest {
     fun `SplashVM has FINISHED state after onStart when noAds is active`() = runBlocking {
         setUpMocks(isNoAdsActive = true)
         splashVM.onStart()
-        delay(1_000)
         assertEquals(SplashState.FINISHED, splashVM.splashState.value)
     }
 
     @Test
-    fun `SplashVM states when noAdsPurchases noAdsActive emitted false first and true later`() = runBlocking {
-        setUpMocks(isNoAdsActive = true)
-        coEvery { noAdsPurchases.noAdsActive }.returns(flow {
-            emit(false)
-            delay(500)
-            emit(true)
-        })
+    fun `SplashVM states when noAdsPurchases noAdsActive emitted false first and true later`() = runBlockingTest {
+        setUpMocks(
+            isNoAdsActive = false,
+            lastKnownAdConsentStatus = AdConsentStatus.UNINITIALIZED,
+            gdprLocationStatus = CheckGDPRLocationStatus.NON_UE
+        )
+        val publisher = ConflatedBroadcastChannel(false)
+        every { noAdsPurchases.noAdsActive }.returns(publisher.asFlow())
         splashVM.onStart()
         assertEquals(SplashState.LOADING_FIRST_LAUNCH, splashVM.splashState.value)
-        delay(1_000)
+        publisher.offer(true)
         assertEquals(SplashState.FINISHED, splashVM.splashState.value)
     }
 
     private fun setUpMocks(
         isNoAdsActive: Boolean = false,
         lastKnownAdConsentStatus: AdConsentStatus = AdConsentStatus.UNINITIALIZED,
-        isConnectedOrConnecting: Boolean = true
+        isConnectedOrConnecting: Boolean = true,
+        gdprLocationStatus: CheckGDPRLocationStatus = CheckGDPRLocationStatus.ERROR
+
     ) {
+
         coEvery { noAdsPurchases.noAdsActive }.returns(flow {
             emit(isNoAdsActive)
         })
-        every { gdprConsent.lastKnownAdConsentStatus }.returns(lastKnownAdConsentStatus)
+        coEvery { gdprConsent.requestGDPRLocation() }.returns(flow {
+            emit(gdprLocationStatus)
+        })
+        coEvery { gdprConsent.adConsentStatus }.returns(flow {
+            emit(lastKnownAdConsentStatus)
+        })
         every { networkStatus.isConnectedOrConnecting }.returns(isConnectedOrConnecting)
     }
 
@@ -112,7 +123,6 @@ class SplashVMTest {
         splashVM.onStart()
         assertEquals(SplashState.LOADING_FIRST_LAUNCH, splashVM.splashState.value)
     }
-
 
     @Test
     fun `SplashVM cleans listeners after noAds true called`() = runBlocking {
