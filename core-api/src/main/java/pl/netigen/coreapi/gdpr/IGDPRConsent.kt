@@ -1,10 +1,9 @@
 package pl.netigen.coreapi.gdpr
 
+import kotlinx.coroutines.flow.Flow
+
 interface IGDPRConsent {
-    val lastKnownAdConsentStatus: AdConsentStatus
-    fun requestGDPRLocation(gdprLocationStatusListener: (result: CheckGDPRLocationStatus) -> Unit)
+    val adConsentStatus: Flow<AdConsentStatus>
+    fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus>
     fun saveAdConsentStatus(adConsentStatus: AdConsentStatus)
-    fun cancelRequest()
-    fun isConsentShowed() =
-        (lastKnownAdConsentStatus == AdConsentStatus.NON_PERSONALIZED_SHOWED || lastKnownAdConsentStatus == AdConsentStatus.PERSONALIZED_SHOWED)
 }
