@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Naršyklė nerasta !!!</string>
+    <string name="cancel_netigen">Atšaukti</string>
     <string name="change_language_netigen">Pakeisti KALBĄ</string>
     <string name="translation_information_title_netigen">Vertimo informacija</string>
     <string name="translation_information_content1_netigen">Ši programa buvo išversta „Google“ vertėjas. Anglų kalba yra originali šios programos kalba.
         Atminkite, kad gali būti klaidų vertimo.
     </string>
     <string name="translation_information_content2_netigen">Jei norite pakeisti programos kalbą į anglų kalbą, tai galite padaryti nustatymuose.</string>
-    <string name="ok_upper_case_netigen">Gerai</string>
-    <string name="do_you_like_this_app_netigen">Ar jums patinka ši programa?</string>
-    <string name="please_support_us_netigen">Palaikykite mus įvertindami šią programą. Ačiū!</string>
-    <string name="later_netigen">Vėliau</string>
-    <string name="rate_us_netigen">Įvertinkite mus</string>
-    <string name="cancel_upper_case_netigen">ATŠAUKTI</string>
-    <string name="settings_upper_case_netigen">NUSTATYMAI</string>
     <string name="we_care_about_your_privacy_netigen">Mums rūpi jūsų privatumas ir duomenų saugumas. Mes neleidžiame naudoti šios programos rodydami
         skelbimus.
     </string>
@@ -23,4 +17,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Taip, toliau žiūrėkite susijusius skelbimus</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Ne, žiūrėkite mažiau aktualius skelbimus</string>
     <string name="payment_error_netigen">Mokėjimo klaida:</string>
+    <string name="do_you_like_this_app_netigen">Ar jums patinka ši programa?</string>
+    <string name="please_support_us_netigen">Palaikykite mus įvertindami šią programą. Ačiū!</string>
+    <string name="later_netigen">Vėliau</string>
+    <string name="rate_us_netigen">Įvertinkite mus</string>
+    <string name="settings_normal_netigen">Nustatymai</string>
 </resources>

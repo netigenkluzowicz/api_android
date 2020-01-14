@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Браузер не найден !!!</string>
+    <string name="cancel_netigen">Отмена</string>
     <string name="change_language_netigen">изменение языка</string>
     <string name="translation_information_title_netigen">Перевод информации</string>
     <string name="translation_information_content1_netigen">Это приложение было переведено Google Translate. Английский язык является исходным языком этого
@@ -8,13 +9,6 @@
     </string>
     <string name="translation_information_content2_netigen">Если вы хотите изменить язык приложения на английский, вы можете сделать это в настройках.
     </string>
-    <string name="ok_upper_case_netigen">Ок</string>
-    <string name="do_you_like_this_app_netigen">Вам нравится это приложение?</string>
-    <string name="please_support_us_netigen">Пожалуйста, поддержите нас, оценив это приложение. Спасибо!</string>
-    <string name="later_netigen">Потом</string>
-    <string name="rate_us_netigen">Оцените нас</string>
-    <string name="cancel_upper_case_netigen">ОТМЕНА</string>
-    <string name="settings_upper_case_netigen">НАСТРОЙКИ</string>
     <string name="we_care_about_your_privacy_netigen">Мы заботимся о вашей конфиденциальности и безопасности данных. Мы держим это приложение
         бесплатно, показывая рекламу.
     </string>
@@ -24,4 +18,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Да, продолжать видеть соответствующие объявления</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Нет, смотрите менее релевантные объявления</string>
     <string name="payment_error_netigen">Ошибка оплаты:</string>
+    <string name="do_you_like_this_app_netigen">Вам нравится это приложение?</string>
+    <string name="please_support_us_netigen">Пожалуйста, поддержите нас, оценив это приложение. Спасибо!</string>
+    <string name="later_netigen">Потом</string>
+    <string name="rate_us_netigen">Оцените нас</string>
+    <string name="settings_normal_netigen">Настройки</string>
 </resources>

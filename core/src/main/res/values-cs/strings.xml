@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Prohlížeč nebyl nalezen !!!</string>
+    <string name="cancel_netigen">zrušení</string>
     <string name="change_language_netigen">Změnit jazyk</string>
     <string name="translation_information_title_netigen">Překladatelské informace</string>
     <string name="translation_information_content1_netigen">Tato aplikace byla přeložena překladatelem Google. Angličtina je původní jazyk této aplikace.
         Nezapomeňte, že by mohlo dojít k chybám v překladu.
     </string>
     <string name="translation_information_content2_netigen">Chcete-li změnit jazyk aplikace na angličtinu, můžete tak učinit v nastaveních.</string>
-    <string name="ok_upper_case_netigen">OK</string>
-    <string name="do_you_like_this_app_netigen">Líbí se vám tato aplikace?</string>
-    <string name="please_support_us_netigen">Podpořte nás prosím hodnocením této aplikace. Děkuji!</string>
-    <string name="later_netigen">Později</string>
-    <string name="rate_us_netigen">Ohodnoťte nás</string>
-    <string name="cancel_upper_case_netigen">ZRUŠENÍ</string>
-    <string name="settings_upper_case_netigen">NASTAVENÍ</string>
     <string name="we_care_about_your_privacy_netigen">Staráme se o vaše soukromí a bezpečnost dat. Udržujeme tuto aplikaci bezplatnou zobrazováním
         reklam.
     </string>
@@ -23,4 +17,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Ano, nadále se budou zobrazovat relevantní reklamy</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Ne, podívejte se na reklamy, které jsou méně relevantní</string>
     <string name="payment_error_netigen">Chyba platby:</string>
+    <string name="do_you_like_this_app_netigen">Líbí se vám tato aplikace?</string>
+    <string name="please_support_us_netigen">Podpořte nás prosím hodnocením této aplikace. Děkuji!</string>
+    <string name="later_netigen">Později</string>
+    <string name="rate_us_netigen">Ohodnoťte nás</string>
+    <string name="settings_normal_netigen">Nastavení</string>
 </resources>

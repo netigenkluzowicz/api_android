@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Blaaier nie gevind nie !!!</string>
+    <string name="cancel_netigen">kanselleer</string>
     <string name="change_language_netigen">Verander taal</string>
     <string name="translation_information_title_netigen">Vertaalinligting</string>
     <string name="translation_information_content1_netigen">Hierdie aansoek is vertaal deur Google Translate. Engels is die
@@ -9,13 +10,6 @@
     <string name="translation_information_content2_netigen">As jy die programtaal na Engels wil verander, kan jy dit doen in
         instellings.
     </string>
-    <string name="ok_upper_case_netigen">OK</string>
-    <string name="do_you_like_this_app_netigen">Hou u van hierdie program?</string>
-    <string name="please_support_us_netigen">Ondersteun ons asseblief deur hierdie app te beoordeel. Dankie!</string>
-    <string name="later_netigen">Later</string>
-    <string name="rate_us_netigen">Gradeer ons</string>
-    <string name="cancel_upper_case_netigen">KANSELLEER</string>
-    <string name="settings_upper_case_netigen">SETTINGS</string>
     <string name="we_care_about_your_privacy_netigen">Ons gee om vir u privaatheid en datasekuriteit. Ons hou hierdie program gratis deur advertensies
         te wys.
     </string>
@@ -25,4 +19,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Ja, gaan voort om relevante advertensies te sien</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Nee, sien advertensies wat minder relevant is</string>
     <string name="payment_error_netigen">Betaalfout:</string>
+    <string name="do_you_like_this_app_netigen">Hou u van hierdie program?</string>
+    <string name="please_support_us_netigen">Ondersteun ons asseblief deur hierdie app te beoordeel. Dankie!</string>
+    <string name="later_netigen">Later</string>
+    <string name="rate_us_netigen">Gradeer ons</string>
+    <string name="settings_normal_netigen">instellings</string>
 </resources>

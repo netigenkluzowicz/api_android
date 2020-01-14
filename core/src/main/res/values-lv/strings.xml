@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Pārlūks nav atrasts !!!</string>
+    <string name="cancel_netigen">Atcelt</string>
     <string name="change_language_netigen">Mainīt VALODU</string>
     <string name="translation_information_title_netigen">Tulkošanas informācija</string>
     <string name="translation_information_content1_netigen">Šo programmu ir tulkojis Google tulkotājs. Angļu valoda ir šīs pieteikuma oriģinālvaloda. Lūdzu,
         atcerieties, ka tulkojumā var būt dažas kļūdas.
     </string>
     <string name="translation_information_content2_netigen">Ja vēlaties mainīt lietotnes valodu uz angļu valodu, to var izdarīt iestatījumos.</string>
-    <string name="ok_upper_case_netigen">labi</string>
-    <string name="do_you_like_this_app_netigen">Vai jums patīk šī lietotne?</string>
-    <string name="please_support_us_netigen">Lūdzu, atbalstiet mūs, novērtējot šo lietotni. Paldies!</string>
-    <string name="later_netigen">Vēlāk</string>
-    <string name="rate_us_netigen">Novērtē mūs</string>
-    <string name="cancel_upper_case_netigen">ATCELT</string>
-    <string name="settings_upper_case_netigen">IESTATĪJUMI</string>
     <string name="we_care_about_your_privacy_netigen">Mums rūp jūsu privātums un datu drošība. Mēs nerādām šo lietotni bez maksas, rādot reklāmas.
     </string>
     <string name="i_accept_privacy_policy_netigen">Es piekrītu Netigen privātuma politikai</string>
@@ -22,4 +16,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Jā, turpiniet skatīt atbilstošās reklāmas</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Nē, skatiet reklāmas, kas ir mazāk atbilstošas</string>
     <string name="payment_error_netigen">Maksājuma kļūda:</string>
+    <string name="do_you_like_this_app_netigen">Vai jums patīk šī lietotne?</string>
+    <string name="please_support_us_netigen">Lūdzu, atbalstiet mūs, novērtējot šo lietotni. Paldies!</string>
+    <string name="later_netigen">Vēlāk</string>
+    <string name="rate_us_netigen">Novērtē mūs</string>
+    <string name="settings_normal_netigen">Iestatījumi</string>
 </resources>

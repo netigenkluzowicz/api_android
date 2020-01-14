@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">متصفح غير موجود!</string>
+    <string name="cancel_netigen">إلغاء</string>
     <string name="change_language_netigen">غير اللغة</string>
     <string name="translation_information_title_netigen">معلومات الترجمة</string>
     <string name="translation_information_content1_netigen">تمت ترجمة هذا التطبيق بواسطة خدمة الترجمة من Google. اللغة الإنجليزية هي اللغة الأصلية لهذا
         التطبيق. يرجى تذكر أنه قد يكون هناك بعض الأخطاء في الترجمة.
     </string>
     <string name="translation_information_content2_netigen">إذا كنت تريد تغيير لغة التطبيق إلى الإنجليزية ، فيمكنك القيام بذلك في الإعدادات.</string>
-    <string name="ok_upper_case_netigen">حسنا</string>
-    <string name="do_you_like_this_app_netigen">هل مثل هذا التطبيق؟</string>
-    <string name="please_support_us_netigen">يرجى دعم لنا عن طريق تصنيف هذا التطبيق. شكرا لكم!</string>
-    <string name="later_netigen">في وقت لاحق</string>
-    <string name="rate_us_netigen">قيمنا</string>
-    <string name="cancel_upper_case_netigen">إلغاء</string>
-    <string name="settings_upper_case_netigen">الإعدادات</string>
     <string name="we_care_about_your_privacy_netigen">نحن نهتم خصوصيتك وأمن البيانات. نحافظ على هذا التطبيق مجانًا من خلال عرض الإعلانات.</string>
     <string name="i_accept_privacy_policy_netigen">أوافق على سياسة خصوصية Netigen</string>
     <string name="pay_for_the_ad_free_version_netigen">دفع للحصول على نسخة خالية من الاعلانات</string>
@@ -21,4 +15,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">نعم ، تابع مشاهدة الإعلانات ذات الصلة</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">لا ، انظر الإعلانات الأقل صلة</string>
     <string name="payment_error_netigen">خطأ الدفع:</string>
+    <string name="do_you_like_this_app_netigen">هل مثل هذا التطبيق؟</string>
+    <string name="please_support_us_netigen">يرجى دعم لنا عن طريق تصنيف هذا التطبيق. شكرا لكم!</string>
+    <string name="later_netigen">في وقت لاحق</string>
+    <string name="rate_us_netigen">قيمنا</string>
+    <string name="settings_normal_netigen">الإعدادات</string>
 </resources>

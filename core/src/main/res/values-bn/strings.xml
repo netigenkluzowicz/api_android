@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">ব্রাউজার পাওয়া যায়নি !!!</string>
+    <string name="cancel_netigen">বাতিল</string>
     <string name="change_language_netigen">ভাষা পরিবর্তন করুন</string>
     <string name="translation_information_title_netigen">অনুবাদ তথ্য</string>
     <string name="translation_information_content1_netigen">এই অ্যাপ্লিকেশনটি গুগল অনুবাদ দ্বারা অনুবাদ করা হয়েছে। ইংরেজি এই অ্যাপ্লিকেশন মূল ভাষা। অনুগ্রহ
         করে মনে রাখবেন যে অনুবাদের কিছু ভুল হতে পারে।
     </string>
     <string name="translation_information_content2_netigen">আপনি যদি অ্যাপ্লিকেশন ভাষাটি ইংরেজীতে পরিবর্তন করতে চান তবে আপনি সেটিংসে এটি করতে পারেন।</string>
-    <string name="ok_upper_case_netigen">ঠিক আছে</string>
-    <string name="do_you_like_this_app_netigen">আপনি কি এই অ্যাপ্লিকেশন পছন্দ করেন?</string>
-    <string name="please_support_us_netigen">এই অ্যাপ্লিকেশন রেটিং করে আমাদের সমর্থন করুন। ধন্যবাদ!</string>
-    <string name="later_netigen">পরবর্তীতে</string>
-    <string name="rate_us_netigen">আমাদের ব্যাপারে আপনার মতামত দিন</string>
-    <string name="cancel_upper_case_netigen">বাতিল</string>
-    <string name="settings_upper_case_netigen">সেটিংস</string>
     <string name="we_care_about_your_privacy_netigen">আমরা আপনার গোপনীয়তা এবং ডেটা সুরক্ষা সম্পর্কে যত্নশীল। আমরা বিজ্ঞাপন দেখিয়ে এই অ্যাপটি মুক্ত
         রাখি।
     </string>
@@ -23,4 +17,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">হ্যাঁ, প্রাসঙ্গিক বিজ্ঞাপনগুলি দেখতে চালিয়ে যান</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">না, কম প্রাসঙ্গিক বিজ্ঞাপনগুলি দেখুন</string>
     <string name="payment_error_netigen">অর্থ প্রদানের ত্রুটি:</string>
+    <string name="do_you_like_this_app_netigen">আপনি কি এই অ্যাপ্লিকেশন পছন্দ করেন?</string>
+    <string name="please_support_us_netigen">এই অ্যাপ্লিকেশন রেটিং করে আমাদের সমর্থন করুন। ধন্যবাদ!</string>
+    <string name="later_netigen">পরবর্তীতে</string>
+    <string name="rate_us_netigen">আমাদের ব্যাপারে আপনার মতামত দিন</string>
+    <string name="settings_normal_netigen">সেটিংস</string>
 </resources>

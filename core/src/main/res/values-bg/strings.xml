@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Браузърът не е намерен !!!</string>
+    <string name="cancel_netigen">Отказ</string>
     <string name="change_language_netigen">Смени езика</string>
     <string name="translation_information_title_netigen">Информация за превод</string>
     <string name="translation_information_content1_netigen">Това приложение е преведено от Google Преводач. Английският е оригиналният език на това
@@ -9,13 +10,6 @@
     <string name="translation_information_content2_netigen">Ако искате да промените езика на приложението на английски, можете да го направите в
         настройките.
     </string>
-    <string name="ok_upper_case_netigen">Добре</string>
-    <string name="do_you_like_this_app_netigen">Харесва ли ви това приложение?</string>
-    <string name="please_support_us_netigen">Моля, подкрепете ни, като оцените това приложение. Благодаря ти!</string>
-    <string name="later_netigen">По късно</string>
-    <string name="rate_us_netigen">Оцени ни</string>
-    <string name="cancel_upper_case_netigen">ОТКАЗ</string>
-    <string name="settings_upper_case_netigen">НАСТРОЙКИ</string>
     <string name="we_care_about_your_privacy_netigen">Ние се грижим за вашата поверителност и сигурност на данните. Ние поддържаме това приложение
         безплатно, като показваме реклами.
     </string>
@@ -25,4 +19,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Да, продължете да виждате подходящи реклами</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Не, вижте реклами, които са по-малко подходящи</string>
     <string name="payment_error_netigen">Грешка в плащането:</string>
+    <string name="do_you_like_this_app_netigen">Харесва ли ви това приложение?</string>
+    <string name="please_support_us_netigen">Моля, подкрепете ни, като оцените това приложение. Благодаря ти!</string>
+    <string name="later_netigen">По късно</string>
+    <string name="rate_us_netigen">Оцени ни</string>
+    <string name="settings_normal_netigen">Настройки</string>
 </resources>

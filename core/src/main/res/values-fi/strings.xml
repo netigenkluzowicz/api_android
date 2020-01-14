@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Selainta ei löytynyt !!!</string>
+    <string name="cancel_netigen">Peruuttaa</string>
     <string name="change_language_netigen">Vaihda kieltä</string>
     <string name="translation_information_title_netigen">Käännöstiedot</string>
     <string name="translation_information_content1_netigen">Google-kääntäjä on kääntänyt tämän sovelluksen. Englanti on tämän sovelluksen alkuperäinen kieli.
         Muista, että käännöksessä voi olla virheitä.
     </string>
     <string name="translation_information_content2_netigen">Jos haluat muuttaa sovelluskielen englanniksi, voit tehdä sen asetuksissa.</string>
-    <string name="ok_upper_case_netigen">kunnossa</string>
-    <string name="do_you_like_this_app_netigen">Pidätkö tästä sovelluksesta?</string>
-    <string name="please_support_us_netigen">Ole hyvä ja tue meitä arvioimalla tämä sovellus. Kiitos!</string>
-    <string name="later_netigen">Myöhemmin</string>
-    <string name="rate_us_netigen">Arvioi meidät</string>
-    <string name="cancel_upper_case_netigen">PERUUTTAA</string>
-    <string name="settings_upper_case_netigen">ASETUKSET</string>
     <string name="we_care_about_your_privacy_netigen">Me välitämme yksityisyydestäsi ja tietoturvallisuudestasi. Pidämme tämän sovelluksen ilmaisena
         näyttämällä mainoksia.
     </string>
@@ -23,4 +17,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Kyllä, jatka osuvien mainosten näyttämistä</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Ei, katso vähemmän osuvia mainoksia</string>
     <string name="payment_error_netigen">Maksuvirhe:</string>
+    <string name="do_you_like_this_app_netigen">Pidätkö tästä sovelluksesta?</string>
+    <string name="please_support_us_netigen">Ole hyvä ja tue meitä arvioimalla tämä sovellus. Kiitos!</string>
+    <string name="later_netigen">Myöhemmin</string>
+    <string name="rate_us_netigen">Arvioi meidät</string>
+    <string name="settings_normal_netigen">asetukset</string>
 </resources>

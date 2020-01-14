@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Не е пронајден прелистувач !!!</string>
+    <string name="cancel_netigen">Откажи</string>
     <string name="change_language_netigen">Промени го јазикот</string>
     <string name="translation_information_title_netigen">Информации за превод</string>
     <string name="translation_information_content1_netigen">Оваа апликација е преведена од Google Translate. Англискиот јазик е оригиналниот јазик на оваа
@@ -9,13 +10,6 @@
     <string name="translation_information_content2_netigen">Ако сакате да го промените јазикот на апликацијата на англиски јазик, можете да го направите тоа
         во поставките.
     </string>
-    <string name="ok_upper_case_netigen">добро</string>
-    <string name="do_you_like_this_app_netigen">Дали ви се допаѓа оваа апликација?</string>
-    <string name="please_support_us_netigen">Ве молиме, поддржете ни со оцена на оваа апликација. Ви благодарам!</string>
-    <string name="later_netigen">Подоцна</string>
-    <string name="rate_us_netigen">Оцени го нас</string>
-    <string name="cancel_upper_case_netigen">КАНЦЕЛ</string>
-    <string name="settings_upper_case_netigen">ПОСТАВУВАЊА</string>
     <string name="we_care_about_your_privacy_netigen">Ние се грижиме за вашата приватност и безбедноста на податоците. Ние ја одржуваме оваа
         апликација бесплатно покажувајќи реклами.
     </string>
@@ -25,4 +19,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Да, продолжете да гледате релевантни реклами</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Не, видете реклами кои се помалку релевантни</string>
     <string name="payment_error_netigen">Грешка во плаќање:</string>
+    <string name="do_you_like_this_app_netigen">Дали ви се допаѓа оваа апликација?</string>
+    <string name="please_support_us_netigen">Ве молиме, поддржете ни со оцена на оваа апликација. Ви благодарам!</string>
+    <string name="later_netigen">Подоцна</string>
+    <string name="rate_us_netigen">Оцени го нас</string>
+    <string name="settings_normal_netigen">Поставки</string>
 </resources>

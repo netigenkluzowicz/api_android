@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">Browser nicht gefunden !!!</string>
+    <string name="cancel_netigen">Stornieren</string>
     <string name="change_language_netigen">Sprache ändern</string>
     <string name="translation_information_title_netigen">Informationen zur Übersetzung</string>
     <string name="translation_information_content1_netigen">Diese Anwendung wurde von Google Translate übersetzt. Englisch ist die Originalsprache der
@@ -8,13 +9,6 @@
     </string>
     <string name="translation_information_content2_netigen">Wenn Sie die App-Sprache in Englisch ändern möchten, können Sie dies in den Einstellungen tun.
     </string>
-    <string name="ok_upper_case_netigen">OK</string>
-    <string name="do_you_like_this_app_netigen">Magst du diese App?</string>
-    <string name="please_support_us_netigen">Bitte unterstützen Sie uns, indem Sie diese App bewerten. Vielen Dank!</string>
-    <string name="later_netigen">Später</string>
-    <string name="rate_us_netigen">Bewertung</string>
-    <string name="cancel_upper_case_netigen">STORNIEREN</string>
-    <string name="settings_upper_case_netigen">EINSTELLUNGEN</string>
     <string name="we_care_about_your_privacy_netigen">Wir kümmern uns um Ihre Privatsphäre und Datensicherheit. Wir halten diese App kostenlos, indem
         wir Anzeigen schalten.
     </string>
@@ -24,4 +18,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">Ja, relevante Anzeigen werden weiterhin angezeigt</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">Nein, sehen Sie Anzeigen, die weniger relevant sind</string>
     <string name="payment_error_netigen">Zahlungsfehler:</string>
+    <string name="do_you_like_this_app_netigen">Magst du diese App?</string>
+    <string name="please_support_us_netigen">Bitte unterstützen Sie uns, indem Sie diese App bewerten. Vielen Dank!</string>
+    <string name="later_netigen">Später</string>
+    <string name="rate_us_netigen">Bewertung</string>
+    <string name="settings_normal_netigen">Einstellungen</string>
 </resources>

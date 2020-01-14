@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="msg_browser_not_found_netigen">ब्राउजर भेटिएन !!!</string>
+    <string name="cancel_netigen">रद्द गर्नुहोस्</string>
     <string name="change_language_netigen">भाषा परिवर्तन गर्नुहोस्</string>
     <string name="translation_information_title_netigen">अनुवाद जानकारी</string>
     <string name="translation_information_content1_netigen">यो अनुप्रयोग Google अनुवाद द्वारा अनुवाद गरिएको छ। अंग्रेजी यस अनुप्रयोगको मूल भाषा हो। कृपया याद
@@ -9,13 +10,6 @@
     <string name="translation_information_content2_netigen">यदि तपाईं अंग्रेजीमा एप भाषा परिवर्तन गर्न चाहनुहुन्छ भने तपाइँ सेटिङहरूमा त्यसो गर्न
         सक्नुहुन्छ।
     </string>
-    <string name="ok_upper_case_netigen">ठिक छ</string>
-    <string name="do_you_like_this_app_netigen">के तपाईंलाई यो अनुप्रयोग मनपर्‍यो?</string>
-    <string name="please_support_us_netigen">कृपया हामीलाई यो अनुप्रयोगको दर्जा दिएर समर्थन गर्नुहोस्। धन्यवाद!</string>
-    <string name="later_netigen">पछि</string>
-    <string name="rate_us_netigen">हामीलाई मूल्याङ्कन गर्नुहोस्</string>
-    <string name="cancel_upper_case_netigen">रद्द गर्नुहोस्</string>
-    <string name="settings_upper_case_netigen">SETTINGS</string>
     <string name="we_care_about_your_privacy_netigen">हामी तपाइँको गोपनीयता र डेटा सुरक्षा बारे ख्याल राख्छौं। हामी विज्ञापन देखाउँदै यो अनुप्रयोग
         सित्तैमा राख्छौं।
     </string>
@@ -25,4 +19,9 @@
     <string name="yes_continue_to_see_relevant_ads_netigen">हो, प्रासंगिक विज्ञापनहरू हेर्न जारी राख्नुहोस्</string>
     <string name="no_see_ads_that_are_less_relevant_netigen">होईन, विज्ञापनहरू हेर्नुहोस् जुन कम सान्दर्भिक छन्</string>
     <string name="payment_error_netigen">भुक्तानी त्रुटि:</string>
+    <string name="do_you_like_this_app_netigen">के तपाईंलाई यो अनुप्रयोग मनपर्‍यो?</string>
+    <string name="please_support_us_netigen">कृपया हामीलाई यो अनुप्रयोगको दर्जा दिएर समर्थन गर्नुहोस्। धन्यवाद!</string>
+    <string name="later_netigen">पछि</string>
+    <string name="rate_us_netigen">हामीलाई मूल्याङ्कन गर्नुहोस्</string>
+    <string name="settings_normal_netigen">सेटिङ्हरू</string>
 </resources>
