@@ -7,7 +7,6 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
@@ -80,19 +79,24 @@ class AdmobInterstitial(
         callbackFlow {
             interstitialAd = InterstitialAd(activity)
             interstitialAd.adUnitId = adId.id
-            interstitialAd.adListener = object : AdListener() {
+            val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     offer(false)
-                    close()
+                    channel.close()
                 }
 
                 override fun onAdLoaded() {
                     offer(true)
-                    close()
+                    channel.close()
                 }
             }
+            interstitialAd.adListener = callback
             interstitialAd.loadAd(admobRequest.getAdRequest())
-            awaitClose { cancel() }
+            awaitClose {
+                if (interstitialAd.adListener == callback) {
+                    interstitialAd.adListener = null
+                }
+            }
         }
 
     override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {

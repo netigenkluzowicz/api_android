@@ -1,16 +1,13 @@
 package pl.netigen.core.splash
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.withTimeout
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.AdConsentStatus.*
@@ -22,6 +19,7 @@ import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.extensions.launch
+import pl.netigen.extensions.launchMain
 
 class SplashVM(
     private val gdprConsent: IGDPRConsent,
@@ -42,15 +40,10 @@ class SplashVM(
         launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
         launch(coroutineDispatcherIo) {
             gdprConsent.adConsentStatus
-                .catch {
-                    onFirstLaunch()
-                }
-                .first {
-                    if (it == UNINITIALIZED)
-                        onFirstLaunch() else
-                        onNextLaunch(it)
-                    true
-                }
+                .onEach {
+                    withTimeout(maxConsentWaitTime) { if (it == UNINITIALIZED) onFirstLaunch() else onNextLaunch(it) }
+                }.catch { onFirstLaunch() }
+                .collect()
         }
     }
 
@@ -74,12 +67,13 @@ class SplashVM(
         updateState(SplashState.LOADING_FIRST_LAUNCH)
         launch(coroutineDispatcherIo) {
             gdprConsent.requestGDPRLocation()
-                .catch { showGdprPopUp() }
                 .onEach {
                     withTimeout(maxConsentWaitTime) {
                         onFirstLaunchCheckGdpr(it)
                     }
                 }
+                .catch { showGdprPopUp() }
+                .collect()
         }
     }
 
@@ -87,10 +81,11 @@ class SplashVM(
         launch(coroutineDispatcherIo) {
             gdprConsent.requestGDPRLocation()
                 .onEach {
-                    withTimeout(maxConsentWaitTime) {
+                    withTimeoutOrNull(maxConsentWaitTime) {
                         if (it == CheckGDPRLocationStatus.UE) onLocationChangeToEu()
                     }
                 }
+                .collect()
         }
     }
 
@@ -101,26 +96,22 @@ class SplashVM(
 
 
     override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
-        val adConsentStatus: AdConsentStatus =
-            if (personalizedAdsApproved) {
-                PERSONALIZED_SHOWED
-            } else {
-                NON_PERSONALIZED_SHOWED
-            }
+        val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) PERSONALIZED_SHOWED else NON_PERSONALIZED_SHOWED
         gdprConsent.saveAdConsentStatus(adConsentStatus)
-        ads.setConsentStatus(personalizedAdsApproved)
+        ads.personalizedAdsEnabled = personalizedAdsApproved
         startLoadingInterstitial()
     }
 
     private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
 
     private fun onInterstitialLoaded() {
+        Log.d("wrobel", "onInterstitialLoaded() called ")
         viewModelScope.cancel()
         ads.interstitialAd.showInterstitialAd { finish() }
     }
 
     private fun initOnNonUeLocation() {
-        ads.setConsentStatus(true)
+        ads.personalizedAdsEnabled = true
         gdprConsent.saveAdConsentStatus(PERSONALIZED_NON_UE)
         startLoadingInterstitial()
     }
@@ -129,15 +120,11 @@ class SplashVM(
         if (!networkStatus.isConnectedOrConnecting) return finish()
         networkStatus.addNetworkStatusChangeListener(this)
         updateState(SplashState.LOADING_INTERSTITIAL)
-        launch(coroutineDispatcherIo) {
+        launchMain {
             ads.interstitialAd.loadInterstitialAd()
+                .onEach { withTimeout(maxInterstitialWaitTime) { onLoadInterstitialResult(it) } }
                 .catch { onLoadInterstitialResult(false) }
-                .collect {
-                    withTimeout(maxInterstitialWaitTime)
-                    {
-                        onLoadInterstitialResult(it)
-                    }
-                }
+                .collect()
         }
     }
 
