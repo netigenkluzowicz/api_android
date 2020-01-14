@@ -1,3 +1,3 @@
 package pl.netigen.coreapi.ads
 
-data class AdId<T>(val id : T)
+data class AdId<T>(val id: T)

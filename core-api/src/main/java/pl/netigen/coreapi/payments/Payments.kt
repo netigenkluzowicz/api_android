@@ -1,7 +1,5 @@
 package pl.netigen.coreapi.payments
 
-import android.app.Activity
-
 abstract class Payments : IPayments {
 
     abstract val paymentsRepo: IPaymentsRepo

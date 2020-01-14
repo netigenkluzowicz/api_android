@@ -16,9 +16,9 @@ class AdmobAds(
     bannerAdId: String,
     interstitialAdId: String,
     bannerRelativeLayout: RelativeLayout,
+    override var personalizedAdsEnabled: Boolean = false,
     private val testDevices: List<String> = emptyList(),
-    private val isInDebugMode: Boolean = false,
-    private var personalizedAdsApproved: Boolean = false
+    private val isInDebugMode: Boolean = false
 ) : IAds, IAdmobRequest {
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
@@ -43,7 +43,7 @@ class AdmobAds(
                 builder.addTestDevice(testDevices[i])
             }
         }
-        if (personalizedAdsApproved) return builder.build()
+        if (personalizedAdsEnabled) return builder.build()
 
         val extras = Bundle()
         extras.putString("npa", "1")
@@ -53,10 +53,6 @@ class AdmobAds(
     override fun enable() = setEnabled(true)
 
     override fun disable() = setEnabled(false)
-
-    override fun setConsentStatus(personalizedAdsApproved: Boolean) {
-        this.personalizedAdsApproved = personalizedAdsApproved
-    }
 
     private fun setEnabled(enabled: Boolean) {
         bannerAd.enabled = enabled
