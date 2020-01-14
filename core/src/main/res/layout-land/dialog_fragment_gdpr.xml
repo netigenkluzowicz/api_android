@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
-                android:textColor="@color/dialog_text_view_netigen_api"
+                android:textColor="@color/dialog_text_view"
                 android:visibility="gone" />
 
             <WebView

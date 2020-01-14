@@ -20,7 +20,7 @@
     <color name="dialog_buttons_text_color">#585858</color>
     <color name="dialog_sub_text_color">#2B2B2B</color>
 
-    <color name="dialog_text_view_netigen_api">#4D4D4D</color>
-    <color name="dialog_accent_netigen_api">#4D4D4D</color>
-    <color name="dialog_neutral_button_bg_netigen_api">#C2C3C4</color>
+    <color name="dialog_text_view">#4D4D4D</color>
+    <color name="dialog_accent">#4D4D4D</color>
+    <color name="dialog_neutral_button_bg">#C2C3C4</color>
 </resources>

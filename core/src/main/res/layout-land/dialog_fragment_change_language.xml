@@ -21,7 +21,7 @@
         android:fontFamily="@font/roboto_bold"
         android:gravity="center|start"
         android:text="@string/change_language_netigen"
-        android:textColor="@color/dialog_text_view_netigen_api"
+        android:textColor="@color/dialog_text_view"
         android:textSize="@dimen/title_text_size_netigen_api"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView_languages"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/divider_title_list"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/dialog_neutral_button_bg_netigen_api"
+        android:background="@color/dialog_neutral_button_bg"
         app:layout_constraintTop_toBottomOf="@id/textView_choose_language_title" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="@dimen/default_margin_netigen_api"
-        android:background="@color/dialog_neutral_button_bg_netigen_api"
+        android:background="@color/dialog_neutral_button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/button_change_language_ok"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView_languages" />

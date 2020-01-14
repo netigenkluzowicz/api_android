@@ -97,7 +97,7 @@ public class ChangeLanguageHelper {
                 .create();
         AppCompatTextView buttonPositive = dialogView.findViewById(R.id.button_positive);
 
-        buttonPositive.getBackground().setColorFilter(ContextCompat.getColor(appCompatActivity, R.color.dialog_accent_netigen_api), PorterDuff.Mode.MULTIPLY);
+        buttonPositive.getBackground().setColorFilter(ContextCompat.getColor(appCompatActivity, R.color.dialog_accent), PorterDuff.Mode.MULTIPLY);
         buttonPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +106,7 @@ public class ChangeLanguageHelper {
             }
         });
         AppCompatTextView buttonNegative = dialogView.findViewById(R.id.button_negative);
-        buttonNegative.getBackground().setColorFilter(ContextCompat.getColor(appCompatActivity, R.color.dialog_neutral_button_bg_netigen_api), PorterDuff.Mode.MULTIPLY);
+        buttonNegative.getBackground().setColorFilter(ContextCompat.getColor(appCompatActivity, R.color.dialog_neutral_button_bg), PorterDuff.Mode.MULTIPLY);
 
         buttonNegative.setOnClickListener(new View.OnClickListener() {
             @Override

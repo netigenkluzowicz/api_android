@@ -9,7 +9,6 @@ import android.view.*
 import androidx.appcompat.app.AppCompatDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_rate_us_netigen_api.*
 import pl.netigen.core.R
-import pl.netigen.extensions.setDialogSize
 import pl.netigen.extensions.setTint
 import pl.netigen.extensions.toPx
 
@@ -41,8 +40,8 @@ class RateFragment : AppCompatDialogFragment() {
 
     private fun setButtonsBackgroundTints() {
         context?.let {
-            rateUsFragmentYesTextView.background.setTint(it, R.color.dialog_accent_netigen_api, PorterDuff.Mode.MULTIPLY)
-            rateUsFragmentLaterTextView.background.setTint(it, R.color.dialog_neutral_button_bg_netigen_api, PorterDuff.Mode.MULTIPLY)
+            rateUsFragmentYesTextView.background.setTint(it, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY)
+            rateUsFragmentLaterTextView.background.setTint(it, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY)
         }
     }
 
