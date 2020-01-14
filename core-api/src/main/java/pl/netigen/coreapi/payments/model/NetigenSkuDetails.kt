@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 @Entity
 data class NetigenSkuDetails(
     @PrimaryKey val sku: String,
-    val type: String?,
+    val type: String? = null,
     val isNoAds: Boolean,
-    val price: String?,
-    val title: String?,
-    val description: String?,
-    val originalJson: String?
+    val price: String? = null,
+    val title: String? = null,
+    val description: String? = null,
+    val originalJson: String? = null
 )
