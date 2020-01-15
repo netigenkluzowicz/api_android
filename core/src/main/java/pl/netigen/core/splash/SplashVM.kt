@@ -13,7 +13,6 @@ import pl.netigen.coreapi.gdpr.AdConsentStatus.*
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
-import pl.netigen.coreapi.network.NetworkStatusChangeListener
 import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
@@ -29,8 +28,9 @@ class SplashVM(
     private val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
-) : ViewModel(), ISplashVM, NetworkStatusChangeListener {
+) : ViewModel(), ISplashVM {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
+    override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
 
     override fun onStart() {
         if (!isRunning()) init()
@@ -64,7 +64,7 @@ class SplashVM(
 
     private fun onFirstLaunch() {
         if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
-        updateState(SplashState.LOADING_FIRST_LAUNCH)
+        isFirstLaunch.postValue(true)
         launch(coroutineDispatcherIo) {
             gdprConsent.requestGDPRLocation()
                 .onEach {
@@ -82,18 +82,15 @@ class SplashVM(
             gdprConsent.requestGDPRLocation()
                 .onEach {
                     withTimeoutOrNull(maxConsentWaitTime) {
-                        if (it == CheckGDPRLocationStatus.UE) onLocationChangeToEu()
+                        if (it == CheckGDPRLocationStatus.UE) {
+                            cleanUp()
+                            showGdprPopUp()
+                        }
                     }
                 }
                 .collect()
         }
     }
-
-    private fun onLocationChangeToEu() {
-        cleanUp()
-        showGdprPopUp()
-    }
-
 
     override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
         val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) PERSONALIZED_SHOWED else NON_PERSONALIZED_SHOWED
@@ -117,8 +114,7 @@ class SplashVM(
 
     private fun startLoadingInterstitial() {
         if (!networkStatus.isConnectedOrConnecting) return finish()
-        networkStatus.addNetworkStatusChangeListener(this)
-        updateState(SplashState.LOADING_INTERSTITIAL)
+        updateState(SplashState.LOADING)
         launchMain {
             ads.interstitialAd.loadInterstitialAd()
                 .onEach { withTimeout(maxInterstitialWaitTime) { onLoadInterstitialResult(it) } }
@@ -134,7 +130,9 @@ class SplashVM(
 
     private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
 
-    private fun showGdprPopUp() = updateState(SplashState.GDPR_POP_UP)
+    private fun showGdprPopUp() {
+        updateState(SplashState.GDPR_POP_UP)
+    }
 
     private fun onAdsFlowChanged(purchased: Boolean) {
         if (purchased) {
@@ -151,11 +149,6 @@ class SplashVM(
 
     private fun cleanUp() {
         viewModelScope.cancel()
-        networkStatus.removeNetworkStatusChangeListener(this)
-    }
-
-    override fun onNetworkStatusChanged(isConnected: Boolean) {
-        if (!isConnected && splashState.value == SplashState.LOADING_INTERSTITIAL) finish()
     }
 
     companion object {

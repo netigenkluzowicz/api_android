@@ -1,6 +1,7 @@
 package pl.netigen.core.splash
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.viewModelScope
 import io.mockk.*
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
@@ -8,6 +9,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -79,12 +81,34 @@ class SplashVMTest {
             lastKnownAdConsentStatus = AdConsentStatus.UNINITIALIZED,
             gdprLocationStatus = CheckGDPRLocationStatus.NON_UE
         )
-        val publisher = ConflatedBroadcastChannel(false)
-        every { noAdsPurchases.noAdsActive }.returns(publisher.asFlow())
+
+        val noAdsActivePublisher = getPublisher({ noAdsPurchases.noAdsActive }, false)
         splashVM.onStart()
-        assertEquals(SplashState.LOADING_FIRST_LAUNCH, splashVM.splashState.value)
-        publisher.offer(true)
+        assertEquals(SplashState.LOADING, splashVM.splashState.value)
+        noAdsActivePublisher.offer(true)
         assertEquals(SplashState.FINISHED, splashVM.splashState.value)
+    }
+
+    @Test
+    fun `SplashVM states when noAdsPurchases noAdsActive emitted false first and true later when GDPR IN UE`() = runBlockingTest {
+        setUpMocks(
+            isNoAdsActive = false,
+            lastKnownAdConsentStatus = AdConsentStatus.UNINITIALIZED,
+            gdprLocationStatus = CheckGDPRLocationStatus.UE
+        )
+
+        val noAdsActivePublisher = getPublisher({ noAdsPurchases.noAdsActive }, false)
+        splashVM.onStart()
+        assertEquals(SplashState.GDPR_POP_UP, splashVM.splashState.value)
+        noAdsActivePublisher.offer(true)
+        assertEquals(SplashState.FINISHED, splashVM.splashState.value)
+    }
+
+    fun <T> getPublisher(stubBlock: MockKMatcherScope.() -> T, value: T? = null): ConflatedBroadcastChannel<T> {
+        val noAdsActivePublisher: ConflatedBroadcastChannel<T> = if (value != null) ConflatedBroadcastChannel(value) else ConflatedBroadcastChannel()
+        val every = every(stubBlock)
+        every.returns(noAdsActivePublisher.asFlow() as T)
+        return noAdsActivePublisher
     }
 
     private fun setUpMocks(
@@ -115,16 +139,17 @@ class SplashVMTest {
     }
 
     @Test
-    fun `SplashVM has LOADING_FIRST_LAUNCH status when there is first launch with connected internet`() {
+    fun `SplashVM isFirstLaunch == true when there is first launch with connected internet`() {
         setUpMocks(isConnectedOrConnecting = true)
         splashVM.onStart()
-        assertEquals(SplashState.LOADING_FIRST_LAUNCH, splashVM.splashState.value)
+        assertEquals(true, splashVM.isFirstLaunch.value)
     }
 
     @Test
-    fun `SplashVM cleans listeners after noAds true called`() = runBlocking {
+    fun `SplashVM finishes and cleans after noAds true called`() = runBlocking {
         setUpMocks(isNoAdsActive = true)
         splashVM.onStart()
-        verify { networkStatus.removeNetworkStatusChangeListener(any()) }
+        assertEquals(SplashState.FINISHED, splashVM.splashState.value)
+        assertEquals(false, splashVM.viewModelScope.isActive)
     }
 }
