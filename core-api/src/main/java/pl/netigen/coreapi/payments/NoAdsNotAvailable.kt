@@ -6,10 +6,6 @@ import kotlinx.coroutines.flow.flow
 
 object NoAdsNotAvailable : INoAds {
     override val noAdsActive: Flow<Boolean> = flow { emit(false) }
-    
-    override fun makeNoAdsPayment(activity: Activity, noAdsString: String) = throw IllegalStateException("NoAds payment it not available")
-}
 
-fun check(){
-    NoAdsNotAvailable.noAdsActive
+    override fun makeNoAdsPayment(activity: Activity, noAdsString: String) = throw IllegalStateException("NoAds payment it not available")
 }
