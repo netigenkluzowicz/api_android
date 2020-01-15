@@ -9,6 +9,8 @@ import android.view.*
 import androidx.appcompat.app.AppCompatDialogFragment
 import kotlinx.android.synthetic.main.dialog_fragment_rate_us_netigen_api.*
 import pl.netigen.core.R
+import pl.netigen.core.utils.Const.Companion.MARGIN_TOP
+import pl.netigen.core.utils.Const.Companion.SCREEN_HEIGHT_IN_DP
 import pl.netigen.extensions.setTint
 import pl.netigen.extensions.toPx
 
@@ -19,9 +21,6 @@ class RateFragment : AppCompatDialogFragment() {
             rateFragment.rateUs = listener
             return rateFragment
         }
-
-        const val MARGIN_TOP = 10
-        const val SCREEN_HEIGHT_IN_DP = 335
     }
 
     private lateinit var rateUs: RateUsListener
