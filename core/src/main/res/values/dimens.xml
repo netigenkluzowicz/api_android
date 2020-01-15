@@ -26,4 +26,6 @@
     <dimen name="small_space_netigen_api">12dp</dimen>
     <dimen name="medium_space_netigen_api">16dp</dimen>
     <dimen name="big_space_netigen_api">24dp</dimen>
+
+    <dimen name="pop_up_portrait_width">280dp</dimen>
 </resources>
