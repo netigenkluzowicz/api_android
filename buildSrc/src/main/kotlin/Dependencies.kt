@@ -80,6 +80,5 @@ object Libraries {
     val roomKTX = "androidx.room:room-ktx:${Versions.room}"
 
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
-
 }
 
