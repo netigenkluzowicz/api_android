@@ -3,10 +3,13 @@ package pl.netigen.gms.payments
 import android.app.Activity
 import android.app.Application
 import com.android.billingclient.api.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.payments.Security
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
@@ -31,13 +34,7 @@ class GMSPaymentsRepo(
     override val inAppSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
     override val subsSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
 
-    override val noAdsActive by lazy {
-        noAdsFlow()
-    }
-
-    init {
-        connectToPlayBillingService()
-    }
+    override val noAdsActive by lazy { noAdsFlow() }
 
     private fun noAdsFlow(): Flow<Boolean> {
         return flow {
@@ -45,6 +42,10 @@ class GMSPaymentsRepo(
                 emit(list.count { it.isNoAds } > 0)
             }
         }
+    }
+
+    init {
+        connectToPlayBillingService()
     }
 
     private fun connectToPlayBillingService(): Boolean {
@@ -95,9 +96,6 @@ class GMSPaymentsRepo(
                             CoroutineScope(Job() + Dispatchers.IO).launch {
                                 Timber.d("inserting $it")
                                 localCacheBillingClient.skuDetailsDao().insertOrUpdate(it)
-                                delay(1_000)
-                                val fetchedFromDb = localCacheBillingClient.skuDetailsDao().getById(it.sku)
-                                Timber.d("fetchedFromDb $fetchedFromDb")
                             }
                         }
                     }
@@ -110,7 +108,6 @@ class GMSPaymentsRepo(
     }
 
     private fun queryPurchasesAsync() {
-        Timber.d("")
         val purchasesResult = HashSet<Purchase>()
         var result = gmsBillingClient.queryPurchases(BillingClient.SkuType.INAPP)
         Timber.d(" INAPP results: ${result?.purchasesList?.size})")
@@ -148,8 +145,7 @@ class GMSPaymentsRepo(
                     }
                 } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {
                     Timber.d("Received a pending purchase of SKU: ${purchase.sku}")
-                    // handle pending purchases, e.g. confirm with users about the pending
-                    // purchases, prompt them to complete it, etc.
+                    //TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
                 }
             }
             val (consumables, nonConsumables) = validPurchases.partition {
@@ -230,7 +226,7 @@ class GMSPaymentsRepo(
         Timber.d("launching billing flow")
         netigenSkuDetails.originalJson?.let {
             launchBillingFlow(activity, SkuDetails(it))
-        } ?: TODO("Need to implement error operation here")
+        } ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
     }
 
     fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {
