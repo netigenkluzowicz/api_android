@@ -8,7 +8,7 @@ import pl.netigen.core.splash.SplashVM
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
-import pl.netigen.coreapi.payments.NoAdsNoAvailable
+import pl.netigen.coreapi.payments.NoAdsNotAvailable
 import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.extensions.observe
 import pl.netigen.gms.ads.AdmobAds
@@ -42,7 +42,7 @@ class SampleMainActivity : AppCompatActivity() {
             gdprConsent = gdprConsent,
             ads = ads,
             networkStatus = NetworkStatus(this),
-            noAdsPurchases = NoAdsNoAvailable()
+            noAdsPurchases = NoAdsNotAvailable()
         )
         splashVM.splashState.observe(this) {
             Log.d("wrobel", "splashState.observe: $it")
