@@ -1,6 +1,5 @@
 package pl.netigen.core.splash
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,6 +20,7 @@ import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchMain
 
+@ExperimentalCoroutinesApi
 class SplashVM(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
@@ -105,7 +105,6 @@ class SplashVM(
     private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
 
     private fun onInterstitialLoaded() {
-        Log.d("wrobel", "onInterstitialLoaded() called ")
         viewModelScope.cancel()
         ads.interstitialAd.showInterstitialAd { finish() }
     }

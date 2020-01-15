@@ -91,7 +91,7 @@ class SplashVMTest {
         isNoAdsActive: Boolean = false,
         lastKnownAdConsentStatus: AdConsentStatus = AdConsentStatus.UNINITIALIZED,
         isConnectedOrConnecting: Boolean = true,
-        gdprLocationStatus: CheckGDPRLocationStatus = CheckGDPRLocationStatus.ERROR
+        gdprLocationStatus: CheckGDPRLocationStatus = CheckGDPRLocationStatus.NON_UE
 
     ) {
 
