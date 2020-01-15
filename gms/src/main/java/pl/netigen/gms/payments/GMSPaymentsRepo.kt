@@ -49,7 +49,7 @@ class GMSPaymentsRepo(
     }
 
     private fun connectToPlayBillingService(): Boolean {
-        Timber.d("called")
+        Timber.d("")
         if (!gmsBillingClient.isReady) {
             gmsBillingClient.startConnection(this)
             return true
@@ -70,7 +70,7 @@ class GMSPaymentsRepo(
             BillingClient.BillingResponseCode.OK -> {
                 Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
                 querySkuDetailsAsync(BillingClient.SkuType.INAPP, inAppSkuList)
-                //TODO we should decide wether we want to deal with subs sku separately, but it seems like a right way to me
+                //TODO we should decide whether we want to deal with subs sku separately, but it seems like a right way to me
                 //querySkuDetailsAsync(BillingClient.SkuType.SUBS, subSkuList)
                 queryPurchasesAsync()
             }
@@ -169,7 +169,7 @@ class GMSPaymentsRepo(
     }
 
     private fun handleConsumablePurchasesAsync(consumables: List<Purchase>) {
-        Timber.d("called")
+        Timber.d("")
         consumables.forEach {
             Timber.d("foreach it is $it")
             val params =
@@ -222,7 +222,6 @@ class GMSPaymentsRepo(
     }
 
     fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
-        //an error here would mean that you don't have a proper sku set, or your netigenSkuDetails for your sku is not yet in db
         Timber.d("launching billing flow")
         netigenSkuDetails.originalJson?.let {
             launchBillingFlow(activity, SkuDetails(it))
