@@ -7,15 +7,17 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IInterstitialAd
 
-class AdmobInterstitial(
+@ExperimentalCoroutinesApi
+class AdMobInterstitial(
     private val activity: AppCompatActivity,
-    private val admobRequest: IAdmobRequest,
+    private val adMobRequest: IAdMobRequest,
     override val adId: AdId<String>,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
     override var enabled: Boolean = true
@@ -29,51 +31,6 @@ class AdmobInterstitial(
         interstitialAd = InterstitialAd(activity)
         activity.lifecycle.addObserver(this)
     }
-
-    private fun loadIfShouldBeLoaded() {
-        if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        loadInterstitialAd()
-    }
-
-
-    private fun onLoaded(onClosedOrNotShowed: (Boolean) -> Unit) {
-        val currentTime = SystemClock.elapsedRealtime()
-        interstitialAd.adListener = object : AdListener() {
-            override fun onAdClosed() {
-                onClosedOrNotShowed(true)
-                loadIfShouldBeLoaded()
-            }
-        }
-        when {
-            isInBackground -> onClosedOrNotShowed(false)
-            validateLastShowTime(currentTime) -> show()
-            else -> onClosedOrNotShowed(false)
-        }
-    }
-
-    private fun validateLastShowTime(currentTime: Long) =
-        lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
-
-    private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
-        onClosedOrNotShowed(false)
-        loadIfShouldBeLoaded()
-    }
-
-    private fun show() {
-        lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
-        interstitialAd.show()
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-        isInBackground = false
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
-        isInBackground = true
-    }
-
 
     override fun loadInterstitialAd(): Flow<Boolean> =
         callbackFlow {
@@ -91,13 +48,55 @@ class AdmobInterstitial(
                 }
             }
             interstitialAd.adListener = callback
-            interstitialAd.loadAd(admobRequest.getAdRequest())
+            interstitialAd.loadAd(adMobRequest.getAdRequest())
             awaitClose {
                 if (interstitialAd.adListener == callback) {
                     interstitialAd.adListener = null
                 }
             }
         }
+
+    private fun onLoaded(onClosedOrNotShowed: (Boolean) -> Unit) {
+        val currentTime = SystemClock.elapsedRealtime()
+        interstitialAd.adListener = object : AdListener() {
+            override fun onAdClosed() {
+                onClosedOrNotShowed(true)
+                loadIfShouldBeLoaded()
+            }
+        }
+        when {
+            isInBackground -> onClosedOrNotShowed(false)
+            validateLastShowTime(currentTime) -> show()
+            else -> onClosedOrNotShowed(false)
+        }
+    }
+
+    private fun loadIfShouldBeLoaded() {
+        if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
+        loadInterstitialAd()
+    }
+    private fun validateLastShowTime(currentTime: Long) =
+        lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
+
+    private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
+        onClosedOrNotShowed(false)
+        loadIfShouldBeLoaded()
+    }
+
+    private fun show() {
+        lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
+        interstitialAd.show()
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    private fun onResume() {
+        isInBackground = false
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    private fun onPause() {
+        isInBackground = true
+    }
 
     override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {
         when {

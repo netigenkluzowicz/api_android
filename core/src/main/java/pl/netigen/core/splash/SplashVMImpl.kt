@@ -1,7 +1,6 @@
 package pl.netigen.core.splash
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.catch
@@ -14,13 +13,13 @@ import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
-import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
+import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchMain
 
 @ExperimentalCoroutinesApi
-class SplashVM(
+class SplashVMImpl(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
@@ -28,12 +27,13 @@ class SplashVM(
     private val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
-) : ViewModel(), ISplashVM {
+) : SplashVM() {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
+    private val isRunning get() = splashState.value != SplashState.UNINITIALIZED && splashState.value != SplashState.FINISHED
 
     override fun onStart() {
-        if (!isRunning()) init()
+        if (!isRunning) init()
     }
 
     private fun init() {
@@ -47,20 +47,22 @@ class SplashVM(
         }
     }
 
-    private fun onNextLaunch(it: AdConsentStatus) {
-        if (it == PERSONALIZED_NON_UE) checkConsentNextLaunch()
-        startLoadingInterstitial()
-    }
-
-    private fun onFirstLaunchCheckGdpr(it: CheckGDPRLocationStatus) {
-        when (it) {
-            CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
-            CheckGDPRLocationStatus.UE -> showGdprPopUp()
-            CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
+    private fun onAdsFlowChanged(purchased: Boolean) {
+        if (purchased) {
+            finish()
         }
     }
 
-    private fun isRunning() = splashState.value != SplashState.UNINITIALIZED && splashState.value != SplashState.FINISHED
+    private fun finish() {
+        cleanUp()
+        updateState(SplashState.FINISHED)
+    }
+
+    private fun cleanUp() {
+        viewModelScope.cancel()
+    }
+
+    private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
 
     private fun onFirstLaunch() {
         if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
@@ -75,6 +77,47 @@ class SplashVM(
                 .catch { showGdprPopUp() }
                 .collect()
         }
+    }
+
+    private fun showGdprPopUp() {
+        updateState(SplashState.GDPR_POP_UP)
+    }
+
+    private fun onFirstLaunchCheckGdpr(it: CheckGDPRLocationStatus) {
+        when (it) {
+            CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
+            CheckGDPRLocationStatus.UE -> showGdprPopUp()
+            CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
+        }
+    }
+
+    private fun onNextLaunch(it: AdConsentStatus) {
+        startLoadingInterstitial()
+        if (it == PERSONALIZED_NON_UE) checkConsentNextLaunch()
+    }
+
+    private fun initOnNonUeLocation() {
+        ads.personalizedAdsEnabled = true
+        gdprConsent.saveAdConsentStatus(PERSONALIZED_NON_UE)
+        startLoadingInterstitial()
+    }
+
+    private fun startLoadingInterstitial() {
+        if (!networkStatus.isConnectedOrConnecting) return finish()
+        updateState(SplashState.LOADING)
+        launchMain {
+            ads.interstitialAd.loadInterstitialAd()
+                .onEach { withTimeout(maxInterstitialWaitTime) { onLoadInterstitialResult(it) } }
+                .catch { onLoadInterstitialResult(false) }
+                .collect()
+        }
+    }
+
+    private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
+
+    private fun onInterstitialLoaded() {
+        cleanUp()
+        ads.interstitialAd.showInterstitialAd { finish() }
     }
 
     private fun checkConsentNextLaunch() {
@@ -99,56 +142,11 @@ class SplashVM(
         startLoadingInterstitial()
     }
 
-    private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
-
-    private fun onInterstitialLoaded() {
-        viewModelScope.cancel()
-        ads.interstitialAd.showInterstitialAd { finish() }
-    }
-
-    private fun initOnNonUeLocation() {
-        ads.personalizedAdsEnabled = true
-        gdprConsent.saveAdConsentStatus(PERSONALIZED_NON_UE)
-        startLoadingInterstitial()
-    }
-
-    private fun startLoadingInterstitial() {
-        if (!networkStatus.isConnectedOrConnecting) return finish()
-        updateState(SplashState.LOADING)
-        launchMain {
-            ads.interstitialAd.loadInterstitialAd()
-                .onEach { withTimeout(maxInterstitialWaitTime) { onLoadInterstitialResult(it) } }
-                .catch { onLoadInterstitialResult(false) }
-                .collect()
-        }
-    }
-
-    private fun finish() {
-        cleanUp()
-        updateState(SplashState.FINISHED)
-    }
-
-    private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
-
-    private fun showGdprPopUp() {
-        updateState(SplashState.GDPR_POP_UP)
-    }
-
-    private fun onAdsFlowChanged(purchased: Boolean) {
-        if (purchased) {
-            finish()
-        }
-    }
-
     override fun onCleared() {
-        if (isRunning()) {
+        if (isRunning) {
             cleanUp()
             updateState(SplashState.UNINITIALIZED)
         }
-    }
-
-    private fun cleanUp() {
-        viewModelScope.cancel()
     }
 
     companion object {

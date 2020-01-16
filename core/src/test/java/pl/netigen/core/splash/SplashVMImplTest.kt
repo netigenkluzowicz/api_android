@@ -7,6 +7,7 @@ import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.isActive
@@ -31,10 +32,10 @@ import pl.netigen.coreapi.splash.SplashState
 
 
 @ExperimentalCoroutinesApi
-class SplashVMTest {
+class SplashVMImplTest {
     @get:Rule
     val rule = InstantTaskExecutorRule()
-    private lateinit var splashVM: SplashVM
+    private lateinit var splashVMImpl: SplashVMImpl
     @RelaxedMockK
     private lateinit var gdprConsent: IGDPRConsent
     @RelaxedMockK
@@ -51,7 +52,7 @@ class SplashVMTest {
     fun before() {
         Dispatchers.setMain(testDispatcher)
         MockKAnnotations.init(this)
-        splashVM = SplashVM(gdprConsent, ads, noAdsPurchases, networkStatus, coroutineDispatcherIo = Dispatchers.Main)
+        splashVMImpl = SplashVMImpl(gdprConsent, ads, noAdsPurchases, networkStatus, coroutineDispatcherIo = Dispatchers.Main)
         every { ads.interstitialAd } returns interstitialAd
     }
 
@@ -64,14 +65,28 @@ class SplashVMTest {
 
     @Test
     fun `SplashVM has UNINITIALIZED state after create`() {
-        assertEquals(SplashState.UNINITIALIZED, splashVM.splashState.value)
+        assertEquals(SplashState.UNINITIALIZED, splashVMImpl.splashState.value)
     }
 
     @Test
     fun `SplashVM has FINISHED state after onStart when noAds is active`() = runBlocking {
         setUpMocks(isNoAdsActive = true)
-        splashVM.onStart()
-        assertEquals(SplashState.FINISHED, splashVM.splashState.value)
+        splashVMImpl.onStart()
+        assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
+    }
+
+
+    @Test
+    fun `SplashVM states when location changes to ue`() = runBlockingTest {
+        setUpMocks(
+            isNoAdsActive = false,
+            lastKnownAdConsentStatus = AdConsentStatus.PERSONALIZED_NON_UE
+        )
+        val publisher = getFlowPublisher { gdprConsent.requestGDPRLocation() }
+        splashVMImpl.onStart()
+        assertEquals(SplashState.LOADING, splashVMImpl.splashState.value)
+        publisher.offer(CheckGDPRLocationStatus.UE)
+        assertEquals(SplashState.GDPR_POP_UP, splashVMImpl.splashState.value)
     }
 
     @Test
@@ -82,11 +97,11 @@ class SplashVMTest {
             gdprLocationStatus = CheckGDPRLocationStatus.NON_UE
         )
 
-        val noAdsActivePublisher = getPublisher({ noAdsPurchases.noAdsActive }, false)
-        splashVM.onStart()
-        assertEquals(SplashState.LOADING, splashVM.splashState.value)
+        val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
+        splashVMImpl.onStart()
+        assertEquals(SplashState.LOADING, splashVMImpl.splashState.value)
         noAdsActivePublisher.offer(true)
-        assertEquals(SplashState.FINISHED, splashVM.splashState.value)
+        assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
     }
 
     @Test
@@ -97,17 +112,39 @@ class SplashVMTest {
             gdprLocationStatus = CheckGDPRLocationStatus.UE
         )
 
-        val noAdsActivePublisher = getPublisher({ noAdsPurchases.noAdsActive }, false)
-        splashVM.onStart()
-        assertEquals(SplashState.GDPR_POP_UP, splashVM.splashState.value)
+        val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
+        splashVMImpl.onStart()
+        assertEquals(SplashState.GDPR_POP_UP, splashVMImpl.splashState.value)
         noAdsActivePublisher.offer(true)
-        assertEquals(SplashState.FINISHED, splashVM.splashState.value)
+        assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
     }
 
-    fun <T> getPublisher(stubBlock: MockKMatcherScope.() -> T, value: T? = null): ConflatedBroadcastChannel<T> {
+    @Test
+    fun `SplashVM has GDPR_POP_UP status when there is first launch with no internet`() {
+        setUpMocks(isConnectedOrConnecting = false)
+        splashVMImpl.onStart()
+        assertEquals(SplashState.GDPR_POP_UP, splashVMImpl.splashState.value)
+    }
+
+    @Test
+    fun `SplashVM isFirstLaunch == true when there is first launch with connected internet`() {
+        setUpMocks(isConnectedOrConnecting = true)
+        splashVMImpl.onStart()
+        assertEquals(true, splashVMImpl.isFirstLaunch.value)
+    }
+
+    @Test
+    fun `SplashVM finishes and cleans after noAds true called`() = runBlocking {
+        setUpMocks(isNoAdsActive = true)
+        splashVMImpl.onStart()
+        assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
+        assertEquals(false, splashVMImpl.viewModelScope.isActive)
+    }
+
+    fun <T> getFlowPublisher(value: T? = null, stubBlock: MockKMatcherScope.() -> Flow<T>): ConflatedBroadcastChannel<T> {
         val noAdsActivePublisher: ConflatedBroadcastChannel<T> = if (value != null) ConflatedBroadcastChannel(value) else ConflatedBroadcastChannel()
         val every = every(stubBlock)
-        every.returns(noAdsActivePublisher.asFlow() as T)
+        every.returns(noAdsActivePublisher.asFlow())
         return noAdsActivePublisher
     }
 
@@ -129,27 +166,5 @@ class SplashVMTest {
             emit(lastKnownAdConsentStatus)
         })
         every { networkStatus.isConnectedOrConnecting }.returns(isConnectedOrConnecting)
-    }
-
-    @Test
-    fun `SplashVM has GDPR_POP_UP status when there is first launch with no internet`() {
-        setUpMocks(isConnectedOrConnecting = false)
-        splashVM.onStart()
-        assertEquals(SplashState.GDPR_POP_UP, splashVM.splashState.value)
-    }
-
-    @Test
-    fun `SplashVM isFirstLaunch == true when there is first launch with connected internet`() {
-        setUpMocks(isConnectedOrConnecting = true)
-        splashVM.onStart()
-        assertEquals(true, splashVM.isFirstLaunch.value)
-    }
-
-    @Test
-    fun `SplashVM finishes and cleans after noAds true called`() = runBlocking {
-        setUpMocks(isNoAdsActive = true)
-        splashVM.onStart()
-        assertEquals(SplashState.FINISHED, splashVM.splashState.value)
-        assertEquals(false, splashVM.viewModelScope.isActive)
     }
 }

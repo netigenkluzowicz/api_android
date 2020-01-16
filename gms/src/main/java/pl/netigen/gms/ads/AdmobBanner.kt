@@ -14,7 +14,7 @@ import pl.netigen.coreapi.ads.IBannerAd
 
 class AdmobBanner(
     private val activity: AppCompatActivity,
-    private val admobRequest: IAdmobRequest,
+    private val adMobRequest: IAdMobRequest,
     override val adId: AdId<String>,
     override var bannerRelativeLayout: RelativeLayout,
     override var enabled: Boolean = true
@@ -29,19 +29,6 @@ class AdmobBanner(
 
     override fun getHeightInPixels(context: Context): Int = AdSize.SMART_BANNER.getHeightInPixels(context)
 
-    private fun loadBanner() {
-        if (disabled) {
-            return
-        }
-        if (loadedBannerOrientation != activity.resources.configuration.orientation) {
-            loadedBannerOrientation = activity.resources.configuration.orientation
-            bannerView = AdView(activity)
-            bannerView.adSize = AdSize.SMART_BANNER
-            bannerView.adUnitId = adId.id
-        }
-        bannerView.loadAd(admobRequest.getAdRequest())
-    }
-
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         if (disabled) {
@@ -55,6 +42,19 @@ class AdmobBanner(
             addView(layout, bannerView)
         }
         bannerView.resume()
+    }
+
+    private fun loadBanner() {
+        if (disabled) {
+            return
+        }
+        if (loadedBannerOrientation != activity.resources.configuration.orientation) {
+            loadedBannerOrientation = activity.resources.configuration.orientation
+            bannerView = AdView(activity)
+            bannerView.adSize = AdSize.SMART_BANNER
+            bannerView.adUnitId = adId.id
+        }
+        bannerView.loadAd(adMobRequest.getAdRequest())
     }
 
     private fun addView(layout: RelativeLayout, adView: AdView) {

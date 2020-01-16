@@ -11,7 +11,7 @@ import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.ads.IInterstitialAd
 
-class AdmobAds(
+class AdMobAds(
     activity: AppCompatActivity,
     bannerAdId: String,
     interstitialAdId: String,
@@ -19,7 +19,7 @@ class AdmobAds(
     override var personalizedAdsEnabled: Boolean = false,
     private val testDevices: List<String> = emptyList(),
     private val isInDebugMode: Boolean = false
-) : IAds, IAdmobRequest {
+) : IAds, IAdMobRequest {
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
 
@@ -27,7 +27,7 @@ class AdmobAds(
         MobileAds.initialize(activity)
         val (bannerId, interstitialId) = getIds(bannerAdId, interstitialAdId)
         bannerAd = AdmobBanner(activity, this, bannerId, bannerRelativeLayout)
-        interstitialAd = AdmobInterstitial(activity, this, interstitialId)
+        interstitialAd = AdMobInterstitial(activity, this, interstitialId)
     }
 
     private fun getIds(bannerAdId: String, interstitialAdId: String): Pair<AdId<String>, AdId<String>> {

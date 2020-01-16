@@ -6,14 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import pl.netigen.core.network.NetworkStatus
-import pl.netigen.core.splash.SplashVM
+import pl.netigen.core.splash.SplashVMImpl
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.payments.NoAdsNotAvailable
-import pl.netigen.coreapi.splash.ISplashVM
+import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
-import pl.netigen.gms.ads.AdmobAds
+import pl.netigen.gms.ads.AdMobAds
 
 class SampleMainActivity : AppCompatActivity() {
 
@@ -30,7 +30,7 @@ class SampleMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_main)
 
-        val ads = AdmobAds(
+        val ads = AdMobAds(
             activity = this,
             bannerAdId = "",
             interstitialAdId = "",
@@ -38,7 +38,7 @@ class SampleMainActivity : AppCompatActivity() {
             isInDebugMode = true
         )
 
-        val splashVM: ISplashVM = SplashVM(
+        val splashVM: SplashVM = SplashVMImpl(
             gdprConsent = gdprConsent,
             ads = ads,
             noAdsPurchases = NoAdsNotAvailable,
