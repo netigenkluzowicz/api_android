@@ -3,34 +3,34 @@ package com.netigen.sampleapp
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import pl.netigen.core.network.NetworkStatus
-import pl.netigen.core.splash.SplashVM
+import pl.netigen.core.splash.SplashVMImpl
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.payments.NoAdsNotAvailable
-import pl.netigen.coreapi.splash.ISplashVM
+import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
-import pl.netigen.gms.ads.AdmobAds
+import pl.netigen.gms.ads.AdMobAds
 
 class SampleMainActivity : AppCompatActivity() {
 
     private val gdprConsent = object : IGDPRConsent {
-        override val lastKnownAdConsentStatus: AdConsentStatus
-            get() = AdConsentStatus.PERSONALIZED_NON_UE
+        override val adConsentStatus: Flow<AdConsentStatus>
+            get() = flow { emit(AdConsentStatus.PERSONALIZED_NON_UE) }
 
-        override fun requestGDPRLocation(gdprLocationStatusListener: (result: CheckGDPRLocationStatus) -> Unit) {}
+        override fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> = flow { emit(CheckGDPRLocationStatus.NON_UE) }
 
-        override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {}
-
-        override fun cancelRequest() {}
+        override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) = Unit
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_main)
 
-        val ads = AdmobAds(
+        val ads = AdMobAds(
             activity = this,
             bannerAdId = "",
             interstitialAdId = "",
@@ -38,11 +38,11 @@ class SampleMainActivity : AppCompatActivity() {
             isInDebugMode = true
         )
 
-        val splashVM: ISplashVM = SplashVM(
+        val splashVM: SplashVM = SplashVMImpl(
             gdprConsent = gdprConsent,
             ads = ads,
-            networkStatus = NetworkStatus(this),
-            noAdsPurchases = NoAdsNotAvailable()
+            noAdsPurchases = NoAdsNotAvailable,
+            networkStatus = NetworkStatus(this)
         )
         splashVM.splashState.observe(this) {
             Log.d("wrobel", "splashState.observe: $it")

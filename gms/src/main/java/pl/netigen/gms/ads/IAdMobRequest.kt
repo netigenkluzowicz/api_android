@@ -2,6 +2,6 @@ package pl.netigen.gms.ads
 
 import com.google.android.gms.ads.AdRequest
 
-interface IAdmobRequest {
+interface IAdMobRequest {
     fun getAdRequest(): AdRequest
 }

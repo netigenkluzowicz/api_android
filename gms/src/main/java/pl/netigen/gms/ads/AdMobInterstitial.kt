@@ -7,13 +7,17 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IInterstitialAd
-import pl.netigen.coreapi.ads.InterstitialAdListener
 
-class AdmobInterstitial(
+@ExperimentalCoroutinesApi
+class AdMobInterstitial(
     private val activity: AppCompatActivity,
-    private val admobRequest: IAdmobRequest,
+    private val adMobRequest: IAdMobRequest,
     override val adId: AdId<String>,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
     override var enabled: Boolean = true
@@ -21,7 +25,6 @@ class AdmobInterstitial(
     private var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd
-    private val interstitialAdListeners: MutableList<InterstitialAdListener> = mutableListOf()
     private val disabled get() = !enabled
 
     init {
@@ -29,11 +32,29 @@ class AdmobInterstitial(
         activity.lifecycle.addObserver(this)
     }
 
-    private fun loadIfShouldBeLoaded() {
-        if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        loadInterstitialAd()
-    }
+    override fun loadInterstitialAd(): Flow<Boolean> =
+        callbackFlow {
+            interstitialAd = InterstitialAd(activity)
+            interstitialAd.adUnitId = adId.id
+            val callback = object : AdListener() {
+                override fun onAdFailedToLoad(errorCode: Int) {
+                    offer(false)
+                    channel.close()
+                }
 
+                override fun onAdLoaded() {
+                    offer(true)
+                    channel.close()
+                }
+            }
+            interstitialAd.adListener = callback
+            interstitialAd.loadAd(adMobRequest.getAdRequest())
+            awaitClose {
+                if (interstitialAd.adListener == callback) {
+                    interstitialAd.adListener = null
+                }
+            }
+        }
 
     private fun onLoaded(onClosedOrNotShowed: (Boolean) -> Unit) {
         val currentTime = SystemClock.elapsedRealtime()
@@ -50,6 +71,10 @@ class AdmobInterstitial(
         }
     }
 
+    private fun loadIfShouldBeLoaded() {
+        if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
+        loadInterstitialAd()
+    }
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
@@ -64,43 +89,13 @@ class AdmobInterstitial(
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
+    private fun onResume() {
         isInBackground = false
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
+    private fun onPause() {
         isInBackground = true
-    }
-
-    override fun addInterstitialListener(interstitialAdListener: InterstitialAdListener) {
-        interstitialAdListeners.add(interstitialAdListener)
-    }
-
-    override fun removeInterstitialListener(interstitialAdListener: InterstitialAdListener) {
-        interstitialAdListeners.remove(interstitialAdListener)
-    }
-
-    override fun loadInterstitialAd() {
-
-        interstitialAd = InterstitialAd(activity)
-        interstitialAd.adUnitId = adId.id
-        interstitialAd.adListener = object : AdListener() {
-            override fun onAdFailedToLoad(errorCode: Int) {
-                postLoadedCallback(false)
-            }
-
-            override fun onAdLoaded() {
-                postLoadedCallback(true)
-            }
-        }
-        interstitialAd.loadAd(admobRequest.getAdRequest())
-    }
-
-    private fun postLoadedCallback(value: Boolean) {
-        for (interstitialAdListener in interstitialAdListeners) {
-            interstitialAdListener.loadInterstitialResult(value)
-        }
     }
 
     override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {

@@ -1,8 +1,8 @@
 package pl.netigen.coreapi.ads
 
+import kotlinx.coroutines.flow.Flow
+
 interface IInterstitialAd : IAd {
-    fun addInterstitialListener(interstitialAdListener: InterstitialAdListener)
-    fun removeInterstitialListener(interstitialAdListener: InterstitialAdListener)
-    fun loadInterstitialAd()
+    fun loadInterstitialAd(): Flow<Boolean>
     fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit)
 }

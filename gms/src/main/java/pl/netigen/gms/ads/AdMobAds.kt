@@ -11,15 +11,15 @@ import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.ads.IInterstitialAd
 
-class AdmobAds(
+class AdMobAds(
     activity: AppCompatActivity,
     bannerAdId: String,
     interstitialAdId: String,
     bannerRelativeLayout: RelativeLayout,
+    override var personalizedAdsEnabled: Boolean = false,
     private val testDevices: List<String> = emptyList(),
-    private val isInDebugMode: Boolean = false,
-    private var personalizedAdsApproved: Boolean = false
-) : IAds, IAdmobRequest {
+    private val isInDebugMode: Boolean = false
+) : IAds, IAdMobRequest {
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
 
@@ -27,7 +27,7 @@ class AdmobAds(
         MobileAds.initialize(activity)
         val (bannerId, interstitialId) = getIds(bannerAdId, interstitialAdId)
         bannerAd = AdmobBanner(activity, this, bannerId, bannerRelativeLayout)
-        interstitialAd = AdmobInterstitial(activity, this, interstitialId)
+        interstitialAd = AdMobInterstitial(activity, this, interstitialId)
     }
 
     private fun getIds(bannerAdId: String, interstitialAdId: String): Pair<AdId<String>, AdId<String>> {
@@ -43,7 +43,7 @@ class AdmobAds(
                 builder.addTestDevice(testDevices[i])
             }
         }
-        if (personalizedAdsApproved) return builder.build()
+        if (personalizedAdsEnabled) return builder.build()
 
         val extras = Bundle()
         extras.putString("npa", "1")
@@ -53,10 +53,6 @@ class AdmobAds(
     override fun enable() = setEnabled(true)
 
     override fun disable() = setEnabled(false)
-
-    override fun setConsentStatus(personalizedAdsApproved: Boolean) {
-        this.personalizedAdsApproved = personalizedAdsApproved
-    }
 
     private fun setEnabled(enabled: Boolean) {
         bannerAd.enabled = enabled

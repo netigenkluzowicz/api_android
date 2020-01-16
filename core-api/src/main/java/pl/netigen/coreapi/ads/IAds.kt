@@ -1,9 +1,9 @@
 package pl.netigen.coreapi.ads
 
 interface IAds {
-    fun setConsentStatus(personalizedAdsApproved: Boolean)
+    var personalizedAdsEnabled: Boolean
     fun disable()
     fun enable()
-    val bannerAd : IBannerAd
-    val interstitialAd : IInterstitialAd
+    val bannerAd: IBannerAd
+    val interstitialAd: IInterstitialAd
 }
