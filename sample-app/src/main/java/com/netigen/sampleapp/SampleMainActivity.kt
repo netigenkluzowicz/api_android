@@ -35,6 +35,7 @@ class SampleMainActivity : AppCompatActivity() {
             bannerAdId = "",
             interstitialAdId = "",
             bannerRelativeLayout = findViewById(R.id.adsLayout),
+            isAdaptiveBanner = true,
             isInDebugMode = true
         )
 
@@ -48,6 +49,6 @@ class SampleMainActivity : AppCompatActivity() {
             Log.d("wrobel", "splashState.observe: $it")
         }
         splashVM.onStart()
-
+        Log.d("wrobel", "onCreate: " + ads.bannerAd.getHeightInPixels())
     }
 }
