@@ -27,7 +27,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         private const val NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps-name?app="
         private const val NETIGEN_APP_COLOR = "&color="
         private const val INSIDE_WEB_VIEW_MARGIN_0 = "&containerPadding=0&bodyMargin=0"
-        private const val NETIGEN_PRIVACY_MOBILE_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps?app=2&containerPadding=0&bodyMargin=0"
+        private const val NETIGEN_PRIVACY_MOBILE_URL = "https://www.netigen.pl/privacy/only-for-mobile-apps?app=2"
 
         fun newInstance(): GDPRDialogFragment {
             val dialogFragment = GDPRDialogFragment()
