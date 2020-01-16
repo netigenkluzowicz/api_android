@@ -62,10 +62,10 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
         setupDialog();
 
-//        if (translationInfoParams == null || dialogClickListener == null) {
-//            dismiss();
-//            return view;
-//        }
+        if (dialogClickListener == null) {
+            dismiss();
+            return view;
+        }
 
         return view;
     }
