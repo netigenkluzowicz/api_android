@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import pl.netigen.core.utils.Utils
 
-class RateUs private constructor(private val appCompatActivity: AppCompatActivity) : RateUsListener {
+class RateUs private constructor(private val appCompatActivity: AppCompatActivity) {
     companion object {
         private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
         private const val KEY_NUMBER_OF_OPENINGS = "KEY_NUMBER_OF_OPENINGS"
@@ -36,19 +36,19 @@ class RateUs private constructor(private val appCompatActivity: AppCompatActivit
     }
 
     fun openRateDialog() {
-        RateFragment.newInstance(this).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
+        RateFragment.newInstance({ clickYes() }, { clickNo() }, { clickLater() }).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
     }
 
-    override fun clickYes() {
+    private fun clickYes() {
         doNotShowRateUsAgain()
         Utils.openMarketLink(appCompatActivity, appCompatActivity.packageName)
     }
 
-    override fun clickNo() {
+    private fun clickNo() {
         doNotShowRateUsAgain()
     }
 
-    override fun clickLater() {}
+    private fun clickLater() {}
 
     class Builder(private val appCompatActivity: AppCompatActivity) {
         fun createRateUs(): RateUs = RateUs(appCompatActivity)

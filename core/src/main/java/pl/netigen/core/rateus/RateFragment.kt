@@ -14,16 +14,19 @@ import pl.netigen.core.utils.Const.Companion.SCREEN_HEIGHT_IN_DP
 import pl.netigen.extensions.setTint
 import pl.netigen.extensions.toPx
 
-class RateFragment : AppCompatDialogFragment() {
+class RateFragment(
+
+    private val onClickYes: () -> Unit,
+    private val onClickNo: () -> Unit,
+    private val onClickLater: () -> Unit
+
+) : AppCompatDialogFragment() {
+
     companion object {
-        fun newInstance(listener: RateUsListener): RateFragment {
-            val rateFragment = RateFragment()
-            rateFragment.rateUs = listener
-            return rateFragment
+        fun newInstance(onClickYes: () -> Unit, onClickNo: () -> Unit, onClickLater: () -> Unit): RateFragment {
+            return RateFragment(onClickYes, onClickNo, onClickLater)
         }
     }
-
-    private lateinit var rateUs: RateUsListener
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         manageDialogView()
@@ -52,21 +55,21 @@ class RateFragment : AppCompatDialogFragment() {
 
     private fun setNeutralButtonListener() {
         rateUsFragmentLaterTextView.setOnClickListener {
-            rateUs.clickLater()
+            onClickLater()
             dismiss()
         }
     }
 
     private fun setPositiveButtonListener() {
         rateUsFragmentYesTextView.setOnClickListener {
-            rateUs.clickYes()
+            onClickYes()
             dismiss()
         }
     }
 
     private fun setNegativeButtonListener() {
         closeRateUs.setOnClickListener {
-            rateUs.clickNo()
+            onClickNo()
             dismiss()
         }
     }
