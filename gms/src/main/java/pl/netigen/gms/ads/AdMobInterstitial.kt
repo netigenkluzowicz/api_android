@@ -58,34 +58,36 @@ class AdMobInterstitial(
 
     private fun onLoaded(onClosedOrNotShowed: (Boolean) -> Unit) {
         val currentTime = SystemClock.elapsedRealtime()
+        when {
+            isInBackground -> onClosedOrNotShowed(false)
+            validateLastShowTime(currentTime) -> show(onClosedOrNotShowed)
+            else -> onClosedOrNotShowed(false)
+        }
+    }
+
+    private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
                 onClosedOrNotShowed(true)
                 loadIfShouldBeLoaded()
+                interstitialAd.adListener = null
             }
         }
-        when {
-            isInBackground -> onClosedOrNotShowed(false)
-            validateLastShowTime(currentTime) -> show()
-            else -> onClosedOrNotShowed(false)
-        }
+        lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
+        interstitialAd.show()
     }
 
     private fun loadIfShouldBeLoaded() {
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
         loadInterstitialAd()
     }
+
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
         onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
-    }
-
-    private fun show() {
-        lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
-        interstitialAd.show()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
