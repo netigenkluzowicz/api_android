@@ -26,8 +26,9 @@ class SplashVMImpl(
     private val networkStatus: INetworkStatus,
     private val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
-    val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
-) : SplashVM() {
+    val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO,
+    override val isNoAdsAvailable: Boolean
+) : SplashVM(), INoAds by noAdsPurchases {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
     private val isRunning get() = splashState.value != SplashState.UNINITIALIZED && splashState.value != SplashState.FINISHED
@@ -80,7 +81,7 @@ class SplashVMImpl(
     }
 
     private fun showGdprPopUp() {
-        updateState(SplashState.GDPR_POP_UP)
+        updateState(SplashState.SHOW_GDPR_CONSENT)
     }
 
     private fun onFirstLaunchCheckGdpr(it: CheckGDPRLocationStatus) {

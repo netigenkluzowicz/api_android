@@ -1,5 +1,5 @@
 package pl.netigen.coreapi.splash
 
 enum class SplashState {
-    UNINITIALIZED, LOADING, GDPR_POP_UP, FINISHED
+    UNINITIALIZED, LOADING, SHOW_GDPR_CONSENT, FINISHED
 }
