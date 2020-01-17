@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Не е пронајден прелистувач !!!</string>
+    <string name="cancel_netigen">Откажи</string>
+    <string name="change_language_netigen">Промени го јазикот</string>
+    <string name="translation_information_title_netigen">Информации за превод</string>
+    <string name="translation_information_content1_netigen">Оваа апликација е преведена од Google Translate. Англискиот јазик е оригиналниот јазик на оваа
+        апликација. Ве молиме запомнете дека може да има некои грешки во преводот.
+    </string>
+    <string name="translation_information_content2_netigen">Ако сакате да го промените јазикот на апликацијата на англиски јазик, можете да го направите тоа
+        во поставките.
+    </string>
+    <string name="do_you_like_this_app_netigen">Дали ви се допаѓа оваа апликација?</string>
+    <string name="please_support_us_netigen">Ве молиме, поддржете ни со оцена на оваа апликација. Ви благодарам!</string>
+    <string name="later_netigen">Подоцна</string>
+    <string name="rate_us_netigen">Оцени го нас</string>
+    <string name="settings_normal_netigen">Поставки</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Brauzer tapılmadı !!!</string>
+    <string name="cancel_netigen">Ləğv et</string>
+    <string name="change_language_netigen">Dili dəyişin</string>
+    <string name="translation_information_title_netigen">Tərcümə məlumatları</string>
+    <string name="translation_information_content1_netigen">Bu proqram Google Translate tərəfindən tərcümə edilmişdir. İngilis dili bu proqramın orijinal
+        dili. Tərcümədə bəzi səhvlər ola biləcəyini unutmayın.
+    </string>
+    <string name="translation_information_content2_netigen">Proqram dilini ingilis dilinə dəyişmək istəyirsinizsə, bunu ayarlarda edə bilərsiniz.</string>
+    <string name="do_you_like_this_app_netigen">Bu proqramlar xoşunuza gəlirmi?</string>
+    <string name="please_support_us_netigen">Xahiş edirəm bu tətbiqə reytinq verərək bizə dəstək olun. Çox sağ ol!</string>
+    <string name="later_netigen">Daha sonra</string>
+    <string name="rate_us_netigen">Bizi qiymətləndirin</string>
+    <string name="settings_normal_netigen">Ayarlar</string>
+</resources>

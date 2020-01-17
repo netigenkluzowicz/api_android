@@ -37,4 +37,88 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
     </style>
 
+    <style name="BaseDialogButtonStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/gdpr_button_height</item>
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minWidth">@dimen/button_min_width_netigen_api</item>
+        <item name="android:paddingLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:paddingRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginBottom">@dimen/medium_space_netigen_api</item>
+    </style>
+
+    <style name="NeutralDialogButtonNetigenApi" parent="BaseDialogButtonStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
+        <item name="android:backgroundTint">@color/dialog_neutral_button_bg</item>
+        <item name="android:background">@drawable/dialog_button_netigen_api</item>
+    </style>
+
+    <style name="PositiveDialogButtonNetigenApi" parent="BaseDialogButtonStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
+        <item name="android:backgroundTint">@color/dialog_accent</item>
+        <item name="android:background">@drawable/dialog_button_netigen_api</item>
+    </style>
+
+    <style name="GDPR_BaseDialogButtonStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/gdpr_button_height</item>
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minWidth">@dimen/button_min_width_netigen_api</item>
+        <item name="android:paddingLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:paddingRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginBottom">@dimen/small_space_netigen_api</item>
+
+    </style>
+
+    <style name="GDPR_AccentTextButton" parent="GDPR_BaseDialogButtonStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:backgroundTint">@color/dialog_accent</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
+        <item name="android:background">@drawable/dialog_button_netigen_api</item>
+    </style>
+
+    <style name="GDPR_NeutralTextButton" parent="GDPR_BaseDialogButtonStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
+        <item name="android:backgroundTint">@color/dialog_neutral_button_bg</item>
+        <item name="android:background">@drawable/dialog_button_netigen_api</item>
+    </style>
+
+    <style name="GDPR_BoldTextButton" parent="GDPR_BaseDialogButtonStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/button_text_size_netigen_api</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:backgroundTint">@color/dialog_neutral_button_bg</item>
+        <item name="android:background">@drawable/dialog_button_netigen_api</item>
+    </style>
+
+    <style name="DialogTitleTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">66dp</item>
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/dialog_text_view</item>
+        <item name="android:textSize">@dimen/title_text_size_netigen_api</item>
+        <item name="android:gravity">center|start</item>
+    </style>
+
+    <style name="GDPR_AppName" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginLeft">@dimen/medium_space_netigen_api</item>
+        <item name="android:layout_marginRight">@dimen/medium_space_netigen_api</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/title_text_size_netigen_api</item>
+        <item name="android:gravity">center|start</item>
+    </style>
 </resources>

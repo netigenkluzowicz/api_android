@@ -1,22 +1,27 @@
 package pl.netigen.core.language;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +33,10 @@ import java.util.List;
 import java.util.Locale;
 
 import pl.netigen.core.R;
+import pl.netigen.extensions.DialogFragmentExtensionKt;
+
+import static pl.netigen.core.utils.Const.MARGIN_TOP;
+import static pl.netigen.core.utils.Const.SCREEN_HEIGHT_IN_DP;
 
 public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
 
@@ -35,8 +44,8 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
 
     private AppCompatTextView textViewChooseLanguageTitle;
     private RecyclerView recyclerViewLanguages;
-    private Button buttonChangeLanguageOk;
-    private Button buttonChangeLanguageDismiss;
+    private AppCompatTextView buttonChangeLanguageOk;
+    private AppCompatTextView buttonChangeLanguageDismiss;
 
     private List<String> languageCodes;
     private String selectedLanguageCode;
@@ -44,10 +53,6 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
     private LanguagesRecyclerViewAdapter languagesRecyclerViewAdapter;
     private ArrayList<LanguageModel> languageModels;
     private ChangeLanguageParams changeLanguageParams;
-
-    public ChangeLanguageDialogFragment() {
-
-    }
 
     private static ChangeLanguageDialogFragment newInstance(LanguageClickListener languageClickListener, List<String> languageCodes, ChangeLanguageParams changeLanguageParams) {
         ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment();
@@ -112,7 +117,7 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
 
         setTitle(view);
 
-        setPossitiveButton(view);
+        setPositiveButton(view);
 
         setNegativeButton(view);
 
@@ -130,7 +135,7 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
         buttonChangeLanguageDismiss.setOnClickListener(v -> getDialog().dismiss());
     }
 
-    private void setPossitiveButton(View view) {
+    private void setPositiveButton(View view) {
         buttonChangeLanguageOk = view.findViewById(R.id.button_change_language_ok);
         buttonChangeLanguageOk.setText(changeLanguageParams.positiveButtonResId);
         buttonChangeLanguageOk.setOnClickListener(v -> {
@@ -155,14 +160,57 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        setDialogSize(0.55, 0.75);
+    public void onResume() {
+        super.onResume();
+        setButtonsBackgroundTints();
+        manageDialogSize();
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    private void manageDialogSize() {
+        DialogFragmentExtensionKt.setDialogSize(this, 280, 370);
+        Context context = getContext();
+
+        if (context != null) {
+            Resources resources = getContext().getResources();
+            if (resources != null) {
+                manageDialogSizeLandscape(resources.getConfiguration().orientation);
+
+                if (getDeviceHeight(resources) < SCREEN_HEIGHT_IN_DP)
+                    manageSmallScreenHeight();
+            }
+        }
+    }
+
+    private void manageDialogSizeLandscape(int configuration) {
+        if (configuration == Configuration.ORIENTATION_LANDSCAPE)
+            DialogFragmentExtensionKt.setDialogSize(this, 280, 310);
+    }
+
+    private float getDeviceHeight(Resources resources) {
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        return displayMetrics.heightPixels / displayMetrics.density;
+    }
+
+    private void manageSmallScreenHeight() {
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams params = window.getAttributes();
+                params.y = MARGIN_TOP;
+                window.setAttributes(params);
+                window.setGravity(Gravity.TOP | Gravity.CENTER);
+                DialogFragmentExtensionKt.setDialogSize(this, 270, 270);
+            }
+        }
+    }
+
+    private void setButtonsBackgroundTints() {//there is ext for tint
+        Context context = getContext();
+        if (context != null) {
+            buttonChangeLanguageOk.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.dialog_accent), PorterDuff.Mode.MULTIPLY);
+            buttonChangeLanguageDismiss.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.dialog_neutral_button_bg), PorterDuff.Mode.MULTIPLY);
+        }
     }
 
     public void initiateList() {
@@ -181,28 +229,6 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
             String name = nextLocale.getDisplayName(nextLocale);
             name = name.substring(0, 1).toUpperCase() + name.substring(1);
             languageModels.add(new LanguageModel(languageCodes.get(i), name, false));
-        }
-    }
-
-    public void setDialogSize(double heightMultiplier, double widthMultiplier) {
-        Window window = getDialog().getWindow();
-        Point size = new Point();
-        Display display;
-        if (window != null) {
-            display = window.getWindowManager().getDefaultDisplay();
-            display.getSize(size);
-            int maxWidth = size.x;
-            int maxHeight = size.y;
-            if (heightMultiplier == 0.0 && widthMultiplier == 0.0) {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else if (widthMultiplier != 0.0 && heightMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), (int) (maxHeight * heightMultiplier));
-            } else if (widthMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, (int) (maxHeight * heightMultiplier));
-            }
-            window.setGravity(Gravity.CENTER);
         }
     }
 

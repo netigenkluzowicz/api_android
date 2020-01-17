@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Isiphequluli asitholakali !!!</string>
+    <string name="cancel_netigen">Khansela</string>
+    <string name="change_language_netigen">Shintsha ulimi</string>
+    <string name="translation_information_title_netigen">Ulwazi lokuhumusha</string>
+    <string name="translation_information_content1_netigen">Lolu hlelo lokusebenza luhunyushwe yi-Google Translate. IsiNgisi ulimi lwangempela lolu hlelo
+        lokusebenza. Sicela ukhumbule ukuthi kungaba khona amaphutha ekuhumusheni.
+    </string>
+    <string name="translation_information_content2_netigen">Uma ufuna ukushintsha ulimi lohlelo lokusebenza ku-English ungakwenza kanjalo kuzilungiselelo.
+    </string>
+    <string name="do_you_like_this_app_netigen">Ingabe uyayithanda le app?</string>
+    <string name="please_support_us_netigen">Sicela usisekele ngokulinganisa lolu hlelo lokusebenza. Ngiyabonga!</string>
+    <string name="later_netigen">Kamuva</string>
+    <string name="rate_us_netigen">Linganisa nathi</string>
+    <string name="settings_normal_netigen">Izilungiselelo</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Browser ikke fundet !!!</string>
+    <string name="cancel_netigen">Afbestille</string>
+    <string name="change_language_netigen">Skift sprog</string>
+    <string name="translation_information_title_netigen">Oversættelsesoplysninger</string>
+    <string name="translation_information_content1_netigen">Denne applikation er blevet oversat af Google Translate. Engelsk er det oprindelige sprog i denne
+        ansøgning. Husk venligst, at der kan være nogle fejl i oversættelsen.
+    </string>
+    <string name="translation_information_content2_netigen">Hvis du vil ændre appsproget til engelsk, kan du gøre det i indstillinger.</string>
+    <string name="do_you_like_this_app_netigen">Kan du lide denne app?</string>
+    <string name="please_support_us_netigen">Understøtt os ved at bedømme denne app. Tak skal du have!</string>
+    <string name="later_netigen">Senere</string>
+    <string name="rate_us_netigen">Bedøm os</string>
+    <string name="settings_normal_netigen">Indstillinger</string>
+</resources>
