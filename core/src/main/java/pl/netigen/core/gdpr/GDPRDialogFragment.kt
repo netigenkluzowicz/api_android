@@ -87,7 +87,6 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             dismiss()
         }
         buttonNo.setOnClickListener {
-            gdprClickListener?.clickNo()
             showPrivacyPolicy()
         }
         buttonBack.setOnClickListener {
@@ -234,8 +233,6 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     interface GDPRClickListener {
         fun clickYes()
-
-        fun clickNo()
 
         fun clickPay()
 
