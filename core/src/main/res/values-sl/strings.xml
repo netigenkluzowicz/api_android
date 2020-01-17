@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Brskalnika ni mogoče najti !!!</string>
+    <string name="cancel_netigen">Prekliči</string>
+    <string name="change_language_netigen">Spremeni jezik</string>
+    <string name="translation_information_title_netigen">Informacije o prevodu</string>
+    <string name="translation_information_content1_netigen">To aplikacijo je prevedel Google Prevajalnik. Angleščina je izvirni jezik te aplikacije. Ne
+        pozabite, da lahko pride do napak pri prevajanju.
+    </string>
+    <string name="translation_information_content2_netigen">Če želite spremeniti jezik aplikacije v angleščino, lahko to storite v nastavitvah.</string>
+    <string name="do_you_like_this_app_netigen">Vam je všeč ta aplikacija?</string>
+    <string name="please_support_us_netigen">Podprite nas z oceno te aplikacije. Hvala vam!</string>
+    <string name="later_netigen">Pozneje</string>
+    <string name="rate_us_netigen">Ocenite nas</string>
+    <string name="settings_normal_netigen">Nastavitve</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Selainta ei löytynyt !!!</string>
+    <string name="cancel_netigen">Peruuttaa</string>
+    <string name="change_language_netigen">Vaihda kieltä</string>
+    <string name="translation_information_title_netigen">Käännöstiedot</string>
+    <string name="translation_information_content1_netigen">Google-kääntäjä on kääntänyt tämän sovelluksen. Englanti on tämän sovelluksen alkuperäinen kieli.
+        Muista, että käännöksessä voi olla virheitä.
+    </string>
+    <string name="translation_information_content2_netigen">Jos haluat muuttaa sovelluskielen englanniksi, voit tehdä sen asetuksissa.</string>
+    <string name="do_you_like_this_app_netigen">Pidätkö tästä sovelluksesta?</string>
+    <string name="please_support_us_netigen">Ole hyvä ja tue meitä arvioimalla tämä sovellus. Kiitos!</string>
+    <string name="later_netigen">Myöhemmin</string>
+    <string name="rate_us_netigen">Arvioi meidät</string>
+    <string name="settings_normal_netigen">asetukset</string>
+</resources>

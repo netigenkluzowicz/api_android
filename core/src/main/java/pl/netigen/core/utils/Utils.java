@@ -82,20 +82,6 @@ public class Utils {
         dialog.show();
     }
 
-    private static void showRateUsDialog(final Activity activity) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
-        LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_rate_us, null);
-        builder.setView(dialogView);
-        final AlertDialog dialog = builder.create();
-        dialogView.findViewById(R.id.button_rate_us_stars).setOnClickListener(v -> {
-            openMarketLink(activity, activity.getPackageName());
-            dialog.dismiss();
-        });
-        dialogView.findViewById(R.id.button_no).setOnClickListener(v -> dialog.dismiss());
-        dialog.show();
-    }
-
     public static void showDialog(Activity activity,
                                   int titleId,
                                   int stringID,

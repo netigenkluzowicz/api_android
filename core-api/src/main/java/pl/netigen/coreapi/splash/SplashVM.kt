@@ -7,5 +7,5 @@ abstract class SplashVM : ViewModel() {
     abstract fun onStart()
     abstract val splashState: LiveData<SplashState>
     abstract val isFirstLaunch: LiveData<Boolean>
-    abstract fun onGdprDialogResult(personalizedAdsApproved: Boolean)
+    abstract fun setPersonalizedAds(personalizedAdsApproved: Boolean)
 }

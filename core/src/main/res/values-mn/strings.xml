@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Хөтөч олдсонгүй !!!</string>
+    <string name="cancel_netigen">Цуцлах</string>
+    <string name="change_language_netigen">Хэл өөрчлөх</string>
+    <string name="translation_information_title_netigen">Орчуулгын мэдээлэл</string>
+    <string name="translation_information_content1_netigen">Энэ програмыг Google Translate орчуулсан болно. Англи хэл бол энэ програмын анхны хэл юм.
+        Орчуулгын зарим алдаа байж болохыг санаарай.
+    </string>
+    <string name="translation_information_content2_netigen">Хэрэв та програмыг англи хэл рүү хөрвүүлэхийг хүсвэл тохиргоонд хийж болно.</string>
+    <string name="do_you_like_this_app_netigen">Танд энэ апп таалагдаж байна уу?</string>
+    <string name="please_support_us_netigen">Энэ програмыг үнэлэх замаар биднийг дэмжнэ үү. Баярлалаа!</string>
+    <string name="later_netigen">Дараа нь</string>
+    <string name="rate_us_netigen">Биднийг дүгнэнэ үү</string>
+    <string name="settings_normal_netigen">Тохиргоо</string>
+</resources>

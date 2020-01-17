@@ -17,6 +17,7 @@ class AdMobAds(
     interstitialAdId: String,
     bannerRelativeLayout: RelativeLayout,
     override var personalizedAdsEnabled: Boolean = false,
+    isAdaptiveBanner: Boolean = true,
     private val testDevices: List<String> = emptyList(),
     private val isInDebugMode: Boolean = false
 ) : IAds, IAdMobRequest {
@@ -26,7 +27,7 @@ class AdMobAds(
     init {
         MobileAds.initialize(activity)
         val (bannerId, interstitialId) = getIds(bannerAdId, interstitialAdId)
-        bannerAd = AdmobBanner(activity, this, bannerId, bannerRelativeLayout)
+        bannerAd = AdMobBanner(activity, this, bannerId, bannerRelativeLayout, isAdaptiveBanner)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
     }
 

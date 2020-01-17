@@ -135,7 +135,7 @@ class SplashVMImpl(
         }
     }
 
-    override fun onGdprDialogResult(personalizedAdsApproved: Boolean) {
+    override fun setPersonalizedAds(personalizedAdsApproved: Boolean) {
         val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) PERSONALIZED_SHOWED else NON_PERSONALIZED_SHOWED
         gdprConsent.saveAdConsentStatus(adConsentStatus)
         ads.personalizedAdsEnabled = personalizedAdsApproved

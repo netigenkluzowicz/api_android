@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">A böngésző nem található !!!</string>
+    <string name="cancel_netigen">Megszünteti</string>
+    <string name="change_language_netigen">Válts nyelvet</string>
+    <string name="translation_information_title_netigen">Fordítási információk</string>
+    <string name="translation_information_content1_netigen">Ezt az alkalmazást a Google Fordító lefordította. Az alkalmazás eredeti nyelve az angol. Kérjük,
+        ne feledje, hogy a fordításban lehetnek hibák.
+    </string>
+    <string name="translation_information_content2_netigen">Ha az alkalmazás nyelvét angolra szeretné módosítani, akkor ezt a beállításokban is elvégezheti.
+    </string>
+    <string name="do_you_like_this_app_netigen">Tetszik ez az alkalmazás?</string>
+    <string name="please_support_us_netigen">Kérjük, támogasson minket az alkalmazás értékelésével. Köszönöm!</string>
+    <string name="later_netigen">Később</string>
+    <string name="rate_us_netigen">Értékelj minket</string>
+    <string name="settings_normal_netigen">Beállítások</string>
+</resources>
