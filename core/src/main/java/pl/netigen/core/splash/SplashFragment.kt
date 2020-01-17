@@ -102,7 +102,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     override fun clickYes() {
-        viewModel.onGdprDialogResult(true)
+        viewModel.setPersonalizedAds(true)
     }
 
     override fun clickPay() {
@@ -112,6 +112,6 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     override fun clickAcceptPolicy() {
-        viewModel.onGdprDialogResult(false)
+        viewModel.setPersonalizedAds(false)
     }
 }
