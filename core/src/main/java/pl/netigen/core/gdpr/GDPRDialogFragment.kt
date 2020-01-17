@@ -1,6 +1,7 @@
 package pl.netigen.core.gdpr
 
 import android.content.Context
+
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
@@ -61,7 +62,6 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             dismiss()
         }
         buttonNo.setOnClickListener {
-            gdprClickListener?.clickNo()
             showPrivacyPolicy()
         }
         buttonBack.setOnClickListener {
@@ -186,11 +186,8 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         this.gdprClickListener = gdprClickListener
     }
 
-
     interface GDPRClickListener {
         fun clickYes()
-
-        fun clickNo()
 
         fun clickPay()
 
@@ -208,6 +205,4 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             return dialogFragment
         }
     }
-
-
 }

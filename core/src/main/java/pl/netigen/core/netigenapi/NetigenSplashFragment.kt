@@ -92,7 +92,6 @@ abstract class NetigenSplashFragment<ViewModel : NetigenMainVM> : NetigenFragmen
     }
 
     private fun onDesignedForFamily() {
-        clickNo()
         initAds()
         showHomeFragmentOrSetFlag()
     }
@@ -126,10 +125,6 @@ abstract class NetigenSplashFragment<ViewModel : NetigenMainVM> : NetigenFragmen
         }
     }
 
-    override fun clickNo() {
-        netigenMainActivity.consentInformation.consentStatus = ConsentStatus.NON_PERSONALIZED
-    }
-
     private fun initGDPRFragment() {
         if (!canCommitFragments) {
             consentNotShowed = true
@@ -154,7 +149,6 @@ abstract class NetigenSplashFragment<ViewModel : NetigenMainVM> : NetigenFragmen
 
     private fun startAdsSplash() {
         if (viewModel.isDesignedForFamily) {
-            clickNo()
             showHomeFragmentOrSetFlag()
         } else {
             if (!::initAdsHandler.isInitialized) {
