@@ -12,11 +12,11 @@ import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IBannerAd
 
-class AdmobBanner(
+class AdMobBanner(
     private val activity: AppCompatActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: AdId<String>,
-    override var bannerRelativeLayout: RelativeLayout,
+    override val bannerRelativeLayout: RelativeLayout,
     private val isAdaptiveBanner: Boolean = true,
     override var enabled: Boolean = true
 ) : IBannerAd, LifecycleObserver {

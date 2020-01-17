@@ -1,7 +1,6 @@
 package com.netigen.sampleapp
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -14,6 +13,7 @@ import pl.netigen.coreapi.payments.NoAdsNotAvailable
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
 import pl.netigen.gms.ads.AdMobAds
+import timber.log.Timber.d
 
 class SampleMainActivity : AppCompatActivity() {
 
@@ -46,9 +46,8 @@ class SampleMainActivity : AppCompatActivity() {
             networkStatus = NetworkStatus(this)
         )
         splashVM.splashState.observe(this) {
-            Log.d("wrobel", "splashState.observe: $it")
+            d("splashState.observe: $it")
         }
         splashVM.onStart()
-        Log.d("wrobel", "onCreate: " + ads.bannerAd.getHeightInPixels())
     }
 }
