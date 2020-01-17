@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">Prehliadač nebol nájdený !!!</string>
+    <string name="cancel_netigen">Zrušiť</string>
+    <string name="change_language_netigen">Zmeniť jazyk</string>
+    <string name="translation_information_title_netigen">Informácie o preklade</string>
+    <string name="translation_information_content1_netigen">Táto aplikácia bola preložená prekladateľom Google. Angličtina je pôvodným jazykom tejto
+        aplikácie. Nezabudnite, že by sa mohli vyskytnúť chyby v preklade.
+    </string>
+    <string name="translation_information_content2_netigen">Ak chcete jazyk aplikácie zmeniť na angličtinu, môžete tak urobiť v nastaveniach.</string>
+    <string name="do_you_like_this_app_netigen">Páči sa vám táto aplikácia?</string>
+    <string name="please_support_us_netigen">Podporte nás hodnotením tejto aplikácie. Ďakujem!</string>
+    <string name="later_netigen">neskôr</string>
+    <string name="rate_us_netigen">Ohodnoť nás</string>
+    <string name="settings_normal_netigen">nastavenie</string>
+</resources>

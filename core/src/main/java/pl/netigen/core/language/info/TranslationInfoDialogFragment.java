@@ -1,38 +1,48 @@
 package pl.netigen.core.language.info;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Display;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import pl.netigen.core.R;
+import pl.netigen.extensions.DialogFragmentExtensionsKt;
+
+import static pl.netigen.core.utils.Const.MARGIN_TOP;
+import static pl.netigen.core.utils.Const.SCREEN_HEIGHT_IN_DP;
 
 public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
 
     private DialogClickListener dialogClickListener;
-    private Button buttonChangeLanguageOk;
-    private Button buttonChangeLanguageDismiss;
     private TranslationInfoParams translationInfoParams;
-    private TextView textViewTranslationInfoTitle;
-    private TextView textViewTranslationInfoContent2;
-    private TextView textViewTranslationInfoContent1;
 
     public TranslationInfoDialogFragment() {
 
     }
+
+    public interface DialogClickListener {
+        void onNegativeButtonClicked();
+
+        void onPositiveButtonClicked();
+    }
+
 
     public static TranslationInfoDialogFragment newInstance(TranslationInfoParams translationInfoParams) {
         TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment();
@@ -47,9 +57,20 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
+        setupDialog();
+
+        if (dialogClickListener == null) {
+            dismiss();
+            return view;
+        }
+
+        return view;
+    }
+
+    private void setupDialog() {
         Window window = getDialog().getWindow();
 
         if (window != null) {
@@ -59,42 +80,81 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
 
         getDialog().setCancelable(true);
         getDialog().setCanceledOnTouchOutside(true);
-        View view = inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
+    }
 
-        if (translationInfoParams == null || dialogClickListener == null) {
-            dismiss();
-            return view;
-        }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         setTranslationInfoContent1(view);
-
         setTranslationInfoContent2(view);
-
         setTranslationInfoTitle(view);
-
         setPositiveButton(view);
-
         setNegativeButton(view);
-        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        manageDialogSize();
+    }
+
+    private void manageDialogSize() {
+        Context context = getContext();
+        if (context != null) {
+            Resources resources = getContext().getResources();
+            if (resources != null) {
+                manageDialogOrientation(resources.getConfiguration().orientation);
+                if (getDeviceHeight(resources) < SCREEN_HEIGHT_IN_DP)
+                    manageSmallScreenHeight();
+            }
+        }
+    }
+
+    private void manageDialogOrientation(int configuration) {
+        if (configuration == Configuration.ORIENTATION_LANDSCAPE)
+            DialogFragmentExtensionsKt.setDialogSize(this, 410, 280);
+        else
+            DialogFragmentExtensionsKt.setDialogSize(this, 280, 310);
+    }
+
+    private float getDeviceHeight(Resources resources) {
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        return displayMetrics.heightPixels / displayMetrics.density;
+    }
+
+    private void manageSmallScreenHeight() {
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams params = window.getAttributes();
+                params.y = MARGIN_TOP;
+                window.setAttributes(params);
+                window.setGravity(Gravity.TOP | Gravity.CENTER);
+                DialogFragmentExtensionsKt.setDialogSize(this, 415, 270);
+            }
+        }
     }
 
     private void setTranslationInfoContent1(View view) {
-        textViewTranslationInfoContent1 = view.findViewById(R.id.textView_translation_info_content1);
+        TextView textViewTranslationInfoContent1 = view.findViewById(R.id.textView_translation_info_content1);
         textViewTranslationInfoContent1.setText(translationInfoParams.textContentTopResId);
     }
 
     private void setTranslationInfoContent2(View view) {
-        textViewTranslationInfoContent2 = view.findViewById(R.id.textView_translation_info_content2);
+        TextView textViewTranslationInfoContent2 = view.findViewById(R.id.textView_translation_info_content2);
         textViewTranslationInfoContent2.setText(translationInfoParams.textContentBottomResId);
     }
 
     private void setTranslationInfoTitle(View view) {
-        textViewTranslationInfoTitle = view.findViewById(R.id.textView_translation_info_title);
+        TextView textViewTranslationInfoTitle = view.findViewById(R.id.textView_translation_info_title);
         textViewTranslationInfoTitle.setText(translationInfoParams.titleResId);
     }
 
+
     public void setPositiveButton(View view) {
-        buttonChangeLanguageOk = view.findViewById(R.id.button_positive);
+        TextView buttonChangeLanguageOk = view.findViewById(R.id.button_positive);
         buttonChangeLanguageOk.setText(translationInfoParams.positiveButtonResId);
         buttonChangeLanguageOk.setOnClickListener(v -> {
             if (dialogClickListener != null) {
@@ -105,7 +165,7 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
     }
 
     private void setNegativeButton(View view) {
-        buttonChangeLanguageDismiss = view.findViewById(R.id.button_negative);
+        TextView buttonChangeLanguageDismiss = view.findViewById(R.id.button_negative);
         buttonChangeLanguageDismiss.setText(translationInfoParams.negativeButtonResId);
 
         buttonChangeLanguageDismiss.setOnClickListener(v -> {
@@ -115,40 +175,6 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
             dismiss();
         });
 
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        setDialogSize(0, 0.85);
-    }
-
-    private void setDialogSize(double heightMultiplier, double widthMultiplier) {
-        Window window = getDialog().getWindow();
-        Point size = new Point();
-        Display display;
-        if (window != null) {
-            display = window.getWindowManager().getDefaultDisplay();
-            display.getSize(size);
-            int maxWidth = size.x;
-            int maxHeight = size.y;
-            if (heightMultiplier == 0.0 && widthMultiplier == 0.0) {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else if (widthMultiplier != 0.0 && heightMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), (int) (maxHeight * heightMultiplier));
-            } else if (widthMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, (int) (maxHeight * heightMultiplier));
-            }
-            window.setGravity(Gravity.CENTER);
-        }
-    }
-
-    public interface DialogClickListener {
-        void onNegativeButtonClicked();
-
-        void onPositiveButtonClicked();
     }
 
     public static class Builder {
@@ -214,9 +240,9 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         @StringRes
         public int titleResId = R.string.translation_information_title_netigen;
         @StringRes
-        public int negativeButtonResId = R.string.cancel_upper_case_netigen;
+        public int negativeButtonResId = R.string.cancel_netigen;
         @StringRes
-        public int positiveButtonResId = R.string.settings_upper_case_netigen;
+        public int positiveButtonResId = R.string.settings_normal_netigen;
         @StringRes
         public int textContentTopResId = R.string.translation_information_content1_netigen;
         @StringRes

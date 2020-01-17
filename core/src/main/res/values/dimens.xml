@@ -16,5 +16,16 @@
     <dimen name="text_size_reward_dialog_description">18sp</dimen>
     <dimen name="max_gdpr_button_text_size">18sp</dimen>
     <dimen name="min_gdpr_button_text_size">10sp</dimen>
-    <dimen name="gdpr_button_height">42dp</dimen>
+    <dimen name="gdpr_button_height">36dp</dimen>
+    <dimen name="gdpr_small_screen_button_size">150dp</dimen>
+    <dimen name="title_text_size_netigen_api">20sp</dimen>
+    <dimen name="button_text_size_netigen_api">14sp</dimen>
+    <dimen name="button_height_netigen_api">36dp</dimen>
+    <dimen name="button_min_width_netigen_api">76dp</dimen>
+
+    <dimen name="small_space_netigen_api">12dp</dimen>
+    <dimen name="medium_space_netigen_api">16dp</dimen>
+    <dimen name="big_space_netigen_api">24dp</dimen>
+
+    <dimen name="pop_up_portrait_width">280dp</dimen>
 </resources>

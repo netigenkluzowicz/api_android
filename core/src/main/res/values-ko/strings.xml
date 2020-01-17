@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">브라우저를 찾을 수 없습니다 !!!</string>
+    <string name="cancel_netigen">취소</string>
+    <string name="change_language_netigen">언어 변경</string>
+    <string name="translation_information_title_netigen">번역 정보</string>
+    <string name="translation_information_content1_netigen">이 응용 프로그램은 Google 번역에 의해 번역되었습니다. 영어는이 응용 프로그램의 원래 언어입니다. 번역에 몇 가지
+        실수가있을 수 있음을 기억하십시오.
+    </string>
+    <string name="translation_information_content2_netigen">앱 언어를 영어로 변경하려면 설정에서 변경할 수 있습니다.</string>
+    <string name="do_you_like_this_app_netigen">이 앱이 마음에 드십니까?</string>
+    <string name="please_support_us_netigen">이 응용 프로그램을 평가하여 우리를 지원하십시오. 감사합니다!</string>
+    <string name="later_netigen">나중</string>
+    <string name="rate_us_netigen">평가하기</string>
+    <string name="settings_normal_netigen">설정</string>
+</resources>
