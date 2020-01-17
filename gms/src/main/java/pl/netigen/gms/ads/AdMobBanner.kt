@@ -1,6 +1,6 @@
 package pl.netigen.gms.ads
 
-import android.content.Context
+import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -12,22 +12,38 @@ import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IBannerAd
 
-class AdmobBanner(
+class AdMobBanner(
     private val activity: AppCompatActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: AdId<String>,
-    override var bannerRelativeLayout: RelativeLayout,
+    override val bannerRelativeLayout: RelativeLayout,
+    private val isAdaptiveBanner: Boolean = true,
     override var enabled: Boolean = true
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView = AdView(activity)
     private var loadedBannerOrientation = 0
     private val disabled get() = !enabled
+    private val adSize: AdSize = getAdSize()
 
     init {
         activity.lifecycle.addObserver(this)
     }
 
-    override fun getHeightInPixels(context: Context): Int = AdSize.SMART_BANNER.getHeightInPixels(context)
+    override fun getHeightInPixels(): Int = adSize.getHeightInPixels(activity)
+
+    private fun getAdSize(): AdSize {
+        if (!isAdaptiveBanner) return AdSize.SMART_BANNER
+        val display = activity.windowManager.defaultDisplay
+        val outMetrics = DisplayMetrics()
+        display.getMetrics(outMetrics)
+
+        val density = outMetrics.density
+
+        val adWidthPixels = outMetrics.widthPixels.toFloat()
+
+        val adWidth = (adWidthPixels / density).toInt()
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth)
+    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
@@ -51,7 +67,7 @@ class AdmobBanner(
         if (loadedBannerOrientation != activity.resources.configuration.orientation) {
             loadedBannerOrientation = activity.resources.configuration.orientation
             bannerView = AdView(activity)
-            bannerView.adSize = AdSize.SMART_BANNER
+            bannerView.adSize = adSize
             bannerView.adUnitId = adId.id
         }
         bannerView.loadAd(adMobRequest.getAdRequest())

@@ -115,7 +115,7 @@ abstract class NetigenMainActivity<ViewModel : NetigenMainVM> : AppCompatActivit
     fun showBanner() {
         bannerRelativeLayout = getBannerRelativeLayout()
         val layoutParams = bannerRelativeLayout?.layoutParams
-        val bannerHeightPixels = admobAds?.bannerAd?.getHeightInPixels(this)
+        val bannerHeightPixels = admobAds?.bannerAd?.getHeightInPixels()
         layoutParams?.width = RelativeLayout.LayoutParams.MATCH_PARENT
         layoutParams?.height = bannerHeightPixels
         bannerRelativeLayout?.gravity = Gravity.TOP
