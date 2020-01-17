@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">¡Navegador no encontrado!</string>
+    <string name="cancel_netigen">Cancelar</string>
+    <string name="change_language_netigen">Cambiar idioma</string>
+    <string name="translation_information_title_netigen">Información de traducción</string>
+    <string name="translation_information_content1_netigen">Esta aplicación ha sido traducida por Google Translate. Inglés es el idioma original de esta
+        aplicación. Por favor recuerde que podría haber algunos errores en la traducción.
+    </string>
+    <string name="translation_information_content2_netigen">Si desea cambiar el idioma de la aplicación a inglés, puede hacerlo en la configuración.</string>
+    <string name="do_you_like_this_app_netigen">¿Te gusta esta app?</string>
+    <string name="please_support_us_netigen">Apóyanos calificando esta aplicación. ¡Gracias!</string>
+    <string name="later_netigen">Luego</string>
+    <string name="rate_us_netigen">Valóranos</string>
+    <string name="settings_normal_netigen">Configuración</string>
+</resources>

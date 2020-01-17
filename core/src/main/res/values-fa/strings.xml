@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="msg_browser_not_found_netigen">مرورگر یافت نشد !!!</string>
+    <string name="cancel_netigen">لغو</string>
+    <string name="change_language_netigen">تغییر زبان</string>
+    <string name="translation_information_title_netigen">اطلاعات ترجمه</string>
+    <string name="translation_information_content1_netigen">این نرم افزار توسط Google Translate ترجمه شده است. انگلیسی زبان اصلی این برنامه است. لطفا به یاد
+        داشته باشید که ممکن است اشتباهاتی در ترجمه وجود داشته باشد.
+    </string>
+    <string name="translation_information_content2_netigen">اگر می خواهید زبان برنامه را به زبان انگلیسی تغییر دهید، می توانید این کار را در تنظیمات انجام
+        دهید.
+    </string>
+    <string name="do_you_like_this_app_netigen">آیا این برنامه را دوست دارید؟</string>
+    <string name="please_support_us_netigen">لطفا با رتبه بندی این برنامه از ما حمایت کنید. متشکرم!</string>
+    <string name="later_netigen">بعد</string>
+    <string name="rate_us_netigen">به ما رای دهید</string>
+    <string name="settings_normal_netigen">تنظیمات</string>
+</resources>

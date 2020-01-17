@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rate_us_caps_netigen">RATE US</string>
+    <string name="follow_us_caps_netigen">FOLLOW US</string>
+    <string name="visit_www_netigen">Visit www.netigen.pl</string>
+    <string name="follow_facebook_netigen">Follow us on Facebook</string>
+    <string name="follow_twitter_netigen">Follow us on Twitter</string>
+    <string name="twitter_netigen">Twitter</string>
+    <string name="follow_g_plus_netigen">Follow us on Google+</string>
+    <string name="google_plus_netigen">Google+</string>
+    <string name="ask_to_rate_us_netigen">Do you want to rate this Application?</string>
+    <string name="website_netigen">Website</string>
+    <string name="facebook_netigen">Facebook</string>
+    <string name="about_txt_netigen">\n<b>Ringtones</b> for Android\n\nDeveloped by <b>NETIGEN</b> Kluzowicz\u00A0sp.j\n\nPlease, send comments, feature requests or report bugs to:\nmobile@netigen.pl\n</string>
+    <string name="yes_netigen" translatable="false">Yes</string>
+    <string name="no_netigen" translatable="false">No</string>
+
+    <string name="more_apps_netigen">More Apps</string>
+    <string name="information_netigen">Information</string>
+    <string name="settings_netigen">Save Settings</string>
+    <string name="about_title_netigen">About</string>
+
+    <string name="do_you_like_this_app_and_want_to_support_us_we_will_be_grateful_give_us_5_stars_netigen">Do you like this app? Please support us by rating this app. Thank you!</string>
+    <string name="no_exclamation_mark_netigen">No!</string>
+    <string name="yes_exclamation_mark_netigen">Yes!</string>
+    <string name="later_exclamation_mark_netigen">Later!</string>
+    <string name="payment_error">Payment error:</string>
+</resources>
