@@ -21,6 +21,6 @@ class SampleSplashFragment : SplashFragment() {
 
     override fun onFinished() {
         super.onFinished()
-        Timber.d("")
+        Timber.d("called")
     }
 }

@@ -14,6 +14,7 @@ import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
 import pl.netigen.extensions.setDialogSizeAsMatchParent
+import timber.log.Timber.d
 
 private const val GDPR_POP_UP_TAG = "GDPR_POP_UP"
 
@@ -25,6 +26,7 @@ abstract class SplashFragment : NetigenDialogFragment(), GDPRDialogFragment.GDPR
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        d("called")
         observe()
     }
 
@@ -48,11 +50,11 @@ abstract class SplashFragment : NetigenDialogFragment(), GDPRDialogFragment.GDPR
     }
 
     private fun onUninitialized() {
-        gdprDialogFragment?.dismiss()
         viewModel.onStart()
     }
 
     private fun tryShowGdprPopup() {
+        d("called")
         if (!canCommitFragments) {
             consentNotShowed = true
             return
@@ -74,6 +76,7 @@ abstract class SplashFragment : NetigenDialogFragment(), GDPRDialogFragment.GDPR
     private fun bindGdprFragment(fragment: GDPRDialogFragment) {
         fragment.setIsPayOptions(viewModel.isNoAdsAvailable)
         fragment.bindGDPRListener(this)
+        consentNotShowed = false
     }
 
     private fun showGdprPopup(it: FragmentActivity) {
@@ -102,6 +105,11 @@ abstract class SplashFragment : NetigenDialogFragment(), GDPRDialogFragment.GDPR
         super.onStart()
         setDialogSizeAsMatchParent()
         viewModel.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (consentNotShowed) tryShowGdprPopup()
     }
 
     @CallSuper
