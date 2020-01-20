@@ -1,4 +1,4 @@
-package pl.netigen.core.netigenapi
+package pl.netigen.core.fragment
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDialogFragment

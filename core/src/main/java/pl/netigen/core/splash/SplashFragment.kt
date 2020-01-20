@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.Observer
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import pl.netigen.core.fragment.NetigenFragment
 import pl.netigen.core.gdpr.GDPRDialogFragment
-import pl.netigen.core.netigenapi.NetigenFragment
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
+import pl.netigen.extensions.observe
 
 private const val GDPR_POP_UP_TAG = "GDPR_POP_UP"
 
@@ -27,7 +27,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     private fun observe() {
-        viewModel.splashState.observe(viewLifecycleOwner, Observer {
+        viewModel.splashState.observe(viewLifecycleOwner) {
             when (it) {
                 SplashState.UNINITIALIZED -> {
                     onUninitialized()
@@ -42,7 +42,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
                     onFinished()
                 }
             }
-        })
+        }
     }
 
     private fun onUninitialized() {
