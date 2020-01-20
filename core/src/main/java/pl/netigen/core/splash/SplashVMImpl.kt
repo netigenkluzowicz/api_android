@@ -19,7 +19,7 @@ import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchMain
 
 @ExperimentalCoroutinesApi
-class SplashVMImpl(
+open class SplashVMImpl(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
