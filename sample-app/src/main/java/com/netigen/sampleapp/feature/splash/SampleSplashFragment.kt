@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.safeNavigate
 import com.netigen.sampleapp.R
 import com.netigen.sampleapp.feature.home.SampleMainActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -22,5 +25,12 @@ class SampleSplashFragment : SplashFragment() {
     override fun onFinished() {
         super.onFinished()
         Timber.d("called")
+        findNavController().safeNavigate(
+            R.id.action_splashFragment_to_homeFragment,
+            null,
+            NavOptions.Builder()
+                .setPopUpTo(R.id.splashFragment, true)
+                .build()
+        )
     }
 }
