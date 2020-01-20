@@ -27,7 +27,7 @@ open class SplashVMImpl(
     private val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO,
-    override val isNoAdsAvailable: Boolean
+    override val isNoAdsAvailable: Boolean = true
 ) : SplashVM(), INoAds by noAdsPurchases {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -131,8 +131,7 @@ open class SplashVMImpl(
                             showGdprPopUp()
                         }
                     }
-                }
-                .collect()
+                }.collect()
         }
     }
 
