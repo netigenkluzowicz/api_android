@@ -55,15 +55,4 @@ abstract class BaseDialogFragment(@LayoutRes private val layout: Int) : AppCompa
                 else -> setDialogSize(DIALOG_WIDTH_DP_PORTRAIT)
             }
     }
-
-    override fun show(fragmentManager: FragmentManager, tag: String?) {
-        val transaction = fragmentManager.beginTransaction()
-        val prevFragment = fragmentManager.findFragmentByTag(tag)
-        if (prevFragment != null) {
-            transaction.remove(prevFragment)
-        }
-        transaction.addToBackStack(null)
-        show(transaction, tag)
-    }
-
 }

@@ -3,6 +3,7 @@ package pl.netigen.core.language.info;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -38,12 +39,6 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
         fragment.dialogClickListener = translationInfoParams.dialogClickListener;
         return fragment;
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
