@@ -4,41 +4,40 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import pl.netigen.core.R;
+import pl.netigen.core.utils.BaseDialogFragment;
 import pl.netigen.extensions.DialogFragmentExtensionKt;
+import pl.netigen.extensions.ViewTintExtensionKt;
 
 import static pl.netigen.core.utils.Const.MARGIN_TOP;
 import static pl.netigen.core.utils.Const.SCREEN_HEIGHT_IN_DP;
 
-public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
+public class ChangeLanguageDialogFragment extends BaseDialogFragment {
 
     private static final String TAG = "ChangeLanguageDialog";
 
@@ -54,8 +53,12 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
     private ArrayList<LanguageModel> languageModels;
     private ChangeLanguageParams changeLanguageParams;
 
+    private ChangeLanguageDialogFragment(int layout) {
+        super(layout);
+    }
+
     private static ChangeLanguageDialogFragment newInstance(LanguageClickListener languageClickListener, List<String> languageCodes, ChangeLanguageParams changeLanguageParams) {
-        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment();
+        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment(R.layout.dialog_fragment_change_language);
         fragment.bindListener(languageClickListener);
         fragment.languageCodes = languageCodes;
         fragment.changeLanguageParams = changeLanguageParams;
@@ -63,7 +66,7 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
     }
 
     private static ChangeLanguageDialogFragment newInstance(LanguageClickListener languageClickListener, String jsonLanguageCodes, ChangeLanguageParams changeLanguageParams) {
-        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment();
+        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment(R.layout.dialog_fragment_change_language);
         fragment.bindListener(languageClickListener);
         fragment.setLanguageCodesList(jsonLanguageCodes);
         fragment.changeLanguageParams = changeLanguageParams;
@@ -93,40 +96,17 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        Window window = getDialog().getWindow();
-
-        if (window != null) {
-            window.requestFeature(Window.FEATURE_NO_TITLE);
-            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        }
-
-        getDialog().setCancelable(true);
-        getDialog().setCanceledOnTouchOutside(true);
-
-        View view = inflater.inflate(R.layout.dialog_fragment_change_language, container, false);
-
-        if (changeLanguageParams == null || languageClickListener == null) {
-            dismiss();
-            return view;
-        }
+    public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         recyclerViewLanguages = view.findViewById(R.id.recyclerView_languages);
 
         setTitle(view);
-
         setPositiveButton(view);
-
         setNegativeButton(view);
-
         setLanguageModelsArrayList();
-
         initiateList();
-
         setPositiveButton();
-        return view;
     }
 
     private void setNegativeButton(View view) {
@@ -208,8 +188,8 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
     private void setButtonsBackgroundTints() {//there is ext for tint
         Context context = getContext();
         if (context != null) {
-            buttonChangeLanguageOk.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.dialog_accent), PorterDuff.Mode.MULTIPLY);
-            buttonChangeLanguageDismiss.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.dialog_neutral_button_bg), PorterDuff.Mode.MULTIPLY);
+            ViewTintExtensionKt.setTint(buttonChangeLanguageOk.getBackground(), context, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY);
+            ViewTintExtensionKt.setTint(buttonChangeLanguageDismiss.getBackground(), context, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY);
         }
     }
 

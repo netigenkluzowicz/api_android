@@ -4,24 +4,22 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
-import androidx.appcompat.app.AppCompatActivity
+import android.view.*
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.FragmentManager
 import pl.netigen.extensions.toPx
 
-abstract class BaseDialogFragment : AppCompatDialogFragment() {
+abstract class BaseDialogFragment(@LayoutRes private val layout: Int) : AppCompatDialogFragment() {
 
     companion object {
         private const val DIALOG_WIDTH_DP_PORTRAIT = 280
         private const val DIALOG_WIDTH_DP_LANDSCAPE = 420
     }
 
-    private val activity: AppCompatActivity?
-        get() = if (activity == null) null else activity as AppCompatActivity
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(layout, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,9 +38,9 @@ abstract class BaseDialogFragment : AppCompatDialogFragment() {
         manageDialogSize()
     }
 
-    private fun setDialogSize(dp: Int) {
+    protected fun setDialogSize(dp: Int) {
         dialog?.window?.let {
-            val width = DIALOG_WIDTH_DP_PORTRAIT.toPx()
+            val width = dp.toPx()
             it.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
             it.setGravity(Gravity.CENTER)
         }
