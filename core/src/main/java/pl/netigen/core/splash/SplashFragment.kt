@@ -16,7 +16,6 @@ private const val GDPR_POP_UP_TAG = "GDPR_POP_UP"
 
 @ExperimentalCoroutinesApi
 abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
-
     private var consentNotShowed: Boolean = false
     abstract val viewModel: SplashVM
     private var gdprDialogFragment: GDPRDialogFragment? = null
