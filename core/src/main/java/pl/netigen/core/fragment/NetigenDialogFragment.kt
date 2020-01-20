@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDialogFragment
 
 open class NetigenDialogFragment : AppCompatDialogFragment() {
-
     var canCommitFragments = false
         private set
 

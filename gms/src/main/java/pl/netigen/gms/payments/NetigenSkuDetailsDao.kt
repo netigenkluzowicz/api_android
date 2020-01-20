@@ -1,6 +1,5 @@
 package pl.netigen.gms.payments
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.android.billingclient.api.BillingClient
@@ -10,7 +9,6 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 @Dao
 interface NetigenSkuDetailsDao {
-
     @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.SUBS}'")
     fun subscriptionSkuDetailsFlow(): Flow<List<NetigenSkuDetails>>
 

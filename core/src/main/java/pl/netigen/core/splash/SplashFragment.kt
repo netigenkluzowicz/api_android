@@ -57,14 +57,12 @@ abstract class SplashFragment : NetigenDialogFragment(), GDPRDialogFragment.GDPR
             consentNotShowed = true
             return
         }
-        activity?.let {
-            val fragment =
-                it.supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
-            if (fragment != null) {
-                onGdprPopupVisible(fragment)
-            } else {
-                showGdprPopup(it)
-            }
+        val fragment =
+            requireActivity().supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
+        if (fragment != null) {
+            onGdprPopupVisible(fragment)
+        } else {
+            showGdprPopup(requireActivity())
         }
     }
 
@@ -98,21 +96,24 @@ abstract class SplashFragment : NetigenDialogFragment(), GDPRDialogFragment.GDPR
         gdprDialogFragment?.dismiss()
         dismiss()
     }
+
     @CallSuper
     override fun onStart() {
         super.onStart()
         setDialogSizeAsMatchParent()
         viewModel.onStart()
     }
+
     @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NO_FRAME, 0)
     }
+
     @CallSuper
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
-         dialog.window?.requestFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.requestFeature(Window.FEATURE_NO_TITLE)
         return dialog
     }
 

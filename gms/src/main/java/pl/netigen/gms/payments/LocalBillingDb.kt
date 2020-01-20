@@ -24,9 +24,7 @@ import androidx.room.TypeConverters
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 @Database(
-    entities = [
-        NetigenSkuDetails::class, CachedPurchase::class
-    ],
+    entities = [NetigenSkuDetails::class, CachedPurchase::class],
     version = 1,
     exportSchema = false
 )

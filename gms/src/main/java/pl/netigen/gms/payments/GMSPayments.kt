@@ -6,7 +6,6 @@ import pl.netigen.coreapi.payments.Payments
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 class GMSPayments(application: Application, inAppSkuList: List<String>) : Payments() {
-
     override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList)
 
     override fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
