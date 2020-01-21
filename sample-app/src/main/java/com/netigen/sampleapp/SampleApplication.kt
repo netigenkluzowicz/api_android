@@ -4,7 +4,6 @@ import android.app.Application
 import timber.log.Timber
 
 class SampleApplication : Application() {
-
     override fun onCreate() {
         super.onCreate()
         setupTimber()
@@ -12,8 +11,13 @@ class SampleApplication : Application() {
 
     private fun setupTimber() {
         Timber.plant(object : Timber.DebugTree() {
-            override fun createStackElementTag(element: StackTraceElement) =
-                "netigenApi.${element.className.substringAfterLast(".")}.${element.methodName}"
+            override fun createStackElementTag(element: StackTraceElement): String {
+                return "$TAG.${element.className.substringAfterLast(".")}.${element.methodName}"
+            }
         })
+    }
+
+    companion object {
+        const val TAG = "netigenApi"
     }
 }
