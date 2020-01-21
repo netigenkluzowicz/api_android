@@ -17,6 +17,7 @@ import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchMain
+import timber.log.Timber.d
 
 open class SplashVMImpl(
     private val gdprConsent: IGDPRConsent,
@@ -33,6 +34,7 @@ open class SplashVMImpl(
     private val isRunning get() = splashState.value != SplashState.UNINITIALIZED && splashState.value != SplashState.FINISHED
 
     override fun onStart() {
+        d(isRunning.toString())
         if (!isRunning) init()
     }
 

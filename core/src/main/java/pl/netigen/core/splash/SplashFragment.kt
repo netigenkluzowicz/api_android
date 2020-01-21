@@ -105,9 +105,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     override fun clickPay() {
-        requireActivity().let {
-            viewModel.makeNoAdsPayment(it)
-        }
+        viewModel.makeNoAdsPayment(requireActivity())
     }
 
     override fun clickAcceptPolicy() {
