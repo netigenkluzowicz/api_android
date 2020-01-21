@@ -9,12 +9,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.safeNavigate
 import com.netigen.sampleapp.R
 import com.netigen.sampleapp.feature.home.SampleMainActivity
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import pl.netigen.core.splash.SplashFragment
 import pl.netigen.coreapi.splash.SplashVM
 import timber.log.Timber
 
-@ExperimentalCoroutinesApi
+
 class SampleSplashFragment : SplashFragment() {
     override val viewModel: SplashVM by lazy { (requireActivity() as SampleMainActivity).splashVM }
 
@@ -25,6 +24,10 @@ class SampleSplashFragment : SplashFragment() {
     override fun onFinished() {
         super.onFinished()
         Timber.d("called")
+        showHomeFragment()
+    }
+
+    private fun showHomeFragment() {
         findNavController().safeNavigate(
             R.id.action_splashFragment_to_homeFragment,
             null,

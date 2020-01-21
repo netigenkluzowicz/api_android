@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IInterstitialAd
 
-@ExperimentalCoroutinesApi
+
 class AdMobInterstitial(
     private val activity: AppCompatActivity,
     private val adMobRequest: IAdMobRequest,
