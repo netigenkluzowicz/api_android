@@ -9,6 +9,5 @@ interface IPayments : INoAds {
     val subsSkuDetails: LiveData<List<NetigenSkuDetails>>
 
     fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails)
-
     fun consumeItem()
 }

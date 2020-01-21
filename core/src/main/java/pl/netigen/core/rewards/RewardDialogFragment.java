@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
@@ -27,7 +28,6 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import pl.netigen.core.R;
-import pl.netigen.core.netigenapi.NetigenMainActivity;
 
 public class RewardDialogFragment extends AppCompatDialogFragment {
 
@@ -47,12 +47,12 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     private FrameLayout backgroundView;
 
     private RewardParams rewardParams;
-    private NetigenMainActivity netigenMainActivity;
+    private AppCompatActivity appCompatActivity;
 
-    private static RewardDialogFragment newInstance(RewardParams rewardParams, NetigenMainActivity netigenMainActivity) {
+    private static RewardDialogFragment newInstance(RewardParams rewardParams, AppCompatActivity appCompatActivity) {
         RewardDialogFragment rewardDialogFragment = new RewardDialogFragment();
         rewardDialogFragment.rewardParams = rewardParams;
-        rewardDialogFragment.netigenMainActivity = netigenMainActivity;
+        rewardDialogFragment.appCompatActivity = appCompatActivity;
         return rewardDialogFragment;
     }
 
@@ -131,7 +131,7 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         textViewPositiveButton.setOnClickListener(v -> {
-            //todo  netigenMainActivity.getAdmobAds().showRewardedVideoForItems(rewardParams.rewards, rewardParams.listeners);
+            //todo  appCompatActivity.getAdmobAds().showRewardedVideoForItems(rewardParams.rewards, rewardParams.listeners);
             dismiss();
         });
     }
@@ -235,11 +235,11 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
 
     public static class Builder {
 
-        private NetigenMainActivity netigenMainActivity;
+        private AppCompatActivity appCompatActivity;
         private RewardParams rewardParams;
 
-        public Builder(NetigenMainActivity netigenMainActivity) {
-            this.netigenMainActivity = netigenMainActivity;
+        public Builder(AppCompatActivity appCompatActivity) {
+            this.appCompatActivity = appCompatActivity;
             this.rewardParams = new RewardParams();
         }
 
@@ -339,12 +339,12 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
-        public RewardDialogFragment create(NetigenMainActivity netigenMainActivity) {
-            return RewardDialogFragment.newInstance(rewardParams, netigenMainActivity);
+        public RewardDialogFragment create(AppCompatActivity appCompatActivity) {
+            return RewardDialogFragment.newInstance(rewardParams, appCompatActivity);
         }
 
         public void show() {
-            create(netigenMainActivity).show(netigenMainActivity.getSupportFragmentManager(), TAG);
+            create(appCompatActivity).show(appCompatActivity.getSupportFragmentManager(), TAG);
         }
     }
 }

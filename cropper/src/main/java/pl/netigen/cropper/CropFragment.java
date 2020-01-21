@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import pl.netigen.core.netigenapi.NetigenDialogFragment;
+import pl.netigen.core.fragment.NetigenDialogFragment;
 
 public class CropFragment extends NetigenDialogFragment implements OpenGalleryOrCamera {
 

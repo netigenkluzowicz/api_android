@@ -17,24 +17,22 @@ import timber.log.Timber
 import java.util.*
 
 class GMSPaymentsRepo(
-
     private val application: Application,
     private val inAppSkuList: List<String>
-
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
-
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
-
     private val gmsBillingClient: BillingClient = BillingClient
         .newBuilder(application.applicationContext)
         .enablePendingPurchases()
         .setListener(this)
         .build()
-
     override val inAppSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
     override val subsSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
-
     override val noAdsActive by lazy { noAdsFlow() }
+
+    init {
+        connectToPlayBillingService()
+    }
 
     private fun noAdsFlow(): Flow<Boolean> {
         return flow {
@@ -42,10 +40,6 @@ class GMSPaymentsRepo(
                 emit(list.count { it.isNoAds } > 0)
             }
         }
-    }
-
-    init {
-        connectToPlayBillingService()
     }
 
     private fun connectToPlayBillingService(): Boolean {

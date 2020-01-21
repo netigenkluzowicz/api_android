@@ -13,7 +13,7 @@ class SampleApplication : Application() {
     private fun setupTimber() {
         Timber.plant(object : Timber.DebugTree() {
             override fun createStackElementTag(element: StackTraceElement) =
-                element.className + " " + element.lineNumber + " *:"
+                "netigenApi.${element.className.substringAfterLast(".")}.${element.methodName}"
         })
     }
 }

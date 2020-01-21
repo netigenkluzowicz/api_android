@@ -31,7 +31,7 @@ import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.SplashState
 
 
-@ExperimentalCoroutinesApi
+
 class SplashVMImplTest {
     @get:Rule
     val rule = InstantTaskExecutorRule()

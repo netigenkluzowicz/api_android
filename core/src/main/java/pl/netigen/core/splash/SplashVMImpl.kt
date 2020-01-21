@@ -18,8 +18,7 @@ import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchMain
 
-@ExperimentalCoroutinesApi
-class SplashVMImpl(
+open class SplashVMImpl(
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
@@ -27,7 +26,7 @@ class SplashVMImpl(
     private val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO,
-    override val isNoAdsAvailable: Boolean
+    override val isNoAdsAvailable: Boolean = true
 ) : SplashVM(), INoAds by noAdsPurchases {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -131,8 +130,7 @@ class SplashVMImpl(
                             showGdprPopUp()
                         }
                     }
-                }
-                .collect()
+                }.collect()
         }
     }
 

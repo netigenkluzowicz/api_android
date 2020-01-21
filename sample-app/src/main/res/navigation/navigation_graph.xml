@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.netigen.sampleapp.feature.home.HomeFragment"
+        android:name="com.netigen.sampleapp.feature.home.SampleHomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/home_fragment">
 
