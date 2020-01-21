@@ -4,21 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.fragment.app.FragmentActivity
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import pl.netigen.core.fragment.NetigenFragment
 import pl.netigen.core.gdpr.GDPRDialogFragment
+import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
 import timber.log.Timber.d
 
-private const val GDPR_POP_UP_TAG = "GDPR_POP_UP"
-
-@ExperimentalCoroutinesApi
 abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
-    private var consentNotShowed: Boolean = false
     abstract val viewModel: SplashVM
+    private var consentNotShowed: Boolean = false
     private var gdprDialogFragment: GDPRDialogFragment? = null
+    private val coreMainActivity by lazy { requireActivity() as CoreMainActivity }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,6 +49,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
 
     private fun tryShowGdprPopup() {
         d("called")
+        coreMainActivity.onSplashOpened()
         if (!canCommitFragments) {
             consentNotShowed = true
             return
@@ -87,11 +86,13 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     @CallSuper
     open fun onLoading() {
         gdprDialogFragment?.dismiss()
+        coreMainActivity.onSplashOpened()
     }
 
     @CallSuper
     open fun onFinished() {
         gdprDialogFragment?.dismiss()
+        coreMainActivity.onSplashClosed()
     }
 
     override fun onStart() {
@@ -104,12 +105,16 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     override fun clickPay() {
-        activity?.let {
+        requireActivity().let {
             viewModel.makeNoAdsPayment(it)
         }
     }
 
     override fun clickAcceptPolicy() {
         viewModel.setPersonalizedAds(false)
+    }
+
+    companion object {
+        private const val GDPR_POP_UP_TAG = "GDPR_POP_UP"
     }
 }
