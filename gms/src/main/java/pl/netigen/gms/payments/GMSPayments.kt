@@ -4,8 +4,9 @@ import android.app.Activity
 import android.app.Application
 import pl.netigen.coreapi.payments.Payments
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import timber.log.Timber.d
 
-class GMSPayments(application: Application, inAppSkuList: List<String>) : Payments() {
+class GMSPayments(application: Application, inAppSkuList: List<String> = listOf("${application.packageName}.noads")) : Payments() {
     override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList)
 
     override fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
@@ -13,6 +14,7 @@ class GMSPayments(application: Application, inAppSkuList: List<String>) : Paymen
     }
 
     override fun makeNoAdsPayment(activity: Activity, noAdsString: String) {
+        d(noAdsString)
         paymentsRepo.makeNoAdsPurchase(activity)
     }
 

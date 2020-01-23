@@ -18,7 +18,6 @@ import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.CoreMainVM
-import pl.netigen.coreapi.payments.NoAdsNotAvailable
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
 import pl.netigen.gms.ads.AdMobAds
@@ -51,9 +50,9 @@ class SampleMainActivity : CoreMainActivity() {
         SplashVMImpl(
             gdprConsent = gdprConsent,
             ads = ads,
-            noAdsPurchases = NoAdsNotAvailable,
+            noAdsPurchases = gmsPayments,
             networkStatus = NetworkStatus(this),
-            isNoAdsAvailable = false
+            isNoAdsAvailable = true
         )
     }
 
@@ -73,7 +72,8 @@ class SampleMainActivity : CoreMainActivity() {
         navContainer.layoutParams = layoutParams
     }
 
-    override val viewModel: CoreMainVM by lazy { CoreMainVMImpl(ads, GMSPayments(application, emptyList())) }
+    private val gmsPayments: GMSPayments by lazy { GMSPayments(application) }
+    override val viewModel: CoreMainVM by lazy { CoreMainVMImpl(ads, gmsPayments) }
     override val splashFragment: SplashFragment by lazy { SampleSplashFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
