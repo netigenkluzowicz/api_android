@@ -31,14 +31,15 @@ open class SplashVMImpl(
 ) : SplashVM(), INoAds by noAdsPurchases {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
-    private val isRunning get() = splashState.value != SplashState.UNINITIALIZED && splashState.value != SplashState.FINISHED
+    private var isRunning = false
 
-    override fun onStart() {
+    override fun start() {
         d(isRunning.toString())
         if (!isRunning) init()
     }
 
     private fun init() {
+        isRunning = true
         launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
         launch(coroutineDispatcherIo) {
             gdprConsent.adConsentStatus
@@ -147,6 +148,7 @@ open class SplashVMImpl(
         if (isRunning) {
             cleanUp()
             updateState(SplashState.UNINITIALIZED)
+            isRunning = false
         }
     }
 

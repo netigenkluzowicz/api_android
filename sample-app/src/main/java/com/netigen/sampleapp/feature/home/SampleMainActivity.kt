@@ -7,15 +7,12 @@ import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import com.netigen.sampleapp.R
 import com.netigen.sampleapp.feature.splash.SampleSplashFragment
 import kotlinx.android.synthetic.main.activity_sample_main.*
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import pl.netigen.core.gdpr.IGDPRConsentImpl
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreMainVMImpl
 import pl.netigen.core.network.NetworkStatus
 import pl.netigen.core.splash.SplashFragment
 import pl.netigen.core.splash.SplashVMImpl
-import pl.netigen.coreapi.gdpr.AdConsentStatus
-import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.splash.SplashVM
@@ -26,14 +23,7 @@ import timber.log.Timber.d
 
 
 class SampleMainActivity : CoreMainActivity() {
-    private val gdprConsent = object : IGDPRConsent {
-        override val adConsentStatus: Flow<AdConsentStatus>
-            get() = flow { emit(AdConsentStatus.UNINITIALIZED) }
-
-        override fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> = flow { emit(CheckGDPRLocationStatus.UE) }
-
-        override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) = Unit
-    }
+    private val gdprConsent: IGDPRConsent by lazy { IGDPRConsentImpl(this, arrayOf("pub-4699516034931013")) }
 
     override val ads by lazy {
         AdMobAds(
@@ -83,7 +73,7 @@ class SampleMainActivity : CoreMainActivity() {
         splashVM.splashState.observe(this) {
             d("splashState.observe: $it")
         }
-        splashVM.onStart()
+        splashVM.start()
     }
 }
 
