@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import io.mockk.*
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
@@ -71,7 +70,7 @@ class SplashVMImplTest {
     @Test
     fun `SplashVM has FINISHED state after onStart when noAds is active`() = runBlocking {
         setUpMocks(isNoAdsActive = true)
-        splashVMImpl.onStart()
+        splashVMImpl.start()
         assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
     }
 
@@ -83,7 +82,7 @@ class SplashVMImplTest {
             lastKnownAdConsentStatus = AdConsentStatus.PERSONALIZED_NON_UE
         )
         val publisher = getFlowPublisher { gdprConsent.requestGDPRLocation() }
-        splashVMImpl.onStart()
+        splashVMImpl.start()
         assertEquals(SplashState.LOADING, splashVMImpl.splashState.value)
         publisher.offer(CheckGDPRLocationStatus.UE)
         assertEquals(SplashState.SHOW_GDPR_CONSENT, splashVMImpl.splashState.value)
@@ -98,7 +97,7 @@ class SplashVMImplTest {
         )
 
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
-        splashVMImpl.onStart()
+        splashVMImpl.start()
         assertEquals(SplashState.LOADING, splashVMImpl.splashState.value)
         noAdsActivePublisher.offer(true)
         assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
@@ -113,7 +112,7 @@ class SplashVMImplTest {
         )
 
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
-        splashVMImpl.onStart()
+        splashVMImpl.start()
         assertEquals(SplashState.SHOW_GDPR_CONSENT, splashVMImpl.splashState.value)
         noAdsActivePublisher.offer(true)
         assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
@@ -122,21 +121,21 @@ class SplashVMImplTest {
     @Test
     fun `SplashVM has GDPR_POP_UP status when there is first launch with no internet`() {
         setUpMocks(isConnectedOrConnecting = false)
-        splashVMImpl.onStart()
+        splashVMImpl.start()
         assertEquals(SplashState.SHOW_GDPR_CONSENT, splashVMImpl.splashState.value)
     }
 
     @Test
     fun `SplashVM isFirstLaunch == true when there is first launch with connected internet`() {
         setUpMocks(isConnectedOrConnecting = true)
-        splashVMImpl.onStart()
+        splashVMImpl.start()
         assertEquals(true, splashVMImpl.isFirstLaunch.value)
     }
 
     @Test
     fun `SplashVM finishes and cleans after noAds true called`() = runBlocking {
         setUpMocks(isNoAdsActive = true)
-        splashVMImpl.onStart()
+        splashVMImpl.start()
         assertEquals(SplashState.FINISHED, splashVMImpl.splashState.value)
         assertEquals(false, splashVMImpl.viewModelScope.isActive)
     }

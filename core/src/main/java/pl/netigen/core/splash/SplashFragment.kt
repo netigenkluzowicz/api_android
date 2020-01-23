@@ -44,7 +44,8 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     private fun onUninitialized() {
-        viewModel.onStart()
+        viewModel.start()
+        coreMainActivity.onSplashOpened()
     }
 
     private fun tryShowGdprPopup() {
@@ -97,7 +98,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
 
     override fun onStart() {
         super.onStart()
-        viewModel.onStart()
+        viewModel.start()
     }
 
     override fun clickYes() {

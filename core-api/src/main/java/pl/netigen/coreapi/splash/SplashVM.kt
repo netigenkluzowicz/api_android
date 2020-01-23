@@ -10,5 +10,5 @@ abstract class SplashVM : ViewModel(), INoAds {
     abstract val isNoAdsAvailable: Boolean
     
     abstract fun setPersonalizedAds(personalizedAdsApproved: Boolean)
-    abstract fun onStart()
+    abstract fun start()
 }
