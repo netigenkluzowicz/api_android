@@ -51,6 +51,7 @@ dependencies {
     api Libraries.navigationFragmentKTX
     api Libraries.navigationUiKTX
     api Libraries.coroutines
+    api Libraries.playServicesAds
 
     api Libraries.gson
 

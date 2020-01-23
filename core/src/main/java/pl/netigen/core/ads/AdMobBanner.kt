@@ -1,4 +1,4 @@
-package pl.netigen.gms.ads
+package pl.netigen.core.ads
 
 import android.util.DisplayMetrics
 import android.view.ViewGroup

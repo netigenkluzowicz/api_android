@@ -17,7 +17,7 @@ import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
-import pl.netigen.gms.ads.AdMobAds
+import pl.netigen.core.ads.AdMobAds
 import pl.netigen.gms.payments.GMSPayments
 import timber.log.Timber.d
 

@@ -1,4 +1,4 @@
-package pl.netigen.gms.ads
+package pl.netigen.core.ads
 
 import com.google.android.gms.ads.AdRequest
 

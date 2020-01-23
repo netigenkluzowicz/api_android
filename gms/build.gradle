@@ -33,7 +33,6 @@ dependencies {
     api project(path: ':core-api')
     api project(path: ':payments')
 
-    api Libraries.playServicesAds
     api Libraries.appcompat
     api Libraries.billing
 
