@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import com.netigen.sampleapp.R
 import com.netigen.sampleapp.feature.splash.SampleSplashFragment
 import kotlinx.android.synthetic.main.activity_sample_main.*
+import pl.netigen.core.ads.AdMobAds
 import pl.netigen.core.gdpr.IGDPRConsentImpl
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreMainVMImpl
@@ -16,8 +17,6 @@ import pl.netigen.core.splash.SplashVMImpl
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.splash.SplashVM
-import pl.netigen.extensions.observe
-import pl.netigen.core.ads.AdMobAds
 import pl.netigen.gms.payments.GMSPayments
 import timber.log.Timber.d
 
@@ -69,11 +68,7 @@ class SampleMainActivity : CoreMainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_main)
-
-        splashVM.splashState.observe(this) {
-            d("splashState.observe: $it")
-        }
-        splashVM.start()
+        d(savedInstanceState.toString())
     }
 }
 

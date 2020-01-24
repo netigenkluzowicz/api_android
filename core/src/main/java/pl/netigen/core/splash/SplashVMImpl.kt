@@ -145,6 +145,7 @@ open class SplashVMImpl(
     }
 
     override fun onCleared() {
+        d("called")
         if (isRunning) {
             cleanUp()
             updateState(SplashState.UNINITIALIZED)

@@ -4,4 +4,6 @@ import androidx.lifecycle.ViewModel
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.payments.INoAds
 
-abstract class CoreMainVM : ViewModel(), INoAds, IAds
+abstract class CoreMainVM : ViewModel(), INoAds, IAds {
+    abstract fun onSavedStateRestored()
+}

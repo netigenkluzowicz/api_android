@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import pl.netigen.core.fragment.NetigenFragment
 import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.main.CoreMainActivity
@@ -13,10 +15,13 @@ import pl.netigen.extensions.observe
 import timber.log.Timber.d
 
 abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
-    abstract val viewModel: SplashVM
+    val viewModel: SplashVM by viewModels { viewModelFactory }
+    abstract val viewModelFactory: ViewModelProvider.Factory
     private var consentNotShowed: Boolean = false
     private var gdprDialogFragment: GDPRDialogFragment? = null
-    private val coreMainActivity by lazy { requireActivity() as CoreMainActivity }
+    private val coreMainActivity
+        get() = requireActivity() as CoreMainActivity
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,19 +31,12 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
 
     private fun observe() {
         viewModel.splashState.observe(viewLifecycleOwner) {
+            d(it.toString())
             when (it) {
-                SplashState.UNINITIALIZED -> {
-                    onUninitialized()
-                }
-                SplashState.SHOW_GDPR_CONSENT -> {
-                    tryShowGdprPopup()
-                }
-                SplashState.LOADING -> {
-                    onLoading()
-                }
-                SplashState.FINISHED -> {
-                    onFinished()
-                }
+                SplashState.UNINITIALIZED -> onUninitialized()
+                SplashState.SHOW_GDPR_CONSENT -> tryShowGdprPopup()
+                SplashState.LOADING -> onLoading()
+                SplashState.FINISHED -> onFinished()
             }
         }
     }
