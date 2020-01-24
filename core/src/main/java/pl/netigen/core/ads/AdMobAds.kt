@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
-import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.ads.IInterstitialAd

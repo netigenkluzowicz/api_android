@@ -9,13 +9,12 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IBannerAd
 
 class AdMobBanner(
     private val activity: AppCompatActivity,
     private val adMobRequest: IAdMobRequest,
-    override val adId: AdId<String>,
+    override val adId: String,
     override val bannerRelativeLayout: RelativeLayout,
     private val isAdaptiveBanner: Boolean = true,
     override var enabled: Boolean = true
@@ -68,7 +67,7 @@ class AdMobBanner(
             loadedBannerOrientation = activity.resources.configuration.orientation
             bannerView = AdView(activity)
             bannerView.adSize = adSize
-            bannerView.adUnitId = adId.id
+            bannerView.adUnitId = adId
         }
         bannerView.loadAd(adMobRequest.getAdRequest())
     }

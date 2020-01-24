@@ -10,7 +10,6 @@ import com.google.android.gms.ads.InterstitialAd
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber.d
 
@@ -18,7 +17,7 @@ import timber.log.Timber.d
 class AdMobInterstitial(
     private val activity: AppCompatActivity,
     private val adMobRequest: IAdMobRequest,
-    override val adId: AdId<String>,
+    override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
     override var enabled: Boolean = true
 ) : IInterstitialAd, LifecycleObserver {
@@ -35,7 +34,7 @@ class AdMobInterstitial(
     override fun loadInterstitialAd(): Flow<Boolean> =
         callbackFlow {
             interstitialAd = InterstitialAd(activity)
-            interstitialAd.adUnitId = adId.id
+            interstitialAd.adUnitId = adId
             val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     d(errorCode.toString())
