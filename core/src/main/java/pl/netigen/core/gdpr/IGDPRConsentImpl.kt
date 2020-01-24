@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.flow
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.gdpr.IGDPRConsentConfig
 
-class IGDPRConsentImpl(private val context: Context, private val publisherIds: Array<String>) : IGDPRConsent {
+class IGDPRConsentImpl(private val context: Context, private val config: IGDPRConsentConfig) : IGDPRConsent {
     val consentInformation: ConsentInformation = ConsentInformation.getInstance(context)
     override val adConsentStatus: Flow<AdConsentStatus> = flow {
         val value =
@@ -34,7 +35,7 @@ class IGDPRConsentImpl(private val context: Context, private val publisherIds: A
                     channel.close()
                 }
             }
-            consentInformation.requestConsentInfoUpdate(publisherIds, callback)
+            consentInformation.requestConsentInfoUpdate(config.adMobPublisherIds, callback)
             awaitClose {}
         }
 

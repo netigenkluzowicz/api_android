@@ -8,6 +8,7 @@ import com.netigen.sampleapp.R
 import com.netigen.sampleapp.feature.splash.SampleSplashFragment
 import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.ads.AdMobAds
+import pl.netigen.core.config.AppConfig
 import pl.netigen.core.gdpr.IGDPRConsentImpl
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreMainVMImpl
@@ -22,16 +23,19 @@ import timber.log.Timber.d
 
 
 class SampleMainActivity : CoreMainActivity() {
-    private val gdprConsent: IGDPRConsent by lazy { IGDPRConsentImpl(this, arrayOf("pub-4699516034931013")) }
+    private val gdprConsent: IGDPRConsent by lazy { IGDPRConsentImpl(this, appConfig) }
+
+    private val appConfig = AppConfig(
+        bannerAdId = "",
+        interstitialAdId = "",
+        inDebugMode = true
+    )
 
     override val ads by lazy {
         AdMobAds(
             activity = this,
-            bannerAdId = "",
-            interstitialAdId = "",
             bannerRelativeLayout = findViewById(R.id.adsLayout),
-            isAdaptiveBanner = true,
-            isInDebugMode = true
+            adsConfig = appConfig
         )
     }
 

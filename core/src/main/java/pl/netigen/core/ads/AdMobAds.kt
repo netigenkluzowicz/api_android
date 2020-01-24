@@ -7,40 +7,37 @@ import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import pl.netigen.coreapi.ads.IAds
+import pl.netigen.coreapi.ads.IAdsConfig
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.ads.IInterstitialAd
 
 class AdMobAds(
     activity: AppCompatActivity,
-    bannerAdId: String,
-    interstitialAdId: String,
     bannerRelativeLayout: RelativeLayout,
-    override var personalizedAdsEnabled: Boolean = false,
-    isAdaptiveBanner: Boolean = true,
-    private val testDevices: List<String> = emptyList(),
-    private val isInDebugMode: Boolean = false
+    private val adsConfig: IAdsConfig,
+    override var personalizedAdsEnabled: Boolean = false
 ) : IAds, IAdMobRequest {
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
 
     init {
         MobileAds.initialize(activity)
-        val (bannerId, interstitialId) = getIds(bannerAdId, interstitialAdId)
-        bannerAd = AdMobBanner(activity, this, bannerId, bannerRelativeLayout, isAdaptiveBanner)
+        val (bannerId, interstitialId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId)
+        bannerAd = AdMobBanner(activity, this, bannerId, bannerRelativeLayout, adsConfig.isAdaptiveBanner)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
     }
 
-    private fun getIds(bannerAdId: String, interstitialAdId: String): Pair<AdId<String>, AdId<String>> {
-        val bannerId = if (isInDebugMode) AdId(TEST_BANNER_ID) else AdId(bannerAdId)
-        val interstitialId = if (isInDebugMode) AdId(TEST_INTERSTITIAL_ID) else AdId(interstitialAdId)
+    private fun getIds(banner: String, interstitial: String): Pair<String, String> {
+        val bannerId = if (adsConfig.inDebugMode) (TEST_BANNER_ID) else (banner)
+        val interstitialId = if (adsConfig.inDebugMode) (TEST_INTERSTITIAL_ID) else (interstitial)
         return Pair(bannerId, interstitialId)
     }
 
     override fun getAdRequest(): AdRequest {
         val builder = AdRequest.Builder()
-        if (isInDebugMode) {
-            for (i in testDevices.indices) {
-                builder.addTestDevice(testDevices[i])
+        if (adsConfig.inDebugMode) {
+            for (i in adsConfig.testDevices.indices) {
+                builder.addTestDevice(adsConfig.testDevices[i])
             }
         }
         if (personalizedAdsEnabled) return builder.build()
