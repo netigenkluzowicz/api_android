@@ -27,8 +27,8 @@ import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
+import pl.netigen.coreapi.splash.ISplashConfig
 import pl.netigen.coreapi.splash.SplashState
-
 
 
 class SplashVMImplTest {
@@ -45,13 +45,22 @@ class SplashVMImplTest {
     private lateinit var noAdsPurchases: INoAds
     @RelaxedMockK
     private lateinit var networkStatus: INetworkStatus
+    @RelaxedMockK
+    private lateinit var splashConfig: ISplashConfig
     private val testDispatcher = TestCoroutineDispatcher()
 
     @Before
     fun before() {
         Dispatchers.setMain(testDispatcher)
         MockKAnnotations.init(this)
-        splashVMImpl = SplashVMImpl(gdprConsent, ads, noAdsPurchases, networkStatus, coroutineDispatcherIo = Dispatchers.Main)
+        splashVMImpl = SplashVMImpl(
+            gdprConsent,
+            ads,
+            noAdsPurchases,
+            networkStatus,
+            coroutineDispatcherIo = Dispatchers.Main,
+            splashConfig = splashConfig
+        )
         every { ads.interstitialAd } returns interstitialAd
     }
 

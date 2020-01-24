@@ -45,7 +45,7 @@ class SampleMainActivity : CoreMainActivity() {
             ads = ads,
             noAdsPurchases = gmsPayments,
             networkStatus = NetworkStatus(this),
-            isNoAdsAvailable = true
+            splashConfig = appConfig
         )
     }
 

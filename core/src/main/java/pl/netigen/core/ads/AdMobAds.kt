@@ -23,7 +23,7 @@ class AdMobAds(
     init {
         MobileAds.initialize(activity)
         val (bannerId, interstitialId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId)
-        bannerAd = AdMobBanner(activity, this, bannerId, bannerRelativeLayout, adsConfig.isAdaptiveBanner)
+        bannerAd = AdMobBanner(activity, this, bannerId, bannerRelativeLayout, adsConfig.isBannerAdaptive)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
     }
 
