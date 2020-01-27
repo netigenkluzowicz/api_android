@@ -7,6 +7,6 @@ interface ISplashConfig {
 
     companion object {
         const val DEFAULT_MAX_CONSENT_WAIT_TIME_MS = 5000L
-        const val DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7000L
+        const val DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7000L
     }
 }
