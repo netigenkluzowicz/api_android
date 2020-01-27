@@ -20,6 +20,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import pl.netigen.core.config.AppConfig
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IInterstitialAd
 import pl.netigen.coreapi.gdpr.AdConsentStatus
@@ -27,7 +28,6 @@ import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
-import pl.netigen.coreapi.splash.ISplashConfig
 import pl.netigen.coreapi.splash.SplashState
 
 
@@ -46,7 +46,7 @@ class SplashVMImplTest {
     @RelaxedMockK
     private lateinit var networkStatus: INetworkStatus
     @RelaxedMockK
-    private lateinit var splashConfig: ISplashConfig
+    private lateinit var appConfig: AppConfig
     private val testDispatcher = TestCoroutineDispatcher()
 
     @Before
@@ -59,7 +59,7 @@ class SplashVMImplTest {
             noAdsPurchases,
             networkStatus,
             coroutineDispatcherIo = Dispatchers.Main,
-            splashConfig = splashConfig
+            appConfig = appConfig
         )
         every { ads.interstitialAd } returns interstitialAd
     }

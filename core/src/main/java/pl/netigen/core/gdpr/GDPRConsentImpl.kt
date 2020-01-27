@@ -13,7 +13,7 @@ import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.gdpr.IGDPRConsentConfig
 
-class IGDPRConsentImpl(private val context: Context, private val config: IGDPRConsentConfig) : IGDPRConsent {
+class GDPRConsentImpl(private val context: Context, private val config: IGDPRConsentConfig) : IGDPRConsent {
     val consentInformation: ConsentInformation = ConsentInformation.getInstance(context)
     override val adConsentStatus: Flow<AdConsentStatus> = flow {
         val value =

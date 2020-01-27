@@ -1,7 +1,7 @@
 package pl.netigen.core.ads
 
 import android.os.SystemClock
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -15,7 +15,7 @@ import timber.log.Timber.d
 
 
 class AdMobInterstitial(
-    private val activity: AppCompatActivity,
+    private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,

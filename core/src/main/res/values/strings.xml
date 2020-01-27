@@ -4,8 +4,6 @@
     <string name="youtube_netigen" translatable="false">https://www.youtube.com/channel/UClgxDILaB9iAadDOvRctuhw</string>
     <string name="www_url_netigen" translatable="false">http://www.netigen.pl</string>
     <string name="facebook_url_netigen" translatable="false">https://www.facebook.com/netigenpl?fref=ts</string>
-    <string name="play_app_id_link_netigen" translatable="false">market://details?id=</string>
-    <string name="samsung_app_id_link_netigen" translatable="false">samsungapps://ProductDetail/</string>
     <string name="ok_netigen" translatable="false">OK</string>
 
     <string name="gdpr_yes_continue_to_see_relevant_ads_netigen" translatable="false">Yes, continue to see relevant ads</string>
