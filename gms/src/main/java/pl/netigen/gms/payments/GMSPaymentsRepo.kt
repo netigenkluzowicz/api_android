@@ -18,7 +18,8 @@ import java.util.*
 
 class GMSPaymentsRepo(
     private val application: Application,
-    private val inAppSkuList: List<String>
+    private val inAppSkuList: List<String>,
+    private val noAdsInAppSkuList: List<String>
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
     private val gmsBillingClient: BillingClient = BillingClient
@@ -37,7 +38,7 @@ class GMSPaymentsRepo(
     private fun noAdsFlow(): Flow<Boolean> {
         return flow {
             localCacheBillingClient.purchaseDao().getPurchasesFlow().collect { list ->
-                emit(list.count { it.isNoAds } > 0)
+                emit(list.any { it.data.sku in noAdsInAppSkuList })
             }
         }
     }
@@ -89,7 +90,8 @@ class GMSPaymentsRepo(
                         skuDetailsList.forEach {
                             CoroutineScope(Job() + Dispatchers.IO).launch {
                                 Timber.d("inserting $it")
-                                localCacheBillingClient.skuDetailsDao().insertOrUpdate(it)
+                                val isNoAd = (it.sku in noAdsInAppSkuList)
+                                localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
                             }
                         }
                     }
@@ -184,10 +186,7 @@ class GMSPaymentsRepo(
 
     private fun acknowledgeNonConsumablePurchasesAsync(nonConsumables: List<Purchase>) {
         nonConsumables.forEach { purchase ->
-            val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(
-                purchase
-                    .purchaseToken
-            ).build()
+            val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build()
             gmsBillingClient.acknowledgePurchase(params) { billingResult ->
                 when (billingResult.responseCode) {
                     BillingClient.BillingResponseCode.OK -> {
