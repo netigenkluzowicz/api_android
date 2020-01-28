@@ -15,7 +15,7 @@ import timber.log.Timber
 
 
 class SampleSplashFragment : SplashFragment() {
-    override val viewModelFactory by lazy { SplashVmFactory(requireActivity() as CoreMainActivity) }
+    override val viewModelFactory get() = SplashVmFactory(requireActivity() as CoreMainActivity)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.splash_fragment, container, false)
