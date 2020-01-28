@@ -1,8 +1,10 @@
 package com.netigen.sampleapp.feature.home
 
+import android.app.Application
 import pl.netigen.core.config.AppConfig
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
+import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.gms.payments.GMSPayments
 
 class ViewModelFactory(activity: CoreMainActivity) : CoreViewModelsFactory(activity) {
@@ -11,6 +13,8 @@ class ViewModelFactory(activity: CoreMainActivity) : CoreViewModelsFactory(activ
         interstitialAdId = "",
         inDebugMode = true
     )
+    override val payments: IPayments
+        get() = getPayments(mainActivity.application)
 
-    override val payments: GMSPayments = GMSPayments(activity.application)
+    private fun getPayments(application: Application): IPayments = GMSPayments(application)
 }

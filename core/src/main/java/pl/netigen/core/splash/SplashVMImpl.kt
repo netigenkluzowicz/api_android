@@ -120,7 +120,11 @@ class SplashVMImpl(
             try {
                 withTimeout(appConfig.maxInterstitialWaitTime) {
                     withContext(coroutineDispatcherMain) {
-                        ads.interstitialAd.loadInterstitialAd().collect { onLoadInterstitialResult(it) }
+                        if (ads.interstitialAd.isLoaded) {
+                            onLoadInterstitialResult(true)
+                        } else {
+                            ads.interstitialAd.loadInterstitialAd().collect { onLoadInterstitialResult(it) }
+                        }
                     }
                 }
             } catch (e: TimeoutCancellationException) {

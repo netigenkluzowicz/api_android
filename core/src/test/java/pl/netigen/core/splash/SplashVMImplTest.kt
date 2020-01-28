@@ -1,5 +1,6 @@
 package pl.netigen.core.splash
 
+import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.viewModelScope
 import io.mockk.*
@@ -36,6 +37,8 @@ class SplashVMImplTest {
     val rule = InstantTaskExecutorRule()
     private lateinit var splashVMImpl: SplashVMImpl
     @RelaxedMockK
+    private lateinit var application: Application
+    @RelaxedMockK
     private lateinit var gdprConsent: IGDPRConsent
     @RelaxedMockK
     private lateinit var ads: IAds
@@ -53,6 +56,7 @@ class SplashVMImplTest {
         Dispatchers.setMain(testDispatcher)
         MockKAnnotations.init(this)
         splashVMImpl = SplashVMImpl(
+            application,
             gdprConsent,
             ads,
             noAdsPurchases,

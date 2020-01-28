@@ -1,30 +1,35 @@
 package pl.netigen.core.main
 
+import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModel
 import pl.netigen.core.ads.AdMobAds
 import pl.netigen.core.gdpr.GDPRConsentImpl
 import pl.netigen.core.network.NetworkStatus
 import pl.netigen.core.splash.SplashVMImpl
+import pl.netigen.coreapi.ads.IAds
+import pl.netigen.coreapi.ads.IAdsConfig
+import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.CoreMainVM
+import pl.netigen.coreapi.main.IAppConfig
 import pl.netigen.coreapi.main.ICoreViewModelsFactory
+import pl.netigen.coreapi.network.INetworkStatus
+import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.coreapi.splash.SplashVM
 
 abstract class CoreViewModelsFactory(override val mainActivity: CoreMainActivity) : ICoreViewModelsFactory {
-    override val ads by lazy {
-        AdMobAds(activity = mainActivity, adsConfig = appConfig)
-    }
-    override val networkStatus by lazy { NetworkStatus(mainActivity) }
+    override val networkStatus get() = getNetworkStatus(mainActivity)
+    override val admob get() = getAds(mainActivity, appConfig)
+    override val gdprConsent get() = getGdprConsent(mainActivity, appConfig)
 
-    override fun getSplashVm(): SplashVM = SplashVMImpl(
+    private fun getCoreMainVm(): CoreMainVM = CoreMainVmImpl(mainActivity.application, admob, getPayments { payments }, networkStatus)
+    private fun getSplashVm(): SplashVM = SplashVMImpl(
         mainActivity.application,
         networkStatus = networkStatus,
-        ads = ads,
-        gdprConsent = GDPRConsentImpl(mainActivity, appConfig),
-        noAdsPurchases = payments,
+        ads = admob,
+        gdprConsent = gdprConsent,
+        noAdsPurchases = getPayments { payments },
         appConfig = appConfig
     )
-
-    override fun getCoreMainVm(): CoreMainVM = CoreMainVmImpl(mainActivity.application, ads, payments)
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SplashVM::class.java)) return getSplashVm() as T
@@ -32,4 +37,27 @@ abstract class CoreViewModelsFactory(override val mainActivity: CoreMainActivity
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 
+    companion object {
+        @Volatile
+        private var ads: IAds? = null
+        @Volatile
+        private var networkStatus: INetworkStatus? = null
+        @Volatile
+        private var gdprConsent: IGDPRConsent? = null
+        @Volatile
+        private var payments: IPayments? = null
+
+        fun getAds(activity: ComponentActivity, adsConfig: IAdsConfig): IAds =
+            ads ?: synchronized(this) { ads ?: AdMobAds(activity, adsConfig).also { ads = it } }
+
+        fun getNetworkStatus(activity: ComponentActivity): INetworkStatus =
+            networkStatus ?: synchronized(this) { networkStatus ?: NetworkStatus(activity).also { networkStatus = it } }
+
+        fun getGdprConsent(activity: ComponentActivity, appConfig: IAppConfig): IGDPRConsent =
+            gdprConsent ?: synchronized(this) { gdprConsent ?: GDPRConsentImpl(activity, appConfig).also { gdprConsent = it } }
+
+        fun getPayments(constructor: () -> IPayments): IPayments =
+            payments ?: synchronized(this) { payments ?: constructor().also { payments = it } }
+
+    }
 }

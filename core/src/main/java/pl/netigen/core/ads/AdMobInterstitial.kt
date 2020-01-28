@@ -15,7 +15,7 @@ import timber.log.Timber.d
 
 
 class AdMobInterstitial(
-    private val activity: ComponentActivity,
+    activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
@@ -23,18 +23,16 @@ class AdMobInterstitial(
 ) : IInterstitialAd, LifecycleObserver {
     private var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
-    private var interstitialAd: InterstitialAd
+    private var interstitialAd: InterstitialAd = InterstitialAd(activity)
     private val disabled get() = !enabled
 
     init {
-        interstitialAd = InterstitialAd(activity)
+        interstitialAd.adUnitId = adId
         activity.lifecycle.addObserver(this)
     }
 
     override fun loadInterstitialAd(): Flow<Boolean> =
         callbackFlow {
-            interstitialAd = InterstitialAd(activity)
-            interstitialAd.adUnitId = adId
             val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     d(errorCode.toString())
@@ -55,7 +53,11 @@ class AdMobInterstitial(
             awaitClose { }
         }
 
+    override val isLoaded: Boolean
+        get() = interstitialAd.isLoaded
+
     private fun onLoaded(onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("called")
         val currentTime = SystemClock.elapsedRealtime()
         when {
             isInBackground -> onClosedOrNotShowed(false)
@@ -78,13 +80,14 @@ class AdMobInterstitial(
 
     private fun loadIfShouldBeLoaded() {
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        loadInterstitialAd()
+        interstitialAd.loadAd(adMobRequest.getAdRequest())
     }
 
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("called")
         onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
     }
@@ -92,7 +95,6 @@ class AdMobInterstitial(
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         isInBackground = false
-        loadIfShouldBeLoaded()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
