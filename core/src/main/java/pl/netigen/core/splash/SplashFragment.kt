@@ -23,7 +23,6 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        d("called")
         observe()
     }
 
@@ -45,7 +44,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     private fun tryShowGdprPopup() {
-        d("called")
+        d("()")
         coreMainActivity.onSplashOpened()
         if (!canCommitFragments) {
             consentNotShowed = true

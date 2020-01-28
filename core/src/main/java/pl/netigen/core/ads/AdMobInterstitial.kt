@@ -42,7 +42,7 @@ class AdMobInterstitial(
                 }
 
                 override fun onAdLoaded() {
-                    d("called")
+                    d("()")
                     interstitialAd.adListener = null
                     offer(true)
                     channel.close()
@@ -56,8 +56,8 @@ class AdMobInterstitial(
     override val isLoaded: Boolean
         get() = interstitialAd.isLoaded
 
-    private fun onLoaded(forceShow: Boolean = false, onClosedOrNotShowed: (Boolean) -> Unit) {
-        d("called")
+    private fun onInterstitialReadyToShow(forceShow: Boolean = false, onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
         val currentTime = SystemClock.elapsedRealtime()
         when {
             isInBackground -> onClosedOrNotShowed(false)
@@ -87,7 +87,7 @@ class AdMobInterstitial(
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
-        d("called")
+
         onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
     }
@@ -106,7 +106,7 @@ class AdMobInterstitial(
         when {
             disabled -> onClosedOrNotShowed(false)
             isInBackground -> onCanNotShow(onClosedOrNotShowed)
-            interstitialAd.isLoaded -> onLoaded(forceShow, onClosedOrNotShowed)
+            interstitialAd.isLoaded -> onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
             else -> onCanNotShow(onClosedOrNotShowed)
         }
     }

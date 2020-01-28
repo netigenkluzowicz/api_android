@@ -8,7 +8,7 @@ import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 
 interface ICoreViewModelsFactory : ViewModelProvider.Factory {
-    val mainActivity: Activity
+    val activity: Activity
     val appConfig: IAppConfig
     val networkStatus: INetworkStatus
     val admob: IAds

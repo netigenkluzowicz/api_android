@@ -16,14 +16,14 @@ import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.coreapi.splash.SplashVM
 
-abstract class CoreViewModelsFactory(override val mainActivity: CoreMainActivity) : ICoreViewModelsFactory {
-    override val networkStatus get() = getNetworkStatus(mainActivity)
-    override val admob get() = getAds(mainActivity, appConfig)
-    override val gdprConsent get() = getGdprConsent(mainActivity, appConfig)
+abstract class CoreViewModelsFactory(override val activity: CoreMainActivity) : ICoreViewModelsFactory {
+    override val networkStatus get() = getNetworkStatus(activity)
+    override val admob get() = getAds(activity, appConfig)
+    override val gdprConsent get() = getGdprConsent(activity, appConfig)
 
-    private fun getCoreMainVm(): CoreMainVM = CoreMainVmImpl(mainActivity.application, admob, getPayments { payments }, networkStatus)
+    private fun getCoreMainVm(): CoreMainVM = CoreMainVmImpl(activity.application, admob, getPayments { payments }, networkStatus)
     private fun getSplashVm(): SplashVM = SplashVMImpl(
-        mainActivity.application,
+        activity.application,
         networkStatus = networkStatus,
         ads = admob,
         gdprConsent = gdprConsent,

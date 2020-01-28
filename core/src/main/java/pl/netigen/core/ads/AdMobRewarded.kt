@@ -25,44 +25,58 @@ class AdMobRewarded(
     private var retryCount = 0
 
     init {
+        d("()")
         activity.lifecycle.addObserver(this)
     }
 
     override fun showRewardedAd(onRewardResult: (Boolean) -> Unit) {
-        if (!isLoaded) return onRewardResult(false)
+        if (!isLoaded) {
+            load()
+            return onRewardResult(false)
+        }
         rewardedAd.show(activity, AdCallback(onRewardResult))
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    private fun onResume() = load()
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    private fun onCreate() {
+        d("()")
+        load()
+    }
 
     private fun load() {
         if (isEnabled && !isLoaded) {
-            d("called")
+            d("()")
             rewardedAd.loadAd(adMobRequest.getAdRequest(), AdLoadCallback())
         }
     }
 
     inner class AdCallback(val onRewardResult: (Boolean) -> Unit) : RewardedAdCallback() {
+        private var success = false
 
-        override fun onRewardedAdClosed() = onResult(false)
+        override fun onRewardedAdClosed() = rewardAdCallbackResult(success)
 
-        override fun onUserEarnedReward(@NonNull reward: RewardItem) = onResult(true)
+        override fun onUserEarnedReward(@NonNull reward: RewardItem) {
+            success = true
+        }
 
-        override fun onRewardedAdFailedToShow(p0: Int) = onResult(false)
+        override fun onRewardedAdFailedToShow(p0: Int) = rewardAdCallbackResult(false)
 
-        private fun onResult(result: Boolean) {
-            d("called:$result")
+        private fun rewardAdCallbackResult(result: Boolean) {
+            d("result = [$result]")
             onRewardResult(result)
-            load()
         }
     }
 
     inner class AdLoadCallback : RewardedAdLoadCallback() {
+        override fun onRewardedAdLoaded() {
+            d("()")
+        }
+
         override fun onRewardedAdFailedToLoad(errorCode: Int) {
-            d(errorCode.toString())
+            d("errorCode = [$errorCode]")
             if (retryCount <= Companion.MAX_RETRY_COUNT) {
                 retryCount++
+                d("retry load: $retryCount")
                 load()
             }
         }

@@ -5,7 +5,7 @@ interface IAdsConfig {
     val interstitialAdId: String
     val rewardedAdId: String
     val isBannerAdaptive: Boolean
-    val bannerLayoutIdName : String
+    val bannerLayoutIdName: String
     val testDevices: List<String>
     val inDebugMode: Boolean
 }

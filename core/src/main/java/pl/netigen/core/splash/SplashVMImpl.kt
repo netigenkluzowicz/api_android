@@ -68,7 +68,7 @@ class SplashVMImpl(
     }
 
     private fun finish() {
-        d("called")
+        d("()")
         cleanUp()
         updateState(SplashState.FINISHED)
     }

@@ -11,14 +11,13 @@ import com.netigen.sampleapp.R
 import pl.netigen.core.splash.SplashFragment
 import timber.log.Timber
 
-
 class SampleSplashFragment : SplashFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.splash_fragment, container, false)
 
     override fun onFinished() {
         super.onFinished()
-        Timber.d("called")
+        Timber.d("()")
         showHomeFragment()
     }
 
