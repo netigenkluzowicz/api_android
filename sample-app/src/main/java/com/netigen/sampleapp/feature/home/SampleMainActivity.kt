@@ -4,23 +4,17 @@ import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
+import androidx.lifecycle.ViewModelProvider
 import com.netigen.sampleapp.R
 import com.netigen.sampleapp.feature.splash.SampleSplashFragment
 import kotlinx.android.synthetic.main.activity_sample_main.*
-import pl.netigen.core.config.AppConfig
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.splash.SplashFragment
-import pl.netigen.gms.payments.GMSPayments
 import timber.log.Timber.d
 
 class SampleMainActivity : CoreMainActivity() {
-    override val appConfig = AppConfig(
-        bannerAdId = "",
-        interstitialAdId = "",
-        inDebugMode = true
-    )
-
-    override val payments: GMSPayments by lazy { GMSPayments(application) }
+    override val viewModelFactory: ViewModelProvider.Factory
+        get() = ViewModelFactory(this)
     override val splashFragment: SplashFragment by lazy { SampleSplashFragment() }
 
     override fun onSplashOpened() {

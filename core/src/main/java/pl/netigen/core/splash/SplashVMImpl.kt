@@ -6,12 +6,12 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
-import pl.netigen.core.config.AppConfig
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.AdConsentStatus.*
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.main.IAppConfig
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.SplashState
@@ -20,13 +20,13 @@ import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchIO
 import timber.log.Timber.d
 
-open class SplashVMImpl(
+class SplashVMImpl(
     application: Application,
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,
-    private val appConfig: AppConfig,
+    private val appConfig: IAppConfig,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO,
     val coroutineDispatcherMain: CoroutineDispatcher = Dispatchers.Main
 ) : SplashVM(application), INoAds by noAdsPurchases {

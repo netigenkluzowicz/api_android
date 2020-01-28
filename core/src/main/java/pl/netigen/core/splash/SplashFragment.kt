@@ -15,12 +15,11 @@ import pl.netigen.extensions.observe
 import timber.log.Timber.d
 
 abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
-    private val viewModel: ISplashVM by activityViewModels<SplashVM> { coreMainActivity.viewModelFactory }
+    val splashVM: ISplashVM by activityViewModels<SplashVM> { coreMainActivity.viewModelFactory }
     private var consentNotShowed: Boolean = false
     private var gdprDialogFragment: GDPRDialogFragment? = null
     private val coreMainActivity
         get() = requireActivity() as CoreMainActivity
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,7 +28,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     private fun observe() {
-        viewModel.splashState.observe(viewLifecycleOwner) {
+        splashVM.splashState.observe(viewLifecycleOwner) {
             d(it.toString())
             when (it) {
                 SplashState.UNINITIALIZED -> onUninitialized()
@@ -41,7 +40,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     private fun onUninitialized() {
-        viewModel.start()
+        splashVM.start()
         coreMainActivity.onSplashOpened()
     }
 
@@ -67,7 +66,7 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
     }
 
     private fun bindGdprFragment(fragment: GDPRDialogFragment) {
-        fragment.setIsPayOptions(viewModel.isNoAdsAvailable)
+        fragment.setIsPayOptions(splashVM.isNoAdsAvailable)
         fragment.bindGDPRListener(this)
     }
 
@@ -95,19 +94,19 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
 
     override fun onStart() {
         super.onStart()
-        viewModel.start()
+        splashVM.start()
     }
 
     override fun clickYes() {
-        viewModel.setPersonalizedAds(true)
+        splashVM.setPersonalizedAds(true)
     }
 
     override fun clickPay() {
-        viewModel.makeNoAdsPayment(requireActivity())
+        splashVM.makeNoAdsPayment(requireActivity())
     }
 
     override fun clickAcceptPolicy() {
-        viewModel.setPersonalizedAds(false)
+        splashVM.setPersonalizedAds(false)
     }
 
     companion object {
