@@ -14,6 +14,6 @@ open class CoreMainVMImpl(
 ) : CoreMainVM(), IAds by ads, IPayments by payments {
     override fun onSavedStateRestored(savedInstanceState: Bundle) {
         d("called")
-        launchMain { payments.noAdsActive.collect { if (it) ads.enable() else ads.disable() } }
+        launchMain { payments.noAdsActive.collect { if (it) ads.disable() else ads.enable() } }
     }
 }

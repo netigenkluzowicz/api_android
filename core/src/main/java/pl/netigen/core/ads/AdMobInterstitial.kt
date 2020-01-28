@@ -92,6 +92,7 @@ class AdMobInterstitial(
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         isInBackground = false
+        loadIfShouldBeLoaded()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
