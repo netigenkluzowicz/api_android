@@ -18,9 +18,10 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:gravity="top|center"
         android:text="@string/sample_home"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,22 +29,32 @@
 
     <Button
         android:id="@+id/testInterstitial"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Interstitial click"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:text="show interstitial"
+        app:layout_constraintBottom_toTopOf="@+id/testInterstitialForce"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/testReward" />
 
     <Button
-        android:id="@+id/testReward"
-        android:layout_width="wrap_content"
+        android:id="@+id/testInterstitialForce"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Reward click"
+        android:text="Force show interstitial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testInterstitial" />
+
+    <Button
+        android:id="@+id/testReward"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Show reward"
         app:layout_constraintBottom_toTopOf="@+id/testInterstitial"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

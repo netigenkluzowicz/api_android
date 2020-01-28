@@ -11,6 +11,7 @@ class ViewModelFactory(activity: CoreMainActivity) : CoreViewModelsFactory(activ
     override val appConfig = AppConfig(
         bannerAdId = "",
         interstitialAdId = "",
+        rewardedAdId = "test",
         inDebugMode = true
     )
     override val payments: IPayments

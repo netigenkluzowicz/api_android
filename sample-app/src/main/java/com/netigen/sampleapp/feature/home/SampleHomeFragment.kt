@@ -18,6 +18,7 @@ class SampleHomeFragment : NetigenVMFragment() {
 
     private fun init() {
         testInterstitial.setOnClickListener { viewModel.interstitialAd.showInterstitialAd { d("testInterstitial.success:$it") } }
+        testInterstitialForce.setOnClickListener { viewModel.interstitialAd.showInterstitialAd(true) { d("testInterstitialForce.success:$it") } }
         testReward.setOnClickListener { viewModel.rewardedAd.showRewardedAd { d("testReward.success:$it") } }
     }
 }

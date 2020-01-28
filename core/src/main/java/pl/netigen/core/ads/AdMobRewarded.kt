@@ -52,7 +52,7 @@ class AdMobRewarded(
         override fun onRewardedAdFailedToShow(p0: Int) = onResult(false)
 
         private fun onResult(result: Boolean) {
-            d("called")
+            d("called:$result")
             onRewardResult(result)
             load()
         }
