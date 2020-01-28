@@ -1,5 +1,6 @@
 package pl.netigen.core.splash
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
@@ -20,6 +21,7 @@ import pl.netigen.extensions.launchIO
 import timber.log.Timber.d
 
 open class SplashVMImpl(
+    application: Application,
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
@@ -27,7 +29,7 @@ open class SplashVMImpl(
     private val appConfig: AppConfig,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO,
     val coroutineDispatcherMain: CoroutineDispatcher = Dispatchers.Main
-) : SplashVM(), INoAds by noAdsPurchases {
+) : SplashVM(application), INoAds by noAdsPurchases {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
     override val isNoAdsAvailable: Boolean = appConfig.isNoAdsAvailable
@@ -123,7 +125,9 @@ open class SplashVMImpl(
                 }
             } catch (e: TimeoutCancellationException) {
                 d(e)
-                onLoadInterstitialResult(false)
+                withContext(coroutineDispatcherMain) {
+                    onLoadInterstitialResult(false)
+                }
             }
         }
 

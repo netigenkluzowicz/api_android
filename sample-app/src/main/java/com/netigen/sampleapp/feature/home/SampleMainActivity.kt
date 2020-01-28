@@ -7,15 +7,11 @@ import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import com.netigen.sampleapp.R
 import com.netigen.sampleapp.feature.splash.SampleSplashFragment
 import kotlinx.android.synthetic.main.activity_sample_main.*
-import pl.netigen.core.ads.AdMobAds
 import pl.netigen.core.config.AppConfig
 import pl.netigen.core.main.CoreMainActivity
-import pl.netigen.core.main.CoreMainVMImpl
 import pl.netigen.core.splash.SplashFragment
-import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.gms.payments.GMSPayments
 import timber.log.Timber.d
-
 
 class SampleMainActivity : CoreMainActivity() {
     override val appConfig = AppConfig(
@@ -23,15 +19,8 @@ class SampleMainActivity : CoreMainActivity() {
         interstitialAdId = "",
         inDebugMode = true
     )
-    override val ads by lazy {
-        AdMobAds(
-            activity = this,
-            adsConfig = appConfig
-        )
-    }
 
     override val payments: GMSPayments by lazy { GMSPayments(application) }
-    override val viewModel: CoreMainVM by lazy { CoreMainVMImpl(ads, payments) }
     override val splashFragment: SplashFragment by lazy { SampleSplashFragment() }
 
     override fun onSplashOpened() {

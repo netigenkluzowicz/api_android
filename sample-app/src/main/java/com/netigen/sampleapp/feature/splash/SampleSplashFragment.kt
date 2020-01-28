@@ -8,15 +8,11 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.safeNavigate
 import com.netigen.sampleapp.R
-import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.splash.SplashFragment
-import pl.netigen.core.splash.SplashVmFactory
 import timber.log.Timber
 
 
 class SampleSplashFragment : SplashFragment() {
-    override val viewModelFactory get() = SplashVmFactory(requireActivity() as CoreMainActivity)
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.splash_fragment, container, false)
 

@@ -8,14 +8,14 @@ import androidx.fragment.app.activityViewModels
 import pl.netigen.core.fragment.NetigenFragment
 import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.main.CoreMainActivity
+import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
 import timber.log.Timber.d
 
 abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
-    val viewModel: SplashVM by activityViewModels { viewModelFactory }
-    abstract val viewModelFactory: SplashVmFactory
+    private val viewModel: ISplashVM by activityViewModels<SplashVM> { coreMainActivity.viewModelFactory }
     private var consentNotShowed: Boolean = false
     private var gdprDialogFragment: GDPRDialogFragment? = null
     private val coreMainActivity
