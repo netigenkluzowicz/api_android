@@ -19,7 +19,7 @@ class AdMobBanner(
     private val isAdaptiveBanner: Boolean = true,
     override var enabled: Boolean = true
 ) : IBannerAd, LifecycleObserver {
-    private var bannerView: AdView = AdView(activity)
+    private lateinit var bannerView: AdView
     private var loadedBannerOrientation = 0
     private val disabled get() = !enabled
     private val adSize: AdSize = getAdSize()
@@ -43,6 +43,11 @@ class AdMobBanner(
 
         val adWidth = (adWidthPixels / density).toInt()
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    private fun onCreate() {
+        bannerView = AdView(activity)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -103,4 +108,10 @@ class AdMobBanner(
         val parent = bannerView.parent as ViewGroup
         parent.removeView(bannerView)
     }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    private fun onDestroy() {
+        bannerView.destroy()
+    }
+
 }
