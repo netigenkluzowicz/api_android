@@ -10,6 +10,7 @@ import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdCallback
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import pl.netigen.coreapi.ads.IRewardedAd
+import timber.log.Timber.d
 
 
 class AdMobRewarded(
@@ -37,6 +38,7 @@ class AdMobRewarded(
 
     private fun load() {
         if (isEnabled && !isLoaded) {
+            d("called")
             rewardedAd.loadAd(adMobRequest.getAdRequest(), AdLoadCallback())
         }
     }
@@ -50,6 +52,7 @@ class AdMobRewarded(
         override fun onRewardedAdFailedToShow(p0: Int) = onResult(false)
 
         private fun onResult(result: Boolean) {
+            d("called")
             onRewardResult(result)
             load()
         }
@@ -57,6 +60,7 @@ class AdMobRewarded(
 
     inner class AdLoadCallback : RewardedAdLoadCallback() {
         override fun onRewardedAdFailedToLoad(errorCode: Int) {
+            d(errorCode.toString())
             if (retryCount <= Companion.MAX_RETRY_COUNT) {
                 retryCount++
                 load()
