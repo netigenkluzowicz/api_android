@@ -5,10 +5,7 @@ import androidx.activity.ComponentActivity
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
-import pl.netigen.coreapi.ads.IAds
-import pl.netigen.coreapi.ads.IAdsConfig
-import pl.netigen.coreapi.ads.IBannerAd
-import pl.netigen.coreapi.ads.IInterstitialAd
+import pl.netigen.coreapi.ads.*
 
 class AdMobAds(
     activity: ComponentActivity,
@@ -17,18 +14,21 @@ class AdMobAds(
 ) : IAds, IAdMobRequest {
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
+    override val rewardedAd: IRewardedAd
 
     init {
         MobileAds.initialize(activity)
-        val (bannerId, interstitialId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId)
+        val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
         bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.isBannerAdaptive)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
+        rewardedAd = AdMobRewarded(activity, this, rewardedId)
     }
 
-    private fun getIds(banner: String, interstitial: String): Pair<String, String> {
+    private fun getIds(banner: String, interstitial: String, rewarded: String): Triple<String, String, String> {
         val bannerId = if (adsConfig.inDebugMode) (TEST_BANNER_ID) else (banner)
         val interstitialId = if (adsConfig.inDebugMode) (TEST_INTERSTITIAL_ID) else (interstitial)
-        return Pair(bannerId, interstitialId)
+        val rewardedId = if (adsConfig.inDebugMode && rewarded.isNotEmpty()) (TEST_REWARDED_ID) else (rewarded)
+        return Triple(bannerId, interstitialId, rewardedId)
     }
 
     override fun getAdRequest(): AdRequest {
@@ -52,6 +52,7 @@ class AdMobAds(
     private fun setEnabled(enabled: Boolean) {
         bannerAd.enabled = enabled
         interstitialAd.enabled = enabled
+        rewardedAd.enabled = enabled
     }
 
     companion object {
