@@ -1,36 +1,38 @@
 package pl.netigen.core.splash
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.AdConsentStatus.*
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.main.IAppConfig
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
-import pl.netigen.extensions.launchMain
+import pl.netigen.extensions.launchIO
 import timber.log.Timber.d
 
-open class SplashVMImpl(
+class SplashVMImpl(
+    application: Application,
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,
-    private val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
-    private val maxInterstitialWaitTime: Long = DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
+    private val appConfig: IAppConfig,
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO,
-    override val isNoAdsAvailable: Boolean = true
-) : SplashVM(), INoAds by noAdsPurchases {
+    val coroutineDispatcherMain: CoroutineDispatcher = Dispatchers.Main
+) : SplashVM(application), INoAds by noAdsPurchases {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
+    override val isNoAdsAvailable: Boolean = appConfig.isNoAdsAvailable
     private var isRunning = false
 
     override fun start() {
@@ -41,13 +43,22 @@ open class SplashVMImpl(
     private fun init() {
         isRunning = true
         launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
-        launch(coroutineDispatcherIo) {
-            gdprConsent.adConsentStatus
-                .onEach {
-                    withTimeout(maxConsentWaitTime) { if (it == UNINITIALIZED) onFirstLaunch() else onNextLaunch(it) }
-                }.catch { onFirstLaunch() }
-                .collect()
+        try {
+            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
+                if (it == UNINITIALIZED) onFirstLaunch() else onNextLaunch(it)
+            }
+        } catch (e: TimeoutCancellationException) {
+            onFirstLaunch()
         }
+    }
+
+    private fun <T> launchWithTimeout(
+        timeOut: Long,
+        flow: Flow<T>,
+        coroutineDispatcher: CoroutineDispatcher = coroutineDispatcherIo,
+        action: suspend (value: T) -> Unit
+    ) {
+        launch(coroutineDispatcher) { withTimeout(timeOut) { flow.collect(action) } }
     }
 
     private fun onAdsFlowChanged(purchased: Boolean) {
@@ -57,6 +68,7 @@ open class SplashVMImpl(
     }
 
     private fun finish() {
+        d("()")
         cleanUp()
         updateState(SplashState.FINISHED)
     }
@@ -70,19 +82,15 @@ open class SplashVMImpl(
     private fun onFirstLaunch() {
         if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
         isFirstLaunch.postValue(true)
-        launch(coroutineDispatcherIo) {
-            gdprConsent.requestGDPRLocation()
-                .onEach {
-                    withTimeout(maxConsentWaitTime) {
-                        onFirstLaunchCheckGdpr(it)
-                    }
-                }
-                .catch { showGdprPopUp() }
-                .collect()
+        try {
+            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
+        } catch (e: TimeoutCancellationException) {
+            showGdprPopUp()
         }
     }
 
     private fun showGdprPopUp() {
+        launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
         updateState(SplashState.SHOW_GDPR_CONSENT)
     }
 
@@ -108,12 +116,25 @@ open class SplashVMImpl(
     private fun startLoadingInterstitial() {
         if (!networkStatus.isConnectedOrConnecting) return finish()
         updateState(SplashState.LOADING)
-        launchMain {
-            ads.interstitialAd.loadInterstitialAd()
-                .onEach { withTimeout(maxInterstitialWaitTime) { onLoadInterstitialResult(it) } }
-                .catch { onLoadInterstitialResult(false) }
-                .collect()
+        launchIO {
+            try {
+                withTimeout(appConfig.maxInterstitialWaitTime) {
+                    withContext(coroutineDispatcherMain) {
+                        if (ads.interstitialAd.isLoaded) {
+                            onLoadInterstitialResult(true)
+                        } else {
+                            ads.interstitialAd.loadInterstitialAd().collect { onLoadInterstitialResult(it) }
+                        }
+                    }
+                }
+            } catch (e: TimeoutCancellationException) {
+                d(e)
+                withContext(coroutineDispatcherMain) {
+                    onLoadInterstitialResult(false)
+                }
+            }
         }
+
     }
 
     private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
@@ -123,19 +144,8 @@ open class SplashVMImpl(
         ads.interstitialAd.showInterstitialAd { finish() }
     }
 
-    private fun checkConsentNextLaunch() {
-        launch(coroutineDispatcherIo) {
-            gdprConsent.requestGDPRLocation()
-                .onEach {
-                    withTimeoutOrNull(maxConsentWaitTime) {
-                        if (it == CheckGDPRLocationStatus.UE) {
-                            cleanUp()
-                            showGdprPopUp()
-                        }
-                    }
-                }.collect()
-        }
-    }
+    private fun checkConsentNextLaunch() =
+        launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
 
     override fun setPersonalizedAds(personalizedAdsApproved: Boolean) {
         val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) PERSONALIZED_SHOWED else NON_PERSONALIZED_SHOWED
@@ -150,10 +160,5 @@ open class SplashVMImpl(
             updateState(SplashState.UNINITIALIZED)
             isRunning = false
         }
-    }
-
-    companion object {
-        const val DEFAULT_MAX_CONSENT_WAIT_TIME_MS = 5000L
-        const val DEFAULT_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7000L
     }
 }

@@ -6,8 +6,12 @@ import pl.netigen.coreapi.payments.Payments
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 import timber.log.Timber.d
 
-class GMSPayments(application: Application, inAppSkuList: List<String> = listOf("${application.packageName}.noads")) : Payments() {
-    override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList)
+class GMSPayments(
+    application: Application,
+    inAppSkuList: List<String> = listOf("${application.packageName}.noads"),
+    noAdsInAppSkuList: List<String> = listOf("${application.packageName}.noads")
+) : Payments() {
+    override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList)
 
     override fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
         paymentsRepo.launchBillingFlow(activity, netigenSkuDetails)

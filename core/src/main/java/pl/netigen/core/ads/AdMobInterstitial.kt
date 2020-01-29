@@ -1,7 +1,7 @@
 package pl.netigen.core.ads
 
 import android.os.SystemClock
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -10,32 +10,29 @@ import com.google.android.gms.ads.InterstitialAd
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber.d
 
 
 class AdMobInterstitial(
-    private val activity: AppCompatActivity,
+    activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
-    override val adId: AdId<String>,
+    override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
     override var enabled: Boolean = true
 ) : IInterstitialAd, LifecycleObserver {
     private var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
-    private var interstitialAd: InterstitialAd
+    private var interstitialAd: InterstitialAd = InterstitialAd(activity)
     private val disabled get() = !enabled
 
     init {
-        interstitialAd = InterstitialAd(activity)
+        interstitialAd.adUnitId = adId
         activity.lifecycle.addObserver(this)
     }
 
     override fun loadInterstitialAd(): Flow<Boolean> =
         callbackFlow {
-            interstitialAd = InterstitialAd(activity)
-            interstitialAd.adUnitId = adId.id
             val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     d(errorCode.toString())
@@ -45,7 +42,7 @@ class AdMobInterstitial(
                 }
 
                 override fun onAdLoaded() {
-                    d("called")
+                    d("()")
                     interstitialAd.adListener = null
                     offer(true)
                     channel.close()
@@ -56,11 +53,15 @@ class AdMobInterstitial(
             awaitClose { }
         }
 
-    private fun onLoaded(onClosedOrNotShowed: (Boolean) -> Unit) {
+    override val isLoaded: Boolean
+        get() = interstitialAd.isLoaded
+
+    private fun onInterstitialReadyToShow(forceShow: Boolean = false, onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
         val currentTime = SystemClock.elapsedRealtime()
         when {
             isInBackground -> onClosedOrNotShowed(false)
-            validateLastShowTime(currentTime) -> show(onClosedOrNotShowed)
+            forceShow || validateLastShowTime(currentTime) -> show(onClosedOrNotShowed)
             else -> onClosedOrNotShowed(false)
         }
     }
@@ -79,13 +80,14 @@ class AdMobInterstitial(
 
     private fun loadIfShouldBeLoaded() {
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        loadInterstitialAd()
+        interstitialAd.loadAd(adMobRequest.getAdRequest())
     }
 
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
+
         onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
     }
@@ -100,11 +102,11 @@ class AdMobInterstitial(
         isInBackground = true
     }
 
-    override fun showInterstitialAd(onClosedOrNotShowed: (Boolean) -> Unit) {
+    override fun showInterstitialAd(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
         when {
             disabled -> onClosedOrNotShowed(false)
             isInBackground -> onCanNotShow(onClosedOrNotShowed)
-            interstitialAd.isLoaded -> onLoaded(onClosedOrNotShowed)
+            interstitialAd.isLoaded -> onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
             else -> onCanNotShow(onClosedOrNotShowed)
         }
     }

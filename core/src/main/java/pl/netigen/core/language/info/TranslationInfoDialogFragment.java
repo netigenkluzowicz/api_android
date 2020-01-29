@@ -37,13 +37,6 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
 
     }
 
-    public interface DialogClickListener {
-        void onNegativeButtonClicked();
-
-        void onPositiveButtonClicked();
-    }
-
-
     public static TranslationInfoDialogFragment newInstance(TranslationInfoParams translationInfoParams) {
         TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment();
         fragment.translationInfoParams = translationInfoParams;
@@ -152,7 +145,6 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
         textViewTranslationInfoTitle.setText(translationInfoParams.titleResId);
     }
 
-
     public void setPositiveButton(View view) {
         TextView buttonChangeLanguageOk = view.findViewById(R.id.button_positive);
         buttonChangeLanguageOk.setText(translationInfoParams.positiveButtonResId);
@@ -175,6 +167,12 @@ public class TranslationInfoDialogFragment extends AppCompatDialogFragment {
             dismiss();
         });
 
+    }
+
+    public interface DialogClickListener {
+        void onNegativeButtonClicked();
+
+        void onPositiveButtonClicked();
     }
 
     public static class Builder {

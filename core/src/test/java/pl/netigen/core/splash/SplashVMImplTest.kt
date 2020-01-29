@@ -1,5 +1,6 @@
 package pl.netigen.core.splash
 
+import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.viewModelScope
 import io.mockk.*
@@ -20,6 +21,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import pl.netigen.core.config.AppConfig
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IInterstitialAd
 import pl.netigen.coreapi.gdpr.AdConsentStatus
@@ -30,11 +32,12 @@ import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.SplashState
 
 
-
 class SplashVMImplTest {
     @get:Rule
     val rule = InstantTaskExecutorRule()
     private lateinit var splashVMImpl: SplashVMImpl
+    @RelaxedMockK
+    private lateinit var application: Application
     @RelaxedMockK
     private lateinit var gdprConsent: IGDPRConsent
     @RelaxedMockK
@@ -45,13 +48,23 @@ class SplashVMImplTest {
     private lateinit var noAdsPurchases: INoAds
     @RelaxedMockK
     private lateinit var networkStatus: INetworkStatus
+    private var appConfig: AppConfig = AppConfig("", "")
     private val testDispatcher = TestCoroutineDispatcher()
 
     @Before
     fun before() {
         Dispatchers.setMain(testDispatcher)
         MockKAnnotations.init(this)
-        splashVMImpl = SplashVMImpl(gdprConsent, ads, noAdsPurchases, networkStatus, coroutineDispatcherIo = Dispatchers.Main)
+        splashVMImpl = SplashVMImpl(
+            application,
+            gdprConsent,
+            ads,
+            noAdsPurchases,
+            networkStatus,
+            coroutineDispatcherIo = Dispatchers.Main,
+            coroutineDispatcherMain = Dispatchers.Main,
+            appConfig = appConfig
+        )
         every { ads.interstitialAd } returns interstitialAd
     }
 
@@ -81,10 +94,13 @@ class SplashVMImplTest {
             isNoAdsActive = false,
             lastKnownAdConsentStatus = AdConsentStatus.PERSONALIZED_NON_UE
         )
-        val publisher = getFlowPublisher { gdprConsent.requestGDPRLocation() }
+        val gdprConsentPublisher = getFlowPublisher { gdprConsent.requestGDPRLocation() }
+        val adsPublisher = getFlowPublisher { ads.interstitialAd.loadInterstitialAd() }
         splashVMImpl.start()
         assertEquals(SplashState.LOADING, splashVMImpl.splashState.value)
-        publisher.offer(CheckGDPRLocationStatus.UE)
+        gdprConsentPublisher.offer(CheckGDPRLocationStatus.UE)
+        assertEquals(SplashState.SHOW_GDPR_CONSENT, splashVMImpl.splashState.value)
+        adsPublisher.offer(true)
         assertEquals(SplashState.SHOW_GDPR_CONSENT, splashVMImpl.splashState.value)
     }
 
@@ -119,14 +135,14 @@ class SplashVMImplTest {
     }
 
     @Test
-    fun `SplashVM has GDPR_POP_UP status when there is first launch with no internet`() {
+    fun `SplashVM has GDPR_POP_UP status when there is first launch with no internet`() = runBlockingTest {
         setUpMocks(isConnectedOrConnecting = false)
         splashVMImpl.start()
         assertEquals(SplashState.SHOW_GDPR_CONSENT, splashVMImpl.splashState.value)
     }
 
     @Test
-    fun `SplashVM isFirstLaunch == true when there is first launch with connected internet`() {
+    fun `SplashVM isFirstLaunch == true when there is first launch with connected internet`() = runBlockingTest {
         setUpMocks(isConnectedOrConnecting = true)
         splashVMImpl.start()
         assertEquals(true, splashVMImpl.isFirstLaunch.value)
@@ -151,6 +167,7 @@ class SplashVMImplTest {
         isNoAdsActive: Boolean = false,
         lastKnownAdConsentStatus: AdConsentStatus = AdConsentStatus.UNINITIALIZED,
         isConnectedOrConnecting: Boolean = true,
+        loadInterstitialAdResult: Boolean = true,
         gdprLocationStatus: CheckGDPRLocationStatus = CheckGDPRLocationStatus.NON_UE
 
     ) {
@@ -164,6 +181,8 @@ class SplashVMImplTest {
         coEvery { gdprConsent.adConsentStatus }.returns(flow {
             emit(lastKnownAdConsentStatus)
         })
+
+        coEvery { ads.interstitialAd.loadInterstitialAd() }.returns(flow { emit(loadInterstitialAdResult) })
         every { networkStatus.isConnectedOrConnecting }.returns(isConnectedOrConnecting)
     }
 }

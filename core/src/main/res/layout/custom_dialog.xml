@@ -23,10 +23,10 @@
         android:autoLink="all"
         android:gravity="start"
         android:linksClickable="true"
-        android:paddingBottom="20dp"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="20dp"
         android:textColor="@android:color/white"
         android:textColorLink="#18ffff"
         android:textSize="15sp" />

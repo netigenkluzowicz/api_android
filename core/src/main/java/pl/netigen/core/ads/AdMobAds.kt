@@ -1,47 +1,41 @@
 package pl.netigen.core.ads
 
 import android.os.Bundle
-import android.widget.RelativeLayout
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
-import pl.netigen.coreapi.ads.AdId
-import pl.netigen.coreapi.ads.IAds
-import pl.netigen.coreapi.ads.IBannerAd
-import pl.netigen.coreapi.ads.IInterstitialAd
+import pl.netigen.coreapi.ads.*
 
 class AdMobAds(
-    activity: AppCompatActivity,
-    bannerAdId: String,
-    interstitialAdId: String,
-    bannerRelativeLayout: RelativeLayout,
-    override var personalizedAdsEnabled: Boolean = false,
-    isAdaptiveBanner: Boolean = true,
-    private val testDevices: List<String> = emptyList(),
-    private val isInDebugMode: Boolean = false
+    activity: ComponentActivity,
+    private val adsConfig: IAdsConfig,
+    override var personalizedAdsEnabled: Boolean = false
 ) : IAds, IAdMobRequest {
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
+    override val rewardedAd: IRewardedAd
 
     init {
         MobileAds.initialize(activity)
-        val (bannerId, interstitialId) = getIds(bannerAdId, interstitialAdId)
-        bannerAd = AdMobBanner(activity, this, bannerId, bannerRelativeLayout, isAdaptiveBanner)
+        val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
+        bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.isBannerAdaptive)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
+        rewardedAd = AdMobRewarded(activity, this, rewardedId)
     }
 
-    private fun getIds(bannerAdId: String, interstitialAdId: String): Pair<AdId<String>, AdId<String>> {
-        val bannerId = if (isInDebugMode) AdId(TEST_BANNER_ID) else AdId(bannerAdId)
-        val interstitialId = if (isInDebugMode) AdId(TEST_INTERSTITIAL_ID) else AdId(interstitialAdId)
-        return Pair(bannerId, interstitialId)
+    private fun getIds(banner: String, interstitial: String, rewarded: String): Triple<String, String, String> {
+        val bannerId = if (adsConfig.inDebugMode) (TEST_BANNER_ID) else (banner)
+        val interstitialId = if (adsConfig.inDebugMode) (TEST_INTERSTITIAL_ID) else (interstitial)
+        val rewardedId = if (adsConfig.inDebugMode && rewarded.isNotEmpty()) (TEST_REWARDED_ID) else (rewarded)
+        return Triple(bannerId, interstitialId, rewardedId)
     }
 
     override fun getAdRequest(): AdRequest {
         val builder = AdRequest.Builder()
-        if (isInDebugMode) {
-            for (i in testDevices.indices) {
-                builder.addTestDevice(testDevices[i])
+        if (adsConfig.inDebugMode) {
+            for (i in adsConfig.testDevices.indices) {
+                builder.addTestDevice(adsConfig.testDevices[i])
             }
         }
         if (personalizedAdsEnabled) return builder.build()
@@ -58,6 +52,7 @@ class AdMobAds(
     private fun setEnabled(enabled: Boolean) {
         bannerAd.enabled = enabled
         interstitialAd.enabled = enabled
+        rewardedAd.enabled = enabled
     }
 
     companion object {

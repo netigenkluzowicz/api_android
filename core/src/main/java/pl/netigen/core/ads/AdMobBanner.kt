@@ -3,27 +3,27 @@ package pl.netigen.core.ads
 import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import pl.netigen.coreapi.ads.AdId
 import pl.netigen.coreapi.ads.IBannerAd
 
 class AdMobBanner(
-    private val activity: AppCompatActivity,
+    private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
-    override val adId: AdId<String>,
-    override val bannerRelativeLayout: RelativeLayout,
+    override val adId: String,
+    private val bannerLayoutIdName: String,
     private val isAdaptiveBanner: Boolean = true,
     override var enabled: Boolean = true
 ) : IBannerAd, LifecycleObserver {
-    private var bannerView: AdView = AdView(activity)
+    private lateinit var bannerView: AdView
     private var loadedBannerOrientation = 0
     private val disabled get() = !enabled
     private val adSize: AdSize = getAdSize()
+    private lateinit var bannerLayout: RelativeLayout
 
     init {
         activity.lifecycle.addObserver(this)
@@ -45,6 +45,16 @@ class AdMobBanner(
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth)
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    private fun onCreate() {
+        bannerView = AdView(activity)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    private fun onStart() {
+        bannerLayout = activity.findViewById(activity.resources.getIdentifier(bannerLayoutIdName, "id", activity.packageName))
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         if (disabled) {
@@ -53,9 +63,8 @@ class AdMobBanner(
         if (loadedBannerOrientation != activity.resources.configuration.orientation) {
             loadBanner()
         }
-        val layout = bannerRelativeLayout
-        if (layout.childCount == 0 || layout.getChildAt(0) !== bannerView) {
-            addView(layout, bannerView)
+        if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView) {
+            addView(bannerLayout, bannerView)
         }
         bannerView.resume()
     }
@@ -68,7 +77,7 @@ class AdMobBanner(
             loadedBannerOrientation = activity.resources.configuration.orientation
             bannerView = AdView(activity)
             bannerView.adSize = adSize
-            bannerView.adUnitId = adId.id
+            bannerView.adUnitId = adId
         }
         bannerView.loadAd(adMobRequest.getAdRequest())
     }
@@ -99,4 +108,10 @@ class AdMobBanner(
         val parent = bannerView.parent as ViewGroup
         parent.removeView(bannerView)
     }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    private fun onDestroy() {
+        bannerView.destroy()
+    }
+
 }
