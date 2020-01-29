@@ -44,7 +44,7 @@ class GMSPaymentsRepo(
     }
 
     private fun connectToPlayBillingService(): Boolean {
-        Timber.d("")
+        Timber.d("()")
         if (!gmsBillingClient.isReady) {
             gmsBillingClient.startConnection(this)
             return true
@@ -54,13 +54,13 @@ class GMSPaymentsRepo(
 
     //TODO should be called when Payments is being destroyed
     fun endDataSourceConnections() {
-        Timber.d("")
+        Timber.d("()")
         gmsBillingClient.endConnection()
         localCacheBillingClient.close()
     }
 
     override fun onBillingSetupFinished(billingResult: BillingResult) {
-        Timber.d("")
+        Timber.d("()")
         when (billingResult.responseCode) {
             BillingClient.BillingResponseCode.OK -> {
                 Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
@@ -131,7 +131,7 @@ class GMSPaymentsRepo(
 
     private fun processPurchases(purchasesResult: Set<Purchase>) =
         CoroutineScope(Job() + Dispatchers.IO).launch {
-            Timber.d("")
+            Timber.d("()")
             val validPurchases = HashSet<Purchase>(purchasesResult.size)
             Timber.d("newBatch content $purchasesResult")
             purchasesResult.forEach { purchase ->
@@ -165,7 +165,7 @@ class GMSPaymentsRepo(
     }
 
     private fun handleConsumablePurchasesAsync(consumables: List<Purchase>) {
-        Timber.d("")
+        Timber.d("()")
         consumables.forEach {
             Timber.d("foreach it is $it")
             val params =
@@ -250,7 +250,7 @@ class GMSPaymentsRepo(
     }
 
     override fun onBillingServiceDisconnected() {
-        Timber.d("")
+        Timber.d("()")
         connectToPlayBillingService()
     }
 }
