@@ -1,4 +1,4 @@
-package com.netigen.sampleapp
+package pl.netigen.sampleapp
 
 import android.app.Application
 import timber.log.Timber

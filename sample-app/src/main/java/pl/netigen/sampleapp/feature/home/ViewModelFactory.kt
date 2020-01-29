@@ -1,12 +1,12 @@
-package com.netigen.sampleapp.feature.home
+package pl.netigen.sampleapp.feature.home
 
 import pl.netigen.core.config.AppConfig
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
 import pl.netigen.coreapi.payments.IPayments
-import pl.netigen.gms.payments.GMSPayments
+import pl.netigen.sampleapp.flavour.FlavoursConst
 
-class ViewModelFactory(coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
+class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
     override val appConfig by lazy {
         AppConfig(
             bannerAdId = "",
@@ -16,6 +16,6 @@ class ViewModelFactory(coreMainActivity: CoreMainActivity) : CoreViewModelsFacto
         )
     }
     override val payments: IPayments
-        get() = GMSPayments(activity.application)
+        get() = FlavoursConst.getPaymentsImpl(coreMainActivity)
 
 }

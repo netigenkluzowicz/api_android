@@ -1,10 +1,10 @@
-package com.netigen.sampleapp.feature.home
+package pl.netigen.sampleapp.feature.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.netigen.sampleapp.R
+import pl.netigen.sampleapp.R
 import kotlinx.android.synthetic.main.home_fragment.*
 import pl.netigen.core.fragment.NetigenVMFragment
 import timber.log.Timber.d

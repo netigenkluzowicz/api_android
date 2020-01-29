@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainLayout"
-    tools:context=".feature.home.SampleMainActivity">
+    tools:context="pl.netigen.sampleapp.feature.home.SampleMainActivity">
 
     <LinearLayout
         android:id="@+id/adsBorder"

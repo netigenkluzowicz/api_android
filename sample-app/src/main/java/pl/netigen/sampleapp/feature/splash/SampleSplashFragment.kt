@@ -1,4 +1,4 @@
-package com.netigen.sampleapp.feature.splash
+package pl.netigen.sampleapp.feature.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.safeNavigate
-import com.netigen.sampleapp.R
 import pl.netigen.core.splash.SplashFragment
+import pl.netigen.sampleapp.R
 import timber.log.Timber
 
 class SampleSplashFragment : SplashFragment() {

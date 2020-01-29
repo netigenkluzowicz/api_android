@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.netigen.sampleapp.feature.home.SampleHomeFragment"
+        android:name="pl.netigen.sampleapp.feature.home.SampleHomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/home_fragment">
 
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.netigen.sampleapp.feature.splash.SampleSplashFragment"
+        android:name="pl.netigen.sampleapp.feature.splash.SampleSplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"

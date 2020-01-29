@@ -1,4 +1,4 @@
-package com.netigen.sampleapp
+package pl.netigen.sampleapp
 
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay

@@ -1,12 +1,12 @@
-package com.netigen.sampleapp.feature.home
+package pl.netigen.sampleapp.feature.home
 
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import androidx.lifecycle.ViewModelProvider
-import com.netigen.sampleapp.R
-import com.netigen.sampleapp.feature.splash.SampleSplashFragment
+import pl.netigen.sampleapp.R
+import pl.netigen.sampleapp.feature.splash.SampleSplashFragment
 import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.splash.SplashFragment
