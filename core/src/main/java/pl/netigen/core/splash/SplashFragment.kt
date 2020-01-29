@@ -40,7 +40,6 @@ abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickL
 
     private fun onUninitialized() {
         splashVM.start()
-        coreMainActivity.onSplashOpened()
     }
 
     private fun tryShowGdprPopup() {
