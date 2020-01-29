@@ -31,7 +31,6 @@ android {
 }
 dependencies {
     api project(path: ':core-api')
-    api project(path: ':payments')
 
     api Libraries.appcompat
     api Libraries.billing
