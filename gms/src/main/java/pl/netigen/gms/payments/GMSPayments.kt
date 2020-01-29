@@ -9,17 +9,18 @@ import timber.log.Timber.d
 class GMSPayments(
     application: Application,
     inAppSkuList: List<String> = listOf("${application.packageName}.noads"),
-    noAdsInAppSkuList: List<String> = listOf("${application.packageName}.noads")
+    noAdsInAppSkuList: List<String> = listOf("${application.packageName}.noads"),
+    consumablesInAppSkuList: List<String> = emptyList()
 ) : Payments() {
-    override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList)
+    override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList)
 
     override fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
         paymentsRepo.launchBillingFlow(activity, netigenSkuDetails)
     }
 
     override fun makeNoAdsPayment(activity: Activity, noAdsString: String) {
-        d(noAdsString)
-        paymentsRepo.makeNoAdsPurchase(activity)
+        d("activity = [$activity], noAdsString = [$noAdsString]")
+        paymentsRepo.makeNoAdsPurchase(activity, noAdsString)
     }
 
     override fun consumeItem() {
