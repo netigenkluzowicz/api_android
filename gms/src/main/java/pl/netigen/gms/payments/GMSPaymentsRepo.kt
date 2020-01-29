@@ -104,6 +104,7 @@ class GMSPaymentsRepo(
     }
 
     private fun queryPurchasesAsync() {
+        Timber.d("()")
         val purchasesResult = HashSet<Purchase>()
         var result = gmsBillingClient.queryPurchases(BillingClient.SkuType.INAPP)
         Timber.d(" INAPP results: ${result?.purchasesList?.size})")
@@ -150,35 +151,27 @@ class GMSPaymentsRepo(
             Timber.d("consumables content $consumables")
             Timber.d("non-consumables content $nonConsumables")
             val testing = localCacheBillingClient.purchaseDao().getPurchasesFlow()
-            testing.collect {
-                Timber.d("testing inserted purchases size: ${it.size}")
-            }
+            testing.collect { Timber.d("testing inserted purchases size: ${it.size}") }
             localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
             handleConsumablePurchasesAsync(consumables)
             acknowledgeNonConsumablePurchasesAsync(nonConsumables)
         }
 
-    private fun isSignatureValid(purchase: Purchase): Boolean {
-        return Security.verifyPurchase(
-            Security.BASE_64_ENCODED_PUBLIC_KEY, purchase.originalJson, purchase.signature
-        )
-    }
+    private fun isSignatureValid(purchase: Purchase): Boolean =
+        Security.verifyPurchase(Security.BASE_64_ENCODED_PUBLIC_KEY, purchase.originalJson, purchase.signature)
 
     private fun handleConsumablePurchasesAsync(consumables: List<Purchase>) {
         Timber.d("()")
         consumables.forEach {
             Timber.d("foreach it is $it")
-            val params =
-                ConsumeParams.newBuilder().setPurchaseToken(it.purchaseToken).build()
+            val params = ConsumeParams.newBuilder().setPurchaseToken(it.purchaseToken).build()
             gmsBillingClient.consumeAsync(params) { billingResult, purchaseToken ->
                 when (billingResult.responseCode) {
                     BillingClient.BillingResponseCode.OK -> {
                         //TODO Update the appropriate tables/databases to grant user the items
                         purchaseToken.apply { }
                     }
-                    else -> {
-                        Timber.w(billingResult.debugMessage)
-                    }
+                    else -> Timber.w(billingResult.debugMessage)
                 }
             }
         }
@@ -189,9 +182,7 @@ class GMSPaymentsRepo(
             val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build()
             gmsBillingClient.acknowledgePurchase(params) { billingResult ->
                 when (billingResult.responseCode) {
-                    BillingClient.BillingResponseCode.OK -> {
-                        disburseNonConsumableEntitlement(purchase)
-                    }
+                    BillingClient.BillingResponseCode.OK -> disburseNonConsumableEntitlement(purchase)
                     else -> Timber.d("response is ${billingResult.debugMessage}")
                 }
             }
@@ -216,14 +207,12 @@ class GMSPaymentsRepo(
 
     fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
         Timber.d("launching billing flow")
-        netigenSkuDetails.originalJson?.let {
-            launchBillingFlow(activity, SkuDetails(it))
-        } ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
+        netigenSkuDetails.originalJson?.let { launchBillingFlow(activity, SkuDetails(it)) }
+            ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
     }
 
     fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {
-        val purchaseParams = BillingFlowParams.newBuilder().setSkuDetails(skuDetails)
-            .build()
+        val purchaseParams = BillingFlowParams.newBuilder().setSkuDetails(skuDetails).build()
         gmsBillingClient.launchBillingFlow(activity, purchaseParams)
     }
 
