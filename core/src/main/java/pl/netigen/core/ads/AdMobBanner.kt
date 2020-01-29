@@ -29,6 +29,10 @@ class AdMobBanner(
         activity.lifecycle.addObserver(this)
     }
 
+    override fun hideBanner() {
+        bannerView.pause()
+    }
+
     override fun getHeightInPixels(): Int = adSize.getHeightInPixels(activity)
 
     private fun getAdSize(): AdSize {
@@ -87,12 +91,12 @@ class AdMobBanner(
             (adView.parent as ViewGroup).removeView(adView)
         }
         layout.addView(adView)
-        val params = RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.MATCH_PARENT,
-            RelativeLayout.LayoutParams.WRAP_CONTENT
-        )
-        params.addRule(RelativeLayout.ALIGN_PARENT_TOP)
+        setBannerLayoutParams(adView)
+    }
 
+    private fun setBannerLayoutParams(adView: AdView, height: Int = RelativeLayout.LayoutParams.WRAP_CONTENT) {
+        val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height)
+        params.addRule(RelativeLayout.ALIGN_PARENT_TOP)
         adView.layoutParams = params
         adView.requestLayout()
     }

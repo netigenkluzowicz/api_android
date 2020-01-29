@@ -44,6 +44,8 @@ dependencies {
     api Libraries.appcompat
 
     api Libraries.coreKTX
+    api Libraries.liveDataKTX
+    api Libraries.runtimeKTX
     api Libraries.kotlinStdlibJdk7
 
     api Libraries.navigationFragment

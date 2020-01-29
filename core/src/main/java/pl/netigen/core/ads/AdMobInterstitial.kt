@@ -15,7 +15,7 @@ import timber.log.Timber.d
 
 
 class AdMobInterstitial(
-    activity: ComponentActivity,
+    private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
@@ -67,8 +67,10 @@ class AdMobInterstitial(
     }
 
     private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
+                d("onAdClosed")
                 onClosedOrNotShowed(true)
                 loadIfShouldBeLoaded()
                 interstitialAd.adListener = null
@@ -79,7 +81,10 @@ class AdMobInterstitial(
     }
 
     private fun loadIfShouldBeLoaded() {
+        d("()")
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
+        interstitialAd = InterstitialAd(activity)
+        interstitialAd.adUnitId = adId
         interstitialAd.loadAd(adMobRequest.getAdRequest())
     }
 
@@ -87,7 +92,7 @@ class AdMobInterstitial(
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
-
+        d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
     }
@@ -103,6 +108,7 @@ class AdMobInterstitial(
     }
 
     override fun showInterstitialAd(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
         when {
             disabled -> onClosedOrNotShowed(false)
             isInBackground -> onCanNotShow(onClosedOrNotShowed)

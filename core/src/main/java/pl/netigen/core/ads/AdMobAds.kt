@@ -51,6 +51,7 @@ class AdMobAds(
 
     private fun setEnabled(enabled: Boolean) {
         bannerAd.enabled = enabled
+        bannerAd.hideBanner()
         interstitialAd.enabled = enabled
         rewardedAd.enabled = enabled
     }
