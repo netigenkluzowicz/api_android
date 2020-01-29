@@ -20,7 +20,7 @@ class AdMobRewarded(
     override var enabled: Boolean = adId.isNotEmpty()
 ) : IRewardedAd, LifecycleObserver {
     override val isLoaded: Boolean get() = isEnabled && rewardedAd.isLoaded
-    private val rewardedAd: RewardedAd by lazy { RewardedAd(activity, adId) }
+    private var rewardedAd = RewardedAd(activity, adId)
     private val isEnabled: Boolean get() = enabled && adId.isNotEmpty()
     private var retryCount = 0
 
@@ -64,6 +64,8 @@ class AdMobRewarded(
         private fun rewardAdCallbackResult(result: Boolean) {
             d("result = [$result]")
             onRewardResult(result)
+            rewardedAd = RewardedAd(activity, adId)
+            load()
         }
     }
 
