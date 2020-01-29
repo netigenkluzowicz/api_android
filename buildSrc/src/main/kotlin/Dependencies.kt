@@ -21,7 +21,7 @@ object Versions {
     val junit = "4.12"
     val testRunner = "1.2.0"
     val espressoCore = "3.2.0"
-    val billing = "2.0.3"
+    val billing = "2.1.0"
     val navigation = "2.1.0"
     val coroutines = "1.3.3"
     val room = "2.2.3"
