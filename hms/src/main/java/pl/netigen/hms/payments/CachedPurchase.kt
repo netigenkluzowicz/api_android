@@ -1,19 +1,21 @@
 package pl.netigen.hms.payments
 
-import androidx.room.*
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import com.huawei.hms.iap.entity.PurchaseResultInfo
+import pl.netigen.extensions.fromJson
+import pl.netigen.extensions.toJson
 
 @Entity(tableName = "purchase_table")
-@TypeConverters(PurchaseTypeConverter::class)
-data class CachedPurchase(val data: Purchase) {
+data class CachedPurchase(val data: PurchaseResultInfo) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-    @Ignore
-    val purchaseToken = data.purchaseToken
 
     override fun equals(other: Any?): Boolean {
         return when (other) {
             is CachedPurchase -> data == other.data
-            is Purchase -> data == other
+            is PurchaseResultInfo -> data == other
             else -> false
         }
     }
@@ -25,10 +27,8 @@ data class CachedPurchase(val data: Purchase) {
 
 class PurchaseTypeConverter {
     @TypeConverter
-    fun toString(purchase: Purchase): String = purchase.originalJson + '|' + purchase.signature
+    fun toString(purchase: PurchaseResultInfo): String = purchase.toJson()
 
     @TypeConverter
-    fun toPurchase(data: String): Purchase = data.split('|').let {
-        Purchase(it[0], it[1])
-    }
+    fun toPurchase(data: String): PurchaseResultInfo = data.fromJson()
 }

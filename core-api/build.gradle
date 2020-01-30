@@ -35,14 +35,36 @@ dependencies {
     api Libraries.kotlinStdlibJdk7
     api Libraries.lifecycleExt
 
-    api Libraries.coroutines
-
     api Libraries.roomRuntime
     api Libraries.roomKTX
     kapt Libraries.roomCompiler
-    
-    api Libraries.lifecycleExt
+
     api Libraries.viewModelKTX
-    
+
+    api Libraries.legacySupportV13
+
+    api Libraries.constraintLayout
+
+    api Libraries.consentLibrary
+
+    api Libraries.material
+
+    api Libraries.appcompat
+
+    api Libraries.coreKTX
+    api Libraries.liveDataKTX
+    api Libraries.runtimeKTX
+    api Libraries.kotlinStdlibJdk7
+
+    api Libraries.navigationFragment
+    api Libraries.navigationUi
+    api Libraries.navigationFragmentKTX
+    api Libraries.navigationUiKTX
+    api Libraries.coroutines
+
+    api Libraries.gson
+
+    api Libraries.glide
+    kapt Libraries.glideCompiler
     api Libraries.timber
 }
