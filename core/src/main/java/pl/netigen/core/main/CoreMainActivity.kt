@@ -2,6 +2,7 @@ package pl.netigen.core.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
@@ -27,10 +28,16 @@ abstract class CoreMainActivity : AppCompatActivity() {
         onNoAdsChanged(noAdsActive)
     }
 
+    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        coreMainVM.start()
         coreMainVM.noAdsActive.asLiveData().observe(this, this::onNoAdsChanged)
+    }
+
+    @CallSuper
+    override fun onStart() {
+        super.onStart()
+        coreMainVM.start()
     }
 
     open fun onNoAdsChanged(noAdsActive: Boolean) {

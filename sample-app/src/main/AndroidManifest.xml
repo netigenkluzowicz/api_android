@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name="pl.netigen.sampleapp.feature.home.SampleMainActivity"
+            android:name="pl.netigen.sampleapp.home.SampleMainActivity"
             android:screenOrientation="fullUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

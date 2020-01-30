@@ -1,4 +1,4 @@
-package pl.netigen.sampleapp.feature.home
+package pl.netigen.sampleapp.home
 
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.splash.SplashFragment
 import pl.netigen.sampleapp.R
-import pl.netigen.sampleapp.feature.splash.SampleSplashFragment
+import pl.netigen.sampleapp.splash.SampleSplashFragment
 import timber.log.Timber
 
 class SampleMainActivity : CoreMainActivity() {
