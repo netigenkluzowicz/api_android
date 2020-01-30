@@ -9,7 +9,7 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        applicationId "pl.netigen.sampleapp"
+        applicationId "com.netigen.metronomedemo"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
