@@ -15,7 +15,7 @@ import timber.log.Timber.d
 
 
 class AdMobInterstitial(
-    private val activity: ComponentActivity,
+    activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
@@ -83,8 +83,6 @@ class AdMobInterstitial(
     private fun loadIfShouldBeLoaded() {
         d("()")
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        interstitialAd = InterstitialAd(activity)
-        interstitialAd.adUnitId = adId
         interstitialAd.loadAd(adMobRequest.getAdRequest())
     }
 

@@ -16,6 +16,6 @@ class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreVie
         )
     }
     override val payments: IPayments
-        get() = FlavoursConst.getPaymentsImpl(coreMainActivity)
+        get() = FlavoursConst.getPaymentsImpl(coreMainActivity.application)
 
 }

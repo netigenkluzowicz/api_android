@@ -11,7 +11,7 @@ interface ICoreViewModelsFactory : ViewModelProvider.Factory {
     val activity: Activity
     val appConfig: IAppConfig
     val networkStatus: INetworkStatus
-    val admob: IAds
+    val ads: IAds
     val gdprConsent: IGDPRConsent
     val payments: IPayments
 }

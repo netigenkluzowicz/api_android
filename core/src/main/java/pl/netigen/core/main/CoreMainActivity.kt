@@ -12,13 +12,20 @@ import pl.netigen.extensions.observe
 
 abstract class CoreMainActivity : AppCompatActivity() {
     private var noAdsActive: Boolean = false
+    private var splashActive: Boolean = false
     abstract val viewModelFactory: ViewModelProvider.Factory
     val coreMainVM: ICoreMainVM by viewModels<CoreMainVM> { viewModelFactory }
     abstract val splashFragment: SplashFragment
 
-    open fun onSplashOpened() = hideAds()
+    open fun onSplashOpened() {
+        splashActive = true
+        hideAds()
+    }
 
-    open fun onSplashClosed() = onNoAdsChanged(noAdsActive)
+    open fun onSplashClosed() {
+        splashActive = false
+        onNoAdsChanged(noAdsActive)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +35,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
 
     open fun onNoAdsChanged(noAdsActive: Boolean) {
         this.noAdsActive = noAdsActive
-        if (noAdsActive) hideAds() else showAds()
+        if (!splashActive) if (noAdsActive) hideAds() else showAds()
     }
 
     abstract fun hideAds()

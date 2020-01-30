@@ -64,7 +64,6 @@ class AdMobRewarded(
         private fun rewardAdCallbackResult(result: Boolean) {
             d("result = [$result]")
             onRewardResult(result)
-            rewardedAd = RewardedAd(activity, adId)
             load()
         }
     }

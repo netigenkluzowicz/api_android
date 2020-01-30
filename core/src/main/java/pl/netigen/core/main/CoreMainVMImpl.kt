@@ -7,7 +7,6 @@ import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.extensions.launchMain
-import timber.log.Timber
 
 class CoreMainVmImpl(
     application: Application,
@@ -22,8 +21,7 @@ class CoreMainVmImpl(
         }
     }
 
-    private fun onNoAdsChange(noAdsActive: Boolean) {
-        Timber.d("it = [$noAdsActive]")
-        if (noAdsActive) ads.disable() else ads.enable()
-    }
+    private fun onNoAdsChange(noAdsActive: Boolean) = if (noAdsActive) ads.disable() else ads.enable()
+
+    override fun onCleared() = CoreViewModelsFactory.cleanAds()
 }
