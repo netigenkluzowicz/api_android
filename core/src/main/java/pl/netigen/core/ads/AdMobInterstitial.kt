@@ -27,6 +27,7 @@ class AdMobInterstitial(
     private val disabled get() = !enabled
 
     init {
+        d("()")
         interstitialAd.adUnitId = adId
         activity.lifecycle.addObserver(this)
     }
@@ -83,6 +84,10 @@ class AdMobInterstitial(
     private fun loadIfShouldBeLoaded() {
         d("()")
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
+        interstitialAd.adListener = object : AdListener() {
+            override fun onAdLoaded() = d("()")
+            override fun onAdFailedToLoad(errorCode: Int) = d("p0 = [$errorCode]")
+        }
         interstitialAd.loadAd(adMobRequest.getAdRequest())
     }
 
@@ -97,11 +102,13 @@ class AdMobInterstitial(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
+        d("()")
         isInBackground = false
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
+        d("()")
         isInBackground = true
     }
 

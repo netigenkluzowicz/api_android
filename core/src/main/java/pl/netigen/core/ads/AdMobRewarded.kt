@@ -44,8 +44,8 @@ class AdMobRewarded(
     }
 
     private fun load() {
+        d("isLoaded: $isLoaded")
         if (isEnabled && !isLoaded) {
-            d("()")
             rewardedAd.loadAd(adMobRequest.getAdRequest(), AdLoadCallback())
         }
     }

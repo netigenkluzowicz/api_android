@@ -6,6 +6,7 @@ import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import pl.netigen.coreapi.ads.*
+import timber.log.Timber
 
 class AdMobAds(
     activity: ComponentActivity,
@@ -17,6 +18,7 @@ class AdMobAds(
     override val rewardedAd: IRewardedAd
 
     init {
+        Timber.d("()")
         MobileAds.initialize(activity)
         val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
         bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.isBannerAdaptive)
@@ -50,8 +52,8 @@ class AdMobAds(
     override fun disable() = setEnabled(false)
 
     private fun setEnabled(enabled: Boolean) {
+        Timber.d("enabled = [$enabled]")
         bannerAd.enabled = enabled
-        if (!enabled) bannerAd.hideBanner()
         interstitialAd.enabled = enabled
         rewardedAd.enabled = enabled
     }
