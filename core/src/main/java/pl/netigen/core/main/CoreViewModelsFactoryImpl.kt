@@ -1,5 +1,6 @@
 package pl.netigen.core.main
 
+import android.app.Application
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModel
 import pl.netigen.core.ads.AdMobAds
@@ -17,9 +18,9 @@ import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.coreapi.splash.SplashVM
 
 abstract class CoreViewModelsFactory(final override val activity: CoreMainActivity) : ICoreViewModelsFactory {
-    override val networkStatus get() = getNetworkStatus(activity)
+    override val networkStatus get() = getNetworkStatus(activity.application)
     override val ads get() = getAds(activity, appConfig)
-    override val gdprConsent get() = getGdprConsent(activity, appConfig)
+    override val gdprConsent get() = getGdprConsent(activity.application, appConfig)
 
     private fun getCoreMainVm(): CoreMainVM = CoreMainVmImpl(activity.application, ads, getPayments { payments }, networkStatus)
     private fun getSplashVm(): SplashVM = SplashVMImpl(
@@ -50,11 +51,11 @@ abstract class CoreViewModelsFactory(final override val activity: CoreMainActivi
         private fun getAds(activity: ComponentActivity, adsConfig: IAdsConfig): IAds =
             ads ?: synchronized(this) { ads ?: AdMobAds(activity, adsConfig).also { ads = it } }
 
-        private fun getNetworkStatus(activity: ComponentActivity): INetworkStatus =
-            networkStatus ?: synchronized(this) { networkStatus ?: NetworkStatus(activity.application).also { networkStatus = it } }
+        private fun getNetworkStatus(application: Application): INetworkStatus =
+            networkStatus ?: synchronized(this) { networkStatus ?: NetworkStatus(application).also { networkStatus = it } }
 
-        private fun getGdprConsent(activity: ComponentActivity, appConfig: IAppConfig): IGDPRConsent =
-            gdprConsent ?: synchronized(this) { gdprConsent ?: GDPRConsentImpl(activity.application, appConfig).also { gdprConsent = it } }
+        private fun getGdprConsent(application: Application, appConfig: IAppConfig): IGDPRConsent =
+            gdprConsent ?: synchronized(this) { gdprConsent ?: GDPRConsentImpl(application, appConfig).also { gdprConsent = it } }
 
         private fun getPayments(constructor: () -> IPayments): IPayments =
             payments ?: synchronized(this) { payments ?: constructor().also { payments = it } }
