@@ -5,4 +5,5 @@ abstract class Payments : IPayments {
     override val noAdsActive by lazy { paymentsRepo.noAdsActive }
     override val inAppSkuDetails by lazy { paymentsRepo.inAppSkuDetails }
     override val subsSkuDetails by lazy { paymentsRepo.subsSkuDetails }
+    override fun endConnection() = paymentsRepo.endConnection()
 }

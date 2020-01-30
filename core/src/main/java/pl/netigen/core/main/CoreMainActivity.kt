@@ -29,7 +29,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        coreMainVM.onStart()
+        coreMainVM.start()
         coreMainVM.noAdsActive.asLiveData().observe(this, this::onNoAdsChanged)
     }
 

@@ -10,4 +10,5 @@ interface IPayments : INoAds {
 
     fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails)
     fun consumeItem()
+    fun endConnection()
 }

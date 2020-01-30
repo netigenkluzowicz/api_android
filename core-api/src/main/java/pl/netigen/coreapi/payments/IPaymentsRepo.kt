@@ -8,4 +8,5 @@ interface IPaymentsRepo {
     val noAdsActive: Flow<Boolean>
     val inAppSkuDetails: LiveData<List<NetigenSkuDetails>>
     val subsSkuDetails: LiveData<List<NetigenSkuDetails>>
+    fun endConnection()
 }

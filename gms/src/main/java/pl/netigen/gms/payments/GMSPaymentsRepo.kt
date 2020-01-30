@@ -6,7 +6,6 @@ import com.android.billingclient.api.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import pl.netigen.coreapi.payments.IPaymentsRepo
@@ -29,14 +28,12 @@ class GMSPaymentsRepo(
         .build()
     override val inAppSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
     override val subsSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
-    override val noAdsActive by lazy { noAdsFlow() }
+
+    override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
+        .map { list -> list.any { it.data.sku in noAdsInAppSkuList } }
 
     init {
         connectToPlayBillingService()
-    }
-
-    private fun noAdsFlow(): Flow<Boolean> = localCacheBillingClient.purchaseDao().getPurchasesFlow().map { list ->
-        list.any { it.data.sku in noAdsInAppSkuList }
     }
 
     private fun connectToPlayBillingService(): Boolean {
@@ -48,8 +45,7 @@ class GMSPaymentsRepo(
         return false
     }
 
-    //TODO should be called when Payments is being destroyed
-    fun endDataSourceConnections() {
+    override fun endConnection() {
         Timber.d("()")
         gmsBillingClient.endConnection()
         localCacheBillingClient.close()

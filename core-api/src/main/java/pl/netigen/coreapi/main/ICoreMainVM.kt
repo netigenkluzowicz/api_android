@@ -5,5 +5,5 @@ import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 
 interface ICoreMainVM : IPayments, IAds, INetworkStatus {
-    fun onStart()
+    fun start()
 }
