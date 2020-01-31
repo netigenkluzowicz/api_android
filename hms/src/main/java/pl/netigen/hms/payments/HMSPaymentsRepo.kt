@@ -1,227 +1,138 @@
 package pl.netigen.hms.payments
 
 import android.app.Activity
-import android.app.Application
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import android.content.Intent
+import android.content.IntentSender.SendIntentException
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
+import com.huawei.hmf.tasks.OnSuccessListener
+import com.huawei.hmf.tasks.Task
+import com.huawei.hms.iap.Iap
+import com.huawei.hms.iap.IapApiException
+import com.huawei.hms.iap.IapClient
+import com.huawei.hms.iap.entity.*
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
+import org.json.JSONException
 import pl.netigen.coreapi.payments.IPaymentsRepo
-import pl.netigen.coreapi.payments.Security
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 import timber.log.Timber
-import java.util.*
+import timber.log.Timber.d
+
 
 class HMSPaymentsRepo(
-    private val application: Application,
+    private val activity: Activity,
     private val inAppSkuList: List<String>,
     private val noAdsInAppSkuList: List<String>,
     private val consumablesInAppSkuList: List<String> = emptyList()
-) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
-    private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
-    private val gmsBillingClient: BillingClient = BillingClient
-        .newBuilder(application.applicationContext)
-        .enablePendingPurchases()
-        .setListener(this)
-        .build()
-    override val inAppSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
-    override val subsSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
-
+) : IPaymentsRepo {
+    private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
+    override val inAppSkuDetails = MutableLiveData<List<NetigenSkuDetails>>()
+    override val subsSkuDetails = MutableLiveData<List<NetigenSkuDetails>>()
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
-        .map { list -> list.any { it.data.sku in noAdsInAppSkuList } }
+        .map { list -> list.any { it.data.productId in noAdsInAppSkuList } }
 
     init {
-        connectToPlayBillingService()
+        d("()")
+        obtainOwnedPurchases()
     }
 
-    private fun connectToPlayBillingService(): Boolean {
-        Timber.d("()")
-        if (!gmsBillingClient.isReady) {
-            gmsBillingClient.startConnection(this)
-            return true
-        }
-        return false
-    }
+    override fun endConnection() = Unit
 
-    override fun endConnection() {
-        Timber.d("()")
-        gmsBillingClient.endConnection()
-        localCacheBillingClient.close()
-    }
-
-    override fun onBillingSetupFinished(billingResult: BillingResult) {
-        Timber.d("()")
-        when (billingResult.responseCode) {
-            BillingClient.BillingResponseCode.OK -> {
-                Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
-                querySkuDetailsAsync(BillingClient.SkuType.INAPP, inAppSkuList)
-                //TODO we should decide whether we want to deal with subs sku separately, but it seems like a right way to me
-                //querySkuDetailsAsync(BillingClient.SkuType.SUBS, subSkuList)
-                queryPurchasesAsync()
-            }
-            BillingClient.BillingResponseCode.BILLING_UNAVAILABLE -> {
-                Timber.d(billingResult.debugMessage)
-                //TODO We need to decide whether we want to act upon this callback otherwise it could be deleted
-            }
-            else -> {
-                Timber.d(billingResult.debugMessage)
-            }
-        }
-    }
-
-    private fun querySkuDetailsAsync(@BillingClient.SkuType skuType: String, skuList: List<String>) {
-        Timber.d("${skuList.joinToString("\n")} skuType $skuType")
-        val params = SkuDetailsParams.newBuilder().setSkusList(skuList).setType(skuType).build()
-        gmsBillingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
-            when (billingResult.responseCode) {
-                BillingClient.BillingResponseCode.OK -> {
-                    Timber.d("skuDetailsList ${skuDetailsList.joinToString("\n")}")
-                    if (!skuDetailsList.isNullOrEmpty()) {
-                        skuDetailsList.forEach {
-                            CoroutineScope(Job() + Dispatchers.IO).launch {
-                                Timber.d("inserting $it")
-                                val isNoAd = (it.sku in noAdsInAppSkuList)
-                                localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
-                            }
-                        }
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        if (requestCode == REQ_CODE_BUY) {
+            d("requestCode = [$requestCode], resultCode = [$resultCode], data = [$data]")
+            val purchaseResultInfo = Iap.getIapClient(activity).parsePurchaseResultInfoFromIntent(data)
+            try {
+                when (purchaseResultInfo.returnCode) {
+                    OrderStatusCode.ORDER_PRODUCT_OWNED, OrderStatusCode.ORDER_STATE_SUCCESS -> {
+                        paymentSuccess(InAppPurchaseData(purchaseResultInfo.inAppPurchaseData))
                     }
                 }
-                else -> {
-                    Timber.e(billingResult.debugMessage)
-                }
+            } catch (e: Exception) {
+                Timber.e(e)
             }
         }
     }
 
-    private fun queryPurchasesAsync() {
-        Timber.d("()")
-        val purchasesResult = HashSet<Purchase>()
-        var result = gmsBillingClient.queryPurchases(BillingClient.SkuType.INAPP)
-        Timber.d(" INAPP results: ${result.purchasesList?.size})")
-        result.purchasesList?.apply { purchasesResult.addAll(this) }
-        if (isSubscriptionSupported()) {
-            result = gmsBillingClient.queryPurchases(BillingClient.SkuType.SUBS)
-            result.purchasesList?.apply { purchasesResult.addAll(this) }
-            Timber.d("SUBS results: ${result.purchasesList?.size}")
-        }
-        processPurchases(purchasesResult)
+    private fun paymentSuccess(inAppPurchaseData: InAppPurchaseData) {
+        d("inAppPurchaseData = [$inAppPurchaseData]")
+        localCacheBillingClient.skuDetailsDao().insertOrUpdate(CachedPurchase(inAppPurchaseData))
     }
 
-    private fun isSubscriptionSupported(): Boolean {
-        val billingResult = gmsBillingClient.isFeatureSupported(BillingClient.FeatureType.SUBSCRIPTIONS)
-        var succeeded = false
-        when (billingResult.responseCode) {
-            BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> connectToPlayBillingService()
-            BillingClient.BillingResponseCode.OK -> succeeded = true
-            else ->
-                Timber.w(" error: ${billingResult.debugMessage}")
-        }
-        return succeeded
+    private fun createPurchaseIntentReq(productId: String): PurchaseIntentReq? {
+        val req = PurchaseIntentReq()
+        req.productId = productId
+        req.priceType = PRICE_TYPE
+        req.developerPayload = "test"
+        return req
     }
 
-    private fun processPurchases(purchasesResult: Set<Purchase>): Job = CoroutineScope(Job() + Dispatchers.IO).launch {
-        val validPurchases = HashSet<Purchase>(purchasesResult.size)
-        purchasesResult.forEach { purchase ->
-            if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
-                if (isSignatureValid(purchase)) {
-                    Timber.d("purchase = [$purchase]${purchase.purchaseState}")
-                    validPurchases.add(purchase)
+    fun makeNoAdsPurchase(activity: Activity, noAdsString: String) {
+        d("activity = [$activity], noAdsString = [$noAdsString]")
+        val mClient = Iap.getIapClient(activity)
+        val task = mClient.createPurchaseIntent(createPurchaseIntentReq(noAdsString))
+        task.addOnSuccessListener(OnSuccessListener { result ->
+            d("createPurchaseIntent, onSuccess")
+            if (result == null) {
+                d("result is null")
+                return@OnSuccessListener
+            }
+            val status = result.status
+            if (status == null) {
+                d("status is null")
+                return@OnSuccessListener
+            }
+            // you should pull up the page to complete the payment process.
+            if (status.hasResolution()) {
+                try {
+                    status.startResolutionForResult(activity, REQ_CODE_BUY)
+                } catch (exp: SendIntentException) {
+                    Timber.e(exp)
                 }
-            } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {
-                Timber.d("Received a pending purchase of SKU: ${purchase.sku}")
-                //TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
+            }
+        }).addOnFailureListener { e ->
+            Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
+            if (e is IapApiException) {
+                val returnCode = e.statusCode
+                d("createPurchaseIntent, returnCode: $returnCode")
+                // handle error scenarios
             }
         }
-        val (consumables, nonConsumables)
-                = validPurchases.partition { consumablesInAppSkuList.contains(it.sku) }
-        Timber.d("validPurchases content $validPurchases")
-        Timber.d("consumables content $consumables")
-        Timber.d("non-consumables content $nonConsumables")
-        localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
-        handleConsumablePurchasesAsync(consumables)
-        acknowledgeNonConsumablePurchasesAsync(nonConsumables)
     }
 
-    private fun isSignatureValid(purchase: Purchase): Boolean =
-        Security.verifyPurchase(Security.BASE_64_ENCODED_PUBLIC_KEY, purchase.originalJson, purchase.signature)
-
-    private fun handleConsumablePurchasesAsync(consumables: List<Purchase>) {
-        Timber.d("consumables = [$consumables]")
-        consumables.forEach {
-            Timber.d("foreach it is $it")
-            val params = ConsumeParams.newBuilder().setPurchaseToken(it.purchaseToken).build()
-            gmsBillingClient.consumeAsync(params) { billingResult, purchaseToken ->
-                when (billingResult.responseCode) {
-                    BillingClient.BillingResponseCode.OK -> {
-                        //TODO Update the appropriate tables/databases to grant user the items
-                        purchaseToken.apply { }
+    private fun obtainOwnedPurchases() {
+        d("()")
+        val ownedPurchasesReq = OwnedPurchasesReq()
+        ownedPurchasesReq.priceType = PRICE_TYPE
+        val task: Task<OwnedPurchasesResult> = Iap.getIapClient(activity).obtainOwnedPurchases(ownedPurchasesReq)
+        task.addOnSuccessListener { result ->
+            // Obtain the execution result.
+            d("result = [$result]")
+            if (result != null && result.inAppPurchaseDataList != null) {
+                for (i in result.inAppPurchaseDataList.indices) {
+                    val inAppPurchaseDataString = result.inAppPurchaseDataList[i]
+                    try {
+                        val inAppPurchaseData = InAppPurchaseData(inAppPurchaseDataString)
+                        paymentSuccess(inAppPurchaseData)
+                    } catch (e: JSONException) {
+                        Timber.e(e)
                     }
-                    else -> Timber.w(billingResult.debugMessage)
+                }
+            }
+        }.addOnFailureListener { e ->
+            Timber.e(e)
+            if (e is IapApiException) {
+                val returnCode = e.statusCode
+                d("returnCode $returnCode")
+                if (returnCode == OrderStatusCode.ORDER_HWID_NOT_LOGIN) {
+                    Toast.makeText(activity, "Please sign in to the app with a HUAWEI ID.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
-    private fun acknowledgeNonConsumablePurchasesAsync(nonConsumables: List<Purchase>) {
-        Timber.d("nonConsumables = [$nonConsumables]")
-        nonConsumables.forEach { purchase ->
-            val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build()
-            gmsBillingClient.acknowledgePurchase(params) { billingResult ->
-                when (billingResult.responseCode) {
-                    BillingClient.BillingResponseCode.OK -> disburseNonConsumableEntitlement(purchase)
-                    else -> Timber.d("response is ${billingResult.debugMessage}")
-                }
-            }
-        }
-    }
-
-    //TODO here's a method that we might use to give user certain entitlements
-    private fun disburseNonConsumableEntitlement(purchase: Purchase) = Unit
-
-    fun makeNoAdsPurchase(activity: Activity, noAdsString: String = "${activity.packageName}.noads") {
-        CoroutineScope(Job() + Dispatchers.IO).launch {
-            val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(noAdsString)
-            Timber.d("netigenSkuDetails for noads: $netigenNoAdsSkuDetails")
-            netigenNoAdsSkuDetails?.let {
-                launchBillingFlow(activity, it)
-            }
-        }
-    }
-
-    fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
-        Timber.d("launching billing flow")
-        netigenSkuDetails.originalJson?.let { launchBillingFlow(activity, SkuDetails(it)) }
-            ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
-    }
-
-    fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {
-        Timber.d("activity = [$activity], skuDetails = [$skuDetails]")
-        val purchaseParams = BillingFlowParams.newBuilder().setSkuDetails(skuDetails).build()
-        gmsBillingClient.launchBillingFlow(activity, purchaseParams)
-    }
-
-    override fun onPurchasesUpdated(
-        billingResult: BillingResult,
-        purchases: MutableList<Purchase>?
-    ) {
-        Timber.d("billingResult = [$billingResult], purchases = [$purchases]")
-        when (billingResult.responseCode) {
-            BillingClient.BillingResponseCode.OK -> {
-                Timber.d("${purchases?.joinToString("\n")}")
-                purchases?.apply { processPurchases(this.toSet()) }
-            }
-            BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
-                Timber.d(billingResult.debugMessage)
-                queryPurchasesAsync()
-            }
-            BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> connectToPlayBillingService()
-            else -> Timber.i(billingResult.debugMessage)
-        }
-    }
-
-    override fun onBillingServiceDisconnected() {
-        Timber.d("()")
-        connectToPlayBillingService()
+    companion object {
+        const val REQ_CODE_BUY = 4002
+        const val PRICE_TYPE = IapClient.PriceType.IN_APP_NONCONSUMABLE
     }
 }

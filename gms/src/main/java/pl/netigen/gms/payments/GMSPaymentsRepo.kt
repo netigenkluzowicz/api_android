@@ -2,6 +2,7 @@ package pl.netigen.gms.payments
 
 import android.app.Activity
 import android.app.Application
+import android.content.Intent
 import com.android.billingclient.api.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

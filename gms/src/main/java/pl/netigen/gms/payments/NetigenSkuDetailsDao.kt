@@ -4,17 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.SkuDetails
-import kotlinx.coroutines.flow.Flow
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 @Dao
 interface NetigenSkuDetailsDao {
-    @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.SUBS}'")
-    fun subscriptionSkuDetailsFlow(): Flow<List<NetigenSkuDetails>>
-
-    @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.INAPP}'")
-    fun inAppSkuDetailsFlow(): Flow<List<NetigenSkuDetails>>
-
     @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.SUBS}'")
     fun subscriptionSkuDetailsLiveData(): LiveData<List<NetigenSkuDetails>>
 

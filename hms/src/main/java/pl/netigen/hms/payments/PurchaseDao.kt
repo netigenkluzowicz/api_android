@@ -1,6 +1,10 @@
 package pl.netigen.hms.payments
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
+import com.huawei.hms.iap.entity.InAppPurchaseData
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -11,13 +15,6 @@ interface PurchaseDao {
     @Insert
     suspend fun insert(purchase: CachedPurchase)
 
-    @Transaction
-    suspend fun insert(vararg purchases: Purchase) {
-        purchases.forEach {
-            insert(CachedPurchase(data = it))
-        }
-    }
-
     @Delete
     suspend fun delete(vararg purchases: CachedPurchase)
 
@@ -25,6 +22,6 @@ interface PurchaseDao {
     fun deleteAll()
 
     @Query("DELETE FROM purchase_table WHERE data = :purchase")
-    fun delete(purchase: Purchase)
+    fun delete(purchase: InAppPurchaseData)
 
 }

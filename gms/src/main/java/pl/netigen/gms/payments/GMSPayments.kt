@@ -23,7 +23,4 @@ class GMSPayments(
         paymentsRepo.makeNoAdsPurchase(activity, noAdsString)
     }
 
-    // TODO: 30.01.2020
-    override fun consumeItem() = Unit
-
 }

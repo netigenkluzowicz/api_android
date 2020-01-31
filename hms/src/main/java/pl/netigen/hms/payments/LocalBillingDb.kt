@@ -28,7 +28,7 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
     version = 1,
     exportSchema = false
 )
-@TypeConverters(PurchaseTypeConverter::class)
+@TypeConverters(InAppPurchaseDataTypeConverter::class)
 abstract class LocalBillingDb : RoomDatabase() {
     abstract fun skuDetailsDao(): NetigenSkuDetailsDao
     abstract fun purchaseDao(): PurchaseDao
@@ -39,18 +39,9 @@ abstract class LocalBillingDb : RoomDatabase() {
         private const val DATABASE_NAME = "purchase_db"
 
         fun getInstance(context: Context): LocalBillingDb =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE
-                    ?: buildDatabase(context.applicationContext).also {
-                    INSTANCE = it
-                }
-            }
+            INSTANCE ?: synchronized(this) { INSTANCE ?: buildDatabase(context.applicationContext).also { INSTANCE = it } }
 
-        private fun buildDatabase(appContext: Context): LocalBillingDb {
-            return Room.databaseBuilder(appContext, LocalBillingDb::class.java,
-                DATABASE_NAME
-            )
-                .build()
-        }
+        private fun buildDatabase(appContext: Context): LocalBillingDb =
+            Room.databaseBuilder(appContext, LocalBillingDb::class.java, DATABASE_NAME).build()
     }
 }

@@ -1,5 +1,6 @@
 package pl.netigen.core.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.annotation.CallSuper
@@ -43,6 +44,14 @@ abstract class CoreMainActivity : AppCompatActivity() {
     open fun onNoAdsChanged(noAdsActive: Boolean) {
         this.noAdsActive = noAdsActive
         if (!splashActive) if (noAdsActive) hideAds() else showAds()
+    }
+
+    @CallSuper
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (data != null) {
+            coreMainVM.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     abstract fun hideAds()

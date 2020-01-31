@@ -29,32 +29,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-buildscript {
-    repositories {
-        maven {url 'http://developer.huawei.com/repo/'}
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-        classpath 'com.huawei.agconnect:agcp:1.1.1.300'
-    }
-}
-
-repositories {
-    maven {url 'http://developer.huawei.com/repo/'}
-    google()
-    jcenter()
-}
 
 dependencies {
     api project(path: ':core-api')
 
     api Libraries.appcompat
-    implementation 'com.huawei.hms:iap:4.0.0.300'
+    api 'com.huawei.hms:iap:4.0.0.300'
 
     kapt Libraries.roomCompiler
     api Libraries.roomKTX

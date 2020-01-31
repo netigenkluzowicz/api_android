@@ -1,9 +1,9 @@
 package pl.netigen.sampleapp.flavour
 
-import android.app.Application
+import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.gms.payments.GMSPayments
 
 object FlavoursConst {
-    fun getPaymentsImpl(application: Application): IPayments = GMSPayments(application)
+    fun getPaymentsImpl(coreMainActivity: CoreMainActivity): IPayments = GMSPayments(coreMainActivity.application)
 }
