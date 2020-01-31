@@ -135,7 +135,7 @@ class SplashVMImpl(
                         when {
                             finished -> finish()
                             ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-                            else -> ads.interstitialAd.loadInterstitialAd().collect { onLoadInterstitialResult(it) }
+                            else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
                         }
                     }
                 }
@@ -154,7 +154,7 @@ class SplashVMImpl(
     private fun onInterstitialLoaded() {
         d("()")
         cleanUp()
-        ads.interstitialAd.showInterstitialAd { finish() }
+        ads.interstitialAd.showIfCanBeShowed { finish() }
     }
 
     private fun checkConsentNextLaunch() =

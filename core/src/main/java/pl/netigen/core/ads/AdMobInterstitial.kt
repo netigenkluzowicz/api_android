@@ -27,12 +27,12 @@ class AdMobInterstitial(
     private val disabled get() = !enabled
 
     init {
-        d("()")
+        d(this.toString())
         interstitialAd.adUnitId = adId
         activity.lifecycle.addObserver(this)
     }
 
-    override fun loadInterstitialAd(): Flow<Boolean> =
+    override fun load(): Flow<Boolean> =
         callbackFlow {
             val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
@@ -81,7 +81,7 @@ class AdMobInterstitial(
         interstitialAd.show()
     }
 
-    private fun loadIfShouldBeLoaded() {
+    override fun loadIfShouldBeLoaded() {
         d("()")
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
         interstitialAd.adListener = object : AdListener() {
@@ -112,7 +112,7 @@ class AdMobInterstitial(
         isInBackground = true
     }
 
-    override fun showInterstitialAd(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
+    override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
         d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
         when {
             disabled -> onClosedOrNotShowed(false)

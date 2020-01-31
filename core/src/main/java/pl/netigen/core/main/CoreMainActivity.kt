@@ -43,7 +43,12 @@ abstract class CoreMainActivity : AppCompatActivity() {
 
     open fun onNoAdsChanged(noAdsActive: Boolean) {
         this.noAdsActive = noAdsActive
-        if (!splashActive) if (noAdsActive) hideAds() else showAds()
+        if (!splashActive) if (noAdsActive) {
+            hideAds()
+        } else {
+            showAds()
+            coreMainVM.interstitialAd.loadIfShouldBeLoaded()
+        }
     }
 
     @CallSuper

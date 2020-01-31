@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface IInterstitialAd : IAd {
     val isLoaded: Boolean
-    fun loadInterstitialAd(): Flow<Boolean>
-    fun showInterstitialAd(forceShow: Boolean = false, onClosedOrNotShowed: (Boolean) -> Unit)
+    fun load(): Flow<Boolean>
+    fun showIfCanBeShowed(forceShow: Boolean = false, onClosedOrNotShowed: (Boolean) -> Unit)
+    fun loadIfShouldBeLoaded()
 }

@@ -18,7 +18,7 @@ class AdMobAds(
     override val rewardedAd: IRewardedAd
 
     init {
-        Timber.d("()")
+        Timber.d(this.toString())
         MobileAds.initialize(activity)
         val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
         bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.isBannerAdaptive)
