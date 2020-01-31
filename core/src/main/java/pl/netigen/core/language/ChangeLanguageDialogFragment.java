@@ -10,7 +10,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +33,7 @@ import java.util.Locale;
 
 import pl.netigen.core.R;
 import pl.netigen.extensions.DialogFragmentExtensionsKt;
+import timber.log.Timber;
 
 import static pl.netigen.core.utils.Const.MARGIN_TOP;
 import static pl.netigen.core.utils.Const.SCREEN_HEIGHT_IN_DP;
@@ -87,7 +87,7 @@ public class ChangeLanguageDialogFragment extends AppCompatDialogFragment {
         } else if (changeLanguageParams.jsonLanguageCodes != null) {
             setLanguageCodesList(changeLanguageParams.jsonLanguageCodes);
         } else {
-            Log.e(TAG, "onCreate: Problem loading languages, seems like you didn't pass any");
+            Timber.e("onCreate: Problem loading languages, seems like you didn't pass any");
         }
         super.onCreate(savedInstanceState);
     }

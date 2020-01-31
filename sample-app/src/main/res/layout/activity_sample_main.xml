@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainLayout"
-    tools:context="pl.netigen.sampleapp.feature.home.SampleMainActivity">
+    tools:context=".home.SampleMainActivity">
 
     <LinearLayout
         android:id="@+id/adsBorder"
@@ -37,6 +37,6 @@
         app:layout_constraintBottom_toTopOf="@+id/adsBorder"
         app:defaultNavHost="true"
         app:navGraph="@navigation/navigation_graph"
-        tools:context=".feature.home.HomeActivity" />
+        tools:context=".home.HomeActivity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

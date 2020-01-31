@@ -1,23 +1,24 @@
-package pl.netigen.sampleapp.feature.home
+package pl.netigen.sampleapp.home
 
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import androidx.lifecycle.ViewModelProvider
-import pl.netigen.sampleapp.R
-import pl.netigen.sampleapp.feature.splash.SampleSplashFragment
 import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.splash.SplashFragment
-import timber.log.Timber.d
+import pl.netigen.sampleapp.R
+import pl.netigen.sampleapp.splash.SampleSplashFragment
+import timber.log.Timber
 
 class SampleMainActivity : CoreMainActivity() {
     override val viewModelFactory: ViewModelProvider.Factory
         get() = ViewModelFactory(this)
     override val splashFragment: SplashFragment by lazy { SampleSplashFragment() }
 
-    override fun onSplashOpened() {
+    override fun hideAds() {
+        Timber.d("()")
         val navContainer = layoutHomeContainer.view ?: return
         val layoutParams = navContainer.layoutParams as ConstraintLayout.LayoutParams
         layoutParams.bottomToTop = UNSET
@@ -25,7 +26,8 @@ class SampleMainActivity : CoreMainActivity() {
         navContainer.layoutParams = layoutParams
     }
 
-    override fun onSplashClosed() {
+    override fun showAds() {
+        Timber.d("()")
         val navContainer = layoutHomeContainer.view ?: return
         val layoutParams = navContainer.layoutParams as ConstraintLayout.LayoutParams
         layoutParams.bottomToTop = adsBorder.id
@@ -36,7 +38,7 @@ class SampleMainActivity : CoreMainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_main)
-        d(savedInstanceState.toString())
     }
+
 }
 

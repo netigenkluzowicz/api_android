@@ -27,11 +27,12 @@ class AdMobInterstitial(
     private val disabled get() = !enabled
 
     init {
+        d(this.toString())
         interstitialAd.adUnitId = adId
         activity.lifecycle.addObserver(this)
     }
 
-    override fun loadInterstitialAd(): Flow<Boolean> =
+    override fun load(): Flow<Boolean> =
         callbackFlow {
             val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
@@ -67,8 +68,10 @@ class AdMobInterstitial(
     }
 
     private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
+                d("onAdClosed")
                 onClosedOrNotShowed(true)
                 loadIfShouldBeLoaded()
                 interstitialAd.adListener = null
@@ -78,8 +81,13 @@ class AdMobInterstitial(
         interstitialAd.show()
     }
 
-    private fun loadIfShouldBeLoaded() {
+    override fun loadIfShouldBeLoaded() {
+        d("()")
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
+        interstitialAd.adListener = object : AdListener() {
+            override fun onAdLoaded() = d("()")
+            override fun onAdFailedToLoad(errorCode: Int) = d("p0 = [$errorCode]")
+        }
         interstitialAd.loadAd(adMobRequest.getAdRequest())
     }
 
@@ -87,22 +95,25 @@ class AdMobInterstitial(
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
-
+        d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
+        d("()")
         isInBackground = false
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
+        d("()")
         isInBackground = true
     }
 
-    override fun showInterstitialAd(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
+    override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
         when {
             disabled -> onClosedOrNotShowed(false)
             isInBackground -> onCanNotShow(onClosedOrNotShowed)

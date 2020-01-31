@@ -1,5 +1,6 @@
 package pl.netigen.core.gdpr
 
+import android.app.Application
 import android.content.Context
 import com.google.ads.consent.ConsentInfoUpdateListener
 import com.google.ads.consent.ConsentInformation
@@ -13,11 +14,11 @@ import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.gdpr.IGDPRConsentConfig
 
-class GDPRConsentImpl(private val context: Context, private val config: IGDPRConsentConfig) : IGDPRConsent {
-    val consentInformation: ConsentInformation = ConsentInformation.getInstance(context)
+class GDPRConsentImpl(private val application: Application, private val config: IGDPRConsentConfig) : IGDPRConsent {
+    val consentInformation: ConsentInformation = ConsentInformation.getInstance(application)
     override val adConsentStatus: Flow<AdConsentStatus> = flow {
         val value =
-            context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(PREFERENCES_KEY, AdConsentStatus.UNINITIALIZED.ordinal)
+            application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(PREFERENCES_KEY, AdConsentStatus.UNINITIALIZED.ordinal)
         emit(AdConsentStatus.values().getOrElse(value) { AdConsentStatus.UNINITIALIZED })
     }
 
@@ -40,7 +41,7 @@ class GDPRConsentImpl(private val context: Context, private val config: IGDPRCon
         }
 
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {
-        context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
+        application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
             .edit()
             .putInt(PREFERENCES_KEY, adConsentStatus.ordinal)
             .apply()

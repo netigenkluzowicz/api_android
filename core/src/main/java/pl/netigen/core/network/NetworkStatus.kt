@@ -1,21 +1,22 @@
 package pl.netigen.core.network
 
-import android.content.Context
+import android.app.Application
 import android.net.ConnectivityManager
 import androidx.core.content.ContextCompat.getSystemService
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.network.NetworkStatusChangeListener
+import timber.log.Timber.d
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketAddress
 
 
-class NetworkStatus(private val context: Context) : INetworkStatus {
+class NetworkStatus(private val application: Application) : INetworkStatus {
     private val networkStatusChangeListeners: MutableList<NetworkStatusChangeListener> = mutableListOf()
     override val isConnectedOrConnecting: Boolean
         get() {
-            val connectivityManager = getSystemService(context, ConnectivityManager::class.java)
+            val connectivityManager = getSystemService(application, ConnectivityManager::class.java)
             @Suppress("DEPRECATION")
             val isConnectedOrConnecting = connectivityManager?.activeNetworkInfo?.isConnectedOrConnecting ?: false
             if (!isConnectedOrConnecting) {
@@ -42,6 +43,7 @@ class NetworkStatus(private val context: Context) : INetworkStatus {
             postValue(true)
             true
         } catch (e: IOException) {
+            d(e)
             postValue(false)
             false
         }

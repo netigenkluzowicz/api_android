@@ -1,4 +1,4 @@
-package pl.netigen.sampleapp.feature.home
+package pl.netigen.sampleapp.home
 
 import pl.netigen.core.config.AppConfig
 import pl.netigen.core.main.CoreMainActivity

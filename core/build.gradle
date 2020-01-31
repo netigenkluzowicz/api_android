@@ -32,31 +32,7 @@ android {
 dependencies {
     api project(path: ':core-api')
 
-    api Libraries.legacySupportV4
-    api Libraries.legacySupportV13
-
-    api Libraries.constraintLayout
-
-    api Libraries.consentLibrary
-
-    api Libraries.material
-
-    api Libraries.appcompat
-
-    api Libraries.coreKTX
-    api Libraries.kotlinStdlibJdk7
-
-    api Libraries.navigationFragment
-    api Libraries.navigationUi
-    api Libraries.navigationFragmentKTX
-    api Libraries.navigationUiKTX
-    api Libraries.coroutines
     api Libraries.playServicesAds
-
-    api Libraries.gson
-
-    api Libraries.glide
-    kapt Libraries.glideCompiler
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'androidx.test:core:1.2.0'

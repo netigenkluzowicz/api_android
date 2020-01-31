@@ -1,1 +1,1 @@
-include ':cropper', ':cross-ads', ':premium', ':legacy', ':core', ':payments', ':core-api', ':gms', ':sample-app'
+include ':cropper', ':cross-ads', ':premium', ':legacy', ':core', ':payments', ':core-api', ':gms', ':hms',':sample-app'

@@ -10,6 +10,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.IBannerAd
+import timber.log.Timber
 
 class AdMobBanner(
     private val activity: ComponentActivity,
@@ -26,6 +27,7 @@ class AdMobBanner(
     private lateinit var bannerLayout: RelativeLayout
 
     init {
+        Timber.d("()")
         activity.lifecycle.addObserver(this)
     }
 
@@ -47,16 +49,19 @@ class AdMobBanner(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private fun onCreate() {
+        Timber.d("()")
         bannerView = AdView(activity)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     private fun onStart() {
+        Timber.d("()")
         bannerLayout = activity.findViewById(activity.resources.getIdentifier(bannerLayoutIdName, "id", activity.packageName))
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
+        Timber.d("()")
         if (disabled) {
             return
         }
@@ -70,6 +75,7 @@ class AdMobBanner(
     }
 
     private fun loadBanner() {
+        Timber.d("()")
         if (disabled) {
             return
         }
@@ -83,22 +89,25 @@ class AdMobBanner(
     }
 
     private fun addView(layout: RelativeLayout, adView: AdView) {
+        Timber.d("layout = [$layout], adView = [$adView]")
         if (adView.parent != null) {
             (adView.parent as ViewGroup).removeView(adView)
         }
         layout.addView(adView)
-        val params = RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.MATCH_PARENT,
-            RelativeLayout.LayoutParams.WRAP_CONTENT
-        )
-        params.addRule(RelativeLayout.ALIGN_PARENT_TOP)
+        setBannerLayoutParams(adView)
+    }
 
+    private fun setBannerLayoutParams(adView: AdView, height: Int = RelativeLayout.LayoutParams.WRAP_CONTENT) {
+        Timber.d("adView = [$adView], height = [$height]")
+        val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height)
+        params.addRule(RelativeLayout.ALIGN_PARENT_TOP)
         adView.layoutParams = params
         adView.requestLayout()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
+        Timber.d("()")
         if (disabled) {
             val parent = bannerView.parent as ViewGroup
             parent.removeView(bannerView)
@@ -111,6 +120,7 @@ class AdMobBanner(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private fun onDestroy() {
+        Timber.d("()")
         bannerView.destroy()
     }
 

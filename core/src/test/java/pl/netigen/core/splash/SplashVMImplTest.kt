@@ -95,7 +95,7 @@ class SplashVMImplTest {
             lastKnownAdConsentStatus = AdConsentStatus.PERSONALIZED_NON_UE
         )
         val gdprConsentPublisher = getFlowPublisher { gdprConsent.requestGDPRLocation() }
-        val adsPublisher = getFlowPublisher { ads.interstitialAd.loadInterstitialAd() }
+        val adsPublisher = getFlowPublisher { ads.interstitialAd.load() }
         splashVMImpl.start()
         assertEquals(SplashState.LOADING, splashVMImpl.splashState.value)
         gdprConsentPublisher.offer(CheckGDPRLocationStatus.UE)
@@ -182,7 +182,7 @@ class SplashVMImplTest {
             emit(lastKnownAdConsentStatus)
         })
 
-        coEvery { ads.interstitialAd.loadInterstitialAd() }.returns(flow { emit(loadInterstitialAdResult) })
+        coEvery { ads.interstitialAd.load() }.returns(flow { emit(loadInterstitialAdResult) })
         every { networkStatus.isConnectedOrConnecting }.returns(isConnectedOrConnecting)
     }
 }

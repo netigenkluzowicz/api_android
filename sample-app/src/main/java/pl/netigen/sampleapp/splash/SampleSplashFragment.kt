@@ -1,4 +1,4 @@
-package pl.netigen.sampleapp.feature.splash
+package pl.netigen.sampleapp.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
