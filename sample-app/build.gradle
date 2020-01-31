@@ -7,21 +7,12 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
-    signingConfigs {
-        release {
-            keyAlias 'metronome demo'
-            keyPassword 'netigen'
-            storeFile file('key/klucze.jks')
-            storePassword 'netigen'
-        }
-    }
     defaultConfig {
-        applicationId "com.netigen.metronomedemo"
+        applicationId "pl.netigen.sampleapp"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 59
-        versionName "2.0.3"
-        signingConfig signingConfigs.release
+        versionCode 1
+        versionName version
         manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~2760027390"]
     }
 
@@ -33,6 +24,7 @@ android {
         }
         hms {
             dimension "services"
+            applicationId "pl.netigen.sampleapp.huawei"
         }
     }
 
