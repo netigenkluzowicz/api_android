@@ -7,7 +7,7 @@ import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import pl.netigen.core.splash.SplashFragment
+import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
@@ -17,7 +17,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
     private var splashActive: Boolean = false
     abstract val viewModelFactory: ViewModelProvider.Factory
     val coreMainVM: ICoreMainVM by viewModels<CoreMainVM> { viewModelFactory }
-    abstract val splashFragment: SplashFragment
+    abstract val coreSplashFragment: CoreSplashFragment
 
     open fun onSplashOpened() {
         splashActive = true

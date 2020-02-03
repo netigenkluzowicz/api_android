@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.safeNavigate
-import pl.netigen.core.splash.SplashFragment
+import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.sampleapp.R
 import timber.log.Timber
 
-class SampleSplashFragment : SplashFragment() {
+class SampleCoreSplashFragment : CoreSplashFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.splash_fragment, container, false)
 

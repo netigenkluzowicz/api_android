@@ -7,15 +7,15 @@ import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
-import pl.netigen.core.splash.SplashFragment
+import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.sampleapp.R
-import pl.netigen.sampleapp.splash.SampleSplashFragment
+import pl.netigen.sampleapp.splash.SampleCoreSplashFragment
 import timber.log.Timber
 
 class SampleMainActivity : CoreMainActivity() {
     override val viewModelFactory: ViewModelProvider.Factory
         get() = ViewModelFactory(this)
-    override val splashFragment: SplashFragment by lazy { SampleSplashFragment() }
+    override val coreSplashFragment: CoreSplashFragment by lazy { SampleCoreSplashFragment() }
 
     override fun hideAds() {
         Timber.d("()")

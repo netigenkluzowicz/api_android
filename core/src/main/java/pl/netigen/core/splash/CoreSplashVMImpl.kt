@@ -20,7 +20,7 @@ import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchIO
 import timber.log.Timber.d
 
-class SplashVMImpl(
+class CoreSplashVMImpl(
     application: Application,
     private val gdprConsent: IGDPRConsent,
     private val ads: IAds,

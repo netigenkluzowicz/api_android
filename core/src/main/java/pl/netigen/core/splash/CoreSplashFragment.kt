@@ -14,7 +14,7 @@ import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
 import timber.log.Timber.d
 
-abstract class SplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
+abstract class CoreSplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRClickListener {
     val splashVM: ISplashVM by activityViewModels<SplashVM> { coreMainActivity.viewModelFactory }
     private var consentNotShowed: Boolean = false
     private var gdprDialogFragment: GDPRDialogFragment? = null

@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="pl.netigen.sampleapp.splash.SampleSplashFragment"
+        android:name="pl.netigen.sampleapp.splash.SampleCoreSplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
