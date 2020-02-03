@@ -22,7 +22,7 @@ abstract class CoreViewModelsFactory(final override val activity: CoreMainActivi
     override val ads get() = getAds(activity, appConfig)
     override val gdprConsent get() = getGdprConsent(activity.application, appConfig)
 
-    private fun getCoreMainVm(): CoreMainVM = CoreMainVmImpl(activity.application, ads, getPayments { payments }, networkStatus)
+    private fun getCoreMainVm(): CoreMainVM = CoreMainVmImpl(activity.application, ads, getPayments { payments }, networkStatus, gdprConsent)
     private fun getSplashVm(): SplashVM = CoreSplashVMImpl(
         activity.application,
         networkStatus = networkStatus,

@@ -7,7 +7,9 @@ import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
+import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.splash.CoreSplashFragment
+import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
@@ -33,6 +35,22 @@ abstract class CoreMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         coreMainVM.noAdsActive.asLiveData().observe(this, this::onNoAdsChanged)
+        coreMainVM.showGdprResetAds.observe(this) { showGdprPopUp() }
+    }
+
+    private fun showGdprPopUp() {
+        val fragment = GDPRDialogFragment.newInstance()
+        fragment.show(supportFragmentManager.beginTransaction().addToBackStack(null), null)
+        fragment.setIsPayOptions(!noAdsActive)
+        fragment.bindGDPRListener(object : GDPRDialogFragment.GDPRClickListener {
+            override fun onConsentAccepted(personalizedAds: Boolean) {
+                coreMainVM.personalizedAdsEnabled = personalizedAds
+                val adConsentStatus = if (personalizedAds) AdConsentStatus.PERSONALIZED_SHOWED else AdConsentStatus.NON_PERSONALIZED_SHOWED
+                coreMainVM.saveAdConsentStatus(adConsentStatus)
+            }
+
+            override fun clickPay() = coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
+        })
     }
 
     @CallSuper

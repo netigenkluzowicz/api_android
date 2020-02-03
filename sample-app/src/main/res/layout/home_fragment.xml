@@ -14,6 +14,16 @@
         android:background="@color/colorAccent" />
 
     <Button
+        android:id="@+id/testResetAds"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Reset ads Preferences"
+        app:layout_constraintBottom_toTopOf="@+id/testNoAds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/testNoAds"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -21,7 +31,7 @@
         app:layout_constraintBottom_toTopOf="@+id/testReward"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/testResetAds" />
 
     <Button
         android:id="@+id/testReward"

@@ -21,5 +21,6 @@ class HomeFragment : NetigenVMFragment() {
         testInterstitialForce.setOnClickListener { viewModel.interstitialAd.showIfCanBeShowed(true) { d("testInterstitialForce.success:$it") } }
         testReward.setOnClickListener { viewModel.rewardedAd.showRewardedAd { d("testReward.success:$it") } }
         testNoAds.setOnClickListener { viewModel.makeNoAdsPayment(requireActivity()) }
+        testResetAds.setOnClickListener { viewModel.resetAdsPreferences() }
     }
 }

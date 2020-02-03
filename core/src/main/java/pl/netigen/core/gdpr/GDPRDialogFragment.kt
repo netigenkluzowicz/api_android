@@ -83,7 +83,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     private fun setButtons() {
         buttonYes.setOnClickListener {
-            gdprClickListener?.clickYes()
+            gdprClickListener?.onConsentAccepted(true)
             dismiss()
         }
         buttonNo.setOnClickListener {
@@ -99,7 +99,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             buttonPay.visibility = View.GONE
         }
         buttonPolicy.setOnClickListener {
-            gdprClickListener?.clickAcceptPolicy()
+            gdprClickListener?.onConsentAccepted(false)
             dismiss()
         }
     }
@@ -232,10 +232,8 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     private fun getLinkForMobiles() = NETIGEN_PRIVACY_MOBILE_URL + INSIDE_WEB_VIEW_MARGIN_0
 
     interface GDPRClickListener {
-        fun clickYes()
+        fun onConsentAccepted(personalizedAds : Boolean)
 
         fun clickPay()
-
-        fun clickAcceptPolicy()
     }
 }

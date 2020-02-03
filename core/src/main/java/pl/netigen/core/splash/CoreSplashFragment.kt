@@ -114,19 +114,14 @@ abstract class CoreSplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRCl
         }
     }
 
-    override fun clickYes() {
-        d("()")
-        splashVM.setPersonalizedAds(true)
+    override fun onConsentAccepted(personalizedAds: Boolean)  {
+        d("personalizedAds = [$personalizedAds]")
+        splashVM.setPersonalizedAds(personalizedAds)
     }
 
     override fun clickPay() {
         d("()")
         splashVM.makeNoAdsPayment(requireActivity())
-    }
-
-    override fun clickAcceptPolicy() {
-        d("()")
-        splashVM.setPersonalizedAds(false)
     }
 
     companion object {
