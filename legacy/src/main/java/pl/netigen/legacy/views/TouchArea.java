@@ -1,4 +1,4 @@
-package pl.netigen.views;
+package pl.netigen.legacy.views;
 
 import android.graphics.RectF;
 
