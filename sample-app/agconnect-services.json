@@ -5,7 +5,7 @@
 		"client_id":"00",
 		"client_secret":"00",
 		"app_id":"00",
-		"package_name":"pl.netigen.sampleapp",
+		"package_name":"pl.netigen.sampleapp.huawei",
 		"api_key":"xxx"
 	},
 	"configuration_version":"1.0"
