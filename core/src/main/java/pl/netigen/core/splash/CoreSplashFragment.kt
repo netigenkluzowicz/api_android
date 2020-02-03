@@ -23,6 +23,7 @@ abstract class CoreSplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRCl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        d("view = [$view], savedInstanceState = [$savedInstanceState]")
         observe()
     }
 
@@ -39,6 +40,7 @@ abstract class CoreSplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRCl
     }
 
     private fun onUninitialized() {
+        d("()")
         splashVM.start()
     }
 
@@ -59,20 +61,23 @@ abstract class CoreSplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRCl
     }
 
     private fun onGdprPopupVisible(fragment: GDPRDialogFragment) {
+        d("fragment = [$fragment]")
         gdprDialogFragment = fragment
         bindGdprFragment(fragment)
     }
 
     private fun bindGdprFragment(fragment: GDPRDialogFragment) {
+        d("fragment = [$fragment]")
         fragment.setIsPayOptions(splashVM.isNoAdsAvailable)
         fragment.bindGDPRListener(this)
     }
 
-    private fun showGdprPopup(it: FragmentActivity) {
+    private fun showGdprPopup(fragmentActivity: FragmentActivity) {
+        d("it = [$fragmentActivity]")
         val newInstance = GDPRDialogFragment.newInstance()
         gdprDialogFragment = newInstance
         newInstance.show(
-            it.supportFragmentManager.beginTransaction().addToBackStack(null),
+            fragmentActivity.supportFragmentManager.beginTransaction().addToBackStack(null),
             GDPR_POP_UP_TAG
         )
         bindGdprFragment(newInstance)
@@ -80,30 +85,47 @@ abstract class CoreSplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRCl
 
     @CallSuper
     open fun onLoading() {
+        d("()")
         gdprDialogFragment?.dismiss()
         coreMainActivity.onSplashOpened()
     }
 
     @CallSuper
     open fun onFinished() {
+        d("()")
         gdprDialogFragment?.dismiss()
         coreMainActivity.onSplashClosed()
     }
 
     override fun onStart() {
         super.onStart()
+        d("()")
         splashVM.start()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (consentNotShowed) {
+            if (canCommitFragments) {
+                tryShowGdprPopup()
+            } else {
+                onFinished()
+            }
+        }
+    }
+
     override fun clickYes() {
+        d("()")
         splashVM.setPersonalizedAds(true)
     }
 
     override fun clickPay() {
+        d("()")
         splashVM.makeNoAdsPayment(requireActivity())
     }
 
     override fun clickAcceptPolicy() {
+        d("()")
         splashVM.setPersonalizedAds(false)
     }
 
