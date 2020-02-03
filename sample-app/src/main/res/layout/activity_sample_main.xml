@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainLayout"
-    tools:context=".home.SampleMainActivity">
+    tools:context=".home.MainActivity">
 
     <LinearLayout
         android:id="@+id/adsBorder"

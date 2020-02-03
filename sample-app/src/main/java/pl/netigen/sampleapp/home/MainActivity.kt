@@ -9,13 +9,13 @@ import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.sampleapp.R
-import pl.netigen.sampleapp.splash.SampleCoreSplashFragment
+import pl.netigen.sampleapp.splash.SplashFragment
 import timber.log.Timber
 
-class SampleMainActivity : CoreMainActivity() {
+class MainActivity : CoreMainActivity() {
     override val viewModelFactory: ViewModelProvider.Factory
         get() = ViewModelFactory(this)
-    override val coreSplashFragment: CoreSplashFragment by lazy { SampleCoreSplashFragment() }
+    override val coreSplashFragment: CoreSplashFragment by lazy { SplashFragment() }
 
     override fun hideAds() {
         Timber.d("()")

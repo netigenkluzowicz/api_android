@@ -11,7 +11,7 @@ import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.sampleapp.R
 import timber.log.Timber
 
-class SampleCoreSplashFragment : CoreSplashFragment() {
+class SplashFragment : CoreSplashFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.splash_fragment, container, false)
 

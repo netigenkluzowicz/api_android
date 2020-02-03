@@ -9,7 +9,7 @@ import pl.netigen.core.fragment.NetigenVMFragment
 import pl.netigen.sampleapp.R
 import timber.log.Timber.d
 
-class SampleHomeFragment : NetigenVMFragment() {
+class HomeFragment : NetigenVMFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.home_fragment, container, false)
