@@ -11,7 +11,11 @@ import com.huawei.hms.iap.Iap
 import com.huawei.hms.iap.IapApiException
 import com.huawei.hms.iap.IapClient
 import com.huawei.hms.iap.entity.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import org.json.JSONException
 import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
@@ -42,6 +46,7 @@ class HMSPaymentsRepo(
         if (requestCode == REQ_CODE_BUY) {
             d("requestCode = [$requestCode], resultCode = [$resultCode], data = [$data]")
             val purchaseResultInfo = Iap.getIapClient(activity).parsePurchaseResultInfoFromIntent(data)
+            d("${purchaseResultInfo.returnCode}")
             try {
                 when (purchaseResultInfo.returnCode) {
                     OrderStatusCode.ORDER_PRODUCT_OWNED, OrderStatusCode.ORDER_STATE_SUCCESS -> {
@@ -56,7 +61,9 @@ class HMSPaymentsRepo(
 
     private fun paymentSuccess(inAppPurchaseData: InAppPurchaseData) {
         d("inAppPurchaseData = [$inAppPurchaseData]")
-        localCacheBillingClient.skuDetailsDao().insertOrUpdate(CachedPurchase(inAppPurchaseData))
+        CoroutineScope(Job() + Dispatchers.IO).launch {
+            localCacheBillingClient.skuDetailsDao().insertOrUpdate(CachedPurchase(inAppPurchaseData))
+        }
     }
 
     private fun createPurchaseIntentReq(productId: String): PurchaseIntentReq? {
@@ -111,6 +118,7 @@ class HMSPaymentsRepo(
             if (result != null && result.inAppPurchaseDataList != null) {
                 for (i in result.inAppPurchaseDataList.indices) {
                     val inAppPurchaseDataString = result.inAppPurchaseDataList[i]
+                    d("inAppPurchaseDataString = [$inAppPurchaseDataString]")
                     try {
                         val inAppPurchaseData = InAppPurchaseData(inAppPurchaseDataString)
                         paymentSuccess(inAppPurchaseData)

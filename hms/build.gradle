@@ -34,7 +34,7 @@ dependencies {
     api project(path: ':core-api')
 
     api Libraries.appcompat
-    api 'com.huawei.hms:iap:4.0.0.300'
+    api 'com.huawei.hms:iap:4.0.1.300'
 
     kapt Libraries.roomCompiler
     api Libraries.roomKTX
