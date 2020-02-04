@@ -102,6 +102,7 @@ class CoreSplashVMImpl(
     }
 
     private fun cleanUp() {
+        d("()")
         try {
             viewModelScope.cancel()
         } catch (e: Exception) {
