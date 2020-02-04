@@ -10,11 +10,13 @@ class SampleApplication : Application() {
     }
 
     private fun setupTimber() {
-        Timber.plant(object : Timber.DebugTree() {
-            override fun createStackElementTag(element: StackTraceElement): String {
-                return "$TAG.${element.className.substringAfterLast(".")}.${element.methodName}"
-            }
-        })
+        if (BuildConfig.DEBUG) {
+            Timber.plant(object : Timber.DebugTree() {
+                override fun createStackElementTag(element: StackTraceElement): String {
+                    return "$TAG.${element.className.substringAfterLast(".")}.${element.methodName}"
+                }
+            })
+        }
     }
 
     companion object {
