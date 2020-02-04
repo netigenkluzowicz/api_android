@@ -9,7 +9,7 @@ import timber.log.Timber.d
 class GMSPayments(
     application: Application,
     inAppSkuList: List<String> = listOf("${application.packageName}.noads"),
-    noAdsInAppSkuList: List<String> = listOf("${application.packageName}.noads"),
+    private val noAdsInAppSkuList: List<String> = listOf("${application.packageName}.noads"),
     consumablesInAppSkuList: List<String> = emptyList()
 ) : Payments() {
     override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList)
@@ -20,7 +20,11 @@ class GMSPayments(
 
     override fun makeNoAdsPayment(activity: Activity, noAdsString: String) {
         d("activity = [$activity], noAdsString = [$noAdsString]")
-        paymentsRepo.makeNoAdsPurchase(activity, noAdsString)
+        if (noAdsString in noAdsInAppSkuList) {
+            paymentsRepo.makeNoAdsPurchase(activity, noAdsString)
+        } else {
+            paymentsRepo.makeNoAdsPurchase(activity, noAdsInAppSkuList[0])
+        }
     }
 
 }
