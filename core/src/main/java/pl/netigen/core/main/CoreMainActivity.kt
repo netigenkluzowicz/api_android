@@ -49,7 +49,10 @@ abstract class CoreMainActivity : AppCompatActivity() {
                 coreMainVM.saveAdConsentStatus(adConsentStatus)
             }
 
-            override fun clickPay() = coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
+            override fun clickPay() {
+                fragment.dismiss()
+                coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
+            }
         })
     }
 
