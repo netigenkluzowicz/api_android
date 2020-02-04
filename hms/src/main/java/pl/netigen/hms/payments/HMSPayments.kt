@@ -9,9 +9,10 @@ class HMSPayments(
     activity: Activity,
     inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
     private val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
-    consumablesInAppSkuList: List<String> = emptyList()
+    consumablesInAppSkuList: List<String> = emptyList(),
+    consumeTestPurchase: Boolean = false
 ) : Payments() {
-    override val paymentsRepo = HMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList)
+    override val paymentsRepo = HMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList, consumeTestPurchase)
 
     override fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails) = Unit
 

@@ -27,7 +27,8 @@ class HMSPaymentsRepo(
     private val activity: Activity,
     private val inAppSkuList: List<String>,
     private val noAdsInAppSkuList: List<String>,
-    private val consumablesInAppSkuList: List<String> = emptyList()
+    private val consumablesInAppSkuList: List<String> = emptyList(),
+    private val consumeTestPurchase: Boolean = false
 ) : IPaymentsRepo {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
     override val inAppSkuDetails = MutableLiveData<List<NetigenSkuDetails>>()
@@ -121,7 +122,7 @@ class HMSPaymentsRepo(
                     d("inAppPurchaseDataString = [$inAppPurchaseDataString]")
                     try {
                         val inAppPurchaseData = InAppPurchaseData(inAppPurchaseDataString)
-                        paymentSuccess(inAppPurchaseData)
+                        if (consumeTestPurchase) consume(inAppPurchaseData) else paymentSuccess(inAppPurchaseData)
                     } catch (e: JSONException) {
                         Timber.e(e)
                     }
@@ -138,6 +139,24 @@ class HMSPaymentsRepo(
             }
         }
     }
+
+    private fun consume(inAppPurchaseData: InAppPurchaseData) {
+        d("inAppPurchaseData = [$inAppPurchaseData]")
+        val mClient = Iap.getIapClient(activity)
+        val req = ConsumeOwnedPurchaseReq()
+        req.purchaseToken = inAppPurchaseData.purchaseToken
+        val task = mClient.consumeOwnedPurchase(req)
+        task.addOnSuccessListener { d("consumeOwnedPurchase success") }
+            .addOnFailureListener { e ->
+                Timber.e(e)
+                Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
+                if (e is IapApiException) {
+                    val returnCode = e.statusCode
+                    d("consumeOwnedPurchase fail,returnCode: $returnCode")
+                }
+            }
+    }
+
 
     companion object {
         const val REQ_CODE_BUY = 4002
