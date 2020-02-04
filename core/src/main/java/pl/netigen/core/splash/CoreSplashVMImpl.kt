@@ -46,7 +46,7 @@ class CoreSplashVMImpl(
         isRunning = true
         try {
             launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
-        } catch (e : Exception) {
+        } catch (e: Exception) {
             e(e)
         }
         try {
@@ -71,7 +71,16 @@ class CoreSplashVMImpl(
         action: suspend (value: T) -> Unit
     ) {
         try {
-            launch(coroutineDispatcher) { withTimeout(timeOut) { flow.collect(action) } }
+            launch(coroutineDispatcher) {
+                withTimeout(timeOut) {
+                    try {
+                        flow.collect(action)
+                    } catch (e: Exception) {
+                        e(e)
+                        if (e is TimeoutCancellationException) throw e
+                    }
+                }
+            }
         } catch (e: Exception) {
             e(e)
             if (e is TimeoutCancellationException) throw e
@@ -120,7 +129,7 @@ class CoreSplashVMImpl(
         d("()")
         try {
             launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
-        }  catch (e : Exception) {
+        } catch (e: Exception) {
             e(e)
         }
         updateState(SplashState.SHOW_GDPR_CONSENT)
