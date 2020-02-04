@@ -46,7 +46,13 @@ class CoreSplashVMImpl(
         isRunning = true
         launch(coroutineDispatcherIo) {
             try {
-                noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
+                noAdsPurchases.noAdsActive.collect {
+                    try {
+                        onAdsFlowChanged(it)
+                    } catch (e: Exception) {
+                        e(e)
+                    }
+                }
             } catch (e: Exception) {
                 e(e)
             }
@@ -74,7 +80,15 @@ class CoreSplashVMImpl(
     ) {
         launch(coroutineDispatcher) {
             try {
-                withTimeout(timeOut) { launch { flow.collect(action) } }
+                withTimeout(timeOut) {
+                    launch {
+                        try {
+                            flow.collect(action)
+                        } catch (e: Exception) {
+                            e(e)
+                        }
+                    }
+                }
             } catch (e: Exception) {
                 e(e)
                 if (e is TimeoutCancellationException) throw  e
@@ -127,7 +141,13 @@ class CoreSplashVMImpl(
         d("()")
         launch(coroutineDispatcherIo) {
             try {
-                noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
+                noAdsPurchases.noAdsActive.collect {
+                    try {
+                        onAdsFlowChanged(it)
+                    } catch (e: Exception) {
+                        e(e)
+                    }
+                }
             } catch (e: Exception) {
                 e(e)
             }
@@ -165,17 +185,25 @@ class CoreSplashVMImpl(
             try {
                 withTimeout(appConfig.maxInterstitialWaitTime) {
                     withContext(coroutineDispatcherMain) {
-                        when {
-                            finished -> finish()
-                            ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-                            else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
+                        try {
+                            when {
+                                finished -> finish()
+                                ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
+                                else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
+                            }
+                        } catch (e: Exception) {
+                            e(e)
                         }
                     }
                 }
             } catch (e: TimeoutCancellationException) {
                 d(e)
                 withContext(coroutineDispatcherMain) {
-                    onLoadInterstitialResult(false)
+                    try {
+                        onLoadInterstitialResult(false)
+                    } catch (e: Exception) {
+                        e(e)
+                    }
                 }
             }
         }
