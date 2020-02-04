@@ -19,6 +19,7 @@ import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchIO
 import timber.log.Timber.d
+import timber.log.Timber.e
 
 class CoreSplashVMImpl(
     application: Application,
@@ -80,7 +81,13 @@ class CoreSplashVMImpl(
         cleanUp()
     }
 
-    private fun cleanUp() = viewModelScope.cancel()
+    private fun cleanUp() {
+        try {
+            viewModelScope.cancel()
+        } catch (e: Exception) {
+            e(e)
+        }
+    }
 
     private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
 
