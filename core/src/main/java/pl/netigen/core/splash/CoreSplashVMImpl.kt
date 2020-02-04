@@ -44,7 +44,13 @@ class CoreSplashVMImpl(
 
     private fun init() {
         isRunning = true
-        launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
+        launch(coroutineDispatcherIo) {
+            try {
+                noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
+            } catch (e: Exception) {
+                e(e)
+            }
+        }
         try {
             launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
                 when {
@@ -55,6 +61,8 @@ class CoreSplashVMImpl(
             }
         } catch (e: TimeoutCancellationException) {
             onFirstLaunch()
+        } catch (e: Exception) {
+            e(e)
         }
     }
 
@@ -64,7 +72,14 @@ class CoreSplashVMImpl(
         coroutineDispatcher: CoroutineDispatcher = coroutineDispatcherIo,
         action: suspend (value: T) -> Unit
     ) {
-        launch(coroutineDispatcher) { withTimeout(timeOut) { flow.collect(action) } }
+        launch(coroutineDispatcher) {
+            try {
+                withTimeout(timeOut) { launch { flow.collect(action) } }
+            } catch (e: Exception) {
+                e(e)
+                if (e is TimeoutCancellationException) throw  e
+            }
+        }
     }
 
     private fun onAdsFlowChanged(purchased: Boolean) {
@@ -103,12 +118,20 @@ class CoreSplashVMImpl(
             launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
         } catch (e: TimeoutCancellationException) {
             showGdprPopUp()
+        } catch (e: Exception) {
+            e(e)
         }
     }
 
     private fun showGdprPopUp() {
         d("()")
-        launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
+        launch(coroutineDispatcherIo) {
+            try {
+                noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
+            } catch (e: Exception) {
+                e(e)
+            }
+        }
         updateState(SplashState.SHOW_GDPR_CONSENT)
     }
 

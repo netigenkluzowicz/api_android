@@ -2,7 +2,6 @@ package pl.netigen.gms.payments
 
 import android.app.Activity
 import android.app.Application
-import android.content.Intent
 import com.android.billingclient.api.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -82,9 +81,13 @@ class GMSPaymentsRepo(
                     if (!skuDetailsList.isNullOrEmpty()) {
                         skuDetailsList.forEach {
                             CoroutineScope(Job() + Dispatchers.IO).launch {
-                                Timber.d("inserting $it")
-                                val isNoAd = (it.sku in noAdsInAppSkuList)
-                                localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
+                                try {
+                                    Timber.d("inserting $it")
+                                    val isNoAd = (it.sku in noAdsInAppSkuList)
+                                    localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
+                                } catch (e: Exception) {
+                                    Timber.e(e)
+                                }
                             }
                         }
                     }
@@ -123,26 +126,30 @@ class GMSPaymentsRepo(
     }
 
     private fun processPurchases(purchasesResult: Set<Purchase>): Job = CoroutineScope(Job() + Dispatchers.IO).launch {
-        val validPurchases = HashSet<Purchase>(purchasesResult.size)
-        purchasesResult.forEach { purchase ->
-            if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
-                if (isSignatureValid(purchase)) {
-                    Timber.d("purchase = [$purchase]${purchase.purchaseState}")
-                    validPurchases.add(purchase)
+        try {
+            val validPurchases = HashSet<Purchase>(purchasesResult.size)
+            purchasesResult.forEach { purchase ->
+                if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
+                    if (isSignatureValid(purchase)) {
+                        Timber.d("purchase = [$purchase]${purchase.purchaseState}")
+                        validPurchases.add(purchase)
+                    }
+                } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {
+                    Timber.d("Received a pending purchase of SKU: ${purchase.sku}")
+                    //TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
                 }
-            } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {
-                Timber.d("Received a pending purchase of SKU: ${purchase.sku}")
-                //TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
             }
+            val (consumables, nonConsumables)
+                    = validPurchases.partition { consumablesInAppSkuList.contains(it.sku) }
+            Timber.d("validPurchases content $validPurchases")
+            Timber.d("consumables content $consumables")
+            Timber.d("non-consumables content $nonConsumables")
+            localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
+            handleConsumablePurchasesAsync(consumables)
+            acknowledgeNonConsumablePurchasesAsync(nonConsumables)
+        } catch (e: Exception) {
+            Timber.e(e)
         }
-        val (consumables, nonConsumables)
-                = validPurchases.partition { consumablesInAppSkuList.contains(it.sku) }
-        Timber.d("validPurchases content $validPurchases")
-        Timber.d("consumables content $consumables")
-        Timber.d("non-consumables content $nonConsumables")
-        localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
-        handleConsumablePurchasesAsync(consumables)
-        acknowledgeNonConsumablePurchasesAsync(nonConsumables)
     }
 
     private fun isSignatureValid(purchase: Purchase): Boolean =
@@ -183,10 +190,14 @@ class GMSPaymentsRepo(
 
     fun makeNoAdsPurchase(activity: Activity, noAdsString: String = "${activity.packageName}.noads") {
         CoroutineScope(Job() + Dispatchers.IO).launch {
-            val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(noAdsString)
-            Timber.d("netigenSkuDetails for noads: $netigenNoAdsSkuDetails")
-            netigenNoAdsSkuDetails?.let {
-                launchBillingFlow(activity, it)
+            try {
+                val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(noAdsString)
+                Timber.d("netigenSkuDetails for noads: $netigenNoAdsSkuDetails")
+                netigenNoAdsSkuDetails?.let {
+                    launchBillingFlow(activity, it)
+                }
+            } catch (e: Exception) {
+                Timber.e(e)
             }
         }
     }

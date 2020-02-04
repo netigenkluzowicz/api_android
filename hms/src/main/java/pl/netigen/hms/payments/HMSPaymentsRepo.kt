@@ -63,7 +63,11 @@ class HMSPaymentsRepo(
     private fun paymentSuccess(inAppPurchaseData: InAppPurchaseData) {
         d("inAppPurchaseData = [$inAppPurchaseData]")
         CoroutineScope(Job() + Dispatchers.IO).launch {
-            localCacheBillingClient.skuDetailsDao().insertOrUpdate(CachedPurchase(inAppPurchaseData))
+            try {
+                localCacheBillingClient.skuDetailsDao().insertOrUpdate(CachedPurchase(inAppPurchaseData))
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
         }
     }
 
