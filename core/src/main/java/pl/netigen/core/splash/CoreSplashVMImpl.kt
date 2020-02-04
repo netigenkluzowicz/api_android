@@ -44,11 +44,7 @@ class CoreSplashVMImpl(
 
     private fun init() {
         isRunning = true
-        try {
-            launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
-        } catch (e: Exception) {
-            e(e)
-        }
+        launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
         try {
             launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
                 when {
@@ -59,8 +55,6 @@ class CoreSplashVMImpl(
             }
         } catch (e: TimeoutCancellationException) {
             onFirstLaunch()
-        } catch (e: Exception) {
-            e(e)
         }
     }
 
@@ -70,21 +64,7 @@ class CoreSplashVMImpl(
         coroutineDispatcher: CoroutineDispatcher = coroutineDispatcherIo,
         action: suspend (value: T) -> Unit
     ) {
-        try {
-            launch(coroutineDispatcher) {
-                withTimeout(timeOut) {
-                    try {
-                        flow.collect(action)
-                    } catch (e: Exception) {
-                        e(e)
-                        if (e is TimeoutCancellationException) throw e
-                    }
-                }
-            }
-        } catch (e: Exception) {
-            e(e)
-            if (e is TimeoutCancellationException) throw e
-        }
+        launch(coroutineDispatcher) { withTimeout(timeOut) { flow.collect(action) } }
     }
 
     private fun onAdsFlowChanged(purchased: Boolean) {
@@ -104,7 +84,9 @@ class CoreSplashVMImpl(
     private fun cleanUp() {
         d("()")
         try {
-            viewModelScope.cancel()
+            if (viewModelScope.isActive) {
+                viewModelScope.cancel()
+            }
         } catch (e: Exception) {
             e(e)
         }
@@ -121,18 +103,12 @@ class CoreSplashVMImpl(
             launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
         } catch (e: TimeoutCancellationException) {
             showGdprPopUp()
-        } catch (e: Exception) {
-            e(e)
         }
     }
 
     private fun showGdprPopUp() {
         d("()")
-        try {
-            launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
-        } catch (e: Exception) {
-            e(e)
-        }
+        launch(coroutineDispatcherIo) { noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) } }
         updateState(SplashState.SHOW_GDPR_CONSENT)
     }
 
@@ -178,8 +154,6 @@ class CoreSplashVMImpl(
                 withContext(coroutineDispatcherMain) {
                     onLoadInterstitialResult(false)
                 }
-            } catch (e: Exception) {
-                e(e)
             }
         }
 
