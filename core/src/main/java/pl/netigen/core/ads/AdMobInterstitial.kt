@@ -11,6 +11,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import pl.netigen.coreapi.ads.IInterstitialAd
+import timber.log.Timber
 import timber.log.Timber.d
 
 
@@ -51,7 +52,11 @@ class AdMobInterstitial(
             }
             interstitialAd.adListener = callback
             interstitialAd.loadAd(adMobRequest.getAdRequest())
-            awaitClose { }
+            try {
+                awaitClose { }
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
         }
 
     override val isLoaded: Boolean
