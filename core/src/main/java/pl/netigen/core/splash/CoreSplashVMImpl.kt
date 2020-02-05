@@ -95,7 +95,7 @@ class CoreSplashVMImpl(
 
     private fun cleanUp() {
         if (viewModelScope.isActive) {
-            viewModelScope.cancel()
+            //viewModelScope.cancel()
         }
     }
 
@@ -153,13 +153,15 @@ class CoreSplashVMImpl(
         updateState(SplashState.LOADING)
         launchIO {
             try {
-                withTimeout(appConfig.maxInterstitialWaitTime) {
-                    if (isActive) {
-                        withContext(coroutineDispatcherMain) {
-                            when {
-                                finished -> finish()
-                                ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-                                else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
+                if (isActive) {
+                    withTimeout(appConfig.maxInterstitialWaitTime) {
+                        if (isActive) {
+                            withContext(coroutineDispatcherMain) {
+                                when {
+                                    finished -> finish()
+                                    ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
+                                    else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
+                                }
                             }
                         }
                     }
