@@ -19,7 +19,6 @@ import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
 import pl.netigen.extensions.launchIO
 import timber.log.Timber.d
-import timber.log.Timber.e
 
 class CoreSplashVMImpl(
     application: Application,
@@ -38,40 +37,30 @@ class CoreSplashVMImpl(
     private var finished = false
 
     override fun start() {
-        d("TRY FIX 10")
+        d("TRY FIX 11")
         d(isRunning.toString())
         if (!isRunning) init()
     }
 
     private fun init() {
         isRunning = true
+        launch(coroutineDispatcherIo) {
+            noAdsPurchases.noAdsActive.collect {
+                if (isActive) {
+                    onAdsFlowChanged(it)
+                }
+            }
+        }
         try {
-            launch(coroutineDispatcherIo) {
-                try {
-                    noAdsPurchases.noAdsActive.collect {
-                        try {
-                            onAdsFlowChanged(it)
-                        } catch (e: Exception) {
-                            e(e)
-                        }
-                    }
-                } catch (e: Exception) {
-                    e(e)
+            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
+                when {
+                    finished -> finish()
+                    it == UNINITIALIZED -> onFirstLaunch()
+                    else -> onNextLaunch(it)
                 }
             }
-            try {
-                launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
-                    when {
-                        finished -> finish()
-                        it == UNINITIALIZED -> onFirstLaunch()
-                        else -> onNextLaunch(it)
-                    }
-                }
-            } catch (e: TimeoutCancellationException) {
-                onFirstLaunch()
-            }
-        } catch (e: Exception) {
-            e(e)
+        } catch (e: TimeoutCancellationException) {
+            onFirstLaunch()
         }
     }
 
@@ -82,17 +71,10 @@ class CoreSplashVMImpl(
         action: suspend (value: T) -> Unit
     ) {
         launch(coroutineDispatcher) {
-            try {
-                withTimeout(timeOut) {
-                    try {
-                        flow.collect(action)
-                    } catch (e: Exception) {
-                        e(e)
-                    }
+            withTimeout(timeOut) {
+                if (isActive) {
+                    flow.collect(action)
                 }
-            } catch (e: Exception) {
-                e(e)
-                if (e is TimeoutCancellationException) throw e
             }
         }
     }
@@ -106,16 +88,14 @@ class CoreSplashVMImpl(
 
     private fun finish() {
         d("()")
-        cleanUp()
         finished = true
         updateState(SplashState.FINISHED)
+        cleanUp()
     }
 
     private fun cleanUp() {
-        try {
-            viewModelScope.coroutineContext.cancelChildren()
-        } catch (e: Exception) {
-            e(e)
+        if (viewModelScope.isActive) {
+            viewModelScope.cancel()
         }
     }
 
@@ -127,30 +107,21 @@ class CoreSplashVMImpl(
         if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
         isFirstLaunch.postValue(true)
         try {
-            try {
-                launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
-            } catch (e: TimeoutCancellationException) {
-                showGdprPopUp()
-            }
-        } catch (e: Exception) {
-            e(e)
+            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
+        } catch (e: TimeoutCancellationException) {
+            showGdprPopUp()
         }
     }
 
     private fun showGdprPopUp() {
         d("()")
-        try {
-            launch(coroutineDispatcherIo) {
-                try {
-                    noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
-                } catch (e: Exception) {
-                    e(e)
+        launch(coroutineDispatcherIo) {
+            noAdsPurchases.noAdsActive.collect {
+                if (isActive) {
+                    onAdsFlowChanged(it)
                 }
             }
-        } catch (e: Exception) {
-            e(e)
         }
-
         updateState(SplashState.SHOW_GDPR_CONSENT)
     }
 
@@ -180,41 +151,27 @@ class CoreSplashVMImpl(
         d("()")
         if (!networkStatus.isConnectedOrConnecting || finished) return finish()
         updateState(SplashState.LOADING)
-        try {
-            launchIO {
-                try {
-                    try {
-                        withTimeout(appConfig.maxInterstitialWaitTime) {
-                            try {
-                                withContext(coroutineDispatcherMain) {
-                                    when {
-                                        finished -> finish()
-                                        ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-                                        else -> ads.interstitialAd.load().collect {
-                                            try {
-                                                onLoadInterstitialResult(it)
-                                            } catch (e: Exception) {
-                                                e(e)
-                                            }
-                                        }
-                                    }
-                                }
-                            } catch (e: Exception) {
-                                e(e)
+        launchIO {
+            try {
+                withTimeout(appConfig.maxInterstitialWaitTime) {
+                    if (isActive) {
+                        withContext(coroutineDispatcherMain) {
+                            when {
+                                finished -> finish()
+                                ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
+                                else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
                             }
                         }
-                    } catch (e: TimeoutCancellationException) {
-                        d(e)
-                        withContext(coroutineDispatcherMain) {
-                            onLoadInterstitialResult(false)
-                        }
                     }
-                } catch (e: Exception) {
-                    e(e)
+                }
+            } catch (e: TimeoutCancellationException) {
+                d(e)
+                if (isActive) {
+                    withContext(coroutineDispatcherMain) {
+                        onLoadInterstitialResult(false)
+                    }
                 }
             }
-        } catch (e: Exception) {
-            e(e)
         }
 
     }
@@ -227,13 +184,8 @@ class CoreSplashVMImpl(
         ads.interstitialAd.showIfCanBeShowed { finish() }
     }
 
-    private fun checkConsentNextLaunch() {
-        try {
-            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
-        } catch (e: Exception) {
-            e(e)
-        }
-    }
+    private fun checkConsentNextLaunch() =
+        launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
 
     override fun setPersonalizedAds(personalizedAdsApproved: Boolean) {
         d("personalizedAdsApproved = [$personalizedAdsApproved]")
@@ -245,17 +197,11 @@ class CoreSplashVMImpl(
 
     override fun onCleared() {
         d("()")
-        try {
-            if (isRunning) {
-                if (!finished) {
-                    cleanUp()
-                }
-                updateState(SplashState.UNINITIALIZED)
-                isRunning = false
-                finished = false
-            }
-        } catch (e: Exception) {
-            e(e)
+        if (isRunning) {
+            cleanUp()
+            updateState(SplashState.UNINITIALIZED)
+            isRunning = false
+            finished = false
         }
     }
 }
