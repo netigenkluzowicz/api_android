@@ -21,16 +21,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 @Database(
-    entities = [NetigenSkuDetails::class, CachedPurchase::class],
+    entities = [CachedPurchase::class],
     version = 1,
     exportSchema = false
 )
 @TypeConverters(InAppPurchaseDataTypeConverter::class)
 abstract class LocalBillingDb : RoomDatabase() {
-    abstract fun skuDetailsDao(): NetigenSkuDetailsDao
     abstract fun purchaseDao(): PurchaseDao
 
     companion object {
