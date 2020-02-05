@@ -22,7 +22,13 @@ class CoreMainVmImpl(
     override fun start() {
         launchMain {
             try {
-                payments.noAdsActive.collect { onNoAdsChange(it) }
+                payments.noAdsActive.collect {
+                    try {
+                        onNoAdsChange(it)
+                    } catch (e: Exception) {
+                        e(e)
+                    }
+                }
             } catch (e: Exception) {
                 e(e)
             }

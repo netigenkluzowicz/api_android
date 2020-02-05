@@ -38,6 +38,7 @@ class CoreSplashVMImpl(
     private var finished = false
 
     override fun start() {
+        d("TRY FIX 10")
         d(isRunning.toString())
         if (!isRunning) init()
     }
@@ -47,7 +48,13 @@ class CoreSplashVMImpl(
         try {
             launch(coroutineDispatcherIo) {
                 try {
-                    noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
+                    noAdsPurchases.noAdsActive.collect {
+                        try {
+                            onAdsFlowChanged(it)
+                        } catch (e: Exception) {
+                            e(e)
+                        }
+                    }
                 } catch (e: Exception) {
                     e(e)
                 }
@@ -178,12 +185,22 @@ class CoreSplashVMImpl(
                 try {
                     try {
                         withTimeout(appConfig.maxInterstitialWaitTime) {
-                            withContext(coroutineDispatcherMain) {
-                                when {
-                                    finished -> finish()
-                                    ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-                                    else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
+                            try {
+                                withContext(coroutineDispatcherMain) {
+                                    when {
+                                        finished -> finish()
+                                        ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
+                                        else -> ads.interstitialAd.load().collect {
+                                            try {
+                                                onLoadInterstitialResult(it)
+                                            } catch (e: Exception) {
+                                                e(e)
+                                            }
+                                        }
+                                    }
                                 }
+                            } catch (e: Exception) {
+                                e(e)
                             }
                         }
                     } catch (e: TimeoutCancellationException) {
