@@ -2,7 +2,6 @@ package pl.netigen.core.splash
 
 import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.viewModelScope
 import io.mockk.*
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
@@ -10,7 +9,6 @@ import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -149,11 +147,10 @@ class CoreSplashVMImplTest {
     }
 
     @Test
-    fun `SplashVM finishes and cleans after noAds true called`() = runBlocking {
+    fun `SplashVM finishes  after noAds true called`() = runBlocking {
         setUpMocks(isNoAdsActive = true)
         coreSplashVMImpl.start()
         assertEquals(SplashState.FINISHED, coreSplashVMImpl.splashState.value)
-        assertEquals(false, coreSplashVMImpl.viewModelScope.isActive)
     }
 
     fun <T> getFlowPublisher(value: T? = null, stubBlock: MockKMatcherScope.() -> Flow<T>): ConflatedBroadcastChannel<T> {

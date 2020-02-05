@@ -64,7 +64,7 @@ class HMSPaymentsRepo(
         d("inAppPurchaseData = [$inAppPurchaseData]")
         CoroutineScope(Job() + Dispatchers.IO).launch {
             try {
-                localCacheBillingClient.skuDetailsDao().insertOrUpdate(CachedPurchase(inAppPurchaseData))
+                localCacheBillingClient.purchaseDao().insert(CachedPurchase(inAppPurchaseData))
             } catch (e: Exception) {
                 Timber.e(e)
             }
@@ -150,15 +150,20 @@ class HMSPaymentsRepo(
         val req = ConsumeOwnedPurchaseReq()
         req.purchaseToken = inAppPurchaseData.purchaseToken
         val task = mClient.consumeOwnedPurchase(req)
-        task.addOnSuccessListener { d("consumeOwnedPurchase success") }
-            .addOnFailureListener { e ->
-                Timber.e(e)
-                Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
-                if (e is IapApiException) {
-                    val returnCode = e.statusCode
-                    d("consumeOwnedPurchase fail,returnCode: $returnCode")
-                }
+        task.addOnSuccessListener {
+            d("consumeOwnedPurchase success")
+            CoroutineScope(Job() + Dispatchers.IO).launch {
+                localCacheBillingClient.purchaseDao().deleteAll()
             }
+
+        }.addOnFailureListener { e ->
+            Timber.e(e)
+            Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
+            if (e is IapApiException) {
+                val returnCode = e.statusCode
+                d("consumeOwnedPurchase fail,returnCode: $returnCode")
+            }
+        }
     }
 
 

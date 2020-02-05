@@ -23,9 +23,9 @@ interface PurchaseDao {
     suspend fun delete(vararg purchases: CachedPurchase)
 
     @Query("DELETE FROM purchase_table")
-    fun deleteAll()
+    suspend fun deleteAll()
 
     @Query("DELETE FROM purchase_table WHERE data = :purchase")
-    fun delete(purchase: Purchase)
+    suspend fun delete(purchase: Purchase)
 
 }
