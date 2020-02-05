@@ -9,6 +9,7 @@ import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.launchMain
+import timber.log.Timber.e
 
 class CoreMainVmImpl(
     application: Application,
@@ -20,7 +21,11 @@ class CoreMainVmImpl(
 
     override fun start() {
         launchMain {
-            payments.noAdsActive.collect { onNoAdsChange(it) }
+            try {
+                payments.noAdsActive.collect { onNoAdsChange(it) }
+            } catch (e: Exception) {
+                e(e)
+            }
         }
     }
 

@@ -44,23 +44,27 @@ class CoreSplashVMImpl(
 
     private fun init() {
         isRunning = true
-        launch(coroutineDispatcherIo) {
-            try {
-                noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
-            } catch (e: Exception) {
-                e(e)
-            }
-        }
         try {
-            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
-                when {
-                    finished -> finish()
-                    it == UNINITIALIZED -> onFirstLaunch()
-                    else -> onNextLaunch(it)
+            launch(coroutineDispatcherIo) {
+                try {
+                    noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
+                } catch (e: Exception) {
+                    e(e)
                 }
             }
-        } catch (e: TimeoutCancellationException) {
-            onFirstLaunch()
+            try {
+                launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
+                    when {
+                        finished -> finish()
+                        it == UNINITIALIZED -> onFirstLaunch()
+                        else -> onNextLaunch(it)
+                    }
+                }
+            } catch (e: TimeoutCancellationException) {
+                onFirstLaunch()
+            }
+        } catch (e: Exception) {
+            e(e)
         }
     }
 
@@ -95,16 +99,14 @@ class CoreSplashVMImpl(
 
     private fun finish() {
         d("()")
-        if (!finished) {
-            cleanUp()
-        }
+        cleanUp()
         finished = true
         updateState(SplashState.FINISHED)
     }
 
     private fun cleanUp() {
         try {
-            viewModelScope.cancel()
+            viewModelScope.coroutineContext.cancelChildren()
         } catch (e: Exception) {
             e(e)
         }
@@ -118,21 +120,30 @@ class CoreSplashVMImpl(
         if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
         isFirstLaunch.postValue(true)
         try {
-            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
-        } catch (e: TimeoutCancellationException) {
-            showGdprPopUp()
+            try {
+                launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
+            } catch (e: TimeoutCancellationException) {
+                showGdprPopUp()
+            }
+        } catch (e: Exception) {
+            e(e)
         }
     }
 
     private fun showGdprPopUp() {
         d("()")
-        launch(coroutineDispatcherIo) {
-            try {
-                noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
-            } catch (e: Exception) {
-                e(e)
+        try {
+            launch(coroutineDispatcherIo) {
+                try {
+                    noAdsPurchases.noAdsActive.collect { onAdsFlowChanged(it) }
+                } catch (e: Exception) {
+                    e(e)
+                }
             }
+        } catch (e: Exception) {
+            e(e)
         }
+
         updateState(SplashState.SHOW_GDPR_CONSENT)
     }
 
@@ -162,27 +173,31 @@ class CoreSplashVMImpl(
         d("()")
         if (!networkStatus.isConnectedOrConnecting || finished) return finish()
         updateState(SplashState.LOADING)
-        launchIO {
-            try {
+        try {
+            launchIO {
                 try {
-                    withTimeout(appConfig.maxInterstitialWaitTime) {
-                        withContext(coroutineDispatcherMain) {
-                            when {
-                                finished -> finish()
-                                ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-                                else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
+                    try {
+                        withTimeout(appConfig.maxInterstitialWaitTime) {
+                            withContext(coroutineDispatcherMain) {
+                                when {
+                                    finished -> finish()
+                                    ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
+                                    else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
+                                }
                             }
                         }
+                    } catch (e: TimeoutCancellationException) {
+                        d(e)
+                        withContext(coroutineDispatcherMain) {
+                            onLoadInterstitialResult(false)
+                        }
                     }
-                } catch (e: TimeoutCancellationException) {
-                    d(e)
-                    withContext(coroutineDispatcherMain) {
-                        onLoadInterstitialResult(false)
-                    }
+                } catch (e: Exception) {
+                    e(e)
                 }
-            } catch (e: Exception) {
-                e(e)
             }
+        } catch (e: Exception) {
+            e(e)
         }
 
     }
@@ -191,14 +206,17 @@ class CoreSplashVMImpl(
 
     private fun onInterstitialLoaded() {
         d("()")
-        if (!finished) {
-            cleanUp()
-        }
+        cleanUp()
         ads.interstitialAd.showIfCanBeShowed { finish() }
     }
 
-    private fun checkConsentNextLaunch() =
-        launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
+    private fun checkConsentNextLaunch() {
+        try {
+            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
+        } catch (e: Exception) {
+            e(e)
+        }
+    }
 
     override fun setPersonalizedAds(personalizedAdsApproved: Boolean) {
         d("personalizedAdsApproved = [$personalizedAdsApproved]")
@@ -210,13 +228,17 @@ class CoreSplashVMImpl(
 
     override fun onCleared() {
         d("()")
-        if (isRunning) {
-            if (!finished) {
-                cleanUp()
+        try {
+            if (isRunning) {
+                if (!finished) {
+                    cleanUp()
+                }
+                updateState(SplashState.UNINITIALIZED)
+                isRunning = false
+                finished = false
             }
-            updateState(SplashState.UNINITIALIZED)
-            isRunning = false
-            finished = false
+        } catch (e: Exception) {
+            e(e)
         }
     }
 }
