@@ -34,12 +34,14 @@ abstract class LocalBillingDb : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: LocalBillingDb? = null
-        private const val DATABASE_NAME = "purchase_db"
+        private const val DATABASE_NAME = "hms_purchase_db"
 
         fun getInstance(context: Context): LocalBillingDb =
             INSTANCE ?: synchronized(this) { INSTANCE ?: buildDatabase(context.applicationContext).also { INSTANCE = it } }
 
         private fun buildDatabase(appContext: Context): LocalBillingDb =
-            Room.databaseBuilder(appContext, LocalBillingDb::class.java, DATABASE_NAME).build()
+            Room.databaseBuilder(appContext, LocalBillingDb::class.java, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .build()
     }
 }
