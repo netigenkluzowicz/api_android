@@ -90,14 +90,8 @@ class CoreSplashVMImpl(
         d("()")
         finished = true
         updateState(SplashState.FINISHED)
-        cleanUp()
     }
 
-    private fun cleanUp() {
-        if (viewModelScope.isActive) {
-            //viewModelScope.cancel()
-        }
-    }
 
     private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
 
@@ -182,7 +176,7 @@ class CoreSplashVMImpl(
 
     private fun onInterstitialLoaded() {
         d("()")
-        cleanUp()
+        viewModelScope.cancel("")
         ads.interstitialAd.showIfCanBeShowed { finish() }
     }
 
@@ -200,7 +194,6 @@ class CoreSplashVMImpl(
     override fun onCleared() {
         d("()")
         if (isRunning) {
-            cleanUp()
             updateState(SplashState.UNINITIALIZED)
             isRunning = false
             finished = false

@@ -9,7 +9,6 @@ import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.launchMain
-import timber.log.Timber.e
 
 class CoreMainVmImpl(
     application: Application,
@@ -20,19 +19,7 @@ class CoreMainVmImpl(
 ) : CoreMainVM(application), IPayments by payments, IAds by ads, INetworkStatus by networkStatus, IGDPRConsent by gdprConsent {
 
     override fun start() {
-        launchMain {
-            try {
-                payments.noAdsActive.collect {
-                    try {
-                        onNoAdsChange(it)
-                    } catch (e: Exception) {
-                        e(e)
-                    }
-                }
-            } catch (e: Exception) {
-                e(e)
-            }
-        }
+        launchMain { payments.noAdsActive.collect { onNoAdsChange(it) } }
     }
 
     override fun resetAdsPreferences() = showGdprResetAds.postValue(Unit)
