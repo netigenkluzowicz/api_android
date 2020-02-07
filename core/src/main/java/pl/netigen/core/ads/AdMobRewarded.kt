@@ -44,10 +44,7 @@ class AdMobRewarded(
     }
 
     private fun load() {
-        d("isLoaded: $isLoaded")
-        if (isEnabled && !isLoaded) {
-            rewardedAd.loadAd(adMobRequest.getAdRequest(), AdLoadCallback())
-        }
+        if (isEnabled) rewardedAd.loadAd(adMobRequest.getAdRequest(), AdLoadCallback())
     }
 
     inner class AdCallback(val onRewardResult: (Boolean) -> Unit) : RewardedAdCallback() {

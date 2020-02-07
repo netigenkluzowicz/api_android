@@ -2,6 +2,7 @@ package pl.netigen.core.ads
 
 import android.util.DisplayMetrics
 import android.view.ViewGroup
+import android.view.ViewParent
 import android.widget.RelativeLayout
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
@@ -108,14 +109,9 @@ class AdMobBanner(
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
         Timber.d("()")
-        if (disabled) {
-            val parent = bannerView.parent as ViewGroup
-            parent.removeView(bannerView)
-            return
-        }
         bannerView.pause()
-        val parent = bannerView.parent as ViewGroup
-        parent.removeView(bannerView)
+        val parent: ViewParent? = bannerView.parent
+        if (disabled && parent is ViewGroup) parent.removeView(bannerView)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
