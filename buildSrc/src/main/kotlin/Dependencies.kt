@@ -16,7 +16,7 @@ object Versions {
     val retrofit = "2.6.3"
     val kotlin = "1.3.61"
     val androidMavenGradlePlugin = "2.1"
-    val gradle = "3.5.3"
+    val gradle = "3.6.0-rc02"
     val cropper = "2.8.0"
     val junit = "4.12"
     val testRunner = "1.2.0"
