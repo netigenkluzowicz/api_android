@@ -13,8 +13,10 @@ import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
+import timber.log.Timber
 
 abstract class CoreMainActivity : AppCompatActivity() {
+    var canCommitFragments: Boolean = true
     private var noAdsActive: Boolean = false
     private var splashActive: Boolean = false
     abstract val viewModelFactory: ViewModelProvider.Factory
@@ -54,6 +56,28 @@ abstract class CoreMainActivity : AppCompatActivity() {
                 coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
             }
         })
+    }
+
+
+    @CallSuper
+    override fun onResume() {
+        super.onResume()
+        Timber.d("()")
+        canCommitFragments = true
+    }
+
+    @CallSuper
+    override fun onPause() {
+        super.onPause()
+        Timber.d("()")
+        canCommitFragments = false
+    }
+
+    @CallSuper
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Timber.d("()")
+        canCommitFragments = false
     }
 
     @CallSuper
