@@ -17,7 +17,6 @@ import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
-import pl.netigen.extensions.launchIO
 import timber.log.Timber.d
 
 class CoreSplashVMImpl(
@@ -152,29 +151,20 @@ class CoreSplashVMImpl(
         d("()")
         if (!networkStatus.isConnectedOrConnecting || finished) return finish()
         updateState(SplashState.LOADING)
-        launchIO {
-            try {
-                if (isActive) {
-                    withTimeout(appConfig.maxInterstitialWaitTime) {
-                        if (isActive) {
-                            withContext(coroutineDispatcherMain) {
-                                when {
-                                    finished -> finish()
-                                    ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-                                    else -> ads.interstitialAd.load().collect { onLoadInterstitialResult(it) }
-                                }
-                            }
-                        }
-                    }
-                }
-            } catch (e: TimeoutCancellationException) {
-                d(e)
-                if (isActive) {
-                    withContext(coroutineDispatcherMain) {
-                        onLoadInterstitialResult(false)
-                    }
-                }
-            }
+        when {
+            finished -> finish()
+            ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
+            else -> loadAd()
+        }
+    }
+
+    private fun loadAd() {
+        launchWithTimeout(
+            5,
+            ads.interstitialAd.load(),
+            { onLoadInterstitialResult(false) }
+        ) {
+            onLoadInterstitialResult(it)
         }
     }
 
