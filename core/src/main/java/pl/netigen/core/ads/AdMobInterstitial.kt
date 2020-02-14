@@ -52,8 +52,10 @@ class AdMobInterstitial(
                     channel.close()
                 }
             }
-            withContext(Dispatchers.Main) { interstitialAd.adListener = callback }
-            interstitialAd.loadAd(adMobRequest.getAdRequest())
+            withContext(Dispatchers.Main) {
+                interstitialAd.adListener = callback
+                interstitialAd.loadAd(adMobRequest.getAdRequest())
+            }
             try {
                 awaitClose { }
             } catch (e: Exception) {

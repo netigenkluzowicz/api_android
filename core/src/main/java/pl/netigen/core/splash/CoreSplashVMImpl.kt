@@ -75,7 +75,7 @@ class CoreSplashVMImpl(
                         flow.collect(action)
                     }
                 }
-            } catch (e: TimeoutCancellationException) {
+            } catch (e: Exception) {
                 d(e)
                 if (isActive) {
                     onError()
@@ -160,7 +160,7 @@ class CoreSplashVMImpl(
 
     private fun loadAd() {
         launchWithTimeout(
-            5,
+            appConfig.maxInterstitialWaitTime,
             ads.interstitialAd.load(),
             { onLoadInterstitialResult(false) }
         ) {
