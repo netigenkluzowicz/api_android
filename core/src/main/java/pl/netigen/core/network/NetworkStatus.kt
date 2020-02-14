@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import androidx.core.content.ContextCompat.getSystemService
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.network.NetworkStatusChangeListener
-import timber.log.Timber.d
+import timber.log.Timber
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -43,7 +43,7 @@ class NetworkStatus(private val application: Application) : INetworkStatus {
             postValue(true)
             true
         } catch (e: IOException) {
-            d(e)
+            Timber.e(e)
             postValue(false)
             false
         }

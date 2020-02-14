@@ -60,7 +60,6 @@ class CoreSplashVMImplTest {
             noAdsPurchases,
             networkStatus,
             coroutineDispatcherIo = Dispatchers.Main,
-            coroutineDispatcherMain = Dispatchers.Main,
             appConfig = appConfig
         )
         every { ads.interstitialAd } returns interstitialAd

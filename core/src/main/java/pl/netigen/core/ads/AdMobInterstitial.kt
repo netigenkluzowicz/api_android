@@ -7,13 +7,10 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.withContext
 import pl.netigen.coreapi.ads.IInterstitialAd
-import timber.log.Timber
 import timber.log.Timber.d
 
 
@@ -52,15 +49,9 @@ class AdMobInterstitial(
                     channel.close()
                 }
             }
-            withContext(Dispatchers.Main) {
-                interstitialAd.adListener = callback
-                interstitialAd.loadAd(adMobRequest.getAdRequest())
-            }
-            try {
-                awaitClose { }
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
+            interstitialAd.adListener = callback
+            interstitialAd.loadAd(adMobRequest.getAdRequest())
+            awaitClose { }
         }
 
     override val isLoaded: Boolean
