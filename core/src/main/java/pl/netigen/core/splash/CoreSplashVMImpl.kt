@@ -78,7 +78,9 @@ class CoreSplashVMImpl(
                 }
             } catch (e: TimeoutCancellationException) {
                 d(e)
-                onError()
+                if (isActive) {
+                    onError()
+                }
             }
         }
     }
@@ -174,14 +176,13 @@ class CoreSplashVMImpl(
                 }
             }
         }
-
     }
 
     private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
 
     private fun onInterstitialLoaded() {
         d("()")
-        viewModelScope.cancel("")
+        viewModelScope.cancel()
         ads.interstitialAd.showIfCanBeShowed { finish() }
     }
 
