@@ -37,7 +37,6 @@ class CoreSplashVMImpl(
     private var finished = false
 
     override fun start() {
-        d("TRY FIX 11")
         d(isRunning.toString())
         if (!isRunning) init()
     }
@@ -51,30 +50,35 @@ class CoreSplashVMImpl(
                 }
             }
         }
-        try {
-            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.adConsentStatus) {
-                when {
-                    finished -> finish()
-                    it == UNINITIALIZED -> onFirstLaunch()
-                    else -> onNextLaunch(it)
-                }
+        launchWithTimeout(
+            appConfig.maxConsentWaitTime,
+            gdprConsent.adConsentStatus,
+            { onFirstLaunch() }
+        ) {
+            when {
+                finished -> finish()
+                it == UNINITIALIZED -> onFirstLaunch()
+                else -> onNextLaunch(it)
             }
-        } catch (e: TimeoutCancellationException) {
-            onFirstLaunch()
         }
     }
 
     private fun <T> launchWithTimeout(
         timeOut: Long,
         flow: Flow<T>,
-        coroutineDispatcher: CoroutineDispatcher = coroutineDispatcherIo,
+        onError: () -> Unit,
         action: suspend (value: T) -> Unit
     ) {
-        launch(coroutineDispatcher) {
-            withTimeout(timeOut) {
-                if (isActive) {
-                    flow.collect(action)
+        launch(coroutineDispatcherIo) {
+            try {
+                withTimeout(timeOut) {
+                    if (isActive) {
+                        flow.collect(action)
+                    }
                 }
+            } catch (e: TimeoutCancellationException) {
+                d(e)
+                onError()
             }
         }
     }
@@ -100,11 +104,12 @@ class CoreSplashVMImpl(
         if (finished) return finish()
         if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
         isFirstLaunch.postValue(true)
-        try {
-            launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
-        } catch (e: TimeoutCancellationException) {
-            showGdprPopUp()
-        }
+        launchWithTimeout(
+            appConfig.maxConsentWaitTime,
+            gdprConsent.requestGDPRLocation(),
+            { showGdprPopUp() }
+        ) { onFirstLaunchCheckGdpr(it) }
+
     }
 
     private fun showGdprPopUp() {
@@ -181,7 +186,7 @@ class CoreSplashVMImpl(
     }
 
     private fun checkConsentNextLaunch() =
-        launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation()) { onFirstLaunchCheckGdpr(it) }
+        launchWithTimeout(appConfig.maxConsentWaitTime, gdprConsent.requestGDPRLocation(), {}) { onFirstLaunchCheckGdpr(it) }
 
     override fun setPersonalizedAds(personalizedAdsApproved: Boolean) {
         d("personalizedAdsApproved = [$personalizedAdsApproved]")

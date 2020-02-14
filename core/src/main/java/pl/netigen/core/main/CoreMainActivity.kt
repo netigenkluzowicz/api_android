@@ -24,11 +24,13 @@ abstract class CoreMainActivity : AppCompatActivity() {
     abstract val coreSplashFragment: CoreSplashFragment
 
     open fun onSplashOpened() {
+        Timber.d("()")
         splashActive = true
         hideAds()
     }
 
     open fun onSplashClosed() {
+        Timber.d("()")
         splashActive = false
         if (noAdsActive) hideAds() else showAds()
     }

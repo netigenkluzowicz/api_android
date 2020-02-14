@@ -22,6 +22,7 @@ class SplashFragment : CoreSplashFragment() {
     }
 
     private fun showHomeFragment() {
+        Timber.d("()")
         findNavController().safeNavigate(
             R.id.action_splashFragment_to_homeFragment,
             null,
