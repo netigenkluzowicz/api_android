@@ -10,7 +10,9 @@ import com.google.android.gms.ads.InterstitialAd
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.isActive
 import pl.netigen.coreapi.ads.IInterstitialAd
+import timber.log.Timber
 import timber.log.Timber.d
 
 
@@ -36,22 +38,30 @@ class AdMobInterstitial(
         callbackFlow {
             val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
-                    d(errorCode.toString())
-                    interstitialAd.adListener = null
-                    offer(false)
-                    channel.close()
+                    if (isActive) {
+                        d(errorCode.toString())
+                        interstitialAd.adListener = null
+                        offer(false)
+                        channel.close()
+                    }
                 }
 
                 override fun onAdLoaded() {
-                    d("()")
-                    interstitialAd.adListener = null
-                    offer(true)
-                    channel.close()
+                    if (isActive) {
+                        d("()")
+                        interstitialAd.adListener = null
+                        offer(true)
+                        channel.close()
+                    }
                 }
             }
             interstitialAd.adListener = callback
             interstitialAd.loadAd(adMobRequest.getAdRequest())
-            awaitClose { }
+            try {
+                awaitClose { }
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
         }
 
     override val isLoaded: Boolean

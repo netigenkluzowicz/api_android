@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.isActive
 import pl.netigen.coreapi.ads.IAds
@@ -57,11 +57,13 @@ class CoreSplashVMImpl(
         splashTimer.startConsentTimer { onFirstLaunch() }
         launch {
             gdprConsent.adConsentStatus.collect {
-                splashTimer.cancelTimers()
-                when {
-                    finished -> finish()
-                    it == UNINITIALIZED -> onFirstLaunch()
-                    else -> onNextLaunch(it)
+                if (isActive) {
+                    splashTimer.cancelTimers()
+                    when {
+                        finished -> finish()
+                        it == UNINITIALIZED -> onFirstLaunch()
+                        else -> onNextLaunch(it)
+                    }
                 }
             }
         }
@@ -93,9 +95,11 @@ class CoreSplashVMImpl(
         splashTimer.startConsentTimer { showGdprPopUp() }
         launch {
             gdprConsent.requestGDPRLocation().collect {
-                d("requestGDPRLocation: + $it")
-                splashTimer.cancelTimers()
-                onFirstLaunchCheckGdpr(it)
+                if (isActive) {
+                    d("requestGDPRLocation: + $it")
+                    splashTimer.cancelTimers()
+                    onFirstLaunchCheckGdpr(it)
+                }
             }
         }
     }
@@ -150,8 +154,10 @@ class CoreSplashVMImpl(
         splashTimer.startInterstitialTimer { onLoadInterstitialResult(false) }
         launch {
             ads.interstitialAd.load().collect {
-                splashTimer.cancelTimers()
-                onLoadInterstitialResult(it)
+                if (isActive) {
+                    splashTimer.cancelTimers()
+                    onLoadInterstitialResult(it)
+                }
             }
         }
     }
@@ -165,19 +171,21 @@ class CoreSplashVMImpl(
     }
 
     private fun cancelJobs() {
-        if (viewModelScope.coroutineContext.isActive) {
-            viewModelScope.coroutineContext.cancelChildren()
+        if (viewModelScope.isActive) {
+            viewModelScope.cancel("CancelJobs")
         }
     }
 
     private fun checkConsentNextLaunch() {
         launch {
             gdprConsent.requestGDPRLocation().collect {
-                d("requestGDPRLocation: + $it")
-                splashTimer.cancelConsentTimer()
-                if (it == CheckGDPRLocationStatus.UE) {
-                    splashTimer.cancelTimers()
-                    showGdprPopUp()
+                if (isActive) {
+                    d("requestGDPRLocation: + $it")
+                    splashTimer.cancelConsentTimer()
+                    if (it == CheckGDPRLocationStatus.UE) {
+                        splashTimer.cancelTimers()
+                        showGdprPopUp()
+                    }
                 }
             }
         }
