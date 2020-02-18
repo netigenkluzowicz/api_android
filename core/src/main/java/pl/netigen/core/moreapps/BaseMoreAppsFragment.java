@@ -42,7 +42,7 @@ public abstract class BaseMoreAppsFragment extends Fragment {
     private void updateMoreApps(List<ImageView> imageViews, Activity activity) {
         try {
             @SuppressWarnings("CharsetObjectCanBeUsed")
-            Reader reader = new InputStreamReader(activity.getAssets().open(MOREAPPS_JSON), UTF_8);
+            Reader reader = new InputStreamReader(activity.getAssets().open(getMoreAppsAssetsFolderPath() + MOREAPPS_JSON), UTF_8);
             List<MoreAppItem> listApps = (new Gson()).fromJson(reader, TypeToken.getParameterized(ArrayList.class, MoreAppItem.class).getType());
             loadLocalMoreApps(imageViews, activity, listApps);
         } catch (IOException e) {
