@@ -51,7 +51,7 @@ public abstract class BaseMoreAppsFragment extends Fragment {
     }
 
     private void loadLocalMoreApps(List<ImageView> imageViews, Activity activity, List<MoreAppItem> listApps) throws IOException {
-        for (int i = 0; i < listApps.size(); i++) {
+        for (int i = 0; i < listApps.size() && i < imageViews.size(); i++) {
             final MoreAppItem moreAppItem = listApps.get(i);
             String path = getMoreAppsAssetsFolderPath() + moreAppItem.packageName + PNG;
             final BitmapFactory.Options options = new BitmapFactory.Options();
