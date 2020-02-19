@@ -10,4 +10,5 @@ interface ICoreMainVM : IPayments, IAds, INetworkStatus, IGDPRConsent {
     fun start()
     fun resetAdsPreferences()
     val showGdprResetAds : SingleLiveEvent<Unit>
+    val currentIsNoAdsActive : Boolean
 }

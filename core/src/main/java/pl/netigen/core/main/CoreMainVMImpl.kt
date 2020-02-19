@@ -25,8 +25,13 @@ class CoreMainVmImpl(
     override fun resetAdsPreferences() = showGdprResetAds.postValue(Unit)
 
     override val showGdprResetAds: MutableSingleLiveEvent<Unit> = MutableSingleLiveEvent()
+    override var currentIsNoAdsActive: Boolean = false
+        private set
 
-    private fun onNoAdsChange(noAdsActive: Boolean) = if (noAdsActive) ads.disable() else ads.enable()
+    private fun onNoAdsChange(noAdsActive: Boolean) {
+        currentIsNoAdsActive = noAdsActive
+        if (noAdsActive) ads.disable() else ads.enable()
+    }
 
     override fun onCleared() = CoreViewModelsFactory.cleanAds()
 }
