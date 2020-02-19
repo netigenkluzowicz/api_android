@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import pl.netigen.core.gdpr.GDPRDialogFragment
-import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainVM
@@ -21,7 +20,6 @@ abstract class CoreMainActivity : AppCompatActivity() {
     private var splashActive: Boolean = false
     abstract val viewModelFactory: ViewModelProvider.Factory
     val coreMainVM: ICoreMainVM by viewModels<CoreMainVM> { viewModelFactory }
-    abstract val coreSplashFragment: CoreSplashFragment
 
     open fun onSplashOpened() {
         Timber.d("()")
@@ -59,7 +57,6 @@ abstract class CoreMainActivity : AppCompatActivity() {
             }
         })
     }
-
 
     @CallSuper
     override fun onResume() {
