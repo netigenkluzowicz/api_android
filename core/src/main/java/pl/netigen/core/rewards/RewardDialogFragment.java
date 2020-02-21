@@ -1,10 +1,10 @@
 package pl.netigen.core.rewards;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
@@ -27,7 +26,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import kotlin.Unit;
 import pl.netigen.core.R;
+import pl.netigen.core.main.CoreMainActivity;
 
 public class RewardDialogFragment extends AppCompatDialogFragment {
 
@@ -47,12 +48,12 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     private FrameLayout backgroundView;
 
     private RewardParams rewardParams;
-    private AppCompatActivity appCompatActivity;
+    private CoreMainActivity coreMainActivity;
 
-    private static RewardDialogFragment newInstance(RewardParams rewardParams, AppCompatActivity appCompatActivity) {
+    private static RewardDialogFragment newInstance(RewardParams rewardParams, CoreMainActivity coreMainActivity) {
         RewardDialogFragment rewardDialogFragment = new RewardDialogFragment();
         rewardDialogFragment.rewardParams = rewardParams;
-        rewardDialogFragment.appCompatActivity = appCompatActivity;
+        rewardDialogFragment.coreMainActivity = coreMainActivity;
         return rewardDialogFragment;
     }
 
@@ -131,7 +132,16 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
         }
 
         textViewPositiveButton.setOnClickListener(v -> {
-            //todo  appCompatActivity.getAdmobAds().showRewardedVideoForItems(rewardParams.rewards, rewardParams.listeners);
+            coreMainActivity.getCoreMainVM().getRewardedAd().showRewardedAd(success -> {
+                for (RewardsListener listener : rewardParams.listeners) {
+                    if (success) {
+                        listener.onSuccess(rewardParams.rewards);
+                    } else {
+                        listener.onFail();
+                    }
+                }
+                return Unit.INSTANCE;
+            });
             dismiss();
         });
     }
@@ -189,15 +199,20 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     }
 
     private void setDialog() {
-        Window window = getDialog().getWindow();
-        if (window != null) {
-            window.requestFeature(Window.FEATURE_NO_TITLE);
-            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Dialog dialog = getDialog();
+        if (dialog == null) {
+            return;
         }
-
-        getDialog().setCancelable(true);
-        getDialog().setCanceledOnTouchOutside(true);
+        Window window = dialog.getWindow();
+        if (window == null) {
+            return;
+        }
+        window.requestFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -205,26 +220,26 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
     }
 
     private void setDialogSize(double heightMultiplier, double widthMultiplier) {
-        Window window = getDialog().getWindow();
+        Dialog dialog = getDialog();
+        if (dialog == null) return;
+        Window window = dialog.getWindow();
+        if (window == null) return;
         Point size = new Point();
         Display display;
-        Log.d(TAG, "setDialogSize: heightMultiplier " + heightMultiplier + " widthMultiplier " + widthMultiplier);
-        if (window != null) {
-            display = window.getWindowManager().getDefaultDisplay();
-            display.getSize(size);
-            int maxWidth = size.x;
-            int maxHeight = size.y;
-            if (heightMultiplier == 0.0 && widthMultiplier == 0.0) {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else if (widthMultiplier != 0.0 && heightMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), (int) (maxHeight * heightMultiplier));
-            } else if (widthMultiplier != 0.0) {
-                window.setLayout((int) (maxWidth * widthMultiplier), ViewGroup.LayoutParams.WRAP_CONTENT);
-            } else if (heightMultiplier != 0.0) {
-                window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, (int) (maxHeight * heightMultiplier));
-            }
-            window.setGravity(Gravity.CENTER);
+        display = window.getWindowManager().getDefaultDisplay();
+        display.getSize(size);
+        int maxWidth = size.x;
+        int maxHeight = size.y;
+        if (heightMultiplier == 0.0 && widthMultiplier == 0.0) {
+            window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        } else if (widthMultiplier != 0.0 && heightMultiplier != 0.0) {
+            window.setLayout((int) (maxWidth * widthMultiplier), (int) (maxHeight * heightMultiplier));
+        } else if (widthMultiplier != 0.0) {
+            window.setLayout((int) (maxWidth * widthMultiplier), ViewGroup.LayoutParams.WRAP_CONTENT);
+        } else if (heightMultiplier != 0.0) {
+            window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, (int) (maxHeight * heightMultiplier));
         }
+        window.setGravity(Gravity.CENTER);
     }
 
     @Override
@@ -235,11 +250,11 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
 
     public static class Builder {
 
-        private AppCompatActivity appCompatActivity;
+        private CoreMainActivity coreMainActivity;
         private RewardParams rewardParams;
 
-        public Builder(AppCompatActivity appCompatActivity) {
-            this.appCompatActivity = appCompatActivity;
+        public Builder(CoreMainActivity coreMainActivity) {
+            this.coreMainActivity = coreMainActivity;
             this.rewardParams = new RewardParams();
         }
 
@@ -339,12 +354,12 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
             return this;
         }
 
-        public RewardDialogFragment create(AppCompatActivity appCompatActivity) {
-            return RewardDialogFragment.newInstance(rewardParams, appCompatActivity);
+        public RewardDialogFragment create(CoreMainActivity coreMainActivity) {
+            return RewardDialogFragment.newInstance(rewardParams, coreMainActivity);
         }
 
         public void show() {
-            create(appCompatActivity).show(appCompatActivity.getSupportFragmentManager(), TAG);
+            create(coreMainActivity).show(coreMainActivity.getSupportFragmentManager(), TAG);
         }
     }
 }
