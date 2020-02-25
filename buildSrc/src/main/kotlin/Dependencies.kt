@@ -11,8 +11,8 @@ object Versions {
     val coreKTX = "1.2.0"
     val lifecycle = "2.2.0"
     val lifecycleKTX = "2.2.0"
-    val okhttp = "3.12.0"
-    val okio = "2.4.1"
+    val okhttp = "3.12.9"
+    val okio = "2.4.3"
     val retrofit = "2.6.3"
     val kotlin = "1.3.61"
     val androidMavenGradlePlugin = "2.1"
@@ -24,7 +24,7 @@ object Versions {
     val billing = "2.1.0"
     val navigation = "2.2.1"
     val coroutines = "1.3.3"
-    val room = "2.2.3"
+    val room = "2.2.4"
     val timber = "4.7.1"
 }
 
