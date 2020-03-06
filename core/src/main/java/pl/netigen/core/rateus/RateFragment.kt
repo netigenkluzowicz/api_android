@@ -2,24 +2,41 @@ package pl.netigen.core.rateus
 
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import kotlinx.android.synthetic.main.dialog_fragment_rate_us_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
 import pl.netigen.extensions.setTint
 
 class RateFragment(
+) : BaseDialogFragment() {
 
-    private val onClickYes: () -> Unit,
-    private val onClickNo: () -> Unit,
-    private val onClickLater: () -> Unit
-
-) : BaseDialogFragment(R.layout.dialog_fragment_rate_us_netigen_api) {
+    private var onClickYes: (() -> Unit)? = null
+    private var onClickNo: (() -> Unit)? = null
+    private var onClickLater: (() -> Unit)? = null
 
     companion object {
         fun newInstance(onClickYes: () -> Unit, onClickNo: () -> Unit, onClickLater: () -> Unit): RateFragment {
-            return RateFragment(onClickYes, onClickNo, onClickLater)
+            val fragment = RateFragment()
+            fragment.onClickYes = onClickYes
+            fragment.onClickNo = onClickNo
+            fragment.onClickLater = onClickLater
+            return fragment
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (onClickYes == null) {
+            dismissAllowingStateLoss()
+            return
+        }
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.dialog_fragment_rate_us_netigen_api, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,21 +61,21 @@ class RateFragment(
 
     private fun setNeutralButtonListener() {
         rateUsFragmentLaterTextView.setOnClickListener {
-            onClickLater()
+            onClickLater?.let { it1 -> it1() }
             dismiss()
         }
     }
 
     private fun setPositiveButtonListener() {
         rateUsFragmentYesTextView.setOnClickListener {
-            onClickYes()
+            onClickYes?.let { it1 -> it1() }
             dismiss()
         }
     }
 
     private fun setNegativeButtonListener() {
         closeRateUs.setOnClickListener {
-            onClickNo()
+            onClickNo?.let { it1 -> it1() }
             dismiss()
         }
     }

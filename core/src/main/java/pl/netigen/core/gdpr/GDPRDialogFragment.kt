@@ -2,11 +2,13 @@ package pl.netigen.core.gdpr
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.method.ScrollingMovementMethod
@@ -15,6 +17,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.webkit.WebView
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
@@ -39,6 +43,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     private var isNoAdsAvailable = false
     private var gdprClickListener: GDPRClickListener? = null
     private var admobText: Boolean = false
+    private var webViewGdpr: WebView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (dialog != null) {
@@ -48,11 +53,26 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
                 dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             }
         }
-        return inflater.inflate(R.layout.dialog_fragment_gdpr, container, false)
+
+        val view = inflater.inflate(R.layout.dialog_fragment_gdpr, container, false)
+        createWebView(view)
+        return view
     }
+
+    private fun createWebView(view: View) {
+        activity?.let {
+            webViewGdpr = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+                WebView(it.createConfigurationContext(Configuration()))
+            else
+                WebView(it.applicationContext)
+        }
+        view.findViewById<FrameLayout>(R.id.containerGDPRInfo).addView(webViewGdpr)
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         if (activity == null) {
             dismiss()
             return
@@ -138,10 +158,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         admobText = true
         if (isNetworkOn()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
-            webViewGdpr.visibility = View.VISIBLE
-            webViewGdpr.loadUrl(getLinkForPrivacy())
+            webViewGdpr?.visibility = View.VISIBLE
+            webViewGdpr?.loadUrl(getLinkForPrivacy())
         } else {
-            webViewGdpr.visibility = View.GONE
+            webViewGdpr?.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
             setOfflineText()
         }
@@ -181,10 +201,10 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         admobText = false
         if (isNetworkOn()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
-            webViewGdpr.visibility = View.VISIBLE
-            webViewGdpr.loadUrl(getLinkForMobiles())
+            webViewGdpr?.visibility = View.VISIBLE
+            webViewGdpr?.loadUrl(getLinkForMobiles())
         } else {
-            webViewGdpr.visibility = View.GONE
+            webViewGdpr?.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
             setScrollToOfflinePolicy()
             onNoInternetConnection()
@@ -232,7 +252,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     private fun getLinkForMobiles() = NETIGEN_PRIVACY_MOBILE_URL + INSIDE_WEB_VIEW_MARGIN_0
 
     interface GDPRClickListener {
-        fun onConsentAccepted(personalizedAds : Boolean)
+        fun onConsentAccepted(personalizedAds: Boolean)
 
         fun clickPay()
     }
