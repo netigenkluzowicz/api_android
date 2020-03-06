@@ -59,7 +59,9 @@ class GMSPaymentsRepo(
                 querySkuDetailsAsync(BillingClient.SkuType.INAPP, inAppSkuList)
                 //TODO we should decide whether we want to deal with subs sku separately, but it seems like a right way to me
                 //querySkuDetailsAsync(BillingClient.SkuType.SUBS, subSkuList)
-                queryPurchasesAsync()
+                CoroutineScope(Job() + Dispatchers.IO).launch {
+                    queryPurchasesAsync()
+                }
             }
             BillingClient.BillingResponseCode.BILLING_UNAVAILABLE -> {
                 Timber.d(billingResult.debugMessage)
@@ -99,7 +101,7 @@ class GMSPaymentsRepo(
         }
     }
 
-    private fun queryPurchasesAsync() {
+    private suspend fun queryPurchasesAsync() {
         Timber.d("()")
         val purchasesResult = HashSet<Purchase>()
         var result = gmsBillingClient.queryPurchases(BillingClient.SkuType.INAPP)
@@ -125,7 +127,7 @@ class GMSPaymentsRepo(
         return succeeded
     }
 
-    private fun processPurchases(purchasesResult: Set<Purchase>): Job = CoroutineScope(Job() + Dispatchers.IO).launch {
+    private suspend fun processPurchases(purchasesResult: Set<Purchase>): Job = CoroutineScope(Job() + Dispatchers.IO).launch {
         try {
             val validPurchases = HashSet<Purchase>(purchasesResult.size)
             purchasesResult.forEach { purchase ->
@@ -214,19 +216,20 @@ class GMSPaymentsRepo(
         gmsBillingClient.launchBillingFlow(activity, purchaseParams)
     }
 
-    override fun onPurchasesUpdated(
-        billingResult: BillingResult,
-        purchases: MutableList<Purchase>?
-    ) {
+    override fun onPurchasesUpdated(billingResult: BillingResult, purchases: MutableList<Purchase>?) {
         Timber.d("billingResult = [$billingResult], purchases = [$purchases]")
         when (billingResult.responseCode) {
             BillingClient.BillingResponseCode.OK -> {
                 Timber.d("${purchases?.joinToString("\n")}")
-                purchases?.apply { processPurchases(this.toSet()) }
+                CoroutineScope(Job() + Dispatchers.IO).launch {
+                    purchases?.apply { processPurchases(this.toSet()) }
+                }
             }
             BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
                 Timber.d(billingResult.debugMessage)
-                queryPurchasesAsync()
+                CoroutineScope(Job() + Dispatchers.IO).launch {
+                    queryPurchasesAsync()
+                }
             }
             BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> connectToPlayBillingService()
             else -> Timber.i(billingResult.debugMessage)
