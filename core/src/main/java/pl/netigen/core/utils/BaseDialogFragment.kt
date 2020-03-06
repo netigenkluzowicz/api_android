@@ -9,15 +9,11 @@ import androidx.annotation.LayoutRes
 import pl.netigen.core.fragment.NetigenDialogFragment
 import pl.netigen.extensions.toPx
 
-abstract class BaseDialogFragment(@LayoutRes private val layout: Int) : NetigenDialogFragment() {
+abstract class BaseDialogFragment : NetigenDialogFragment() {
 
     companion object {
         private const val DIALOG_WIDTH_DP_PORTRAIT = 280
         private const val DIALOG_WIDTH_DP_LANDSCAPE = 420
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
