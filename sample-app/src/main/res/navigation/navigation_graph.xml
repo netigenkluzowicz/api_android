@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="pl.netigen.sampleapp.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/home_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="pl.netigen.sampleapp.splash.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+</navigation>

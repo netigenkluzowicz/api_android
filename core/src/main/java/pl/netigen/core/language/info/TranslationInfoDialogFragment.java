@@ -3,8 +3,9 @@ package pl.netigen.core.language.info;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,18 +24,24 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
     private TextView buttonChangeLanguageOk;
     private TextView buttonChangeLanguageDismiss;
 
-    private TranslationInfoDialogFragment(int layout) {
-        super(layout);
-    }
-
     public interface DialogClickListener {
         void onNegativeButtonClicked();
-
         void onPositiveButtonClicked();
     }
 
+    @androidx.annotation.Nullable
+    @Override
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @androidx.annotation.Nullable ViewGroup container,
+            @androidx.annotation.Nullable Bundle savedInstanceState
+    ) {
+
+        return inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
+    }
+
     public static TranslationInfoDialogFragment newInstance(TranslationInfoParams translationInfoParams) {
-        TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment(R.layout.dialog_fragment_translation_info);
+        TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment();
         fragment.translationInfoParams = translationInfoParams;
         fragment.dialogClickListener = translationInfoParams.dialogClickListener;
         return fragment;
@@ -43,6 +50,11 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if (translationInfoParams == null) {
+            dismiss();
+            return;
+        }
 
         setTranslationInfoContent1(view);
         setTranslationInfoContent2(view);
@@ -101,7 +113,8 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
         Context context = getContext();
         if (context != null) {
             ViewTintExtensionKt.setTint(buttonChangeLanguageOk.getBackground(), context, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY);
-            ViewTintExtensionKt.setTint(buttonChangeLanguageDismiss.getBackground(), context, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY);
+            ViewTintExtensionKt
+                    .setTint(buttonChangeLanguageDismiss.getBackground(), context, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY);
         }
     }
 
@@ -180,11 +193,13 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
 
         public TranslationInfoDialogFragment.DialogClickListener dialogClickListener;
 
-        public TranslationInfoParams(int titleResId, int negativeButtonResId,
-                                     int positiveButtonResId, int textContentTopResId,
-                                     int textContentBottomResId,
-                                     @NonNull TranslationInfoDialogFragment.DialogClickListener dialogClickListener,
-                                     String[] properTranslations) {
+        public TranslationInfoParams(
+                int titleResId, int negativeButtonResId,
+                int positiveButtonResId, int textContentTopResId,
+                int textContentBottomResId,
+                @NonNull TranslationInfoDialogFragment.DialogClickListener dialogClickListener,
+                String[] properTranslations
+        ) {
             if (titleResId != 0) this.titleResId = titleResId;
             if (negativeButtonResId != 0) this.negativeButtonResId = negativeButtonResId;
             if (positiveButtonResId != 0) this.positiveButtonResId = positiveButtonResId;

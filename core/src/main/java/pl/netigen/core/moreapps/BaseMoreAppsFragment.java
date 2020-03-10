@@ -41,7 +41,8 @@ public abstract class BaseMoreAppsFragment extends Fragment {
 
     private void updateMoreApps(List<ImageView> imageViews, Activity activity) {
         try {
-            Reader reader = new InputStreamReader(activity.getAssets().open(MOREAPPS_JSON), UTF_8);
+            @SuppressWarnings("CharsetObjectCanBeUsed")
+            Reader reader = new InputStreamReader(activity.getAssets().open(getMoreAppsAssetsFolderPath() + MOREAPPS_JSON), UTF_8);
             List<MoreAppItem> listApps = (new Gson()).fromJson(reader, TypeToken.getParameterized(ArrayList.class, MoreAppItem.class).getType());
             loadLocalMoreApps(imageViews, activity, listApps);
         } catch (IOException e) {
@@ -50,7 +51,7 @@ public abstract class BaseMoreAppsFragment extends Fragment {
     }
 
     private void loadLocalMoreApps(List<ImageView> imageViews, Activity activity, List<MoreAppItem> listApps) throws IOException {
-        for (int i = 0; i < listApps.size(); i++) {
+        for (int i = 0; i < listApps.size() && i < imageViews.size(); i++) {
             final MoreAppItem moreAppItem = listApps.get(i);
             String path = getMoreAppsAssetsFolderPath() + moreAppItem.packageName + PNG;
             final BitmapFactory.Options options = new BitmapFactory.Options();

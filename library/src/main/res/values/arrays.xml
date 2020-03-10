@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="leftMenuItemsArray">
-        <item>@string/rate_us_netigen</item>
-        <item>@string/more_apps_netigen</item>
-        <item>@string/information_netigen</item>
-        <item>@string/about_title_netigen</item>
-    </string-array>
-</resources>

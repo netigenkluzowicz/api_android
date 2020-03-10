@@ -1,15 +1,20 @@
 buildscript {
+    ext.kotlin_version = "${Versions.kotlin}"
+
 
     repositories {
         google()
         jcenter()
         mavenCentral()
+        maven { url 'http://developer.huawei.com/repo/' }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:${Versions.gradle}"
+        classpath 'com.android.tools.build:gradle:3.6.0'
         classpath "com.github.dcendents:android-maven-gradle-plugin:${Versions.androidMavenGradlePlugin}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.kotlin}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.huawei.agconnect:agcp:1.2.0.300'
     }
 }
 
@@ -19,5 +24,6 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven { url 'http://developer.huawei.com/repo/' }
     }
 }

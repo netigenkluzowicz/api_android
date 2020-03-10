@@ -6,19 +6,14 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatDialogFragment
-import androidx.fragment.app.FragmentManager
+import pl.netigen.core.fragment.NetigenDialogFragment
 import pl.netigen.extensions.toPx
 
-abstract class BaseDialogFragment(@LayoutRes private val layout: Int) : AppCompatDialogFragment() {
+abstract class BaseDialogFragment : NetigenDialogFragment() {
 
     companion object {
         private const val DIALOG_WIDTH_DP_PORTRAIT = 280
         private const val DIALOG_WIDTH_DP_LANDSCAPE = 420
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

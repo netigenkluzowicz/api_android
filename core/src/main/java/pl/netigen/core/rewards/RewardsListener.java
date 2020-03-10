@@ -5,5 +5,5 @@ import java.util.List;
 public interface RewardsListener {
     void onSuccess(List<RewardItem> rewardedItems);
 
-    void onFail(int rewardError);
+    void onFail();
 }

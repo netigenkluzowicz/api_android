@@ -8,22 +8,24 @@ object Versions {
     val glide = "4.10.0"
     val appcompat = "1.1.0"
     val consentLibrary = "1.0.8"
-    val coreKTX = "1.1.0"
-    val lifecycle = "2.2.0-rc03"
-    val lifecycleKTX = "2.2.0-rc03"
-    val okhttp = "3.12.0"
-    val okio = "2.4.1"
+    val coreKTX = "1.2.0"
+    val lifecycle = "2.2.0"
+    val lifecycleKTX = "2.2.0"
+    val okhttp = "3.12.9"
+    val okio = "2.4.3"
     val retrofit = "2.6.3"
-    val kotlin = "1.3.61"
+    val kotlin = "1.3.70"
     val androidMavenGradlePlugin = "2.1"
-    val gradle = "3.5.3"
+    val gradle = "3.6.1"
     val cropper = "2.8.0"
     val junit = "4.12"
     val testRunner = "1.2.0"
     val espressoCore = "3.2.0"
-    val billing = "2.0.3"
-    val navigation = "2.1.0"
+    val billing = "2.1.0"
+    val navigation = "2.2.1"
     val coroutines = "1.3.3"
+    val room = "2.2.4"
+    val timber = "4.7.1"
 }
 
 object Libraries {
@@ -72,5 +74,11 @@ object Libraries {
     val cropper = "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}"
 
     val billing = "com.android.billingclient:billing:${Versions.billing}"
+
+    val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    val roomKTX = "androidx.room:room-ktx:${Versions.room}"
+
+    val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }
 

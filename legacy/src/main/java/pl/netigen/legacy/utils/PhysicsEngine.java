@@ -1,4 +1,4 @@
-package pl.netigen.utils;
+package pl.netigen.legacy.utils;
 
 
 public class PhysicsEngine {

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SampleApp</string>
+    <string name="sample_splash">Sample splash</string>
+    <string name="sample_home">Sample home</string>
+</resources>

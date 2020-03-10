@@ -5,10 +5,10 @@ import java.util.List;
 
 public class RewardListenersList extends ArrayList<RewardsListener> {
 
-    public void callOnFail(int rewardError) {
+    public void callOnFail() {
         for (RewardsListener listener : this) {
             if (listener != null)
-                listener.onFail(rewardError);
+                listener.onFail();
         }
     }
 

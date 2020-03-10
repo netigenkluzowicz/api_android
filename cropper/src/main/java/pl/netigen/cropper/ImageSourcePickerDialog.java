@@ -21,7 +21,7 @@ import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
-import pl.netigen.core.netigenapi.NetigenDialogFragment;
+import pl.netigen.core.fragment.NetigenDialogFragment;
 
 public class ImageSourcePickerDialog extends NetigenDialogFragment {
 

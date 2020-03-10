@@ -19,13 +19,13 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.material.snackbar.Snackbar;
 
 import pl.netigen.core.R;
+import pl.netigen.core.config.AppConfig;
 
-import static pl.netigen.core.config.Config.Companion;
 
 public class Utils {
 
     public static void openMarketLink(Activity activity, String packageName) {
-        openLink(activity, getMarketLink(activity, packageName));
+        openLink(activity, getMarketLink(packageName));
     }
 
     public static boolean checkAndAskAndroidPermission(AppCompatActivity activity, String permissionString) {
@@ -42,9 +42,8 @@ public class Utils {
     }
 
     @NonNull
-    private static String getMarketLink(Activity activity, String packageName) {
-        int link_id = Companion.isSamsung() ? R.string.samsung_app_id_link_netigen : R.string.play_app_id_link_netigen;
-        return activity.getString(link_id) + packageName;
+    private static String getMarketLink(String packageName) {
+        return AppConfig.Companion.getMarketLinkPrefix() + packageName;
     }
 
     public static void showShortToast(Activity activity, String message) {

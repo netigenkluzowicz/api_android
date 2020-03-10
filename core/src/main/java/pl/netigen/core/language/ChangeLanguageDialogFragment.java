@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,7 +34,7 @@ import java.util.Locale;
 
 import pl.netigen.core.R;
 import pl.netigen.core.utils.BaseDialogFragment;
-import pl.netigen.extensions.DialogFragmentExtensionKt;
+import pl.netigen.extensions.DialogFragmentExtensionsKt;
 import pl.netigen.extensions.ViewTintExtensionKt;
 
 import static pl.netigen.core.utils.Const.MARGIN_TOP;
@@ -53,12 +56,18 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
     private ArrayList<LanguageModel> languageModels;
     private ChangeLanguageParams changeLanguageParams;
 
-    private ChangeLanguageDialogFragment(int layout) {
-        super(layout);
+    @androidx.annotation.Nullable
+    @Override
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @androidx.annotation.Nullable ViewGroup container,
+            @androidx.annotation.Nullable Bundle savedInstanceState
+    ) {
+        return inflater.inflate(R.layout.dialog_fragment_change_language, container, false);
     }
 
     private static ChangeLanguageDialogFragment newInstance(LanguageClickListener languageClickListener, List<String> languageCodes, ChangeLanguageParams changeLanguageParams) {
-        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment(R.layout.dialog_fragment_change_language);
+        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment();
         fragment.bindListener(languageClickListener);
         fragment.languageCodes = languageCodes;
         fragment.changeLanguageParams = changeLanguageParams;
@@ -66,7 +75,7 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
     }
 
     private static ChangeLanguageDialogFragment newInstance(LanguageClickListener languageClickListener, String jsonLanguageCodes, ChangeLanguageParams changeLanguageParams) {
-        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment(R.layout.dialog_fragment_change_language);
+        ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment();
         fragment.bindListener(languageClickListener);
         fragment.setLanguageCodesList(jsonLanguageCodes);
         fragment.changeLanguageParams = changeLanguageParams;
@@ -85,6 +94,11 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (changeLanguageParams == null) {
+            dismiss();
+            super.onCreate(savedInstanceState);
+            return;
+        }
         if (changeLanguageParams.languageCodes != null) {
             languageCodes = changeLanguageParams.languageCodes;
         } else if (changeLanguageParams.jsonLanguageCodes != null) {
@@ -147,7 +161,7 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
     }
 
     private void manageDialogSize() {
-        DialogFragmentExtensionKt.setDialogSize(this, 280, 370);
+        DialogFragmentExtensionsKt.setDialogSize(this, 280, 370);
         Context context = getContext();
 
         if (context != null) {
@@ -163,7 +177,7 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
 
     private void manageDialogSizeLandscape(int configuration) {
         if (configuration == Configuration.ORIENTATION_LANDSCAPE)
-            DialogFragmentExtensionKt.setDialogSize(this, 280, 310);
+            DialogFragmentExtensionsKt.setDialogSize(this, 280, 310);
     }
 
     private float getDeviceHeight(Resources resources) {
@@ -180,7 +194,7 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
                 params.y = MARGIN_TOP;
                 window.setAttributes(params);
                 window.setGravity(Gravity.TOP | Gravity.CENTER);
-                DialogFragmentExtensionKt.setDialogSize(this, 270, 270);
+                DialogFragmentExtensionsKt.setDialogSize(this, 270, 270);
             }
         }
     }
@@ -189,7 +203,8 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
         Context context = getContext();
         if (context != null) {
             ViewTintExtensionKt.setTint(buttonChangeLanguageOk.getBackground(), context, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY);
-            ViewTintExtensionKt.setTint(buttonChangeLanguageDismiss.getBackground(), context, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY);
+            ViewTintExtensionKt
+                    .setTint(buttonChangeLanguageDismiss.getBackground(), context, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY);
         }
     }
 
@@ -258,9 +273,11 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
 
         public ChangeLanguageDialogFragment create() {
             if (changeLanguageParams.languageCodes != null) {
-                return ChangeLanguageDialogFragment.newInstance(changeLanguageParams.languageClickListener, changeLanguageParams.languageCodes, changeLanguageParams);
+                return ChangeLanguageDialogFragment
+                        .newInstance(changeLanguageParams.languageClickListener, changeLanguageParams.languageCodes, changeLanguageParams);
             } else {
-                return ChangeLanguageDialogFragment.newInstance(changeLanguageParams.languageClickListener, changeLanguageParams.jsonLanguageCodes, changeLanguageParams);
+                return ChangeLanguageDialogFragment
+                        .newInstance(changeLanguageParams.languageClickListener, changeLanguageParams.jsonLanguageCodes, changeLanguageParams);
             }
         }
 
