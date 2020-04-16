@@ -1,7 +1,6 @@
 object Versions {
-    val legacySupportV4 = "1.0.0"
     val legacySupportV13 = "1.0.0"
-    val playServicesAds = "18.3.0"
+    val playServicesAds = "19.0.1"
     val constraintLayout = "1.1.3"
     val material = "1.0.0"
     val gson = "2.8.6"
@@ -11,25 +10,21 @@ object Versions {
     val coreKTX = "1.2.0"
     val lifecycle = "2.2.0"
     val lifecycleKTX = "2.2.0"
-    val okhttp = "3.12.9"
-    val okio = "2.4.3"
-    val retrofit = "2.6.3"
-    val kotlin = "1.3.70"
+    val retrofit = "2.8.1"
+    val kotlin = "1.3.72"
     val androidMavenGradlePlugin = "2.1"
-    val gradle = "3.6.1"
     val cropper = "2.8.0"
     val junit = "4.12"
     val testRunner = "1.2.0"
     val espressoCore = "3.2.0"
     val billing = "2.1.0"
-    val navigation = "2.2.1"
-    val coroutines = "1.3.3"
-    val room = "2.2.4"
+    val navigation = "2.2.2"
+    val coroutines = "1.3.5"
+    val room = "2.2.5"
     val timber = "4.7.1"
 }
 
 object Libraries {
-    val legacySupportV4 = "androidx.legacy:legacy-support-v4:${Versions.legacySupportV4}"
     val legacySupportV13 = "androidx.legacy:legacy-support-v13:${Versions.legacySupportV13}"
 
     val material = "com.google.android.material:material:${Versions.material}"
@@ -62,8 +57,6 @@ object Libraries {
     val coreKTX = "androidx.core:core-ktx:${Versions.coreKTX}"
     val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
-    val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
-    val okio = "com.squareup.okio:okio:${Versions.okio}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 
