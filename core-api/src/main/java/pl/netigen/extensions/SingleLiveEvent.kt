@@ -20,6 +20,7 @@ import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import timber.log.Timber
 import java.util.concurrent.atomic.AtomicBoolean
 
 private const val TAG = "SingleLiveEvent"
@@ -40,7 +41,7 @@ abstract class SingleLiveEvent<T> : LiveData<T> {
     @Synchronized
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         if (subscribedObserver != null) {
-            Log.w(TAG, "Unsubscribing previous observer as only one can be registered to SingleLiveEvent")
+            Timber.w("Unsubscribing previous observer as only one can be registered to SingleLiveEvent")
         }
         subscribedObserver = observer
         super.observe(owner, Observer {
