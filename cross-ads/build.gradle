@@ -10,7 +10,7 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
         versionName version
     }
@@ -28,6 +28,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -42,8 +45,6 @@ dependencies {
     implementation Libraries.viewModelKTX
     implementation Libraries.liveDataKTX
     implementation Libraries.runtimeKTX
-    implementation Libraries.okhttp
-    implementation Libraries.okio
     implementation Libraries.retrofit
     implementation Libraries.retrofitConverterGson
     api Libraries.gson

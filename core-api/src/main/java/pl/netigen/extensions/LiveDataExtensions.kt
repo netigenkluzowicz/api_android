@@ -3,13 +3,8 @@ package pl.netigen.extensions
 import androidx.lifecycle.*
 
 
-fun <T, R> LiveData<T>.map(transformation: (T) -> R): LiveData<R> = Transformations.map(this, transformation)
-
-fun <T, R> LiveData<T>.switchMap(transformation: (T) -> LiveData<R>): LiveData<R> = Transformations.switchMap(this, transformation)
-
 fun <T> LiveData<T>.observeDistinct(lifecycleOwner: LifecycleOwner, observer: (T) -> Unit) = distinctUntilChanged().observe(lifecycleOwner, observer)
 
-fun <T> LiveData<T>.distinctUntilChanged() = Transformations.distinctUntilChanged(this)
 
 fun <T> LiveData<T>.observe(lifecycleOwner: LifecycleOwner, observer: (T) -> Unit) = observe(lifecycleOwner, Observer(observer))
 
