@@ -35,7 +35,6 @@ android {
 dependencies {
     api project(path: ':core-api')
 
-    api Libraries.playServicesAds
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'androidx.test:core:1.2.0'

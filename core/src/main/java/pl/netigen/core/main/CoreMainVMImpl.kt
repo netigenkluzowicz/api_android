@@ -32,6 +32,4 @@ class CoreMainVmImpl(
         currentIsNoAdsActive = noAdsActive
         if (noAdsActive) ads.disable() else ads.enable()
     }
-
-    override fun onCleared() = CoreViewModelsFactory.cleanAds()
 }

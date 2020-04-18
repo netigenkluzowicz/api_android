@@ -35,6 +35,7 @@ android {
 dependencies {
     api project(path: ':core-api')
 
+    api Libraries.playServicesAds
     api Libraries.appcompat
     api Libraries.billing
 

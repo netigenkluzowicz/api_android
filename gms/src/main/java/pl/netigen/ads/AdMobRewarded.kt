@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.ads
 
 import androidx.activity.ComponentActivity
 import androidx.annotation.NonNull

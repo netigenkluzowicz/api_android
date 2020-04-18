@@ -1,4 +1,4 @@
-package pl.netigen.core.ads
+package pl.netigen.ads
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,9 +10,9 @@ import timber.log.Timber
 
 class AdMobAds(
     activity: ComponentActivity,
-    private val adsConfig: IAdsConfig,
-    override var personalizedAdsEnabled: Boolean = false
+    private val adsConfig: IAdsConfig
 ) : IAds, IAdMobRequest {
+    override var personalizedAdsEnabled = false
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
     override val rewardedAd: IRewardedAd

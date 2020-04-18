@@ -1,8 +1,12 @@
 package pl.netigen.sampleapp.home
 
+import pl.netigen.ads.AdMobAds
 import pl.netigen.core.config.AppConfig
+import pl.netigen.core.gdpr.GDPRConsentImpl
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
+import pl.netigen.coreapi.ads.IAds
+import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.sampleapp.flavour.FlavoursConst
 
@@ -15,7 +19,10 @@ class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreVie
             inDebugMode = true
         )
     }
-    override val payments: IPayments
-        get() = FlavoursConst.getPaymentsImpl(coreMainActivity)
+    override val ads: IAds by lazy { AdMobAds(coreMainActivity, appConfig) }
+
+    override val gdprConsent: IGDPRConsent by lazy { GDPRConsentImpl(coreMainActivity.application, appConfig) }
+
+    override val payments: IPayments by lazy { FlavoursConst.getPaymentsImpl(coreMainActivity) }
 
 }
