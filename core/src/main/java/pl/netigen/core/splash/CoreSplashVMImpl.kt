@@ -24,7 +24,7 @@ import timber.log.Timber.d
 
 class CoreSplashVMImpl(
     application: Application,
-    private val gdprConsent: IGDPRConsent,
+    override val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,

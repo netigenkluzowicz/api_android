@@ -1,4 +1,4 @@
-package pl.netigen.core.gdpr
+package pl.netigen.gms.gdpr
 
 import android.app.Application
 import android.content.Context
@@ -10,17 +10,16 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.isActive
-import pl.netigen.coreapi.gdpr.AdConsentStatus
-import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
-import pl.netigen.coreapi.gdpr.IGDPRConsent
-import pl.netigen.coreapi.gdpr.IGDPRConsentConfig
+import pl.netigen.coreapi.gdpr.*
 import timber.log.Timber
 
-class GDPRConsentImpl(private val application: Application, private val config: IGDPRConsentConfig) : IGDPRConsent {
+class GDPRConsentImpl(private val application: Application, private val config: IGDPRConsentConfig) : IGDPRConsent, IGDPRTexts by ConstGDPR {
     val consentInformation: ConsentInformation = ConsentInformation.getInstance(application)
     override val adConsentStatus: Flow<AdConsentStatus> = flow {
         val value =
-            application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(PREFERENCES_KEY, AdConsentStatus.UNINITIALIZED.ordinal)
+            application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(
+                PREFERENCES_KEY, AdConsentStatus.UNINITIALIZED.ordinal
+            )
         emit(AdConsentStatus.values().getOrElse(value) { AdConsentStatus.UNINITIALIZED })
     }
 

@@ -48,7 +48,6 @@ dependencies {
 
     api Libraries.constraintLayout
 
-    api Libraries.consentLibrary
 
     api Libraries.material
 
