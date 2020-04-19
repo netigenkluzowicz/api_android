@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import pl.netigen.coreapi.ads.*
 import timber.log.Timber
+
 
 class AdMobAds(
     activity: ComponentActivity,
@@ -24,6 +26,10 @@ class AdMobAds(
         bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.isBannerAdaptive)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
         rewardedAd = AdMobRewarded(activity, this, rewardedId)
+        val requestConfiguration = RequestConfiguration.Builder()
+            .setTestDeviceIds(adsConfig.testDevices)
+            .build()
+        MobileAds.setRequestConfiguration(requestConfiguration)
     }
 
     private fun getIds(banner: String, interstitial: String, rewarded: String): Triple<String, String, String> {
@@ -35,13 +41,7 @@ class AdMobAds(
 
     override fun getAdRequest(): AdRequest {
         val builder = AdRequest.Builder()
-        if (adsConfig.inDebugMode) {
-            for (i in adsConfig.testDevices.indices) {
-                builder.addTestDevice(adsConfig.testDevices[i])
-            }
-        }
         if (personalizedAdsEnabled) return builder.build()
-
         val extras = Bundle()
         extras.putString("npa", "1")
         return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()
