@@ -19,9 +19,9 @@ class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreVie
             inDebugMode = true
         )
     }
-    override val ads: IAds by lazy { AdMobAds(coreMainActivity, appConfig) }
+    override val ads: IAds by lazy { FlavoursConst.getAdsImpl(coreMainActivity, appConfig) }
 
-    override val gdprConsent: IGDPRConsent by lazy { GDPRConsentImpl(coreMainActivity.application, appConfig) }
+    override val gdprConsent: IGDPRConsent by lazy { FlavoursConst.getGDPRConsentImpl(coreMainActivity.application, appConfig) }
 
     override val payments: IPayments by lazy { FlavoursConst.getPaymentsImpl(coreMainActivity) }
 
