@@ -43,6 +43,5 @@ dependencies {
     kapt Libraries.roomCompiler
     api Libraries.roomKTX
 
-    api Libraries.playServicesAds
     api Libraries.consentLibrary
 }

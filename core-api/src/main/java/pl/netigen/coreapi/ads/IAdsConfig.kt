@@ -12,5 +12,6 @@ interface IAdsConfig {
 
     companion object {
         const val DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS = 60L * 1000L
+        const val REWARD_AD_MAX_RETRY_COUNT = 2
     }
 }

@@ -5,13 +5,14 @@ import pl.netigen.core.config.AppConfig
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.hms.ads.HMSAds
+import pl.netigen.hms.ads.HMSAds.Companion.TEST_REWARDED_ID
 import pl.netigen.hms.gdpr.GDPRConsentImpl
 import pl.netigen.hms.payments.HMSPayments
 
 object FlavoursConst {
     const val bannerAdId: String = ""
     const val interstitialAdId: String = ""
-    const val rewardedAdId: String = ""
+    const val rewardedAdId: String = TEST_REWARDED_ID
 
 
     fun getPaymentsImpl(coreMainActivity: CoreMainActivity): IPayments = HMSPayments(coreMainActivity)

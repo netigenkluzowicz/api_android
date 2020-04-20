@@ -1,26 +1,26 @@
 package pl.netigen.hms.ads
 
 import androidx.activity.ComponentActivity
-import androidx.annotation.NonNull
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.rewarded.RewardItem
-import com.google.android.gms.ads.rewarded.RewardedAd
-import com.google.android.gms.ads.rewarded.RewardedAdCallback
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
+import com.huawei.hms.ads.AdParam
+import com.huawei.hms.ads.reward.Reward
+import com.huawei.hms.ads.reward.RewardAd
+import com.huawei.hms.ads.reward.RewardAdLoadListener
+import com.huawei.hms.ads.reward.RewardAdStatusListener
+import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
 import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber.d
 
 
 class HMSRewarded(
     private val activity: ComponentActivity,
-    private val adMobAdRequest: HMSAdRequest,
     override val adId: String = "",
     override var enabled: Boolean = adId.isNotEmpty()
 ) : IRewardedAd, LifecycleObserver {
-    override val isLoaded: Boolean get() = isEnabled && rewardedAd.isLoaded
-    private var rewardedAd = RewardedAd(activity, adId)
+    override val isLoaded: Boolean get() = isEnabled && rewardAd.isLoaded
+    private var rewardAd = RewardAd(activity, adId)
     private val isEnabled: Boolean get() = enabled && adId.isNotEmpty()
     private var retryCount = 0
 
@@ -34,7 +34,7 @@ class HMSRewarded(
             load()
             return onRewardResult(false)
         }
-        rewardedAd.show(activity, AdCallback(onRewardResult))
+        rewardAd.show(activity, AdCallback(onRewardResult))
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
@@ -44,44 +44,37 @@ class HMSRewarded(
     }
 
     private fun load() {
-        if (isEnabled) rewardedAd.loadAd(adMobAdRequest.getAdRequest(), AdLoadCallback())
+        d("()")
+        if (isEnabled) rewardAd.loadAd(AdParam.Builder().build(), AdLoadCallback())
     }
 
-    inner class AdCallback(val onRewardResult: (Boolean) -> Unit) : RewardedAdCallback() {
-        private var success = false
+    inner class AdCallback(val onRewardResult: (Boolean) -> Unit) : RewardAdStatusListener() {
 
-        override fun onRewardedAdClosed() = rewardAdCallbackResult(success)
+        override fun onRewardAdClosed() = rewardAdCallbackResult(false)
 
-        override fun onUserEarnedReward(@NonNull reward: RewardItem) {
-            success = true
-        }
+        override fun onRewarded(p0: Reward?) = rewardAdCallbackResult(true)
 
-        override fun onRewardedAdFailedToShow(p0: Int) = rewardAdCallbackResult(false)
+        override fun onRewardAdFailedToShow(p0: Int) = rewardAdCallbackResult(false)
 
         private fun rewardAdCallbackResult(result: Boolean) {
             d("result = [$result]")
             onRewardResult(result)
-            rewardedAd = RewardedAd(activity, adId)
             load()
         }
     }
 
-    inner class AdLoadCallback : RewardedAdLoadCallback() {
-        override fun onRewardedAdLoaded() {
+    inner class AdLoadCallback : RewardAdLoadListener() {
+        override fun onRewardedLoaded() {
             d("()")
         }
 
-        override fun onRewardedAdFailedToLoad(errorCode: Int) {
+        override fun onRewardAdFailedToLoad(errorCode: Int) {
             d("errorCode = [$errorCode]")
-            if (retryCount <= MAX_RETRY_COUNT) {
+            if (retryCount <= REWARD_AD_MAX_RETRY_COUNT) {
                 retryCount++
                 d("retry load: $retryCount")
                 load()
             }
         }
-    }
-
-    companion object {
-        private const val MAX_RETRY_COUNT = 2
     }
 }

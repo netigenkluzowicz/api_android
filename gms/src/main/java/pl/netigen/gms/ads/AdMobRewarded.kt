@@ -9,6 +9,7 @@ import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdCallback
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
+import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
 import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber.d
 
@@ -73,15 +74,11 @@ class AdMobRewarded(
 
         override fun onRewardedAdFailedToLoad(errorCode: Int) {
             d("errorCode = [$errorCode]")
-            if (retryCount <= Companion.MAX_RETRY_COUNT) {
+            if (retryCount <= REWARD_AD_MAX_RETRY_COUNT) {
                 retryCount++
                 d("retry load: $retryCount")
                 load()
             }
         }
-    }
-
-    companion object {
-        private const val MAX_RETRY_COUNT = 2
     }
 }
