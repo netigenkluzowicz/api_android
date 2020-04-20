@@ -13,9 +13,9 @@ import pl.netigen.sampleapp.flavour.FlavoursConst
 class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
     override val appConfig by lazy {
         AppConfig(
-            bannerAdId = "",
-            interstitialAdId = "",
-            rewardedAdId = "test",
+            bannerAdId = FlavoursConst.bannerAdId,
+            interstitialAdId = FlavoursConst.interstitialAdId,
+            rewardedAdId = FlavoursConst.rewardedAdId,
             inDebugMode = true
         )
     }

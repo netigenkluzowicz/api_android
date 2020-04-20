@@ -9,6 +9,10 @@ import pl.netigen.gms.gdpr.GDPRConsentImpl
 import pl.netigen.gms.payments.GMSPayments
 
 object FlavoursConst {
+    const val bannerAdId: String = ""
+    const val interstitialAdId: String = ""
+    const val rewardedAdId: String = ""
+
     fun getPaymentsImpl(coreMainActivity: CoreMainActivity): IPayments = GMSPayments(coreMainActivity.application)
     fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = AdMobAds(coreMainActivity, appConfig)
     fun getGDPRConsentImpl(application: Application, appConfig: AppConfig) = GDPRConsentImpl(application, appConfig)
