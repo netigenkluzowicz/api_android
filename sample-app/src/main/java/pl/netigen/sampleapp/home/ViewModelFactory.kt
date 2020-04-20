@@ -1,8 +1,6 @@
 package pl.netigen.sampleapp.home
 
-import pl.netigen.gms.ads.AdMobAds
 import pl.netigen.core.config.AppConfig
-import pl.netigen.gms.gdpr.GDPRConsentImpl
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
 import pl.netigen.coreapi.ads.IAds

@@ -1,6 +1,5 @@
 package pl.netigen.hms.ads
 
-import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.view.ViewParent
 import android.widget.RelativeLayout
@@ -8,23 +7,21 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
+import com.huawei.hms.ads.AdParam
+import com.huawei.hms.ads.BannerAdSize
+import com.huawei.hms.ads.banner.BannerView
 import pl.netigen.coreapi.ads.IBannerAd
 import timber.log.Timber
 
 class HMSBanner(
     private val activity: ComponentActivity,
-    private val adMobAdRequest: HMSAdRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
-    private val isAdaptiveBanner: Boolean = true,
     override var enabled: Boolean = true
 ) : IBannerAd, LifecycleObserver {
-    private lateinit var bannerView: AdView
+    private lateinit var bannerView: BannerView
     private var loadedBannerOrientation = 0
     private val disabled get() = !enabled
-    private val adSize: AdSize = getAdSize()
     private lateinit var bannerLayout: RelativeLayout
 
     init {
@@ -32,26 +29,12 @@ class HMSBanner(
         activity.lifecycle.addObserver(this)
     }
 
-    override fun getHeightInPixels(): Int = adSize.getHeightInPixels(activity)
-
-    private fun getAdSize(): AdSize {
-        if (!isAdaptiveBanner) return AdSize.SMART_BANNER
-        val display = activity.windowManager.defaultDisplay
-        val outMetrics = DisplayMetrics()
-        display.getMetrics(outMetrics)
-
-        val density = outMetrics.density
-
-        val adWidthPixels = outMetrics.widthPixels.toFloat()
-
-        val adWidth = (adWidthPixels / density).toInt()
-        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth)
-    }
+    override fun getHeightInPixels(): Int = BannerAdSize.BANNER_SIZE_SMART.getHeightPx(activity)
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private fun onCreate() {
         Timber.d("()")
-        bannerView = AdView(activity)
+        bannerView = BannerView(activity)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -82,14 +65,13 @@ class HMSBanner(
         }
         if (loadedBannerOrientation != activity.resources.configuration.orientation) {
             loadedBannerOrientation = activity.resources.configuration.orientation
-            bannerView = AdView(activity)
-            bannerView.adSize = adSize
-            bannerView.adUnitId = adId
+            bannerView.adId = adId
+            bannerView.bannerAdSize = BannerAdSize.BANNER_SIZE_SMART
         }
-        bannerView.loadAd(adMobAdRequest.getAdRequest())
+        bannerView.loadAd(AdParam.Builder().build())
     }
 
-    private fun addView(layout: RelativeLayout, adView: AdView) {
+    private fun addView(layout: RelativeLayout, adView: BannerView) {
         Timber.d("layout = [$layout], adView = [$adView]")
         if (adView.parent != null) {
             (adView.parent as ViewGroup).removeView(adView)
@@ -98,7 +80,7 @@ class HMSBanner(
         setBannerLayoutParams(adView)
     }
 
-    private fun setBannerLayoutParams(adView: AdView, height: Int = RelativeLayout.LayoutParams.WRAP_CONTENT) {
+    private fun setBannerLayoutParams(adView: BannerView, height: Int = RelativeLayout.LayoutParams.WRAP_CONTENT) {
         Timber.d("adView = [$adView], height = [$height]")
         val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height)
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP)
