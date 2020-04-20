@@ -24,6 +24,7 @@ class HMSInterstitial(
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
     override var enabled: Boolean = true
 ) : IInterstitialAd, LifecycleObserver {
+    private var onClosedOrNotShowed: ((Boolean) -> Unit)? = null
     private var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd = InterstitialAd(activity)
@@ -59,17 +60,6 @@ class HMSInterstitial(
                         channel.close()
                     }
                 }
-
-
-                override fun onAdClicked() {
-                    super.onAdClicked()
-                    d("()")
-                }
-
-                override fun onAdOpened() {
-                    super.onAdOpened()
-                    d("()")
-                }
             }
             interstitialAd.adListener = callback
             interstitialAd.loadAd(AdParam.Builder().build())
@@ -94,12 +84,14 @@ class HMSInterstitial(
     }
 
     private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
+        this.onClosedOrNotShowed = onClosedOrNotShowed
         d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
                 super.onAdClosed()
                 d("()")
                 onClosedOrNotShowed(true)
+                this@HMSInterstitial.onClosedOrNotShowed = null
                 loadIfShouldBeLoaded()
                 interstitialAd.adListener = null
             }
@@ -163,6 +155,10 @@ class HMSInterstitial(
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         d("()")
+        if (onClosedOrNotShowed != null) {
+            onClosedOrNotShowed?.let { it(true) }
+            onClosedOrNotShowed = null
+        }
         isInBackground = false
     }
 
