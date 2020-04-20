@@ -5,12 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.InterstitialAd
+import com.huawei.hms.ads.AdListener
+import com.huawei.hms.ads.AdParam
+import com.huawei.hms.ads.InterstitialAd
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.isActive
+import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber
 import timber.log.Timber.d
@@ -18,7 +20,6 @@ import timber.log.Timber.d
 
 class HMSInterstitial(
     activity: ComponentActivity,
-    private val adMobAdRequest: HMSAdRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
     override var enabled: Boolean = true
@@ -30,14 +31,16 @@ class HMSInterstitial(
 
     init {
         d(this.toString())
-        interstitialAd.adUnitId = adId
+        interstitialAd.adId = adId
         activity.lifecycle.addObserver(this)
     }
 
     override fun load(): Flow<Boolean> =
         callbackFlow {
             val callback = object : AdListener() {
-                override fun onAdFailedToLoad(errorCode: Int) {
+                override fun onAdFailed(errorCode: Int) {
+                    super.onAdFailed(errorCode)
+                    d("errorCode = [$errorCode]")
                     if (isActive) {
                         d(errorCode.toString())
                         interstitialAd.adListener = null
@@ -47,6 +50,8 @@ class HMSInterstitial(
                 }
 
                 override fun onAdLoaded() {
+                    super.onAdLoaded()
+                    d("()")
                     if (isActive) {
                         d("()")
                         interstitialAd.adListener = null
@@ -54,9 +59,20 @@ class HMSInterstitial(
                         channel.close()
                     }
                 }
+
+
+                override fun onAdClicked() {
+                    super.onAdClicked()
+                    d("()")
+                }
+
+                override fun onAdOpened() {
+                    super.onAdOpened()
+                    d("()")
+                }
             }
             interstitialAd.adListener = callback
-            interstitialAd.loadAd(adMobAdRequest.getAdRequest())
+            interstitialAd.loadAd(AdParam.Builder().build())
             try {
                 awaitClose { }
             } catch (e: Exception) {
@@ -81,10 +97,37 @@ class HMSInterstitial(
         d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         interstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
-                d("onAdClosed")
+                super.onAdClosed()
+                d("()")
                 onClosedOrNotShowed(true)
                 loadIfShouldBeLoaded()
                 interstitialAd.adListener = null
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                d("()")
+            }
+
+            override fun onAdFailed(errorCode: Int) {
+                super.onAdFailed(errorCode)
+                d("errorCode = [$errorCode]")
+            }
+
+
+            override fun onAdClicked() {
+                super.onAdClicked()
+                d("()")
+            }
+
+            override fun onAdLeave() {
+                super.onAdLeave()
+                d("()")
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+                d("()")
             }
         }
         lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
@@ -95,10 +138,17 @@ class HMSInterstitial(
         d("()")
         if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
         interstitialAd.adListener = object : AdListener() {
-            override fun onAdLoaded() = d("()")
-            override fun onAdFailedToLoad(errorCode: Int) = d("p0 = [$errorCode]")
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                d("()")
+            }
+
+            override fun onAdFailed(errorCode: Int) {
+                super.onAdFailed(errorCode)
+                d("errorCode = [$errorCode]")
+            }
         }
-        interstitialAd.loadAd(adMobAdRequest.getAdRequest())
+        interstitialAd.loadAd(AdParam.Builder().build())
     }
 
     private fun validateLastShowTime(currentTime: Long) =
@@ -130,9 +180,5 @@ class HMSInterstitial(
             interstitialAd.isLoaded -> onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
             else -> onCanNotShow(onClosedOrNotShowed)
         }
-    }
-
-    companion object {
-        const val DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS = 60L * 1000L
     }
 }

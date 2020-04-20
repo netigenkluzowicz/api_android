@@ -27,7 +27,7 @@ class HMSAds(
         MobileAds.initialize(activity)
         val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
         bannerAd = HMSBanner(activity, bannerId, adsConfig.bannerLayoutIdName)
-        interstitialAd = HMSInterstitial(activity, this, interstitialId)
+        interstitialAd = HMSInterstitial(activity, interstitialId)
         rewardedAd = HMSRewarded(activity, this, rewardedId)
         val requestConfiguration = RequestConfiguration.Builder()
             .setTestDeviceIds(adsConfig.testDevices)

@@ -8,4 +8,9 @@ interface IAdsConfig {
     val bannerLayoutIdName: String
     val testDevices: List<String>
     val inDebugMode: Boolean
+
+
+    companion object {
+        const val DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS = 60L * 1000L
+    }
 }
