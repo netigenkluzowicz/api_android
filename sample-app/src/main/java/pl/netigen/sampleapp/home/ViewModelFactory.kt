@@ -8,7 +8,7 @@ import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.sampleapp.flavour.FlavoursConst
 
-class ViewModelFactory(coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
+class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
     override val appConfig by lazy {
         AppConfig(
             bannerAdId = FlavoursConst.bannerAdId,
@@ -17,10 +17,13 @@ class ViewModelFactory(coreMainActivity: CoreMainActivity) : CoreViewModelsFacto
             inDebugMode = true
         )
     }
-    override val ads: IAds = FlavoursConst.getAdsImpl(coreMainActivity, appConfig)
+    override val ads: IAds
+        get() = FlavoursConst.getAdsImpl(coreMainActivity, appConfig)
 
-    override val gdprConsent: IGDPRConsent = FlavoursConst.getGDPRConsentImpl(coreMainActivity.application, appConfig)
+    override val gdprConsent: IGDPRConsent
+        get() = FlavoursConst.getGDPRConsentImpl(coreMainActivity.application, appConfig)
 
-    override val payments: IPayments = FlavoursConst.getPaymentsImpl(coreMainActivity)
+    override val payments: IPayments
+        get() = FlavoursConst.getPaymentsImpl(coreMainActivity)
 
 }
