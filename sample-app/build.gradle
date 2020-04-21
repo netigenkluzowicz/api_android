@@ -8,10 +8,10 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "pl.netigen.sampleapp"
+        applicationId "pl.netigen.bestlevel"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
+        versionCode 56
         versionName version
         manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~2760027390"]
     }
@@ -24,7 +24,6 @@ android {
         }
         hms {
             dimension "services"
-            applicationId "pl.netigen.sampleapp.huawei"
         }
     }
 

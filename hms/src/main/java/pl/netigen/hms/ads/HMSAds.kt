@@ -1,8 +1,9 @@
 package pl.netigen.hms.ads
 
-import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.huawei.hms.ads.HwAds
+import com.huawei.hms.ads.RequestOptions
+import com.huawei.hms.ads.consent.constant.ConsentStatus
 import pl.netigen.coreapi.ads.*
 import timber.log.Timber
 
@@ -12,6 +13,19 @@ class HMSAds(
     private val adsConfig: IAdsConfig
 ) : IAds {
     override var personalizedAdsEnabled = false
+        set(value) {
+            setPersonalizedRequestOptions(value)
+            field = value
+        }
+
+    private fun setPersonalizedRequestOptions(value: Boolean) {
+        var requestOptions = HwAds.getRequestOptions() ?: RequestOptions()
+        requestOptions = requestOptions.toBuilder()
+            .setNonPersonalizedAd(if (value) ConsentStatus.PERSONALIZED.value else ConsentStatus.NON_PERSONALIZED.value)
+            .build()
+        HwAds.setRequestOptions(requestOptions)
+    }
+
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
     override val rewardedAd: IRewardedAd
