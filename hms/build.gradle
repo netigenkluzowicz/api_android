@@ -39,6 +39,7 @@ dependencies {
     api Libraries.appcompat
     api 'com.huawei.hms:iap:4.0.2.300'
     implementation 'com.huawei.hms:ads-lite:13.4.29.303'
+    implementation 'com.huawei.hms:ads-consent:3.4.29.303'
 
     kapt Libraries.roomCompiler
     api Libraries.roomKTX
