@@ -10,8 +10,8 @@ import pl.netigen.hms.gdpr.GDPRConsentImpl
 import pl.netigen.hms.payments.HMSPayments
 
 object FlavoursConst {
-    const val bannerAdId: String = "q3g3nchj3i"
-    const val interstitialAdId: String = "h1c04ba3pb"
+    const val bannerAdId: String = ""
+    const val interstitialAdId: String = ""
     const val rewardedAdId: String = TEST_REWARDED_ID
 
 

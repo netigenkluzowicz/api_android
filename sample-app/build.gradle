@@ -8,10 +8,10 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "pl.netigen.bestlevel"
+        applicationId "pl.netigen.sampleapp"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 56
+        versionCode 1
         versionName version
         manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~2760027390"]
     }

@@ -14,7 +14,7 @@ class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreVie
             bannerAdId = FlavoursConst.bannerAdId,
             interstitialAdId = FlavoursConst.interstitialAdId,
             rewardedAdId = FlavoursConst.rewardedAdId,
-            inDebugMode = false
+            inDebugMode = true
         )
     }
     override val ads: IAds
