@@ -19,7 +19,7 @@ object Versions {
     val espressoCore = "3.2.0"
     val billing = "2.1.0"
     val navigation = "2.2.2"
-    val coroutines = "1.3.5"
+    val coroutines = "1.3.3"
     val room = "2.2.5"
     val timber = "4.7.1"
 }
