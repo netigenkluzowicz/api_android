@@ -7,4 +7,5 @@ import pl.netigen.coreapi.splash.ISplashConfig
 interface IAppConfig : IAdsConfig, IGDPRConsentConfig, ISplashConfig {
     override val isNoAdsAvailable: Boolean
     override val inDebugMode: Boolean
+    val store: Store
 }

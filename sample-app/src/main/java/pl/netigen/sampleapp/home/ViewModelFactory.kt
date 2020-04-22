@@ -5,7 +5,9 @@ import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.payments.IPayments
+import pl.netigen.sampleapp.BuildConfig
 import pl.netigen.sampleapp.flavour.FlavoursConst
 
 class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
@@ -14,7 +16,12 @@ class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreVie
             bannerAdId = FlavoursConst.bannerAdId,
             interstitialAdId = FlavoursConst.interstitialAdId,
             rewardedAdId = FlavoursConst.rewardedAdId,
-            inDebugMode = true
+            inDebugMode = true,
+            store = when (BuildConfig.FLAVOR) {
+                "hms" -> Store.HUAWEI
+                "gms" -> Store.GOOGLE_PLAY
+                else -> Store.GOOGLE_PLAY
+            }
         )
     }
     override val ads: IAds

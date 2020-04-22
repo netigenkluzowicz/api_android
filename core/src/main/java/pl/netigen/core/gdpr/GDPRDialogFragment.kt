@@ -25,13 +25,13 @@ import androidx.fragment.app.activityViewModels
 import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
 import pl.netigen.core.R
 import pl.netigen.core.main.CoreMainActivity
+import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.setDialogSizeAsMatchParent
 import pl.netigen.extensions.setTint
 
 class GDPRDialogFragment : AppCompatDialogFragment() {
-
     private val splashVM: ISplashVM by activityViewModels<SplashVM> { (requireActivity() as CoreMainActivity).viewModelFactory }
 
     companion object {
@@ -79,7 +79,6 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (activity == null) {
             dismiss()
             return
@@ -163,7 +162,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         buttonBack.visibility = View.GONE
 
         admobText = true
-        if (isNetworkOn()) {
+        if (showOfflineVersion()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr?.visibility = View.VISIBLE
             webViewGdpr?.loadUrl(getLinkForPrivacy())
@@ -206,7 +205,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         buttonPolicy.visibility = View.VISIBLE
         buttonBack.visibility = View.VISIBLE
         admobText = false
-        if (isNetworkOn()) {
+        if (showOfflineVersion()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr?.visibility = View.VISIBLE
             webViewGdpr?.loadUrl(getLinkForMobiles())
@@ -217,6 +216,8 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             onNoInternetConnection()
         }
     }
+
+    private fun showOfflineVersion() = isNetworkOn() && splashVM.store != Store.HUAWEI
 
     private fun onNoInternetConnection() {
         offlinePrivacyPolicyTextView.text = ""

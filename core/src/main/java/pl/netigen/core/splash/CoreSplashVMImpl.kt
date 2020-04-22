@@ -31,10 +31,9 @@ class CoreSplashVMImpl(
     private val appConfig: IAppConfig,
     private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
-) : SplashVM(application), INoAds by noAdsPurchases {
+) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
-    override val isNoAdsAvailable: Boolean = appConfig.isNoAdsAvailable
     private var isRunning = false
     private var finished = false
 

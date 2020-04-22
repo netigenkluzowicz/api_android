@@ -1,6 +1,7 @@
 package pl.netigen.core.config
 
 import pl.netigen.coreapi.main.IAppConfig
+import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.splash.ISplashConfig.Companion.DEFAULT_MAX_CONSENT_WAIT_TIME_MS
 import pl.netigen.coreapi.splash.ISplashConfig.Companion.DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
 
@@ -16,11 +17,11 @@ class AppConfig(
     override val isNoAdsAvailable: Boolean = true,
     override val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     override val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
-    isSamsung: Boolean = false
+    override val store: Store
 ) : IAppConfig {
 
     init {
-        marketLinkPrefix = if (isSamsung) "samsungapps://ProductDetail/" else "market://details?id="
+        marketLinkPrefix = if (store == Store.SAMSUNG) "samsungapps://ProductDetail/" else "market://details?id="
     }
 
     companion object {
