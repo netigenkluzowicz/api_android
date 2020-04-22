@@ -162,7 +162,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         buttonBack.visibility = View.GONE
 
         admobText = true
-        if (showOfflineVersion()) {
+        if (showOnlineVersion()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr?.visibility = View.VISIBLE
             webViewGdpr?.loadUrl(getLinkForPrivacy())
@@ -170,6 +170,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
             webViewGdpr?.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
             setOfflineText()
+            setScrollToOfflinePolicy()
         }
     }
 
@@ -205,7 +206,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         buttonPolicy.visibility = View.VISIBLE
         buttonBack.visibility = View.VISIBLE
         admobText = false
-        if (showOfflineVersion()) {
+        if (showOnlineVersion()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr?.visibility = View.VISIBLE
             webViewGdpr?.loadUrl(getLinkForMobiles())
@@ -217,7 +218,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         }
     }
 
-    private fun showOfflineVersion() = isNetworkOn() && splashVM.store != Store.HUAWEI
+    private fun showOnlineVersion() = isNetworkOn() && splashVM.store != Store.HUAWEI
 
     private fun onNoInternetConnection() {
         offlinePrivacyPolicyTextView.text = ""
