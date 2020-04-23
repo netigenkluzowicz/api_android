@@ -4,3 +4,5 @@
 -keep class com.huawei.hms.**{*;}
 -keep class com.huawei.openalliance.ad.** { *; }
 -keep class com.huawei.hms.ads.** { *; }
+-ignorewarnings
+-keep class com.huawei.agconnect.**{*;}
