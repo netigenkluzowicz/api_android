@@ -43,7 +43,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
     private fun showGdprPopUp() {
         val fragment = GDPRDialogFragment.newInstance()
         fragment.show(supportFragmentManager.beginTransaction().addToBackStack(null), null)
-        fragment.setIsPayOptions(!noAdsActive)
+        fragment.setIsPayOptions(coreMainVM.isNoAdsAvailable)
         fragment.bindGDPRListener(object : GDPRDialogFragment.GDPRClickListener {
             override fun onConsentAccepted(personalizedAds: Boolean) {
                 coreMainVM.personalizedAdsEnabled = personalizedAds
