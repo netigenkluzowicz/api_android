@@ -13,3 +13,5 @@
 -keep class com.huawei.agconnect.**{*;}
 -keep interface com.huawei.hms.analytics.type.HAEventType{*;}
 -keep interface com.huawei.hms.analytics.type.HAParamType{*;}
+-keepresourcexmlelements **
+-keepresources */*
