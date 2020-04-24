@@ -95,9 +95,9 @@ class CoreSplashVMImplTest {
         val adsPublisher = getFlowPublisher { ads.interstitialAd.load() }
         coreSplashVMImpl.start()
         assertEquals(SplashState.LOADING, coreSplashVMImpl.splashState.value)
-        gdprConsentPublisher.offer(CheckGDPRLocationStatus.UE)
+        gdprConsentPublisher.sendBlocking(CheckGDPRLocationStatus.UE)
         assertEquals(SplashState.SHOW_GDPR_CONSENT, coreSplashVMImpl.splashState.value)
-        adsPublisher.offer(true)
+        adsPublisher.sendBlocking(true)
         assertEquals(SplashState.SHOW_GDPR_CONSENT, coreSplashVMImpl.splashState.value)
     }
 
@@ -112,7 +112,7 @@ class CoreSplashVMImplTest {
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
         coreSplashVMImpl.start()
         assertEquals(SplashState.LOADING, coreSplashVMImpl.splashState.value)
-        noAdsActivePublisher.offer(true)
+        noAdsActivePublisher.sendBlocking(true)
         assertEquals(SplashState.FINISHED, coreSplashVMImpl.splashState.value)
     }
 
@@ -127,7 +127,7 @@ class CoreSplashVMImplTest {
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
         coreSplashVMImpl.start()
         assertEquals(SplashState.SHOW_GDPR_CONSENT, coreSplashVMImpl.splashState.value)
-        noAdsActivePublisher.offer(true)
+        noAdsActivePublisher.sendBlocking(true)
         assertEquals(SplashState.FINISHED, coreSplashVMImpl.splashState.value)
     }
 

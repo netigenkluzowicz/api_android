@@ -9,9 +9,9 @@ import com.huawei.hms.ads.AdListener
 import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.InterstitialAd
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.isActive
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber
@@ -42,10 +42,13 @@ class HMSInterstitial(
                 override fun onAdFailed(errorCode: Int) {
                     super.onAdFailed(errorCode)
                     d("errorCode = [$errorCode]")
-                    if (isActive) {
+                    try {
                         d(errorCode.toString())
                         interstitialAd.adListener = null
-                        offer(false)
+                        sendBlocking(false)
+                    } catch (e: Exception) {
+                        Timber.e(e)
+                    } finally {
                         channel.close()
                     }
                 }
@@ -53,21 +56,21 @@ class HMSInterstitial(
                 override fun onAdLoaded() {
                     super.onAdLoaded()
                     d("()")
-                    if (isActive) {
+                    try {
                         d("()")
                         interstitialAd.adListener = null
-                        offer(true)
+                        sendBlocking(true)
+                    } catch (e: Exception) {
+                        Timber.e(e)
+                    } finally {
                         channel.close()
                     }
                 }
             }
             interstitialAd.adListener = callback
             interstitialAd.loadAd(AdParam.Builder().build())
-            try {
-                awaitClose { }
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
+
+            awaitClose {}
         }
 
     override val isLoaded: Boolean

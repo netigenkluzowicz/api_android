@@ -7,10 +7,10 @@ import com.huawei.hms.ads.consent.constant.ConsentStatus
 import com.huawei.hms.ads.consent.inter.Consent
 import com.huawei.hms.ads.consent.inter.ConsentUpdateListener
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.isActive
 import pl.netigen.coreapi.gdpr.*
 import timber.log.Timber
 
@@ -27,27 +27,27 @@ class GDPRConsentImpl(private val application: Application, private val config: 
         callbackFlow {
             val callback = object : ConsentUpdateListener {
                 override fun onSuccess(consentStatus: ConsentStatus?, isNeedConsent: Boolean, adProviders: MutableList<AdProvider>?) {
-                    if (isActive) {
+                    try {
                         Timber.d("consentStatus = [$consentStatus], isNeedConsent = [$isNeedConsent], adProviders = [$adProviders]")
-                        offer(if (isNeedConsent) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
+                        sendBlocking(if (isNeedConsent) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
+                    } catch (e: Exception) {
+                    } finally {
                         channel.close()
                     }
                 }
 
                 override fun onFail(errorDescription: String?) {
-                    if (isActive) {
+                    try {
                         Timber.d("errorDescription = [$errorDescription]")
-                        offer(CheckGDPRLocationStatus.ERROR)
+                        sendBlocking(CheckGDPRLocationStatus.ERROR)
+                    } catch (e: Exception) {
+                    } finally {
                         channel.close()
                     }
                 }
             }
             Consent.getInstance(application).requestConsentUpdate(callback)
-            try {
-                awaitClose {}
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
+            awaitClose {}
         }
 
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {

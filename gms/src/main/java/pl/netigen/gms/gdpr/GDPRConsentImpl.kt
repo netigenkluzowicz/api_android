@@ -6,10 +6,10 @@ import com.google.ads.consent.ConsentInfoUpdateListener
 import com.google.ads.consent.ConsentInformation
 import com.google.ads.consent.ConsentStatus
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.isActive
 import pl.netigen.coreapi.gdpr.*
 import timber.log.Timber
 
@@ -27,26 +27,28 @@ class GDPRConsentImpl(private val application: Application, private val config: 
         callbackFlow {
             val callback = object : ConsentInfoUpdateListener {
                 override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                    if (isActive) {
+                    try {
                         val isInEea = consentInformation.isRequestLocationInEeaOrUnknown
-                        offer(if (isInEea) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
+                        sendBlocking(if (isInEea) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
+                    } catch (e: Exception) {
+                        Timber.e(e)
+                    } finally {
                         channel.close()
                     }
                 }
 
                 override fun onFailedToUpdateConsentInfo(errorDescription: String) {
-                    if (isActive) {
-                        offer(CheckGDPRLocationStatus.ERROR)
+                    try {
+                        sendBlocking(CheckGDPRLocationStatus.ERROR)
+                    } catch (e: Exception) {
+                        Timber.e(e)
+                    } finally {
                         channel.close()
                     }
                 }
             }
             consentInformation.requestConsentInfoUpdate(config.adMobPublisherIds, callback)
-            try {
-                awaitClose {}
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
+            awaitClose {}
         }
 
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {

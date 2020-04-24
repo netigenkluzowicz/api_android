@@ -8,6 +8,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.isActive
@@ -39,30 +40,33 @@ class AdMobInterstitial(
         callbackFlow {
             val callback = object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
-                    if (isActive) {
+                    try {
                         d(errorCode.toString())
                         interstitialAd.adListener = null
-                        offer(false)
+                        sendBlocking(false)
+                    } catch (e: Exception) {
+                        Timber.e(e)
+                    } finally {
                         channel.close()
                     }
                 }
 
                 override fun onAdLoaded() {
-                    if (isActive) {
+                    try {
                         d("()")
                         interstitialAd.adListener = null
-                        offer(true)
+                        sendBlocking(true)
+
+                    } catch (e: Exception) {
+                        Timber.e(e)
+                    } finally {
                         channel.close()
                     }
                 }
             }
             interstitialAd.adListener = callback
             interstitialAd.loadAd(adMobRequest.getAdRequest())
-            try {
-                awaitClose { }
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
+            awaitClose {}
         }
 
     override val isLoaded: Boolean
