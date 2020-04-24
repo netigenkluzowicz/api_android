@@ -17,7 +17,14 @@ abstract class CoreViewModelsFactory(final override val activity: CoreMainActivi
     override val networkStatus get() = getNetworkStatus(activity.application)
 
     private fun getCoreMainVm(): CoreMainVM =
-        CoreMainVmImpl(activity.application, singletonAds(), singletonPayments(), networkStatus, singletonConsent())
+        CoreMainVmImpl(
+            activity.application,
+            singletonAds(),
+            singletonPayments(),
+            networkStatus,
+            singletonConsent(),
+            appConfig
+        )
 
     private fun getSplashVm(): SplashVM = CoreSplashVMImpl(
         activity.application,
