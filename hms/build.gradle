@@ -10,7 +10,7 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         versionName version
     }
@@ -39,8 +39,8 @@ dependencies {
     api Libraries.appcompat
     api 'com.huawei.hms:iap:4.0.2.300'
 
-    implementation 'com.huawei.agconnect:agconnect-crash:1.2.1.301'
-    implementation 'com.huawei.agconnect:agconnect-core:1.2.1.301'
+    implementation 'com.huawei.agconnect:agconnect-crash:1.3.1.300'
+    implementation 'com.huawei.agconnect:agconnect-core:1.3.1.300'
     implementation 'com.huawei.hms:ads-lite:13.4.29.303'
     implementation 'com.huawei.hms:ads-consent:3.4.29.303'
     implementation 'com.huawei.hms:hianalytics:4.0.3.300'
