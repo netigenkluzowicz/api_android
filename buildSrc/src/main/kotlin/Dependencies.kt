@@ -1,6 +1,6 @@
 object Versions {
     val legacySupportV13 = "1.0.0"
-    val playServicesAds = "19.0.1"
+    val playServicesAds = "19.1.0"
     val constraintLayout = "1.1.3"
     val material = "1.0.0"
     val gson = "2.8.6"
@@ -17,7 +17,7 @@ object Versions {
     val junit = "4.12"
     val testRunner = "1.2.0"
     val espressoCore = "3.2.0"
-    val billing = "2.1.0"
+    val billing = "2.2.0"
     val navigation = "2.2.2"
     val coroutines = "1.3.5"
     val room = "2.2.5"
