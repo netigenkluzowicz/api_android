@@ -10,9 +10,9 @@ import pl.netigen.hms.gdpr.GDPRConsentImpl
 import pl.netigen.hms.payments.HMSPayments
 
 object FlavoursConst {
-    const val bannerAdId: String = ""
-    const val interstitialAdId: String = ""
-    const val rewardedAdId: String = TEST_REWARDED_ID
+    const val BANNER_AD_ID: String = ""
+    const val INTERSTITIAL_AD_ID: String = ""
+    const val REWARDED_AD_ID: String = TEST_REWARDED_ID
 
 
     fun getPaymentsImpl(coreMainActivity: CoreMainActivity): IPayments = HMSPayments(coreMainActivity)

@@ -13,9 +13,9 @@ import pl.netigen.sampleapp.flavour.FlavoursConst
 class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
     override val appConfig by lazy {
         AppConfig(
-            bannerAdId = FlavoursConst.bannerAdId,
-            interstitialAdId = FlavoursConst.interstitialAdId,
-            rewardedAdId = FlavoursConst.rewardedAdId,
+            bannerAdId = FlavoursConst.BANNER_AD_ID,
+            interstitialAdId = FlavoursConst.INTERSTITIAL_AD_ID,
+            rewardedAdId = FlavoursConst.REWARDED_AD_ID,
             inDebugMode = true,
             store = when (BuildConfig.FLAVOR) {
                 "hms" -> Store.HUAWEI
