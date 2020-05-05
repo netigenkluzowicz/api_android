@@ -80,7 +80,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity == null) {
-            dismiss()
+            dismissAllowingStateLoss()
             return
         }
         setIcon()
@@ -110,7 +110,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
     private fun setButtons() {
         buttonYes.setOnClickListener {
             gdprClickListener?.onConsentAccepted(true)
-            dismiss()
+            dismissAllowingStateLoss()
         }
         buttonNo.setOnClickListener {
             showPrivacyPolicy()
@@ -126,7 +126,7 @@ class GDPRDialogFragment : AppCompatDialogFragment() {
         }
         buttonPolicy.setOnClickListener {
             gdprClickListener?.onConsentAccepted(false)
-            dismiss()
+            dismissAllowingStateLoss()
         }
     }
 

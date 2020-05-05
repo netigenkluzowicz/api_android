@@ -52,7 +52,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
             }
 
             override fun clickPay() {
-                fragment.dismiss()
+                fragment.dismissAllowingStateLoss()
                 coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
             }
         })

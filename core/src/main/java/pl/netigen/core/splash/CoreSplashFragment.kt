@@ -86,14 +86,14 @@ abstract class CoreSplashFragment : NetigenFragment(), GDPRDialogFragment.GDPRCl
     @CallSuper
     open fun onLoading() {
         d("()")
-        gdprDialogFragment?.dismiss()
+        gdprDialogFragment?.dismissAllowingStateLoss()
         coreMainActivity.onSplashOpened()
     }
 
     @CallSuper
     open fun onFinished() {
         d("()")
-        gdprDialogFragment?.dismiss()
+        gdprDialogFragment?.dismissAllowingStateLoss()
         coreMainActivity.onSplashClosed()
     }
 

@@ -62,21 +62,21 @@ class RateFragment(
     private fun setNeutralButtonListener() {
         rateUsFragmentLaterTextView.setOnClickListener {
             onClickLater?.let { it1 -> it1() }
-            dismiss()
+            dismissAllowingStateLoss()
         }
     }
 
     private fun setPositiveButtonListener() {
         rateUsFragmentYesTextView.setOnClickListener {
             onClickYes?.let { it1 -> it1() }
-            dismiss()
+            dismissAllowingStateLoss()
         }
     }
 
     private fun setNegativeButtonListener() {
         closeRateUs.setOnClickListener {
             onClickNo?.let { it1 -> it1() }
-            dismiss()
+            dismissAllowingStateLoss()
         }
     }
 }
