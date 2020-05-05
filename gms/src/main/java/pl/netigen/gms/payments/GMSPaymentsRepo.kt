@@ -2,6 +2,9 @@ package pl.netigen.gms.payments
 
 import android.app.Activity
 import android.app.Application
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.map
 import com.android.billingclient.api.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -173,6 +176,9 @@ class GMSPaymentsRepo(
             }
         }
     }
+
+    override val ownedPurchases: LiveData<List<String>>
+        get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.sku } }
 
     private fun acknowledgeNonConsumablePurchasesAsync(nonConsumables: List<Purchase>) {
         Timber.d("nonConsumables = [$nonConsumables]")

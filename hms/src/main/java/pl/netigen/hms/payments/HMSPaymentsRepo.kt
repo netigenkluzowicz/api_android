@@ -4,7 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.content.IntentSender.SendIntentException
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.map
 import com.huawei.hmf.tasks.OnSuccessListener
 import com.huawei.hmf.tasks.Task
 import com.huawei.hms.iap.Iap
@@ -40,6 +43,10 @@ class HMSPaymentsRepo(
         d("()")
         obtainOwnedPurchases()
     }
+
+
+    override val ownedPurchases: LiveData<List<String>>
+        get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.productId } }
 
     override fun endConnection() = Unit
 
@@ -79,7 +86,9 @@ class HMSPaymentsRepo(
         return req
     }
 
-    fun makeNoAdsPurchase(activity: Activity, noAdsString: String) {
+    fun makeNoAdsPurchase(activity: Activity, noAdsString: String) = makePurchase(activity, noAdsString)
+
+    private fun makePurchase(activity: Activity, noAdsString: String) {
         d("activity = [$activity], noAdsString = [$noAdsString]")
         val mClient = Iap.getIapClient(activity)
         val task = mClient.createPurchaseIntent(createPurchaseIntentReq(noAdsString))

@@ -8,6 +8,7 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 interface IPayments : INoAds {
     val inAppSkuDetails: LiveData<List<NetigenSkuDetails>>
     val subsSkuDetails: LiveData<List<NetigenSkuDetails>>
+    val ownedPurchases: LiveData<List<String>>
 
     fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails)
     fun endConnection()
