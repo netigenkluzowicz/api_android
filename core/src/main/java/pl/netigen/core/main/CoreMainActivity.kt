@@ -37,7 +37,11 @@ abstract class CoreMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         coreMainVM.noAdsActive.asLiveData().observe(this, this::onNoAdsChanged)
-        coreMainVM.showGdprResetAds.observe(this) { showGdprPopUp() }
+        coreMainVM.showGdprResetAds.observe(this) {
+            if (canCommitFragments) {
+                showGdprPopUp()
+            }
+        }
     }
 
     private fun showGdprPopUp() {
@@ -59,8 +63,8 @@ abstract class CoreMainActivity : AppCompatActivity() {
     }
 
     @CallSuper
-    override fun onResume() {
-        super.onResume()
+    override fun onResumeFragments() {
+        super.onResumeFragments()
         Timber.d("()")
         canCommitFragments = true
     }
