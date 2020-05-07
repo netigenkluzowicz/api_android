@@ -86,12 +86,11 @@ class HMSPaymentsRepo(
         return req
     }
 
-    fun makeNoAdsPurchase(activity: Activity, noAdsString: String) = makePurchase(activity, noAdsString)
 
-    private fun makePurchase(activity: Activity, noAdsString: String) {
-        d("activity = [$activity], noAdsString = [$noAdsString]")
+    fun makePurchase(activity: Activity, skuId: String) {
+        d("activity = [$activity], skuId = [$skuId]")
         val mClient = Iap.getIapClient(activity)
-        val task = mClient.createPurchaseIntent(createPurchaseIntentReq(noAdsString))
+        val task = mClient.createPurchaseIntent(createPurchaseIntentReq(skuId))
         task.addOnSuccessListener(OnSuccessListener { result ->
             d("createPurchaseIntent, onSuccess")
             if (result == null) {

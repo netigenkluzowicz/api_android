@@ -134,9 +134,9 @@ class GMSPaymentsRepo(
         try {
             val validPurchases = HashSet<Purchase>(purchasesResult.size)
             purchasesResult.forEach { purchase ->
+                Timber.d("purchase = [$purchase]${purchase.purchaseState}")
                 if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
                     if (isSignatureValid(purchase)) {
-                        Timber.d("purchase = [$purchase]${purchase.purchaseState}")
                         validPurchases.add(purchase)
                     }
                 } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {
@@ -196,27 +196,25 @@ class GMSPaymentsRepo(
     //TODO here's a method that we might use to give user certain entitlements
     private fun disburseNonConsumableEntitlement(purchase: Purchase) = Unit
 
-    fun makeNoAdsPurchase(activity: Activity, noAdsString: String = "${activity.packageName}.noads") {
+    fun makePurchase(activity: Activity, skuId: String) {
+        Timber.d("activity = [$activity], skuId = [$skuId]")
         CoroutineScope(Job() + Dispatchers.IO).launch {
             try {
-                val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(noAdsString)
-                Timber.d("netigenSkuDetails for noads: $netigenNoAdsSkuDetails")
-                netigenNoAdsSkuDetails?.let {
-                    launchBillingFlow(activity, it)
-                }
+                val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(skuId)
+                netigenNoAdsSkuDetails?.let { launchBillingFlow(activity, it) }
             } catch (e: Exception) {
                 Timber.e(e)
             }
         }
     }
 
-    fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
-        Timber.d("launching billing flow")
+    private fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
+        Timber.d("activity = [$activity], netigenSkuDetails = [$netigenSkuDetails]")
         netigenSkuDetails.originalJson?.let { launchBillingFlow(activity, SkuDetails(it)) }
             ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
     }
 
-    fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {
+    private fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {
         Timber.d("activity = [$activity], skuDetails = [$skuDetails]")
         val purchaseParams = BillingFlowParams.newBuilder().setSkuDetails(skuDetails).build()
         gmsBillingClient.launchBillingFlow(activity, purchaseParams)

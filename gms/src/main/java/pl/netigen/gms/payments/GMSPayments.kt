@@ -3,7 +3,6 @@ package pl.netigen.gms.payments
 import android.app.Activity
 import android.app.Application
 import pl.netigen.coreapi.payments.Payments
-import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 import timber.log.Timber.d
 
 class GMSPayments(
@@ -14,17 +13,15 @@ class GMSPayments(
 ) : Payments() {
     override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList)
 
-    override fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
-        paymentsRepo.launchBillingFlow(activity, netigenSkuDetails)
+    override fun makePurchase(activity: Activity, skuId: String) {
+        d("activity = [$activity], skuString = [$skuId]")
+        paymentsRepo.makePurchase(activity, skuId)
+
     }
 
     override fun makeNoAdsPayment(activity: Activity, noAdsString: String) {
         d("activity = [$activity], noAdsString = [$noAdsString]")
-        if (noAdsString in noAdsInAppSkuList) {
-            paymentsRepo.makeNoAdsPurchase(activity, noAdsString)
-        } else {
-            paymentsRepo.makeNoAdsPurchase(activity, noAdsInAppSkuList[0])
-        }
+        if (noAdsString in noAdsInAppSkuList) makePurchase(activity, noAdsString) else makePurchase(activity, noAdsInAppSkuList[0])
     }
 
 }

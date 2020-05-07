@@ -10,7 +10,7 @@ interface IPayments : INoAds {
     val subsSkuDetails: LiveData<List<NetigenSkuDetails>>
     val ownedPurchases: LiveData<List<String>>
 
-    fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails)
+    fun makePurchase(activity: Activity, skuId: String)
     fun endConnection()
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent)
 }

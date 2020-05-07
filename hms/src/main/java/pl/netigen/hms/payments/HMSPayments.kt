@@ -3,7 +3,7 @@ package pl.netigen.hms.payments
 import android.app.Activity
 import android.content.Intent
 import pl.netigen.coreapi.payments.Payments
-import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import timber.log.Timber.d
 
 class HMSPayments(
     activity: Activity,
@@ -14,14 +14,15 @@ class HMSPayments(
 ) : Payments() {
     override val paymentsRepo = HMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList, consumeTestPurchase)
 
-    override fun makePurchase(activity: Activity, netigenSkuDetails: NetigenSkuDetails) = Unit
+    override fun makePurchase(activity: Activity, skuId: String) {
+        d("activity = [$activity], skuString = [$skuId]")
+        paymentsRepo.makePurchase(activity, skuId)
+
+    }
 
     override fun makeNoAdsPayment(activity: Activity, noAdsString: String) {
-        if (noAdsString in noAdsInAppSkuList) {
-            paymentsRepo.makeNoAdsPurchase(activity, noAdsString)
-        } else {
-            paymentsRepo.makeNoAdsPurchase(activity, noAdsInAppSkuList[0])
-        }
+        d("activity = [$activity], noAdsString = [$noAdsString]")
+        if (noAdsString in noAdsInAppSkuList) makePurchase(activity, noAdsString) else makePurchase(activity, noAdsInAppSkuList[0])
     }
 
     //used only in HMS
