@@ -30,12 +30,12 @@ class HMSPaymentsRepo(
     private val activity: Activity,
     private val inAppSkuList: List<String>,
     private val noAdsInAppSkuList: List<String>,
-    private val consumablesInAppSkuList: List<String> = emptyList(),
-    private val consumeTestPurchase: Boolean = false
+    private val consumeTestPurchase: Boolean = false,
+    private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
-    override val inAppSkuDetails = MutableLiveData<List<NetigenSkuDetails>>()
-    override val subsSkuDetails = MutableLiveData<List<NetigenSkuDetails>>()
+    override val inAppSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()
+    override val subsSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
         .map { list -> list.any { it.data.productId in noAdsInAppSkuList } }
 
@@ -44,11 +44,8 @@ class HMSPaymentsRepo(
         obtainOwnedPurchases()
     }
 
-
-    override val ownedPurchases: LiveData<List<String>>
+    override val ownedPurchasesSkuLD: LiveData<List<String>>
         get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.productId } }
-
-    override fun endConnection() = Unit
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         if (requestCode == REQ_CODE_BUY) {

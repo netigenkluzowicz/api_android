@@ -5,23 +5,19 @@ import android.app.Application
 import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.d
 
-class GMSPayments(
-    application: Application,
-    inAppSkuList: List<String> = listOf("${application.packageName}.noads"),
-    private val noAdsInAppSkuList: List<String> = listOf("${application.packageName}.noads"),
-    consumablesInAppSkuList: List<String> = emptyList()
-) : Payments() {
-    override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList)
+class GMSPayments(override val application: Application) : Payments() {
 
-    override fun makePurchase(activity: Activity, skuId: String) {
-        d("activity = [$activity], skuString = [$skuId]")
-        paymentsRepo.makePurchase(activity, skuId)
+    override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList)
+
+    override fun makePurchase(activity: Activity, sku: String) {
+        d("activity = [$activity], skuString = [$sku]")
+        paymentsRepo.makePurchase(activity, sku)
 
     }
 
-    override fun makeNoAdsPayment(activity: Activity, noAdsString: String) {
-        d("activity = [$activity], noAdsString = [$noAdsString]")
-        if (noAdsString in noAdsInAppSkuList) makePurchase(activity, noAdsString) else makePurchase(activity, noAdsInAppSkuList[0])
+    override fun makeNoAdsPayment(activity: Activity, noAdsSku: String) {
+        d("activity = [$activity], noAdsString = [$noAdsSku]")
+        if (noAdsSku in noAdsInAppSkuList) makePurchase(activity, noAdsSku) else makePurchase(activity, noAdsInAppSkuList[0])
     }
 
 }

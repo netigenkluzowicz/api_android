@@ -29,8 +29,8 @@ class GMSPaymentsRepo(
         .enablePendingPurchases()
         .setListener(this)
         .build()
-    override val inAppSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
-    override val subsSkuDetails by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
+    override val inAppSkuDetailsLD by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
+    override val subsSkuDetailsLD by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
 
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
         .map { list -> list.any { it.data.sku in noAdsInAppSkuList } }
@@ -48,10 +48,10 @@ class GMSPaymentsRepo(
         return false
     }
 
-    override fun endConnection() {
+    // TODO: 10.05.2020 we should check if we should call this
+    fun endConnection() {
         Timber.d("()")
         gmsBillingClient.endConnection()
-        localCacheBillingClient.close()
     }
 
     override fun onBillingSetupFinished(billingResult: BillingResult) {
@@ -177,7 +177,7 @@ class GMSPaymentsRepo(
         }
     }
 
-    override val ownedPurchases: LiveData<List<String>>
+    override val ownedPurchasesSkuLD: LiveData<List<String>>
         get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.sku } }
 
     private fun acknowledgeNonConsumablePurchasesAsync(nonConsumables: List<Purchase>) {
