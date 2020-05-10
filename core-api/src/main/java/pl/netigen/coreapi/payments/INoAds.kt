@@ -4,7 +4,7 @@ import android.app.Activity
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Simple interface for no ads Payments, which turns off ads in whole application
+ * Interface for no ads Payments, which turns on/off ads in whole application
  *
  */
 interface INoAds {
@@ -15,6 +15,7 @@ interface INoAds {
 
     /**
      * List of no ads sku available in application
+     *
      * For default it is one sku: [packageName] +".noads"
      */
     val noAdsInAppSkuList: List<String>
@@ -30,10 +31,10 @@ interface INoAds {
      * It will show the purchase screen to the user
      *
      * @param activity activity used to as context for launch
-     * @param noAdsSku optional parameter - no ads in-app purchase identifier (sku)
-     * use when it is more than one no ad sku available, because this takes current provided no ads sku from [noAdsInAppSkuList]
+     * @param noAdsSku optional parameter - no ads in-app purchase identifier (sku).
+     * Use when it is multiple no-ads sku-s, because this takes current provided no ads sku from [noAdsInAppSkuList].
      *
-     *  default value is [packageName] +".noads"
+     * For default it is [packageName] +".noads"
      */
     fun makeNoAdsPayment(activity: Activity, noAdsSku: String = "${packageName}.noads")
 }

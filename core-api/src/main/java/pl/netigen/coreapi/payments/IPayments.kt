@@ -7,7 +7,12 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 /**
  * Interface for payments, extends [INoAds]
- * Use this to observe make payments, observe owned payments, observe available payments
+ *
+ * Use this for:
+ * - observe no-ads payments changes,
+ * - observe owned payments changes (refreshed on application start),
+ * - observe available payments with details ([NetigenSkuDetails]) fetched form store
+ * - making calls for launch payment flow
  *
  */
 interface IPayments : INoAds {
@@ -33,13 +38,17 @@ interface IPayments : INoAds {
     val subsSkuDetailsLD: LiveData<List<NetigenSkuDetails>>
 
     /**
-     * [LiveData] with list of payments owned by user (this payments [String] sku), this values a equal to [NetigenSkuDetails.sku]
+     * [LiveData] with list of payments owned by user (this payments [String] sku)
+     *
+     * This is updated with each start of application, and with user interaction with payments
      */
     val ownedPurchasesSkuLD: LiveData<List<String>>
 
     /**
      * Makes call to current payment implementation to launch billing flow for given [String] sku.
+     *
      * It will show the purchase screen to the user
+     *
      * When user successfully complete purchase, [ownedPurchasesSkuLD] live data will be updated with this purchase sku
      *
      * @param activity activity used to as context for launch

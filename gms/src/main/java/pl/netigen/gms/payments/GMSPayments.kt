@@ -5,9 +5,9 @@ import android.app.Application
 import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.d
 
-class GMSPayments(override val application: Application) : Payments() {
+class GMSPayments(override val paymentsImplContext: Application) : Payments(paymentsImplContext) {
 
-    override val paymentsRepo = GMSPaymentsRepo(application, inAppSkuList, noAdsInAppSkuList)
+    override val paymentsRepo = GMSPaymentsRepo(paymentsImplContext, inAppSkuList, noAdsInAppSkuList)
 
     override fun makePurchase(activity: Activity, sku: String) {
         d("activity = [$activity], skuString = [$sku]")

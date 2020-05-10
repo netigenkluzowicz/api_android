@@ -5,7 +5,9 @@ import kotlinx.coroutines.flow.Flow
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 /**
- * Interface for current payments implementation repository
+ * Interface for current payments repository implementation
+ *
+ * Current design uses [androidx.room.Room] database + [Flow]/[LiveData] for observing purchases data
  * @see IPayments
  */
 interface IPaymentsRepo {
