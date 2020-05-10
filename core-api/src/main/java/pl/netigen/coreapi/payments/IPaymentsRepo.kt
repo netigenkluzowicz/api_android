@@ -12,7 +12,7 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
  */
 interface IPaymentsRepo {
     /**
-     * [LiveData] with list of payments owned by user (this payments [String] sku), this values a equal to [NetigenSkuDetails.sku]
+     * [LiveData] with list of payments owned by user (this payments [String] sku)
      *
      * @see IPayments.ownedPurchasesSkuLD
      */
@@ -28,7 +28,8 @@ interface IPaymentsRepo {
 
     /**
      * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available in app payments
-     * warning this currently not working in HMS!!
+     *
+     * warning this currently not working/tested in HMS!!
      *
      * @see IPayments.inAppSkuDetailsLD
      */
@@ -36,7 +37,8 @@ interface IPaymentsRepo {
 
     /**
      * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available subscriptions
-     * warning this currently not working in HMS!!
+     *
+     * warning this currently not working/tested in HMS!!
      *
      * @see IPayments.subsSkuDetailsLD
      */

@@ -26,14 +26,14 @@ interface IPayments : INoAds {
      * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available in app payments
      * 01
      *
-     * warning this currently not working in HMS!!
+     * warning this currently not working/tested in HMS!!
      */
     val inAppSkuDetailsLD: LiveData<List<NetigenSkuDetails>>
 
     /**
      * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available subscriptions
      *
-     * warning this currently not working in HMS!!
+     * warning this currently not working/tested in HMS!!
      */
     val subsSkuDetailsLD: LiveData<List<NetigenSkuDetails>>
 
