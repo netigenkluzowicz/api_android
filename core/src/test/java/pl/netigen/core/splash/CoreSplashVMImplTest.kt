@@ -6,6 +6,7 @@ import io.mockk.*
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
+import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
@@ -25,6 +26,7 @@ import pl.netigen.coreapi.ads.IInterstitialAd
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.SplashState
@@ -34,19 +36,25 @@ class CoreSplashVMImplTest {
     @get:Rule
     val rule = InstantTaskExecutorRule()
     private lateinit var coreSplashVMImpl: CoreSplashVMImpl
+
     @RelaxedMockK
     private lateinit var application: Application
+
     @RelaxedMockK
     private lateinit var gdprConsent: IGDPRConsent
+
     @RelaxedMockK
     private lateinit var ads: IAds
+
     @RelaxedMockK
     private lateinit var interstitialAd: IInterstitialAd
+
     @RelaxedMockK
     private lateinit var noAdsPurchases: INoAds
+
     @RelaxedMockK
     private lateinit var networkStatus: INetworkStatus
-    private var appConfig: AppConfig = AppConfig("", "")
+    private var appConfig: AppConfig = AppConfig("", "", store = Store.GOOGLE_PLAY)
     private val testDispatcher = TestCoroutineDispatcher()
 
     @Before
