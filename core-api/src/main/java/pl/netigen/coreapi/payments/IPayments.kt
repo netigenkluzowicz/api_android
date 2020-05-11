@@ -24,7 +24,6 @@ interface IPayments : INoAds {
 
     /**
      * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available in app payments
-     * 01
      *
      * warning this currently not working/tested in HMS!!
      */
