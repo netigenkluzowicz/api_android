@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'org.jetbrains.dokka'
 
 android {
     compileSdkVersion 28
@@ -30,6 +31,18 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+
+dokka {
+    configuration {
+
+        outputFormat = 'markdown'
+        externalDocumentationLink {
+            // Root URL of the generated documentation to link with. The trailing slash is required!
+            url = new URL("https://developer.android.com/reference/kotlin/")
+            packageListUrl = new URL("https://developer.android.com/reference/androidx/package-list")
+        }
     }
 }
 
@@ -70,3 +83,4 @@ dependencies {
     kapt Libraries.glideCompiler
     api Libraries.timber
 }
+
