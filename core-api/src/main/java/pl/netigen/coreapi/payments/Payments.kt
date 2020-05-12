@@ -7,7 +7,8 @@ import kotlinx.coroutines.flow.Flow
 
 /**
  * Base class for [IPayments] implementations
- * Provides access to payments repository and default sku values
+ *
+ * Provides also access to payments repository and default sku values
  *
  * @property paymentsImplContext [Context] using in current Payments implementation and for get [packageName]
  */
