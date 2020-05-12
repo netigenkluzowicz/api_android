@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+[core-api](./index.md)
 
-You can use the [editor on GitHub](https://github.com/netigenkluzowicz/api_android/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+### Packages
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+| [pl.netigen.coreapi.ads](pl.netigen.coreapi.ads/index.md) |  |
+| [pl.netigen.coreapi.gdpr](pl.netigen.coreapi.gdpr/index.md) |  |
+| [pl.netigen.coreapi.main](pl.netigen.coreapi.main/index.md) |  |
+| [pl.netigen.coreapi.network](pl.netigen.coreapi.network/index.md) |  |
+| [pl.netigen.coreapi.payments](pl.netigen.coreapi.payments/index.md) |  |
+| [pl.netigen.coreapi.payments.model](pl.netigen.coreapi.payments.model/index.md) |  |
+| [pl.netigen.coreapi.splash](pl.netigen.coreapi.splash/index.md) |  |
+| [pl.netigen.extensions](pl.netigen.extensions/index.md) |  |
+| [pl.netigen.utils](pl.netigen.utils/index.md) |  |
 
-### Markdown
+### Index
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/netigenkluzowicz/api_android/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[All Types](alltypes/index.md)
