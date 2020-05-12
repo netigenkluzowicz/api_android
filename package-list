@@ -1,0 +1,41 @@
+$dokka.format:markdown
+$dokka.linkExtension:md
+$dokka.location:pl.netigen.extensions$filter(androidx.lifecycle.LiveData((pl.netigen.extensions.filter.T)), kotlin.Function1((pl.netigen.extensions.filter.T, kotlin.Boolean)))pl.netigen.extensions/androidx.lifecycle.-live-data/filter.md
+$dokka.location:pl.netigen.extensions$fromJson(kotlin.String)pl.netigen.extensions/kotlin.-string/from-json.md
+$dokka.location:pl.netigen.extensions$launch(androidx.lifecycle.ViewModel, kotlin.coroutines.CoroutineContext, kotlin.coroutines.SuspendFunction1((kotlinx.coroutines.CoroutineScope, kotlin.Unit)))pl.netigen.extensions/androidx.lifecycle.-view-model/launch.md
+$dokka.location:pl.netigen.extensions$launchIO(androidx.lifecycle.ViewModel, kotlin.coroutines.SuspendFunction1((kotlinx.coroutines.CoroutineScope, kotlin.Unit)))pl.netigen.extensions/androidx.lifecycle.-view-model/launch-i-o.md
+$dokka.location:pl.netigen.extensions$launchMain(androidx.lifecycle.ViewModel, kotlin.coroutines.SuspendFunction1((kotlinx.coroutines.CoroutineScope, kotlin.Unit)))pl.netigen.extensions/androidx.lifecycle.-view-model/launch-main.md
+$dokka.location:pl.netigen.extensions$loopAnim(android.graphics.drawable.Drawable, android.view.View)pl.netigen.extensions/android.graphics.drawable.-drawable/loop-anim.md
+$dokka.location:pl.netigen.extensions$mapToEnumMap(kotlin.collections.Iterable((pl.netigen.extensions.mapToEnumMap.V)))pl.netigen.extensions/kotlin.collections.-iterable/map-to-enum-map.md
+$dokka.location:pl.netigen.extensions$nonNull(androidx.lifecycle.LiveData((pl.netigen.extensions.nonNull.T)))pl.netigen.extensions/androidx.lifecycle.-live-data/non-null.md
+$dokka.location:pl.netigen.extensions$observe(androidx.lifecycle.LiveData((pl.netigen.extensions.observe.T)), androidx.lifecycle.LifecycleOwner, kotlin.Function1((pl.netigen.extensions.observe.T, kotlin.Unit)))pl.netigen.extensions/androidx.lifecycle.-live-data/observe.md
+$dokka.location:pl.netigen.extensions$observeChanges(android.widget.SeekBar, kotlin.Function1((kotlin.Int, kotlin.Unit)))pl.netigen.extensions/android.widget.-seek-bar/observe-changes.md
+$dokka.location:pl.netigen.extensions$observeDistinct(androidx.lifecycle.LiveData((pl.netigen.extensions.observeDistinct.T)), androidx.lifecycle.LifecycleOwner, kotlin.Function1((pl.netigen.extensions.observeDistinct.T, kotlin.Unit)))pl.netigen.extensions/androidx.lifecycle.-live-data/observe-distinct.md
+$dokka.location:pl.netigen.extensions$observeUserChanges(android.widget.SeekBar, kotlin.Function1((kotlin.Int, kotlin.Unit)))pl.netigen.extensions/android.widget.-seek-bar/observe-user-changes.md
+$dokka.location:pl.netigen.extensions$onLayoutMeasured(android.view.View, kotlin.Function0((kotlin.Any)), kotlin.Boolean)pl.netigen.extensions/android.view.-view/on-layout-measured.md
+$dokka.location:pl.netigen.extensions$safeNavigate(androidx.fragment.app.Fragment, androidx.navigation.NavDirections)pl.netigen.extensions/androidx.fragment.app.-fragment/safe-navigate.md
+$dokka.location:pl.netigen.extensions$safeNavigate(androidx.fragment.app.Fragment, kotlin.Int, android.os.Bundle, androidx.navigation.NavOptions)pl.netigen.extensions/androidx.fragment.app.-fragment/safe-navigate.md
+$dokka.location:pl.netigen.extensions$safeNavigate(androidx.navigation.NavController, androidx.navigation.NavDirections)pl.netigen.extensions/androidx.navigation.-nav-controller/safe-navigate.md
+$dokka.location:pl.netigen.extensions$safeNavigate(androidx.navigation.NavController, kotlin.Int, android.os.Bundle, androidx.navigation.NavOptions)pl.netigen.extensions/androidx.navigation.-nav-controller/safe-navigate.md
+$dokka.location:pl.netigen.extensions$setBackgroundTint(android.widget.ImageView, kotlin.Int, android.graphics.PorterDuff.Mode)pl.netigen.extensions/android.widget.-image-view/set-background-tint.md
+$dokka.location:pl.netigen.extensions$setDialogSize(androidx.fragment.app.DialogFragment, kotlin.Double, kotlin.Double)pl.netigen.extensions/androidx.fragment.app.-dialog-fragment/set-dialog-size.md
+$dokka.location:pl.netigen.extensions$setDialogSize(androidx.fragment.app.DialogFragment, kotlin.Int, kotlin.Int)pl.netigen.extensions/androidx.fragment.app.-dialog-fragment/set-dialog-size.md
+$dokka.location:pl.netigen.extensions$setDialogSizeAsMatchParent(androidx.fragment.app.DialogFragment)pl.netigen.extensions/androidx.fragment.app.-dialog-fragment/set-dialog-size-as-match-parent.md
+$dokka.location:pl.netigen.extensions$setTint(android.graphics.drawable.Drawable, android.content.Context, kotlin.Int, android.graphics.PorterDuff.Mode)pl.netigen.extensions/android.graphics.drawable.-drawable/set-tint.md
+$dokka.location:pl.netigen.extensions$setTint(android.widget.ImageView, kotlin.Int, android.graphics.PorterDuff.Mode)pl.netigen.extensions/android.widget.-image-view/set-tint.md
+$dokka.location:pl.netigen.extensions$startAnim(android.graphics.drawable.Drawable)pl.netigen.extensions/android.graphics.drawable.-drawable/start-anim.md
+$dokka.location:pl.netigen.extensions$stopAnim(android.graphics.drawable.Drawable)pl.netigen.extensions/android.graphics.drawable.-drawable/stop-anim.md
+$dokka.location:pl.netigen.extensions$toDp(kotlin.Int)pl.netigen.extensions/kotlin.-int/to-dp.md
+$dokka.location:pl.netigen.extensions$toPx(kotlin.Int)pl.netigen.extensions/kotlin.-int/to-px.md
+$dokka.location:pl.netigen.extensions$withLatestFrom(androidx.lifecycle.LiveData((pl.netigen.extensions.withLatestFrom.F)), androidx.lifecycle.LiveData((pl.netigen.extensions.withLatestFrom.S)))pl.netigen.extensions/androidx.lifecycle.-live-data/with-latest-from.md
+$dokka.location:pl.netigen.extensions$zipLiveData(androidx.lifecycle.LiveData((pl.netigen.extensions.zipLiveData.F)), androidx.lifecycle.LiveData((pl.netigen.extensions.zipLiveData.S)))pl.netigen.extensions/androidx.lifecycle.-live-data/zip-live-data.md
+$dokka.location:pl.netigen.extensions$zipLiveData(kotlin.Pair((androidx.lifecycle.LiveData((pl.netigen.extensions.zipLiveData.F)), androidx.lifecycle.LiveData((pl.netigen.extensions.zipLiveData.S)))))pl.netigen.extensions/kotlin.-pair/zip-live-data.md
+pl.netigen.coreapi.ads
+pl.netigen.coreapi.gdpr
+pl.netigen.coreapi.main
+pl.netigen.coreapi.network
+pl.netigen.coreapi.payments
+pl.netigen.coreapi.payments.model
+pl.netigen.coreapi.splash
+pl.netigen.extensions
+pl.netigen.utils
