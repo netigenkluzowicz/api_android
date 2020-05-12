@@ -37,7 +37,7 @@ android {
 dokka {
     configuration {
 
-        outputFormat = 'markdown'
+        outputFormat = 'html'
         externalDocumentationLink {
             // Root URL of the generated documentation to link with. The trailing slash is required!
             url = new URL("https://developer.android.com/reference/kotlin/")
