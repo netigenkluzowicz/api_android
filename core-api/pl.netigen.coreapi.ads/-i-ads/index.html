@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IAds - core-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core-api</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.coreapi.ads</a>&nbsp;/&nbsp;<a href="./index.html">IAds</a><br/>
+<br/>
+<h1>IAds</h1>
+<code><span class="keyword">interface </span><span class="identifier">IAds</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="banner-ad.html">bannerAd</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">bannerAd</span><span class="symbol">: </span><a href="../-i-banner-ad/index.html"><span class="identifier">IBannerAd</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="interstitial-ad.html">interstitialAd</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">interstitialAd</span><span class="symbol">: </span><a href="../-i-interstitial-ad/index.html"><span class="identifier">IInterstitialAd</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="personalized-ads-enabled.html">personalizedAdsEnabled</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">var </span><span class="identifier">personalizedAdsEnabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rewarded-ad.html">rewardedAd</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">rewardedAd</span><span class="symbol">: </span><a href="../-i-rewarded-ad/index.html"><span class="identifier">IRewardedAd</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="disable.html">disable</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">disable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="enable.html">enable</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">enable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../../pl.netigen.coreapi.main/-i-core-main-v-m/index.html">ICoreMainVM</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ICoreMainVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../pl.netigen.coreapi.payments/-i-payments/index.html"><span class="identifier">IPayments</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">IAds</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.network/-i-network-status/index.html"><span class="identifier">INetworkStatus</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html"><span class="identifier">IGDPRConsent</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.main/-i-app-config/index.html"><span class="identifier">IAppConfig</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

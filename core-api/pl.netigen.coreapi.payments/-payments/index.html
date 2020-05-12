@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Payments - core-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core-api</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.coreapi.payments</a>&nbsp;/&nbsp;<a href="./index.html">Payments</a><br/>
+<br/>
+<h1>Payments</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Payments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-payments/index.html"><span class="identifier">IPayments</span></a></code>
+<p>Base class for <a href="../-i-payments/index.html">IPayments</a> implementations</p>
+<p>Provides also access to payments repository and default sku values</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Base class for <a href="../-i-payments/index.html">IPayments</a> implementations</p>
+<code><span class="identifier">Payments</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/paymentsImplContext">paymentsImplContext</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/packageName">packageName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;paymentsImplContext.packageName<span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/noAdsInAppSkuList">noAdsInAppSkuList</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;listOf("${packageName}.noads")<span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/inAppSkuList">inAppSkuList</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;listOf("${packageName}.noads")<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="in-app-sku-details-l-d.html">inAppSkuDetailsLD</a></h4>
+</td>
+<td>
+<p><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html">LiveData</a> with list of <a href="../../pl.netigen.coreapi.payments.model/-netigen-sku-details/index.html">NetigenSkuDetails</a>, use this to get information of current available in app payments</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">inAppSkuDetailsLD</span><span class="symbol">: </span><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html"><span class="identifier">LiveData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../pl.netigen.coreapi.payments.model/-netigen-sku-details/index.html"><span class="identifier">NetigenSkuDetails</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="in-app-sku-list.html">inAppSkuList</a></h4>
+</td>
+<td>
+<p>List of all payments sku available in Application
+for default it is only one default no-ads sku: <a href="../-i-no-ads/package-name.html">packageName</a> +".noads"</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">inAppSkuList</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="no-ads-active.html">noAdsActive</a></h4>
+</td>
+<td>
+<p>Emits <a href="#">Flow</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt; indicating that no ads in-app purchase is or has changed to active or inactive
+Use this for behave with no ads related stuff, (e.g. hide/show no ads buy buttons)</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">noAdsActive</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="no-ads-in-app-sku-list.html">noAdsInAppSkuList</a></h4>
+</td>
+<td>
+<p>List of no ads sku available in application</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">noAdsInAppSkuList</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="owned-purchases-sku-l-d.html">ownedPurchasesSkuLD</a></h4>
+</td>
+<td>
+<p><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html">LiveData</a> with list of payments owned by user (this payments <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> sku)</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">ownedPurchasesSkuLD</span><span class="symbol">: </span><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html"><span class="identifier">LiveData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="package-name.html">packageName</a></h4>
+</td>
+<td>
+<p>Application package name for default no ads sku</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">packageName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="payments-impl-context.html">paymentsImplContext</a></h4>
+</td>
+<td>
+<p><a href="https://developer.android.com/reference/android/content/Context.html">Context</a> using in current Payments implementation and for get <a href="package-name.html">packageName</a></p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">paymentsImplContext</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="payments-repo.html">paymentsRepo</a></h4>
+</td>
+<td>
+<p>Current <a href="../-i-payments-repo/index.html">IPaymentsRepo</a> implementation,
+current design uses <a href="https://developer.android.com/reference/kotlin/androidx/room/Room.html">androidx.room.Room</a> database + <a href="#">Flow</a>/<a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html">LiveData</a> for observing purchases data</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">paymentsRepo</span><span class="symbol">: </span><a href="../-i-payments-repo/index.html"><span class="identifier">IPaymentsRepo</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="subs-sku-details-l-d.html">subsSkuDetailsLD</a></h4>
+</td>
+<td>
+<p><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html">LiveData</a> with list of <a href="../../pl.netigen.coreapi.payments.model/-netigen-sku-details/index.html">NetigenSkuDetails</a>, use this to get information of current available subscriptions</p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">subsSkuDetailsLD</span><span class="symbol">: </span><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html"><span class="identifier">LiveData</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../pl.netigen.coreapi.payments.model/-netigen-sku-details/index.html"><span class="identifier">NetigenSkuDetails</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="on-activity-result.html">onActivityResult</a></h4>
+</td>
+<td>
+<p>Used only in HMS payments implementation, to handle billing events
+Not need to be called manually</p>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onActivityResult</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/requestCode">requestCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/resultCode">resultCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Intent.html"><span class="identifier">Intent</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IAppConfig - core-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core-api</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.coreapi.main</a>&nbsp;/&nbsp;<a href="./index.html">IAppConfig</a><br/>
+<br/>
+<h1>IAppConfig</h1>
+<code><span class="keyword">interface </span><span class="identifier">IAppConfig</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../pl.netigen.coreapi.ads/-i-ads-config/index.html"><span class="identifier">IAdsConfig</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent-config/index.html"><span class="identifier">IGDPRConsentConfig</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.splash/-i-splash-config/index.html"><span class="identifier">ISplashConfig</span></a></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="in-debug-mode.html">inDebugMode</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">inDebugMode</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-no-ads-available.html">isNoAdsAvailable</a></h4>
+</td>
+<td>
+<p>Set if there is or isn't no-ads payment in application</p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isNoAdsAvailable</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="store.html">store</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">store</span><span class="symbol">: </span><a href="../-store/index.html"><span class="identifier">Store</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../-i-core-main-v-m/index.html">ICoreMainVM</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ICoreMainVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../pl.netigen.coreapi.payments/-i-payments/index.html"><span class="identifier">IPayments</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.ads/-i-ads/index.html"><span class="identifier">IAds</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.network/-i-network-status/index.html"><span class="identifier">INetworkStatus</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html"><span class="identifier">IGDPRConsent</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">IAppConfig</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../../pl.netigen.coreapi.splash/-i-splash-v-m/index.html">ISplashVM</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ISplashVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../pl.netigen.coreapi.payments/-i-no-ads/index.html"><span class="identifier">INoAds</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">IAppConfig</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

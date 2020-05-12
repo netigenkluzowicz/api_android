@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>pl.netigen.coreapi.payments - core-api</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">core-api</a>&nbsp;/&nbsp;<a href="./index.html">pl.netigen.coreapi.payments</a><br/>
+<br/>
+<h2>Package pl.netigen.coreapi.payments</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-i-no-ads/index.html">INoAds</a></h4>
+</td>
+<td>
+<p>Interface for no ads Payments, which turns on/off ads in whole application</p>
+<code><span class="keyword">interface </span><span class="identifier">INoAds</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-i-payments/index.html">IPayments</a></h4>
+</td>
+<td>
+<p>Interface for payments, extends <a href="-i-no-ads/index.html">INoAds</a></p>
+<code><span class="keyword">interface </span><span class="identifier">IPayments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-i-no-ads/index.html"><span class="identifier">INoAds</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-i-payments-repo/index.html">IPaymentsRepo</a></h4>
+</td>
+<td>
+<p>Interface for current payments repository implementation</p>
+<code><span class="keyword">interface </span><span class="identifier">IPaymentsRepo</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-no-ads-not-available/index.html">NoAdsNotAvailable</a></h4>
+</td>
+<td>
+<p><a href="-i-no-ads/index.html">INoAds</a> implementation when we have no no-ads payment</p>
+<code><span class="keyword">object </span><span class="identifier">NoAdsNotAvailable</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-i-no-ads/index.html"><span class="identifier">INoAds</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-payments/index.html">Payments</a></h4>
+</td>
+<td>
+<p>Base class for <a href="-i-payments/index.html">IPayments</a> implementations</p>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Payments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-i-payments/index.html"><span class="identifier">IPayments</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-security/index.html">Security</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Security</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
