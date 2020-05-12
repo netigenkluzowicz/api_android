@@ -1,0 +1,9 @@
+---
+title: IAds.rewardedAd - core-api
+---
+
+[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAds](index.html) / [rewardedAd](./rewarded-ad.html)
+
+# rewardedAd
+
+`abstract val rewardedAd: `[`IRewardedAd`](../-i-rewarded-ad/index.html)

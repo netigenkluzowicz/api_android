@@ -1,0 +1,9 @@
+---
+title: ICoreMainVM.showGdprResetAds - core-api
+---
+
+[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreMainVM](index.html) / [showGdprResetAds](./show-gdpr-reset-ads.html)
+
+# showGdprResetAds
+
+`abstract val showGdprResetAds: `[`SingleLiveEvent`](../../pl.netigen.extensions/-single-live-event/index.html)`<`[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`>`
