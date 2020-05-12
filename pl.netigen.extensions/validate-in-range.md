@@ -1,8 +1,4 @@
----
-title: validateInRange - core-api
----
-
-[core-api](../index.html) / [pl.netigen.extensions](index.html) / [validateInRange](./validate-in-range.html)
+[core-api](../index.md) / [pl.netigen.extensions](index.md) / [validateInRange](./validate-in-range.md)
 
 # validateInRange
 

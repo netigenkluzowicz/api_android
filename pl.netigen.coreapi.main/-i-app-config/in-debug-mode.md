@@ -1,8 +1,4 @@
----
-title: IAppConfig.inDebugMode - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [IAppConfig](index.html) / [inDebugMode](./in-debug-mode.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](index.md) / [inDebugMode](./in-debug-mode.md)
 
 # inDebugMode
 

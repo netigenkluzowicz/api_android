@@ -1,8 +1,4 @@
----
-title: ISplashVM.setPersonalizedAds - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.splash](../index.html) / [ISplashVM](index.html) / [setPersonalizedAds](./set-personalized-ads.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [setPersonalizedAds](./set-personalized-ads.md)
 
 # setPersonalizedAds
 

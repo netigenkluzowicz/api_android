@@ -1,8 +1,4 @@
----
-title: MutableSingleLiveEvent.call - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [MutableSingleLiveEvent](index.html) / [call](./call.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](index.md) / [call](./call.md)
 
 # call
 

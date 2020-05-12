@@ -1,8 +1,4 @@
----
-title: safeNavigate - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [androidx.navigation.NavController](index.html) / [safeNavigate](./safe-navigate.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.navigation.NavController](index.md) / [safeNavigate](./safe-navigate.md)
 
 # safeNavigate
 

@@ -1,8 +1,4 @@
----
-title: IGDPRTexts.text4 - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.gdpr](../index.html) / [IGDPRTexts](index.html) / [text4](./text4.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRTexts](index.md) / [text4](./text4.md)
 
 # text4
 

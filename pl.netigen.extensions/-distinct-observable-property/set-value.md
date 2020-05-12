@@ -1,8 +1,4 @@
----
-title: DistinctObservableProperty.setValue - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [DistinctObservableProperty](index.html) / [setValue](./set-value.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [setValue](./set-value.md)
 
 # setValue
 

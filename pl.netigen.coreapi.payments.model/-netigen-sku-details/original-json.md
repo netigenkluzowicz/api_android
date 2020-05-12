@@ -1,8 +1,4 @@
----
-title: NetigenSkuDetails.originalJson - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [NetigenSkuDetails](index.html) / [originalJson](./original-json.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](index.md) / [originalJson](./original-json.md)
 
 # originalJson
 

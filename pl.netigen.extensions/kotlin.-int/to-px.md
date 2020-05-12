@@ -1,8 +1,4 @@
----
-title: toPx - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [kotlin.Int](index.html) / [toPx](./to-px.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Int](index.md) / [toPx](./to-px.md)
 
 # toPx
 

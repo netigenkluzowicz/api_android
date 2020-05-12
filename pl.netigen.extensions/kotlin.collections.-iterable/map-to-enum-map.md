@@ -1,8 +1,4 @@
----
-title: mapToEnumMap - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [kotlin.collections.Iterable](index.html) / [mapToEnumMap](./map-to-enum-map.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.collections.Iterable](index.md) / [mapToEnumMap](./map-to-enum-map.md)
 
 # mapToEnumMap
 

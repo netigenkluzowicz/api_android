@@ -1,21 +1,19 @@
----
-title: core-api
----
-
-[core-api](./index.html)
+[core-api](./index.md)
 
 ### Packages
 
-| [pl.netigen.coreapi.ads](pl.netigen.coreapi.ads/index.html) |  |
-| [pl.netigen.coreapi.gdpr](pl.netigen.coreapi.gdpr/index.html) |  |
-| [pl.netigen.coreapi.main](pl.netigen.coreapi.main/index.html) |  |
-| [pl.netigen.coreapi.network](pl.netigen.coreapi.network/index.html) |  |
-| [pl.netigen.coreapi.payments](pl.netigen.coreapi.payments/index.html) |  |
-| [pl.netigen.coreapi.payments.model](pl.netigen.coreapi.payments.model/index.html) |  |
-| [pl.netigen.coreapi.splash](pl.netigen.coreapi.splash/index.html) |  |
-| [pl.netigen.extensions](pl.netigen.extensions/index.html) |  |
-| [pl.netigen.utils](pl.netigen.utils/index.html) |  |
+| Name | Summary |
+|---|---|
+| [pl.netigen.coreapi.ads](pl.netigen.coreapi.ads/index.md) |  |
+| [pl.netigen.coreapi.gdpr](pl.netigen.coreapi.gdpr/index.md) |  |
+| [pl.netigen.coreapi.main](pl.netigen.coreapi.main/index.md) |  |
+| [pl.netigen.coreapi.network](pl.netigen.coreapi.network/index.md) |  |
+| [pl.netigen.coreapi.payments](pl.netigen.coreapi.payments/index.md) |  |
+| [pl.netigen.coreapi.payments.model](pl.netigen.coreapi.payments.model/index.md) |  |
+| [pl.netigen.coreapi.splash](pl.netigen.coreapi.splash/index.md) |  |
+| [pl.netigen.extensions](pl.netigen.extensions/index.md) |  |
+| [pl.netigen.utils](pl.netigen.utils/index.md) |  |
 
 ### Index
 
-[All Types](alltypes/index.html)
+[All Types](alltypes/index.md)

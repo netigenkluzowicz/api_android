@@ -1,8 +1,4 @@
----
-title: observe - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [androidx.lifecycle.LiveData](index.html) / [observe](./observe.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](index.md) / [observe](./observe.md)
 
 # observe
 

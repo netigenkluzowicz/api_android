@@ -1,9 +1,5 @@
----
-title: INetworkStatus.removeNetworkStatusChangeListener - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.network](../index.html) / [INetworkStatus](index.html) / [removeNetworkStatusChangeListener](./remove-network-status-change-listener.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [removeNetworkStatusChangeListener](./remove-network-status-change-listener.md)
 
 # removeNetworkStatusChangeListener
 
-`abstract fun removeNetworkStatusChangeListener(networkStatusChangeListener: `[`NetworkStatusChangeListener`](../-network-status-change-listener/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`abstract fun removeNetworkStatusChangeListener(networkStatusChangeListener: `[`NetworkStatusChangeListener`](../-network-status-change-listener/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

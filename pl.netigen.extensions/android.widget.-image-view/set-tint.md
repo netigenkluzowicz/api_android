@@ -1,8 +1,4 @@
----
-title: setTint - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [android.widget.ImageView](index.html) / [setTint](./set-tint.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.ImageView](index.md) / [setTint](./set-tint.md)
 
 # setTint
 

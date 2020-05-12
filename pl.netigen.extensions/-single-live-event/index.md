@@ -1,8 +1,4 @@
----
-title: SingleLiveEvent - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [SingleLiveEvent](./index.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](./index.md)
 
 # SingleLiveEvent
 
@@ -10,17 +6,22 @@ title: SingleLiveEvent - core-api
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `SingleLiveEvent(value: T)`<br>`SingleLiveEvent()` |
+| Name | Summary |
+|---|---|
+| [&lt;init&gt;](-init-.md) | `SingleLiveEvent(value: T)`<br>`SingleLiveEvent()` |
 
 ### Functions
 
-| [call](call.html) | `open fun call(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [observe](observe.html) | `open fun observe(owner: `[`LifecycleOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleOwner.html)`, observer: `[`Observer`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [postValue](post-value.html) | `open fun postValue(value: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [removeObserver](remove-observer.html) | `fun removeObserver(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>`open fun removeObserver(observer: `[`Observer`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [setValue](set-value.html) | `open fun setValue(t: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| Name | Summary |
+|---|---|
+| [call](call.md) | `open fun call(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [observe](observe.md) | `open fun observe(owner: `[`LifecycleOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleOwner.html)`, observer: `[`Observer`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [postValue](post-value.md) | `open fun postValue(value: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [removeObserver](remove-observer.md) | `fun removeObserver(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>`open fun removeObserver(observer: `[`Observer`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [setValue](set-value.md) | `open fun setValue(t: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inheritors
 
-| [MutableSingleLiveEvent](../-mutable-single-live-event/index.html) | `open class MutableSingleLiveEvent<T> : `[`SingleLiveEvent`](./index.html)`<T>` |
-
+| Name | Summary |
+|---|---|
+| [MutableSingleLiveEvent](../-mutable-single-live-event/index.md) | `open class MutableSingleLiveEvent<T> : `[`SingleLiveEvent`](./index.md)`<T>` |

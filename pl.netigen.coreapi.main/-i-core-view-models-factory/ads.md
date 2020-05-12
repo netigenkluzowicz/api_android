@@ -1,9 +1,5 @@
----
-title: ICoreViewModelsFactory.ads - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](index.html) / [ads](./ads.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [ads](./ads.md)
 
 # ads
 
-`abstract val ads: `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.html)
+`abstract val ads: `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.md)

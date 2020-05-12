@@ -1,8 +1,4 @@
----
-title: launchIO - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [androidx.lifecycle.ViewModel](index.html) / [launchIO](./launch-i-o.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.ViewModel](index.md) / [launchIO](./launch-i-o.md)
 
 # launchIO
 

@@ -1,8 +1,4 @@
----
-title: BaseDialogFragment - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.utils](../index.html) / [BaseDialogFragment](./index.html)
+[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](./index.md)
 
 # BaseDialogFragment
 
@@ -10,11 +6,14 @@ title: BaseDialogFragment - core-api
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `BaseDialogFragment()` |
+| Name | Summary |
+|---|---|
+| [&lt;init&gt;](-init-.md) | `BaseDialogFragment()` |
 
 ### Functions
 
-| [onStart](on-start.html) | `open fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onViewCreated](on-view-created.html) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [show](show.html) | `open fun show(fragmentManager: `[`FragmentManager`](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentManager.html)`, tag: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-
+| Name | Summary |
+|---|---|
+| [onStart](on-start.md) | `open fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onViewCreated](on-view-created.md) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [show](show.md) | `open fun show(fragmentManager: `[`FragmentManager`](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentManager.html)`, tag: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |

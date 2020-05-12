@@ -1,8 +1,4 @@
----
-title: MutableSingleLiveEvent.setValue - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [MutableSingleLiveEvent](index.html) / [setValue](./set-value.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](index.md) / [setValue](./set-value.md)
 
 # setValue
 

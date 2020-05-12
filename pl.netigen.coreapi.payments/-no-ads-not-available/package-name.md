@@ -1,8 +1,4 @@
----
-title: NoAdsNotAvailable.packageName - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [NoAdsNotAvailable](index.html) / [packageName](./package-name.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [NoAdsNotAvailable](index.md) / [packageName](./package-name.md)
 
 # packageName
 

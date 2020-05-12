@@ -1,8 +1,4 @@
----
-title: loopAnim - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [android.graphics.drawable.Drawable](index.html) / [loopAnim](./loop-anim.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.graphics.drawable.Drawable](index.md) / [loopAnim](./loop-anim.md)
 
 # loopAnim
 

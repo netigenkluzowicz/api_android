@@ -1,8 +1,4 @@
----
-title: NetigenSkuDetails.sku - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [NetigenSkuDetails](index.html) / [sku](./sku.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](index.md) / [sku](./sku.md)
 
 # sku
 

@@ -1,8 +1,4 @@
----
-title: INoAds.makeNoAdsPayment - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [INoAds](index.html) / [makeNoAdsPayment](./make-no-ads-payment.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](index.md) / [makeNoAdsPayment](./make-no-ads-payment.md)
 
 # makeNoAdsPayment
 
@@ -18,10 +14,10 @@ It will show the purchase screen to the user
 `noAdsSku` -
 
 optional parameter - no ads in-app purchase identifier (sku).
-Use when it is multiple no-ads sku-s, because this takes current provided no ads sku from [noAdsInAppSkuList](no-ads-in-app-sku-list.html).
+Use when it is multiple no-ads sku-s, because this takes current provided no ads sku from [noAdsInAppSkuList](no-ads-in-app-sku-list.md).
 
 
 
 
-For default it is [packageName](package-name.html) +".noads"
+For default it is [packageName](package-name.md) +".noads"
 

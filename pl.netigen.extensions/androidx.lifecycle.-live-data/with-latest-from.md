@@ -1,8 +1,4 @@
----
-title: withLatestFrom - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [androidx.lifecycle.LiveData](index.html) / [withLatestFrom](./with-latest-from.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](index.md) / [withLatestFrom](./with-latest-from.md)
 
 # withLatestFrom
 

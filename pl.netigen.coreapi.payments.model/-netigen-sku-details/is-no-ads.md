@@ -1,8 +1,4 @@
----
-title: NetigenSkuDetails.isNoAds - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [NetigenSkuDetails](index.html) / [isNoAds](./is-no-ads.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](index.md) / [isNoAds](./is-no-ads.md)
 
 # isNoAds
 

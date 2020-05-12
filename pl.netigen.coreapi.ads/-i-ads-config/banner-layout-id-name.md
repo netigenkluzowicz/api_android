@@ -1,8 +1,4 @@
----
-title: IAdsConfig.bannerLayoutIdName - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAdsConfig](index.html) / [bannerLayoutIdName](./banner-layout-id-name.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [bannerLayoutIdName](./banner-layout-id-name.md)
 
 # bannerLayoutIdName
 

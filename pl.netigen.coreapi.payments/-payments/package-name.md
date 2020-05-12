@@ -1,8 +1,4 @@
----
-title: Payments.packageName - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [Payments](index.html) / [packageName](./package-name.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Payments](index.md) / [packageName](./package-name.md)
 
 # packageName
 

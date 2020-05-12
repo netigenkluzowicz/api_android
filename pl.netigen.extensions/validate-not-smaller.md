@@ -1,8 +1,4 @@
----
-title: validateNotSmaller - core-api
----
-
-[core-api](../index.html) / [pl.netigen.extensions](index.html) / [validateNotSmaller](./validate-not-smaller.html)
+[core-api](../index.md) / [pl.netigen.extensions](index.md) / [validateNotSmaller](./validate-not-smaller.md)
 
 # validateNotSmaller
 

@@ -1,8 +1,4 @@
----
-title: ICoreMainVM.start - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreMainVM](index.html) / [start](./start.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [start](./start.md)
 
 # start
 

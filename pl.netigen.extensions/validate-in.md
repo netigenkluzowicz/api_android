@@ -1,8 +1,4 @@
----
-title: validateIn - core-api
----
-
-[core-api](../index.html) / [pl.netigen.extensions](index.html) / [validateIn](./validate-in.html)
+[core-api](../index.md) / [pl.netigen.extensions](index.md) / [validateIn](./validate-in.md)
 
 # validateIn
 

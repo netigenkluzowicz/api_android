@@ -1,12 +1,9 @@
----
-title: pl.netigen.coreapi.payments.model - core-api
----
-
-[core-api](../index.html) / [pl.netigen.coreapi.payments.model](./index.html)
+[core-api](../index.md) / [pl.netigen.coreapi.payments.model](./index.md)
 
 ## Package pl.netigen.coreapi.payments.model
 
 ### Types
 
-| [NetigenSkuDetails](-netigen-sku-details/index.html) | `data class NetigenSkuDetails` |
-
+| Name | Summary |
+|---|---|
+| [NetigenSkuDetails](-netigen-sku-details/index.md) | `data class NetigenSkuDetails` |

@@ -1,8 +1,4 @@
----
-title: Payments.ownedPurchasesSkuLD - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [Payments](index.html) / [ownedPurchasesSkuLD](./owned-purchases-sku-l-d.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Payments](index.md) / [ownedPurchasesSkuLD](./owned-purchases-sku-l-d.md)
 
 # ownedPurchasesSkuLD
 

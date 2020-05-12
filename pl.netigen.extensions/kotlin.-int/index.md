@@ -1,11 +1,8 @@
----
-title: pl.netigen.extensions.kotlin.Int - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [kotlin.Int](./index.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Int](./index.md)
 
 ### Extensions for kotlin.Int
 
-| [toDp](to-dp.html) | `fun `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`.toDp(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
-| [toPx](to-px.html) | `fun `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`.toPx(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
-
+| Name | Summary |
+|---|---|
+| [toDp](to-dp.md) | `fun `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`.toDp(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [toPx](to-px.md) | `fun `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`.toPx(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |

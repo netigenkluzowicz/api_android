@@ -1,8 +1,4 @@
----
-title: ISplashTimer.startConsentTimer - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.splash](../index.html) / [ISplashTimer](index.html) / [startConsentTimer](./start-consent-timer.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startConsentTimer](./start-consent-timer.md)
 
 # startConsentTimer
 

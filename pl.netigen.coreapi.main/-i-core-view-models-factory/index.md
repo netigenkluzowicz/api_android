@@ -1,8 +1,4 @@
----
-title: ICoreViewModelsFactory - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](./index.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](./index.md)
 
 # ICoreViewModelsFactory
 
@@ -10,10 +6,11 @@ title: ICoreViewModelsFactory - core-api
 
 ### Properties
 
-| [activity](activity.html) | `abstract val activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html) |
-| [ads](ads.html) | `abstract val ads: `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.html) |
-| [appConfig](app-config.html) | `abstract val appConfig: `[`IAppConfig`](../-i-app-config/index.html) |
-| [gdprConsent](gdpr-consent.html) | `abstract val gdprConsent: `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html) |
-| [networkStatus](network-status.html) | `abstract val networkStatus: `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.html) |
-| [payments](payments.html) | `abstract val payments: `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.html) |
-
+| Name | Summary |
+|---|---|
+| [activity](activity.md) | `abstract val activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html) |
+| [ads](ads.md) | `abstract val ads: `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.md) |
+| [appConfig](app-config.md) | `abstract val appConfig: `[`IAppConfig`](../-i-app-config/index.md) |
+| [gdprConsent](gdpr-consent.md) | `abstract val gdprConsent: `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md) |
+| [networkStatus](network-status.md) | `abstract val networkStatus: `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.md) |
+| [payments](payments.md) | `abstract val payments: `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.md) |

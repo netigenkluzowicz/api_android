@@ -1,8 +1,4 @@
----
-title: Security.verifyPurchase - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [Security](index.html) / [verifyPurchase](./verify-purchase.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Security](index.md) / [verifyPurchase](./verify-purchase.md)
 
 # verifyPurchase
 

@@ -1,8 +1,4 @@
----
-title: NetigenSkuDetails.<init> - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [NetigenSkuDetails](index.html) / [&lt;init&gt;](./-init-.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](index.md) / [&lt;init&gt;](./-init-.md)
 
 # &lt;init&gt;
 

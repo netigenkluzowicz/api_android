@@ -1,8 +1,4 @@
----
-title: IPayments.onActivityResult - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [IPayments](index.html) / [onActivityResult](./on-activity-result.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [onActivityResult](./on-activity-result.md)
 
 # onActivityResult
 

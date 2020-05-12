@@ -1,8 +1,4 @@
----
-title: CheckGDPRLocationStatus.ERROR - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.gdpr](../index.html) / [CheckGDPRLocationStatus](index.html) / [ERROR](./-e-r-r-o-r.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [CheckGDPRLocationStatus](index.md) / [ERROR](./-e-r-r-o-r.md)
 
 # ERROR
 

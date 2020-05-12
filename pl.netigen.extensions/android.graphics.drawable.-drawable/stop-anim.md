@@ -1,8 +1,4 @@
----
-title: stopAnim - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [android.graphics.drawable.Drawable](index.html) / [stopAnim](./stop-anim.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.graphics.drawable.Drawable](index.md) / [stopAnim](./stop-anim.md)
 
 # stopAnim
 

@@ -1,8 +1,4 @@
----
-title: IAppConfig.isNoAdsAvailable - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [IAppConfig](index.html) / [isNoAdsAvailable](./is-no-ads-available.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](index.md) / [isNoAdsAvailable](./is-no-ads-available.md)
 
 # isNoAdsAvailable
 

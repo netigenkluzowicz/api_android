@@ -1,8 +1,4 @@
----
-title: IPayments.makePurchase - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [IPayments](index.html) / [makePurchase](./make-purchase.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [makePurchase](./make-purchase.md)
 
 # makePurchase
 
@@ -12,7 +8,7 @@ Makes call to current payment implementation to launch billing flow for given [S
 
 It will show the purchase screen to the user
 
-When user successfully complete purchase, [ownedPurchasesSkuLD](owned-purchases-sku-l-d.html) live data will be updated with this purchase sku
+When user successfully complete purchase, [ownedPurchasesSkuLD](owned-purchases-sku-l-d.md) live data will be updated with this purchase sku
 
 ### Parameters
 

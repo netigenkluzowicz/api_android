@@ -1,8 +1,4 @@
----
-title: ICoreViewModelsFactory.activity - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](index.html) / [activity](./activity.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [activity](./activity.md)
 
 # activity
 

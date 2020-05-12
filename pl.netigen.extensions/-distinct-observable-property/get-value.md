@@ -1,8 +1,4 @@
----
-title: DistinctObservableProperty.getValue - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [DistinctObservableProperty](index.html) / [getValue](./get-value.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [getValue](./get-value.md)
 
 # getValue
 

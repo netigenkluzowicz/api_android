@@ -1,8 +1,4 @@
----
-title: IGDPRConsentConfig - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.gdpr](../index.html) / [IGDPRConsentConfig](./index.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsentConfig](./index.md)
 
 # IGDPRConsentConfig
 
@@ -16,9 +12,12 @@ Configuration for Gdpr Consent
 
 ### Properties
 
-| [adMobPublisherIds](ad-mob-publisher-ids.html) | List of Admob publisher ids`abstract val adMobPublisherIds: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
+| Name | Summary |
+|---|---|
+| [adMobPublisherIds](ad-mob-publisher-ids.md) | List of Admob publisher ids`abstract val adMobPublisherIds: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
 
 ### Inheritors
 
-| [IAppConfig](../../pl.netigen.coreapi.main/-i-app-config/index.html) | `interface IAppConfig : `[`IAdsConfig`](../../pl.netigen.coreapi.ads/-i-ads-config/index.html)`, `[`IGDPRConsentConfig`](./index.html)`, `[`ISplashConfig`](../../pl.netigen.coreapi.splash/-i-splash-config/index.html) |
-
+| Name | Summary |
+|---|---|
+| [IAppConfig](../../pl.netigen.coreapi.main/-i-app-config/index.md) | `interface IAppConfig : `[`IAdsConfig`](../../pl.netigen.coreapi.ads/-i-ads-config/index.md)`, `[`IGDPRConsentConfig`](./index.md)`, `[`ISplashConfig`](../../pl.netigen.coreapi.splash/-i-splash-config/index.md) |

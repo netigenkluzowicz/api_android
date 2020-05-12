@@ -1,8 +1,4 @@
----
-title: BaseDialogFragment.show - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.utils](../index.html) / [BaseDialogFragment](index.html) / [show](./show.html)
+[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](index.md) / [show](./show.md)
 
 # show
 

@@ -1,8 +1,4 @@
----
-title: CoreMainVM.<init> - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [CoreMainVM](index.html) / [&lt;init&gt;](./-init-.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [CoreMainVM](index.md) / [&lt;init&gt;](./-init-.md)
 
 # &lt;init&gt;
 

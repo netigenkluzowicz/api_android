@@ -1,8 +1,4 @@
----
-title: observeChanges - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [android.widget.SeekBar](index.html) / [observeChanges](./observe-changes.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.SeekBar](index.md) / [observeChanges](./observe-changes.md)
 
 # observeChanges
 

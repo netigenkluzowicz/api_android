@@ -1,9 +1,5 @@
----
-title: IAds.bannerAd - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAds](index.html) / [bannerAd](./banner-ad.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](index.md) / [bannerAd](./banner-ad.md)
 
 # bannerAd
 
-`abstract val bannerAd: `[`IBannerAd`](../-i-banner-ad/index.html)
+`abstract val bannerAd: `[`IBannerAd`](../-i-banner-ad/index.md)

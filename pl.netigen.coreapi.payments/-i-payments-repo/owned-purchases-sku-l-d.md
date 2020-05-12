@@ -1,8 +1,4 @@
----
-title: IPaymentsRepo.ownedPurchasesSkuLD - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [IPaymentsRepo](index.html) / [ownedPurchasesSkuLD](./owned-purchases-sku-l-d.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPaymentsRepo](index.md) / [ownedPurchasesSkuLD](./owned-purchases-sku-l-d.md)
 
 # ownedPurchasesSkuLD
 
@@ -12,5 +8,5 @@ title: IPaymentsRepo.ownedPurchasesSkuLD - core-api
 
 **See Also**
 
-[IPayments.ownedPurchasesSkuLD](../-i-payments/owned-purchases-sku-l-d.html)
+[IPayments.ownedPurchasesSkuLD](../-i-payments/owned-purchases-sku-l-d.md)
 

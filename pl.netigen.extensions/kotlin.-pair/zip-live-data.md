@@ -1,8 +1,4 @@
----
-title: zipLiveData - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [kotlin.Pair](index.html) / [zipLiveData](./zip-live-data.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Pair](index.md) / [zipLiveData](./zip-live-data.md)
 
 # zipLiveData
 

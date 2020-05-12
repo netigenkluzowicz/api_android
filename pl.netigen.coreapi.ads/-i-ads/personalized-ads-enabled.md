@@ -1,8 +1,4 @@
----
-title: IAds.personalizedAdsEnabled - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAds](index.html) / [personalizedAdsEnabled](./personalized-ads-enabled.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](index.md) / [personalizedAdsEnabled](./personalized-ads-enabled.md)
 
 # personalizedAdsEnabled
 

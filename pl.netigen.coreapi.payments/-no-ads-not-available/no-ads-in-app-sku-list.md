@@ -1,8 +1,4 @@
----
-title: NoAdsNotAvailable.noAdsInAppSkuList - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [NoAdsNotAvailable](index.html) / [noAdsInAppSkuList](./no-ads-in-app-sku-list.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [NoAdsNotAvailable](index.md) / [noAdsInAppSkuList](./no-ads-in-app-sku-list.md)
 
 # noAdsInAppSkuList
 
@@ -10,5 +6,5 @@ title: NoAdsNotAvailable.noAdsInAppSkuList - core-api
 
 List of no ads sku available in application
 
-For default it is one sku: [packageName](../-i-no-ads/package-name.html) +".noads"
+For default it is one sku: [packageName](../-i-no-ads/package-name.md) +".noads"
 

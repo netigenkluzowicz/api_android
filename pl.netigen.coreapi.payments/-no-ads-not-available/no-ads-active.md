@@ -1,8 +1,4 @@
----
-title: NoAdsNotAvailable.noAdsActive - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [NoAdsNotAvailable](index.html) / [noAdsActive](./no-ads-active.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [NoAdsNotAvailable](index.md) / [noAdsActive](./no-ads-active.md)
 
 # noAdsActive
 

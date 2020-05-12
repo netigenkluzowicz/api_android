@@ -1,8 +1,4 @@
----
-title: nonNull - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [androidx.lifecycle.LiveData](index.html) / [nonNull](./non-null.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](index.md) / [nonNull](./non-null.md)
 
 # nonNull
 

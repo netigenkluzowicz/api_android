@@ -1,10 +1,7 @@
----
-title: pl.netigen.extensions.kotlin.String - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [kotlin.String](./index.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.String](./index.md)
 
 ### Extensions for kotlin.String
 
-| [fromJson](from-json.html) | `fun <T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.fromJson(): T` |
-
+| Name | Summary |
+|---|---|
+| [fromJson](from-json.md) | `fun <T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.fromJson(): T` |

@@ -1,9 +1,5 @@
----
-title: ICoreViewModelsFactory.payments - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](index.html) / [payments](./payments.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [payments](./payments.md)
 
 # payments
 
-`abstract val payments: `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.html)
+`abstract val payments: `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.md)
