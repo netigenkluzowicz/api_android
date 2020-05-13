@@ -2,4 +2,4 @@
 title: test
 ---
 
-[core-api](core-api/index.html)
+[core-api](index.html)
