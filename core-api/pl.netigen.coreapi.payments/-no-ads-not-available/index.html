@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NoAdsNotAvailable - core-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core-api</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.coreapi.payments</a>&nbsp;/&nbsp;<a href="./index.html">NoAdsNotAvailable</a><br/>
+<br/>
+<h1>NoAdsNotAvailable</h1>
+<code><span class="keyword">object </span><span class="identifier">NoAdsNotAvailable</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-no-ads/index.html"><span class="identifier">INoAds</span></a></code>
+<p><a href="../-i-no-ads/index.html">INoAds</a> implementation when we have no no-ads payment</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="no-ads-active.html">noAdsActive</a></h4>
+</td>
+<td>
+<p>Emits <a href="#">Flow</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt; indicating that no ads in-app purchase is or has changed to active or inactive
+Use this for behave with no ads related stuff, (e.g. hide/show no ads buy buttons)</p>
+<code><span class="keyword">val </span><span class="identifier">noAdsActive</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="no-ads-in-app-sku-list.html">noAdsInAppSkuList</a></h4>
+</td>
+<td>
+<p>List of no ads sku available in application</p>
+<code><span class="keyword">val </span><span class="identifier">noAdsInAppSkuList</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="package-name.html">packageName</a></h4>
+</td>
+<td>
+<p>Application package name for default no ads sku</p>
+<code><span class="keyword">val </span><span class="identifier">packageName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="make-no-ads-payment.html">makeNoAdsPayment</a></h4>
+</td>
+<td>
+<p>Makes call to current payment implementation to launch billing flow for an no ads in-app purchase.
+It will show the purchase screen to the user</p>
+<code><span class="keyword">fun </span><span class="identifier">makeNoAdsPayment</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.coreapi.payments.NoAdsNotAvailable$makeNoAdsPayment(android.app.Activity, kotlin.String)/activity">activity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.NoAdsNotAvailable$makeNoAdsPayment(android.app.Activity, kotlin.String)/noAdsSku">noAdsSku</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
