@@ -90,6 +90,7 @@ class GMSPaymentsRepo(
     }
 
     private fun postError(paymentErrorType: PaymentErrorType, errorMessage: String = "") {
+        Timber.d("paymentErrorType = [$paymentErrorType], errorMessage = [$errorMessage]")
         val error = PaymentError(errorMessage, paymentErrorType)
         _lastPaymentEvent.postValue(error)
         debugEvent("PAYMENT_ERROR: $error")
@@ -218,6 +219,7 @@ class GMSPaymentsRepo(
     }
 
     private fun acknowledgePurchase(purchase: Purchase) {
+        Timber.d("purchase = [$purchase]")
         val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build()
         gmsBillingClient.acknowledgePurchase(params) { billingResult ->
             when (billingResult.responseCode) {
@@ -230,22 +232,19 @@ class GMSPaymentsRepo(
         }
     }
 
-    //TODO here's a method that we might use to give user certain entitlements
     private fun onPurchaseAcknowledged(purchase: Purchase) {
+        Timber.d("purchase = [$purchase]")
         val paymentSuccess = PaymentSuccess(purchase.sku)
         _lastPaymentEvent.postValue(paymentSuccess)
         debugEvent("PAYMENT_SUCCESS: $paymentSuccess")
     }
 
     private fun debugEvent(message: String) {
-        if (isDebugMode) {
-            Toast.makeText(activity, "GSM_PAYMENTS $message", Toast.LENGTH_SHORT).show()
-        }
+        if (isDebugMode) Toast.makeText(activity, "GSM_PAYMENTS $message", Toast.LENGTH_SHORT).show()
     }
 
     fun makePurchase(activity: Activity, skuId: String) {
         Timber.d("activity = [$activity], skuId = [$skuId]")
-
         CoroutineScope(Job() + Dispatchers.IO).launch {
             try {
                 val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(skuId)
