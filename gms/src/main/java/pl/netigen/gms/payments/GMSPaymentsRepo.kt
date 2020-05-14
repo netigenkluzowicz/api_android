@@ -26,6 +26,7 @@ class GMSPaymentsRepo(
     private val isDebugMode: Boolean = false,
     private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
+    private var lastError: PaymentError? = null
     private var application = activity.application
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
     private val gmsBillingClient: BillingClient = BillingClient
@@ -83,17 +84,23 @@ class GMSPaymentsRepo(
     }
 
     private fun postError(billingResult: BillingResult) {
+        val responseCode = billingResult.responseCode
+        val index = if (responseCode < 0) responseCode - 3 else responseCode + 2
         val paymentErrorType = PaymentErrorType.values()
-            .getOrElse(billingResult.responseCode - 3) { PaymentErrorType.DEVELOPER_ERROR }
+            .getOrElse(index) { PaymentErrorType.DEVELOPER_ERROR }
         postError(paymentErrorType, billingResult.debugMessage)
-
     }
 
     private fun postError(paymentErrorType: PaymentErrorType, errorMessage: String = "") {
-        Timber.d("paymentErrorType = [$paymentErrorType], errorMessage = [$errorMessage]")
         val error = PaymentError(errorMessage, paymentErrorType)
+        postError(error)
+    }
+
+    private fun postError(error: PaymentError) {
+        Timber.d("error = [$error]")
         _lastPaymentEvent.postValue(error)
         debugEvent("PAYMENT_ERROR: $error")
+        lastError = error
     }
 
     private fun querySkuDetailsAsync(@BillingClient.SkuType skuType: String, skuList: List<String>) {
@@ -112,6 +119,7 @@ class GMSPaymentsRepo(
                                     localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
                                 } catch (e: Exception) {
                                     Timber.e(e)
+                                    postError(PaymentErrorType.DEVELOPER_ERROR, "querySkuDetailsAsync = ${e.message}")
                                 }
                             }
                         }
@@ -240,7 +248,11 @@ class GMSPaymentsRepo(
     }
 
     private fun debugEvent(message: String) {
-        if (isDebugMode) Toast.makeText(activity, "GSM_PAYMENTS $message", Toast.LENGTH_SHORT).show()
+        if (isDebugMode) {
+            activity.runOnUiThread {
+                Toast.makeText(activity, "GSM_PAYMENTS $message", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     fun makePurchase(activity: Activity, skuId: String) {
@@ -248,7 +260,17 @@ class GMSPaymentsRepo(
         CoroutineScope(Job() + Dispatchers.IO).launch {
             try {
                 val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(skuId)
-                netigenNoAdsSkuDetails?.let { launchBillingFlow(activity, it) }
+                if (netigenNoAdsSkuDetails != null) {
+                    launchBillingFlow(activity, netigenNoAdsSkuDetails)
+                } else {
+                    val lastError1 = lastError
+                    when {
+                        gmsBillingClient.isReady ->
+                            postError(PaymentErrorType.DEVELOPER_ERROR, "NetigenNoAdsSkuDetails with skuId = $skuId not found")
+                        lastError1 != null -> postError(lastError1)
+                        else -> postError(PaymentErrorType.ERROR, "Unknown error for skuId: $skuId")
+                    }
+                }
             } catch (e: Exception) {
                 Timber.e(e)
                 onDeveloperError(e)

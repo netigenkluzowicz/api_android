@@ -11,5 +11,5 @@ enum class PaymentErrorType {
     DEVELOPER_ERROR,
     ERROR,
     ITEM_ALREADY_OWNED,
-    ITEM_NOT_OWNED
+    ITEM_NOT_OWNED,
 }

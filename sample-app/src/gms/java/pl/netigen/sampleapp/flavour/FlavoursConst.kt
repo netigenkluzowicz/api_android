@@ -15,7 +15,7 @@ object FlavoursConst {
     const val REWARDED_AD_ID: String = TEST_REWARDED_ID
 
     fun getPaymentsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig): IPayments =
-        GMSPayments(coreMainActivity, appConfig.inDebugMode)
+        GMSPayments(coreMainActivity, inDebugMode = appConfig.inDebugMode)
 
     fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = AdMobAds(coreMainActivity, appConfig)
     fun getGDPRConsentImpl(application: Application, appConfig: AppConfig) = GDPRConsentImpl(application, appConfig)

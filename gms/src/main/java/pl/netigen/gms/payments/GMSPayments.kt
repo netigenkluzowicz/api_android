@@ -4,7 +4,12 @@ import android.app.Activity
 import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.d
 
-class GMSPayments(override val activity: Activity, inDebugMode: Boolean = false) : Payments(activity) {
+class GMSPayments(
+    private val activity: Activity,
+    override val inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+    override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+    inDebugMode: Boolean = false
+) : Payments(activity) {
 
     override val paymentsRepo = GMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, inDebugMode)
 

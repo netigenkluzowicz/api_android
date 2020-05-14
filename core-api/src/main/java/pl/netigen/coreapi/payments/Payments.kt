@@ -1,7 +1,6 @@
 package pl.netigen.coreapi.payments
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
@@ -13,14 +12,9 @@ import pl.netigen.extensions.SingleLiveEvent
  *
  * Provides also access to payments repository and default sku values
  *
- * @property activity [Activity] using in current Payments implementation and for get [packageName]
+ * @param activity [Activity] using in current Payments implementation and for get [packageName]
  */
-abstract class Payments(
-    open val activity: Activity,
-    override val packageName: String = activity.packageName,
-    override val noAdsInAppSkuList: List<String> = listOf("${packageName}.noads"),
-    override val inAppSkuList: List<String> = listOf("${packageName}.noads")
-) : IPayments {
+abstract class Payments(activity: Activity) : IPayments, IPaymentsRepo {
 
     /**
      * Current [IPaymentsRepo] implementation,
@@ -28,6 +22,7 @@ abstract class Payments(
      */
     abstract val paymentsRepo: IPaymentsRepo
 
+    override val packageName: String by lazy { activity.packageName }
     override val ownedPurchasesSkuLD: LiveData<List<String>> by lazy { paymentsRepo.ownedPurchasesSkuLD }
     override val lastPaymentEvent: SingleLiveEvent<PaymentEvent> by lazy { paymentsRepo.lastPaymentEvent }
     override val noAdsActive by lazy { paymentsRepo.noAdsActive }
