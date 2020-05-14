@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.lifecycle.LiveData
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import pl.netigen.coreapi.payments.model.PaymentEvent
+import pl.netigen.extensions.SingleLiveEvent
 
 /**
  * Interface for payments, extends [INoAds]
@@ -42,6 +44,14 @@ interface IPayments : INoAds {
      * This is updated with each start of application, and with user interaction with payments
      */
     val ownedPurchasesSkuLD: LiveData<List<String>>
+
+    /**
+     * [SingleLiveEvent] indicating last payment event it can be success [PaymentEvent.PaymentSuccess], [PaymentEvent.PaymentRestored] or [PaymentEvent.Error]
+     *
+     * This should be used for show information about billing flow to the users
+     *
+     */
+    val lastPaymentEvent: SingleLiveEvent<PaymentEvent>
 
     /**
      * Makes call to current payment implementation to launch billing flow for given [String] sku.

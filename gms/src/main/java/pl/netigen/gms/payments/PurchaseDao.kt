@@ -28,4 +28,7 @@ interface PurchaseDao {
     @Query("DELETE FROM purchase_table WHERE data = :purchase")
     suspend fun delete(purchase: Purchase)
 
+    @Query("SELECT * FROM purchase_table WHERE data = :purchase")
+    suspend fun get(purchase: Purchase): CachedPurchase?
+
 }
