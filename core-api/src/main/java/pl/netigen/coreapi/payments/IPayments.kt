@@ -50,6 +50,8 @@ interface IPayments : INoAds {
      *
      * This should be used for show information about billing flow to the users
      *
+     * warning this currently not working/tested in HMS!!
+     *
      */
     val lastPaymentEvent: SingleLiveEvent<PaymentEvent>
 

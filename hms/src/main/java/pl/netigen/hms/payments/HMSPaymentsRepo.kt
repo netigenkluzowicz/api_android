@@ -22,6 +22,9 @@ import kotlinx.coroutines.launch
 import org.json.JSONException
 import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import pl.netigen.coreapi.payments.model.PaymentEvent
+import pl.netigen.extensions.MutableSingleLiveEvent
+import pl.netigen.extensions.SingleLiveEvent
 import timber.log.Timber
 import timber.log.Timber.d
 
@@ -34,8 +37,9 @@ class HMSPaymentsRepo(
     private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
-    override val inAppSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()
-    override val subsSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()
+    override val inAppSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()  // TODO: 14.05.2020
+    override val subsSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>() // TODO: 14.05.2020
+    override val lastPaymentEvent: SingleLiveEvent<PaymentEvent> = MutableSingleLiveEvent() // TODO: 14.05.2020
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
         .map { list -> list.any { it.data.productId in noAdsInAppSkuList } }
 
@@ -43,6 +47,7 @@ class HMSPaymentsRepo(
         d("()")
         obtainOwnedPurchases()
     }
+
 
     override val ownedPurchasesSkuLD: LiveData<List<String>>
         get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.productId } }
