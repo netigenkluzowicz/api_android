@@ -42,6 +42,7 @@ interface IGDPRConsent : IGDPRTexts {
 
 /**
  * List of texts for Consent PopUp
+ * See implementations for more info
  *
  */
 interface IGDPRTexts {
