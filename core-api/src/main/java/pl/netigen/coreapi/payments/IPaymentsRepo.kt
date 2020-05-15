@@ -3,6 +3,8 @@ package pl.netigen.coreapi.payments
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import pl.netigen.coreapi.payments.model.PaymentEvent
+import pl.netigen.extensions.SingleLiveEvent
 
 /**
  * Interface for current payments repository implementation
@@ -11,6 +13,14 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
  * @see IPayments
  */
 interface IPaymentsRepo {
+    /**
+     * [SingleLiveEvent] indicating last payment event it can be success [PaymentEvent.PaymentSuccess], [PaymentEvent.PaymentRestored] or [PaymentEvent.Error]
+     *
+     * This should be used for show information about billing flow to the users
+     *
+     */
+    val lastPaymentEvent: SingleLiveEvent<PaymentEvent>
+
     /**
      * [LiveData] with list of payments owned by user (this payments [String] sku)
      *

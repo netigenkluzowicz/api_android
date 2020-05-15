@@ -1,7 +1,7 @@
 package pl.netigen.gms.payments
 
 import android.app.Activity
-import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.map
@@ -13,19 +13,24 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.payments.Security
-import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import pl.netigen.coreapi.payments.model.*
+import pl.netigen.extensions.MutableSingleLiveEvent
+import pl.netigen.extensions.SingleLiveEvent
 import timber.log.Timber
 import java.util.*
 
 class GMSPaymentsRepo(
-    private val application: Application,
+    private val activity: Activity,
     private val inAppSkuList: List<String>,
     private val noAdsInAppSkuList: List<String>,
+    private val isDebugMode: Boolean = false,
     private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
+    private var lastError: PaymentError? = null
+    private var application = activity.application
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
     private val gmsBillingClient: BillingClient = BillingClient
-        .newBuilder(application.applicationContext)
+        .newBuilder(application)
         .enablePendingPurchases()
         .setListener(this)
         .build()
@@ -34,6 +39,10 @@ class GMSPaymentsRepo(
 
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
         .map { list -> list.any { it.data.sku in noAdsInAppSkuList } }
+
+    private val _lastPaymentEvent = MutableSingleLiveEvent<PaymentEvent>()
+    override val lastPaymentEvent: SingleLiveEvent<PaymentEvent>
+        get() = _lastPaymentEvent
 
     init {
         connectToPlayBillingService()
@@ -56,24 +65,42 @@ class GMSPaymentsRepo(
 
     override fun onBillingSetupFinished(billingResult: BillingResult) {
         Timber.d("()")
-        when (billingResult.responseCode) {
-            BillingClient.BillingResponseCode.OK -> {
-                Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
-                querySkuDetailsAsync(BillingClient.SkuType.INAPP, inAppSkuList)
-                //TODO we should decide whether we want to deal with subs sku separately, but it seems like a right way to me
-                //querySkuDetailsAsync(BillingClient.SkuType.SUBS, subSkuList)
-                CoroutineScope(Job() + Dispatchers.IO).launch {
-                    queryPurchasesAsync()
-                }
-            }
-            BillingClient.BillingResponseCode.BILLING_UNAVAILABLE -> {
-                Timber.d(billingResult.debugMessage)
-                //TODO We need to decide whether we want to act upon this callback otherwise it could be deleted
-            }
-            else -> {
-                Timber.d(billingResult.debugMessage)
-            }
+        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+            billingSetupOk()
+        } else {
+            Timber.d(billingResult.debugMessage)
+            postError(billingResult)
         }
+    }
+
+    private fun billingSetupOk() {
+        Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
+        querySkuDetailsAsync(BillingClient.SkuType.INAPP, inAppSkuList)
+        //TODO we should decide whether we want to deal with subs sku separately, but it seems like a right way to me
+        //querySkuDetailsAsync(BillingClient.SkuType.SUBS, subSkuList)
+        CoroutineScope(Job() + Dispatchers.IO).launch {
+            queryPurchasesAsync()
+        }
+    }
+
+    private fun postError(billingResult: BillingResult) {
+        val responseCode = billingResult.responseCode
+        val index = if (responseCode < 0) responseCode - 3 else responseCode + 2
+        val paymentErrorType = PaymentErrorType.values()
+            .getOrElse(index) { PaymentErrorType.DEVELOPER_ERROR }
+        postError(paymentErrorType, billingResult.debugMessage)
+    }
+
+    private fun postError(paymentErrorType: PaymentErrorType, errorMessage: String = "") {
+        val error = PaymentError(errorMessage, paymentErrorType)
+        postError(error)
+    }
+
+    private fun postError(error: PaymentError) {
+        Timber.d("error = [$error]")
+        _lastPaymentEvent.postValue(error)
+        debugEvent("PAYMENT_ERROR: $error")
+        lastError = error
     }
 
     private fun querySkuDetailsAsync(@BillingClient.SkuType skuType: String, skuList: List<String>) {
@@ -92,6 +119,7 @@ class GMSPaymentsRepo(
                                     localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
                                 } catch (e: Exception) {
                                     Timber.e(e)
+                                    postError(PaymentErrorType.DEVELOPER_ERROR, "querySkuDetailsAsync = ${e.message}")
                                 }
                             }
                         }
@@ -99,6 +127,7 @@ class GMSPaymentsRepo(
                 }
                 else -> {
                     Timber.e(billingResult.debugMessage)
+                    postError(billingResult)
                 }
             }
         }
@@ -124,8 +153,10 @@ class GMSPaymentsRepo(
         when (billingResult.responseCode) {
             BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> connectToPlayBillingService()
             BillingClient.BillingResponseCode.OK -> succeeded = true
-            else ->
+            else -> {
                 Timber.w(" error: ${billingResult.debugMessage}")
+                postError(billingResult)
+            }
         }
         return succeeded
     }
@@ -149,11 +180,12 @@ class GMSPaymentsRepo(
             Timber.d("validPurchases content $validPurchases")
             Timber.d("consumables content $consumables")
             Timber.d("non-consumables content $nonConsumables")
-            localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
             handleConsumablePurchasesAsync(consumables)
             acknowledgeNonConsumablePurchasesAsync(nonConsumables)
+            localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
         } catch (e: Exception) {
             Timber.e(e)
+            onDeveloperError(e)
         }
     }
 
@@ -171,7 +203,10 @@ class GMSPaymentsRepo(
                         //TODO Update the appropriate tables/databases to grant user the items
                         purchaseToken.apply { }
                     }
-                    else -> Timber.w(billingResult.debugMessage)
+                    else -> {
+                        Timber.w(billingResult.debugMessage)
+                        postError(billingResult)
+                    }
                 }
             }
         }
@@ -180,33 +215,72 @@ class GMSPaymentsRepo(
     override val ownedPurchasesSkuLD: LiveData<List<String>>
         get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.sku } }
 
-    private fun acknowledgeNonConsumablePurchasesAsync(nonConsumables: List<Purchase>) {
+    private suspend fun acknowledgeNonConsumablePurchasesAsync(nonConsumables: List<Purchase>) {
         Timber.d("nonConsumables = [$nonConsumables]")
         nonConsumables.forEach { purchase ->
-            val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build()
-            gmsBillingClient.acknowledgePurchase(params) { billingResult ->
-                when (billingResult.responseCode) {
-                    BillingClient.BillingResponseCode.OK -> disburseNonConsumableEntitlement(purchase)
-                    else -> Timber.d("response is ${billingResult.debugMessage}")
+            if (!purchase.isAcknowledged) {
+                acknowledgePurchase(purchase)
+            } else if (localCacheBillingClient.purchaseDao().get(purchase) == null) {
+                val paymentRestored = PaymentRestored(purchase.sku)
+                _lastPaymentEvent.postValue(paymentRestored)
+                debugEvent(paymentRestored.toString())
+            }
+        }
+    }
+
+    private fun acknowledgePurchase(purchase: Purchase) {
+        Timber.d("purchase = [$purchase]")
+        val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build()
+        gmsBillingClient.acknowledgePurchase(params) { billingResult ->
+            when (billingResult.responseCode) {
+                BillingClient.BillingResponseCode.OK -> onPurchaseAcknowledged(purchase)
+                else -> {
+                    Timber.d("response is ${billingResult.debugMessage}")
+                    postError(billingResult)
                 }
             }
         }
     }
 
-    //TODO here's a method that we might use to give user certain entitlements
-    private fun disburseNonConsumableEntitlement(purchase: Purchase) = Unit
+    private fun onPurchaseAcknowledged(purchase: Purchase) {
+        Timber.d("purchase = [$purchase]")
+        val paymentSuccess = PaymentSuccess(purchase.sku)
+        _lastPaymentEvent.postValue(paymentSuccess)
+        debugEvent("PAYMENT_SUCCESS: $paymentSuccess")
+    }
+
+    private fun debugEvent(message: String) {
+        if (isDebugMode) {
+            activity.runOnUiThread {
+                Toast.makeText(activity, "GSM_PAYMENTS $message", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 
     fun makePurchase(activity: Activity, skuId: String) {
         Timber.d("activity = [$activity], skuId = [$skuId]")
         CoroutineScope(Job() + Dispatchers.IO).launch {
             try {
                 val netigenNoAdsSkuDetails = localCacheBillingClient.skuDetailsDao().getById(skuId)
-                netigenNoAdsSkuDetails?.let { launchBillingFlow(activity, it) }
+                if (netigenNoAdsSkuDetails != null) {
+                    launchBillingFlow(activity, netigenNoAdsSkuDetails)
+                } else {
+                    val lastError1 = lastError
+                    when {
+                        gmsBillingClient.isReady ->
+                            postError(PaymentErrorType.DEVELOPER_ERROR, "NetigenNoAdsSkuDetails with skuId = $skuId not found")
+                        lastError1 != null -> postError(lastError1)
+                        else -> postError(PaymentErrorType.ERROR, "Unknown error for skuId: $skuId")
+                    }
+                }
             } catch (e: Exception) {
                 Timber.e(e)
+                onDeveloperError(e)
             }
         }
     }
+
+    private fun onDeveloperError(e: Exception) = postError(PaymentErrorType.DEVELOPER_ERROR, e.message ?: "")
 
     private fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
         Timber.d("activity = [$activity], netigenSkuDetails = [$netigenSkuDetails]")
@@ -234,9 +308,17 @@ class GMSPaymentsRepo(
                 CoroutineScope(Job() + Dispatchers.IO).launch {
                     queryPurchasesAsync()
                 }
+                _lastPaymentEvent.postValue(PaymentError(billingResult.debugMessage, PaymentErrorType.ITEM_ALREADY_OWNED))
+                debugEvent("ITEM_ALREADY_OWNED " + billingResult.debugMessage)
             }
-            BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> connectToPlayBillingService()
-            else -> Timber.i(billingResult.debugMessage)
+            BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> {
+                connectToPlayBillingService()
+                debugEvent("SERVICE_DISCONNECTED")
+            }
+            else -> {
+                Timber.i(billingResult.debugMessage)
+                postError(billingResult)
+            }
         }
     }
 

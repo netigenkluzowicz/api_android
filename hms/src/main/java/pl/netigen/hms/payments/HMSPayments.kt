@@ -5,9 +5,15 @@ import android.content.Intent
 import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.d
 
-class HMSPayments(override val paymentsImplContext: Activity, consumeTestPurchase: Boolean = false) : Payments(paymentsImplContext) {
+class HMSPayments(
+    activity: Activity,
+    override val inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+    override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+    consumablesInAppSkuList: List<String> = emptyList(),
+    consumeTestPurchase: Boolean = false
+) : Payments(activity) {
 
-    override val paymentsRepo = HMSPaymentsRepo(paymentsImplContext, inAppSkuList, noAdsInAppSkuList, consumeTestPurchase)
+    override val paymentsRepo = HMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList, consumeTestPurchase)
 
     override fun makePurchase(activity: Activity, sku: String) {
         d("activity = [$activity], skuString = [$sku]")
