@@ -221,7 +221,9 @@ class GMSPaymentsRepo(
             if (!purchase.isAcknowledged) {
                 acknowledgePurchase(purchase)
             } else if (localCacheBillingClient.purchaseDao().get(purchase) == null) {
-                _lastPaymentEvent.postValue(PaymentRestored(purchase.sku))
+                val paymentRestored = PaymentRestored(purchase.sku)
+                _lastPaymentEvent.postValue(paymentRestored)
+                debugEvent(paymentRestored.toString())
             }
         }
     }
