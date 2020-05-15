@@ -1,9 +1,11 @@
 package pl.netigen.coreapi.ads
 
+import android.widget.RelativeLayout
+
 /**
  * Manages Banner ad:
  * - lifecycle is connected to activity lifecycle
- * - is placed automatically in given container provided in [IAdsConfig.bannerLayoutIdName]
+ * - is placed automatically in given [RelativeLayout] provided in [IAdsConfig.bannerLayoutIdName]
  * - its container is resized when ad size is different than its height, and it is invisible to the user
  *
  * Banner ads (excluding Adaptive Banners) occupy a spot within an app's layout, either at the top or bottom of the device screen.

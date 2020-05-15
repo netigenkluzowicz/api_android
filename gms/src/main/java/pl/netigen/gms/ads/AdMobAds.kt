@@ -9,7 +9,15 @@ import com.google.android.gms.ads.RequestConfiguration
 import pl.netigen.coreapi.ads.*
 import timber.log.Timber
 
-
+/**
+ * [IAds] implementation with Google Mobile Ads SDK
+ *
+ * @property adsConfig Current ads configuration
+ * @constructor
+ * Initializes SDK, creates ads and sets up test devices
+ *
+ * @param activity Activity context used for ads
+ */
 class AdMobAds(
     activity: ComponentActivity,
     private val adsConfig: IAdsConfig

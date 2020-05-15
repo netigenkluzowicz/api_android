@@ -2,11 +2,12 @@ package pl.netigen.coreapi.ads
 
 /**
  * Universal interface for managing ads, such as:
- *
+ *  - initializing ads SDk
  *  - displaying and loading [IBannerAd], [IInterstitialAd] and [IRewardedAd]
  *  - turning on/off personalized ads
  *  - enabling and disabling all ads
  *  - provides time minimum limit between IInterstitialAd displays
+ *  - showing test/production ads
  *
  */
 interface IAds {

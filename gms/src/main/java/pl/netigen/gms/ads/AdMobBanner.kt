@@ -8,11 +8,22 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.IBannerAd
 import timber.log.Timber
 
+/**
+ * [IBannerAd] implementation with [AdView] from Google Mobile Ads SDK
+ *
+ * @property activity Activity for this ad
+ * @property adMobRequest Provides [AdRequest] for this ad
+ * @property adId Current ad [String] identifier
+ * @property bannerLayoutIdName Id of [RelativeLayout] for banner ad placement
+ * @property isAdaptiveBanner When true (default value) adaptive banner instead of smart banner is used
+ * @property enabled Indicates is current ad active
+ */
 class AdMobBanner(
     private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
