@@ -1,9 +1,7 @@
 package pl.netigen.coreapi.gdpr
 
 /**
- * Configuration for Gdpr Consent
- *
- * @see [GDPRConsentImpl]
+ * Configurations for Gdpr Consent, as for now only List of Admob publisher ids is needed
  *
  */
 interface IGDPRConsentConfig {
