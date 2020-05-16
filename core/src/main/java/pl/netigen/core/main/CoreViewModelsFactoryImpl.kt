@@ -13,12 +13,12 @@ import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.coreapi.splash.SplashVM
 import timber.log.Timber
 
-abstract class CoreViewModelsFactory(final override val activity: CoreMainActivity) : ICoreViewModelsFactory {
-    override val networkStatus get() = getNetworkStatus(activity.application)
+abstract class CoreViewModelsFactory(override val coreMainActivity: CoreMainActivity) : ICoreViewModelsFactory {
+    override val networkStatus get() = getNetworkStatus(coreMainActivity.application)
 
     private fun getCoreMainVm(): CoreMainVM =
         CoreMainVmImpl(
-            activity.application,
+            coreMainActivity.application,
             singletonAds(),
             singletonPayments(),
             networkStatus,
@@ -27,7 +27,7 @@ abstract class CoreViewModelsFactory(final override val activity: CoreMainActivi
         )
 
     private fun getSplashVm(): SplashVM = CoreSplashVMImpl(
-        activity.application,
+        coreMainActivity.application,
         networkStatus = networkStatus,
         ads = singletonAds(),
         gdprConsent = singletonConsent(),

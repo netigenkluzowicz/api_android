@@ -10,7 +10,7 @@ import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.sampleapp.BuildConfig
 import pl.netigen.sampleapp.flavour.FlavoursConst
 
-class ViewModelFactory(private val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
+class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
     override val appConfig by lazy {
         AppConfig(
             bannerAdId = FlavoursConst.BANNER_AD_ID,

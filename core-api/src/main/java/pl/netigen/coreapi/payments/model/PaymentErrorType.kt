@@ -1,5 +1,10 @@
 package pl.netigen.coreapi.payments.model
 
+/**
+ * Enumerates possible billing flow errors
+ *
+ * see: [PaymentError]
+ */
 enum class PaymentErrorType {
     SERVICE_TIMEOUT,
     FEATURE_NOT_SUPPORTED,

@@ -9,7 +9,7 @@ sealed class PaymentEvent
 /**
  * Represents successful payment done by user with given sku(product Id)
  *
- * @property sku This payment event sku(product Id)
+ * @property sku Payment event sku(product Id)
  */
 data class PaymentSuccess(val sku: String) : PaymentEvent()
 
@@ -24,7 +24,7 @@ data class PaymentRestored(val sku: String) : PaymentEvent()
  *
  * Represents payment or billing service error with message and error type
  *
- * @property errorMessage
- * @property errorType
+ * @property errorMessage This error debug message
+ * @property errorType This error type
  */
 data class PaymentError(val errorMessage: String, val errorType: PaymentErrorType) : PaymentEvent()

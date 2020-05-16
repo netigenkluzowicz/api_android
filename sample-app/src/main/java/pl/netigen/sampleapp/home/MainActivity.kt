@@ -7,11 +7,12 @@ import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
+import pl.netigen.core.main.CoreViewModelsFactory
 import pl.netigen.sampleapp.R
 import timber.log.Timber
 
 class MainActivity : CoreMainActivity() {
-    override val viewModelFactory: ViewModelProvider.Factory
+    override val viewModelFactory: CoreViewModelsFactory
         get() = ViewModelFactory(this)
 
     override fun hideAds() {

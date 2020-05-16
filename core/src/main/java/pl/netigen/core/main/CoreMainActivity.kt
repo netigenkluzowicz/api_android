@@ -15,9 +15,8 @@ import pl.netigen.extensions.observe
 import timber.log.Timber
 
 abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
-    private var _canCommitFragments: Boolean = true
     override val canCommitFragments: Boolean
-        get() = _canCommitFragments
+        get() = !supportFragmentManager.isStateSaved
 
     private var _noAdsActive: Boolean = false
     override val noAdsActive: Boolean
@@ -76,21 +75,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     override fun onResumeFragments() {
         super.onResumeFragments()
         Timber.d("()")
-        _canCommitFragments = true
-    }
-
-    @CallSuper
-    override fun onPause() {
-        super.onPause()
-        Timber.d("()")
-        _canCommitFragments = false
-    }
-
-    @CallSuper
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        Timber.d("()")
-        _canCommitFragments = false
     }
 
     @CallSuper
