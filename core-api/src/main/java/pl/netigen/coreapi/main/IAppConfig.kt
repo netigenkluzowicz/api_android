@@ -9,9 +9,9 @@ import pl.netigen.coreapi.splash.ISplashConfig
  * - Ads configuration [IAdsConfig]
  * - UE GDPR consent configuration [IGDPRConsentConfig]
  * - splash base configuration [ISplashConfig]
- * - info about no-ads payment
- * - info about debug mode enabled
- * - target [Store]
+ * - if no-ads payment is available in application
+ * - if debug mode is enabled for ads and payments
+ * - target [Store] for application release
  *
  */
 interface IAppConfig : IAdsConfig, IGDPRConsentConfig, ISplashConfig {

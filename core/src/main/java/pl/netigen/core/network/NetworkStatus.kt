@@ -17,6 +17,7 @@ class NetworkStatus(private val application: Application) : INetworkStatus {
     override val isConnectedOrConnecting: Boolean
         get() {
             val connectivityManager = getSystemService(application, ConnectivityManager::class.java)
+
             @Suppress("DEPRECATION")
             val isConnectedOrConnecting = connectivityManager?.activeNetworkInfo?.isConnectedOrConnecting ?: false
             if (!isConnectedOrConnecting) {
