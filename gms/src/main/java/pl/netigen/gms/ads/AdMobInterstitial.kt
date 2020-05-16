@@ -25,7 +25,10 @@ import timber.log.Timber.d
  *
  * @property adMobRequest adMobRequest Provides [AdRequest] for this ad
  * @property adId Current ad [String] identifier
- * @property minDelayBetweenInterstitial Minimum time after one ad was showed to show another ad, for default = [DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS]
+ * @property minDelayBetweenInterstitial Minimum time after one ad was showed to show another ad,
+ *
+ * for default = [60 seconds][DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS]
+ *
  * @property enabled Current ad [String] identifier
  * @constructor
  * Initializes ad, starts observing activity [Lifecycle]

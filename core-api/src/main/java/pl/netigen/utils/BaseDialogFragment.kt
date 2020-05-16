@@ -30,7 +30,7 @@ abstract class BaseDialogFragment : AppCompatDialogFragment() {
             window.requestFeature(Window.FEATURE_NO_TITLE)
             window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
-        dialog?.setCancelable(true);
+        dialog?.setCancelable(true)
         dialog?.setCanceledOnTouchOutside(true)
     }
 

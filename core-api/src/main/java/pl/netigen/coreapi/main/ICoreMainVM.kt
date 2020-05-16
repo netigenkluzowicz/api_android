@@ -9,6 +9,6 @@ import pl.netigen.extensions.SingleLiveEvent
 interface ICoreMainVM : IPayments, IAds, INetworkStatus, IGDPRConsent, IAppConfig {
     fun start()
     fun resetAdsPreferences()
-    val showGdprResetAds : SingleLiveEvent<Unit>
-    val currentIsNoAdsActive : Boolean
+    val showGdprResetAds: SingleLiveEvent<Unit>
+    val currentIsNoAdsActive: Boolean
 }

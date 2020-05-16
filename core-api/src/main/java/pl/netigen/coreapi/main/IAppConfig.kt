@@ -4,8 +4,31 @@ import pl.netigen.coreapi.ads.IAdsConfig
 import pl.netigen.coreapi.gdpr.IGDPRConsentConfig
 import pl.netigen.coreapi.splash.ISplashConfig
 
+/**
+ * Keeps configuration for entire Api/Application:
+ * - Ads configuration [IAdsConfig]
+ * - UE GDPR consent configuration [IGDPRConsentConfig]
+ * - splash base configuration [ISplashConfig]
+ * - info about no-ads payment
+ * - info about debug mode enabled
+ * - target [Store]
+ *
+ */
 interface IAppConfig : IAdsConfig, IGDPRConsentConfig, ISplashConfig {
     override val isNoAdsAvailable: Boolean
+
+    /**
+     * Sets debug mode on/off, when:
+     * - true - test ads will be displayed, and GMS Payments will be showing Toast debug messages
+     * - false - production ads will be displayed excluding test devices provided in [IAdsConfig.testDevices]
+     */
     override val inDebugMode: Boolean
+
+    /**
+     * Current release target Store, one of:
+     * - [Google Play](https://play.google.com/store)
+     * - [Samsung Galaxy Store](https://www.samsung.com/apps/galaxy-store/)
+     * - [Huawei AppGallery](https://huaweimobileservices.com/appgallery/)
+     */
     val store: Store
 }
