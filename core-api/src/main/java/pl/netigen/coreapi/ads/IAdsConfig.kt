@@ -11,7 +11,14 @@ interface IAdsConfig {
 
 
     companion object {
-        const val DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS = 60L * 1000L
+        /**
+         * Minimum time after one [IInterstitialAd] ad was showed to show another ad, for default 60 seconds
+         */
+        const val DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS = 60_000L
+
+        /**
+         * Maximum number of reload tries of [IRewardedAd] after loading ad failure
+         */
         const val REWARD_AD_MAX_RETRY_COUNT = 2
     }
 }

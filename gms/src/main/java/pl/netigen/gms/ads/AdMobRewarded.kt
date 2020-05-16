@@ -1,19 +1,34 @@
 package pl.netigen.gms.ads
 
+import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.annotation.NonNull
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdCallback
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
+import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
+import pl.netigen.coreapi.ads.IInterstitialAd
 import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber.d
 
-
+/**
+ * [IRewardedAd] implementation with [RewardedAd] from Google Mobile Ads SDK
+ *
+ * @property adMobRequest adMobRequest Provides [AdRequest] for this ad
+ * @property adId Current ad [String] identifier
+ * @property enabled Current ad [String] identifier
+ * @constructor
+ * Initializes ad, starts observing activity [Lifecycle]
+ *
+ * @param activity [ComponentActivity] for this ad [Context] and [Lifecycle] events
+ */
 class AdMobRewarded(
     private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,

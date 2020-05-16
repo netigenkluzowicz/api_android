@@ -10,6 +10,10 @@ import kotlinx.coroutines.flow.Flow
  * and for the collection, sharing, and use of personal data for ads personalization.
  * This policies reflects the requirements of the EU ePrivacy Directive and the General Data Protection Regulation (GDPR).
  *
+ * [More info Admob](https://github.com/googleads/googleads-consent-sdk-android)
+ *
+ * [More info HMS Ads Kit](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-settings#h1-1585566951865)
+ *
  */
 interface IGDPRConsent : IGDPRTexts {
     /**

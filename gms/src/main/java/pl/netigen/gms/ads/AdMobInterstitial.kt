@@ -1,28 +1,42 @@
 package pl.netigen.gms.ads
 
+import android.content.Context
 import android.os.SystemClock
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.isActive
-import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS
+import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber
 import timber.log.Timber.d
 
-
+/**
+ * [IInterstitialAd] implementation with [InterstitialAd] from Google Mobile Ads SDK
+ *
+ * See: [Interstitial Ads](https://developers.google.com/admob/android/interstitial)
+ *
+ * @property adMobRequest adMobRequest Provides [AdRequest] for this ad
+ * @property adId Current ad [String] identifier
+ * @property minDelayBetweenInterstitial Minimum time after one ad was showed to show another ad, for default = [DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS]
+ * @property enabled Current ad [String] identifier
+ * @constructor
+ * Initializes ad, starts observing activity [Lifecycle]
+ *
+ * @param activity [ComponentActivity] for this ad [Context] and [Lifecycle] events
+ */
 class AdMobInterstitial(
     activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
-    private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS,
+    private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
     override var enabled: Boolean = true
 ) : IInterstitialAd, LifecycleObserver {
     private var isInBackground: Boolean = false

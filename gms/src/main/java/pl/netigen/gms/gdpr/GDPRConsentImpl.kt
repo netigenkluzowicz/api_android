@@ -13,6 +13,12 @@ import kotlinx.coroutines.flow.flow
 import pl.netigen.coreapi.gdpr.*
 import timber.log.Timber
 
+/**
+ * [IGDPRConsent] implementation with using [googleads-consent-sdk-android](https://github.com/googleads/googleads-consent-sdk-android)
+ *
+ * @property application [Application] context for this implementation
+ * @property config [IGDPRConsentConfig] with list of Admob publisher IDs
+ */
 class GDPRConsentImpl(private val application: Application, private val config: IGDPRConsentConfig) : IGDPRConsent, IGDPRTexts by ConstGDPR {
     val consentInformation: ConsentInformation = ConsentInformation.getInstance(application)
     override val adConsentStatus: Flow<AdConsentStatus> = flow {

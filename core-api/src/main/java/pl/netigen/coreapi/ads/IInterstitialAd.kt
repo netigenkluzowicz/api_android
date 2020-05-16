@@ -31,7 +31,7 @@ interface IInterstitialAd : IAd {
     fun load(): Flow<Boolean>
 
     /**
-     * Shows ad if it is loaded and minimum time between this ads passed (can be ignored by [forceShow] = true)
+     * Shows ad if it is loaded and minimum time between this ads passed (limit can be ignored by [forceShow] = true)
      *
      * @param forceShow If true time limit is ignored
      * @param onClosedOrNotShowed Callback called when ad can't be showed or ad is closed

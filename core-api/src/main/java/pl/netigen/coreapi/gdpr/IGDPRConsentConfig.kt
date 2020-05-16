@@ -9,7 +9,7 @@ interface IGDPRConsentConfig {
     /**
      * List of Admob publisher ids
      *
-     * **See Also:** [More information][https://developers.google.com/admob/android/eu-consent]
+     * **See Also:** [Mobile Ads SDK (Android) - Update consent status](https://developers.google.com/admob/android/eu-consent#update-status)
      */
     val adMobPublisherIds: Array<String>
 }

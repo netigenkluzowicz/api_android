@@ -12,6 +12,8 @@ import timber.log.Timber
 /**
  * [IAds] implementation with Google Mobile Ads SDK
  *
+ * See: [Mobile Ads SDK](https://developers.google.com/admob/android/quick-start)
+ *
  * @property adsConfig Current ads configuration
  * @constructor
  * Initializes SDK, creates ads and sets up test devices

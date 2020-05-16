@@ -9,6 +9,9 @@ package pl.netigen.coreapi.ads
  *  - provides time minimum limit between IInterstitialAd displays
  *  - showing test/production ads
  *
+ * See: [Mobile Ads SDK](https://developer.huawei.com/consumer/en/monetize)
+ *
+ * See: [HUAWEI Ads SDK](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide)
  */
 interface IAds {
     /**

@@ -17,11 +17,15 @@ import timber.log.Timber
 /**
  * [IBannerAd] implementation with [AdView] from Google Mobile Ads SDK
  *
- * @property activity Activity for this ad
+ * See: [Banner Ads](https://developers.google.com/admob/android/banner)
+ *
+ * @property activity [ComponentActivity] for this ad placement and [Lifecycle] events
  * @property adMobRequest Provides [AdRequest] for this ad
  * @property adId Current ad [String] identifier
  * @property bannerLayoutIdName Id of [RelativeLayout] for banner ad placement
  * @property isAdaptiveBanner When true (default value) adaptive banner instead of smart banner is used
+ *
+ * See: [Adaptive Banners](https://developers.google.com/admob/android/banner/adaptive)
  * @property enabled Indicates is current ad active
  */
 class AdMobBanner(
