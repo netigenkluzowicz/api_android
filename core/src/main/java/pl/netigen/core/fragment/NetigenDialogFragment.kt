@@ -1,24 +1,33 @@
 package pl.netigen.core.fragment
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.activityViewModels
+import pl.netigen.core.main.CoreMainActivity
+import pl.netigen.coreapi.main.CoreMainVM
+import pl.netigen.coreapi.main.ICoreMainVM
 
+/**
+ * Base [AppCompatDialogFragment] for Api, provides [canCommitFragments], and [ICoreMainVM]
+ *
+ */
 open class NetigenDialogFragment : AppCompatDialogFragment() {
-    var canCommitFragments = false
-        private set
+    /**
+     * Provides access to Api by [ICoreMainVM]
+     */
+    val viewModel: ICoreMainVM by activityViewModels<CoreMainVM> { (activity as CoreMainActivity).viewModelFactory }
 
-    override fun onResume() {
-        super.onResume()
-        canCommitFragments = true
-    }
-
-    override fun onPause() {
-        super.onPause()
-        canCommitFragments = false
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        canCommitFragments = false
-    }
+    /**
+     * Indicates if we can safe perform Fragment transaction
+     * as [commit()][FragmentTransaction.commit] or [popBackStack()][FragmentManager.popBackStack] and others
+     * otherwise it will result with
+     * [IllegalStateException][java.lang.IllegalStateException] crash
+     *
+     * see: [FragmentManager.isStateSaved]
+     *
+     * see: [stackoverflow](https://stackoverflow.com/a/44064149/3442734)
+     */
+    val canCommitFragments
+        get() = !childFragmentManager.isStateSaved
 }

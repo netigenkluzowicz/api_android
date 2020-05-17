@@ -9,7 +9,7 @@ import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.extensions.SingleLiveEvent
 
 /**
- * Used for core view model for [ICoreMainActivity] implementation in this Api, provides access to:
+ * This implementations, provides access to api modules:
  * - payments [IPayments]
  * - ads [IAds]
  * - network status [INetworkStatus]
