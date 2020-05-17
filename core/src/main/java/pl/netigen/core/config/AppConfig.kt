@@ -5,7 +5,11 @@ import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.splash.ISplashConfig.Companion.DEFAULT_MAX_CONSENT_WAIT_TIME_MS
 import pl.netigen.coreapi.splash.ISplashConfig.Companion.DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
 
-class AppConfig(
+/**
+ * [IAppConfig] implementation which provides also [marketLinkPrefix] for linking Application to current [Store]
+ *
+ */
+open class AppConfig(
     override val bannerAdId: String,
     override val interstitialAdId: String,
     override val rewardedAdId: String = "",
@@ -17,7 +21,7 @@ class AppConfig(
     override val isNoAdsAvailable: Boolean = true,
     override val maxConsentWaitTime: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     override val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
-    override val store: Store
+    final override val store: Store
 ) : IAppConfig {
 
     init {
@@ -25,6 +29,12 @@ class AppConfig(
     }
 
     companion object {
+        /**
+         * Used for linking Application to current [Store],
+         * as in [Utils.openMarketLink()][pl.netigen.core.utils.Utils.openMarketLink]
+         *
+         *
+         */
         lateinit var marketLinkPrefix: String
         const val NETIGEN_ADMOB_PUBLISHER_ID = "pub-4699516034931013"
     }
