@@ -11,6 +11,7 @@ import pl.netigen.sampleapp.BuildConfig
 import pl.netigen.sampleapp.flavour.FlavoursConst
 
 class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreViewModelsFactory(coreMainActivity) {
+
     override val appConfig by lazy {
         AppConfig(
             bannerAdId = FlavoursConst.BANNER_AD_ID,
@@ -24,6 +25,7 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
             }
         )
     }
+
     override val ads: IAds
         get() = FlavoursConst.getAdsImpl(coreMainActivity, appConfig)
 

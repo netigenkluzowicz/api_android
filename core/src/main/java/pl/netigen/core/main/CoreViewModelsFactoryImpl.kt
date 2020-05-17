@@ -13,6 +13,10 @@ import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.coreapi.splash.SplashVM
 import timber.log.Timber
 
+/**
+ * [ICoreViewModelsFactory] using companion object for providing Api modules singletons for created view models
+ *
+ */
 abstract class CoreViewModelsFactory(override val coreMainActivity: CoreMainActivity) : ICoreViewModelsFactory {
     override val networkStatus get() = getNetworkStatus(coreMainActivity.application)
 
@@ -41,12 +45,22 @@ abstract class CoreViewModelsFactory(override val coreMainActivity: CoreMainActi
 
     private fun singletonAds() = getAds { ads }
 
+    /**
+     * Creates a new instance of the given [SplashVM] or [CoreMainVM]
+     *
+     * @param modelClass a {@code Class} whose instance is requested
+     * @param T The type parameter for the ViewModel.
+     * @return a newly created [SplashVM] or [CoreMainVM]
+     */
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SplashVM::class.java)) return getSplashVm() as T
         if (modelClass.isAssignableFrom(CoreMainVM::class.java)) return getCoreMainVm() as T
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 
+    /**
+     * Provides singletons for Api modules
+     */
     companion object {
         @Volatile
         private var ads: IAds? = null
@@ -77,6 +91,10 @@ abstract class CoreViewModelsFactory(override val coreMainActivity: CoreMainActi
         private fun getPayments(constructor: () -> IPayments): IPayments =
             payments ?: synchronized(this) { payments ?: constructor().also { payments = it } }
 
+        /**
+         * Used to clean up ads instance after [CoreMainVM] is cleared(activity is killed)
+         *
+         */
         fun cleanAds() {
             Timber.d("()")
             ads = null

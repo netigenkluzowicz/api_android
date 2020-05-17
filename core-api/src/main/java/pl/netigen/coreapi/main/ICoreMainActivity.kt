@@ -38,7 +38,7 @@ interface ICoreMainActivity {
     val splashActive: Boolean
 
     /**
-     *
+     * Factory for providing [ICoreMainVM] and [ISplashVM][pl.netigen.coreapi.splash.ISplashVM]
      */
     val viewModelFactory: ICoreViewModelsFactory
     val coreMainVM: ICoreMainVM

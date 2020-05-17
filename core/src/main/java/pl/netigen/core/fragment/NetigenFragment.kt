@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 
 /**
- * Base fragment for Api, provides [canCommitFragments]
+ * Base fragment, provides [canCommitFragments]
  *
  */
 open class NetigenFragment : Fragment() {
