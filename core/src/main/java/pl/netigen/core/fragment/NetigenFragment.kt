@@ -1,32 +1,24 @@
 package pl.netigen.core.fragment
 
-import android.os.Bundle
-import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
-import timber.log.Timber
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
+/**
+ * Base fragment for Api, provides [canCommitFragments]
+ *
+ */
 open class NetigenFragment : Fragment() {
-    var canCommitFragments = false
-        private set
-
-    @CallSuper
-    override fun onResume() {
-        super.onResume()
-        Timber.d("()")
-        canCommitFragments = true
-    }
-
-    @CallSuper
-    override fun onPause() {
-        super.onPause()
-        Timber.d("()")
-        canCommitFragments = false
-    }
-
-    @CallSuper
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        Timber.d("()")
-        canCommitFragments = false
-    }
+    /**
+     * Indicates if we can safe perform Fragment transaction
+     * as [commit()][FragmentTransaction.commit] or [popBackStack()][FragmentManager.popBackStack] and others
+     * otherwise it will result with
+     * [IllegalStateException][java.lang.IllegalStateException] crash
+     *
+     * see: [FragmentManager.isStateSaved]
+     *
+     * see: [stackoverflow](https://stackoverflow.com/a/44064149/3442734)
+     */
+    val canCommitFragments
+        get() = !childFragmentManager.isStateSaved
 }
