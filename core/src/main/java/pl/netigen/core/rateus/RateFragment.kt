@@ -10,8 +10,11 @@ import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
 import pl.netigen.extensions.setTint
 
-class RateFragment(
-) : BaseDialogFragment() {
+/**
+ * [BaseDialogFragment] used for show users "Rate us" dialog, see [IRateUs]
+ *
+ */
+class RateFragment : BaseDialogFragment() {
 
     private var onClickYes: (() -> Unit)? = null
     private var onClickNo: (() -> Unit)? = null

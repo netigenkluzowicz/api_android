@@ -7,6 +7,8 @@ import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import pl.netigen.core.gdpr.GDPRDialogFragment
+import pl.netigen.coreapi.rateus.IRateUs
+import pl.netigen.core.rateus.RateUs
 import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.GDPRClickListener
@@ -39,14 +41,20 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         hideAds()
     }
 
+    val rateUs by lazy { RateUs.Builder(this).createRateUs() }
+
     /**
      * It's called when [CoreSplashFragment] is closed
+     * If [CoreMainVM.useDefaultRateUs] is true check for Rate Us show, see: [IRateUs]
      *
      */
     override fun onSplashClosed() {
         Timber.d("()")
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
+        if (coreMainVM.useDefaultRateUs) {
+            rateUs.openRateDialogIfNeeded()
+        }
     }
 
     /**
