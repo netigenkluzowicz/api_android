@@ -8,7 +8,6 @@ import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,10 +35,14 @@ import pl.netigen.core.R;
 import pl.netigen.core.utils.BaseDialogFragment;
 import pl.netigen.extensions.DialogFragmentExtensionsKt;
 import pl.netigen.extensions.ViewTintExtensionKt;
+import timber.log.Timber;
 
 import static pl.netigen.core.utils.Const.MARGIN_TOP;
 import static pl.netigen.core.utils.Const.SCREEN_HEIGHT_IN_DP;
 
+/**
+ * Dialog for show user possibility to change language of application
+ */
 public class ChangeLanguageDialogFragment extends BaseDialogFragment {
 
     private static final String TAG = "ChangeLanguageDialog";
@@ -56,16 +59,6 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
     private ArrayList<LanguageModel> languageModels;
     private ChangeLanguageParams changeLanguageParams;
 
-    @androidx.annotation.Nullable
-    @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater,
-            @androidx.annotation.Nullable ViewGroup container,
-            @androidx.annotation.Nullable Bundle savedInstanceState
-    ) {
-        return inflater.inflate(R.layout.dialog_fragment_change_language, container, false);
-    }
-
     private static ChangeLanguageDialogFragment newInstance(LanguageClickListener languageClickListener, List<String> languageCodes, ChangeLanguageParams changeLanguageParams) {
         ChangeLanguageDialogFragment fragment = new ChangeLanguageDialogFragment();
         fragment.bindListener(languageClickListener);
@@ -80,6 +73,16 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
         fragment.setLanguageCodesList(jsonLanguageCodes);
         fragment.changeLanguageParams = changeLanguageParams;
         return fragment;
+    }
+
+    @androidx.annotation.Nullable
+    @Override
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @androidx.annotation.Nullable ViewGroup container,
+            @androidx.annotation.Nullable Bundle savedInstanceState
+    ) {
+        return inflater.inflate(R.layout.dialog_fragment_change_language, container, false);
     }
 
     private void setLanguageCodesList(String jsonLanguageCodes) {
@@ -104,7 +107,7 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
         } else if (changeLanguageParams.jsonLanguageCodes != null) {
             setLanguageCodesList(changeLanguageParams.jsonLanguageCodes);
         } else {
-            Log.e(TAG, "onCreate: Problem loading languages, seems like you didn't pass any");
+            Timber.e("onCreate: Problem loading languages, seems like you didn't pass any");
         }
         super.onCreate(savedInstanceState);
     }
@@ -136,7 +139,8 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
             buttonChangeLanguageOk.setText(android.R.string.ok);
             selectedLanguageCode = languagesRecyclerViewAdapter.getSelectedItem();
             languageClickListener.onOkClicked(selectedLanguageCode);
-            getDialog().dismiss();
+            Dialog dialog = getDialog();
+            dialog.dismiss();
         });
     }
 

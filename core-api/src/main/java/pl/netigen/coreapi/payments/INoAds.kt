@@ -22,6 +22,7 @@ interface INoAds {
 
     /**
      * Emits [Flow]<[Boolean]> indicating that no ads in-app purchase is or has changed to active or inactive
+     *
      * Use this for behave with no ads related stuff, (e.g. hide/show no ads buy buttons)
      */
     val noAdsActive: Flow<Boolean>

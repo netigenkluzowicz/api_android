@@ -6,11 +6,23 @@ import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.IAppConfig
+import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.launchMain
 
+/**
+ * Current [ICoreMainVM] implementation, provided implementations should be singletons
+ *
+ * @property ads [IAds] implementation for activity
+ * @property payments [IPayments] implementation for application
+ * @property networkStatus [INetworkStatus] implementation for application
+ *
+ * @param application context for [CoreMainVM]
+ * @param gdprConsent [IGDPRConsent] implementation for application
+ * @param appConfig [IAppConfig] implementation for application
+ */
 class CoreMainVmImpl(
     application: Application,
     val ads: IAds,

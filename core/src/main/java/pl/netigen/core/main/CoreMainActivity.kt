@@ -7,13 +7,18 @@ import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import pl.netigen.core.gdpr.GDPRDialogFragment
+import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.coreapi.gdpr.AdConsentStatus
+import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
 import timber.log.Timber
 
+/**
+ * Implements [ICoreMainActivity]
+ */
 abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     override val canCommitFragments: Boolean
         get() = !supportFragmentManager.isStateSaved
@@ -34,12 +39,20 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         hideAds()
     }
 
+    /**
+     * It's called when [CoreSplashFragment] is closed
+     *
+     */
     override fun onSplashClosed() {
         Timber.d("()")
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
     }
 
+    /**
+     * Starts observing [ICoreMainVM.noAdsActive] and [ICoreMainVM.showGdprResetAds]
+     *
+     */
     @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +70,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         val fragment = GDPRDialogFragment.newInstance()
         fragment.show(supportFragmentManager.beginTransaction().addToBackStack(null), null)
         fragment.setIsPayOptions(coreMainVM.isNoAdsAvailable)
-        fragment.bindGDPRListener(object : GDPRDialogFragment.GDPRClickListener {
+        fragment.bindGDPRListener(object : GDPRClickListener {
             override fun onConsentAccepted(personalizedAds: Boolean) {
                 coreMainVM.personalizedAdsEnabled = personalizedAds
                 val adConsentStatus = if (personalizedAds) AdConsentStatus.PERSONALIZED_SHOWED else AdConsentStatus.NON_PERSONALIZED_SHOWED
@@ -69,12 +82,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                 coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
             }
         })
-    }
-
-    @CallSuper
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        Timber.d("()")
     }
 
     @CallSuper
