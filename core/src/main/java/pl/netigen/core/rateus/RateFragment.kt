@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.dialog_fragment_rate_us_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
+import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.extensions.setTint
 
 /**
