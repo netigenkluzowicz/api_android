@@ -2,7 +2,7 @@
 title: NoAdsNotAvailable.makeNoAdsPayment - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [NoAdsNotAvailable](index.md) / [makeNoAdsPayment](./make-no-ads-payment.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[NoAdsNotAvailable](index.md)/[makeNoAdsPayment](./make-no-ads-payment.html)
 
 # makeNoAdsPayment
 

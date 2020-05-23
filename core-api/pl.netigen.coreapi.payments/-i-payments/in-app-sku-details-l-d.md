@@ -2,7 +2,7 @@
 title: IPayments.inAppSkuDetailsLD - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [inAppSkuDetailsLD](./in-app-sku-details-l-d.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[IPayments](index.md)/[inAppSkuDetailsLD](./in-app-sku-details-l-d.html)
 
 # inAppSkuDetailsLD
 

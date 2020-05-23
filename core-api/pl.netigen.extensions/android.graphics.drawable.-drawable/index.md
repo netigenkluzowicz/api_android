@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.android.graphics.drawable.Drawable - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.graphics.drawable.Drawable](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[android.graphics.drawable.Drawable](./index.md)
 
 ### Extensions for android.graphics.drawable.Drawable
 

@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.show - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [show](./show.html)
+[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.language](../../index.md)/[ChangeLanguageDialogFragment](../index.md)/[Builder](index.md)/[show](./show.html)
 
 # show
 

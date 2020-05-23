@@ -2,7 +2,7 @@
 title: NetworkStatusChangeListener - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [NetworkStatusChangeListener](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.network](../index.md)/[NetworkStatusChangeListener](./index.md)
 
 # NetworkStatusChangeListener
 

@@ -2,7 +2,7 @@
 title: toJson - core-api
 ---
 
-[api_android](../index.md)/[core-api](../index.md) / [pl.netigen.extensions](index.md) / [toJson](./to-json.html)
+[api_android](../index.md)/[core-api](../index.md)/[pl.netigen.extensions](index.md)/[toJson](./to-json.html)
 
 # toJson
 

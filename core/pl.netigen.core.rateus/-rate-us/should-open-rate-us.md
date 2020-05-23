@@ -2,7 +2,7 @@
 title: RateUs.shouldOpenRateUs - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [shouldOpenRateUs](./should-open-rate-us.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rateus](../index.md)/[RateUs](index.md)/[shouldOpenRateUs](./should-open-rate-us.html)
 
 # shouldOpenRateUs
 

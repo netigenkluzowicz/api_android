@@ -2,7 +2,7 @@
 title: IPaymentsRepo.subsSkuDetailsLD - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPaymentsRepo](index.md) / [subsSkuDetailsLD](./subs-sku-details-l-d.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[IPaymentsRepo](index.md)/[subsSkuDetailsLD](./subs-sku-details-l-d.html)
 
 # subsSkuDetailsLD
 

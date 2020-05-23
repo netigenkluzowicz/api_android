@@ -2,7 +2,7 @@
 title: IInterstitialAd.isLoaded - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [isLoaded](./is-loaded.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.ads](../index.md)/[IInterstitialAd](index.md)/[isLoaded](./is-loaded.html)
 
 # isLoaded
 

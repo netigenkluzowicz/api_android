@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder.show - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [show](./show.html)
+[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.language.info](../../index.md)/[TranslationInfoDialogFragment](../index.md)/[Builder](index.md)/[show](./show.html)
 
 # show
 

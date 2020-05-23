@@ -2,7 +2,7 @@
 title: IAdsConfig.interstitialAdId - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [interstitialAdId](./interstitial-ad-id.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.ads](../index.md)/[IAdsConfig](index.md)/[interstitialAdId](./interstitial-ad-id.html)
 
 # interstitialAdId
 

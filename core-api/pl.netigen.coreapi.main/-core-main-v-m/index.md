@@ -2,7 +2,7 @@
 title: CoreMainVM - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [CoreMainVM](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[CoreMainVM](./index.md)
 
 # CoreMainVM
 

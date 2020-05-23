@@ -2,7 +2,7 @@
 title: LocalBillingDb.skuDetailsDao - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [skuDetailsDao](./sku-details-dao.html)
+[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[LocalBillingDb](index.md)/[skuDetailsDao](./sku-details-dao.html)
 
 # skuDetailsDao
 

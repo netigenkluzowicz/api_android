@@ -2,7 +2,7 @@
 title: NetigenSkuDetails - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments.model](../index.md)/[NetigenSkuDetails](./index.md)
 
 # NetigenSkuDetails
 

@@ -2,7 +2,7 @@
 title: NetigenDialogFragment.viewModel - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenDialogFragment](index.md) / [viewModel](./view-model.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.fragment](../index.md)/[NetigenDialogFragment](index.md)/[viewModel](./view-model.html)
 
 # viewModel
 

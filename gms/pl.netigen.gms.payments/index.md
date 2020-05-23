@@ -2,7 +2,7 @@
 title: pl.netigen.gms.payments - gms
 ---
 
-[api_android](../index.md)/[gms](../index.md) / [pl.netigen.gms.payments](./index.md)
+[api_android](../index.md)/[gms](../index.md)/[pl.netigen.gms.payments](./index.md)
 
 ## Package pl.netigen.gms.payments
 

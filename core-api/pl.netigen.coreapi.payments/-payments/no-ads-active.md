@@ -2,7 +2,7 @@
 title: Payments.noAdsActive - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Payments](index.md) / [noAdsActive](./no-ads-active.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[Payments](index.md)/[noAdsActive](./no-ads-active.html)
 
 # noAdsActive
 

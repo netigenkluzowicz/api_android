@@ -2,7 +2,7 @@
 title: RateUs.Builder - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.rateus](../../index.md) / [RateUs](../index.md) / [Builder](./index.md)
+[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.rateus](../../index.md)/[RateUs](../index.md)/[Builder](./index.md)
 
 # Builder
 

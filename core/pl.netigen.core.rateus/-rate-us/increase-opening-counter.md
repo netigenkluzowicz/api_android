@@ -2,7 +2,7 @@
 title: RateUs.increaseOpeningCounter - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [increaseOpeningCounter](./increase-opening-counter.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rateus](../index.md)/[RateUs](index.md)/[increaseOpeningCounter](./increase-opening-counter.html)
 
 # increaseOpeningCounter
 

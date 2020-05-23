@@ -2,7 +2,7 @@
 title: NetworkStatus.removeNetworkStatusChangeListener - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [removeNetworkStatusChangeListener](./remove-network-status-change-listener.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.network](../index.md)/[NetworkStatus](index.md)/[removeNetworkStatusChangeListener](./remove-network-status-change-listener.html)
 
 # removeNetworkStatusChangeListener
 

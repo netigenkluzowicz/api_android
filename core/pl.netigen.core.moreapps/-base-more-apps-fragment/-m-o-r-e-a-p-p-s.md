@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.MOREAPPS - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [MOREAPPS](./-m-o-r-e-a-p-p-s.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.moreapps](../index.md)/[BaseMoreAppsFragment](index.md)/[MOREAPPS](./-m-o-r-e-a-p-p-s.html)
 
 # MOREAPPS
 

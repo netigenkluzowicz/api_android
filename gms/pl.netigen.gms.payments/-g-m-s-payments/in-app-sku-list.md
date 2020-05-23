@@ -2,7 +2,7 @@
 title: GMSPayments.inAppSkuList - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [inAppSkuList](./in-app-sku-list.html)
+[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[GMSPayments](index.md)/[inAppSkuList](./in-app-sku-list.html)
 
 # inAppSkuList
 

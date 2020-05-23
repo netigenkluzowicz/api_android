@@ -2,7 +2,7 @@
 title: RewardItem.getId - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](index.md) / [getId](./get-id.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rewards](../index.md)/[RewardItem](index.md)/[getId](./get-id.html)
 
 # getId
 

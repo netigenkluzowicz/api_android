@@ -2,7 +2,7 @@
 title: ConstGDPR - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [ConstGDPR](./index.md)
+[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.gdpr](../index.md)/[ConstGDPR](./index.md)
 
 # ConstGDPR
 

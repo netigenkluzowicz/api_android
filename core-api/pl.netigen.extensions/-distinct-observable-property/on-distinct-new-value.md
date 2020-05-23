@@ -2,7 +2,7 @@
 title: DistinctObservableProperty.onDistinctNewValue - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [onDistinctNewValue](./on-distinct-new-value.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[DistinctObservableProperty](index.md)/[onDistinctNewValue](./on-distinct-new-value.html)
 
 # onDistinctNewValue
 

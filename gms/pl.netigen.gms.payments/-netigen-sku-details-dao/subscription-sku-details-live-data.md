@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao.subscriptionSkuDetailsLiveData - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [subscriptionSkuDetailsLiveData](./subscription-sku-details-live-data.html)
+[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[NetigenSkuDetailsDao](index.md)/[subscriptionSkuDetailsLiveData](./subscription-sku-details-live-data.html)
 
 # subscriptionSkuDetailsLiveData
 

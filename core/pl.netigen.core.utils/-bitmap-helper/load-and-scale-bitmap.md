@@ -2,7 +2,7 @@
 title: BitmapHelper.loadAndScaleBitmap - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [loadAndScaleBitmap](./load-and-scale-bitmap.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[BitmapHelper](index.md)/[loadAndScaleBitmap](./load-and-scale-bitmap.html)
 
 # loadAndScaleBitmap
 

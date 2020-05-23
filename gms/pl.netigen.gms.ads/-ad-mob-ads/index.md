@@ -2,7 +2,7 @@
 title: AdMobAds - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](./index.md)
+[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.ads](../index.md)/[AdMobAds](./index.md)
 
 # AdMobAds
 

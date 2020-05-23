@@ -2,7 +2,7 @@
 title: NetigenVMFragment - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenVMFragment](./index.md)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.fragment](../index.md)/[NetigenVMFragment](./index.md)
 
 # NetigenVMFragment
 

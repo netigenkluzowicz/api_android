@@ -2,7 +2,7 @@
 title: RewardListenersList.callOnSuccess - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardListenersList](index.md) / [callOnSuccess](./call-on-success.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rewards](../index.md)/[RewardListenersList](index.md)/[callOnSuccess](./call-on-success.html)
 
 # callOnSuccess
 

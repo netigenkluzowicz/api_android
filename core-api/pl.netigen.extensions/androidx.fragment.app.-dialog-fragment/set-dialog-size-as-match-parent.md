@@ -2,7 +2,7 @@
 title: setDialogSizeAsMatchParent - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.fragment.app.DialogFragment](index.md) / [setDialogSizeAsMatchParent](./set-dialog-size-as-match-parent.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[androidx.fragment.app.DialogFragment](index.md)/[setDialogSizeAsMatchParent](./set-dialog-size-as-match-parent.html)
 
 # setDialogSizeAsMatchParent
 

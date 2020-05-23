@@ -2,7 +2,7 @@
 title: CheckGDPRLocationStatus.ERROR - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [CheckGDPRLocationStatus](index.md) / [ERROR](./-e-r-r-o-r.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.gdpr](../index.md)/[CheckGDPRLocationStatus](index.md)/[ERROR](./-e-r-r-o-r.html)
 
 # ERROR
 

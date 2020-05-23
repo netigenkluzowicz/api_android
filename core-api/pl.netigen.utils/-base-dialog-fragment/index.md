@@ -2,7 +2,7 @@
 title: BaseDialogFragment - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.utils](../index.md)/[BaseDialogFragment](./index.md)
 
 # BaseDialogFragment
 

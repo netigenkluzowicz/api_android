@@ -2,7 +2,7 @@
 title: ICoreViewModelsFactory.coreMainActivity - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [coreMainActivity](./core-main-activity.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[ICoreViewModelsFactory](index.md)/[coreMainActivity](./core-main-activity.html)
 
 # coreMainActivity
 

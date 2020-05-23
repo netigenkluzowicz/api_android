@@ -2,7 +2,7 @@
 title: NetworkStatus.GOOGLE_DNS_PORT - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [GOOGLE_DNS_PORT](./-g-o-o-g-l-e_-d-n-s_-p-o-r-t.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.network](../index.md)/[NetworkStatus](index.md)/[GOOGLE_DNS_PORT](./-g-o-o-g-l-e_-d-n-s_-p-o-r-t.html)
 
 # GOOGLE_DNS_PORT
 

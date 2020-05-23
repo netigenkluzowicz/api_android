@@ -2,7 +2,7 @@
 title: observe - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](index.md) / [observe](./observe.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[androidx.lifecycle.LiveData](index.md)/[observe](./observe.html)
 
 # observe
 

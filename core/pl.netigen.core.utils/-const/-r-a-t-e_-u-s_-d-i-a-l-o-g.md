@@ -2,7 +2,7 @@
 title: Const.RATE_US_DIALOG - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [RATE_US_DIALOG](./-r-a-t-e_-u-s_-d-i-a-l-o-g.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[Const](index.md)/[RATE_US_DIALOG](./-r-a-t-e_-u-s_-d-i-a-l-o-g.html)
 
 # RATE_US_DIALOG
 

@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.getMoreAppsAssetsFolderPath - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [getMoreAppsAssetsFolderPath](./get-more-apps-assets-folder-path.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.moreapps](../index.md)/[BaseMoreAppsFragment](index.md)/[getMoreAppsAssetsFolderPath](./get-more-apps-assets-folder-path.html)
 
 # getMoreAppsAssetsFolderPath
 

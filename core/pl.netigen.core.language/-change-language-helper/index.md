@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](./index.md)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[ChangeLanguageHelper](./index.md)
 
 # ChangeLanguageHelper
 

@@ -2,7 +2,7 @@
 title: IRateUs - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.rateus](../index.md)/[IRateUs](./index.md)
 
 # IRateUs
 

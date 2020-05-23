@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.gdprConsent - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [gdprConsent](./gdpr-consent.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.splash](../index.md)/[CoreSplashVMImpl](index.md)/[gdprConsent](./gdpr-consent.html)
 
 # gdprConsent
 

@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.android.view.View - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.view.View](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[android.view.View](./index.md)
 
 ### Extensions for android.view.View
 

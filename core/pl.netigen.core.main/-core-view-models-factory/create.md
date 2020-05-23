@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory.create - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [create](./create.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.main](../index.md)/[CoreViewModelsFactory](index.md)/[create](./create.html)
 
 # create
 

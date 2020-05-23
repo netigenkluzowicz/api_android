@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.ads - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [ads](./ads.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.main](../index.md)/[CoreMainVmImpl](index.md)/[ads](./ads.html)
 
 # ads
 

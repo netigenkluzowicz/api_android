@@ -2,7 +2,7 @@
 title: AppConfig.maxConsentWaitTime - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [maxConsentWaitTime](./max-consent-wait-time.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.config](../index.md)/[AppConfig](index.md)/[maxConsentWaitTime](./max-consent-wait-time.html)
 
 # maxConsentWaitTime
 

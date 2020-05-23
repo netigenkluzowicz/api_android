@@ -2,7 +2,7 @@
 title: GDPRConsentImpl.saveAdConsentStatus - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](index.md) / [saveAdConsentStatus](./save-ad-consent-status.html)
+[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.gdpr](../index.md)/[GDPRConsentImpl](index.md)/[saveAdConsentStatus](./save-ad-consent-status.html)
 
 # saveAdConsentStatus
 

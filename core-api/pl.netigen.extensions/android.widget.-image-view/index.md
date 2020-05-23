@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.android.widget.ImageView - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.ImageView](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[android.widget.ImageView](./index.md)
 
 ### Extensions for android.widget.ImageView
 

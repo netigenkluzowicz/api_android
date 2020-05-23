@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao.insertOrUpdate - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [insertOrUpdate](./insert-or-update.html)
+[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[NetigenSkuDetailsDao](index.md)/[insertOrUpdate](./insert-or-update.html)
 
 # insertOrUpdate
 

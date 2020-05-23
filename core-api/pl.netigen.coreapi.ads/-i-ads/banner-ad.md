@@ -2,7 +2,7 @@
 title: IAds.bannerAd - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](index.md) / [bannerAd](./banner-ad.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.ads](../index.md)/[IAds](index.md)/[bannerAd](./banner-ad.html)
 
 # bannerAd
 

@@ -2,7 +2,7 @@
 title: launch - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.ViewModel](index.md) / [launch](./launch.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[androidx.lifecycle.ViewModel](index.md)/[launch](./launch.html)
 
 # launch
 

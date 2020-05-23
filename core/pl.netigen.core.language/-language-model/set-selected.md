@@ -2,7 +2,7 @@
 title: LanguageModel.setSelected - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setSelected](./set-selected.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[LanguageModel](index.md)/[setSelected](./set-selected.html)
 
 # setSelected
 

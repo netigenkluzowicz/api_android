@@ -2,7 +2,7 @@
 title: IRateUs.openingCounter - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [openingCounter](./opening-counter.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.rateus](../index.md)/[IRateUs](index.md)/[openingCounter](./opening-counter.html)
 
 # openingCounter
 

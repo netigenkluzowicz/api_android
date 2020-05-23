@@ -2,7 +2,7 @@
 title: pl.netigen.core.rateus - core
 ---
 
-[api_android](../index.md)/[core](../index.md) / [pl.netigen.core.rateus](./index.md)
+[api_android](../index.md)/[core](../index.md)/[pl.netigen.core.rateus](./index.md)
 
 ## Package pl.netigen.core.rateus
 

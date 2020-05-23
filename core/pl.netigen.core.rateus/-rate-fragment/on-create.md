@@ -2,7 +2,7 @@
 title: RateFragment.onCreate - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [onCreate](./on-create.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rateus](../index.md)/[RateFragment](index.md)/[onCreate](./on-create.html)
 
 # onCreate
 

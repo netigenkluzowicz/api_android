@@ -2,7 +2,7 @@
 title: BaseDialogFragment.onViewCreated - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BaseDialogFragment](index.md) / [onViewCreated](./on-view-created.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[BaseDialogFragment](index.md)/[onViewCreated](./on-view-created.html)
 
 # onViewCreated
 

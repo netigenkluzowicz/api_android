@@ -2,7 +2,7 @@
 title: LayoutMargins - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [LayoutMargins](./index.md)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rewards](../index.md)/[LayoutMargins](./index.md)
 
 # LayoutMargins
 

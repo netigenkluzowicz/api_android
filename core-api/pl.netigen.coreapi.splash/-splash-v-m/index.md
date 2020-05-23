@@ -2,7 +2,7 @@
 title: SplashVM - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [SplashVM](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.splash](../index.md)/[SplashVM](./index.md)
 
 # SplashVM
 

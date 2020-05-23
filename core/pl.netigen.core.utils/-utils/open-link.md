@@ -2,7 +2,7 @@
 title: Utils.openLink - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [openLink](./open-link.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[Utils](index.md)/[openLink](./open-link.html)
 
 # openLink
 

@@ -2,7 +2,7 @@
 title: pl.netigen.core.rewards - core
 ---
 
-[api_android](../index.md)/[core](../index.md) / [pl.netigen.core.rewards](./index.md)
+[api_android](../index.md)/[core](../index.md)/[pl.netigen.core.rewards](./index.md)
 
 ## Package pl.netigen.core.rewards
 

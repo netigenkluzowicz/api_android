@@ -2,7 +2,7 @@
 title: CoreSplashFragment.clickPay - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [clickPay](./click-pay.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.splash](../index.md)/[CoreSplashFragment](index.md)/[clickPay](./click-pay.html)
 
 # clickPay
 

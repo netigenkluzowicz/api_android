@@ -2,7 +2,7 @@
 title: AdMobRewarded.AdCallback.onRewardedAdClosed - gms
 ---
 
-[api_android](../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](index.md) / [onRewardedAdClosed](./on-rewarded-ad-closed.html)
+[api_android](../index.md)/[gms](../../../index.md)/[pl.netigen.gms.ads](../../index.md)/[AdMobRewarded](../index.md)/[AdCallback](index.md)/[onRewardedAdClosed](./on-rewarded-ad-closed.html)
 
 # onRewardedAdClosed
 

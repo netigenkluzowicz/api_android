@@ -2,7 +2,7 @@
 title: DistinctObservableProperty.getValue - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [getValue](./get-value.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[DistinctObservableProperty](index.md)/[getValue](./get-value.html)
 
 # getValue
 

@@ -2,7 +2,7 @@
 title: AppInfo.version - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [version](./version.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.moreapps](../index.md)/[AppInfo](index.md)/[version](./version.html)
 
 # version
 

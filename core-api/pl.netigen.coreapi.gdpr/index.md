@@ -2,7 +2,7 @@
 title: pl.netigen.coreapi.gdpr - core-api
 ---
 
-[api_android](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.gdpr](./index.md)
+[api_android](../index.md)/[core-api](../index.md)/[pl.netigen.coreapi.gdpr](./index.md)
 
 ## Package pl.netigen.coreapi.gdpr
 

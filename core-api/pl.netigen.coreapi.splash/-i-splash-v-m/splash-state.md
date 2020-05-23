@@ -2,7 +2,7 @@
 title: ISplashVM.splashState - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [splashState](./splash-state.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.splash](../index.md)/[ISplashVM](index.md)/[splashState](./splash-state.html)
 
 # splashState
 

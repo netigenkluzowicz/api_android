@@ -2,7 +2,7 @@
 title: ISplashTimer - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.splash](../index.md)/[ISplashTimer](./index.md)
 
 # ISplashTimer
 

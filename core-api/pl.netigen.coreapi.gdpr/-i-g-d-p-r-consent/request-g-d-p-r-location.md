@@ -2,7 +2,7 @@
 title: IGDPRConsent.requestGDPRLocation - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsent](index.md) / [requestGDPRLocation](./request-g-d-p-r-location.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.gdpr](../index.md)/[IGDPRConsent](index.md)/[requestGDPRLocation](./request-g-d-p-r-location.html)
 
 # requestGDPRLocation
 

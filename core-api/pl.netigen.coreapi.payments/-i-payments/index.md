@@ -2,7 +2,7 @@
 title: IPayments - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[IPayments](./index.md)
 
 # IPayments
 

@@ -2,7 +2,7 @@
 title: IPayments.ownedPurchasesSkuLD - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [ownedPurchasesSkuLD](./owned-purchases-sku-l-d.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[IPayments](index.md)/[ownedPurchasesSkuLD](./owned-purchases-sku-l-d.html)
 
 # ownedPurchasesSkuLD
 

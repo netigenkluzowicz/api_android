@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.kotlin.String - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.String](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[kotlin.String](./index.md)
 
 ### Extensions for kotlin.String
 

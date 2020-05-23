@@ -2,7 +2,7 @@
 title: BaseDialogFragment.onStart - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BaseDialogFragment](index.md) / [onStart](./on-start.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[BaseDialogFragment](index.md)/[onStart](./on-start.html)
 
 # onStart
 

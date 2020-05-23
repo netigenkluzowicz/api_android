@@ -2,7 +2,7 @@
 title: INetworkStatus - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.network](../index.md)/[INetworkStatus](./index.md)
 
 # INetworkStatus
 

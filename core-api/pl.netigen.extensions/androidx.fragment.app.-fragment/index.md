@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.androidx.fragment.app.Fragment - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.fragment.app.Fragment](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[androidx.fragment.app.Fragment](./index.md)
 
 ### Extensions for androidx.fragment.app.Fragment
 

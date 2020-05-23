@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setHeightMultiplier - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setHeightMultiplier](./set-height-multiplier.html)
+[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.rewards](../../index.md)/[RewardDialogFragment](../index.md)/[Builder](index.md)/[setHeightMultiplier](./set-height-multiplier.html)
 
 # setHeightMultiplier
 

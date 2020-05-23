@@ -2,7 +2,7 @@
 title: NoAdsNotAvailable - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [NoAdsNotAvailable](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[NoAdsNotAvailable](./index.md)
 
 # NoAdsNotAvailable
 

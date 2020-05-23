@@ -2,7 +2,7 @@
 title: GDPRDialogFragment.onStart - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onStart](./on-start.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.gdpr](../index.md)/[GDPRDialogFragment](index.md)/[onStart](./on-start.html)
 
 # onStart
 

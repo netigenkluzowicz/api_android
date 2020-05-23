@@ -2,7 +2,7 @@
 title: CoreMainActivity.splashActive - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [splashActive](./splash-active.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.main](../index.md)/[CoreMainActivity](index.md)/[splashActive](./splash-active.html)
 
 # splashActive
 

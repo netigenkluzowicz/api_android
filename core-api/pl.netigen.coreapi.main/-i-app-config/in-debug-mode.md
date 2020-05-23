@@ -2,7 +2,7 @@
 title: IAppConfig.inDebugMode - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](index.md) / [inDebugMode](./in-debug-mode.html)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[IAppConfig](index.md)/[inDebugMode](./in-debug-mode.html)
 
 # inDebugMode
 

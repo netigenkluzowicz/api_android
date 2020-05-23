@@ -2,7 +2,7 @@
 title: BitmapHelper - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](./index.md)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[BitmapHelper](./index.md)
 
 # BitmapHelper
 

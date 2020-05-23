@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.setLocaleAndRecreate - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setLocaleAndRecreate](./set-locale-and-recreate.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[ChangeLanguageHelper](index.md)/[setLocaleAndRecreate](./set-locale-and-recreate.html)
 
 # setLocaleAndRecreate
 

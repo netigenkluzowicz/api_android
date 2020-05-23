@@ -2,7 +2,7 @@
 title: GDPRClickListener - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.gdpr](../index.md)/[GDPRClickListener](./index.md)
 
 # GDPRClickListener
 

@@ -2,7 +2,7 @@
 title: PaymentSuccess - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentSuccess](./index.md)
+[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments.model](../index.md)/[PaymentSuccess](./index.md)
 
 # PaymentSuccess
 

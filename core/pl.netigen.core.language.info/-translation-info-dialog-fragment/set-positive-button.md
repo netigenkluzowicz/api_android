@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.setPositiveButton - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [setPositiveButton](./set-positive-button.html)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language.info](../index.md)/[TranslationInfoDialogFragment](index.md)/[setPositiveButton](./set-positive-button.html)
 
 # setPositiveButton
 

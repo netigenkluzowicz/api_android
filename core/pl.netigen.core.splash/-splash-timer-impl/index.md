@@ -2,7 +2,7 @@
 title: SplashTimerImpl - core
 ---
 
-[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](./index.md)
+[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.splash](../index.md)/[SplashTimerImpl](./index.md)
 
 # SplashTimerImpl
 
