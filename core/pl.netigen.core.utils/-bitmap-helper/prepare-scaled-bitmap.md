@@ -2,7 +2,7 @@
 title: BitmapHelper.prepareScaledBitmap - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [prepareScaledBitmap](./prepare-scaled-bitmap.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [prepareScaledBitmap](./prepare-scaled-bitmap.html)
 
 # prepareScaledBitmap
 

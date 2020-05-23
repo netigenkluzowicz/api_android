@@ -2,7 +2,7 @@
 title: RateFragment.newInstance - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [newInstance](./new-instance.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [newInstance](./new-instance.html)
 
 # newInstance
 

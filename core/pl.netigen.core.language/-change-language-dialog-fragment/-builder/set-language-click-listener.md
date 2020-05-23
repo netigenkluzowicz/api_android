@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.setLanguageClickListener - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageClickListener](./set-language-click-listener.html)
+[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageClickListener](./set-language-click-listener.html)
 
 # setLanguageClickListener
 

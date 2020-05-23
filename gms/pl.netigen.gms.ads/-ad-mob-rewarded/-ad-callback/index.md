@@ -2,7 +2,7 @@
 title: AdMobRewarded.AdCallback - gms
 ---
 
-[api_android](../index.md)(../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](./index.md)
+[api_android](../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](./index.md)
 
 # AdCallback
 

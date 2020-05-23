@@ -2,7 +2,7 @@
 title: ICoreMainVM.resetAdsPreferences - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [resetAdsPreferences](./reset-ads-preferences.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [resetAdsPreferences](./reset-ads-preferences.html)
 
 # resetAdsPreferences
 

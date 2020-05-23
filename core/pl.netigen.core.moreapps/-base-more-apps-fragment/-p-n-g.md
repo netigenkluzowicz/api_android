@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.PNG - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [PNG](./-p-n-g.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [PNG](./-p-n-g.html)
 
 # PNG
 

@@ -2,7 +2,7 @@
 title: pl.netigen.utils - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../index.md) / [pl.netigen.utils](./index.md)
+[api_android](../index.md)/[core-api](../index.md) / [pl.netigen.utils](./index.md)
 
 ## Package pl.netigen.utils
 

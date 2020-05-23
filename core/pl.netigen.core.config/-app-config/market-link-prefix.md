@@ -2,7 +2,7 @@
 title: AppConfig.marketLinkPrefix - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [marketLinkPrefix](./market-link-prefix.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [marketLinkPrefix](./market-link-prefix.html)
 
 # marketLinkPrefix
 

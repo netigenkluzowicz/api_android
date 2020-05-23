@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setRewards - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewards](./set-rewards.html)
+[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewards](./set-rewards.html)
 
 # setRewards
 

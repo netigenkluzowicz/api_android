@@ -2,7 +2,7 @@
 title: PaymentErrorType.DEVELOPER_ERROR - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentErrorType](index.md) / [DEVELOPER_ERROR](./-d-e-v-e-l-o-p-e-r_-e-r-r-o-r.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentErrorType](index.md) / [DEVELOPER_ERROR](./-d-e-v-e-l-o-p-e-r_-e-r-r-o-r.html)
 
 # DEVELOPER_ERROR
 

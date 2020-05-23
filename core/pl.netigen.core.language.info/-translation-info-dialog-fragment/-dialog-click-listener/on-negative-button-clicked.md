@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.DialogClickListener.onNegativeButtonClicked - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [DialogClickListener](index.md) / [onNegativeButtonClicked](./on-negative-button-clicked.html)
+[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [DialogClickListener](index.md) / [onNegativeButtonClicked](./on-negative-button-clicked.html)
 
 # onNegativeButtonClicked
 

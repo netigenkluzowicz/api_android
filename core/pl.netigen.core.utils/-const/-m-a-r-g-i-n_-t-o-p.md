@@ -2,7 +2,7 @@
 title: Const.MARGIN_TOP - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [MARGIN_TOP](./-m-a-r-g-i-n_-t-o-p.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [MARGIN_TOP](./-m-a-r-g-i-n_-t-o-p.html)
 
 # MARGIN_TOP
 

@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.setLocaleAndRestartApp - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setLocaleAndRestartApp](./set-locale-and-restart-app.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setLocaleAndRestartApp](./set-locale-and-restart-app.html)
 
 # setLocaleAndRestartApp
 

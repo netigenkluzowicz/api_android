@@ -2,7 +2,7 @@
 title: core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](./index.md)
+[api_android](../index.md)/[core-api](./index.md)
 
 ### Packages
 

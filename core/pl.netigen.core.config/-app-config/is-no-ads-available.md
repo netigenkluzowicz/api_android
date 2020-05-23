@@ -2,7 +2,7 @@
 title: AppConfig.isNoAdsAvailable - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [isNoAdsAvailable](./is-no-ads-available.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [isNoAdsAvailable](./is-no-ads-available.html)
 
 # isNoAdsAvailable
 

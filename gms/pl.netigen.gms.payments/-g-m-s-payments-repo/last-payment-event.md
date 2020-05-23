@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.lastPaymentEvent - gms
 ---
 
-[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [lastPaymentEvent](./last-payment-event.html)
+[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [lastPaymentEvent](./last-payment-event.html)
 
 # lastPaymentEvent
 

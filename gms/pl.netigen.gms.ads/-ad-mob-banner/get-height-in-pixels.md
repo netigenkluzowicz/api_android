@@ -2,7 +2,7 @@
 title: AdMobBanner.getHeightInPixels - gms
 ---
 
-[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](index.md) / [getHeightInPixels](./get-height-in-pixels.html)
+[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](index.md) / [getHeightInPixels](./get-height-in-pixels.html)
 
 # getHeightInPixels
 

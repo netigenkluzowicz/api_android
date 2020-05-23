@@ -2,7 +2,7 @@
 title: LanguageModel.setCode - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setCode](./set-code.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setCode](./set-code.html)
 
 # setCode
 

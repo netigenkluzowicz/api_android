@@ -2,7 +2,7 @@
 title: ICoreViewModelsFactory.networkStatus - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [networkStatus](./network-status.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [networkStatus](./network-status.html)
 
 # networkStatus
 

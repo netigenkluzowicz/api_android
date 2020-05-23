@@ -2,7 +2,7 @@
 title: RewardDialogFragment.onCreateView - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [onCreateView](./on-create-view.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [onCreateView](./on-create-view.html)
 
 # onCreateView
 

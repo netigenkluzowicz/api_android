@@ -2,7 +2,7 @@
 title: Utils.isPermissionGranted - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [isPermissionGranted](./is-permission-granted.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [isPermissionGranted](./is-permission-granted.html)
 
 # isPermissionGranted
 

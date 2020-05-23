@@ -2,7 +2,7 @@
 title: IAppConfig - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](./index.md)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](./index.md)
 
 # IAppConfig
 

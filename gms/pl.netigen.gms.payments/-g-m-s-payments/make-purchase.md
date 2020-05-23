@@ -2,7 +2,7 @@
 title: GMSPayments.makePurchase - gms
 ---
 
-[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [makePurchase](./make-purchase.html)
+[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [makePurchase](./make-purchase.html)
 
 # makePurchase
 

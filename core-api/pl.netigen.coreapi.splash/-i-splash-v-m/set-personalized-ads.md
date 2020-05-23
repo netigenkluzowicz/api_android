@@ -2,7 +2,7 @@
 title: ISplashVM.setPersonalizedAds - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [setPersonalizedAds](./set-personalized-ads.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [setPersonalizedAds](./set-personalized-ads.html)
 
 # setPersonalizedAds
 

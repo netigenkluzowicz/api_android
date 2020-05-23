@@ -2,7 +2,7 @@
 title: PaymentRestored.<init> - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentRestored](index.md) / [&lt;init&gt;](./-init-.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentRestored](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

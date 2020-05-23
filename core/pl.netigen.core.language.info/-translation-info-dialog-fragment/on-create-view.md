@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.onCreateView - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [onCreateView](./on-create-view.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [onCreateView](./on-create-view.html)
 
 # onCreateView
 

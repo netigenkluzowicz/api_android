@@ -2,7 +2,7 @@
 title: IBannerAd.getHeightInPixels - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IBannerAd](index.md) / [getHeightInPixels](./get-height-in-pixels.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IBannerAd](index.md) / [getHeightInPixels](./get-height-in-pixels.html)
 
 # getHeightInPixels
 

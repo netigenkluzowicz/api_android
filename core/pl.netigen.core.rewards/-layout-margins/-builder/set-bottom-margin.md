@@ -2,7 +2,7 @@
 title: LayoutMargins.Builder.setBottomMargin - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [setBottomMargin](./set-bottom-margin.html)
+[api_android](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [setBottomMargin](./set-bottom-margin.html)
 
 # setBottomMargin
 

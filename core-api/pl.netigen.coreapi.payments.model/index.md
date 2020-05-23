@@ -2,7 +2,7 @@
 title: pl.netigen.coreapi.payments.model - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.payments.model](./index.md)
+[api_android](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.payments.model](./index.md)
 
 ## Package pl.netigen.coreapi.payments.model
 

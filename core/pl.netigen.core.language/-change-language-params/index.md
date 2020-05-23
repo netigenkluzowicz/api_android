@@ -2,7 +2,7 @@
 title: ChangeLanguageParams - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](./index.md)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](./index.md)
 
 # ChangeLanguageParams
 

@@ -2,7 +2,7 @@
 title: BitmapHelper.flip - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [flip](./flip.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [flip](./flip.html)
 
 # flip
 

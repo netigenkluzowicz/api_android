@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.endConnection - gms
 ---
 
-[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [endConnection](./end-connection.html)
+[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [endConnection](./end-connection.html)
 
 # endConnection
 

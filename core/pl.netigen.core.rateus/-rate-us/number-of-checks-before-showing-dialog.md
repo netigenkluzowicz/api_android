@@ -2,7 +2,7 @@
 title: RateUs.numberOfChecksBeforeShowingDialog - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [numberOfChecksBeforeShowingDialog](./number-of-checks-before-showing-dialog.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [numberOfChecksBeforeShowingDialog](./number-of-checks-before-showing-dialog.html)
 
 # numberOfChecksBeforeShowingDialog
 

@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](./index.md)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](./index.md)
 
 # TranslationInfoDialogFragment
 

@@ -2,7 +2,7 @@
 title: GDPRDialogFragment.bindGDPRListener - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [bindGDPRListener](./bind-g-d-p-r-listener.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [bindGDPRListener](./bind-g-d-p-r-listener.html)
 
 # bindGDPRListener
 

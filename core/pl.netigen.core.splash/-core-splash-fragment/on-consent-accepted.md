@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onConsentAccepted - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onConsentAccepted](./on-consent-accepted.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onConsentAccepted](./on-consent-accepted.html)
 
 # onConsentAccepted
 

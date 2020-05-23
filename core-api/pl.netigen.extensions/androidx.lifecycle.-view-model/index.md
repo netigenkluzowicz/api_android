@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.androidx.lifecycle.ViewModel - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.ViewModel](./index.md)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.ViewModel](./index.md)
 
 ### Extensions for androidx.lifecycle.ViewModel
 

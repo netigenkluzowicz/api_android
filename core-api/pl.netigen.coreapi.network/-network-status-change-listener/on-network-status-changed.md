@@ -2,7 +2,7 @@
 title: NetworkStatusChangeListener.onNetworkStatusChanged - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [NetworkStatusChangeListener](index.md) / [onNetworkStatusChanged](./on-network-status-changed.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [NetworkStatusChangeListener](index.md) / [onNetworkStatusChanged](./on-network-status-changed.html)
 
 # onNetworkStatusChanged
 

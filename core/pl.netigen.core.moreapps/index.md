@@ -2,7 +2,7 @@
 title: pl.netigen.core.moreapps - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../index.md) / [pl.netigen.core.moreapps](./index.md)
+[api_android](../index.md)/[core](../index.md) / [pl.netigen.core.moreapps](./index.md)
 
 ## Package pl.netigen.core.moreapps
 

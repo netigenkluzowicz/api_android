@@ -2,7 +2,7 @@
 title: RewardListenersList.add - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardListenersList](index.md) / [add](./add.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardListenersList](index.md) / [add](./add.html)
 
 # add
 

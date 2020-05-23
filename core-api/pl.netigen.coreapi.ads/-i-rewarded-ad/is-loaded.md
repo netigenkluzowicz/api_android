@@ -2,7 +2,7 @@
 title: IRewardedAd.isLoaded - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IRewardedAd](index.md) / [isLoaded](./is-loaded.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IRewardedAd](index.md) / [isLoaded](./is-loaded.html)
 
 # isLoaded
 

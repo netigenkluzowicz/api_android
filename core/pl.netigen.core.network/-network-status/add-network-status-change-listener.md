@@ -2,7 +2,7 @@
 title: NetworkStatus.addNetworkStatusChangeListener - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [addNetworkStatusChangeListener](./add-network-status-change-listener.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [addNetworkStatusChangeListener](./add-network-status-change-listener.html)
 
 # addNetworkStatusChangeListener
 

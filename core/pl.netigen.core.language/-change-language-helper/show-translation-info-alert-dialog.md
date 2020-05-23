@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.showTranslationInfoAlertDialog - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [showTranslationInfoAlertDialog](./show-translation-info-alert-dialog.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [showTranslationInfoAlertDialog](./show-translation-info-alert-dialog.html)
 
 # showTranslationInfoAlertDialog
 

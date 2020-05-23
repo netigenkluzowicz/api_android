@@ -2,7 +2,7 @@
 title: mapToEnumMap - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.collections.Iterable](index.md) / [mapToEnumMap](./map-to-enum-map.html)
+[api_android](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.collections.Iterable](index.md) / [mapToEnumMap](./map-to-enum-map.html)
 
 # mapToEnumMap
 

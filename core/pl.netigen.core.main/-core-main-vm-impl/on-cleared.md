@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.onCleared - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [onCleared](./on-cleared.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [onCleared](./on-cleared.html)
 
 # onCleared
 

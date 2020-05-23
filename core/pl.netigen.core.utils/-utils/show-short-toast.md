@@ -2,7 +2,7 @@
 title: Utils.showShortToast - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showShortToast](./show-short-toast.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showShortToast](./show-short-toast.html)
 
 # showShortToast
 

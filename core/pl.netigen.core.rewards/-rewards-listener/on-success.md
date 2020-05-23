@@ -2,7 +2,7 @@
 title: RewardsListener.onSuccess - core
 ---
 
-[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](index.md) / [onSuccess](./on-success.html)
+[api_android](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](index.md) / [onSuccess](./on-success.html)
 
 # onSuccess
 

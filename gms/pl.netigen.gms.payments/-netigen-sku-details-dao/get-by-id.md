@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao.getById - gms
 ---
 
-[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [getById](./get-by-id.html)
+[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [getById](./get-by-id.html)
 
 # getById
 

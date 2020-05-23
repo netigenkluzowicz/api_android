@@ -2,7 +2,7 @@
 title: AdMobInterstitial.isLoaded - gms
 ---
 
-[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [isLoaded](./is-loaded.html)
+[api_android](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [isLoaded](./is-loaded.html)
 
 # isLoaded
 

@@ -2,7 +2,7 @@
 title: PaymentEvent - core-api
 ---
 
-[api_android](../index.md)(../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.payments.model](index.md) / [PaymentEvent](./-payment-event.html)
+[api_android](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.payments.model](index.md) / [PaymentEvent](./-payment-event.html)
 
 # PaymentEvent
 
