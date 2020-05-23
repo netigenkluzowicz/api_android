@@ -1,10 +1,6 @@
----
-title: Current Netigen API Android documentation core/core-api and gms
----
 
 
-
-
+* * *
 | [index core-api](core-api/index.html) |  |
 | [pl.netigen.coreapi.ads](core-api/pl.netigen.coreapi.ads/index.html) |  |
 | [pl.netigen.coreapi.gdpr](core-api/pl.netigen.coreapi.gdpr/index.html) |  |
@@ -16,8 +12,7 @@ title: Current Netigen API Android documentation core/core-api and gms
 | [pl.netigen.coreapi.splash](core-api/pl.netigen.coreapi.splash/index.html) |  |
 | [pl.netigen.extensions](core-api/pl.netigen.extensions/index.html) |  |
 | [pl.netigen.utils](core-api/pl.netigen.utils/index.html) |  |
-
-
+* * *
 | [index core](core/index.html) |  |
 | [pl.netigen.core.config](core/pl.netigen.core.config/index.html) |  |
 | [pl.netigen.core.fragment](core/pl.netigen.core.fragment/index.html) |  |
@@ -31,9 +26,7 @@ title: Current Netigen API Android documentation core/core-api and gms
 | [pl.netigen.core.rewards](core/pl.netigen.core.rewards/index.html) |  |
 | [pl.netigen.core.splash](core/pl.netigen.core.splash/index.html) |  |
 | [pl.netigen.core.utils](core/pl.netigen.core.utils/index.html) |  |
-
-
-
+* * *
 | [index gms](gms/index.html) |  |
 | [pl.netigen.gms.ads](gms/pl.netigen.gms.ads/index.html) |  |
 | [pl.netigen.gms.gdpr](gms/pl.netigen.gms.gdpr/index.html) |  |
