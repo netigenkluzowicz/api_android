@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.getSelectedItem - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [getSelectedItem](./get-selected-item.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [getSelectedItem](./get-selected-item.html)
 
 # getSelectedItem
 

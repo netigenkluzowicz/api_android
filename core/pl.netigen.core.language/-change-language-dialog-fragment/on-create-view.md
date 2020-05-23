@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.onCreateView - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [onCreateView](./on-create-view.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [onCreateView](./on-create-view.html)
 
 # onCreateView
 

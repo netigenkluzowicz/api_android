@@ -2,7 +2,7 @@
 title: SplashVM.<init> - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [SplashVM](index.md) / [&lt;init&gt;](./-init-.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [SplashVM](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

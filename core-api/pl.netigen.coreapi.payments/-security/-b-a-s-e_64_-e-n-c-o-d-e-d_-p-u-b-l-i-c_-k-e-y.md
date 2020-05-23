@@ -2,7 +2,7 @@
 title: Security.BASE_64_ENCODED_PUBLIC_KEY - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Security](index.md) / [BASE_64_ENCODED_PUBLIC_KEY](./-b-a-s-e_64_-e-n-c-o-d-e-d_-p-u-b-l-i-c_-k-e-y.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Security](index.md) / [BASE_64_ENCODED_PUBLIC_KEY](./-b-a-s-e_64_-e-n-c-o-d-e-d_-p-u-b-l-i-c_-k-e-y.html)
 
 # BASE_64_ENCODED_PUBLIC_KEY
 

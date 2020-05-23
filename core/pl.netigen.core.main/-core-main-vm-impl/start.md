@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.start - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [start](./start.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [start](./start.html)
 
 # start
 

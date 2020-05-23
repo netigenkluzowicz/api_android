@@ -2,7 +2,7 @@
 title: NetworkStatus.GOOGLE_DNS_HOSTNAME - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [GOOGLE_DNS_HOSTNAME](./-g-o-o-g-l-e_-d-n-s_-h-o-s-t-n-a-m-e.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [GOOGLE_DNS_HOSTNAME](./-g-o-o-g-l-e_-d-n-s_-h-o-s-t-n-a-m-e.html)
 
 # GOOGLE_DNS_HOSTNAME
 

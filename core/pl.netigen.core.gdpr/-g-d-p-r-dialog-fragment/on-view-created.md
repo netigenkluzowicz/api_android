@@ -2,7 +2,7 @@
 title: GDPRDialogFragment.onViewCreated - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onViewCreated](./on-view-created.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onViewCreated](./on-view-created.html)
 
 # onViewCreated
 

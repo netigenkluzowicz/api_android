@@ -2,7 +2,7 @@
 title: IAdsConfig.bannerAdId - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [bannerAdId](./banner-ad-id.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [bannerAdId](./banner-ad-id.html)
 
 # bannerAdId
 

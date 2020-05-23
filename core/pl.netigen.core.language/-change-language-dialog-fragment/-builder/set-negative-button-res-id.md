@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.setNegativeButtonResId - core
 ---
 
-[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setNegativeButtonResId](./set-negative-button-res-id.html)
+[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setNegativeButtonResId](./set-negative-button-res-id.html)
 
 # setNegativeButtonResId
 

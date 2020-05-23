@@ -2,7 +2,7 @@
 title: CachedPurchase.equals - gms
 ---
 
-[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [equals](./equals.html)
+[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [equals](./equals.html)
 
 # equals
 

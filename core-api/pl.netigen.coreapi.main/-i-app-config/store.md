@@ -2,7 +2,7 @@
 title: IAppConfig.store - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](index.md) / [store](./store.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](index.md) / [store](./store.html)
 
 # store
 

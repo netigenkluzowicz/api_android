@@ -2,7 +2,7 @@
 title: MutableSingleLiveEvent.setValue - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](index.md) / [setValue](./set-value.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](index.md) / [setValue](./set-value.html)
 
 # setValue
 

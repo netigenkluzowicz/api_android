@@ -2,7 +2,7 @@
 title: PaymentErrorType - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentErrorType](./index.md)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentErrorType](./index.md)
 
 # PaymentErrorType
 

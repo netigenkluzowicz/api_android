@@ -2,7 +2,7 @@
 title: SplashTimerImpl.startInterstitialTimer - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [startInterstitialTimer](./start-interstitial-timer.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [startInterstitialTimer](./start-interstitial-timer.html)
 
 # startInterstitialTimer
 

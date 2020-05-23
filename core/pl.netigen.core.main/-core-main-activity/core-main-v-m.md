@@ -2,7 +2,7 @@
 title: CoreMainActivity.coreMainVM - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [coreMainVM](./core-main-v-m.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [coreMainVM](./core-main-v-m.html)
 
 # coreMainVM
 

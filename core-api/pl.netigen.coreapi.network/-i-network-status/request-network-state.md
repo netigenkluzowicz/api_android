@@ -2,7 +2,7 @@
 title: INetworkStatus.requestNetworkState - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [requestNetworkState](./request-network-state.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [requestNetworkState](./request-network-state.html)
 
 # requestNetworkState
 

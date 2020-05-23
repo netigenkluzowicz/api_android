@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.create - core
 ---
 
-[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [create](./create.html)
+[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [create](./create.html)
 
 # create
 

@@ -2,7 +2,7 @@
 title: Utils.openMarketLink - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [openMarketLink](./open-market-link.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [openMarketLink](./open-market-link.html)
 
 # openMarketLink
 

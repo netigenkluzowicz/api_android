@@ -2,7 +2,7 @@
 title: SingleLiveEvent.removeObserver - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](index.md) / [removeObserver](./remove-observer.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](index.md) / [removeObserver](./remove-observer.html)
 
 # removeObserver
 

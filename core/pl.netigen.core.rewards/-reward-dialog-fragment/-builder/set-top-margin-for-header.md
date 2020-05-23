@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setTopMarginForHeader - core
 ---
 
-[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setTopMarginForHeader](./set-top-margin-for-header.html)
+[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setTopMarginForHeader](./set-top-margin-for-header.html)
 
 # setTopMarginForHeader
 

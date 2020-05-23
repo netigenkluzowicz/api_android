@@ -2,7 +2,7 @@
 title: AppConfig.rewardedAdId - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [rewardedAdId](./rewarded-ad-id.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [rewardedAdId](./rewarded-ad-id.html)
 
 # rewardedAdId
 

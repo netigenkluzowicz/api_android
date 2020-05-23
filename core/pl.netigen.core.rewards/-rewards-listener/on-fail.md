@@ -2,7 +2,7 @@
 title: RewardsListener.onFail - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](index.md) / [onFail](./on-fail.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](index.md) / [onFail](./on-fail.html)
 
 # onFail
 

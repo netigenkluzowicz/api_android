@@ -2,7 +2,7 @@
 title: GDPRConsentImpl.PREFERENCES_KEY - gms
 ---
 
-[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](index.md) / [PREFERENCES_KEY](./-p-r-e-f-e-r-e-n-c-e-s_-k-e-y.html)
+[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](index.md) / [PREFERENCES_KEY](./-p-r-e-f-e-r-e-n-c-e-s_-k-e-y.html)
 
 # PREFERENCES_KEY
 

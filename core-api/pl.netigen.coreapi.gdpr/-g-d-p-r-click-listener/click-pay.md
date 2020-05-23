@@ -2,7 +2,7 @@
 title: GDPRClickListener.clickPay - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](index.md) / [clickPay](./click-pay.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](index.md) / [clickPay](./click-pay.html)
 
 # clickPay
 

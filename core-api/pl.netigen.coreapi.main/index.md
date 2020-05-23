@@ -2,7 +2,7 @@
 title: pl.netigen.coreapi.main - core-api
 ---
 
-[home page](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.main](./index.md)
+[api_android](../index.md)(../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.main](./index.md)
 
 ## Package pl.netigen.coreapi.main
 

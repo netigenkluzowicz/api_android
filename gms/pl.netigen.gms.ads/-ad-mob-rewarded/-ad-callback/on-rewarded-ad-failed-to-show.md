@@ -2,7 +2,7 @@
 title: AdMobRewarded.AdCallback.onRewardedAdFailedToShow - gms
 ---
 
-[home page](../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](index.md) / [onRewardedAdFailedToShow](./on-rewarded-ad-failed-to-show.html)
+[api_android](../index.md)(../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](index.md) / [onRewardedAdFailedToShow](./on-rewarded-ad-failed-to-show.html)
 
 # onRewardedAdFailedToShow
 

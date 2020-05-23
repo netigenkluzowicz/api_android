@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.UTF_8 - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [UTF_8](./-u-t-f_8.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [UTF_8](./-u-t-f_8.html)
 
 # UTF_8
 

@@ -2,7 +2,7 @@
 title: pl.netigen.coreapi.splash - core-api
 ---
 
-[home page](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.splash](./index.md)
+[api_android](../index.md)(../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.splash](./index.md)
 
 ## Package pl.netigen.coreapi.splash
 

@@ -2,7 +2,7 @@
 title: ICoreMainVM.showGdprResetAds - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [showGdprResetAds](./show-gdpr-reset-ads.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [showGdprResetAds](./show-gdpr-reset-ads.html)
 
 # showGdprResetAds
 

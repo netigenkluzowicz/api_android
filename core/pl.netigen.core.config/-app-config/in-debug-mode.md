@@ -2,7 +2,7 @@
 title: AppConfig.inDebugMode - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [inDebugMode](./in-debug-mode.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [inDebugMode](./in-debug-mode.html)
 
 # inDebugMode
 

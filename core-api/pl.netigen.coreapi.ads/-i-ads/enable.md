@@ -2,7 +2,7 @@
 title: IAds.enable - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](index.md) / [enable](./enable.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](index.md) / [enable](./enable.html)
 
 # enable
 

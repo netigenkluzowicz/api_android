@@ -2,7 +2,7 @@
 title: zipLiveData - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Pair](index.md) / [zipLiveData](./zip-live-data.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Pair](index.md) / [zipLiveData](./zip-live-data.html)
 
 # zipLiveData
 

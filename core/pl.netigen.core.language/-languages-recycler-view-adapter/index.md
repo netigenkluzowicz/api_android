@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](./index.md)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](./index.md)
 
 # LanguagesRecyclerViewAdapter
 

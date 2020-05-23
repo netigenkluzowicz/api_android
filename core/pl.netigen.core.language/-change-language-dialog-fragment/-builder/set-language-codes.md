@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.setLanguageCodes - core
 ---
 
-[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageCodes](./set-language-codes.html)
+[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageCodes](./set-language-codes.html)
 
 # setLanguageCodes
 

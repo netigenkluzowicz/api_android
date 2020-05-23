@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.DialogClickListener.onPositiveButtonClicked - core
 ---
 
-[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [DialogClickListener](index.md) / [onPositiveButtonClicked](./on-positive-button-clicked.html)
+[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [DialogClickListener](index.md) / [onPositiveButtonClicked](./on-positive-button-clicked.html)
 
 # onPositiveButtonClicked
 

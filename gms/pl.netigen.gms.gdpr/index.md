@@ -2,7 +2,7 @@
 title: pl.netigen.gms.gdpr - gms
 ---
 
-[home page](../index.md)/[gms](../index.md) / [pl.netigen.gms.gdpr](./index.md)
+[api_android](../index.md)(../index.md)/[gms](../index.md) / [pl.netigen.gms.gdpr](./index.md)
 
 ## Package pl.netigen.gms.gdpr
 

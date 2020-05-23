@@ -2,7 +2,7 @@
 title: IPayments.lastPaymentEvent - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [lastPaymentEvent](./last-payment-event.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [lastPaymentEvent](./last-payment-event.html)
 
 # lastPaymentEvent
 

@@ -2,7 +2,7 @@
 title: RateUs.openRateDialogIfNeeded - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [openRateDialogIfNeeded](./open-rate-dialog-if-needed.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [openRateDialogIfNeeded](./open-rate-dialog-if-needed.html)
 
 # openRateDialogIfNeeded
 

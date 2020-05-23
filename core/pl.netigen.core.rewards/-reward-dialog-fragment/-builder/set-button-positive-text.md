@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setButtonPositiveText - core
 ---
 
-[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setButtonPositiveText](./set-button-positive-text.html)
+[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setButtonPositiveText](./set-button-positive-text.html)
 
 # setButtonPositiveText
 

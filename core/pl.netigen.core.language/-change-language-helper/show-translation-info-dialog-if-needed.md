@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.showTranslationInfoDialogIfNeeded - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [showTranslationInfoDialogIfNeeded](./show-translation-info-dialog-if-needed.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [showTranslationInfoDialogIfNeeded](./show-translation-info-dialog-if-needed.html)
 
 # showTranslationInfoDialogIfNeeded
 

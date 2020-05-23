@@ -2,7 +2,7 @@
 title: GMSPayments.paymentsRepo - gms
 ---
 
-[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [paymentsRepo](./payments-repo.html)
+[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [paymentsRepo](./payments-repo.html)
 
 # paymentsRepo
 

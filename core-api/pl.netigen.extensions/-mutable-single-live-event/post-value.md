@@ -2,7 +2,7 @@
 title: MutableSingleLiveEvent.postValue - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](index.md) / [postValue](./post-value.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](index.md) / [postValue](./post-value.html)
 
 # postValue
 

@@ -2,7 +2,7 @@
 title: IAdsConfig.REWARD_AD_MAX_RETRY_COUNT - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [REWARD_AD_MAX_RETRY_COUNT](./-r-e-w-a-r-d_-a-d_-m-a-x_-r-e-t-r-y_-c-o-u-n-t.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [REWARD_AD_MAX_RETRY_COUNT](./-r-e-w-a-r-d_-a-d_-m-a-x_-r-e-t-r-y_-c-o-u-n-t.html)
 
 # REWARD_AD_MAX_RETRY_COUNT
 

@@ -2,7 +2,7 @@
 title: AdMobInterstitial.loadIfShouldBeLoaded - gms
 ---
 
-[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [loadIfShouldBeLoaded](./load-if-should-be-loaded.html)
+[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [loadIfShouldBeLoaded](./load-if-should-be-loaded.html)
 
 # loadIfShouldBeLoaded
 

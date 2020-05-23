@@ -2,7 +2,7 @@
 title: Store - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [Store](./index.md)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [Store](./index.md)
 
 # Store
 

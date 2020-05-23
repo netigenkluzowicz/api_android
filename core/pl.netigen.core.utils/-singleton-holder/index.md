@@ -2,7 +2,7 @@
 title: SingletonHolder - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](./index.md)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](./index.md)
 
 # SingletonHolder
 

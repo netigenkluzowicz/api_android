@@ -1,7 +1,7 @@
 ---
 title: gms
 ---
-[home page](../index.md)/[gms](./index.md)
+[api_android](../index.md)(../index.md)/[gms](./index.md)
 
 ### Packages
 

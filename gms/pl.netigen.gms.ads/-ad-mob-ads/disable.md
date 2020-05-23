@@ -2,7 +2,7 @@
 title: AdMobAds.disable - gms
 ---
 
-[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [disable](./disable.html)
+[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [disable](./disable.html)
 
 # disable
 

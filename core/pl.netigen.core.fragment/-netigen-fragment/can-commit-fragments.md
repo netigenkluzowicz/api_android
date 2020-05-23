@@ -2,7 +2,7 @@
 title: NetigenFragment.canCommitFragments - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenFragment](index.md) / [canCommitFragments](./can-commit-fragments.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenFragment](index.md) / [canCommitFragments](./can-commit-fragments.html)
 
 # canCommitFragments
 

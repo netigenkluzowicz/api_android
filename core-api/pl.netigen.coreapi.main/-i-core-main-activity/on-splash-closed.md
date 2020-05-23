@@ -2,7 +2,7 @@
 title: ICoreMainActivity.onSplashClosed - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [onSplashClosed](./on-splash-closed.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [onSplashClosed](./on-splash-closed.html)
 
 # onSplashClosed
 

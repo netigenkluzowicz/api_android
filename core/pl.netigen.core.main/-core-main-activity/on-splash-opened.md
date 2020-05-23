@@ -2,7 +2,7 @@
 title: CoreMainActivity.onSplashOpened - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onSplashOpened](./on-splash-opened.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onSplashOpened](./on-splash-opened.html)
 
 # onSplashOpened
 

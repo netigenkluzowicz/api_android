@@ -2,7 +2,7 @@
 title: AdMobBanner.enabled - gms
 ---
 
-[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](index.md) / [enabled](./enabled.html)
+[api_android](../index.md)(../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](index.md) / [enabled](./enabled.html)
 
 # enabled
 

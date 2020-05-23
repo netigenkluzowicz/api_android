@@ -2,7 +2,7 @@
 title: IGDPRTexts.text4 - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRTexts](index.md) / [text4](./text4.html)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRTexts](index.md) / [text4](./text4.html)
 
 # text4
 

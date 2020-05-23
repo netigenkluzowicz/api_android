@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.<init> - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [&lt;init&gt;](./-init-.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

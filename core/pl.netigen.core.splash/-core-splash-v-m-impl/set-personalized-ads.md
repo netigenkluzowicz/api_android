@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.setPersonalizedAds - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [setPersonalizedAds](./set-personalized-ads.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [setPersonalizedAds](./set-personalized-ads.html)
 
 # setPersonalizedAds
 

@@ -2,7 +2,7 @@
 title: MutableSingleLiveEvent - core-api
 ---
 
-[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](./index.md)
+[api_android](../index.md)(../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](./index.md)
 
 # MutableSingleLiveEvent
 

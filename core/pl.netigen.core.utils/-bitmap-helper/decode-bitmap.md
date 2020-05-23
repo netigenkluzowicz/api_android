@@ -2,7 +2,7 @@
 title: BitmapHelper.decodeBitmap - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [decodeBitmap](./decode-bitmap.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [decodeBitmap](./decode-bitmap.html)
 
 # decodeBitmap
 

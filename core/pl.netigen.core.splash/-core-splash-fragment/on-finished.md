@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onFinished - core
 ---
 
-[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onFinished](./on-finished.html)
+[api_android](../index.md)(../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onFinished](./on-finished.html)
 
 # onFinished
 

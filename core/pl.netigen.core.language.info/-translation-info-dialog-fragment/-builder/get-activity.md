@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder.getActivity - core
 ---
 
-[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [getActivity](./get-activity.html)
+[api_android](../index.md)(../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [getActivity](./get-activity.html)
 
 # getActivity
 
