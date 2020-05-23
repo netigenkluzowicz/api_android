@@ -2,8 +2,8 @@
 title: LanguageModel.setCode - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setCode](./set-code.md))
+[core](../../index.html) / [pl.netigen.core.language](../index.html) / [LanguageModel](index.html) / [setCode](./set-code.html)
 
 # setCode
 
-`open fun setCode(code: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`open fun setCode(code: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

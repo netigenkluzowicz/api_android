@@ -2,15 +2,15 @@
 title: ISplashTimer.startInterstitialTimer - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startInterstitialTimer](./start-interstitial-timer.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.splash](../index.html) / [ISplashTimer](index.html) / [startInterstitialTimer](./start-interstitial-timer.html)
 
 # startInterstitialTimer
 
-`abstract fun startInterstitialTimer(onLoadSplashLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`abstract fun startInterstitialTimer(onLoadSplashLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
 
 Starts splash interstitial ad timer
 
-see: [ISplashConfig.maxInterstitialWaitTime](../-i-splash-config/max-interstitial-wait-time.md))
+see: [ISplashConfig.maxInterstitialWaitTime](../-i-splash-config/max-interstitial-wait-time.html)
 
 ### Parameters
 

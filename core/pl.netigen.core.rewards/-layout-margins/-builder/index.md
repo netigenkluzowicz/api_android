@@ -2,7 +2,7 @@
 title: LayoutMargins.Builder - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](./index.md)
+[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [LayoutMargins](../index.html) / [Builder](./index.html)
 
 # Builder
 
@@ -10,13 +10,13 @@ title: LayoutMargins.Builder - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.md)) | `Builder()` |
+| [&lt;init&gt;](-init-.html) | `Builder()` |
 
 ### Functions
 
-| [create](create.md)) | `open fun create(): `[`LayoutMargins`](../index.md)`!` |
-| [setBottomMargin](set-bottom-margin.md)) | `open fun setBottomMargin(bottom: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`!): Builder!` |
-| [setLeftMargin](set-left-margin.md)) | `open fun setLeftMargin(left: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`!): Builder!` |
-| [setRightMargin](set-right-margin.md)) | `open fun setRightMargin(right: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`!): Builder!` |
-| [setTopMargin](set-top-margin.md)) | `open fun setTopMargin(top: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`!): Builder!` |
+| [create](create.html) | `open fun create(): `[`LayoutMargins`](../index.html)`!` |
+| [setBottomMargin](set-bottom-margin.html) | `open fun setBottomMargin(bottom: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`!): Builder!` |
+| [setLeftMargin](set-left-margin.html) | `open fun setLeftMargin(left: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`!): Builder!` |
+| [setRightMargin](set-right-margin.html) | `open fun setRightMargin(right: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`!): Builder!` |
+| [setTopMargin](set-top-margin.html) | `open fun setTopMargin(top: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`!): Builder!` |
 

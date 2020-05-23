@@ -2,8 +2,8 @@
 title: AdMobInterstitial.showIfCanBeShowed - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [showIfCanBeShowed](./show-if-can-be-showed.md))
+[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobInterstitial](index.html) / [showIfCanBeShowed](./show-if-can-be-showed.html)
 
 # showIfCanBeShowed
 
-`fun showIfCanBeShowed(forceShow: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`, onClosedOrNotShowed: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`fun showIfCanBeShowed(forceShow: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`, onClosedOrNotShowed: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

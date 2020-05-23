@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.payments - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [payments](./payments.md))
+[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainVmImpl](index.html) / [payments](./payments.html)
 
 # payments
 

@@ -2,8 +2,8 @@
 title: RewardDialogFragment.Builder.setButtonPositiveText - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setButtonPositiveText](./set-button-positive-text.md))
+[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [RewardDialogFragment](../index.html) / [Builder](index.html) / [setButtonPositiveText](./set-button-positive-text.html)
 
 # setButtonPositiveText
 
-`open fun setButtonPositiveText(buttonPositiveTextResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!`
+`open fun setButtonPositiveText(buttonPositiveTextResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!`

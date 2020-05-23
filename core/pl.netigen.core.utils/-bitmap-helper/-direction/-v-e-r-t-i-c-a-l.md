@@ -2,7 +2,7 @@
 title: BitmapHelper.Direction.VERTICAL - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.utils](../../index.md) / [BitmapHelper](../index.md) / [Direction](index.md) / [VERTICAL](./-v-e-r-t-i-c-a-l.md))
+[core](../../../index.html) / [pl.netigen.core.utils](../../index.html) / [BitmapHelper](../index.html) / [Direction](index.html) / [VERTICAL](./-v-e-r-t-i-c-a-l.html)
 
 # VERTICAL
 

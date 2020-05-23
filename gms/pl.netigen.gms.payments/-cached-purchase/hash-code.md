@@ -2,8 +2,8 @@
 title: CachedPurchase.hashCode - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [hashCode](./hash-code.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [CachedPurchase](index.html) / [hashCode](./hash-code.html)
 
 # hashCode
 
-`fun hashCode(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)
+`fun hashCode(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)

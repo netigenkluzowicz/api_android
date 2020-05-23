@@ -2,11 +2,11 @@
 title: ICoreMainActivity.onSplashOpened - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [onSplashOpened](./on-splash-opened.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreMainActivity](index.html) / [onSplashOpened](./on-splash-opened.html)
 
 # onSplashOpened
 
-`abstract fun onSplashOpened(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`abstract fun onSplashOpened(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
 
-It's called when [CoreSplashFragment](../../pl.netigen.coreapi.gdpr/-i-core-splash-fragment.md)) is showed
+It's called when [CoreSplashFragment](../../pl.netigen.coreapi.gdpr/-i-core-splash-fragment.html) is showed
 

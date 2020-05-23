@@ -2,15 +2,15 @@
 title: ISplashTimer.startConsentTimer - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startConsentTimer](./start-consent-timer.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.splash](../index.html) / [ISplashTimer](index.html) / [startConsentTimer](./start-consent-timer.html)
 
 # startConsentTimer
 
-`abstract fun startConsentTimer(onConsentTimeLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`abstract fun startConsentTimer(onConsentTimeLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
 
 Starts consent timer
 
-see: [ISplashConfig.maxConsentWaitTime](../-i-splash-config/max-consent-wait-time.md))
+see: [ISplashConfig.maxConsentWaitTime](../-i-splash-config/max-consent-wait-time.html)
 
 ### Parameters
 

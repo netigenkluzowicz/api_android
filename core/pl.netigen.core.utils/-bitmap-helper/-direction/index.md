@@ -2,7 +2,7 @@
 title: BitmapHelper.Direction - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.utils](../../index.md) / [BitmapHelper](../index.md) / [Direction](./index.md)
+[core](../../../index.html) / [pl.netigen.core.utils](../../index.html) / [BitmapHelper](../index.html) / [Direction](./index.html)
 
 # Direction
 
@@ -10,6 +10,6 @@ title: BitmapHelper.Direction - core
 
 ### Enum Values
 
-| [VERTICAL](-v-e-r-t-i-c-a-l.md)) |  |
-| [HORIZONTAL](-h-o-r-i-z-o-n-t-a-l.md)) |  |
+| [VERTICAL](-v-e-r-t-i-c-a-l.html) |  |
+| [HORIZONTAL](-h-o-r-i-z-o-n-t-a-l.html) |  |
 

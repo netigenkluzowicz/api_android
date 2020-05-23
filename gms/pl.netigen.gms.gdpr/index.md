@@ -2,12 +2,12 @@
 title: pl.netigen.gms.gdpr - gms
 ---
 
-[gms](../index.md) / [pl.netigen.gms.gdpr](./index.md)
+[gms](../index.html) / [pl.netigen.gms.gdpr](./index.html)
 
 ## Package pl.netigen.gms.gdpr
 
 ### Types
 
-| [ConstGDPR](-const-g-d-p-r/index.md) | `object ConstGDPR : IGDPRTexts` |
-| [GDPRConsentImpl](-g-d-p-r-consent-impl/index.md) | [IGDPRConsent](#) implementation with using [googleads-consent-sdk-android](https://github.com/googleads/googleads-consent-sdk-android)`class GDPRConsentImpl : IGDPRConsent, IGDPRTexts` |
+| [ConstGDPR](-const-g-d-p-r/index.html) | `object ConstGDPR : IGDPRTexts` |
+| [GDPRConsentImpl](-g-d-p-r-consent-impl/index.html) | [IGDPRConsent](#) implementation with using [googleads-consent-sdk-android](https://github.com/googleads/googleads-consent-sdk-android)`class GDPRConsentImpl : IGDPRConsent, IGDPRTexts` |
 

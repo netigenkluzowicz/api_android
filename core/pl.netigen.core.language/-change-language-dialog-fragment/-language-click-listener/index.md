@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.LanguageClickListener - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [LanguageClickListener](./index.md)
+[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [ChangeLanguageDialogFragment](../index.html) / [LanguageClickListener](./index.html)
 
 # LanguageClickListener
 
@@ -10,5 +10,5 @@ title: ChangeLanguageDialogFragment.LanguageClickListener - core
 
 ### Functions
 
-| [onOkClicked](on-ok-clicked.md)) | `abstract fun onOkClicked(selectedLanguageCode: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onOkClicked](on-ok-clicked.html) | `abstract fun onOkClicked(selectedLanguageCode: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

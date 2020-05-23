@@ -2,11 +2,11 @@
 title: IAdsConfig.bannerAdId - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [bannerAdId](./banner-ad-id.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAdsConfig](index.html) / [bannerAdId](./banner-ad-id.html)
 
 # bannerAdId
 
-`abstract val bannerAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
+`abstract val bannerAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
 
-[IBannerAd](../-i-banner-ad/index.md) ad identifier
+[IBannerAd](../-i-banner-ad/index.html) ad identifier
 

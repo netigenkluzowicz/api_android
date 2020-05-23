@@ -2,8 +2,8 @@
 title: ChangeLanguageDialogFragment.Builder.show - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [show](./show.md))
+[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [ChangeLanguageDialogFragment](../index.html) / [Builder](index.html) / [show](./show.html)
 
 # show
 
-`open fun show(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`open fun show(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

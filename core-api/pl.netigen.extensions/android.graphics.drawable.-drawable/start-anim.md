@@ -2,8 +2,8 @@
 title: startAnim - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.graphics.drawable.Drawable](index.md) / [startAnim](./start-anim.md))
+[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [android.graphics.drawable.Drawable](index.html) / [startAnim](./start-anim.html)
 
 # startAnim
 
-`fun `[`Drawable`](https://developer.android.com/reference/android/graphics/drawable/Drawable.md))`.startAnim(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`fun `[`Drawable`](https://developer.android.com/reference/android/graphics/drawable/Drawable.html)`.startAnim(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

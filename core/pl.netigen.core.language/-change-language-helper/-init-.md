@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.<init> - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [&lt;init&gt;](./-init-.md))
+[core](../../index.html) / [pl.netigen.core.language](../index.html) / [ChangeLanguageHelper](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

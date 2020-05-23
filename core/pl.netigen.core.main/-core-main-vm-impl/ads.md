@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.ads - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [ads](./ads.md))
+[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainVmImpl](index.html) / [ads](./ads.html)
 
 # ads
 

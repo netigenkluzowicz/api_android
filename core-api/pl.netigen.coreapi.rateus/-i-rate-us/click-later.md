@@ -2,11 +2,11 @@
 title: IRateUs.clickLater - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [clickLater](./click-later.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.rateus](../index.html) / [IRateUs](index.html) / [clickLater](./click-later.html)
 
 # clickLater
 
-`abstract fun clickLater(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`abstract fun clickLater(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
 
-Called on click in dialog, after that [openingCounter](opening-counter.md)) is reset, and dialog will be showed later again
+Called on click in dialog, after that [openingCounter](opening-counter.html) is reset, and dialog will be showed later again
 

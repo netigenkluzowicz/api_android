@@ -2,11 +2,11 @@
 title: AdMobBanner.enabled - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](index.md) / [enabled](./enabled.md))
+[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobBanner](index.html) / [enabled](./enabled.html)
 
 # enabled
 
-`var enabled: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)
+`var enabled: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
 
 Indicates is current ad active
 

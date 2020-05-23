@@ -2,17 +2,17 @@
 title: pl.netigen.gms.payments - gms
 ---
 
-[gms](../index.md) / [pl.netigen.gms.payments](./index.md)
+[gms](../index.html) / [pl.netigen.gms.payments](./index.html)
 
 ## Package pl.netigen.gms.payments
 
 ### Types
 
-| [CachedPurchase](-cached-purchase/index.md) | `data class CachedPurchase` |
-| [GMSPayments](-g-m-s-payments/index.md) | `class GMSPayments : Payments` |
-| [GMSPaymentsRepo](-g-m-s-payments-repo/index.md) | `class GMSPaymentsRepo : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener` |
-| [LocalBillingDb](-local-billing-db/index.md) | `abstract class LocalBillingDb : `[`RoomDatabase`](https://netigenkluzowicz.github.io/api_android/core/androidx/room/RoomDatabase.md)) |
-| [NetigenSkuDetailsDao](-netigen-sku-details-dao/index.md) | `interface NetigenSkuDetailsDao` |
-| [PurchaseDao](-purchase-dao/index.md) | `interface PurchaseDao` |
-| [PurchaseTypeConverter](-purchase-type-converter/index.md) | `class PurchaseTypeConverter` |
+| [CachedPurchase](-cached-purchase/index.html) | `data class CachedPurchase` |
+| [GMSPayments](-g-m-s-payments/index.html) | `class GMSPayments : Payments` |
+| [GMSPaymentsRepo](-g-m-s-payments-repo/index.html) | `class GMSPaymentsRepo : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener` |
+| [LocalBillingDb](-local-billing-db/index.html) | `abstract class LocalBillingDb : `[`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.html) |
+| [NetigenSkuDetailsDao](-netigen-sku-details-dao/index.html) | `interface NetigenSkuDetailsDao` |
+| [PurchaseDao](-purchase-dao/index.html) | `interface PurchaseDao` |
+| [PurchaseTypeConverter](-purchase-type-converter/index.html) | `class PurchaseTypeConverter` |
 

@@ -2,14 +2,14 @@
 title: AdMobBanner.adId - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](index.md) / [adId](./ad-id.md))
+[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobBanner](index.html) / [adId](./ad-id.html)
 
 # adId
 
-`val adId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
+`val adId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
 
-Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) identifier
+Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) identifier
 
 ### Property
 
-`adId` - Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) identifier
+`adId` - Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) identifier

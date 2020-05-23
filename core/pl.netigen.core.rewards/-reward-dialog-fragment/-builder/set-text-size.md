@@ -2,8 +2,8 @@
 title: RewardDialogFragment.Builder.setTextSize - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setTextSize](./set-text-size.md))
+[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [RewardDialogFragment](../index.html) / [Builder](index.html) / [setTextSize](./set-text-size.html)
 
 # setTextSize
 
-`open fun setTextSize(textSizeDimenResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!`
+`open fun setTextSize(textSizeDimenResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!`

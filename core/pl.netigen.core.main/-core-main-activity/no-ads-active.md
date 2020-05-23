@@ -2,8 +2,8 @@
 title: CoreMainActivity.noAdsActive - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [noAdsActive](./no-ads-active.md))
+[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainActivity](index.html) / [noAdsActive](./no-ads-active.html)
 
 # noAdsActive
 
-`open val noAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)
+`open val noAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)

@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.<init> - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [&lt;init&gt;](./-init-.md))
+[core](../../index.html) / [pl.netigen.core.language.info](../index.html) / [TranslationInfoDialogFragment](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

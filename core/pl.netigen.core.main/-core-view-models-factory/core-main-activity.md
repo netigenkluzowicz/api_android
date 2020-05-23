@@ -2,8 +2,8 @@
 title: CoreViewModelsFactory.coreMainActivity - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [coreMainActivity](./core-main-activity.md))
+[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreViewModelsFactory](index.html) / [coreMainActivity](./core-main-activity.html)
 
 # coreMainActivity
 
-`open val coreMainActivity: `[`CoreMainActivity`](../-core-main-activity/index.md)
+`open val coreMainActivity: `[`CoreMainActivity`](../-core-main-activity/index.html)

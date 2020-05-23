@@ -2,31 +2,31 @@
 title: ICoreMainVM - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](./index.md)
+[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreMainVM](./index.html)
 
 # ICoreMainVM
 
-`interface ICoreMainVM : `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.md)`, `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.md)`, `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.md)`, `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md)`, `[`IAppConfig`](../-i-app-config/index.md)
+`interface ICoreMainVM : `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.html)`, `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.html)`, `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.html)`, `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html)`, `[`IAppConfig`](../-i-app-config/index.html)
 
 This implementations, provides access to api modules:
 
-* payments [IPayments](../../pl.netigen.coreapi.payments/-i-payments/index.md)
-* ads [IAds](../../pl.netigen.coreapi.ads/-i-ads/index.md)
-* network status [INetworkStatus](../../pl.netigen.coreapi.network/-i-network-status/index.md)
-* GDPR consent [IGDPRConsent](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md)
-* api configuration [IAppConfig](../-i-app-config/index.md)
+* payments [IPayments](../../pl.netigen.coreapi.payments/-i-payments/index.html)
+* ads [IAds](../../pl.netigen.coreapi.ads/-i-ads/index.html)
+* network status [INetworkStatus](../../pl.netigen.coreapi.network/-i-network-status/index.html)
+* GDPR consent [IGDPRConsent](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html)
+* api configuration [IAppConfig](../-i-app-config/index.html)
 
 ### Properties
 
-| [currentIsNoAdsActive](current-is-no-ads-active.md)) | Indicating that no ads in-app purchase is active or inactive`abstract val currentIsNoAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [showGdprResetAds](show-gdpr-reset-ads.md)) | [ICoreMainActivity](../-i-core-main-activity/index.md) will observe it and show [GDPRDialogFragment](#) when [resetAdsPreferences](reset-ads-preferences.md)) is called`abstract val showGdprResetAds: `[`SingleLiveEvent`](../../pl.netigen.extensions/-single-live-event/index.md)`<`[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`>` |
+| [currentIsNoAdsActive](current-is-no-ads-active.html) | Indicating that no ads in-app purchase is active or inactive`abstract val currentIsNoAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [showGdprResetAds](show-gdpr-reset-ads.html) | [ICoreMainActivity](../-i-core-main-activity/index.html) will observe it and show [GDPRDialogFragment](#) when [resetAdsPreferences](reset-ads-preferences.html) is called`abstract val showGdprResetAds: `[`SingleLiveEvent`](../../pl.netigen.extensions/-single-live-event/index.html)`<`[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`>` |
 
 ### Functions
 
-| [resetAdsPreferences](reset-ads-preferences.md)) | Shows [GDPRDialogFragment](#) in [ICoreMainActivity](../-i-core-main-activity/index.md) implementation to reset user ads Consent`abstract fun resetAdsPreferences(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [start](start.md)) | It is called on [onStart()](https://developer.android.com/reference/android/app/Activity.md)#onStart()) of [ICoreMainActivity](../-i-core-main-activity/index.md) implementation`abstract fun start(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [resetAdsPreferences](reset-ads-preferences.html) | Shows [GDPRDialogFragment](#) in [ICoreMainActivity](../-i-core-main-activity/index.html) implementation to reset user ads Consent`abstract fun resetAdsPreferences(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [start](start.html) | It is called on [onStart()](https://developer.android.com/reference/android/app/Activity.html#onStart()) of [ICoreMainActivity](../-i-core-main-activity/index.html) implementation`abstract fun start(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inheritors
 
-| [CoreMainVM](../-core-main-v-m/index.md) | Base class for [ICoreMainVM](./index.md) implementation, extends [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md)) because it must be available from any Fragment or Activity`abstract class CoreMainVM : `[`AndroidViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md))`, `[`ICoreMainVM`](./index.md) |
+| [CoreMainVM](../-core-main-v-m/index.html) | Base class for [ICoreMainVM](./index.html) implementation, extends [AndroidViewModel](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html) because it must be available from any Fragment or Activity`abstract class CoreMainVM : `[`AndroidViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html)`, `[`ICoreMainVM`](./index.html) |
 

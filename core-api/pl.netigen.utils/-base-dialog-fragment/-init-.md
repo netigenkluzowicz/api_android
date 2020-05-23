@@ -2,7 +2,7 @@
 title: BaseDialogFragment.<init> - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](index.md) / [&lt;init&gt;](./-init-.md))
+[core-api](../../index.html) / [pl.netigen.utils](../index.html) / [BaseDialogFragment](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

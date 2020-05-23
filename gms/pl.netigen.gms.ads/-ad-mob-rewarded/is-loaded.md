@@ -2,8 +2,8 @@
 title: AdMobRewarded.isLoaded - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobRewarded](index.md) / [isLoaded](./is-loaded.md))
+[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobRewarded](index.html) / [isLoaded](./is-loaded.html)
 
 # isLoaded
 
-`val isLoaded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)
+`val isLoaded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)

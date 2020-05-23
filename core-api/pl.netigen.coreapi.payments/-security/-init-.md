@@ -2,7 +2,7 @@
 title: Security.<init> - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Security](index.md) / [&lt;init&gt;](./-init-.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [Security](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

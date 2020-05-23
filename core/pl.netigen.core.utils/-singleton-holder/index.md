@@ -2,17 +2,17 @@
 title: SingletonHolder - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](./index.md)
+[core](../../index.html) / [pl.netigen.core.utils](../index.html) / [SingletonHolder](./index.html)
 
 # SingletonHolder
 
-`open class SingletonHolder<out T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.md)`, in A, in B>`
+`open class SingletonHolder<out T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`, in A, in B>`
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.md)) | `SingletonHolder(creator: (A, B) -> T)` |
+| [&lt;init&gt;](-init-.html) | `SingletonHolder(creator: (A, B) -> T)` |
 
 ### Functions
 
-| [getInstance](get-instance.md)) | `fun getInstance(arg1: A, arg2: B): T` |
+| [getInstance](get-instance.html) | `fun getInstance(arg1: A, arg2: B): T` |
 

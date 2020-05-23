@@ -2,8 +2,8 @@
 title: LocalBillingDb.skuDetailsDao - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [skuDetailsDao](./sku-details-dao.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [LocalBillingDb](index.html) / [skuDetailsDao](./sku-details-dao.html)
 
 # skuDetailsDao
 
-`abstract fun skuDetailsDao(): `[`NetigenSkuDetailsDao`](../-netigen-sku-details-dao/index.md)
+`abstract fun skuDetailsDao(): `[`NetigenSkuDetailsDao`](../-netigen-sku-details-dao/index.html)

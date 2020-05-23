@@ -2,8 +2,8 @@
 title: LanguageModel.setLanguage - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setLanguage](./set-language.md))
+[core](../../index.html) / [pl.netigen.core.language](../index.html) / [LanguageModel](index.html) / [setLanguage](./set-language.html)
 
 # setLanguage
 
-`open fun setLanguage(language: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`open fun setLanguage(language: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

@@ -2,8 +2,8 @@
 title: PurchaseDao.deleteAll - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [deleteAll](./delete-all.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [PurchaseDao](index.html) / [deleteAll](./delete-all.html)
 
 # deleteAll
 
-`abstract suspend fun deleteAll(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`abstract suspend fun deleteAll(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

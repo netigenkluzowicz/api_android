@@ -2,8 +2,8 @@
 title: RateUs.Builder.createRateUs - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rateus](../../index.md) / [RateUs](../index.md) / [Builder](index.md) / [createRateUs](./create-rate-us.md))
+[core](../../../index.html) / [pl.netigen.core.rateus](../../index.html) / [RateUs](../index.html) / [Builder](index.html) / [createRateUs](./create-rate-us.html)
 
 # createRateUs
 
-`fun createRateUs(): `[`RateUs`](../index.md)
+`fun createRateUs(): `[`RateUs`](../index.html)

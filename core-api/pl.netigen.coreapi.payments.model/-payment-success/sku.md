@@ -2,11 +2,11 @@
 title: PaymentSuccess.sku - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentSuccess](index.md) / [sku](./sku.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [PaymentSuccess](index.html) / [sku](./sku.html)
 
 # sku
 
-`val sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
+`val sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
 
 Payment event sku(product Id)
 

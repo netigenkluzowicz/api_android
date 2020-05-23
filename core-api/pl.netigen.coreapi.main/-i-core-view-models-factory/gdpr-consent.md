@@ -2,11 +2,11 @@
 title: ICoreViewModelsFactory.gdprConsent - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [gdprConsent](./gdpr-consent.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](index.html) / [gdprConsent](./gdpr-consent.html)
 
 # gdprConsent
 
-`abstract val gdprConsent: `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md)
+`abstract val gdprConsent: `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html)
 
-Provides [IGDPRConsent](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md) to Api view models
+Provides [IGDPRConsent](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html) to Api view models
 

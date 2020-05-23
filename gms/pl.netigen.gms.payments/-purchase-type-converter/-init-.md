@@ -2,7 +2,7 @@
 title: PurchaseTypeConverter.<init> - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseTypeConverter](index.md) / [&lt;init&gt;](./-init-.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [PurchaseTypeConverter](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

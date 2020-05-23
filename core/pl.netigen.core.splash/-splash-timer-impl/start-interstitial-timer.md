@@ -2,8 +2,8 @@
 title: SplashTimerImpl.startInterstitialTimer - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [startInterstitialTimer](./start-interstitial-timer.md))
+[core](../../index.html) / [pl.netigen.core.splash](../index.html) / [SplashTimerImpl](index.html) / [startInterstitialTimer](./start-interstitial-timer.html)
 
 # startInterstitialTimer
 
-`fun startInterstitialTimer(onLoadSplashLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`fun startInterstitialTimer(onLoadSplashLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

@@ -2,8 +2,8 @@
 title: CoreSplashVMImpl.splashState - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [splashState](./splash-state.md))
+[core](../../index.html) / [pl.netigen.core.splash](../index.html) / [CoreSplashVMImpl](index.html) / [splashState](./splash-state.html)
 
 # splashState
 
-`val splashState: `[`MutableLiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/MutableLiveData.md))`<SplashState>`
+`val splashState: `[`MutableLiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/MutableLiveData.html)`<SplashState>`

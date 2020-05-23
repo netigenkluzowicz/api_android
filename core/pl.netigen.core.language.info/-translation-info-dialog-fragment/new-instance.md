@@ -2,8 +2,8 @@
 title: TranslationInfoDialogFragment.newInstance - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [newInstance](./new-instance.md))
+[core](../../index.html) / [pl.netigen.core.language.info](../index.html) / [TranslationInfoDialogFragment](index.html) / [newInstance](./new-instance.html)
 
 # newInstance
 
-`open static fun newInstance(translationInfoParams: TranslationInfoParams!): `[`TranslationInfoDialogFragment`](index.md)`!`
+`open static fun newInstance(translationInfoParams: TranslationInfoParams!): `[`TranslationInfoDialogFragment`](index.html)`!`

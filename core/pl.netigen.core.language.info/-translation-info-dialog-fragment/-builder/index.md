@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](./index.md)
+[core](../../../index.html) / [pl.netigen.core.language.info](../../index.html) / [TranslationInfoDialogFragment](../index.html) / [Builder](./index.html)
 
 # Builder
 
@@ -10,18 +10,18 @@ title: TranslationInfoDialogFragment.Builder - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.md)) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.md))`!)` |
+| [&lt;init&gt;](-init-.html) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html)`!)` |
 
 ### Functions
 
-| [create](create.md)) | `open fun create(): `[`TranslationInfoDialogFragment`](../index.md)`!` |
-| [getActivity](get-activity.md)) | `open fun getActivity(): `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.md))`!` |
-| [setBottomText](set-bottom-text.md)) | `open fun setBottomText(textContent2: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [setDialogClickListener](set-dialog-click-listener.md)) | `open fun setDialogClickListener(dialogClickListener: DialogClickListener!): Builder!` |
-| [setNegativeResId](set-negative-res-id.md)) | `open fun setNegativeResId(negativeResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [setPositiveResId](set-positive-res-id.md)) | `open fun setPositiveResId(positiveResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [setProperTranslations](set-proper-translations.md)) | `open fun setProperTranslations(properTranslations: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!>!): Builder!` |
-| [setTitleResId](set-title-res-id.md)) | `open fun setTitleResId(titleResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [setTopText](set-top-text.md)) | `open fun setTopText(textContent1: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [show](show.md)) | `open fun show(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [create](create.html) | `open fun create(): `[`TranslationInfoDialogFragment`](../index.html)`!` |
+| [getActivity](get-activity.html) | `open fun getActivity(): `[`AppCompatActivity`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html)`!` |
+| [setBottomText](set-bottom-text.html) | `open fun setBottomText(textContent2: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!` |
+| [setDialogClickListener](set-dialog-click-listener.html) | `open fun setDialogClickListener(dialogClickListener: DialogClickListener!): Builder!` |
+| [setNegativeResId](set-negative-res-id.html) | `open fun setNegativeResId(negativeResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!` |
+| [setPositiveResId](set-positive-res-id.html) | `open fun setPositiveResId(positiveResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!` |
+| [setProperTranslations](set-proper-translations.html) | `open fun setProperTranslations(properTranslations: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!>!): Builder!` |
+| [setTitleResId](set-title-res-id.html) | `open fun setTitleResId(titleResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!` |
+| [setTopText](set-top-text.html) | `open fun setTopText(textContent1: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!` |
+| [show](show.html) | `open fun show(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

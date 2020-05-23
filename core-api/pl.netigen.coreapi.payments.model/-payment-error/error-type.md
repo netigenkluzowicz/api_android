@@ -2,11 +2,11 @@
 title: PaymentError.errorType - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentError](index.md) / [errorType](./error-type.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [PaymentError](index.html) / [errorType](./error-type.html)
 
 # errorType
 
-`val errorType: `[`PaymentErrorType`](../-payment-error-type/index.md)
+`val errorType: `[`PaymentErrorType`](../-payment-error-type/index.html)
 
 This error type
 

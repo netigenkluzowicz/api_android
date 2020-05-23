@@ -2,7 +2,7 @@
 title: SplashTimerImpl - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](./index.md)
+[core](../../index.html) / [pl.netigen.core.splash](../index.html) / [SplashTimerImpl](./index.html)
 
 # SplashTimerImpl
 
@@ -12,13 +12,13 @@ title: SplashTimerImpl - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.md)) | [ISplashTimer](#) implementation`SplashTimerImpl(consentTimeLimit: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.md)` = DEFAULT_MAX_CONSENT_WAIT_TIME_MS, maxInterstitialWaitTime: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.md)` = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS)` |
+| [&lt;init&gt;](-init-.html) | [ISplashTimer](#) implementation`SplashTimerImpl(consentTimeLimit: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)` = DEFAULT_MAX_CONSENT_WAIT_TIME_MS, maxInterstitialWaitTime: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)` = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS)` |
 
 ### Functions
 
-| [cancelConsentTimer](cancel-consent-timer.md)) | `fun cancelConsentTimer(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [cancelInterstitialTimer](cancel-interstitial-timer.md)) | `fun cancelInterstitialTimer(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [cancelTimers](cancel-timers.md)) | `fun cancelTimers(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [startConsentTimer](start-consent-timer.md)) | `fun startConsentTimer(onConsentTimeLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [startInterstitialTimer](start-interstitial-timer.md)) | `fun startInterstitialTimer(onLoadSplashLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [cancelConsentTimer](cancel-consent-timer.html) | `fun cancelConsentTimer(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [cancelInterstitialTimer](cancel-interstitial-timer.html) | `fun cancelInterstitialTimer(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [cancelTimers](cancel-timers.html) | `fun cancelTimers(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [startConsentTimer](start-consent-timer.html) | `fun startConsentTimer(onConsentTimeLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [startInterstitialTimer](start-interstitial-timer.html) | `fun startInterstitialTimer(onLoadSplashLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

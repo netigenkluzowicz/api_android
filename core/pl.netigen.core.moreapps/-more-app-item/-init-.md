@@ -2,9 +2,9 @@
 title: MoreAppItem.<init> - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [MoreAppItem](index.md) / [&lt;init&gt;](./-init-.md))
+[core](../../index.html) / [pl.netigen.core.moreapps](../index.html) / [MoreAppItem](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 
-`MoreAppItem(packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, appName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, iconLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, fullAdLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`, version: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`)`
-`MoreAppItem(appInfo: `[`AppInfo`](../-app-info/index.md)`!)`
+`MoreAppItem(packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, appName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, iconLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, fullAdLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`, version: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`)`
+`MoreAppItem(appInfo: `[`AppInfo`](../-app-info/index.html)`!)`

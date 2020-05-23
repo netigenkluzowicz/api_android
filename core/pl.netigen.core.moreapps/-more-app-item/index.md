@@ -2,18 +2,18 @@
 title: MoreAppItem - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [MoreAppItem](./index.md)
+[core](../../index.html) / [pl.netigen.core.moreapps](../index.html) / [MoreAppItem](./index.html)
 
 # MoreAppItem
 
-`open class MoreAppItem : `[`AppInfo`](../-app-info/index.md)
+`open class MoreAppItem : `[`AppInfo`](../-app-info/index.html)
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.md)) | `MoreAppItem(packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, appName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, iconLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, fullAdLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!, isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`, version: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`)`<br>`MoreAppItem(appInfo: `[`AppInfo`](../-app-info/index.md)`!)` |
+| [&lt;init&gt;](-init-.html) | `MoreAppItem(packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, appName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, iconLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, fullAdLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!, isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`, version: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`)`<br>`MoreAppItem(appInfo: `[`AppInfo`](../-app-info/index.html)`!)` |
 
 ### Functions
 
-| [getIconBitmap](get-icon-bitmap.md)) | `open fun getIconBitmap(resources: `[`Resources`](https://developer.android.com/reference/android/content/res/Resources.md))`!): `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.md))`!`<br>`open fun getIconBitmap(resources: `[`Resources`](https://developer.android.com/reference/android/content/res/Resources.md))`!, activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.md))`!): `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.md))`!` |
-| [setIconBitmap](set-icon-bitmap.md)) | `open fun setIconBitmap(iconBitmap: `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.md))`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [getIconBitmap](get-icon-bitmap.html) | `open fun getIconBitmap(resources: `[`Resources`](https://developer.android.com/reference/android/content/res/Resources.html)`!): `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.html)`!`<br>`open fun getIconBitmap(resources: `[`Resources`](https://developer.android.com/reference/android/content/res/Resources.html)`!, activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`!): `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.html)`!` |
+| [setIconBitmap](set-icon-bitmap.html) | `open fun setIconBitmap(iconBitmap: `[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap.html)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 

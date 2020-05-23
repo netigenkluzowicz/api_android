@@ -2,8 +2,8 @@
 title: LayoutMargins.Builder.create - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [create](./create.md))
+[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [LayoutMargins](../index.html) / [Builder](index.html) / [create](./create.html)
 
 # create
 
-`open fun create(): `[`LayoutMargins`](../index.md)`!`
+`open fun create(): `[`LayoutMargins`](../index.html)`!`

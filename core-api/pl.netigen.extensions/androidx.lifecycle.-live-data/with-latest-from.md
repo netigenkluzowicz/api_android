@@ -2,8 +2,8 @@
 title: withLatestFrom - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](index.md) / [withLatestFrom](./with-latest-from.md))
+[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [androidx.lifecycle.LiveData](index.html) / [withLatestFrom](./with-latest-from.html)
 
 # withLatestFrom
 
-`fun <F, S> `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.md))`<F>.withLatestFrom(liveData: `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.md))`<S>): `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.md))`<`[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<F, S>>`
+`fun <F, S> `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<F>.withLatestFrom(liveData: `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<S>): `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<`[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html)`<F, S>>`

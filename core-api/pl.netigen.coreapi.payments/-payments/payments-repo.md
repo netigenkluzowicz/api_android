@@ -2,12 +2,12 @@
 title: Payments.paymentsRepo - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Payments](index.md) / [paymentsRepo](./payments-repo.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [Payments](index.html) / [paymentsRepo](./payments-repo.html)
 
 # paymentsRepo
 
-`abstract val paymentsRepo: `[`IPaymentsRepo`](../-i-payments-repo/index.md)
+`abstract val paymentsRepo: `[`IPaymentsRepo`](../-i-payments-repo/index.html)
 
-Current [IPaymentsRepo](../-i-payments-repo/index.md) implementation,
-current design uses [androidx.room.Room](https://netigenkluzowicz.github.io/api_android/gms/androidx/room/Room.md)) database + [Flow](#)/[LiveData](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.md)) for observing purchases data
+Current [IPaymentsRepo](../-i-payments-repo/index.html) implementation,
+current design uses [androidx.room.Room](https://developer.android.com/reference/kotlin/androidx/room/Room.html) database + [Flow](#)/[LiveData](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html) for observing purchases data
 

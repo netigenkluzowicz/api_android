@@ -2,8 +2,8 @@
 title: AdMobAds.enable - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [enable](./enable.md))
+[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobAds](index.html) / [enable](./enable.html)
 
 # enable
 
-`fun enable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`fun enable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

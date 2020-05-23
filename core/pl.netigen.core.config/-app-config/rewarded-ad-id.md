@@ -2,8 +2,8 @@
 title: AppConfig.rewardedAdId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [rewardedAdId](./rewarded-ad-id.md))
+[core](../../index.html) / [pl.netigen.core.config](../index.html) / [AppConfig](index.html) / [rewardedAdId](./rewarded-ad-id.html)
 
 # rewardedAdId
 
-`open val rewardedAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
+`open val rewardedAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)

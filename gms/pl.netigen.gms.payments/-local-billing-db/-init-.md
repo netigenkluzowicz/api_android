@@ -2,7 +2,7 @@
 title: LocalBillingDb.<init> - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [&lt;init&gt;](./-init-.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [LocalBillingDb](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

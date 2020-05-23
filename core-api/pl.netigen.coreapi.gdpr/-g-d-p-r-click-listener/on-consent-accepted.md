@@ -2,8 +2,8 @@
 title: GDPRClickListener.onConsentAccepted - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](index.md) / [onConsentAccepted](./on-consent-accepted.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.gdpr](../index.html) / [GDPRClickListener](index.html) / [onConsentAccepted](./on-consent-accepted.html)
 
 # onConsentAccepted
 
-`abstract fun onConsentAccepted(personalizedAds: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`abstract fun onConsentAccepted(personalizedAds: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

@@ -2,8 +2,8 @@
 title: launchMain - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.ViewModel](index.md) / [launchMain](./launch-main.md))
+[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [androidx.lifecycle.ViewModel](index.html) / [launchMain](./launch-main.html)
 
 # launchMain
 
-`fun `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.md))`.launchMain(block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): Job`
+`fun `[`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html)`.launchMain(block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): Job`

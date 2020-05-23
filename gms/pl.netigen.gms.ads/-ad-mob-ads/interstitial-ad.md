@@ -2,7 +2,7 @@
 title: AdMobAds.interstitialAd - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [interstitialAd](./interstitial-ad.md))
+[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobAds](index.html) / [interstitialAd](./interstitial-ad.html)
 
 # interstitialAd
 

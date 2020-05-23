@@ -2,7 +2,7 @@
 title: RateUs.Builder - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rateus](../../index.md) / [RateUs](../index.md) / [Builder](./index.md)
+[core](../../../index.html) / [pl.netigen.core.rateus](../../index.html) / [RateUs](../index.html) / [Builder](./index.html)
 
 # Builder
 
@@ -10,9 +10,9 @@ title: RateUs.Builder - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.md)) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.md))`)` |
+| [&lt;init&gt;](-init-.html) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html)`)` |
 
 ### Functions
 
-| [createRateUs](create-rate-us.md)) | `fun createRateUs(): `[`RateUs`](../index.md) |
+| [createRateUs](create-rate-us.html) | `fun createRateUs(): `[`RateUs`](../index.html) |
 

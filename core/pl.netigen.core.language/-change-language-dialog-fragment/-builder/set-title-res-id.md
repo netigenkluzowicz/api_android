@@ -2,8 +2,8 @@
 title: ChangeLanguageDialogFragment.Builder.setTitleResId - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setTitleResId](./set-title-res-id.md))
+[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [ChangeLanguageDialogFragment](../index.html) / [Builder](index.html) / [setTitleResId](./set-title-res-id.html)
 
 # setTitleResId
 
-`open fun setTitleResId(titleResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!`
+`open fun setTitleResId(titleResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!`

@@ -2,7 +2,7 @@
 title: RewardItem - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](./index.md)
+[core](../../index.html) / [pl.netigen.core.rewards](../index.html) / [RewardItem](./index.html)
 
 # RewardItem
 
@@ -10,6 +10,6 @@ title: RewardItem - core
 
 ### Functions
 
-| [getId](get-id.md)) | `abstract fun getId(): `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.md) |
-| [getPath](get-path.md)) | `abstract fun getPath(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!` |
+| [getId](get-id.html) | `abstract fun getId(): `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html) |
+| [getPath](get-path.html) | `abstract fun getPath(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!` |
 

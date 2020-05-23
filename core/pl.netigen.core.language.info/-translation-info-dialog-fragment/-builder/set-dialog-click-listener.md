@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder.setDialogClickListener - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setDialogClickListener](./set-dialog-click-listener.md))
+[core](../../../index.html) / [pl.netigen.core.language.info](../../index.html) / [TranslationInfoDialogFragment](../index.html) / [Builder](index.html) / [setDialogClickListener](./set-dialog-click-listener.html)
 
 # setDialogClickListener
 

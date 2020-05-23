@@ -2,11 +2,11 @@
 title: CoreViewModelsFactory.create - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [create](./create.md))
+[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreViewModelsFactory](index.html) / [create](./create.html)
 
 # create
 
-`open fun <T : `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.md))`?> create(modelClass: `[`Class`](https://docs.oracle.com/javase/6/docs/api/java/lang/Class.md))`<T>): T`
+`open fun <T : `[`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html)`?> create(modelClass: `[`Class`](https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html)`<T>): T`
 
 Creates a new instance of the given [SplashVM](#) or [CoreMainVM](#)
 

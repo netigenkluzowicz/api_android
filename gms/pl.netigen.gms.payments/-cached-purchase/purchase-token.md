@@ -2,8 +2,8 @@
 title: CachedPurchase.purchaseToken - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [purchaseToken](./purchase-token.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [CachedPurchase](index.html) / [purchaseToken](./purchase-token.html)
 
 # purchaseToken
 
-`val purchaseToken: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
+`val purchaseToken: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)

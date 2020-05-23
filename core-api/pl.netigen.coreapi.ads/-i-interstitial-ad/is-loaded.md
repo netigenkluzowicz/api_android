@@ -2,11 +2,11 @@
 title: IInterstitialAd.isLoaded - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [isLoaded](./is-loaded.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IInterstitialAd](index.html) / [isLoaded](./is-loaded.html)
 
 # isLoaded
 
-`abstract val isLoaded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)
+`abstract val isLoaded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
 
 Indicates if ad is loaded and ready to show
 

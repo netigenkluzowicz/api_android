@@ -2,11 +2,11 @@
 title: pl.netigen.utils - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.utils](./index.md)
+[core-api](../index.html) / [pl.netigen.utils](./index.html)
 
 ## Package pl.netigen.utils
 
 ### Types
 
-| [BaseDialogFragment](-base-dialog-fragment/index.md) | `abstract class BaseDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.md)) |
+| [BaseDialogFragment](-base-dialog-fragment/index.html) | `abstract class BaseDialogFragment : `[`AppCompatDialogFragment`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatDialogFragment.html) |
 

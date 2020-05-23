@@ -2,7 +2,7 @@
 title: CoreMainActivity.coreMainVM - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [coreMainVM](./core-main-v-m.md))
+[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainActivity](index.html) / [coreMainVM](./core-main-v-m.html)
 
 # coreMainVM
 

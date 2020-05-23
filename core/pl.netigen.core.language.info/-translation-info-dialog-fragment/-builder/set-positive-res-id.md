@@ -2,8 +2,8 @@
 title: TranslationInfoDialogFragment.Builder.setPositiveResId - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setPositiveResId](./set-positive-res-id.md))
+[core](../../../index.html) / [pl.netigen.core.language.info](../../index.html) / [TranslationInfoDialogFragment](../index.html) / [Builder](index.html) / [setPositiveResId](./set-positive-res-id.html)
 
 # setPositiveResId
 
-`open fun setPositiveResId(positiveResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!`
+`open fun setPositiveResId(positiveResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!`

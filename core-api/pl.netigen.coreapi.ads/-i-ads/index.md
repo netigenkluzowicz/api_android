@@ -2,7 +2,7 @@
 title: IAds - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](./index.md)
+[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAds](./index.html)
 
 # IAds
 
@@ -11,7 +11,7 @@ title: IAds - core-api
 Universal interface for managing ads, such as:
 
 * initializing ads SDk
-* displaying and loading [IBannerAd](../-i-banner-ad/index.md), [IInterstitialAd](../-i-interstitial-ad/index.md) and [IRewardedAd](../-i-rewarded-ad/index.md)
+* displaying and loading [IBannerAd](../-i-banner-ad/index.html), [IInterstitialAd](../-i-interstitial-ad/index.html) and [IRewardedAd](../-i-rewarded-ad/index.html)
 * turning on/off personalized ads
 * enabling and disabling all ads
 * provides time minimum limit between IInterstitialAd displays
@@ -23,17 +23,17 @@ See: [HUAWEI Ads SDK](https://developer.huawei.com/consumer/en/doc/development/H
 
 ### Properties
 
-| [bannerAd](banner-ad.md)) | Provides [IBannerAd](../-i-banner-ad/index.md)`abstract val bannerAd: `[`IBannerAd`](../-i-banner-ad/index.md) |
-| [interstitialAd](interstitial-ad.md)) | Provides [IInterstitialAd](../-i-interstitial-ad/index.md)`abstract val interstitialAd: `[`IInterstitialAd`](../-i-interstitial-ad/index.md) |
-| [personalizedAdsEnabled](personalized-ads-enabled.md)) | Set this to turn off/on personalized ads`abstract var personalizedAdsEnabled: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [rewardedAd](rewarded-ad.md)) | Provides [IRewardedAd](../-i-rewarded-ad/index.md)`abstract val rewardedAd: `[`IRewardedAd`](../-i-rewarded-ad/index.md) |
+| [bannerAd](banner-ad.html) | Provides [IBannerAd](../-i-banner-ad/index.html)`abstract val bannerAd: `[`IBannerAd`](../-i-banner-ad/index.html) |
+| [interstitialAd](interstitial-ad.html) | Provides [IInterstitialAd](../-i-interstitial-ad/index.html)`abstract val interstitialAd: `[`IInterstitialAd`](../-i-interstitial-ad/index.html) |
+| [personalizedAdsEnabled](personalized-ads-enabled.html) | Set this to turn off/on personalized ads`abstract var personalizedAdsEnabled: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [rewardedAd](rewarded-ad.html) | Provides [IRewardedAd](../-i-rewarded-ad/index.html)`abstract val rewardedAd: `[`IRewardedAd`](../-i-rewarded-ad/index.html) |
 
 ### Functions
 
-| [disable](disable.md)) | Disable all ads, hide banners, cancel and/or stop loading ads`abstract fun disable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [enable](enable.md)) | Enables ads, starts loading and showing them`abstract fun enable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [disable](disable.html) | Disable all ads, hide banners, cancel and/or stop loading ads`abstract fun disable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [enable](enable.html) | Enables ads, starts loading and showing them`abstract fun enable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inheritors
 
-| [ICoreMainVM](../../pl.netigen.coreapi.main/-i-core-main-v-m/index.md) | This implementations, provides access to api modules:`interface ICoreMainVM : `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.md)`, `[`IAds`](./index.md)`, `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.md)`, `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md)`, `[`IAppConfig`](../../pl.netigen.coreapi.main/-i-app-config/index.md) |
+| [ICoreMainVM](../../pl.netigen.coreapi.main/-i-core-main-v-m/index.html) | This implementations, provides access to api modules:`interface ICoreMainVM : `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.html)`, `[`IAds`](./index.html)`, `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.html)`, `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html)`, `[`IAppConfig`](../../pl.netigen.coreapi.main/-i-app-config/index.html) |
 

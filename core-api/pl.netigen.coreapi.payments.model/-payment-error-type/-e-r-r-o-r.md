@@ -2,7 +2,7 @@
 title: PaymentErrorType.ERROR - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentErrorType](index.md) / [ERROR](./-e-r-r-o-r.md))
+[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [PaymentErrorType](index.html) / [ERROR](./-e-r-r-o-r.html)
 
 # ERROR
 

@@ -2,8 +2,8 @@
 title: CoreMainActivity.rateUs - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [rateUs](./rate-us.md))
+[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainActivity](index.html) / [rateUs](./rate-us.html)
 
 # rateUs
 
-`val rateUs: `[`RateUs`](../../pl.netigen.core.rateus/-rate-us/index.md)
+`val rateUs: `[`RateUs`](../../pl.netigen.core.rateus/-rate-us/index.html)

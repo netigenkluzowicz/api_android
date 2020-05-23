@@ -2,8 +2,8 @@
 title: DistinctObservableProperty.setValue - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [setValue](./set-value.md))
+[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [DistinctObservableProperty](index.html) / [setValue](./set-value.html)
 
 # setValue
 
-`open fun setValue(thisRef: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.md)`?, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.md)`<*>, value: T): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`open fun setValue(thisRef: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?, property: `[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)`<*>, value: T): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

@@ -2,8 +2,8 @@
 title: LocalBillingDb.purchaseDao - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [purchaseDao](./purchase-dao.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [LocalBillingDb](index.html) / [purchaseDao](./purchase-dao.html)
 
 # purchaseDao
 
-`abstract fun purchaseDao(): `[`PurchaseDao`](../-purchase-dao/index.md)
+`abstract fun purchaseDao(): `[`PurchaseDao`](../-purchase-dao/index.html)

@@ -2,8 +2,8 @@
 title: AdMobRewarded.AdCallback.onRewardedAdFailedToShow - gms
 ---
 
-[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](index.md) / [onRewardedAdFailedToShow](./on-rewarded-ad-failed-to-show.md))
+[gms](../../../index.html) / [pl.netigen.gms.ads](../../index.html) / [AdMobRewarded](../index.html) / [AdCallback](index.html) / [onRewardedAdFailedToShow](./on-rewarded-ad-failed-to-show.html)
 
 # onRewardedAdFailedToShow
 
-`fun onRewardedAdFailedToShow(p0: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`fun onRewardedAdFailedToShow(p0: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)

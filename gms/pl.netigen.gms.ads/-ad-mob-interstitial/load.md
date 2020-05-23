@@ -2,8 +2,8 @@
 title: AdMobInterstitial.load - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [load](./load.md))
+[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobInterstitial](index.html) / [load](./load.html)
 
 # load
 
-`fun load(): Flow<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`>`
+`fun load(): Flow<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`

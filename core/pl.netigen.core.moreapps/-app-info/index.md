@@ -2,7 +2,7 @@
 title: AppInfo - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](./index.md)
+[core](../../index.html) / [pl.netigen.core.moreapps](../index.html) / [AppInfo](./index.html)
 
 # AppInfo
 
@@ -10,18 +10,18 @@ title: AppInfo - core
 
 ### Properties
 
-| [appName](app-name.md)) | `val appName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!` |
-| [fullAdLink](full-ad-link.md)) | `val fullAdLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!` |
-| [iconLink](icon-link.md)) | `val iconLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!` |
-| [isAd](is-ad.md)) | `val isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [packageName](package-name.md)) | `val packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!` |
-| [version](version.md)) | `val version: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md) |
+| [appName](app-name.html) | `val appName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!` |
+| [fullAdLink](full-ad-link.html) | `val fullAdLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!` |
+| [iconLink](icon-link.html) | `val iconLink: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!` |
+| [isAd](is-ad.html) | `val isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [packageName](package-name.html) | `val packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!` |
+| [version](version.html) | `val version: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 
 ### Functions
 
-| [toString](to-string.md)) | `open fun toString(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
+| [toString](to-string.html) | `open fun toString(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 
 ### Inheritors
 
-| [MoreAppItem](../-more-app-item/index.md) | `open class MoreAppItem : `[`AppInfo`](./index.md) |
+| [MoreAppItem](../-more-app-item/index.html) | `open class MoreAppItem : `[`AppInfo`](./index.html) |
 

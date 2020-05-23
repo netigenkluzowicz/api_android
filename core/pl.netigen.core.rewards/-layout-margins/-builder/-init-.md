@@ -2,7 +2,7 @@
 title: LayoutMargins.Builder.<init> - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [&lt;init&gt;](./-init-.md))
+[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [LayoutMargins](../index.html) / [Builder](index.html) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

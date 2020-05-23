@@ -2,7 +2,7 @@
 title: IAdsConfig - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](./index.md)
+[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAdsConfig](./index.html)
 
 # IAdsConfig
 
@@ -17,20 +17,20 @@ Keeps configuration for Ads
 
 ### Properties
 
-| [bannerAdId](banner-ad-id.md)) | [IBannerAd](../-i-banner-ad/index.md) ad identifier`abstract val bannerAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
-| [bannerLayoutIdName](banner-layout-id-name.md)) | Id of [RelativeLayout](https://developer.android.com/reference/android/widget/RelativeLayout.md)) for banner ad placement`abstract val bannerLayoutIdName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
-| [inDebugMode](in-debug-mode.md)) | Sets debug mode on/off, when:`abstract val inDebugMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [interstitialAdId](interstitial-ad-id.md)) | [IInterstitialAd](../-i-interstitial-ad/index.md) ad identifier`abstract val interstitialAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
-| [isBannerAdaptive](is-banner-adaptive.md)) | When true (default value) adaptive banner instead of smart banner is used (available only in Admob)`abstract val isBannerAdaptive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [rewardedAdId](rewarded-ad-id.md)) | [rewardedAdId](rewarded-ad-id.md)) ad identifier,`abstract val rewardedAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
-| [testDevices](test-devices.md)) | List of test devices ids`abstract val testDevices: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`>` |
+| [bannerAdId](banner-ad-id.html) | [IBannerAd](../-i-banner-ad/index.html) ad identifier`abstract val bannerAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [bannerLayoutIdName](banner-layout-id-name.html) | Id of [RelativeLayout](https://developer.android.com/reference/android/widget/RelativeLayout.html) for banner ad placement`abstract val bannerLayoutIdName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [inDebugMode](in-debug-mode.html) | Sets debug mode on/off, when:`abstract val inDebugMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [interstitialAdId](interstitial-ad-id.html) | [IInterstitialAd](../-i-interstitial-ad/index.html) ad identifier`abstract val interstitialAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [isBannerAdaptive](is-banner-adaptive.html) | When true (default value) adaptive banner instead of smart banner is used (available only in Admob)`abstract val isBannerAdaptive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [rewardedAdId](rewarded-ad-id.html) | [rewardedAdId](rewarded-ad-id.html) ad identifier,`abstract val rewardedAdId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [testDevices](test-devices.html) | List of test devices ids`abstract val testDevices: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
 
 ### Companion Object Properties
 
-| [DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS](-d-e-f-a-u-l-t_-d-e-l-a-y_-b-e-t-w-e-e-n_-i-n-t-e-r-s-t-i-t-i-a-l_-a-d-s_-m-s.md)) | Minimum time after one [IInterstitialAd](../-i-interstitial-ad/index.md) ad was showed to show another ad, for default 60 seconds`const val DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.md) |
-| [REWARD_AD_MAX_RETRY_COUNT](-r-e-w-a-r-d_-a-d_-m-a-x_-r-e-t-r-y_-c-o-u-n-t.md)) | Maximum number of reload tries of [IRewardedAd](../-i-rewarded-ad/index.md) after loading ad failure`const val REWARD_AD_MAX_RETRY_COUNT: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md) |
+| [DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS](-d-e-f-a-u-l-t_-d-e-l-a-y_-b-e-t-w-e-e-n_-i-n-t-e-r-s-t-i-t-i-a-l_-a-d-s_-m-s.html) | Minimum time after one [IInterstitialAd](../-i-interstitial-ad/index.html) ad was showed to show another ad, for default 60 seconds`const val DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html) |
+| [REWARD_AD_MAX_RETRY_COUNT](-r-e-w-a-r-d_-a-d_-m-a-x_-r-e-t-r-y_-c-o-u-n-t.html) | Maximum number of reload tries of [IRewardedAd](../-i-rewarded-ad/index.html) after loading ad failure`const val REWARD_AD_MAX_RETRY_COUNT: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 
 ### Inheritors
 
-| [IAppConfig](../../pl.netigen.coreapi.main/-i-app-config/index.md) | Keeps configuration for entire Api/Application:`interface IAppConfig : `[`IAdsConfig`](./index.md)`, `[`IGDPRConsentConfig`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent-config/index.md)`, `[`ISplashConfig`](../../pl.netigen.coreapi.splash/-i-splash-config/index.md) |
+| [IAppConfig](../../pl.netigen.coreapi.main/-i-app-config/index.html) | Keeps configuration for entire Api/Application:`interface IAppConfig : `[`IAdsConfig`](./index.html)`, `[`IGDPRConsentConfig`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent-config/index.html)`, `[`ISplashConfig`](../../pl.netigen.coreapi.splash/-i-splash-config/index.html) |
 

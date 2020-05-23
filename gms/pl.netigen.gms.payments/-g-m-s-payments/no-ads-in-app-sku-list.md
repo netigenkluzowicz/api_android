@@ -2,8 +2,8 @@
 title: GMSPayments.noAdsInAppSkuList - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [noAdsInAppSkuList](./no-ads-in-app-sku-list.md))
+[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [GMSPayments](index.html) / [noAdsInAppSkuList](./no-ads-in-app-sku-list.html)
 
 # noAdsInAppSkuList
 
-`val noAdsInAppSkuList: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`>`
+`val noAdsInAppSkuList: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`

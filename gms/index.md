@@ -2,14 +2,14 @@
 title: gms
 ---
 
-[api_android](../index.md)/[gms](./index.md)
+[gms](./index.html)
 
 ### Packages
 
-| [pl.netigen.gms.ads](pl.netigen.gms.ads/index.md) |  |
-| [pl.netigen.gms.gdpr](pl.netigen.gms.gdpr/index.md) |  |
-| [pl.netigen.gms.payments](pl.netigen.gms.payments/index.md) |  |
+| [pl.netigen.gms.ads](pl.netigen.gms.ads/index.html) |  |
+| [pl.netigen.gms.gdpr](pl.netigen.gms.gdpr/index.html) |  |
+| [pl.netigen.gms.payments](pl.netigen.gms.payments/index.html) |  |
 
 ### Index
 
-[All Types](alltypes/index.md)
+[All Types](alltypes/index.html)

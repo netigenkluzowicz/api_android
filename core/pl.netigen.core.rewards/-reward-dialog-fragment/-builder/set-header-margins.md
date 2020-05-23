@@ -2,8 +2,8 @@
 title: RewardDialogFragment.Builder.setHeaderMargins - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setHeaderMargins](./set-header-margins.md))
+[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [RewardDialogFragment](../index.html) / [Builder](index.html) / [setHeaderMargins](./set-header-margins.html)
 
 # setHeaderMargins
 
-`open fun setHeaderMargins(layoutMargins: `[`LayoutMargins`](../../-layout-margins/index.md)`!): Builder!`
+`open fun setHeaderMargins(layoutMargins: `[`LayoutMargins`](../../-layout-margins/index.html)`!): Builder!`
