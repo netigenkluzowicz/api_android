@@ -31,7 +31,7 @@ Core
 [pl.netigen.core.splash](pl.netigen.core.splash/index.html) |
 [pl.netigen.core.utils](pl.netigen.core.utils/index.html) |
 * * *
-GMs
+GMS
 
 [pl.netigen.gms.ads](pl.netigen.gms.ads/index.md) |
 [pl.netigen.gms.gdpr](pl.netigen.gms.gdpr/index.md) |
