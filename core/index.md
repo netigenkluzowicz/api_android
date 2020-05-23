@@ -2,7 +2,7 @@
 title: core
 ---
 
-[home page](../index.md) / [home page](../index.md)/[core](./index.md)
+[home page](../index.md)/[core](./index.md)
 
 ### Packages
 

@@ -1,7 +1,7 @@
 ---
 title: gms
 ---
-[home page](../index.md) / [home page](../index.md)/[gms](./index.md)
+[home page](../index.md)/[gms](./index.md)
 
 ### Packages
 

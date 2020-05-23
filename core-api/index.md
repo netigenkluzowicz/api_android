@@ -2,7 +2,7 @@
 title: core-api
 ---
 
-[home page](../index.md) / [home page](../index.md)/[core-api](./index.md)
+[home page](../index.md)/[core-api](./index.md)
 
 ### Packages
 
