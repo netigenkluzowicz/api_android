@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setRewardedHeader - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewardedHeader](./set-rewarded-header.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewardedHeader](./set-rewarded-header.md))
 
 # setRewardedHeader
 

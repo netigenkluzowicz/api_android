@@ -2,7 +2,7 @@
 title: CoreMainActivity.onNoAdsChanged - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onNoAdsChanged](./on-no-ads-changed.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onNoAdsChanged](./on-no-ads-changed.md))
 
 # onNoAdsChanged
 

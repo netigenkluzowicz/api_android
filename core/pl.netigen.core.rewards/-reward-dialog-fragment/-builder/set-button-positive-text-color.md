@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setButtonPositiveTextColor - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setButtonPositiveTextColor](./set-button-positive-text-color.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setButtonPositiveTextColor](./set-button-positive-text-color.md))
 
 # setButtonPositiveTextColor
 

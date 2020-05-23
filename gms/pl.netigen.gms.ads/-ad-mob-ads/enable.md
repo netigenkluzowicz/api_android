@@ -2,7 +2,7 @@
 title: AdMobAds.enable - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [enable](./enable.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [enable](./enable.md))
 
 # enable
 

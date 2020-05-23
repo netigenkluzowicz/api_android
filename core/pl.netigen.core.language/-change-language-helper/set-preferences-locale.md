@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.setPreferencesLocale - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setPreferencesLocale](./set-preferences-locale.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setPreferencesLocale](./set-preferences-locale.md))
 
 # setPreferencesLocale
 

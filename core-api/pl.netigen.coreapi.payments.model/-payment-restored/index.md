@@ -6,15 +6,15 @@ title: PaymentRestored - core-api
 
 # PaymentRestored
 
-`data class PaymentRestored : `[`PaymentEvent`](../-payment-event.html)
+`data class PaymentRestored : `[`PaymentEvent`](../-payment-event.md))
 
 Represents payment restored from billing service with given sku(product Id)
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | Represents payment restored from billing service with given sku(product Id)`PaymentRestored(sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`)` |
+| [&lt;init&gt;](-init-.md)) | Represents payment restored from billing service with given sku(product Id)`PaymentRestored(sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`)` |
 
 ### Properties
 
-| [sku](sku.html) | Payment event sku(product Id)`val sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
+| [sku](sku.md)) | Payment event sku(product Id)`val sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
 

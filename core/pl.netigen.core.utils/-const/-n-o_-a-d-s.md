@@ -2,7 +2,7 @@
 title: Const.NO_ADS - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [NO_ADS](./-n-o_-a-d-s.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [NO_ADS](./-n-o_-a-d-s.md))
 
 # NO_ADS
 

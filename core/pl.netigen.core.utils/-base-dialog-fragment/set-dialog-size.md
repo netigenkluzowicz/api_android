@@ -2,7 +2,7 @@
 title: BaseDialogFragment.setDialogSize - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BaseDialogFragment](index.md) / [setDialogSize](./set-dialog-size.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BaseDialogFragment](index.md) / [setDialogSize](./set-dialog-size.md))
 
 # setDialogSize
 

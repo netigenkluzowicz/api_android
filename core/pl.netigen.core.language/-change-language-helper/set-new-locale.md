@@ -2,8 +2,8 @@
 title: ChangeLanguageHelper.setNewLocale - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setNewLocale](./set-new-locale.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setNewLocale](./set-new-locale.md))
 
 # setNewLocale
 
-`open static fun setNewLocale(activityContext: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`!, applicationContext: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`!, language: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!): `[`Context`](https://developer.android.com/reference/android/content/Context.html)`!`
+`open static fun setNewLocale(activityContext: `[`Context`](https://developer.android.com/reference/android/content/Context.md))`!, applicationContext: `[`Context`](https://developer.android.com/reference/android/content/Context.md))`!, language: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!): `[`Context`](https://developer.android.com/reference/android/content/Context.md))`!`

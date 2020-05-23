@@ -12,7 +12,7 @@ Configurations for Gdpr Consent, as for now only List of Admob publisher ids is 
 
 ### Properties
 
-| [adMobPublisherIds](ad-mob-publisher-ids.html) | List of Admob publisher ids`abstract val adMobPublisherIds: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`>` |
+| [adMobPublisherIds](ad-mob-publisher-ids.md)) | List of Admob publisher ids`abstract val adMobPublisherIds: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`>` |
 
 ### Inheritors
 

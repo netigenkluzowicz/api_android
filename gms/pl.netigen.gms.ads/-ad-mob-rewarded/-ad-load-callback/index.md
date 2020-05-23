@@ -10,10 +10,10 @@ title: AdMobRewarded.AdLoadCallback - gms
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `AdLoadCallback()` |
+| [&lt;init&gt;](-init-.md)) | `AdLoadCallback()` |
 
 ### Functions
 
-| [onRewardedAdFailedToLoad](on-rewarded-ad-failed-to-load.html) | `fun onRewardedAdFailedToLoad(errorCode: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onRewardedAdLoaded](on-rewarded-ad-loaded.html) | `fun onRewardedAdLoaded(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onRewardedAdFailedToLoad](on-rewarded-ad-failed-to-load.md)) | `fun onRewardedAdFailedToLoad(errorCode: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onRewardedAdLoaded](on-rewarded-ad-loaded.md)) | `fun onRewardedAdLoaded(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

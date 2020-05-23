@@ -6,18 +6,18 @@ title: NetigenDialogFragment - core
 
 # NetigenDialogFragment
 
-`open class NetigenDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html)
+`open class NetigenDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.md))
 
-Base [AppCompatDialogFragment](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html) for Api, provides [canCommitFragments](can-commit-fragments.html), and [ICoreMainVM](#)
+Base [AppCompatDialogFragment](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.md)) for Api, provides [canCommitFragments](can-commit-fragments.md)), and [ICoreMainVM](#)
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | Base [AppCompatDialogFragment](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html) for Api, provides [canCommitFragments](can-commit-fragments.html), and [ICoreMainVM](#)`NetigenDialogFragment()` |
+| [&lt;init&gt;](-init-.md)) | Base [AppCompatDialogFragment](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.md)) for Api, provides [canCommitFragments](can-commit-fragments.md)), and [ICoreMainVM](#)`NetigenDialogFragment()` |
 
 ### Properties
 
-| [canCommitFragments](can-commit-fragments.html) | Indicates if we can safe perform Fragment transaction as [commit()](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentTransaction.html#commit()) or [popBackStack()](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentManager.html#popBackStack()) and others otherwise it will result with [IllegalStateException](https://docs.oracle.com/javase/6/docs/api/java/lang/IllegalStateException.html) crash`val canCommitFragments: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [viewModel](view-model.html) | Provides access to Api by [ICoreMainVM](#)`val viewModel: ICoreMainVM` |
+| [canCommitFragments](can-commit-fragments.md)) | Indicates if we can safe perform Fragment transaction as [commit()](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentTransaction.md)#commit()) or [popBackStack()](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentManager.md)#popBackStack()) and others otherwise it will result with [IllegalStateException](https://docs.oracle.com/javase/6/docs/api/java/lang/IllegalStateException.md)) crash`val canCommitFragments: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
+| [viewModel](view-model.md)) | Provides access to Api by [ICoreMainVM](#)`val viewModel: ICoreMainVM` |
 
 ### Inheritors
 

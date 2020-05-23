@@ -27,7 +27,7 @@ Possible user GDPR location statuses:
 
 ##### [pl.netigen.coreapi.main.CoreMainVM](../pl.netigen.coreapi.main/-core-main-v-m/index.md)
 
-Base class for [ICoreMainVM](../pl.netigen.coreapi.main/-i-core-main-v-m/index.md) implementation, extends [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html) because it must be available from any Fragment or Activity
+Base class for [ICoreMainVM](../pl.netigen.coreapi.main/-i-core-main-v-m/index.md) implementation, extends [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md)) because it must be available from any Fragment or Activity
 
 
 | (extensions in package pl.netigen.extensions)
@@ -106,7 +106,7 @@ This implementations, provides access to api modules:
 
 |
 
-##### [pl.netigen.coreapi.gdpr.ICoreSplashFragment](../pl.netigen.coreapi.gdpr/-i-core-splash-fragment.html)
+##### [pl.netigen.coreapi.gdpr.ICoreSplashFragment](../pl.netigen.coreapi.gdpr/-i-core-splash-fragment.md))
 
 Used for Gdpr pop-up fragment, see [IGDPRConsent](../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md)
 
@@ -115,7 +115,7 @@ Used for Gdpr pop-up fragment, see [IGDPRConsent](../pl.netigen.coreapi.gdpr/-i-
 
 ##### [pl.netigen.coreapi.main.ICoreViewModelsFactory](../pl.netigen.coreapi.main/-i-core-view-models-factory/index.md)
 
-Interface used for provide [ViewModelProvider.Factory](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModelProvider/Factory.html) to instantiate [ICoreMainVM](../pl.netigen.coreapi.main/-i-core-main-v-m/index.md) and [ISplashVM](../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) implementations
+Interface used for provide [ViewModelProvider.Factory](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModelProvider/Factory.md)) to instantiate [ICoreMainVM](../pl.netigen.coreapi.main/-i-core-main-v-m/index.md) and [ISplashVM](../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) implementations
 
 
 |
@@ -215,7 +215,7 @@ Timer utils for [CoreSplashVMImpl](#)
 
 ##### [pl.netigen.coreapi.splash.ISplashVM](../pl.netigen.coreapi.splash/-i-splash-v-m/index.md)
 
-Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:
+Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md)), provides application initialization,:
 
 
 | (extensions in package pl.netigen.extensions)
@@ -278,7 +278,7 @@ Enumerates possible billing flow errors
 
 |
 
-##### [pl.netigen.coreapi.payments.model.PaymentEvent](../pl.netigen.coreapi.payments.model/-payment-event.html)
+##### [pl.netigen.coreapi.payments.model.PaymentEvent](../pl.netigen.coreapi.payments.model/-payment-event.md))
 
 Represents Payment state it can be [PaymentSuccess](../pl.netigen.coreapi.payments.model/-payment-success/index.md), [PaymentRestored](../pl.netigen.coreapi.payments.model/-payment-restored/index.md) or [Error](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-error/index.md)
 
@@ -328,7 +328,7 @@ Represents successful payment done by user with given sku(product Id)
 
 ##### [pl.netigen.coreapi.splash.SplashVM](../pl.netigen.coreapi.splash/-splash-v-m/index.md)
 
-Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:
+Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md)), provides application initialization,:
 
 
 |

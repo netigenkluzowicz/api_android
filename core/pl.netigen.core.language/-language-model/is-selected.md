@@ -2,7 +2,7 @@
 title: LanguageModel.isSelected - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [isSelected](./is-selected.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [isSelected](./is-selected.md))
 
 # isSelected
 

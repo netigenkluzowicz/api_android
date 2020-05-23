@@ -2,7 +2,7 @@
 title: NetigenDialogFragment.viewModel - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenDialogFragment](index.md) / [viewModel](./view-model.html)
+[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenDialogFragment](index.md) / [viewModel](./view-model.md))
 
 # viewModel
 

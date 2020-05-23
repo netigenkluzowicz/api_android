@@ -6,18 +6,18 @@ title: LocalBillingDb - gms
 
 # LocalBillingDb
 
-`abstract class LocalBillingDb : `[`RoomDatabase`](https://netigenkluzowicz.github.io/api_android/core/androidx/room/RoomDatabase.html)
+`abstract class LocalBillingDb : `[`RoomDatabase`](https://netigenkluzowicz.github.io/api_android/core/androidx/room/RoomDatabase.md))
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `LocalBillingDb()` |
+| [&lt;init&gt;](-init-.md)) | `LocalBillingDb()` |
 
 ### Functions
 
-| [purchaseDao](purchase-dao.html) | `abstract fun purchaseDao(): `[`PurchaseDao`](../-purchase-dao/index.md) |
-| [skuDetailsDao](sku-details-dao.html) | `abstract fun skuDetailsDao(): `[`NetigenSkuDetailsDao`](../-netigen-sku-details-dao/index.md) |
+| [purchaseDao](purchase-dao.md)) | `abstract fun purchaseDao(): `[`PurchaseDao`](../-purchase-dao/index.md) |
+| [skuDetailsDao](sku-details-dao.md)) | `abstract fun skuDetailsDao(): `[`NetigenSkuDetailsDao`](../-netigen-sku-details-dao/index.md) |
 
 ### Companion Object Functions
 
-| [getInstance](get-instance.html) | `fun getInstance(context: `[`Context`](https://developer.android.com/reference/android/content/Context.html)`): `[`LocalBillingDb`](./index.md) |
+| [getInstance](get-instance.md)) | `fun getInstance(context: `[`Context`](https://developer.android.com/reference/android/content/Context.md))`): `[`LocalBillingDb`](./index.md) |
 

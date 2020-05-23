@@ -2,7 +2,7 @@
 title: LayoutMargins.Builder.setTopMargin - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [setTopMargin](./set-top-margin.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [setTopMargin](./set-top-margin.md))
 
 # setTopMargin
 

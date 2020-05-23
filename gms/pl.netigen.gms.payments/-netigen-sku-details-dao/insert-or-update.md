@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao.insertOrUpdate - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [insertOrUpdate](./insert-or-update.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [insertOrUpdate](./insert-or-update.md))
 
 # insertOrUpdate
 

@@ -6,7 +6,7 @@ title: RewardDialogFragment - core
 
 # RewardDialogFragment
 
-`open class RewardDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html)
+`open class RewardDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.md))
 
 ### Types
 
@@ -14,16 +14,16 @@ title: RewardDialogFragment - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `RewardDialogFragment()` |
+| [&lt;init&gt;](-init-.md)) | `RewardDialogFragment()` |
 
 ### Properties
 
-| [MATCH_PARENT](-m-a-t-c-h_-p-a-r-e-n-t.html) | `static var MATCH_PARENT: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.md) |
-| [WRAP_CONTENT](-w-r-a-p_-c-o-n-t-e-n-t.html) | `static var WRAP_CONTENT: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.md) |
+| [MATCH_PARENT](-m-a-t-c-h_-p-a-r-e-n-t.md)) | `static var MATCH_PARENT: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.md) |
+| [WRAP_CONTENT](-w-r-a-p_-c-o-n-t-e-n-t.md)) | `static var WRAP_CONTENT: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.md) |
 
 ### Functions
 
-| [onCreateView](on-create-view.html) | `open fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.html)`, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.html)`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`View`](https://developer.android.com/reference/android/view/View.html)`?` |
-| [onStart](on-start.html) | `open fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onViewCreated](on-view-created.html) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onCreateView](on-create-view.md)) | `open fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.md))`, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.md))`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`View`](https://developer.android.com/reference/android/view/View.md))`?` |
+| [onStart](on-start.md)) | `open fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onViewCreated](on-view-created.md)) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.md))`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

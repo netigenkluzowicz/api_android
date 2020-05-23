@@ -17,14 +17,14 @@ Dialog for show user possibility to change language of application
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | Dialog for show user possibility to change language of application`ChangeLanguageDialogFragment()` |
+| [&lt;init&gt;](-init-.md)) | Dialog for show user possibility to change language of application`ChangeLanguageDialogFragment()` |
 
 ### Functions
 
-| [bindListener](bind-listener.html) | `open fun bindListener(languageClickListener: LanguageClickListener!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [initiateList](initiate-list.html) | `open fun initiateList(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onCreate](on-create.html) | `open fun onCreate(savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onCreateView](on-create-view.html) | `open fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.html)`, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.html)`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`View`](https://developer.android.com/reference/android/view/View.html)`?` |
-| [onResume](on-resume.html) | `open fun onResume(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onViewCreated](on-view-created.html) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [bindListener](bind-listener.md)) | `open fun bindListener(languageClickListener: LanguageClickListener!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [initiateList](initiate-list.md)) | `open fun initiateList(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onCreate](on-create.md)) | `open fun onCreate(savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onCreateView](on-create-view.md)) | `open fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.md))`, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.md))`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`View`](https://developer.android.com/reference/android/view/View.md))`?` |
+| [onResume](on-resume.md)) | `open fun onResume(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onViewCreated](on-view-created.md)) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.md))`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

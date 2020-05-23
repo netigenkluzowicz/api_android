@@ -10,6 +10,6 @@ title: BitmapHelper.Direction - core
 
 ### Enum Values
 
-| [VERTICAL](-v-e-r-t-i-c-a-l.html) |  |
-| [HORIZONTAL](-h-o-r-i-z-o-n-t-a-l.html) |  |
+| [VERTICAL](-v-e-r-t-i-c-a-l.md)) |  |
+| [HORIZONTAL](-h-o-r-i-z-o-n-t-a-l.md)) |  |
 

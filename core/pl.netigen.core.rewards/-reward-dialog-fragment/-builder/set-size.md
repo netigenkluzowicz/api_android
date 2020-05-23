@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setSize - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setSize](./set-size.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setSize](./set-size.md))
 
 # setSize
 

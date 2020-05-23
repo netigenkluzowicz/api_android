@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao.update - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [update](./update.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [update](./update.md))
 
 # update
 

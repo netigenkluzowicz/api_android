@@ -10,9 +10,9 @@ title: SingletonHolder - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `SingletonHolder(creator: (A, B) -> T)` |
+| [&lt;init&gt;](-init-.md)) | `SingletonHolder(creator: (A, B) -> T)` |
 
 ### Functions
 
-| [getInstance](get-instance.html) | `fun getInstance(arg1: A, arg2: B): T` |
+| [getInstance](get-instance.md)) | `fun getInstance(arg1: A, arg2: B): T` |
 

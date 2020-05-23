@@ -2,7 +2,7 @@
 title: IAppConfig.useDefaultRateUs - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](index.md) / [useDefaultRateUs](./use-default-rate-us.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](index.md) / [useDefaultRateUs](./use-default-rate-us.md))
 
 # useDefaultRateUs
 

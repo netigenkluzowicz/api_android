@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.addListener - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [addListener](./add-listener.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [addListener](./add-listener.md))
 
 # addListener
 

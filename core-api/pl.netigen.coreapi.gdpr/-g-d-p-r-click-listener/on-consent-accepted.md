@@ -2,7 +2,7 @@
 title: GDPRClickListener.onConsentAccepted - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](index.md) / [onConsentAccepted](./on-consent-accepted.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](index.md) / [onConsentAccepted](./on-consent-accepted.md))
 
 # onConsentAccepted
 

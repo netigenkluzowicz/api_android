@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.getItemCount - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [getItemCount](./get-item-count.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [getItemCount](./get-item-count.md))
 
 # getItemCount
 

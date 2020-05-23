@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder.setNegativeResId - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setNegativeResId](./set-negative-res-id.html)
+[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setNegativeResId](./set-negative-res-id.md))
 
 # setNegativeResId
 

@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.onBillingServiceDisconnected - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [onBillingServiceDisconnected](./on-billing-service-disconnected.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [onBillingServiceDisconnected](./on-billing-service-disconnected.md))
 
 # onBillingServiceDisconnected
 

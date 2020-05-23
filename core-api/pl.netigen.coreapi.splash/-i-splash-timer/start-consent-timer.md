@@ -2,7 +2,7 @@
 title: ISplashTimer.startConsentTimer - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startConsentTimer](./start-consent-timer.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startConsentTimer](./start-consent-timer.md))
 
 # startConsentTimer
 
@@ -10,7 +10,7 @@ title: ISplashTimer.startConsentTimer - core-api
 
 Starts consent timer
 
-see: [ISplashConfig.maxConsentWaitTime](../-i-splash-config/max-consent-wait-time.html)
+see: [ISplashConfig.maxConsentWaitTime](../-i-splash-config/max-consent-wait-time.md))
 
 ### Parameters
 

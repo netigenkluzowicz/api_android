@@ -2,7 +2,7 @@
 title: Const.ABOUT_DIALOG - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [ABOUT_DIALOG](./-a-b-o-u-t_-d-i-a-l-o-g.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [ABOUT_DIALOG](./-a-b-o-u-t_-d-i-a-l-o-g.md))
 
 # ABOUT_DIALOG
 

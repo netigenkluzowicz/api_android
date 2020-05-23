@@ -2,7 +2,7 @@
 title: ICoreMainActivity.showAds - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [showAds](./show-ads.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [showAds](./show-ads.md))
 
 # showAds
 

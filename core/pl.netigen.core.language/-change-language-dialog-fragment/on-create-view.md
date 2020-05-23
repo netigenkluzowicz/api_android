@@ -2,8 +2,8 @@
 title: ChangeLanguageDialogFragment.onCreateView - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [onCreateView](./on-create-view.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [onCreateView](./on-create-view.md))
 
 # onCreateView
 
-`@Nullable open fun onCreateView(@NonNull inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.html)`, @Nullable container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.html)`?, @Nullable savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`View`](https://developer.android.com/reference/android/view/View.html)`?`
+`@Nullable open fun onCreateView(@NonNull inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.md))`, @Nullable container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.md))`?, @Nullable savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`View`](https://developer.android.com/reference/android/view/View.md))`?`

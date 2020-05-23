@@ -23,15 +23,15 @@ See: [HUAWEI Ads SDK](https://developer.huawei.com/consumer/en/doc/development/H
 
 ### Properties
 
-| [bannerAd](banner-ad.html) | Provides [IBannerAd](../-i-banner-ad/index.md)`abstract val bannerAd: `[`IBannerAd`](../-i-banner-ad/index.md) |
-| [interstitialAd](interstitial-ad.html) | Provides [IInterstitialAd](../-i-interstitial-ad/index.md)`abstract val interstitialAd: `[`IInterstitialAd`](../-i-interstitial-ad/index.md) |
-| [personalizedAdsEnabled](personalized-ads-enabled.html) | Set this to turn off/on personalized ads`abstract var personalizedAdsEnabled: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [rewardedAd](rewarded-ad.html) | Provides [IRewardedAd](../-i-rewarded-ad/index.md)`abstract val rewardedAd: `[`IRewardedAd`](../-i-rewarded-ad/index.md) |
+| [bannerAd](banner-ad.md)) | Provides [IBannerAd](../-i-banner-ad/index.md)`abstract val bannerAd: `[`IBannerAd`](../-i-banner-ad/index.md) |
+| [interstitialAd](interstitial-ad.md)) | Provides [IInterstitialAd](../-i-interstitial-ad/index.md)`abstract val interstitialAd: `[`IInterstitialAd`](../-i-interstitial-ad/index.md) |
+| [personalizedAdsEnabled](personalized-ads-enabled.md)) | Set this to turn off/on personalized ads`abstract var personalizedAdsEnabled: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
+| [rewardedAd](rewarded-ad.md)) | Provides [IRewardedAd](../-i-rewarded-ad/index.md)`abstract val rewardedAd: `[`IRewardedAd`](../-i-rewarded-ad/index.md) |
 
 ### Functions
 
-| [disable](disable.html) | Disable all ads, hide banners, cancel and/or stop loading ads`abstract fun disable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [enable](enable.html) | Enables ads, starts loading and showing them`abstract fun enable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [disable](disable.md)) | Disable all ads, hide banners, cancel and/or stop loading ads`abstract fun disable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [enable](enable.md)) | Enables ads, starts loading and showing them`abstract fun enable(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 
 ### Inheritors
 

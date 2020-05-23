@@ -2,7 +2,7 @@
 title: ICoreViewModelsFactory.payments - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [payments](./payments.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [payments](./payments.md))
 
 # payments
 

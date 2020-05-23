@@ -2,7 +2,7 @@
 title: PaymentError.<init> - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentError](index.md) / [&lt;init&gt;](./-init-.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentError](index.md) / [&lt;init&gt;](./-init-.md))
 
 # &lt;init&gt;
 

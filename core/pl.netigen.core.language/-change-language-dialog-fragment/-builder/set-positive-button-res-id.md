@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.setPositiveButtonResId - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setPositiveButtonResId](./set-positive-button-res-id.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setPositiveButtonResId](./set-positive-button-res-id.md))
 
 # setPositiveButtonResId
 

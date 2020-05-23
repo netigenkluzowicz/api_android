@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onStart - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onStart](./on-start.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onStart](./on-start.md))
 
 # onStart
 

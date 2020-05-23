@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setTextSize - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setTextSize](./set-text-size.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setTextSize](./set-text-size.md))
 
 # setTextSize
 

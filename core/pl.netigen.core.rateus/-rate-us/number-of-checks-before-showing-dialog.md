@@ -2,7 +2,7 @@
 title: RateUs.numberOfChecksBeforeShowingDialog - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [numberOfChecksBeforeShowingDialog](./number-of-checks-before-showing-dialog.html)
+[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [numberOfChecksBeforeShowingDialog](./number-of-checks-before-showing-dialog.md))
 
 # numberOfChecksBeforeShowingDialog
 

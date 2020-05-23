@@ -2,7 +2,7 @@
 title: IPaymentsRepo.noAdsActive - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPaymentsRepo](index.md) / [noAdsActive](./no-ads-active.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPaymentsRepo](index.md) / [noAdsActive](./no-ads-active.md))
 
 # noAdsActive
 
@@ -13,5 +13,5 @@ Use this for behave with no ads related stuff, (e.g. hide/show no ads buy button
 
 **See Also**
 
-[IPayments.noAdsActive](../-i-no-ads/no-ads-active.html)
+[IPayments.noAdsActive](../-i-no-ads/no-ads-active.md))
 

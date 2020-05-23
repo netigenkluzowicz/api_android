@@ -2,7 +2,7 @@
 title: ICoreViewModelsFactory.appConfig - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [appConfig](./app-config.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [appConfig](./app-config.md))
 
 # appConfig
 

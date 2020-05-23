@@ -2,7 +2,7 @@
 title: ChangeLanguageParams.positiveButtonResId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](index.md) / [positiveButtonResId](./positive-button-res-id.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](index.md) / [positiveButtonResId](./positive-button-res-id.md))
 
 # positiveButtonResId
 

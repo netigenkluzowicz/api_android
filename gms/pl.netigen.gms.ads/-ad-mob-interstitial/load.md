@@ -2,7 +2,7 @@
 title: AdMobInterstitial.load - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [load](./load.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [load](./load.md))
 
 # load
 

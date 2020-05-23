@@ -2,7 +2,7 @@
 title: IAds.rewardedAd - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](index.md) / [rewardedAd](./rewarded-ad.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](index.md) / [rewardedAd](./rewarded-ad.md))
 
 # rewardedAd
 

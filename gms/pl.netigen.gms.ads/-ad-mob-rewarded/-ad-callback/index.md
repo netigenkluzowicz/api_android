@@ -10,15 +10,15 @@ title: AdMobRewarded.AdCallback - gms
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `AdCallback(onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`)` |
+| [&lt;init&gt;](-init-.md)) | `AdCallback(onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`)` |
 
 ### Properties
 
-| [onRewardResult](on-reward-result.html) | `val onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onRewardResult](on-reward-result.md)) | `val onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 
 ### Functions
 
-| [onRewardedAdClosed](on-rewarded-ad-closed.html) | `fun onRewardedAdClosed(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onRewardedAdFailedToShow](on-rewarded-ad-failed-to-show.html) | `fun onRewardedAdFailedToShow(p0: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onUserEarnedReward](on-user-earned-reward.html) | `fun onUserEarnedReward(reward: RewardItem): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onRewardedAdClosed](on-rewarded-ad-closed.md)) | `fun onRewardedAdClosed(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onRewardedAdFailedToShow](on-rewarded-ad-failed-to-show.md)) | `fun onRewardedAdFailedToShow(p0: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onUserEarnedReward](on-user-earned-reward.md)) | `fun onUserEarnedReward(reward: RewardItem): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

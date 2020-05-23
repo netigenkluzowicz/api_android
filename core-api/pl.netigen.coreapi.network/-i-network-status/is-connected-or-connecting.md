@@ -2,7 +2,7 @@
 title: INetworkStatus.isConnectedOrConnecting - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [isConnectedOrConnecting](./is-connected-or-connecting.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [isConnectedOrConnecting](./is-connected-or-connecting.md))
 
 # isConnectedOrConnecting
 

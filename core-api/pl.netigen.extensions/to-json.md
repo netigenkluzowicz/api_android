@@ -2,7 +2,7 @@
 title: toJson - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.extensions](index.md) / [toJson](./to-json.html)
+[core-api](../index.md) / [pl.netigen.extensions](index.md) / [toJson](./to-json.md))
 
 # toJson
 

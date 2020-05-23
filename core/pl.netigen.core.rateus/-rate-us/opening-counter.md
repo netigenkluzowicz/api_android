@@ -2,7 +2,7 @@
 title: RateUs.openingCounter - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [openingCounter](./opening-counter.html)
+[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [openingCounter](./opening-counter.md))
 
 # openingCounter
 

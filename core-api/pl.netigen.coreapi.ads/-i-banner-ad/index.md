@@ -11,7 +11,7 @@ title: IBannerAd - core-api
 Manages Banner ad:
 
 * lifecycle is connected to activity lifecycle
-* is placed automatically in given [RelativeLayout](https://developer.android.com/reference/android/widget/RelativeLayout.html) provided in [IAdsConfig.bannerLayoutIdName](../-i-ads-config/banner-layout-id-name.html)
+* is placed automatically in given [RelativeLayout](https://developer.android.com/reference/android/widget/RelativeLayout.md)) provided in [IAdsConfig.bannerLayoutIdName](../-i-ads-config/banner-layout-id-name.md))
 * its container is resized when ad size is different than its height, and it is invisible to the user
 
 Banner ads (excluding Adaptive Banners) occupy a spot within an app's layout, either at the top or bottom of the device screen.
@@ -23,5 +23,5 @@ adaptive banners let developers specify the ad-width and use this to determine t
 
 ### Functions
 
-| [getHeightInPixels](get-height-in-pixels.html) | Measures current banner implementation exact height in pixels`abstract fun getHeightInPixels(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md) |
+| [getHeightInPixels](get-height-in-pixels.md)) | Measures current banner implementation exact height in pixels`abstract fun getHeightInPixels(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md) |
 

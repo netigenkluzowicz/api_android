@@ -15,13 +15,13 @@ title: TranslationInfoDialogFragment - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `TranslationInfoDialogFragment()` |
+| [&lt;init&gt;](-init-.md)) | `TranslationInfoDialogFragment()` |
 
 ### Functions
 
-| [newInstance](new-instance.html) | `open static fun newInstance(translationInfoParams: TranslationInfoParams!): `[`TranslationInfoDialogFragment`](./index.md)`!` |
-| [onCreateView](on-create-view.html) | `open fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.html)`, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.html)`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`View`](https://developer.android.com/reference/android/view/View.html)`?` |
-| [onResume](on-resume.html) | `open fun onResume(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onViewCreated](on-view-created.html) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [setPositiveButton](set-positive-button.html) | `open fun setPositiveButton(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [newInstance](new-instance.md)) | `open static fun newInstance(translationInfoParams: TranslationInfoParams!): `[`TranslationInfoDialogFragment`](./index.md)`!` |
+| [onCreateView](on-create-view.md)) | `open fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.md))`, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.md))`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`View`](https://developer.android.com/reference/android/view/View.md))`?` |
+| [onResume](on-resume.md)) | `open fun onResume(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onViewCreated](on-view-created.md)) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.md))`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [setPositiveButton](set-positive-button.md)) | `open fun setPositiveButton(view: `[`View`](https://developer.android.com/reference/android/view/View.md))`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

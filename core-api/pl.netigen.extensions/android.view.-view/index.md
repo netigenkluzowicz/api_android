@@ -6,5 +6,5 @@ title: pl.netigen.extensions.android.view.View - core-api
 
 ### Extensions for android.view.View
 
-| [onLayoutMeasured](on-layout-measured.html) | `fun `[`View`](https://developer.android.com/reference/android/view/View.html)`.onLayoutMeasured(onGlobalLayout: () -> `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.md)`, measureOnlyOnce: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)` = true): `[`OnGlobalLayoutListener`](https://developer.android.com/reference/android/view/ViewTreeObserver/OnGlobalLayoutListener.html) |
+| [onLayoutMeasured](on-layout-measured.md)) | `fun `[`View`](https://developer.android.com/reference/android/view/View.md))`.onLayoutMeasured(onGlobalLayout: () -> `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.md)`, measureOnlyOnce: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)` = true): `[`OnGlobalLayoutListener`](https://developer.android.com/reference/android/view/ViewTreeObserver/OnGlobalLayoutListener.md)) |
 

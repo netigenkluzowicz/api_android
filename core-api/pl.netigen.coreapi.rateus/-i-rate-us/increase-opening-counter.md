@@ -2,7 +2,7 @@
 title: IRateUs.increaseOpeningCounter - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [increaseOpeningCounter](./increase-opening-counter.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [increaseOpeningCounter](./increase-opening-counter.md))
 
 # increaseOpeningCounter
 

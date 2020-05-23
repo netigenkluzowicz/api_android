@@ -2,7 +2,7 @@
 title: AppConfig.inDebugMode - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [inDebugMode](./in-debug-mode.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [inDebugMode](./in-debug-mode.md))
 
 # inDebugMode
 

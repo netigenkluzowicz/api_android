@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setDescriptionTextStringId - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setDescriptionTextStringId](./set-description-text-string-id.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setDescriptionTextStringId](./set-description-text-string-id.md))
 
 # setDescriptionTextStringId
 

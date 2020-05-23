@@ -2,7 +2,7 @@
 title: IAd.enabled - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAd](index.md) / [enabled](./enabled.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAd](index.md) / [enabled](./enabled.md))
 
 # enabled
 

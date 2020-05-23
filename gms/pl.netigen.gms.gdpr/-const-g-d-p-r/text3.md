@@ -2,7 +2,7 @@
 title: ConstGDPR.text3 - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [ConstGDPR](index.md) / [text3](./text3.html)
+[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [ConstGDPR](index.md) / [text3](./text3.md))
 
 # text3
 

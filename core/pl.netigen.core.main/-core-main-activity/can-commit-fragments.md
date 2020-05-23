@@ -2,7 +2,7 @@
 title: CoreMainActivity.canCommitFragments - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [canCommitFragments](./can-commit-fragments.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [canCommitFragments](./can-commit-fragments.md))
 
 # canCommitFragments
 

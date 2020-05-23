@@ -2,7 +2,7 @@
 title: AdMobInterstitial.isLoaded - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [isLoaded](./is-loaded.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [isLoaded](./is-loaded.md))
 
 # isLoaded
 

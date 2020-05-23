@@ -2,7 +2,7 @@
 title: ISplashConfig.maxInterstitialWaitTime - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxInterstitialWaitTime](./max-interstitial-wait-time.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxInterstitialWaitTime](./max-interstitial-wait-time.md))
 
 # maxInterstitialWaitTime
 
@@ -10,5 +10,5 @@ title: ISplashConfig.maxInterstitialWaitTime - core-api
 
 Max white time for load splash interstitial ad, it is start counting after consent operations are finished
 
-Default value: [7 seconds](-d-e-f-a-u-l-t_-s-p-l-a-s-h_-m-a-x_-l-o-a-d_-i-n-t-e-r-s-t-i-t-i-a-l_-w-a-i-t_-t-i-m-e_-m-s.html)
+Default value: [7 seconds](-d-e-f-a-u-l-t_-s-p-l-a-s-h_-m-a-x_-l-o-a-d_-i-n-t-e-r-s-t-i-t-i-a-l_-w-a-i-t_-t-i-m-e_-m-s.md))
 

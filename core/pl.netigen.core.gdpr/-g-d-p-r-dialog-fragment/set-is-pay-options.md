@@ -2,7 +2,7 @@
 title: GDPRDialogFragment.setIsPayOptions - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [setIsPayOptions](./set-is-pay-options.html)
+[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [setIsPayOptions](./set-is-pay-options.md))
 
 # setIsPayOptions
 

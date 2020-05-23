@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.start - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [start](./start.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [start](./start.md))
 
 # start
 

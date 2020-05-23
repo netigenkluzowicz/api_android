@@ -2,7 +2,7 @@
 title: IAdsConfig.inDebugMode - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [inDebugMode](./in-debug-mode.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [inDebugMode](./in-debug-mode.md))
 
 # inDebugMode
 
@@ -11,4 +11,4 @@ title: IAdsConfig.inDebugMode - core-api
 Sets debug mode on/off, when:
 
 * true - test ads Ids provided by Admob or HMS Ads will be used on all devices
-* false - production ads will be displayed excluding test devices provided in [testDevices](test-devices.html)
+* false - production ads will be displayed excluding test devices provided in [testDevices](test-devices.md))

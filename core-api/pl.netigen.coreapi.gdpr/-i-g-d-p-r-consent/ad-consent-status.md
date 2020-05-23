@@ -2,7 +2,7 @@
 title: IGDPRConsent.adConsentStatus - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsent](index.md) / [adConsentStatus](./ad-consent-status.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsent](index.md) / [adConsentStatus](./ad-consent-status.md))
 
 # adConsentStatus
 

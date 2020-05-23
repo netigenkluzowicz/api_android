@@ -6,5 +6,5 @@ title: pl.netigen.extensions.kotlin.String - core-api
 
 ### Extensions for kotlin.String
 
-| [fromJson](from-json.html) | `fun <T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`.fromJson(): T` |
+| [fromJson](from-json.md)) | `fun <T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`.fromJson(): T` |
 

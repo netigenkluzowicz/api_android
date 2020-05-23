@@ -8,7 +8,7 @@ title: alltypes - core
 
 ##### [pl.netigen.core.config.AppConfig](../pl.netigen.core.config/-app-config/index.md)
 
-[IAppConfig](#) implementation which provides also [marketLinkPrefix](../pl.netigen.core.config/-app-config/market-link-prefix.html) for linking Application to current [Store](#)
+[IAppConfig](#) implementation which provides also [marketLinkPrefix](../pl.netigen.core.config/-app-config/market-link-prefix.md)) for linking Application to current [Store](#)
 
 
 |
@@ -119,21 +119,21 @@ Fragment for showing GDPR user consent, see [IGDPRConsent](#)
 
 ##### [pl.netigen.core.fragment.NetigenDialogFragment](../pl.netigen.core.fragment/-netigen-dialog-fragment/index.md)
 
-Base [AppCompatDialogFragment](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html) for Api, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-dialog-fragment/can-commit-fragments.html), and [ICoreMainVM](#)
+Base [AppCompatDialogFragment](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.md)) for Api, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-dialog-fragment/can-commit-fragments.md)), and [ICoreMainVM](#)
 
 
 |
 
 ##### [pl.netigen.core.fragment.NetigenFragment](../pl.netigen.core.fragment/-netigen-fragment/index.md)
 
-Base fragment, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-fragment/can-commit-fragments.html)
+Base fragment, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-fragment/can-commit-fragments.md))
 
 
 |
 
 ##### [pl.netigen.core.fragment.NetigenVMFragment](../pl.netigen.core.fragment/-netigen-v-m-fragment/index.md)
 
-Base fragment for Api, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-fragment/can-commit-fragments.html), and [ICoreMainVM](#)
+Base fragment for Api, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-fragment/can-commit-fragments.md)), and [ICoreMainVM](#)
 
 
 |

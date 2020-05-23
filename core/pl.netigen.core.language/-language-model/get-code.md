@@ -2,7 +2,7 @@
 title: LanguageModel.getCode - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [getCode](./get-code.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [getCode](./get-code.md))
 
 # getCode
 

@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.resetAdsPreferences - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [resetAdsPreferences](./reset-ads-preferences.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [resetAdsPreferences](./reset-ads-preferences.md))
 
 # resetAdsPreferences
 

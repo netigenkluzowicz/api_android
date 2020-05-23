@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onResume - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onResume](./on-resume.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onResume](./on-resume.md))
 
 # onResume
 

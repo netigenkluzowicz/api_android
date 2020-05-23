@@ -2,7 +2,7 @@
 title: INetworkStatus.removeNetworkStatusChangeListener - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [removeNetworkStatusChangeListener](./remove-network-status-change-listener.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [removeNetworkStatusChangeListener](./remove-network-status-change-listener.md))
 
 # removeNetworkStatusChangeListener
 

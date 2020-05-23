@@ -2,7 +2,7 @@
 title: RewardsListener.onSuccess - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](index.md) / [onSuccess](./on-success.html)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](index.md) / [onSuccess](./on-success.md))
 
 # onSuccess
 

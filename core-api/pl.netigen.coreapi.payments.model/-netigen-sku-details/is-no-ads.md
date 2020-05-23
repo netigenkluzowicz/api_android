@@ -2,7 +2,7 @@
 title: NetigenSkuDetails.isNoAds - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](index.md) / [isNoAds](./is-no-ads.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](index.md) / [isNoAds](./is-no-ads.md))
 
 # isNoAds
 
@@ -10,7 +10,7 @@ title: NetigenSkuDetails.isNoAds - core-api
 
 Indicates if this product turns off ads in app
 
-see: [INoAds](../../pl.netigen.coreapi.payments/-i-no-ads/index.md) and [INoAds.noAdsInAppSkuList](../../pl.netigen.coreapi.payments/-i-no-ads/no-ads-in-app-sku-list.html)
+see: [INoAds](../../pl.netigen.coreapi.payments/-i-no-ads/index.md) and [INoAds.noAdsInAppSkuList](../../pl.netigen.coreapi.payments/-i-no-ads/no-ads-in-app-sku-list.md))
 
 ### Property
 
@@ -21,5 +21,5 @@ Indicates if this product turns off ads in app
 
 
 
-see: [INoAds](../../pl.netigen.coreapi.payments/-i-no-ads/index.md) and [INoAds.noAdsInAppSkuList](../../pl.netigen.coreapi.payments/-i-no-ads/no-ads-in-app-sku-list.html)
+see: [INoAds](../../pl.netigen.coreapi.payments/-i-no-ads/index.md) and [INoAds.noAdsInAppSkuList](../../pl.netigen.coreapi.payments/-i-no-ads/no-ads-in-app-sku-list.md))
 

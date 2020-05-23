@@ -2,11 +2,11 @@
 title: IAdsConfig.bannerLayoutIdName - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [bannerLayoutIdName](./banner-layout-id-name.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [bannerLayoutIdName](./banner-layout-id-name.md))
 
 # bannerLayoutIdName
 
 `abstract val bannerLayoutIdName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
 
-Id of [RelativeLayout](https://developer.android.com/reference/android/widget/RelativeLayout.html) for banner ad placement
+Id of [RelativeLayout](https://developer.android.com/reference/android/widget/RelativeLayout.md)) for banner ad placement
 

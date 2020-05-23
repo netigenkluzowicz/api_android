@@ -2,7 +2,7 @@
 title: RewardItem.getPath - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](index.md) / [getPath](./get-path.html)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](index.md) / [getPath](./get-path.md))
 
 # getPath
 

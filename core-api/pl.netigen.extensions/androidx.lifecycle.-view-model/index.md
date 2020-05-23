@@ -6,7 +6,7 @@ title: pl.netigen.extensions.androidx.lifecycle.ViewModel - core-api
 
 ### Extensions for androidx.lifecycle.ViewModel
 
-| [launch](launch.html) | `fun `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.html)`.launch(context: `[`CoroutineContext`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/index.md)` = EmptyCoroutineContext, block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): Job` |
-| [launchIO](launch-i-o.html) | `fun `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.html)`.launchIO(block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): Job` |
-| [launchMain](launch-main.html) | `fun `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.html)`.launchMain(block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): Job` |
+| [launch](launch.md)) | `fun `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.md))`.launch(context: `[`CoroutineContext`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/index.md)` = EmptyCoroutineContext, block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): Job` |
+| [launchIO](launch-i-o.md)) | `fun `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.md))`.launchIO(block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): Job` |
+| [launchMain](launch-main.md)) | `fun `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.md))`.launchMain(block: suspend CoroutineScope.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): Job` |
 

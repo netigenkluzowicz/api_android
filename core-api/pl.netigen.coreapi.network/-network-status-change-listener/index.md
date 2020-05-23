@@ -10,5 +10,5 @@ title: NetworkStatusChangeListener - core-api
 
 ### Functions
 
-| [onNetworkStatusChanged](on-network-status-changed.html) | `abstract fun onNetworkStatusChanged(isConnected: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onNetworkStatusChanged](on-network-status-changed.md)) | `abstract fun onNetworkStatusChanged(isConnected: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

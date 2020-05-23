@@ -2,7 +2,7 @@
 title: ISplashTimer.startInterstitialTimer - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startInterstitialTimer](./start-interstitial-timer.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startInterstitialTimer](./start-interstitial-timer.md))
 
 # startInterstitialTimer
 
@@ -10,7 +10,7 @@ title: ISplashTimer.startInterstitialTimer - core-api
 
 Starts splash interstitial ad timer
 
-see: [ISplashConfig.maxInterstitialWaitTime](../-i-splash-config/max-interstitial-wait-time.html)
+see: [ISplashConfig.maxInterstitialWaitTime](../-i-splash-config/max-interstitial-wait-time.md))
 
 ### Parameters
 

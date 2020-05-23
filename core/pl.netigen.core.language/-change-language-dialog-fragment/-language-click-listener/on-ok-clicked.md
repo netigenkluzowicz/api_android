@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.LanguageClickListener.onOkClicked - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [LanguageClickListener](index.md) / [onOkClicked](./on-ok-clicked.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [LanguageClickListener](index.md) / [onOkClicked](./on-ok-clicked.md))
 
 # onOkClicked
 

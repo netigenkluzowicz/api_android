@@ -2,7 +2,7 @@
 title: BaseDialogFragment.onStart - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BaseDialogFragment](index.md) / [onStart](./on-start.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BaseDialogFragment](index.md) / [onStart](./on-start.md))
 
 # onStart
 

@@ -2,7 +2,7 @@
 title: AppConfig.useDefaultRateUs - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [useDefaultRateUs](./use-default-rate-us.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [useDefaultRateUs](./use-default-rate-us.md))
 
 # useDefaultRateUs
 

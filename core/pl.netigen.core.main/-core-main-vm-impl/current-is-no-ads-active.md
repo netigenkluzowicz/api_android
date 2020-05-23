@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.currentIsNoAdsActive - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [currentIsNoAdsActive](./current-is-no-ads-active.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [currentIsNoAdsActive](./current-is-no-ads-active.md))
 
 # currentIsNoAdsActive
 

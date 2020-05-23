@@ -2,7 +2,7 @@
 title: RateUs.shouldOpenRateUs - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [shouldOpenRateUs](./should-open-rate-us.html)
+[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [shouldOpenRateUs](./should-open-rate-us.md))
 
 # shouldOpenRateUs
 

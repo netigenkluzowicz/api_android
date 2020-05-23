@@ -2,7 +2,7 @@
 title: PaymentErrorType.SERVICE_DISCONNECTED - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentErrorType](index.md) / [SERVICE_DISCONNECTED](./-s-e-r-v-i-c-e_-d-i-s-c-o-n-n-e-c-t-e-d.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentErrorType](index.md) / [SERVICE_DISCONNECTED](./-s-e-r-v-i-c-e_-d-i-s-c-o-n-n-e-c-t-e-d.md))
 
 # SERVICE_DISCONNECTED
 

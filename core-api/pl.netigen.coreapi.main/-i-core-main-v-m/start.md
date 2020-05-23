@@ -2,11 +2,11 @@
 title: ICoreMainVM.start - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [start](./start.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [start](./start.md))
 
 # start
 
 `abstract fun start(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
 
-It is called on [onStart()](https://developer.android.com/reference/android/app/Activity.html#onStart()) of [ICoreMainActivity](../-i-core-main-activity/index.md) implementation
+It is called on [onStart()](https://developer.android.com/reference/android/app/Activity.md)#onStart()) of [ICoreMainActivity](../-i-core-main-activity/index.md) implementation
 

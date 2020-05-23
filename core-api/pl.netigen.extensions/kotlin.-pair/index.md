@@ -6,5 +6,5 @@ title: pl.netigen.extensions.kotlin.Pair - core-api
 
 ### Extensions for kotlin.Pair
 
-| [zipLiveData](zip-live-data.html) | `fun <F, S> `[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<`[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<F>, `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<S>>.zipLiveData(): `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<`[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<F, S>>` |
+| [zipLiveData](zip-live-data.md)) | `fun <F, S> `[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<`[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.md))`<F>, `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.md))`<S>>.zipLiveData(): `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.md))`<`[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<F, S>>` |
 

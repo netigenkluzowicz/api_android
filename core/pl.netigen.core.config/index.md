@@ -8,5 +8,5 @@ title: pl.netigen.core.config - core
 
 ### Types
 
-| [AppConfig](-app-config/index.md) | [IAppConfig](#) implementation which provides also [marketLinkPrefix](-app-config/market-link-prefix.html) for linking Application to current [Store](#)`open class AppConfig : IAppConfig` |
+| [AppConfig](-app-config/index.md) | [IAppConfig](#) implementation which provides also [marketLinkPrefix](-app-config/market-link-prefix.md)) for linking Application to current [Store](#)`open class AppConfig : IAppConfig` |
 

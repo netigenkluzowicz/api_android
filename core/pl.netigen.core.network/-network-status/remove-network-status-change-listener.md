@@ -2,7 +2,7 @@
 title: NetworkStatus.removeNetworkStatusChangeListener - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [removeNetworkStatusChangeListener](./remove-network-status-change-listener.html)
+[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [removeNetworkStatusChangeListener](./remove-network-status-change-listener.md))
 
 # removeNetworkStatusChangeListener
 

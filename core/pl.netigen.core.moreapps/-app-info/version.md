@@ -2,7 +2,7 @@
 title: AppInfo.version - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [version](./version.html)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [version](./version.md))
 
 # version
 

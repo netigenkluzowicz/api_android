@@ -2,7 +2,7 @@
 title: AppConfig.adMobPublisherIds - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [adMobPublisherIds](./ad-mob-publisher-ids.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [adMobPublisherIds](./ad-mob-publisher-ids.md))
 
 # adMobPublisherIds
 

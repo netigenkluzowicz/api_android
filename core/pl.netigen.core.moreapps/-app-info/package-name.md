@@ -2,7 +2,7 @@
 title: AppInfo.packageName - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [packageName](./package-name.html)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [packageName](./package-name.md))
 
 # packageName
 

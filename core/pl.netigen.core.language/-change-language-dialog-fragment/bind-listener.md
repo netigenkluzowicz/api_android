@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.bindListener - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [bindListener](./bind-listener.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [bindListener](./bind-listener.md))
 
 # bindListener
 

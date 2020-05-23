@@ -9,6 +9,6 @@ title: pl.netigen.core.moreapps - core
 ### Types
 
 | [AppInfo](-app-info/index.md) | `open class AppInfo` |
-| [BaseMoreAppsFragment](-base-more-apps-fragment/index.md) | `abstract class BaseMoreAppsFragment : `[`Fragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/Fragment.html) |
+| [BaseMoreAppsFragment](-base-more-apps-fragment/index.md) | `abstract class BaseMoreAppsFragment : `[`Fragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/Fragment.md)) |
 | [MoreAppItem](-more-app-item/index.md) | `open class MoreAppItem : `[`AppInfo`](-app-info/index.md) |
 

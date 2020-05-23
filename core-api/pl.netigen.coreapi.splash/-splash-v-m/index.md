@@ -6,9 +6,9 @@ title: SplashVM - core-api
 
 # SplashVM
 
-`abstract class SplashVM : `[`AndroidViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html)`, `[`ISplashVM`](../-i-splash-v-m/index.md)
+`abstract class SplashVM : `[`AndroidViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md))`, `[`ISplashVM`](../-i-splash-v-m/index.md)
 
-Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:
+Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md)), provides application initialization,:
 
 * billing if available and no-ads payments, see [INoAds](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)
 * app configuration by [IAppConfig](../../pl.netigen.coreapi.main/-i-app-config/index.md) implementation,
@@ -21,5 +21,5 @@ After initialization:
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`SplashVM(application: `[`Application`](https://developer.android.com/reference/android/app/Application.html)`)` |
+| [&lt;init&gt;](-init-.md)) | Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md)), provides application initialization,:`SplashVM(application: `[`Application`](https://developer.android.com/reference/android/app/Application.md))`)` |
 

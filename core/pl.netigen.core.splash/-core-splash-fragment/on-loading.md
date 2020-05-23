@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onLoading - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onLoading](./on-loading.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onLoading](./on-loading.md))
 
 # onLoading
 

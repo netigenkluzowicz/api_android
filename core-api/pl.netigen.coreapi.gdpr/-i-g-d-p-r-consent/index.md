@@ -21,12 +21,12 @@ This policies reflects the requirements of the EU ePrivacy Directive and the Gen
 
 ### Properties
 
-| [adConsentStatus](ad-consent-status.html) | Provides current Ad consent status`abstract val adConsentStatus: Flow<`[`AdConsentStatus`](../-ad-consent-status/index.md)`>` |
+| [adConsentStatus](ad-consent-status.md)) | Provides current Ad consent status`abstract val adConsentStatus: Flow<`[`AdConsentStatus`](../-ad-consent-status/index.md)`>` |
 
 ### Functions
 
-| [requestGDPRLocation](request-g-d-p-r-location.html) | Request check if user is located in place where we should display consent to him`abstract fun requestGDPRLocation(): Flow<`[`CheckGDPRLocationStatus`](../-check-g-d-p-r-location-status/index.md)`>` |
-| [saveAdConsentStatus](save-ad-consent-status.html) | Saves current consent status:`abstract fun saveAdConsentStatus(adConsentStatus: `[`AdConsentStatus`](../-ad-consent-status/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [requestGDPRLocation](request-g-d-p-r-location.md)) | Request check if user is located in place where we should display consent to him`abstract fun requestGDPRLocation(): Flow<`[`CheckGDPRLocationStatus`](../-check-g-d-p-r-location-status/index.md)`>` |
+| [saveAdConsentStatus](save-ad-consent-status.md)) | Saves current consent status:`abstract fun saveAdConsentStatus(adConsentStatus: `[`AdConsentStatus`](../-ad-consent-status/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 
 ### Inheritors
 

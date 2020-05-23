@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.onResume - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [onResume](./on-resume.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [onResume](./on-resume.md))
 
 # onResume
 

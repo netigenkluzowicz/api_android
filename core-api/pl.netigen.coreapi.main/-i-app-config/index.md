@@ -20,13 +20,13 @@ Keeps configuration for entire Api/Application:
 
 ### Properties
 
-| [inDebugMode](in-debug-mode.html) | Sets debug mode on/off, when:`abstract val inDebugMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [isNoAdsAvailable](is-no-ads-available.html) | Set if there is or isn't no-ads payment in application`abstract val isNoAdsAvailable: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
-| [store](store.html) | Current release target Store, one of:`abstract val store: `[`Store`](../-store/index.md) |
-| [useDefaultRateUs](use-default-rate-us.html) | Indicates If use default ["Rate us"](../../pl.netigen.coreapi.rateus/-i-rate-us/index.md)`abstract val useDefaultRateUs: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
+| [inDebugMode](in-debug-mode.md)) | Sets debug mode on/off, when:`abstract val inDebugMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
+| [isNoAdsAvailable](is-no-ads-available.md)) | Set if there is or isn't no-ads payment in application`abstract val isNoAdsAvailable: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
+| [store](store.md)) | Current release target Store, one of:`abstract val store: `[`Store`](../-store/index.md) |
+| [useDefaultRateUs](use-default-rate-us.md)) | Indicates If use default ["Rate us"](../../pl.netigen.coreapi.rateus/-i-rate-us/index.md)`abstract val useDefaultRateUs: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
 
 ### Inheritors
 
 | [ICoreMainVM](../-i-core-main-v-m/index.md) | This implementations, provides access to api modules:`interface ICoreMainVM : `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.md)`, `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.md)`, `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.md)`, `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md)`, `[`IAppConfig`](./index.md) |
-| [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`interface ISplashVM : `[`INoAds`](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)`, `[`IAppConfig`](./index.md) |
+| [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.md)), provides application initialization,:`interface ISplashVM : `[`INoAds`](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)`, `[`IAppConfig`](./index.md) |
 

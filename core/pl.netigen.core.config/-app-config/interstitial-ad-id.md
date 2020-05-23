@@ -2,7 +2,7 @@
 title: AppConfig.interstitialAdId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [interstitialAdId](./interstitial-ad-id.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [interstitialAdId](./interstitial-ad-id.md))
 
 # interstitialAdId
 

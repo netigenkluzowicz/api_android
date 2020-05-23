@@ -2,7 +2,7 @@
 title: AdMobRewarded.isLoaded - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobRewarded](index.md) / [isLoaded](./is-loaded.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobRewarded](index.md) / [isLoaded](./is-loaded.md))
 
 # isLoaded
 

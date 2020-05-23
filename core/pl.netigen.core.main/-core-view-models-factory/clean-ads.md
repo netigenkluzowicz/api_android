@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory.cleanAds - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [cleanAds](./clean-ads.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [cleanAds](./clean-ads.md))
 
 # cleanAds
 

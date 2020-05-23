@@ -2,7 +2,7 @@
 title: IInterstitialAd.load - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [load](./load.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [load](./load.md))
 
 # load
 

@@ -2,7 +2,7 @@
 title: SplashTimerImpl.cancelTimers - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [cancelTimers](./cancel-timers.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [cancelTimers](./cancel-timers.md))
 
 # cancelTimers
 

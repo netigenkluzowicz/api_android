@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.start - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [start](./start.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [start](./start.md))
 
 # start
 

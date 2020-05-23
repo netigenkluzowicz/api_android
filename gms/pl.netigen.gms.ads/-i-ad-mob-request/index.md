@@ -12,7 +12,7 @@ Provides an [AdRequest](#) contains targeting information used to fetch an ad in
 
 ### Functions
 
-| [getAdRequest](get-ad-request.html) | `abstract fun getAdRequest(): AdRequest` |
+| [getAdRequest](get-ad-request.md)) | `abstract fun getAdRequest(): AdRequest` |
 
 ### Inheritors
 

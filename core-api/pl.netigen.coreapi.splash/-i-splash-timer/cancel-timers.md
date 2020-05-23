@@ -2,7 +2,7 @@
 title: ISplashTimer.cancelTimers - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [cancelTimers](./cancel-timers.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [cancelTimers](./cancel-timers.md))
 
 # cancelTimers
 

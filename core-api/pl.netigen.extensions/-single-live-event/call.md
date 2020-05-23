@@ -2,7 +2,7 @@
 title: SingleLiveEvent.call - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](index.md) / [call](./call.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](index.md) / [call](./call.md))
 
 # call
 

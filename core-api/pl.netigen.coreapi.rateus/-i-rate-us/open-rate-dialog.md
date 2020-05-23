@@ -2,7 +2,7 @@
 title: IRateUs.openRateDialog - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [openRateDialog](./open-rate-dialog.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [openRateDialog](./open-rate-dialog.md))
 
 # openRateDialog
 

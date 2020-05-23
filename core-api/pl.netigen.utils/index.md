@@ -8,5 +8,5 @@ title: pl.netigen.utils - core-api
 
 ### Types
 
-| [BaseDialogFragment](-base-dialog-fragment/index.md) | `abstract class BaseDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html) |
+| [BaseDialogFragment](-base-dialog-fragment/index.md) | `abstract class BaseDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.md)) |
 

@@ -2,7 +2,7 @@
 title: ICoreViewModelsFactory.networkStatus - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [networkStatus](./network-status.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [networkStatus](./network-status.md))
 
 # networkStatus
 

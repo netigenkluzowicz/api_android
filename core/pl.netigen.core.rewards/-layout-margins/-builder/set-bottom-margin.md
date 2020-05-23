@@ -2,7 +2,7 @@
 title: LayoutMargins.Builder.setBottomMargin - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [setBottomMargin](./set-bottom-margin.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [setBottomMargin](./set-bottom-margin.md))
 
 # setBottomMargin
 

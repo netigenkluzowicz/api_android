@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setRewardContainerMargins - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewardContainerMargins](./set-reward-container-margins.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewardContainerMargins](./set-reward-container-margins.md))
 
 # setRewardContainerMargins
 

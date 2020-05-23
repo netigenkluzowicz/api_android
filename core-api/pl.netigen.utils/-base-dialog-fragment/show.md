@@ -2,8 +2,8 @@
 title: BaseDialogFragment.show - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](index.md) / [show](./show.html)
+[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](index.md) / [show](./show.md))
 
 # show
 
-`open fun show(fragmentManager: `[`FragmentManager`](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentManager.html)`, tag: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
+`open fun show(fragmentManager: `[`FragmentManager`](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentManager.md))`, tag: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

@@ -2,7 +2,7 @@
 title: INetworkStatus.requestNetworkState - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [requestNetworkState](./request-network-state.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](index.md) / [requestNetworkState](./request-network-state.md))
 
 # requestNetworkState
 

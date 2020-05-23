@@ -2,7 +2,7 @@
 title: AdMobAds.TEST_REWARDED_ID - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [TEST_REWARDED_ID](./-t-e-s-t_-r-e-w-a-r-d-e-d_-i-d.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [TEST_REWARDED_ID](./-t-e-s-t_-r-e-w-a-r-d-e-d_-i-d.md))
 
 # TEST_REWARDED_ID
 

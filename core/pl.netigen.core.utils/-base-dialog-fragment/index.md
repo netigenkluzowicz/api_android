@@ -12,13 +12,13 @@ see [NetigenDialogFragment](../../pl.netigen.core.fragment/-netigen-dialog-fragm
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | see [NetigenDialogFragment](../../pl.netigen.core.fragment/-netigen-dialog-fragment/index.md)`BaseDialogFragment()` |
+| [&lt;init&gt;](-init-.md)) | see [NetigenDialogFragment](../../pl.netigen.core.fragment/-netigen-dialog-fragment/index.md)`BaseDialogFragment()` |
 
 ### Functions
 
-| [onStart](on-start.html) | `open fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [onViewCreated](on-view-created.html) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [setDialogSize](set-dialog-size.html) | `fun setDialogSize(dp: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onStart](on-start.md)) | `open fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onViewCreated](on-view-created.md)) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.md))`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.md))`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [setDialogSize](set-dialog-size.md)) | `fun setDialogSize(dp: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 
 ### Inheritors
 

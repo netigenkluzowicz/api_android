@@ -2,7 +2,7 @@
 title: RewardListenersList.add - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardListenersList](index.md) / [add](./add.html)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardListenersList](index.md) / [add](./add.md))
 
 # add
 

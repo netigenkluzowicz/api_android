@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.show - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [show](./show.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [show](./show.md))
 
 # show
 

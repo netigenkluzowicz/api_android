@@ -2,7 +2,7 @@
 title: SingletonHolder.getInstance - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](index.md) / [getInstance](./get-instance.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](index.md) / [getInstance](./get-instance.md))
 
 # getInstance
 

@@ -10,16 +10,16 @@ title: ChangeLanguageDialogFragment.Builder - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.html)`!)` |
+| [&lt;init&gt;](-init-.md)) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.md))`!)` |
 
 ### Functions
 
-| [create](create.html) | `open fun create(): `[`ChangeLanguageDialogFragment`](../index.md)`!` |
-| [setJsonLanguageCodes](set-json-language-codes.html) | `open fun setJsonLanguageCodes(jsonLanguageCodes: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!): Builder!` |
-| [setLanguageClickListener](set-language-click-listener.html) | `open fun setLanguageClickListener(languageClickListener: LanguageClickListener!): Builder!` |
-| [setLanguageCodes](set-language-codes.html) | `open fun setLanguageCodes(languageCodes: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!>!): Builder!` |
-| [setNegativeButtonResId](set-negative-button-res-id.html) | `open fun setNegativeButtonResId(negativeButtonResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [setPositiveButtonResId](set-positive-button-res-id.html) | `open fun setPositiveButtonResId(positiveButtonResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [setTitleResId](set-title-res-id.html) | `open fun setTitleResId(titleResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
-| [show](show.html) | `open fun show(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [create](create.md)) | `open fun create(): `[`ChangeLanguageDialogFragment`](../index.md)`!` |
+| [setJsonLanguageCodes](set-json-language-codes.md)) | `open fun setJsonLanguageCodes(jsonLanguageCodes: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!): Builder!` |
+| [setLanguageClickListener](set-language-click-listener.md)) | `open fun setLanguageClickListener(languageClickListener: LanguageClickListener!): Builder!` |
+| [setLanguageCodes](set-language-codes.md)) | `open fun setLanguageCodes(languageCodes: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!>!): Builder!` |
+| [setNegativeButtonResId](set-negative-button-res-id.md)) | `open fun setNegativeButtonResId(negativeButtonResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
+| [setPositiveButtonResId](set-positive-button-res-id.md)) | `open fun setPositiveButtonResId(positiveButtonResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
+| [setTitleResId](set-title-res-id.md)) | `open fun setTitleResId(titleResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
+| [show](show.md)) | `open fun show(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

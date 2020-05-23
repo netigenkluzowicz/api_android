@@ -2,7 +2,7 @@
 title: SplashTimerImpl.cancelConsentTimer - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [cancelConsentTimer](./cancel-consent-timer.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [cancelConsentTimer](./cancel-consent-timer.md))
 
 # cancelConsentTimer
 

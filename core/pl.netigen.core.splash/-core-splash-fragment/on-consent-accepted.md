@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onConsentAccepted - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onConsentAccepted](./on-consent-accepted.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onConsentAccepted](./on-consent-accepted.md))
 
 # onConsentAccepted
 

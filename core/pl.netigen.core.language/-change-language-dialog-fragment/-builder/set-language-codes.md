@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.setLanguageCodes - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageCodes](./set-language-codes.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageCodes](./set-language-codes.md))
 
 # setLanguageCodes
 

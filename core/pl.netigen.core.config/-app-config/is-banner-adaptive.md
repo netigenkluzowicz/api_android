@@ -2,7 +2,7 @@
 title: AppConfig.isBannerAdaptive - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [isBannerAdaptive](./is-banner-adaptive.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [isBannerAdaptive](./is-banner-adaptive.md))
 
 # isBannerAdaptive
 

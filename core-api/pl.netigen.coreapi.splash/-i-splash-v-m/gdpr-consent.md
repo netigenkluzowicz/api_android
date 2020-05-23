@@ -2,7 +2,7 @@
 title: ISplashVM.gdprConsent - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [gdprConsent](./gdpr-consent.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [gdprConsent](./gdpr-consent.md))
 
 # gdprConsent
 

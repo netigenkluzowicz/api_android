@@ -2,7 +2,7 @@
 title: PaymentSuccess.<init> - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentSuccess](index.md) / [&lt;init&gt;](./-init-.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentSuccess](index.md) / [&lt;init&gt;](./-init-.md))
 
 # &lt;init&gt;
 

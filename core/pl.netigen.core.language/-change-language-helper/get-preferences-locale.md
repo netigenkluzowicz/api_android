@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.getPreferencesLocale - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [getPreferencesLocale](./get-preferences-locale.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [getPreferencesLocale](./get-preferences-locale.md))
 
 # getPreferencesLocale
 

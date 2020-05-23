@@ -10,10 +10,10 @@ title: PurchaseTypeConverter - gms
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `PurchaseTypeConverter()` |
+| [&lt;init&gt;](-init-.md)) | `PurchaseTypeConverter()` |
 
 ### Functions
 
-| [toPurchase](to-purchase.html) | `fun toPurchase(data: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`): Purchase` |
-| [toString](to-string.html) | `fun toString(purchase: Purchase): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
+| [toPurchase](to-purchase.md)) | `fun toPurchase(data: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`): Purchase` |
+| [toString](to-string.md)) | `fun toString(purchase: Purchase): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
 

@@ -2,7 +2,7 @@
 title: RateUs.clickNo - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [clickNo](./click-no.html)
+[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [clickNo](./click-no.md))
 
 # clickNo
 

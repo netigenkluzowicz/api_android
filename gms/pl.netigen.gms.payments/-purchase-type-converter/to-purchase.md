@@ -2,7 +2,7 @@
 title: PurchaseTypeConverter.toPurchase - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseTypeConverter](index.md) / [toPurchase](./to-purchase.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseTypeConverter](index.md) / [toPurchase](./to-purchase.md))
 
 # toPurchase
 

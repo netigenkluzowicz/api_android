@@ -2,7 +2,7 @@
 title: PurchaseDao.insert - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [insert](./insert.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [insert](./insert.md))
 
 # insert
 
