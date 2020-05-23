@@ -2,7 +2,7 @@
 title: LanguageModel.setLanguage - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[LanguageModel](index.md)/[setLanguage](./set-language.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setLanguage](./set-language.html)
 
 # setLanguage
 

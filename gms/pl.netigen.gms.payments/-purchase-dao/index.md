@@ -2,7 +2,7 @@
 title: PurchaseDao - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[PurchaseDao](./index.md)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](./index.md)
 
 # PurchaseDao
 

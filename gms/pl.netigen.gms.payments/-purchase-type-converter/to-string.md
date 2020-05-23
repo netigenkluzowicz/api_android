@@ -2,7 +2,7 @@
 title: PurchaseTypeConverter.toString - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[PurchaseTypeConverter](index.md)/[toString](./to-string.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseTypeConverter](index.md) / [toString](./to-string.html)
 
 # toString
 

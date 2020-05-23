@@ -2,11 +2,11 @@
 title: CoreMainActivity - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.main](../index.md)/[CoreMainActivity](./index.md)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](./index.md)
 
 # CoreMainActivity
 
-`abstract class CoreMainActivity : `[`AppCompatActivity`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html)`, ICoreMainActivity`
+`abstract class CoreMainActivity : `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.html)`, ICoreMainActivity`
 
 Implements [ICoreMainActivity](#)
 

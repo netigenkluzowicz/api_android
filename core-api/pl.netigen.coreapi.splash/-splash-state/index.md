@@ -2,7 +2,7 @@
 title: SplashState - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.splash](../index.md)/[SplashState](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [SplashState](./index.md)
 
 # SplashState
 

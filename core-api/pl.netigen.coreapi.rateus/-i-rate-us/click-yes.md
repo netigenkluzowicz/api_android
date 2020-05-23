@@ -2,7 +2,7 @@
 title: IRateUs.clickYes - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.rateus](../index.md)/[IRateUs](index.md)/[clickYes](./click-yes.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [clickYes](./click-yes.html)
 
 # clickYes
 

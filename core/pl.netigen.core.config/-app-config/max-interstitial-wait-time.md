@@ -2,7 +2,7 @@
 title: AppConfig.maxInterstitialWaitTime - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.config](../index.md)/[AppConfig](index.md)/[maxInterstitialWaitTime](./max-interstitial-wait-time.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [maxInterstitialWaitTime](./max-interstitial-wait-time.html)
 
 # maxInterstitialWaitTime
 

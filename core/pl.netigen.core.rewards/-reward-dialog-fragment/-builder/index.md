@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.rewards](../../index.md)/[RewardDialogFragment](../index.md)/[Builder](./index.md)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](./index.md)
 
 # Builder
 

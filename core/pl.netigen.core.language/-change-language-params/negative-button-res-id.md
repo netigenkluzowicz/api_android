@@ -2,7 +2,7 @@
 title: ChangeLanguageParams.negativeButtonResId - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[ChangeLanguageParams](index.md)/[negativeButtonResId](./negative-button-res-id.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](index.md) / [negativeButtonResId](./negative-button-res-id.html)
 
 # negativeButtonResId
 

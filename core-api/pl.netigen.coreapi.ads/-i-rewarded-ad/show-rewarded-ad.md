@@ -2,7 +2,7 @@
 title: IRewardedAd.showRewardedAd - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.ads](../index.md)/[IRewardedAd](index.md)/[showRewardedAd](./show-rewarded-ad.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IRewardedAd](index.md) / [showRewardedAd](./show-rewarded-ad.html)
 
 # showRewardedAd
 

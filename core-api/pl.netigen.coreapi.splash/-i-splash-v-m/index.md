@@ -2,13 +2,13 @@
 title: ISplashVM - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.splash](../index.md)/[ISplashVM](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](./index.md)
 
 # ISplashVM
 
 `interface ISplashVM : `[`INoAds`](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)`, `[`IAppConfig`](../../pl.netigen.coreapi.main/-i-app-config/index.md)
 
-Its used for Splash [AndroidViewModel](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:
+Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:
 
 * billing if available and no-ads payments, see [INoAds](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)
 * app configuration by [IAppConfig](../../pl.netigen.coreapi.main/-i-app-config/index.md) implementation,
@@ -22,8 +22,8 @@ After initialization:
 ### Properties
 
 | [gdprConsent](gdpr-consent.html) | `abstract val gdprConsent: `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md) |
-| [isFirstLaunch](is-first-launch.html) | `abstract val isFirstLaunch: `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`>` |
-| [splashState](splash-state.html) | `abstract val splashState: `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<`[`SplashState`](../-splash-state/index.md)`>` |
+| [isFirstLaunch](is-first-launch.html) | `abstract val isFirstLaunch: `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`>` |
+| [splashState](splash-state.html) | `abstract val splashState: `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<`[`SplashState`](../-splash-state/index.md)`>` |
 
 ### Functions
 
@@ -32,5 +32,5 @@ After initialization:
 
 ### Inheritors
 
-| [SplashVM](../-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`abstract class SplashVM : `[`AndroidViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html)`, `[`ISplashVM`](./index.md) |
+| [SplashVM](../-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`abstract class SplashVM : `[`AndroidViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html)`, `[`ISplashVM`](./index.md) |
 

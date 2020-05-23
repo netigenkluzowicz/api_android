@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setWidthMultiplier - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.rewards](../../index.md)/[RewardDialogFragment](../index.md)/[Builder](index.md)/[setWidthMultiplier](./set-width-multiplier.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setWidthMultiplier](./set-width-multiplier.html)
 
 # setWidthMultiplier
 

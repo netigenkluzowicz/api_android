@@ -2,7 +2,7 @@
 title: RewardDialogFragment.onStart - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rewards](../index.md)/[RewardDialogFragment](index.md)/[onStart](./on-start.html)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [onStart](./on-start.html)
 
 # onStart
 

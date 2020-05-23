@@ -2,7 +2,7 @@
 title: IRateUs.openRateDialogIfNeeded - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.rateus](../index.md)/[IRateUs](index.md)/[openRateDialogIfNeeded](./open-rate-dialog-if-needed.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [openRateDialogIfNeeded](./open-rate-dialog-if-needed.html)
 
 # openRateDialogIfNeeded
 

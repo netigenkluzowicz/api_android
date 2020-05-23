@@ -2,7 +2,7 @@
 title: onLayoutMeasured - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[android.view.View](index.md)/[onLayoutMeasured](./on-layout-measured.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.view.View](index.md) / [onLayoutMeasured](./on-layout-measured.html)
 
 # onLayoutMeasured
 

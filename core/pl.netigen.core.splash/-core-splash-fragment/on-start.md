@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onStart - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.splash](../index.md)/[CoreSplashFragment](index.md)/[onStart](./on-start.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onStart](./on-start.html)
 
 # onStart
 

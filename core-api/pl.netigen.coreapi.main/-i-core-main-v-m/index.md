@@ -2,7 +2,7 @@
 title: ICoreMainVM - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[ICoreMainVM](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](./index.md)
 
 # ICoreMainVM
 
@@ -28,5 +28,5 @@ This implementations, provides access to api modules:
 
 ### Inheritors
 
-| [CoreMainVM](../-core-main-v-m/index.md) | Base class for [ICoreMainVM](./index.md) implementation, extends [AndroidViewModel](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html) because it must be available from any Fragment or Activity`abstract class CoreMainVM : `[`AndroidViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html)`, `[`ICoreMainVM`](./index.md) |
+| [CoreMainVM](../-core-main-v-m/index.md) | Base class for [ICoreMainVM](./index.md) implementation, extends [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html) because it must be available from any Fragment or Activity`abstract class CoreMainVM : `[`AndroidViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html)`, `[`ICoreMainVM`](./index.md) |
 

@@ -2,7 +2,7 @@
 title: AppConfig.useDefaultRateUs - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.config](../index.md)/[AppConfig](index.md)/[useDefaultRateUs](./use-default-rate-us.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [useDefaultRateUs](./use-default-rate-us.html)
 
 # useDefaultRateUs
 

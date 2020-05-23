@@ -2,7 +2,7 @@
 title: AdMobInterstitial.showIfCanBeShowed - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.ads](../index.md)/[AdMobInterstitial](index.md)/[showIfCanBeShowed](./show-if-can-be-showed.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [showIfCanBeShowed](./show-if-can-be-showed.html)
 
 # showIfCanBeShowed
 

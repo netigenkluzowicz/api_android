@@ -2,11 +2,11 @@
 title: SingleLiveEvent - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[SingleLiveEvent](./index.md)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](./index.md)
 
 # SingleLiveEvent
 
-`abstract class SingleLiveEvent<T> : `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<T>`
+`abstract class SingleLiveEvent<T> : `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<T>`
 
 ### Constructors
 
@@ -15,9 +15,9 @@ title: SingleLiveEvent - core-api
 ### Functions
 
 | [call](call.html) | `open fun call(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [observe](observe.html) | `open fun observe(owner: `[`LifecycleOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleOwner.html)`, observer: `[`Observer`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [observe](observe.html) | `open fun observe(owner: `[`LifecycleOwner`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LifecycleOwner.html)`, observer: `[`Observer`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 | [postValue](post-value.html) | `open fun postValue(value: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
-| [removeObserver](remove-observer.html) | `fun removeObserver(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)<br>`open fun removeObserver(observer: `[`Observer`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [removeObserver](remove-observer.html) | `fun removeObserver(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)<br>`open fun removeObserver(observer: `[`Observer`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/Observer.html)`<in T>): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 | [setValue](set-value.html) | `open fun setValue(t: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 
 ### Inheritors

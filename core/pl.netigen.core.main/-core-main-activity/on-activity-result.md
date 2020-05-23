@@ -2,7 +2,7 @@
 title: CoreMainActivity.onActivityResult - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.main](../index.md)/[CoreMainActivity](index.md)/[onActivityResult](./on-activity-result.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onActivityResult](./on-activity-result.html)
 
 # onActivityResult
 

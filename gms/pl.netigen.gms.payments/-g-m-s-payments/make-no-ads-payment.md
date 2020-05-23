@@ -2,7 +2,7 @@
 title: GMSPayments.makeNoAdsPayment - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[GMSPayments](index.md)/[makeNoAdsPayment](./make-no-ads-payment.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [makeNoAdsPayment](./make-no-ads-payment.html)
 
 # makeNoAdsPayment
 

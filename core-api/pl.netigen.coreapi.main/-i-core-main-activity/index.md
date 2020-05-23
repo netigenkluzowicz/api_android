@@ -2,7 +2,7 @@
 title: ICoreMainActivity - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[ICoreMainActivity](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](./index.md)
 
 # ICoreMainActivity
 
@@ -16,7 +16,7 @@ Base and by design should be only Activity in application:
 
 ### Properties
 
-| [canCommitFragments](can-commit-fragments.html) | Indicates if we can safe perform Fragment transaction as [commit()](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentTransaction.html#commit()) or [popBackStack()](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentManager.html#popBackStack()) and others otherwise it will result with [IllegalStateException](https://docs.oracle.com/javase/6/docs/api/java/lang/IllegalStateException.html) crash`abstract val canCommitFragments: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
+| [canCommitFragments](can-commit-fragments.html) | Indicates if we can safe perform Fragment transaction as [commit()](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentTransaction.html#commit()) or [popBackStack()](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/FragmentManager.html#popBackStack()) and others otherwise it will result with [IllegalStateException](https://docs.oracle.com/javase/6/docs/api/java/lang/IllegalStateException.html) crash`abstract val canCommitFragments: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
 | [coreMainVM](core-main-v-m.html) | `abstract val coreMainVM: `[`ICoreMainVM`](../-i-core-main-v-m/index.md) |
 | [noAdsActive](no-ads-active.html) | Returns if no ads in-app purchase is active or inactive, its current value of [INoAds.noAdsActive](../../pl.netigen.coreapi.payments/-i-no-ads/no-ads-active.html), and should be used only when observing this value is hard to implement`abstract val noAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
 | [splashActive](splash-active.html) | Indicates if [CoreSplashFragment](../../pl.netigen.coreapi.gdpr/-i-core-splash-fragment.html) is visible to the user`abstract val splashActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |

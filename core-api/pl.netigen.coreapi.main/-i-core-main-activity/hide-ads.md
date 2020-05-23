@@ -2,7 +2,7 @@
 title: ICoreMainActivity.hideAds - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[ICoreMainActivity](index.md)/[hideAds](./hide-ads.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [hideAds](./hide-ads.html)
 
 # hideAds
 

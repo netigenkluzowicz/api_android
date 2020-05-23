@@ -2,7 +2,7 @@
 title: Utils.showInfoDialog - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[Utils](index.md)/[showInfoDialog](./show-info-dialog.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showInfoDialog](./show-info-dialog.html)
 
 # showInfoDialog
 

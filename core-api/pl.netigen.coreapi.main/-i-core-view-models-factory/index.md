@@ -2,13 +2,13 @@
 title: ICoreViewModelsFactory - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[ICoreViewModelsFactory](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](./index.md)
 
 # ICoreViewModelsFactory
 
-`interface ICoreViewModelsFactory : `[`Factory`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModelProvider/Factory.html)
+`interface ICoreViewModelsFactory : `[`Factory`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModelProvider/Factory.html)
 
-Interface used for provide [ViewModelProvider.Factory](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModelProvider/Factory.html) to instantiate [ICoreMainVM](../-i-core-main-v-m/index.md) and [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) implementations
+Interface used for provide [ViewModelProvider.Factory](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModelProvider/Factory.html) to instantiate [ICoreMainVM](../-i-core-main-v-m/index.md) and [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) implementations
 
 ### Properties
 

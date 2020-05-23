@@ -2,7 +2,7 @@
 title: AppConfig.testDevices - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.config](../index.md)/[AppConfig](index.md)/[testDevices](./test-devices.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [testDevices](./test-devices.html)
 
 # testDevices
 

@@ -2,7 +2,7 @@
 title: PurchaseDao.getPurchasesFlow - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[PurchaseDao](index.md)/[getPurchasesFlow](./get-purchases-flow.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [getPurchasesFlow](./get-purchases-flow.html)
 
 # getPurchasesFlow
 

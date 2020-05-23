@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.language.info](../../index.md)/[TranslationInfoDialogFragment](../index.md)/[Builder](./index.md)
+[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](./index.md)
 
 # Builder
 
@@ -10,12 +10,12 @@ title: TranslationInfoDialogFragment.Builder - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html)`!)` |
+| [&lt;init&gt;](-init-.html) | `Builder(appCompatActivity: `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.html)`!)` |
 
 ### Functions
 
 | [create](create.html) | `open fun create(): `[`TranslationInfoDialogFragment`](../index.md)`!` |
-| [getActivity](get-activity.html) | `open fun getActivity(): `[`AppCompatActivity`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html)`!` |
+| [getActivity](get-activity.html) | `open fun getActivity(): `[`AppCompatActivity`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatActivity.html)`!` |
 | [setBottomText](set-bottom-text.html) | `open fun setBottomText(textContent2: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |
 | [setDialogClickListener](set-dialog-click-listener.html) | `open fun setDialogClickListener(dialogClickListener: DialogClickListener!): Builder!` |
 | [setNegativeResId](set-negative-res-id.html) | `open fun setNegativeResId(negativeResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!` |

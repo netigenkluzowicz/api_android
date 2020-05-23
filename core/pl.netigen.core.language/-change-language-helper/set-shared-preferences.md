@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.setSharedPreferences - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[ChangeLanguageHelper](index.md)/[setSharedPreferences](./set-shared-preferences.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setSharedPreferences](./set-shared-preferences.html)
 
 # setSharedPreferences
 

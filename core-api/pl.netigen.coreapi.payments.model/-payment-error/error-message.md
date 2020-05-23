@@ -2,7 +2,7 @@
 title: PaymentError.errorMessage - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments.model](../index.md)/[PaymentError](index.md)/[errorMessage](./error-message.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentError](index.md) / [errorMessage](./error-message.html)
 
 # errorMessage
 

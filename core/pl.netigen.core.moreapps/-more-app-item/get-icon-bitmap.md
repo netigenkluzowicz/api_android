@@ -2,7 +2,7 @@
 title: MoreAppItem.getIconBitmap - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.moreapps](../index.md)/[MoreAppItem](index.md)/[getIconBitmap](./get-icon-bitmap.html)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [MoreAppItem](index.md) / [getIconBitmap](./get-icon-bitmap.html)
 
 # getIconBitmap
 

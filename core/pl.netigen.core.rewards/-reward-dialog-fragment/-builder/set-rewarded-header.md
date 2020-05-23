@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setRewardedHeader - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.rewards](../../index.md)/[RewardDialogFragment](../index.md)/[Builder](index.md)/[setRewardedHeader](./set-rewarded-header.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewardedHeader](./set-rewarded-header.html)
 
 # setRewardedHeader
 

@@ -2,7 +2,7 @@
 title: distinctObservable - core-api
 ---
 
-[api_android](../index.md)/[core-api](../index.md)/[pl.netigen.extensions](index.md)/[distinctObservable](./distinct-observable.html)
+[core-api](../index.md) / [pl.netigen.extensions](index.md) / [distinctObservable](./distinct-observable.html)
 
 # distinctObservable
 

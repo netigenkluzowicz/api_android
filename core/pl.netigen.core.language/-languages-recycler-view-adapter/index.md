@@ -2,15 +2,15 @@
 title: LanguagesRecyclerViewAdapter - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[LanguagesRecyclerViewAdapter](./index.md)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](./index.md)
 
 # LanguagesRecyclerViewAdapter
 
-`open class LanguagesRecyclerViewAdapter : `[`Adapter`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView/Adapter.html)`<LanguageRowViewHolder!>`
+`open class LanguagesRecyclerViewAdapter : `[`Adapter`](https://netigenkluzowicz.github.io/api_android/gms/androidx/recyclerview/widget/RecyclerView/Adapter.html)`<LanguageRowViewHolder!>`
 
 ### Types
 
-| [LanguageRowViewHolder](-language-row-view-holder/index.md) | `open class LanguageRowViewHolder : `[`ViewHolder`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView/ViewHolder.html) |
+| [LanguageRowViewHolder](-language-row-view-holder/index.md) | `open class LanguageRowViewHolder : `[`ViewHolder`](https://netigenkluzowicz.github.io/api_android/gms/androidx/recyclerview/widget/RecyclerView/ViewHolder.html) |
 
 ### Constructors
 

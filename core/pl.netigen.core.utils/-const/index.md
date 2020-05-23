@@ -2,7 +2,7 @@
 title: Const - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[Const](./index.md)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](./index.md)
 
 # Const
 

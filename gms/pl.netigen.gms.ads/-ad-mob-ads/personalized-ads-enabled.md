@@ -2,7 +2,7 @@
 title: AdMobAds.personalizedAdsEnabled - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.ads](../index.md)/[AdMobAds](index.md)/[personalizedAdsEnabled](./personalized-ads-enabled.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [personalizedAdsEnabled](./personalized-ads-enabled.html)
 
 # personalizedAdsEnabled
 

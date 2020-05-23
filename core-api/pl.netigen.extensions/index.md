@@ -2,7 +2,7 @@
 title: pl.netigen.extensions - core-api
 ---
 
-[api_android](../index.md)/[core-api](../index.md)/[pl.netigen.extensions](./index.md)
+[core-api](../index.md) / [pl.netigen.extensions](./index.md)
 
 ## Package pl.netigen.extensions
 
@@ -10,7 +10,7 @@ title: pl.netigen.extensions - core-api
 
 | [DistinctObservableProperty](-distinct-observable-property/index.md) | `abstract class DistinctObservableProperty<T> : `[`ReadWriteProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-read-write-property/index.md)`<`[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.md)`?, T>` |
 | [MutableSingleLiveEvent](-mutable-single-live-event/index.md) | `open class MutableSingleLiveEvent<T> : `[`SingleLiveEvent`](-single-live-event/index.md)`<T>` |
-| [SingleLiveEvent](-single-live-event/index.md) | `abstract class SingleLiveEvent<T> : `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<T>` |
+| [SingleLiveEvent](-single-live-event/index.md) | `abstract class SingleLiveEvent<T> : `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<T>` |
 
 ### Extensions for External Classes
 

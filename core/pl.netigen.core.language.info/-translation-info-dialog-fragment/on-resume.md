@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.onResume - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language.info](../index.md)/[TranslationInfoDialogFragment](index.md)/[onResume](./on-resume.html)
+[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [onResume](./on-resume.html)
 
 # onResume
 

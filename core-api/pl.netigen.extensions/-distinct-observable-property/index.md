@@ -2,7 +2,7 @@
 title: DistinctObservableProperty - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[DistinctObservableProperty](./index.md)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](./index.md)
 
 # DistinctObservableProperty
 

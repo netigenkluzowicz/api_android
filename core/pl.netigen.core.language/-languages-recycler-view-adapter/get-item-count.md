@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.getItemCount - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[LanguagesRecyclerViewAdapter](index.md)/[getItemCount](./get-item-count.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [getItemCount](./get-item-count.html)
 
 # getItemCount
 

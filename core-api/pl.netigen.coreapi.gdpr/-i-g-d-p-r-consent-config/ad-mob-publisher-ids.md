@@ -2,7 +2,7 @@
 title: IGDPRConsentConfig.adMobPublisherIds - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.gdpr](../index.md)/[IGDPRConsentConfig](index.md)/[adMobPublisherIds](./ad-mob-publisher-ids.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsentConfig](index.md) / [adMobPublisherIds](./ad-mob-publisher-ids.html)
 
 # adMobPublisherIds
 

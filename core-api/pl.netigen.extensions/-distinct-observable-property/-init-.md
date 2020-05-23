@@ -2,7 +2,7 @@
 title: DistinctObservableProperty.<init> - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[DistinctObservableProperty](index.md)/[&lt;init&gt;](./-init-.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

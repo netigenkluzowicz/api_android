@@ -2,7 +2,7 @@
 title: BitmapHelper.scaleBitmap - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[BitmapHelper](index.md)/[scaleBitmap](./scale-bitmap.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [scaleBitmap](./scale-bitmap.html)
 
 # scaleBitmap
 

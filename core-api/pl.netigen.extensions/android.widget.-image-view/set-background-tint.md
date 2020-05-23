@@ -2,7 +2,7 @@
 title: setBackgroundTint - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[android.widget.ImageView](index.md)/[setBackgroundTint](./set-background-tint.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.ImageView](index.md) / [setBackgroundTint](./set-background-tint.html)
 
 # setBackgroundTint
 

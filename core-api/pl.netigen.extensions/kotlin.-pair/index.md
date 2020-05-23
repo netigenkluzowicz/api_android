@@ -2,9 +2,9 @@
 title: pl.netigen.extensions.kotlin.Pair - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[kotlin.Pair](./index.md)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Pair](./index.md)
 
 ### Extensions for kotlin.Pair
 
-| [zipLiveData](zip-live-data.html) | `fun <F, S> `[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<`[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<F>, `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<S>>.zipLiveData(): `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<`[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<F, S>>` |
+| [zipLiveData](zip-live-data.html) | `fun <F, S> `[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<`[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<F>, `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<S>>.zipLiveData(): `[`LiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/LiveData.html)`<`[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.md)`<F, S>>` |
 

@@ -2,7 +2,7 @@
 title: AppConfig - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.config](../index.md)/[AppConfig](./index.md)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](./index.md)
 
 # AppConfig
 

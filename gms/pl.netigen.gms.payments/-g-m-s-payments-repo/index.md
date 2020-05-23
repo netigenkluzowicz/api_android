@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[GMSPaymentsRepo](./index.md)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](./index.md)
 
 # GMSPaymentsRepo
 
@@ -14,11 +14,11 @@ title: GMSPaymentsRepo - gms
 
 ### Properties
 
-| [inAppSkuDetailsLD](in-app-sku-details-l-d.html) | `val inAppSkuDetailsLD: `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<NetigenSkuDetails>>` |
+| [inAppSkuDetailsLD](in-app-sku-details-l-d.html) | `val inAppSkuDetailsLD: `[`LiveData`](https://netigenkluzowicz.github.io/api_android/core/androidx/lifecycle/LiveData.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<NetigenSkuDetails>>` |
 | [lastPaymentEvent](last-payment-event.html) | `val lastPaymentEvent: SingleLiveEvent<PaymentEvent>` |
 | [noAdsActive](no-ads-active.html) | `val noAdsActive: Flow<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`>` |
-| [ownedPurchasesSkuLD](owned-purchases-sku-l-d.html) | `val ownedPurchasesSkuLD: `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`>>` |
-| [subsSkuDetailsLD](subs-sku-details-l-d.html) | `val subsSkuDetailsLD: `[`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<NetigenSkuDetails>>` |
+| [ownedPurchasesSkuLD](owned-purchases-sku-l-d.html) | `val ownedPurchasesSkuLD: `[`LiveData`](https://netigenkluzowicz.github.io/api_android/core/androidx/lifecycle/LiveData.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`>>` |
+| [subsSkuDetailsLD](subs-sku-details-l-d.html) | `val subsSkuDetailsLD: `[`LiveData`](https://netigenkluzowicz.github.io/api_android/core/androidx/lifecycle/LiveData.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.md)`<NetigenSkuDetails>>` |
 
 ### Functions
 

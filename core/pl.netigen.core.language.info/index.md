@@ -2,7 +2,7 @@
 title: pl.netigen.core.language.info - core
 ---
 
-[api_android](../index.md)/[core](../index.md)/[pl.netigen.core.language.info](./index.md)
+[core](../index.md) / [pl.netigen.core.language.info](./index.md)
 
 ## Package pl.netigen.core.language.info
 

@@ -2,7 +2,7 @@
 title: IRateUs.numberOfChecksBeforeShowingDialog - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.rateus](../index.md)/[IRateUs](index.md)/[numberOfChecksBeforeShowingDialog](./number-of-checks-before-showing-dialog.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [numberOfChecksBeforeShowingDialog](./number-of-checks-before-showing-dialog.html)
 
 # numberOfChecksBeforeShowingDialog
 

@@ -2,7 +2,7 @@
 title: LayoutMargins.Builder.setRightMargin - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.rewards](../../index.md)/[LayoutMargins](../index.md)/[Builder](index.md)/[setRightMargin](./set-right-margin.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [LayoutMargins](../index.md) / [Builder](index.md) / [setRightMargin](./set-right-margin.html)
 
 # setRightMargin
 

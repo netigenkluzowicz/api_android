@@ -2,7 +2,7 @@
 title: RateFragment.<init> - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rateus](../index.md)/[RateFragment](index.md)/[&lt;init&gt;](./-init-.html)
+[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

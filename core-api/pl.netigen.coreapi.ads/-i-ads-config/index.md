@@ -2,7 +2,7 @@
 title: IAdsConfig - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.ads](../index.md)/[IAdsConfig](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](./index.md)
 
 # IAdsConfig
 

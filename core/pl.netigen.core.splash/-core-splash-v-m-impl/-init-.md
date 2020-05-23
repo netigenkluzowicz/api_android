@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.<init> - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.splash](../index.md)/[CoreSplashVMImpl](index.md)/[&lt;init&gt;](./-init-.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

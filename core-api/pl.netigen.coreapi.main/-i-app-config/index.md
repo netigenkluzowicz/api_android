@@ -2,7 +2,7 @@
 title: IAppConfig - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[IAppConfig](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](./index.md)
 
 # IAppConfig
 
@@ -28,5 +28,5 @@ Keeps configuration for entire Api/Application:
 ### Inheritors
 
 | [ICoreMainVM](../-i-core-main-v-m/index.md) | This implementations, provides access to api modules:`interface ICoreMainVM : `[`IPayments`](../../pl.netigen.coreapi.payments/-i-payments/index.md)`, `[`IAds`](../../pl.netigen.coreapi.ads/-i-ads/index.md)`, `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.md)`, `[`IGDPRConsent`](../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.md)`, `[`IAppConfig`](./index.md) |
-| [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`interface ISplashVM : `[`INoAds`](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)`, `[`IAppConfig`](./index.md) |
+| [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`interface ISplashVM : `[`INoAds`](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)`, `[`IAppConfig`](./index.md) |
 

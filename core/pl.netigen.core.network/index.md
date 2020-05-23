@@ -2,7 +2,7 @@
 title: pl.netigen.core.network - core
 ---
 
-[api_android](../index.md)/[core](../index.md)/[pl.netigen.core.network](./index.md)
+[core](../index.md) / [pl.netigen.core.network](./index.md)
 
 ## Package pl.netigen.core.network
 

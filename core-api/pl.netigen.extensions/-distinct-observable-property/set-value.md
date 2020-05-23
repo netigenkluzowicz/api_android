@@ -2,7 +2,7 @@
 title: DistinctObservableProperty.setValue - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[DistinctObservableProperty](index.md)/[setValue](./set-value.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [setValue](./set-value.html)
 
 # setValue
 

@@ -2,11 +2,11 @@
 title: LanguagesRecyclerViewAdapter.LanguageRowViewHolder - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.language](../../index.md)/[LanguagesRecyclerViewAdapter](../index.md)/[LanguageRowViewHolder](./index.md)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [LanguagesRecyclerViewAdapter](../index.md) / [LanguageRowViewHolder](./index.md)
 
 # LanguageRowViewHolder
 
-`open class LanguageRowViewHolder : `[`ViewHolder`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView/ViewHolder.html)
+`open class LanguageRowViewHolder : `[`ViewHolder`](https://netigenkluzowicz.github.io/api_android/gms/androidx/recyclerview/widget/RecyclerView/ViewHolder.html)
 
 ### Constructors
 
@@ -14,7 +14,7 @@ title: LanguagesRecyclerViewAdapter.LanguageRowViewHolder - core
 
 ### Properties
 
-| [radioButtonSelectLanguage](radio-button-select-language.html) | `var radioButtonSelectLanguage: `[`AppCompatRadioButton`](https://developer.android.com/reference/kotlin/androidx/appcompat/widget/AppCompatRadioButton.html)`!` |
+| [radioButtonSelectLanguage](radio-button-select-language.html) | `var radioButtonSelectLanguage: `[`AppCompatRadioButton`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/widget/AppCompatRadioButton.html)`!` |
 
 ### Functions
 

@@ -2,7 +2,7 @@
 title: toPx - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[kotlin.Int](index.md)/[toPx](./to-px.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Int](index.md) / [toPx](./to-px.html)
 
 # toPx
 

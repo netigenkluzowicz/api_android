@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.splash](../index.md)/[CoreSplashVMImpl](./index.md)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](./index.md)
 
 # CoreSplashVMImpl
 
@@ -18,8 +18,8 @@ title: CoreSplashVMImpl - core
 
 | [coroutineDispatcherIo](coroutine-dispatcher-io.html) | `val coroutineDispatcherIo: CoroutineDispatcher` |
 | [gdprConsent](gdpr-consent.html) | [IGDPRConsent](#) instance`val gdprConsent: IGDPRConsent` |
-| [isFirstLaunch](is-first-launch.html) | `val isFirstLaunch: `[`MutableLiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/MutableLiveData.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`>` |
-| [splashState](splash-state.html) | `val splashState: `[`MutableLiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/MutableLiveData.html)`<SplashState>` |
+| [isFirstLaunch](is-first-launch.html) | `val isFirstLaunch: `[`MutableLiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/MutableLiveData.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`>` |
+| [splashState](splash-state.html) | `val splashState: `[`MutableLiveData`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/MutableLiveData.html)`<SplashState>` |
 
 ### Functions
 

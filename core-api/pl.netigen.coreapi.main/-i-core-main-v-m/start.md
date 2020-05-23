@@ -2,7 +2,7 @@
 title: ICoreMainVM.start - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[ICoreMainVM](index.md)/[start](./start.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [start](./start.html)
 
 # start
 

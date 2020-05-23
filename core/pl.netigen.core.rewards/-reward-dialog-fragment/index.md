@@ -2,11 +2,11 @@
 title: RewardDialogFragment - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rewards](../index.md)/[RewardDialogFragment](./index.md)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](./index.md)
 
 # RewardDialogFragment
 
-`open class RewardDialogFragment : `[`AppCompatDialogFragment`](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatDialogFragment.html)
+`open class RewardDialogFragment : `[`AppCompatDialogFragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html)
 
 ### Types
 

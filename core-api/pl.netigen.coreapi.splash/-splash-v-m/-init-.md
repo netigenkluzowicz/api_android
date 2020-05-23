@@ -2,13 +2,13 @@
 title: SplashVM.<init> - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.splash](../index.md)/[SplashVM](index.md)/[&lt;init&gt;](./-init-.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [SplashVM](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 
 `SplashVM(application: `[`Application`](https://developer.android.com/reference/android/app/Application.html)`)`
 
-Its used for Splash [AndroidViewModel](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:
+Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:
 
 * billing if available and no-ads payments, see [INoAds](../../pl.netigen.coreapi.payments/-i-no-ads/index.md)
 * app configuration by [IAppConfig](../../pl.netigen.coreapi.main/-i-app-config/index.md) implementation,

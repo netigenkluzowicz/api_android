@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.onBindViewHolder - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[LanguagesRecyclerViewAdapter](index.md)/[onBindViewHolder](./on-bind-view-holder.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [onBindViewHolder](./on-bind-view-holder.html)
 
 # onBindViewHolder
 

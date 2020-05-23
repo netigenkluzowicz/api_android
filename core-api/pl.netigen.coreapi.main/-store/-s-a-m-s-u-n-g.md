@@ -2,7 +2,7 @@
 title: Store.SAMSUNG - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.main](../index.md)/[Store](index.md)/[SAMSUNG](./-s-a-m-s-u-n-g.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [Store](index.md) / [SAMSUNG](./-s-a-m-s-u-n-g.html)
 
 # SAMSUNG
 

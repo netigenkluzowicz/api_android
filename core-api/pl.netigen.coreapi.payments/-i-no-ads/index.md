@@ -2,7 +2,7 @@
 title: INoAds - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[INoAds](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](./index.md)
 
 # INoAds
 
@@ -23,6 +23,6 @@ Interface for no ads Payments, which turns on/off ads in whole application
 ### Inheritors
 
 | [IPayments](../-i-payments/index.md) | Interface for payments, extends [INoAds](./index.md)`interface IPayments : `[`INoAds`](./index.md) |
-| [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`interface ISplashVM : `[`INoAds`](./index.md)`, `[`IAppConfig`](../../pl.netigen.coreapi.main/-i-app-config/index.md) |
+| [ISplashVM](../../pl.netigen.coreapi.splash/-i-splash-v-m/index.md) | Its used for Splash [AndroidViewModel](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/AndroidViewModel.html), provides application initialization,:`interface ISplashVM : `[`INoAds`](./index.md)`, `[`IAppConfig`](../../pl.netigen.coreapi.main/-i-app-config/index.md) |
 | [NoAdsNotAvailable](../-no-ads-not-available/index.md) | [INoAds](./index.md) implementation when we have no no-ads payment`object NoAdsNotAvailable : `[`INoAds`](./index.md) |
 

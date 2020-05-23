@@ -2,7 +2,7 @@
 title: BitmapHelper.getBitmapFromAsset - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[BitmapHelper](index.md)/[getBitmapFromAsset](./get-bitmap-from-asset.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [getBitmapFromAsset](./get-bitmap-from-asset.html)
 
 # getBitmapFromAsset
 

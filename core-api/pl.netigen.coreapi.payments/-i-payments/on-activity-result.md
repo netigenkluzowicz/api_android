@@ -2,7 +2,7 @@
 title: IPayments.onActivityResult - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.payments](../index.md)/[IPayments](index.md)/[onActivityResult](./on-activity-result.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [onActivityResult](./on-activity-result.html)
 
 # onActivityResult
 

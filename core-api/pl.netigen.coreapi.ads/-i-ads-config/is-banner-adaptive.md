@@ -2,7 +2,7 @@
 title: IAdsConfig.isBannerAdaptive - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.ads](../index.md)/[IAdsConfig](index.md)/[isBannerAdaptive](./is-banner-adaptive.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [isBannerAdaptive](./is-banner-adaptive.html)
 
 # isBannerAdaptive
 

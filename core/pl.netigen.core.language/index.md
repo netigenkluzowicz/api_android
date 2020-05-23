@@ -2,7 +2,7 @@
 title: pl.netigen.core.language - core
 ---
 
-[api_android](../index.md)/[core](../index.md)/[pl.netigen.core.language](./index.md)
+[core](../index.md) / [pl.netigen.core.language](./index.md)
 
 ## Package pl.netigen.core.language
 
@@ -12,5 +12,5 @@ title: pl.netigen.core.language - core
 | [ChangeLanguageHelper](-change-language-helper/index.md) | `open class ChangeLanguageHelper` |
 | [ChangeLanguageParams](-change-language-params/index.md) | `open class ChangeLanguageParams` |
 | [LanguageModel](-language-model/index.md) | `open class LanguageModel` |
-| [LanguagesRecyclerViewAdapter](-languages-recycler-view-adapter/index.md) | `open class LanguagesRecyclerViewAdapter : `[`Adapter`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView/Adapter.html)`<LanguageRowViewHolder!>` |
+| [LanguagesRecyclerViewAdapter](-languages-recycler-view-adapter/index.md) | `open class LanguagesRecyclerViewAdapter : `[`Adapter`](https://netigenkluzowicz.github.io/api_android/gms/androidx/recyclerview/widget/RecyclerView/Adapter.html)`<LanguageRowViewHolder!>` |
 

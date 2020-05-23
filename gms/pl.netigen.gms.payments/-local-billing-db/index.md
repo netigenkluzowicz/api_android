@@ -2,11 +2,11 @@
 title: LocalBillingDb - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[LocalBillingDb](./index.md)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](./index.md)
 
 # LocalBillingDb
 
-`abstract class LocalBillingDb : `[`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.html)
+`abstract class LocalBillingDb : `[`RoomDatabase`](https://netigenkluzowicz.github.io/api_android/core/androidx/room/RoomDatabase.html)
 
 ### Constructors
 

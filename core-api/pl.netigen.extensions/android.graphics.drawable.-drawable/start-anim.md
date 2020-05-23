@@ -2,7 +2,7 @@
 title: startAnim - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[android.graphics.drawable.Drawable](index.md)/[startAnim](./start-anim.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.graphics.drawable.Drawable](index.md) / [startAnim](./start-anim.html)
 
 # startAnim
 

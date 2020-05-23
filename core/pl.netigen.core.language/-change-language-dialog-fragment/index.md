@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[ChangeLanguageDialogFragment](./index.md)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](./index.md)
 
 # ChangeLanguageDialogFragment
 

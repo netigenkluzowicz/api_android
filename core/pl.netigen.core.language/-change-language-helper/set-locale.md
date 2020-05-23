@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.setLocale - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language](../index.md)/[ChangeLanguageHelper](index.md)/[setLocale](./set-locale.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setLocale](./set-locale.html)
 
 # setLocale
 

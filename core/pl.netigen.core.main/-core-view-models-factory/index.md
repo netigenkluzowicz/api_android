@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.main](../index.md)/[CoreViewModelsFactory](./index.md)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](./index.md)
 
 # CoreViewModelsFactory
 
@@ -21,7 +21,7 @@ title: CoreViewModelsFactory - core
 
 ### Functions
 
-| [create](create.html) | Creates a new instance of the given [SplashVM](#) or [CoreMainVM](#)`open fun <T : `[`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html)`?> create(modelClass: `[`Class`](https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html)`<T>): T` |
+| [create](create.html) | Creates a new instance of the given [SplashVM](#) or [CoreMainVM](#)`open fun <T : `[`ViewModel`](https://netigenkluzowicz.github.io/api_android/gms/androidx/lifecycle/ViewModel.html)`?> create(modelClass: `[`Class`](https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html)`<T>): T` |
 
 ### Companion Object Functions
 

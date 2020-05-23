@@ -119,7 +119,7 @@ Fragment for showing GDPR user consent, see [IGDPRConsent](#)
 
 ##### [pl.netigen.core.fragment.NetigenDialogFragment](../pl.netigen.core.fragment/-netigen-dialog-fragment/index.md)
 
-Base [AppCompatDialogFragment](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatDialogFragment.html) for Api, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-dialog-fragment/can-commit-fragments.html), and [ICoreMainVM](#)
+Base [AppCompatDialogFragment](https://netigenkluzowicz.github.io/api_android/gms/androidx/appcompat/app/AppCompatDialogFragment.html) for Api, provides [canCommitFragments](../pl.netigen.core.fragment/-netigen-dialog-fragment/can-commit-fragments.html), and [ICoreMainVM](#)
 
 
 |

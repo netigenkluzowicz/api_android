@@ -2,7 +2,7 @@
 title: SingleLiveEvent.postValue - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.extensions](../index.md)/[SingleLiveEvent](index.md)/[postValue](./post-value.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](index.md) / [postValue](./post-value.html)
 
 # postValue
 

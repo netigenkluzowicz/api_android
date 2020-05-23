@@ -2,7 +2,7 @@
 title: BitmapHelper.Direction - core
 ---
 
-[api_android](../index.md)/[core](../../../index.md)/[pl.netigen.core.utils](../../index.md)/[BitmapHelper](../index.md)/[Direction](./index.md)
+[core](../../../index.md) / [pl.netigen.core.utils](../../index.md) / [BitmapHelper](../index.md) / [Direction](./index.md)
 
 # Direction
 

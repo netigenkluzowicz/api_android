@@ -2,7 +2,7 @@
 title: AdMobAds - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.ads](../index.md)/[AdMobAds](./index.md)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](./index.md)
 
 # AdMobAds
 
@@ -14,7 +14,7 @@ See: [Mobile Ads SDK](https://developers.google.com/admob/android/quick-start)
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | Initializes SDK, creates ads and sets up test devices`AdMobAds(activity: `[`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html)`, adsConfig: IAdsConfig)` |
+| [&lt;init&gt;](-init-.html) | Initializes SDK, creates ads and sets up test devices`AdMobAds(activity: `[`ComponentActivity`](https://netigenkluzowicz.github.io/api_android/core/androidx/activity/ComponentActivity.html)`, adsConfig: IAdsConfig)` |
 
 ### Properties
 

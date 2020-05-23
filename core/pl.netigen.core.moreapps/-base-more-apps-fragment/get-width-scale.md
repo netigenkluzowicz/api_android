@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.getWidthScale - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.moreapps](../index.md)/[BaseMoreAppsFragment](index.md)/[getWidthScale](./get-width-scale.html)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [getWidthScale](./get-width-scale.html)
 
 # getWidthScale
 

@@ -2,7 +2,7 @@
 title: RewardsListener - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.rewards](../index.md)/[RewardsListener](./index.md)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](./index.md)
 
 # RewardsListener
 

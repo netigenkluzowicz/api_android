@@ -2,7 +2,7 @@
 title: AppConfig.bannerLayoutIdName - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.config](../index.md)/[AppConfig](index.md)/[bannerLayoutIdName](./banner-layout-id-name.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [bannerLayoutIdName](./banner-layout-id-name.html)
 
 # bannerLayoutIdName
 

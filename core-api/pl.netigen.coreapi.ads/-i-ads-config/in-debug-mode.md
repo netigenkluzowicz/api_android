@@ -2,7 +2,7 @@
 title: IAdsConfig.inDebugMode - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.ads](../index.md)/[IAdsConfig](index.md)/[inDebugMode](./in-debug-mode.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [inDebugMode](./in-debug-mode.html)
 
 # inDebugMode
 

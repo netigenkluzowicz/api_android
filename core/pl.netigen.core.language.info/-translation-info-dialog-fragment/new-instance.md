@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.newInstance - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.language.info](../index.md)/[TranslationInfoDialogFragment](index.md)/[newInstance](./new-instance.html)
+[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [newInstance](./new-instance.html)
 
 # newInstance
 

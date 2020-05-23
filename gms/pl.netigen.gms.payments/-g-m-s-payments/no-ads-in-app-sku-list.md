@@ -2,7 +2,7 @@
 title: GMSPayments.noAdsInAppSkuList - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.payments](../index.md)/[GMSPayments](index.md)/[noAdsInAppSkuList](./no-ads-in-app-sku-list.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [noAdsInAppSkuList](./no-ads-in-app-sku-list.html)
 
 # noAdsInAppSkuList
 

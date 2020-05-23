@@ -2,7 +2,7 @@
 title: Utils.showSnackBarLong - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.utils](../index.md)/[Utils](index.md)/[showSnackBarLong](./show-snack-bar-long.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showSnackBarLong](./show-snack-bar-long.html)
 
 # showSnackBarLong
 

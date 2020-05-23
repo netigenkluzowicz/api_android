@@ -2,7 +2,7 @@
 title: IGDPRConsentConfig - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.gdpr](../index.md)/[IGDPRConsentConfig](./index.md)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsentConfig](./index.md)
 
 # IGDPRConsentConfig
 

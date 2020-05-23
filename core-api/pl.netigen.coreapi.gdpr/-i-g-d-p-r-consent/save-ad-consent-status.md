@@ -2,7 +2,7 @@
 title: IGDPRConsent.saveAdConsentStatus - core-api
 ---
 
-[api_android](../index.md)/[core-api](../../index.md)/[pl.netigen.coreapi.gdpr](../index.md)/[IGDPRConsent](index.md)/[saveAdConsentStatus](./save-ad-consent-status.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsent](index.md) / [saveAdConsentStatus](./save-ad-consent-status.html)
 
 # saveAdConsentStatus
 

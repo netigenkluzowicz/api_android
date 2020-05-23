@@ -2,7 +2,7 @@
 title: AdMobRewarded.adId - gms
 ---
 
-[api_android](../index.md)/[gms](../../index.md)/[pl.netigen.gms.ads](../index.md)/[AdMobRewarded](index.md)/[adId](./ad-id.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobRewarded](index.md) / [adId](./ad-id.html)
 
 # adId
 

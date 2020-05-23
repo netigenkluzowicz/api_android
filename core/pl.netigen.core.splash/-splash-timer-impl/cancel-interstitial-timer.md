@@ -2,7 +2,7 @@
 title: SplashTimerImpl.cancelInterstitialTimer - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.splash](../index.md)/[SplashTimerImpl](index.md)/[cancelInterstitialTimer](./cancel-interstitial-timer.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [cancelInterstitialTimer](./cancel-interstitial-timer.html)
 
 # cancelInterstitialTimer
 

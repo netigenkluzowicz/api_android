@@ -2,11 +2,11 @@
 title: BaseMoreAppsFragment - core
 ---
 
-[api_android](../index.md)/[core](../../index.md)/[pl.netigen.core.moreapps](../index.md)/[BaseMoreAppsFragment](./index.md)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](./index.md)
 
 # BaseMoreAppsFragment
 
-`abstract class BaseMoreAppsFragment : `[`Fragment`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html)
+`abstract class BaseMoreAppsFragment : `[`Fragment`](https://netigenkluzowicz.github.io/api_android/gms/androidx/fragment/app/Fragment.html)
 
 ### Constructors
 
