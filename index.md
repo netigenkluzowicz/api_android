@@ -1,4 +1,6 @@
+# Netigen Api Documentation
 
+Project is in constant development. Current documented modules (core, core-api, gms)
 
 * * *
 [index core-api](core-api/index.html) |
