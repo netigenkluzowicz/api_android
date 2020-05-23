@@ -3,7 +3,7 @@
 Project is in constant development. Current documented modules (core, core-api, gms)
 
 * * *
-[index core-api](core-api/index.md) |
+[core-api](core-api/index.md) |
 [pl.netigen.coreapi.ads](core-api/pl.netigen.coreapi.ads/index.md) |  
 [pl.netigen.coreapi.gdpr](core-api/pl.netigen.coreapi.gdpr/index.md) |
 [pl.netigen.coreapi.main](core-api/pl.netigen.coreapi.main/index.md) |
@@ -15,7 +15,7 @@ Project is in constant development. Current documented modules (core, core-api, 
 [pl.netigen.extensions](core-api/pl.netigen.extensions/index.md) |
 [pl.netigen.utils](core-api/pl.netigen.utils/index.md) |
 * * *
-[index core](core/index.md) |
+[core](core/index.md) |
 [pl.netigen.core.config](core/pl.netigen.core.config/index.md) |
 [pl.netigen.core.fragment](core/pl.netigen.core.fragment/index.md) |
 [pl.netigen.core.gdpr](core/pl.netigen.core.gdpr/index.md) |
@@ -29,7 +29,7 @@ Project is in constant development. Current documented modules (core, core-api, 
 [pl.netigen.core.splash](core/pl.netigen.core.splash/index.md) |
 [pl.netigen.core.utils](core/pl.netigen.core.utils/index.md) |
 * * *
- [index gms](gms/index.md) |
+ [gms](gms/index.md) |
  [pl.netigen.gms.ads](gms/pl.netigen.gms.ads/index.md) |
  [pl.netigen.gms.gdpr](gms/pl.netigen.gms.gdpr/index.md) |
  [pl.netigen.gms.payments](gms/pl.netigen.gms.payments/index.md) |
