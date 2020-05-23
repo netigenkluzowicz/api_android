@@ -1,12 +1,11 @@
 ---
-title: Current documentation core/core-api and gms
+title: Current Netigen API Android documentation core/core-api and gms
 ---
 
-[core-api](core-api/index.html)
-[core](core/index.html)
-[gms](gms/index.html)
 
 
+
+| [index core-api](core-api/index.html) |  |
 | [pl.netigen.coreapi.ads](core-api/pl.netigen.coreapi.ads/index.md) |  |
 | [pl.netigen.coreapi.gdpr](core-api/pl.netigen.coreapi.gdpr/index.md) |  |
 | [pl.netigen.coreapi.main](core-api/pl.netigen.coreapi.main/index.md) |  |
@@ -18,8 +17,8 @@ title: Current documentation core/core-api and gms
 | [pl.netigen.extensions](core-api/pl.netigen.extensions/index.md) |  |
 | [pl.netigen.utils](core-api/pl.netigen.utils/index.md) |  |
 
-[All Types](core-api/alltypes/index.html)
 
+| [index core](core/index.html) |  |
 | [pl.netigen.core.config](core/pl.netigen.core.config/index.md) |  |
 | [pl.netigen.core.fragment](core/pl.netigen.core.fragment/index.md) |  |
 | [pl.netigen.core.gdpr](core/pl.netigen.core.gdpr/index.md) |  |
@@ -33,13 +32,11 @@ title: Current documentation core/core-api and gms
 | [pl.netigen.core.splash](core/pl.netigen.core.splash/index.md) |  |
 | [pl.netigen.core.utils](core/pl.netigen.core.utils/index.md) |  |
 
-[All Types](core/alltypes/index.html)
 
+
+| [index gms](gms/index.html) |  |
 | [pl.netigen.gms.ads](gms/pl.netigen.gms.ads/index.md) |  |
 | [pl.netigen.gms.gdpr](gms/pl.netigen.gms.gdpr/index.md) |  |
 | [pl.netigen.gms.payments](gms/pl.netigen.gms.payments/index.md) |  |
 
 
-[All Types](gms/alltypes/index.html)
-
-### Index
