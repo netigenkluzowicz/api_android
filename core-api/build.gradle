@@ -41,7 +41,7 @@ dokka {
         outputDirectory = "$buildDir/javadoc"*/
 
         //used for publish web documentation
-        outputFormat = 'html'
+        outputFormat = 'jekyll'
         outputDirectory = 'C:\\AndroidProjects\\api_android_pages'
 
         externalDocumentationLink {
