@@ -2,7 +2,7 @@
 title: RewardListenersList.callOnSuccess - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardListenersList](index.md) / [callOnSuccess](./call-on-success.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardListenersList](index.md) / [callOnSuccess](./call-on-success.html)
 
 # callOnSuccess
 

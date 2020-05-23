@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setPositiveButtonMargins - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setPositiveButtonMargins](./set-positive-button-margins.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setPositiveButtonMargins](./set-positive-button-margins.html)
 
 # setPositiveButtonMargins
 

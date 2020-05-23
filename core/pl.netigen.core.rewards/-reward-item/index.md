@@ -2,7 +2,7 @@
 title: RewardItem - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](./index.md)
 
 # RewardItem
 

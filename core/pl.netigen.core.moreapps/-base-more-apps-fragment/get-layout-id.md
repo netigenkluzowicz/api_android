@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.getLayoutId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [getLayoutId](./get-layout-id.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [getLayoutId](./get-layout-id.html)
 
 # getLayoutId
 

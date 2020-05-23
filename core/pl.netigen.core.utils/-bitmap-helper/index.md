@@ -2,7 +2,7 @@
 title: BitmapHelper - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](./index.md)
 
 # BitmapHelper
 

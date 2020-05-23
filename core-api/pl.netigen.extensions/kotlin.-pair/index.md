@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.kotlin.Pair - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Pair](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Pair](./index.md)
 
 ### Extensions for kotlin.Pair
 

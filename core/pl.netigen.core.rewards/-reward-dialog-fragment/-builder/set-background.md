@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setBackground - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setBackground](./set-background.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setBackground](./set-background.html)
 
 # setBackground
 

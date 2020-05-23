@@ -2,7 +2,7 @@
 title: Utils.isPermissionGranted - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [isPermissionGranted](./is-permission-granted.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [isPermissionGranted](./is-permission-granted.html)
 
 # isPermissionGranted
 

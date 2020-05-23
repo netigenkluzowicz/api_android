@@ -2,7 +2,7 @@
 title: ICoreSplashFragment - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.coreapi.gdpr](index.md) / [ICoreSplashFragment](./-i-core-splash-fragment.html)
+[home page](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.gdpr](index.md) / [ICoreSplashFragment](./-i-core-splash-fragment.html)
 
 # ICoreSplashFragment
 

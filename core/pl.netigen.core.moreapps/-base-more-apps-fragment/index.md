@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](./index.md)
 
 # BaseMoreAppsFragment
 

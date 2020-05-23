@@ -2,7 +2,7 @@
 title: SingleLiveEvent - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](./index.md)
 
 # SingleLiveEvent
 

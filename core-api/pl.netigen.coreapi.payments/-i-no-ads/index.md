@@ -2,7 +2,7 @@
 title: INoAds - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](./index.md)
 
 # INoAds
 

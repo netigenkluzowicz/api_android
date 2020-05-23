@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.LanguageRowViewHolder.<init> - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [LanguagesRecyclerViewAdapter](../index.md) / [LanguageRowViewHolder](index.md) / [&lt;init&gt;](./-init-.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [LanguagesRecyclerViewAdapter](../index.md) / [LanguageRowViewHolder](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

@@ -2,7 +2,7 @@
 title: NetigenFragment.canCommitFragments - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenFragment](index.md) / [canCommitFragments](./can-commit-fragments.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenFragment](index.md) / [canCommitFragments](./can-commit-fragments.html)
 
 # canCommitFragments
 

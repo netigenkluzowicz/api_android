@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](./index.md)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](./index.md)
 
 # Builder
 

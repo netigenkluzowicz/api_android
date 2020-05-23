@@ -2,7 +2,7 @@
 title: GDPRClickListener - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](./index.md)
 
 # GDPRClickListener
 

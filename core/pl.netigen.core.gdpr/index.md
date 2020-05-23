@@ -2,7 +2,7 @@
 title: pl.netigen.core.gdpr - core
 ---
 
-[core](../index.md) / [pl.netigen.core.gdpr](./index.md)
+[home page](../index.md)/[core](../index.md) / [pl.netigen.core.gdpr](./index.md)
 
 ## Package pl.netigen.core.gdpr
 

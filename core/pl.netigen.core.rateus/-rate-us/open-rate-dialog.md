@@ -2,7 +2,7 @@
 title: RateUs.openRateDialog - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [openRateDialog](./open-rate-dialog.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [openRateDialog](./open-rate-dialog.html)
 
 # openRateDialog
 

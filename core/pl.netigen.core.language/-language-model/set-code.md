@@ -2,7 +2,7 @@
 title: LanguageModel.setCode - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setCode](./set-code.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setCode](./set-code.html)
 
 # setCode
 

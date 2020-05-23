@@ -2,7 +2,7 @@
 title: toDp - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Int](index.md) / [toDp](./to-dp.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Int](index.md) / [toDp](./to-dp.html)
 
 # toDp
 

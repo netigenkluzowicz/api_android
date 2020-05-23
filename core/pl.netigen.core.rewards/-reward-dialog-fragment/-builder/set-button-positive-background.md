@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setButtonPositiveBackground - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setButtonPositiveBackground](./set-button-positive-background.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setButtonPositiveBackground](./set-button-positive-background.html)
 
 # setButtonPositiveBackground
 

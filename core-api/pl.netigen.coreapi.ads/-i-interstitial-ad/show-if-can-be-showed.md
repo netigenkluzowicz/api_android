@@ -2,7 +2,7 @@
 title: IInterstitialAd.showIfCanBeShowed - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [showIfCanBeShowed](./show-if-can-be-showed.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [showIfCanBeShowed](./show-if-can-be-showed.html)
 
 # showIfCanBeShowed
 

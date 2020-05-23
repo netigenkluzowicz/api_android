@@ -2,7 +2,7 @@
 title: Utils.showLinkifyDialog - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showLinkifyDialog](./show-linkify-dialog.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showLinkifyDialog](./show-linkify-dialog.html)
 
 # showLinkifyDialog
 

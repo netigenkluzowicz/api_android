@@ -2,7 +2,7 @@
 title: GDPRDialogFragment.onDetach - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onDetach](./on-detach.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onDetach](./on-detach.html)
 
 # onDetach
 

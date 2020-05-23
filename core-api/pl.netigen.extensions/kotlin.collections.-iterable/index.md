@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.kotlin.collections.Iterable - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.collections.Iterable](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.collections.Iterable](./index.md)
 
 ### Extensions for kotlin.collections.Iterable
 

@@ -2,7 +2,7 @@
 title: IPayments.subsSkuDetailsLD - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [subsSkuDetailsLD](./subs-sku-details-l-d.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [subsSkuDetailsLD](./subs-sku-details-l-d.html)
 
 # subsSkuDetailsLD
 

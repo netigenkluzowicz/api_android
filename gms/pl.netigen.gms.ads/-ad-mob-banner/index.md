@@ -2,7 +2,7 @@
 title: AdMobBanner - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](./index.md)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobBanner](./index.md)
 
 # AdMobBanner
 

@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao.subscriptionSkuDetailsLiveData - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [subscriptionSkuDetailsLiveData](./subscription-sku-details-live-data.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [subscriptionSkuDetailsLiveData](./subscription-sku-details-live-data.html)
 
 # subscriptionSkuDetailsLiveData
 

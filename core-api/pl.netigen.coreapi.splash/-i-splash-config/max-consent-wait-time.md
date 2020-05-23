@@ -2,7 +2,7 @@
 title: ISplashConfig.maxConsentWaitTime - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxConsentWaitTime](./max-consent-wait-time.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxConsentWaitTime](./max-consent-wait-time.html)
 
 # maxConsentWaitTime
 

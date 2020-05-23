@@ -2,7 +2,7 @@
 title: AdMobAds.TEST_BANNER_ID - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [TEST_BANNER_ID](./-t-e-s-t_-b-a-n-n-e-r_-i-d.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [TEST_BANNER_ID](./-t-e-s-t_-b-a-n-n-e-r_-i-d.html)
 
 # TEST_BANNER_ID
 

@@ -2,7 +2,7 @@
 title: ISplashConfig.isNoAdsAvailable - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [isNoAdsAvailable](./is-no-ads-available.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [isNoAdsAvailable](./is-no-ads-available.html)
 
 # isNoAdsAvailable
 

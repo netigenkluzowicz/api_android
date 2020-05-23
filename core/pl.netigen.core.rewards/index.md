@@ -2,7 +2,7 @@
 title: pl.netigen.core.rewards - core
 ---
 
-[core](../index.md) / [pl.netigen.core.rewards](./index.md)
+[home page](../index.md)/[core](../index.md) / [pl.netigen.core.rewards](./index.md)
 
 ## Package pl.netigen.core.rewards
 

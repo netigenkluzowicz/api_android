@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.onCleared - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [onCleared](./on-cleared.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [onCleared](./on-cleared.html)
 
 # onCleared
 

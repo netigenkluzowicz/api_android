@@ -2,7 +2,7 @@
 title: IRateUs.clickLater - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [clickLater](./click-later.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [clickLater](./click-later.html)
 
 # clickLater
 

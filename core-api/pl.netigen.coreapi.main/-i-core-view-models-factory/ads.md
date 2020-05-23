@@ -2,7 +2,7 @@
 title: ICoreViewModelsFactory.ads - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [ads](./ads.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [ads](./ads.html)
 
 # ads
 

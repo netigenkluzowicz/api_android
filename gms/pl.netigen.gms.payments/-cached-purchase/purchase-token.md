@@ -2,7 +2,7 @@
 title: CachedPurchase.purchaseToken - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [purchaseToken](./purchase-token.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [purchaseToken](./purchase-token.html)
 
 # purchaseToken
 

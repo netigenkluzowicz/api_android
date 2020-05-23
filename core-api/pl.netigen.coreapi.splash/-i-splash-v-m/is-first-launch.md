@@ -2,7 +2,7 @@
 title: ISplashVM.isFirstLaunch - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [isFirstLaunch](./is-first-launch.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [isFirstLaunch](./is-first-launch.html)
 
 # isFirstLaunch
 

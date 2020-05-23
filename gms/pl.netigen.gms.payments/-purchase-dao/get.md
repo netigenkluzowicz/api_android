@@ -2,7 +2,7 @@
 title: PurchaseDao.get - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [get](./get.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [get](./get.html)
 
 # get
 

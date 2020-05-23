@@ -2,7 +2,7 @@
 title: RewardItem.getId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](index.md) / [getId](./get-id.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardItem](index.md) / [getId](./get-id.html)
 
 # getId
 

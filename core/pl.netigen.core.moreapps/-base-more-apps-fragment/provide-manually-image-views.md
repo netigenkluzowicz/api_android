@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.provideManuallyImageViews - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [provideManuallyImageViews](./provide-manually-image-views.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [provideManuallyImageViews](./provide-manually-image-views.html)
 
 # provideManuallyImageViews
 

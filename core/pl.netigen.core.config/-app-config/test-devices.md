@@ -2,7 +2,7 @@
 title: AppConfig.testDevices - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [testDevices](./test-devices.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [testDevices](./test-devices.html)
 
 # testDevices
 

@@ -2,7 +2,7 @@
 title: AdMobRewarded.AdLoadCallback.onRewardedAdFailedToLoad - gms
 ---
 
-[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdLoadCallback](index.md) / [onRewardedAdFailedToLoad](./on-rewarded-ad-failed-to-load.html)
+[home page](../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdLoadCallback](index.md) / [onRewardedAdFailedToLoad](./on-rewarded-ad-failed-to-load.html)
 
 # onRewardedAdFailedToLoad
 

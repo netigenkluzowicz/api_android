@@ -2,7 +2,7 @@
 title: ChangeLanguageParams.titleResId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](index.md) / [titleResId](./title-res-id.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](index.md) / [titleResId](./title-res-id.html)
 
 # titleResId
 

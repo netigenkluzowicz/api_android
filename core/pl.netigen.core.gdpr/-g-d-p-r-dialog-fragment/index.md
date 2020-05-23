@@ -2,7 +2,7 @@
 title: GDPRDialogFragment - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](./index.md)
 
 # GDPRDialogFragment
 

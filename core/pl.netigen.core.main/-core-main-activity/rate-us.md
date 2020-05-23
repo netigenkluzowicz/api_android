@@ -2,7 +2,7 @@
 title: CoreMainActivity.rateUs - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [rateUs](./rate-us.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [rateUs](./rate-us.html)
 
 # rateUs
 

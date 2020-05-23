@@ -2,7 +2,7 @@
 title: Utils.showDialog - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showDialog](./show-dialog.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showDialog](./show-dialog.html)
 
 # showDialog
 

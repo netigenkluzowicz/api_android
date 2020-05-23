@@ -2,7 +2,7 @@
 title: Utils.checkAndAskAndroidPermission - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [checkAndAskAndroidPermission](./check-and-ask-android-permission.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [checkAndAskAndroidPermission](./check-and-ask-android-permission.html)
 
 # checkAndAskAndroidPermission
 

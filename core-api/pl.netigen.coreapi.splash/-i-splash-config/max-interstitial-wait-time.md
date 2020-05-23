@@ -2,7 +2,7 @@
 title: ISplashConfig.maxInterstitialWaitTime - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxInterstitialWaitTime](./max-interstitial-wait-time.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxInterstitialWaitTime](./max-interstitial-wait-time.html)
 
 # maxInterstitialWaitTime
 

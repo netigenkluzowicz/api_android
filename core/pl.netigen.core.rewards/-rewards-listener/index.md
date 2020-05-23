@@ -2,7 +2,7 @@
 title: RewardsListener - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](./index.md)
 
 # RewardsListener
 

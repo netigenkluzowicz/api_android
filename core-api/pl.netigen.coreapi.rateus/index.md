@@ -2,7 +2,7 @@
 title: pl.netigen.coreapi.rateus - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.coreapi.rateus](./index.md)
+[home page](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.rateus](./index.md)
 
 ## Package pl.netigen.coreapi.rateus
 

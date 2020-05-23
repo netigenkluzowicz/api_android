@@ -2,7 +2,7 @@
 title: BitmapHelper.flip - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [flip](./flip.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [BitmapHelper](index.md) / [flip](./flip.html)
 
 # flip
 

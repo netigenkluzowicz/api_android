@@ -2,7 +2,7 @@
 title: RewardDialogFragment.WRAP_CONTENT - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [WRAP_CONTENT](./-w-r-a-p_-c-o-n-t-e-n-t.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [WRAP_CONTENT](./-w-r-a-p_-c-o-n-t-e-n-t.html)
 
 # WRAP_CONTENT
 

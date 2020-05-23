@@ -2,7 +2,7 @@
 title: launchMain - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.ViewModel](index.md) / [launchMain](./launch-main.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.ViewModel](index.md) / [launchMain](./launch-main.html)
 
 # launchMain
 

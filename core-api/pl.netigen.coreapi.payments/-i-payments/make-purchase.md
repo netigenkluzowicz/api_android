@@ -2,7 +2,7 @@
 title: IPayments.makePurchase - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [makePurchase](./make-purchase.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [IPayments](index.md) / [makePurchase](./make-purchase.html)
 
 # makePurchase
 

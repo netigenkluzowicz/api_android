@@ -2,7 +2,7 @@
 title: NetigenDialogFragment.canCommitFragments - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenDialogFragment](index.md) / [canCommitFragments](./can-commit-fragments.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenDialogFragment](index.md) / [canCommitFragments](./can-commit-fragments.html)
 
 # canCommitFragments
 

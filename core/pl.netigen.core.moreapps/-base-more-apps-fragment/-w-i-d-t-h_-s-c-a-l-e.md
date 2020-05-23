@@ -2,7 +2,7 @@
 title: BaseMoreAppsFragment.WIDTH_SCALE - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [WIDTH_SCALE](./-w-i-d-t-h_-s-c-a-l-e.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [WIDTH_SCALE](./-w-i-d-t-h_-s-c-a-l-e.html)
 
 # WIDTH_SCALE
 

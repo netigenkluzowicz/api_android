@@ -2,7 +2,7 @@
 title: pl.netigen.gms.ads - gms
 ---
 
-[gms](../index.md) / [pl.netigen.gms.ads](./index.md)
+[home page](../index.md)/[gms](../index.md) / [pl.netigen.gms.ads](./index.md)
 
 ## Package pl.netigen.gms.ads
 

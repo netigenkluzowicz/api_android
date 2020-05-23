@@ -2,7 +2,7 @@
 title: pl.netigen.core.main - core
 ---
 
-[core](../index.md) / [pl.netigen.core.main](./index.md)
+[home page](../index.md)/[core](../index.md) / [pl.netigen.core.main](./index.md)
 
 ## Package pl.netigen.core.main
 

@@ -2,7 +2,7 @@
 title: RateUs.Builder - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rateus](../../index.md) / [RateUs](../index.md) / [Builder](./index.md)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rateus](../../index.md) / [RateUs](../index.md) / [Builder](./index.md)
 
 # Builder
 

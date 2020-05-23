@@ -2,7 +2,7 @@
 title: fromJson - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.String](index.md) / [fromJson](./from-json.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.String](index.md) / [fromJson](./from-json.html)
 
 # fromJson
 

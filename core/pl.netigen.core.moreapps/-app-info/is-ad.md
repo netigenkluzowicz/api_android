@@ -2,7 +2,7 @@
 title: AppInfo.isAd - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [isAd](./is-ad.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [isAd](./is-ad.html)
 
 # isAd
 

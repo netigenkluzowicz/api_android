@@ -2,7 +2,7 @@
 title: Utils.showLongToast - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showLongToast](./show-long-toast.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showLongToast](./show-long-toast.html)
 
 # showLongToast
 

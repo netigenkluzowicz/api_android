@@ -2,7 +2,7 @@
 title: IRateUs - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](./index.md)
 
 # IRateUs
 

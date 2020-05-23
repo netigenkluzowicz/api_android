@@ -2,7 +2,7 @@
 title: CachedPurchase - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](./index.md)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](./index.md)
 
 # CachedPurchase
 

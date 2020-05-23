@@ -2,7 +2,7 @@
 title: CoreMainActivity.onStart - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onStart](./on-start.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onStart](./on-start.html)
 
 # onStart
 

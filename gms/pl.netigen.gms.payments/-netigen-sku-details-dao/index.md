@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](./index.md)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](./index.md)
 
 # NetigenSkuDetailsDao
 

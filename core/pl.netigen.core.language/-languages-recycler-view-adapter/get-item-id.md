@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.getItemId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [getItemId](./get-item-id.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [getItemId](./get-item-id.html)
 
 # getItemId
 

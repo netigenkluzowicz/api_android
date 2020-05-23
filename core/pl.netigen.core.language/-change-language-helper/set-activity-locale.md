@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.setActivityLocale - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setActivityLocale](./set-activity-locale.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setActivityLocale](./set-activity-locale.html)
 
 # setActivityLocale
 

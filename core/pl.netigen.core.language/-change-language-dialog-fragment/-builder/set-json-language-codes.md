@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.setJsonLanguageCodes - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setJsonLanguageCodes](./set-json-language-codes.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setJsonLanguageCodes](./set-json-language-codes.html)
 
 # setJsonLanguageCodes
 

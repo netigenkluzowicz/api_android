@@ -2,7 +2,7 @@
 title: BaseDialogFragment.onStart - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](index.md) / [onStart](./on-start.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.utils](../index.md) / [BaseDialogFragment](index.md) / [onStart](./on-start.html)
 
 # onStart
 

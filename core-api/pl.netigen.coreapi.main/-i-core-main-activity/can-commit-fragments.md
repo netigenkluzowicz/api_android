@@ -2,7 +2,7 @@
 title: ICoreMainActivity.canCommitFragments - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [canCommitFragments](./can-commit-fragments.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [canCommitFragments](./can-commit-fragments.html)
 
 # canCommitFragments
 

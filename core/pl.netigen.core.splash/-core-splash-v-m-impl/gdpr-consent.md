@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.gdprConsent - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [gdprConsent](./gdpr-consent.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [gdprConsent](./gdpr-consent.html)
 
 # gdprConsent
 

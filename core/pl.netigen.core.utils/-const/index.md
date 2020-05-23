@@ -2,7 +2,7 @@
 title: Const - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](./index.md)
 
 # Const
 

@@ -2,7 +2,7 @@
 title: NetigenSkuDetailsDao.inAppSkuDetailsLiveData - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [inAppSkuDetailsLiveData](./in-app-sku-details-live-data.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [NetigenSkuDetailsDao](index.md) / [inAppSkuDetailsLiveData](./in-app-sku-details-live-data.html)
 
 # inAppSkuDetailsLiveData
 

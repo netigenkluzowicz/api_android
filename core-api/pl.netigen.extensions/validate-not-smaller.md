@@ -2,7 +2,7 @@
 title: validateNotSmaller - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.extensions](index.md) / [validateNotSmaller](./validate-not-smaller.html)
+[home page](../index.md)/[core-api](../index.md) / [pl.netigen.extensions](index.md) / [validateNotSmaller](./validate-not-smaller.html)
 
 # validateNotSmaller
 

@@ -2,7 +2,7 @@
 title: GMSPayments.makeNoAdsPayment - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [makeNoAdsPayment](./make-no-ads-payment.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPayments](index.md) / [makeNoAdsPayment](./make-no-ads-payment.html)
 
 # makeNoAdsPayment
 

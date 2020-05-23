@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](./index.md)
 
 # CoreViewModelsFactory
 

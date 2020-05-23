@@ -2,7 +2,7 @@
 title: PaymentRestored.sku - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentRestored](index.md) / [sku](./sku.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentRestored](index.md) / [sku](./sku.html)
 
 # sku
 

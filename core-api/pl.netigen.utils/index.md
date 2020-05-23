@@ -2,7 +2,7 @@
 title: pl.netigen.utils - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.utils](./index.md)
+[home page](../index.md)/[core-api](../index.md) / [pl.netigen.utils](./index.md)
 
 ## Package pl.netigen.utils
 

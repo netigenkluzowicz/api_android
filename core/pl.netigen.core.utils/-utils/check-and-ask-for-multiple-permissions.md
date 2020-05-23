@@ -2,7 +2,7 @@
 title: Utils.checkAndAskForMultiplePermissions - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [checkAndAskForMultiplePermissions](./check-and-ask-for-multiple-permissions.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [checkAndAskForMultiplePermissions](./check-and-ask-for-multiple-permissions.html)
 
 # checkAndAskForMultiplePermissions
 

@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setDescriptionMargins - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setDescriptionMargins](./set-description-margins.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setDescriptionMargins](./set-description-margins.html)
 
 # setDescriptionMargins
 

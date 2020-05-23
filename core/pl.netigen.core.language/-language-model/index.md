@@ -2,7 +2,7 @@
 title: LanguageModel - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](./index.md)
 
 # LanguageModel
 

@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.showGdprResetAds - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [showGdprResetAds](./show-gdpr-reset-ads.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [showGdprResetAds](./show-gdpr-reset-ads.html)
 
 # showGdprResetAds
 

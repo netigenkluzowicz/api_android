@@ -2,7 +2,7 @@
 title: AdMobAds.rewardedAd - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [rewardedAd](./rewarded-ad.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [rewardedAd](./rewarded-ad.html)
 
 # rewardedAd
 

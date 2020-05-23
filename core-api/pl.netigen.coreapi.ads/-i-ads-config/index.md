@@ -2,7 +2,7 @@
 title: IAdsConfig - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](./index.md)
 
 # IAdsConfig
 

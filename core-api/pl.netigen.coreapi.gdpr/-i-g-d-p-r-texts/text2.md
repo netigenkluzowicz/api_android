@@ -2,7 +2,7 @@
 title: IGDPRTexts.text2 - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRTexts](index.md) / [text2](./text2.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRTexts](index.md) / [text2](./text2.html)
 
 # text2
 

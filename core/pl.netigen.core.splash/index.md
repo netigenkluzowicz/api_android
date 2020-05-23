@@ -2,7 +2,7 @@
 title: pl.netigen.core.splash - core
 ---
 
-[core](../index.md) / [pl.netigen.core.splash](./index.md)
+[home page](../index.md)/[core](../index.md) / [pl.netigen.core.splash](./index.md)
 
 ## Package pl.netigen.core.splash
 

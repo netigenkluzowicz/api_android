@@ -2,7 +2,7 @@
 title: PaymentSuccess.sku - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentSuccess](index.md) / [sku](./sku.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentSuccess](index.md) / [sku](./sku.html)
 
 # sku
 

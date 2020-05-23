@@ -2,7 +2,7 @@
 title: CoreSplashFragment.onViewCreated - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onViewCreated](./on-view-created.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashFragment](index.md) / [onViewCreated](./on-view-created.html)
 
 # onViewCreated
 

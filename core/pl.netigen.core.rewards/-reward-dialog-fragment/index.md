@@ -2,7 +2,7 @@
 title: RewardDialogFragment - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](./index.md)
 
 # RewardDialogFragment
 

@@ -2,7 +2,7 @@
 title: SingleLiveEvent.observe - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](index.md) / [observe](./observe.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [SingleLiveEvent](index.md) / [observe](./observe.html)
 
 # observe
 

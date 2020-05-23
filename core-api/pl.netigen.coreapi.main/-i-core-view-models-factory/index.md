@@ -2,7 +2,7 @@
 title: ICoreViewModelsFactory - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](./index.md)
 
 # ICoreViewModelsFactory
 

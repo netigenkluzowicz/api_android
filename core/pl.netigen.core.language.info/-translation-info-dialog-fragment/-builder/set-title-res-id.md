@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder.setTitleResId - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setTitleResId](./set-title-res-id.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setTitleResId](./set-title-res-id.html)
 
 # setTitleResId
 

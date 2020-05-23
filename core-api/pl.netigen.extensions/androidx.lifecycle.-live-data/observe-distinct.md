@@ -2,7 +2,7 @@
 title: observeDistinct - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](index.md) / [observeDistinct](./observe-distinct.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](index.md) / [observeDistinct](./observe-distinct.html)
 
 # observeDistinct
 

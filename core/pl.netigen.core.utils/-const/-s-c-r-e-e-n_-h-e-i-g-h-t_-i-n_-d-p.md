@@ -2,7 +2,7 @@
 title: Const.SCREEN_HEIGHT_IN_DP - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [SCREEN_HEIGHT_IN_DP](./-s-c-r-e-e-n_-h-e-i-g-h-t_-i-n_-d-p.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [SCREEN_HEIGHT_IN_DP](./-s-c-r-e-e-n_-h-e-i-g-h-t_-i-n_-d-p.html)
 
 # SCREEN_HEIGHT_IN_DP
 

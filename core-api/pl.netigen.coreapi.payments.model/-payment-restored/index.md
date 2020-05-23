@@ -2,7 +2,7 @@
 title: PaymentRestored - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentRestored](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentRestored](./index.md)
 
 # PaymentRestored
 

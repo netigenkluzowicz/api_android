@@ -2,7 +2,7 @@
 title: IRateUs.clickNo - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [clickNo](./click-no.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [clickNo](./click-no.html)
 
 # clickNo
 

@@ -2,7 +2,7 @@
 title: GDPRConsentImpl.PREFERENCES_NAME - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](index.md) / [PREFERENCES_NAME](./-p-r-e-f-e-r-e-n-c-e-s_-n-a-m-e.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](index.md) / [PREFERENCES_NAME](./-p-r-e-f-e-r-e-n-c-e-s_-n-a-m-e.html)
 
 # PREFERENCES_NAME
 

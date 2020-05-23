@@ -2,7 +2,7 @@
 title: CachedPurchase.hashCode - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [hashCode](./hash-code.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](index.md) / [hashCode](./hash-code.html)
 
 # hashCode
 

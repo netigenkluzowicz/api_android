@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.kotlin.Int - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Int](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.Int](./index.md)
 
 ### Extensions for kotlin.Int
 

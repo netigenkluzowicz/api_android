@@ -2,7 +2,7 @@
 title: LanguageModel.setLanguage - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setLanguage](./set-language.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setLanguage](./set-language.html)
 
 # setLanguage
 

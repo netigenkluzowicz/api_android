@@ -2,7 +2,7 @@
 title: LocalBillingDb.purchaseDao - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [purchaseDao](./purchase-dao.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [purchaseDao](./purchase-dao.html)
 
 # purchaseDao
 

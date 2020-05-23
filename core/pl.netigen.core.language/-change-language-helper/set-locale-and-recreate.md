@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.setLocaleAndRecreate - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setLocaleAndRecreate](./set-locale-and-recreate.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [setLocaleAndRecreate](./set-locale-and-recreate.html)
 
 # setLocaleAndRecreate
 

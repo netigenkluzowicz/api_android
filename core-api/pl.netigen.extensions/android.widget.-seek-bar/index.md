@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.android.widget.SeekBar - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.SeekBar](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.SeekBar](./index.md)
 
 ### Extensions for android.widget.SeekBar
 

@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.androidx.navigation.NavController - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.navigation.NavController](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.navigation.NavController](./index.md)
 
 ### Extensions for androidx.navigation.NavController
 

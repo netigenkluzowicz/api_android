@@ -2,7 +2,7 @@
 title: LocalBillingDb.getInstance - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [getInstance](./get-instance.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [LocalBillingDb](index.md) / [getInstance](./get-instance.html)
 
 # getInstance
 

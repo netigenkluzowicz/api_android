@@ -2,7 +2,7 @@
 title: AppInfo.toString - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [toString](./to-string.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [toString](./to-string.html)
 
 # toString
 

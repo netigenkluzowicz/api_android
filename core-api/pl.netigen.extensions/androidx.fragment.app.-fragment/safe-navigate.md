@@ -2,7 +2,7 @@
 title: safeNavigate - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.fragment.app.Fragment](index.md) / [safeNavigate](./safe-navigate.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.fragment.app.Fragment](index.md) / [safeNavigate](./safe-navigate.html)
 
 # safeNavigate
 

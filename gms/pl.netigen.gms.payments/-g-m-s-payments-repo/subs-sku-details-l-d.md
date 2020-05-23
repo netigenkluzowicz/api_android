@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.subsSkuDetailsLD - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [subsSkuDetailsLD](./subs-sku-details-l-d.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [subsSkuDetailsLD](./subs-sku-details-l-d.html)
 
 # subsSkuDetailsLD
 

@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.LanguageRowViewHolder.radioButtonSelectLanguage - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [LanguagesRecyclerViewAdapter](../index.md) / [LanguageRowViewHolder](index.md) / [radioButtonSelectLanguage](./radio-button-select-language.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [LanguagesRecyclerViewAdapter](../index.md) / [LanguageRowViewHolder](index.md) / [radioButtonSelectLanguage](./radio-button-select-language.html)
 
 # radioButtonSelectLanguage
 

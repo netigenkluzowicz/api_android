@@ -2,7 +2,7 @@
 title: INetworkStatus - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.network](../index.md) / [INetworkStatus](./index.md)
 
 # INetworkStatus
 

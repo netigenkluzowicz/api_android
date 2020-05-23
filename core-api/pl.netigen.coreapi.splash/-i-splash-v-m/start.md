@@ -2,7 +2,7 @@
 title: ISplashVM.start - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [start](./start.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashVM](index.md) / [start](./start.html)
 
 # start
 

@@ -2,7 +2,7 @@
 title: IAdsConfig.testDevices - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [testDevices](./test-devices.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [testDevices](./test-devices.html)
 
 # testDevices
 

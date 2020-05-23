@@ -2,7 +2,7 @@
 title: observeUserChanges - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.SeekBar](index.md) / [observeUserChanges](./observe-user-changes.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [android.widget.SeekBar](index.md) / [observeUserChanges](./observe-user-changes.html)
 
 # observeUserChanges
 

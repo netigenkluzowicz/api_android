@@ -2,7 +2,7 @@
 title: setDialogSize - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.fragment.app.DialogFragment](index.md) / [setDialogSize](./set-dialog-size.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.fragment.app.DialogFragment](index.md) / [setDialogSize](./set-dialog-size.html)
 
 # setDialogSize
 

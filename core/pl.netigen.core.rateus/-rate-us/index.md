@@ -2,7 +2,7 @@
 title: RateUs - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](./index.md)
 
 # RateUs
 

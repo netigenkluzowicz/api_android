@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory.coreMainActivity - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [coreMainActivity](./core-main-activity.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [coreMainActivity](./core-main-activity.html)
 
 # coreMainActivity
 

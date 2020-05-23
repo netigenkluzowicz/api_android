@@ -2,7 +2,7 @@
 title: AdMobInterstitial.enabled - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [enabled](./enabled.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [enabled](./enabled.html)
 
 # enabled
 

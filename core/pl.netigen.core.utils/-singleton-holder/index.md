@@ -2,7 +2,7 @@
 title: SingletonHolder - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](./index.md)
 
 # SingletonHolder
 

@@ -2,7 +2,7 @@
 title: RateFragment.newInstance - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [newInstance](./new-instance.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [newInstance](./new-instance.html)
 
 # newInstance
 

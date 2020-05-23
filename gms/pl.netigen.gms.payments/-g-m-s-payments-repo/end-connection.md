@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.endConnection - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [endConnection](./end-connection.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [endConnection](./end-connection.html)
 
 # endConnection
 

@@ -2,7 +2,7 @@
 title: CheckGDPRLocationStatus - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [CheckGDPRLocationStatus](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [CheckGDPRLocationStatus](./index.md)
 
 # CheckGDPRLocationStatus
 

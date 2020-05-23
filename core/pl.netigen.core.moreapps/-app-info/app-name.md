@@ -2,7 +2,7 @@
 title: AppInfo.appName - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [appName](./app-name.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [appName](./app-name.html)
 
 # appName
 

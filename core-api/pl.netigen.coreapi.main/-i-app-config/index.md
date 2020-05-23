@@ -2,7 +2,7 @@
 title: IAppConfig - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [IAppConfig](./index.md)
 
 # IAppConfig
 

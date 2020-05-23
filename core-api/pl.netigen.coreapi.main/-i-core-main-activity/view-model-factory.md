@@ -2,7 +2,7 @@
 title: ICoreMainActivity.viewModelFactory - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [viewModelFactory](./view-model-factory.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [viewModelFactory](./view-model-factory.html)
 
 # viewModelFactory
 

@@ -2,7 +2,7 @@
 title: RewardDialogFragment.onCreateView - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [onCreateView](./on-create-view.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [onCreateView](./on-create-view.html)
 
 # onCreateView
 

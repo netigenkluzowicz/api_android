@@ -2,7 +2,7 @@
 title: ICoreMainActivity.splashActive - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [splashActive](./splash-active.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [splashActive](./splash-active.html)
 
 # splashActive
 

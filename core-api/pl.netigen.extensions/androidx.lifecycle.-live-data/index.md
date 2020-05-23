@@ -2,7 +2,7 @@
 title: pl.netigen.extensions.androidx.lifecycle.LiveData - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [androidx.lifecycle.LiveData](./index.md)
 
 ### Extensions for androidx.lifecycle.LiveData
 

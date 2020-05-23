@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.onPurchasesUpdated - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [onPurchasesUpdated](./on-purchases-updated.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [onPurchasesUpdated](./on-purchases-updated.html)
 
 # onPurchasesUpdated
 

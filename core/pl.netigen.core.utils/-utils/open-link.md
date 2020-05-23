@@ -2,7 +2,7 @@
 title: Utils.openLink - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [openLink](./open-link.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [openLink](./open-link.html)
 
 # openLink
 

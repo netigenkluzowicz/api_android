@@ -2,7 +2,7 @@
 title: AdMobRewarded.AdCallback - gms
 ---
 
-[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](./index.md)
+[home page](../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](./index.md)
 
 # AdCallback
 

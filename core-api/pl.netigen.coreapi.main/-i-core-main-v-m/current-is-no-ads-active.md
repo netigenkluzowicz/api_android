@@ -2,7 +2,7 @@
 title: ICoreMainVM.currentIsNoAdsActive - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [currentIsNoAdsActive](./current-is-no-ads-active.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [currentIsNoAdsActive](./current-is-no-ads-active.html)
 
 # currentIsNoAdsActive
 

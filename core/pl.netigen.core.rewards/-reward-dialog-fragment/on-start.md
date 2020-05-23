@@ -2,7 +2,7 @@
 title: RewardDialogFragment.onStart - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [onStart](./on-start.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardDialogFragment](index.md) / [onStart](./on-start.html)
 
 # onStart
 

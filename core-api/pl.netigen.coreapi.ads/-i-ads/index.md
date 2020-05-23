@@ -2,7 +2,7 @@
 title: IAds - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAds](./index.md)
 
 # IAds
 

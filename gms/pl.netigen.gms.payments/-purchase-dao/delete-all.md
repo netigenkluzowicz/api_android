@@ -2,7 +2,7 @@
 title: PurchaseDao.deleteAll - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [deleteAll](./delete-all.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseDao](index.md) / [deleteAll](./delete-all.html)
 
 # deleteAll
 

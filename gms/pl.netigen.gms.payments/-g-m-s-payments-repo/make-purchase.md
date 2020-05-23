@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.makePurchase - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [makePurchase](./make-purchase.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [makePurchase](./make-purchase.html)
 
 # makePurchase
 

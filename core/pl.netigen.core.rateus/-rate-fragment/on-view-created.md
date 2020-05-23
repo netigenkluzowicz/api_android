@@ -2,7 +2,7 @@
 title: RateFragment.onViewCreated - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [onViewCreated](./on-view-created.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateFragment](index.md) / [onViewCreated](./on-view-created.html)
 
 # onViewCreated
 

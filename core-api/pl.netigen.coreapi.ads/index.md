@@ -2,7 +2,7 @@
 title: pl.netigen.coreapi.ads - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.coreapi.ads](./index.md)
+[home page](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.ads](./index.md)
 
 ## Package pl.netigen.coreapi.ads
 

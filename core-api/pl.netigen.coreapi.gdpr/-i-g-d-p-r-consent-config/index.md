@@ -2,7 +2,7 @@
 title: IGDPRConsentConfig - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsentConfig](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsentConfig](./index.md)
 
 # IGDPRConsentConfig
 

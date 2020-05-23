@@ -2,7 +2,7 @@
 title: AdMobInterstitial.adId - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [adId](./ad-id.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [adId](./ad-id.html)
 
 # adId
 

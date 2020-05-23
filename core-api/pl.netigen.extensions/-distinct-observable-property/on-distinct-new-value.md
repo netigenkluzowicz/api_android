@@ -2,7 +2,7 @@
 title: DistinctObservableProperty.onDistinctNewValue - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [onDistinctNewValue](./on-distinct-new-value.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [DistinctObservableProperty](index.md) / [onDistinctNewValue](./on-distinct-new-value.html)
 
 # onDistinctNewValue
 

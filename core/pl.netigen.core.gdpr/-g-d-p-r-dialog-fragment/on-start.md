@@ -2,7 +2,7 @@
 title: GDPRDialogFragment.onStart - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onStart](./on-start.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onStart](./on-start.html)
 
 # onStart
 

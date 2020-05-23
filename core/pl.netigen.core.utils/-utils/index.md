@@ -2,7 +2,7 @@
 title: Utils - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](./index.md)
 
 # Utils
 

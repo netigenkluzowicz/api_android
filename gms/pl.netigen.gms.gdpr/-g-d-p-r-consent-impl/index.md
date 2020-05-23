@@ -2,7 +2,7 @@
 title: GDPRConsentImpl - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](./index.md)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](./index.md)
 
 # GDPRConsentImpl
 

@@ -2,7 +2,7 @@
 title: LanguageModel.setSelected - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setSelected](./set-selected.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setSelected](./set-selected.html)
 
 # setSelected
 

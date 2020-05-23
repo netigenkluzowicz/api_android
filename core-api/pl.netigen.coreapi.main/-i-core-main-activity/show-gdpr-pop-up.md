@@ -2,7 +2,7 @@
 title: ICoreMainActivity.showGdprPopUp - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [showGdprPopUp](./show-gdpr-pop-up.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [showGdprPopUp](./show-gdpr-pop-up.html)
 
 # showGdprPopUp
 

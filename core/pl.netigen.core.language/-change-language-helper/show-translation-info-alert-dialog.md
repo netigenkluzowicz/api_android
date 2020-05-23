@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.showTranslationInfoAlertDialog - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [showTranslationInfoAlertDialog](./show-translation-info-alert-dialog.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [showTranslationInfoAlertDialog](./show-translation-info-alert-dialog.html)
 
 # showTranslationInfoAlertDialog
 

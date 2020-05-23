@@ -2,7 +2,7 @@
 title: AppConfig.bannerAdId - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [bannerAdId](./banner-ad-id.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [bannerAdId](./banner-ad-id.html)
 
 # bannerAdId
 

@@ -2,7 +2,7 @@
 title: AppInfo.iconLink - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [iconLink](./icon-link.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [iconLink](./icon-link.html)
 
 # iconLink
 

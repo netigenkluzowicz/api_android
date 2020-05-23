@@ -2,7 +2,7 @@
 title: RewardDialogFragment.Builder.setRewards - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewards](./set-rewards.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setRewards](./set-rewards.html)
 
 # setRewards
 

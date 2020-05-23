@@ -2,7 +2,7 @@
 title: pl.netigen.gms.gdpr - gms
 ---
 
-[gms](../index.md) / [pl.netigen.gms.gdpr](./index.md)
+[home page](../index.md)/[gms](../index.md) / [pl.netigen.gms.gdpr](./index.md)
 
 ## Package pl.netigen.gms.gdpr
 

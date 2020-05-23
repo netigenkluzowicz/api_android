@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.onResume - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [onResume](./on-resume.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [onResume](./on-resume.html)
 
 # onResume
 

@@ -2,7 +2,7 @@
 title: ISplashConfig - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](./index.md)
 
 # ISplashConfig
 

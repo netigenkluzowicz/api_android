@@ -2,7 +2,7 @@
 title: CoreMainActivity.onSplashClosed - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onSplashClosed](./on-splash-closed.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onSplashClosed](./on-splash-closed.html)
 
 # onSplashClosed
 

@@ -2,7 +2,7 @@
 title: NetigenFragment - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenFragment](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenFragment](./index.md)
 
 # NetigenFragment
 

@@ -2,7 +2,7 @@
 title: Utils.showShortToast - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showShortToast](./show-short-toast.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Utils](index.md) / [showShortToast](./show-short-toast.html)
 
 # showShortToast
 

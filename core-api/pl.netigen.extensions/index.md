@@ -2,7 +2,7 @@
 title: pl.netigen.extensions - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.extensions](./index.md)
+[home page](../index.md)/[core-api](../index.md) / [pl.netigen.extensions](./index.md)
 
 ## Package pl.netigen.extensions
 

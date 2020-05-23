@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.onCreateViewHolder - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [onCreateViewHolder](./on-create-view-holder.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguagesRecyclerViewAdapter](index.md) / [onCreateViewHolder](./on-create-view-holder.html)
 
 # onCreateViewHolder
 

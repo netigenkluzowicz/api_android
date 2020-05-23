@@ -2,7 +2,7 @@
 title: INoAds.noAdsActive - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](index.md) / [noAdsActive](./no-ads-active.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](index.md) / [noAdsActive](./no-ads-active.html)
 
 # noAdsActive
 

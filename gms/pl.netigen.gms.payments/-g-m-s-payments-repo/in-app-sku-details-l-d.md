@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.inAppSkuDetailsLD - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [inAppSkuDetailsLD](./in-app-sku-details-l-d.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [inAppSkuDetailsLD](./in-app-sku-details-l-d.html)
 
 # inAppSkuDetailsLD
 

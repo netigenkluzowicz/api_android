@@ -2,7 +2,7 @@
 title: IRateUs.doNotShowRateUsAgain - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [doNotShowRateUsAgain](./do-not-show-rate-us-again.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [doNotShowRateUsAgain](./do-not-show-rate-us-again.html)
 
 # doNotShowRateUsAgain
 

@@ -2,7 +2,7 @@
 title: pl.netigen.gms.payments - gms
 ---
 
-[gms](../index.md) / [pl.netigen.gms.payments](./index.md)
+[home page](../index.md)/[gms](../index.md) / [pl.netigen.gms.payments](./index.md)
 
 ## Package pl.netigen.gms.payments
 

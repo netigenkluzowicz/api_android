@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.noAdsActive - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [noAdsActive](./no-ads-active.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [noAdsActive](./no-ads-active.html)
 
 # noAdsActive
 

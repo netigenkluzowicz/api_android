@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.isFirstLaunch - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [isFirstLaunch](./is-first-launch.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [isFirstLaunch](./is-first-launch.html)
 
 # isFirstLaunch
 

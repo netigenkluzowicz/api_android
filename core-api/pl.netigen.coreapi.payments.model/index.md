@@ -2,7 +2,7 @@
 title: pl.netigen.coreapi.payments.model - core-api
 ---
 
-[core-api](../index.md) / [pl.netigen.coreapi.payments.model](./index.md)
+[home page](../index.md)/[core-api](../index.md) / [pl.netigen.coreapi.payments.model](./index.md)
 
 ## Package pl.netigen.coreapi.payments.model
 

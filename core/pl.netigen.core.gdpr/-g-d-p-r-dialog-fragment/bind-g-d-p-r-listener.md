@@ -2,7 +2,7 @@
 title: GDPRDialogFragment.bindGDPRListener - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [bindGDPRListener](./bind-g-d-p-r-listener.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [bindGDPRListener](./bind-g-d-p-r-listener.html)
 
 # bindGDPRListener
 

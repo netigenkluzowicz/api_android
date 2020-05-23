@@ -2,7 +2,7 @@
 title: INoAds.noAdsInAppSkuList - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](index.md) / [noAdsInAppSkuList](./no-ads-in-app-sku-list.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](index.md) / [noAdsInAppSkuList](./no-ads-in-app-sku-list.html)
 
 # noAdsInAppSkuList
 

@@ -2,7 +2,7 @@
 title: Security - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Security](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Security](./index.md)
 
 # Security
 

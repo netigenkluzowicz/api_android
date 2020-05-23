@@ -2,7 +2,7 @@
 title: CoreMainVmImpl.networkStatus - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [networkStatus](./network-status.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [networkStatus](./network-status.html)
 
 # networkStatus
 

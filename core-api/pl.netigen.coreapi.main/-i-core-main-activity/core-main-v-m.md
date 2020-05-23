@@ -2,7 +2,7 @@
 title: ICoreMainActivity.coreMainVM - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [coreMainVM](./core-main-v-m.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainActivity](index.md) / [coreMainVM](./core-main-v-m.html)
 
 # coreMainVM
 

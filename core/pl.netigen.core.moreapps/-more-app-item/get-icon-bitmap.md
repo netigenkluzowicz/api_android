@@ -2,7 +2,7 @@
 title: MoreAppItem.getIconBitmap - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [MoreAppItem](index.md) / [getIconBitmap](./get-icon-bitmap.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [MoreAppItem](index.md) / [getIconBitmap](./get-icon-bitmap.html)
 
 # getIconBitmap
 

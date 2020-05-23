@@ -2,7 +2,7 @@
 title: pl.netigen.core.language - core
 ---
 
-[core](../index.md) / [pl.netigen.core.language](./index.md)
+[home page](../index.md)/[core](../index.md) / [pl.netigen.core.language](./index.md)
 
 ## Package pl.netigen.core.language
 

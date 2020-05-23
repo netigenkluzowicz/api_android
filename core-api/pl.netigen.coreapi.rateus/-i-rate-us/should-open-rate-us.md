@@ -2,7 +2,7 @@
 title: IRateUs.shouldOpenRateUs - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [shouldOpenRateUs](./should-open-rate-us.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [shouldOpenRateUs](./should-open-rate-us.html)
 
 # shouldOpenRateUs
 

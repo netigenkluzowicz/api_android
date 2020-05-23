@@ -2,7 +2,7 @@
 title: AppConfig - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](./index.md)
 
 # AppConfig
 

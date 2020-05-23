@@ -2,7 +2,7 @@
 title: IInterstitialAd.loadIfShouldBeLoaded - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [loadIfShouldBeLoaded](./load-if-should-be-loaded.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IInterstitialAd](index.md) / [loadIfShouldBeLoaded](./load-if-should-be-loaded.html)
 
 # loadIfShouldBeLoaded
 

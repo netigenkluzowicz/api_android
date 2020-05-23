@@ -2,7 +2,7 @@
 title: ChangeLanguageParams - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](./index.md)
 
 # ChangeLanguageParams
 

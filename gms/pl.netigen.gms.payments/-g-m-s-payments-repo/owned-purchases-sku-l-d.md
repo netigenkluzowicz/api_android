@@ -2,7 +2,7 @@
 title: GMSPaymentsRepo.ownedPurchasesSkuLD - gms
 ---
 
-[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [ownedPurchasesSkuLD](./owned-purchases-sku-l-d.html)
+[home page](../index.md)/[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [GMSPaymentsRepo](index.md) / [ownedPurchasesSkuLD](./owned-purchases-sku-l-d.html)
 
 # ownedPurchasesSkuLD
 

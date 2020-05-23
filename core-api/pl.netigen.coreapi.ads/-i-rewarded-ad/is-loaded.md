@@ -2,7 +2,7 @@
 title: IRewardedAd.isLoaded - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IRewardedAd](index.md) / [isLoaded](./is-loaded.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IRewardedAd](index.md) / [isLoaded](./is-loaded.html)
 
 # isLoaded
 

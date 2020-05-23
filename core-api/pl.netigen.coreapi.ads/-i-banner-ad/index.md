@@ -2,7 +2,7 @@
 title: IBannerAd - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IBannerAd](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IBannerAd](./index.md)
 
 # IBannerAd
 

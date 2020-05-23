@@ -2,7 +2,7 @@
 title: ISplashTimer.startInterstitialTimer - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startInterstitialTimer](./start-interstitial-timer.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [startInterstitialTimer](./start-interstitial-timer.html)
 
 # startInterstitialTimer
 

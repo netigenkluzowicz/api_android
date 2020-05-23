@@ -2,7 +2,7 @@
 title: Store.HUAWEI - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [Store](index.md) / [HUAWEI](./-h-u-a-w-e-i.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [Store](index.md) / [HUAWEI](./-h-u-a-w-e-i.html)
 
 # HUAWEI
 

@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory.<init> - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [&lt;init&gt;](./-init-.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

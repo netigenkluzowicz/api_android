@@ -2,7 +2,7 @@
 title: NetworkStatus - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](./index.md)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](./index.md)
 
 # NetworkStatus
 

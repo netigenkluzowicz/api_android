@@ -2,7 +2,7 @@
 title: MoreAppItem.<init> - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [MoreAppItem](index.md) / [&lt;init&gt;](./-init-.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [MoreAppItem](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

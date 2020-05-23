@@ -2,7 +2,7 @@
 title: Const.PREFERENCES_NAME - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [PREFERENCES_NAME](./-p-r-e-f-e-r-e-n-c-e-s_-n-a-m-e.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [Const](index.md) / [PREFERENCES_NAME](./-p-r-e-f-e-r-e-n-c-e-s_-n-a-m-e.html)
 
 # PREFERENCES_NAME
 

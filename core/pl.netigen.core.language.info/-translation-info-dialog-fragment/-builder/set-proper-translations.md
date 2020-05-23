@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.Builder.setProperTranslations - core
 ---
 
-[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setProperTranslations](./set-proper-translations.html)
+[home page](../index.md)/[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setProperTranslations](./set-proper-translations.html)
 
 # setProperTranslations
 

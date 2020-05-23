@@ -2,7 +2,7 @@
 title: ChangeLanguageHelper.getCurrentAppLocale - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [getCurrentAppLocale](./get-current-app-locale.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [getCurrentAppLocale](./get-current-app-locale.html)
 
 # getCurrentAppLocale
 

@@ -2,7 +2,7 @@
 title: ISplashTimer.cancelConsentTimer - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [cancelConsentTimer](./cancel-consent-timer.html)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](index.md) / [cancelConsentTimer](./cancel-consent-timer.html)
 
 # cancelConsentTimer
 

@@ -2,7 +2,7 @@
 title: AdMobRewarded.AdCallback.onUserEarnedReward - gms
 ---
 
-[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](index.md) / [onUserEarnedReward](./on-user-earned-reward.html)
+[home page](../index.md)/[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](index.md) / [onUserEarnedReward](./on-user-earned-reward.html)
 
 # onUserEarnedReward
 

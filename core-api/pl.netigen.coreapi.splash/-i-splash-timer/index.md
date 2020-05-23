@@ -2,7 +2,7 @@
 title: ISplashTimer - core-api
 ---
 
-[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](./index.md)
+[home page](../index.md)/[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashTimer](./index.md)
 
 # ISplashTimer
 

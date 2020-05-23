@@ -2,7 +2,7 @@
 title: AppConfig.maxConsentWaitTime - core
 ---
 
-[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [maxConsentWaitTime](./max-consent-wait-time.html)
+[home page](../index.md)/[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [maxConsentWaitTime](./max-consent-wait-time.html)
 
 # maxConsentWaitTime
 
