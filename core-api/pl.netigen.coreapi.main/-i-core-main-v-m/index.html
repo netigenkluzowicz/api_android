@@ -9,6 +9,13 @@
 <br/>
 <h1>ICoreMainVM</h1>
 <code><span class="keyword">interface </span><span class="identifier">ICoreMainVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../pl.netigen.coreapi.payments/-i-payments/index.html"><span class="identifier">IPayments</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.ads/-i-ads/index.html"><span class="identifier">IAds</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.network/-i-network-status/index.html"><span class="identifier">INetworkStatus</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html"><span class="identifier">IGDPRConsent</span></a><span class="symbol">, </span><a href="../-i-app-config/index.html"><span class="identifier">IAppConfig</span></a></code>
+<p>This implementations, provides access to api modules:</p>
+<ul><li>payments <a href="../../pl.netigen.coreapi.payments/-i-payments/index.html">IPayments</a></li>
+<li>ads <a href="../../pl.netigen.coreapi.ads/-i-ads/index.html">IAds</a></li>
+<li>network status <a href="../../pl.netigen.coreapi.network/-i-network-status/index.html">INetworkStatus</a></li>
+<li>GDPR consent <a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html">IGDPRConsent</a></li>
+<li>api configuration <a href="../-i-app-config/index.html">IAppConfig</a></li>
+</ul>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -17,6 +24,7 @@
 <h4><a href="current-is-no-ads-active.html">currentIsNoAdsActive</a></h4>
 </td>
 <td>
+<p>Indicating that no ads in-app purchase is active or inactive</p>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">currentIsNoAdsActive</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
 </tr>
 <tr>
@@ -24,6 +32,7 @@
 <h4><a href="show-gdpr-reset-ads.html">showGdprResetAds</a></h4>
 </td>
 <td>
+<p><a href="../-i-core-main-activity/index.html">ICoreMainActivity</a> will observe it and show <a href="#">GDPRDialogFragment</a> when <a href="reset-ads-preferences.html">resetAdsPreferences</a> is called</p>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">showGdprResetAds</span><span class="symbol">: </span><a href="../../pl.netigen.extensions/-single-live-event/index.html"><span class="identifier">SingleLiveEvent</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
@@ -36,6 +45,7 @@
 <h4><a href="reset-ads-preferences.html">resetAdsPreferences</a></h4>
 </td>
 <td>
+<p>Shows <a href="#">GDPRDialogFragment</a> in <a href="../-i-core-main-activity/index.html">ICoreMainActivity</a> implementation to reset user ads Consent</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">resetAdsPreferences</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -43,6 +53,7 @@
 <h4><a href="start.html">start</a></h4>
 </td>
 <td>
+<p>It is called on <a href="https://developer.android.com/reference/android/app/Activity.html#onStart()">onStart()</a> of <a href="../-i-core-main-activity/index.html">ICoreMainActivity</a> implementation</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
@@ -55,6 +66,7 @@
 <h4><a href="../-core-main-v-m/index.html">CoreMainVM</a></h4>
 </td>
 <td>
+<p>Base class for <a href="./index.html">ICoreMainVM</a> implementation, extends <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html">AndroidViewModel</a> because it must be available from any Fragment or Activity</p>
 <code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CoreMainVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html"><span class="identifier">AndroidViewModel</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">ICoreMainVM</span></a></code></td>
 </tr>
 </tbody>

@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AdMobRewarded - gms</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">gms</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.gms.ads</a>&nbsp;/&nbsp;<a href="./index.html">AdMobRewarded</a><br/>
+<br/>
+<h1>AdMobRewarded</h1>
+<code><span class="keyword">class </span><span class="identifier">AdMobRewarded</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">IRewardedAd</span><span class="symbol">, </span><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleObserver.html"><span class="identifier">LifecycleObserver</span></a></code>
+<p><a href="#">IRewardedAd</a> implementation with <a href="#">RewardedAd</a> from Google Mobile Ads SDK</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-ad-callback/index.html">AdCallback</a></h4>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">AdCallback</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RewardedAdCallback</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ad-load-callback/index.html">AdLoadCallback</a></h4>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">AdLoadCallback</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">RewardedAdLoadCallback</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Initializes ad, starts observing activity <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.html">Lifecycle</a></p>
+<code><span class="identifier">AdMobRewarded</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.gms.ads.AdMobRewarded$<init>(androidx.activity.ComponentActivity, pl.netigen.gms.ads.IAdMobRequest, kotlin.String, kotlin.Boolean)/activity">activity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html"><span class="identifier">ComponentActivity</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.gms.ads.AdMobRewarded$<init>(androidx.activity.ComponentActivity, pl.netigen.gms.ads.IAdMobRequest, kotlin.String, kotlin.Boolean)/adMobRequest">adMobRequest</span><span class="symbol">:</span>&nbsp;<a href="../-i-ad-mob-request/index.html"><span class="identifier">IAdMobRequest</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.gms.ads.AdMobRewarded$<init>(androidx.activity.ComponentActivity, pl.netigen.gms.ads.IAdMobRequest, kotlin.String, kotlin.Boolean)/adId">adId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="pl.netigen.gms.ads.AdMobRewarded$<init>(androidx.activity.ComponentActivity, pl.netigen.gms.ads.IAdMobRequest, kotlin.String, kotlin.Boolean)/enabled">enabled</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;adId.isNotEmpty()<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="ad-id.html">adId</a></h4>
+</td>
+<td>
+<p>Current ad <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> identifier</p>
+<code><span class="keyword">val </span><span class="identifier">adId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="enabled.html">enabled</a></h4>
+</td>
+<td>
+<p>Current ad <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> identifier</p>
+<code><span class="keyword">var </span><span class="identifier">enabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-loaded.html">isLoaded</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isLoaded</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="show-rewarded-ad.html">showRewardedAd</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">showRewardedAd</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.gms.ads.AdMobRewarded$showRewardedAd(kotlin.Function1((kotlin.Boolean, kotlin.Unit)))/onRewardResult">onRewardResult</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

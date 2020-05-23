@@ -9,6 +9,15 @@
 <br/>
 <h1>SplashVM</h1>
 <code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">SplashVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html"><span class="identifier">AndroidViewModel</span></a><span class="symbol">, </span><a href="../-i-splash-v-m/index.html"><span class="identifier">ISplashVM</span></a></code>
+<p>Its used for Splash <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html">AndroidViewModel</a>, provides application initialization,:</p>
+<ul><li>billing if available and no-ads payments, see <a href="../../pl.netigen.coreapi.payments/-i-no-ads/index.html">INoAds</a></li>
+<li>app configuration by <a href="../../pl.netigen.coreapi.main/-i-app-config/index.html">IAppConfig</a> implementation,</li>
+<li>Gdpr Consent for ads and shows pop up to the users if necessary, see: <a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html">IGDPRConsent</a></li>
+</ul>
+<p>After initialization:</p>
+<ul><li>if ads are active - loads <a href="../../pl.netigen.coreapi.ads/-i-interstitial-ad/index.html">IInterstitialAd</a>, and show it to the user, and after closes Splash</li>
+<li>if ads are disabled, closes Splash</li>
+</ul>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -17,6 +26,7 @@
 <h4><a href="-init-.html">&lt;init&gt;</a></h4>
 </td>
 <td>
+<p>Its used for Splash <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html">AndroidViewModel</a>, provides application initialization,:</p>
 <code><span class="identifier">SplashVM</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.coreapi.splash.SplashVM$<init>(android.app.Application)/application">application</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Application.html"><span class="identifier">Application</span></a><span class="symbol">)</span></code></td>
 </tr>
 </tbody>

@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BitmapHelper - core</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.core.utils</a>&nbsp;/&nbsp;<a href="./index.html">BitmapHelper</a><br/>
+<br/>
+<h1>BitmapHelper</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">BitmapHelper</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-direction/index.html">Direction</a></h4>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Direction</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">BitmapHelper</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="decode-bitmap.html">decodeBitmap</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">decodeBitmap</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$decodeBitmap(kotlin.Int, android.content.res.Resources)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$decodeBitmap(kotlin.Int, android.content.res.Resources)/resources">resources</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/res/Resources.html"><span class="identifier">Resources</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="flip.html">flip</a></h4>
+</td>
+<td>
+<p>Creates a new bitmap by flipping the specified bitmap vertically or horizontally.</p>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">flip</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$flip(android.graphics.Bitmap, pl.netigen.core.utils.BitmapHelper.Direction)/src">src</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$flip(android.graphics.Bitmap, pl.netigen.core.utils.BitmapHelper.Direction)/type">type</span><span class="symbol">:</span>&nbsp;<span class="identifier">Direction</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-bitmap-from-asset.html">getBitmapFromAsset</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getBitmapFromAsset</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$getBitmapFromAsset(android.content.res.AssetManager, kotlin.String)/assets">assets</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/res/AssetManager.html"><span class="identifier">AssetManager</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$getBitmapFromAsset(android.content.res.AssetManager, kotlin.String)/filePath">filePath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="load-and-scale-bitmap.html">loadAndScaleBitmap</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">loadAndScaleBitmap</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(kotlin.Int, kotlin.Int, kotlin.Int, android.content.res.Resources)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(kotlin.Int, kotlin.Int, kotlin.Int, android.content.res.Resources)/widthPx">widthPx</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(kotlin.Int, kotlin.Int, kotlin.Int, android.content.res.Resources)/heightPx">heightPx</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(kotlin.Int, kotlin.Int, kotlin.Int, android.content.res.Resources)/resources">resources</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/res/Resources.html"><span class="identifier">Resources</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">loadAndScaleBitmap</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(kotlin.Int, kotlin.Float, android.content.res.Resources)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(kotlin.Int, kotlin.Float, android.content.res.Resources)/scale">scale</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(kotlin.Int, kotlin.Float, android.content.res.Resources)/resources">resources</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/res/Resources.html"><span class="identifier">Resources</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">loadAndScaleBitmap</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(android.content.res.AssetManager, kotlin.String, kotlin.Int, kotlin.Int)/assets">assets</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/res/AssetManager.html"><span class="identifier">AssetManager</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(android.content.res.AssetManager, kotlin.String, kotlin.Int, kotlin.Int)/iconLink">iconLink</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(android.content.res.AssetManager, kotlin.String, kotlin.Int, kotlin.Int)/width">width</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$loadAndScaleBitmap(android.content.res.AssetManager, kotlin.String, kotlin.Int, kotlin.Int)/height">height</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="prepare-scaled-bitmap.html">prepareScaledBitmap</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">prepareScaledBitmap</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$prepareScaledBitmap(kotlin.Int, kotlin.Float, android.content.res.Resources)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$prepareScaledBitmap(kotlin.Int, kotlin.Float, android.content.res.Resources)/scale">scale</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$prepareScaledBitmap(kotlin.Int, kotlin.Float, android.content.res.Resources)/resources">resources</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/res/Resources.html"><span class="identifier">Resources</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="scale-bitmap.html">scaleBitmap</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">scaleBitmap</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$scaleBitmap(android.graphics.Bitmap, kotlin.Float)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$scaleBitmap(android.graphics.Bitmap, kotlin.Float)/scale">scale</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">scaleBitmap</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$scaleBitmap(android.graphics.Bitmap, kotlin.Int, kotlin.Int)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$scaleBitmap(android.graphics.Bitmap, kotlin.Int, kotlin.Int)/widthPx">widthPx</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.utils.BitmapHelper$scaleBitmap(android.graphics.Bitmap, kotlin.Int, kotlin.Int)/heightPx">heightPx</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">!</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,15 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+pl.netigen.core.config
+pl.netigen.core.fragment
+pl.netigen.core.gdpr
+pl.netigen.core.language
+pl.netigen.core.language.info
+pl.netigen.core.main
+pl.netigen.core.moreapps
+pl.netigen.core.network
+pl.netigen.core.rateus
+pl.netigen.core.rewards
+pl.netigen.core.splash
+pl.netigen.core.utils

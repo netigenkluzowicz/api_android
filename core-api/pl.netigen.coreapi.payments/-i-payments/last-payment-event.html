@@ -1,0 +1,17 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IPayments.lastPaymentEvent - core-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core-api</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.coreapi.payments</a>&nbsp;/&nbsp;<a href="index.html">IPayments</a>&nbsp;/&nbsp;<a href="./last-payment-event.html">lastPaymentEvent</a><br/>
+<br/>
+<h1>lastPaymentEvent</h1>
+<a name="pl.netigen.coreapi.payments.IPayments$lastPaymentEvent"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">lastPaymentEvent</span><span class="symbol">: </span><a href="../../pl.netigen.extensions/-single-live-event/index.html"><span class="identifier">SingleLiveEvent</span></a><span class="symbol">&lt;</span><a href="../../pl.netigen.coreapi.payments.model/-payment-event.html"><span class="identifier">PaymentEvent</span></a><span class="symbol">&gt;</span></code>
+<p><a href="../../pl.netigen.extensions/-single-live-event/index.html">SingleLiveEvent</a> indicating last payment event it can be success <a href="#">PaymentEvent.PaymentSuccess</a>, <a href="#">PaymentEvent.PaymentRestored</a> or <a href="#">PaymentEvent.Error</a></p>
+<p>This should be used for show information about billing flow to the users</p>
+<p>warning this currently not working/tested in HMS!!</p>
+</BODY>
+</HTML>

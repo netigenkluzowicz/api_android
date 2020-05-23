@@ -38,6 +38,14 @@ for default it is only one default no-ads sku: <a href="../-i-no-ads/package-nam
 </tr>
 <tr>
 <td>
+<h4><a href="last-payment-event.html">lastPaymentEvent</a></h4>
+</td>
+<td>
+<p><a href="../../pl.netigen.extensions/-single-live-event/index.html">SingleLiveEvent</a> indicating last payment event it can be success <a href="#">PaymentEvent.PaymentSuccess</a>, <a href="#">PaymentEvent.PaymentRestored</a> or <a href="#">PaymentEvent.Error</a></p>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">lastPaymentEvent</span><span class="symbol">: </span><a href="../../pl.netigen.extensions/-single-live-event/index.html"><span class="identifier">SingleLiveEvent</span></a><span class="symbol">&lt;</span><a href="../../pl.netigen.coreapi.payments.model/-payment-event.html"><span class="identifier">PaymentEvent</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="owned-purchases-sku-l-d.html">ownedPurchasesSkuLD</a></h4>
 </td>
 <td>
@@ -84,6 +92,7 @@ Not need to be called manually</p>
 <h4><a href="../../pl.netigen.coreapi.main/-i-core-main-v-m/index.html">ICoreMainVM</a></h4>
 </td>
 <td>
+<p>This implementations, provides access to api modules:</p>
 <code><span class="keyword">interface </span><span class="identifier">ICoreMainVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">IPayments</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.ads/-i-ads/index.html"><span class="identifier">IAds</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.network/-i-network-status/index.html"><span class="identifier">INetworkStatus</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html"><span class="identifier">IGDPRConsent</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.main/-i-app-config/index.html"><span class="identifier">IAppConfig</span></a></code></td>
 </tr>
 <tr>
@@ -92,7 +101,7 @@ Not need to be called manually</p>
 </td>
 <td>
 <p>Base class for <a href="./index.html">IPayments</a> implementations</p>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Payments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">IPayments</span></a></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Payments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">IPayments</span></a><span class="symbol">, </span><a href="../-i-payments-repo/index.html"><span class="identifier">IPaymentsRepo</span></a></code></td>
 </tr>
 </tbody>
 </table>

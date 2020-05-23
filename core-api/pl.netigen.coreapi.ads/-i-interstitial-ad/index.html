@@ -9,6 +9,18 @@
 <br/>
 <h1>IInterstitialAd</h1>
 <code><span class="keyword">interface </span><span class="identifier">IInterstitialAd</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-ad/index.html"><span class="identifier">IAd</span></a></code>
+<p>Manages Interstitial Ad:</p>
+<ul><li>loading</li>
+<li>showing to the user</li>
+<li>provides loading, showing and closing events</li>
+<li>is connected with activity lifecycle</li>
+</ul>
+<p>Interstitial ads are full-screen ads that cover the interface of their host app.
+They're typically displayed at natural transition points in the flow of an app,
+such as between activities or during the pause between levels in a game.
+In this api default behaviour we displaying it also after showing splash to the users on application launch.
+When an app shows an interstitial ad,
+the user has the choice to either tap on the ad and continue to its destination or close it and return to the app.</p>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -17,6 +29,7 @@
 <h4><a href="is-loaded.html">isLoaded</a></h4>
 </td>
 <td>
+<p>Indicates if ad is loaded and ready to show</p>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isLoaded</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
 </tr>
 </tbody>
@@ -29,6 +42,7 @@
 <h4><a href="load.html">load</a></h4>
 </td>
 <td>
+<p>Loads ad and provides load success/failure callback</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">load</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -36,6 +50,7 @@
 <h4><a href="load-if-should-be-loaded.html">loadIfShouldBeLoaded</a></h4>
 </td>
 <td>
+<p>Loads ad if it is not currently loading or already loaded</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">loadIfShouldBeLoaded</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -43,6 +58,7 @@
 <h4><a href="show-if-can-be-showed.html">showIfCanBeShowed</a></h4>
 </td>
 <td>
+<p>Shows ad if it is loaded and minimum time between this ads passed (limit can be ignored by <a href="show-if-can-be-showed.html#pl.netigen.coreapi.ads.IInterstitialAd$showIfCanBeShowed(kotlin.Boolean, kotlin.Function1((kotlin.Boolean, kotlin.Unit)))/forceShow">forceShow</a> = true)</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">showIfCanBeShowed</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.coreapi.ads.IInterstitialAd$showIfCanBeShowed(kotlin.Boolean, kotlin.Function1((kotlin.Boolean, kotlin.Unit)))/forceShow">forceShow</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.ads.IInterstitialAd$showIfCanBeShowed(kotlin.Boolean, kotlin.Function1((kotlin.Boolean, kotlin.Unit)))/onClosedOrNotShowed">onClosedOrNotShowed</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>

@@ -8,9 +8,12 @@
 <a href="../../index.html">core-api</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.coreapi.payments</a>&nbsp;/&nbsp;<a href="./index.html">Payments</a><br/>
 <br/>
 <h1>Payments</h1>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Payments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-payments/index.html"><span class="identifier">IPayments</span></a></code>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Payments</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-i-payments/index.html"><span class="identifier">IPayments</span></a><span class="symbol">, </span><a href="../-i-payments-repo/index.html"><span class="identifier">IPaymentsRepo</span></a></code>
 <p>Base class for <a href="../-i-payments/index.html">IPayments</a> implementations</p>
 <p>Provides also access to payments repository and default sku values</p>
+<h3>Parameters</h3>
+<p><a name="activity"></a>
+<code>activity</code> - <a href="https://developer.android.com/reference/android/app/Activity.html">Activity</a> using in current Payments implementation and for get <a href="package-name.html">packageName</a></p>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -20,7 +23,7 @@
 </td>
 <td>
 <p>Base class for <a href="../-i-payments/index.html">IPayments</a> implementations</p>
-<code><span class="identifier">Payments</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/paymentsImplContext">paymentsImplContext</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/packageName">packageName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;paymentsImplContext.packageName<span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/noAdsInAppSkuList">noAdsInAppSkuList</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;listOf("${packageName}.noads")<span class="symbol">, </span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.content.Context, kotlin.String, kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.String)))/inAppSkuList">inAppSkuList</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;listOf("${packageName}.noads")<span class="symbol">)</span></code></td>
+<code><span class="identifier">Payments</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.coreapi.payments.Payments$<init>(android.app.Activity)/activity">activity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">)</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -37,29 +40,19 @@
 </tr>
 <tr>
 <td>
-<h4><a href="in-app-sku-list.html">inAppSkuList</a></h4>
+<h4><a href="last-payment-event.html">lastPaymentEvent</a></h4>
 </td>
 <td>
-<p>List of all payments sku available in Application
-for default it is only one default no-ads sku: <a href="../-i-no-ads/package-name.html">packageName</a> +".noads"</p>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">inAppSkuList</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+<p><a href="../../pl.netigen.extensions/-single-live-event/index.html">SingleLiveEvent</a> indicating last payment event it can be success <a href="#">PaymentEvent.PaymentSuccess</a>, <a href="#">PaymentEvent.PaymentRestored</a> or <a href="#">PaymentEvent.Error</a></p>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">lastPaymentEvent</span><span class="symbol">: </span><a href="../../pl.netigen.extensions/-single-live-event/index.html"><span class="identifier">SingleLiveEvent</span></a><span class="symbol">&lt;</span><a href="../../pl.netigen.coreapi.payments.model/-payment-event.html"><span class="identifier">PaymentEvent</span></a><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="no-ads-active.html">noAdsActive</a></h4>
 </td>
 <td>
-<p>Emits <a href="#">Flow</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt; indicating that no ads in-app purchase is or has changed to active or inactive
-Use this for behave with no ads related stuff, (e.g. hide/show no ads buy buttons)</p>
+<p>Emits <a href="#">Flow</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt; indicating that no ads in-app purchase is or has changed to active or inactive</p>
 <code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">noAdsActive</span><span class="symbol">: </span><span class="identifier">Flow</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="no-ads-in-app-sku-list.html">noAdsInAppSkuList</a></h4>
-</td>
-<td>
-<p>List of no ads sku available in application</p>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">noAdsInAppSkuList</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -76,14 +69,6 @@ Use this for behave with no ads related stuff, (e.g. hide/show no ads buy button
 <td>
 <p>Application package name for default no ads sku</p>
 <code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">packageName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="payments-impl-context.html">paymentsImplContext</a></h4>
-</td>
-<td>
-<p><a href="https://developer.android.com/reference/android/content/Context.html">Context</a> using in current Payments implementation and for get <a href="package-name.html">packageName</a></p>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">paymentsImplContext</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a></code></td>
 </tr>
 <tr>
 <td>

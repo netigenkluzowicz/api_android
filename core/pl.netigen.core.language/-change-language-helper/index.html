@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ChangeLanguageHelper - core</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.core.language</a>&nbsp;/&nbsp;<a href="./index.html">ChangeLanguageHelper</a><br/>
+<br/>
+<h1>ChangeLanguageHelper</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ChangeLanguageHelper</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">ChangeLanguageHelper</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-l-a-n-g-u-a-g-e_-p-r-e-f-e-r-e-n-c-e-s.html">LANGUAGE_PREFERENCES</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LANGUAGE_PREFERENCES</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-current-app-locale.html">getCurrentAppLocale</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getCurrentAppLocale</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$getCurrentAppLocale(android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-preferences-locale.html">getPreferencesLocale</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getPreferencesLocale</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-activity-locale.html">setActivityLocale</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setActivityLocale</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setActivityLocale(android.app.Activity)/activity">activity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-locale.html">setLocale</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setLocale</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocale(kotlin.String, android.content.Context)/lang">lang</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocale(kotlin.String, android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setLocale</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocale(android.content.Context, android.content.Context)/activityContext">activityContext</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocale(android.content.Context, android.content.Context)/applicationContext">applicationContext</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-locale-and-recreate.html">setLocaleAndRecreate</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setLocaleAndRecreate</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocaleAndRecreate(android.app.Activity)/activity">activity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-locale-and-restart-app.html">setLocaleAndRestartApp</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setLocaleAndRestartApp</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocaleAndRestartApp(kotlin.String, androidx.appcompat.app.AppCompatActivity, java.lang.Class((kotlin.Any)))/lang">lang</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocaleAndRestartApp(kotlin.String, androidx.appcompat.app.AppCompatActivity, java.lang.Class((kotlin.Any)))/currentActivity">currentActivity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html"><span class="identifier">AppCompatActivity</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setLocaleAndRestartApp(kotlin.String, androidx.appcompat.app.AppCompatActivity, java.lang.Class((kotlin.Any)))/activityToLaunch">activityToLaunch</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">!</span><span class="symbol">&gt;</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-new-locale.html">setNewLocale</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setNewLocale</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setNewLocale(android.content.Context, android.content.Context, kotlin.String)/activityContext">activityContext</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setNewLocale(android.content.Context, android.content.Context, kotlin.String)/applicationContext">applicationContext</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setNewLocale(android.content.Context, android.content.Context, kotlin.String)/language">language</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-preferences-locale.html">setPreferencesLocale</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setPreferencesLocale</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setPreferencesLocale(kotlin.String)/userLocale">userLocale</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-shared-preferences.html">setSharedPreferences</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setSharedPreferences</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$setSharedPreferences(android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show-translation-info-alert-dialog.html">showTranslationInfoAlertDialog</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">showTranslationInfoAlertDialog</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$showTranslationInfoAlertDialog(pl.netigen.core.language.info.TranslationInfoDialogFragment.DialogClickListener, androidx.appcompat.app.AppCompatActivity)/dialogClickListener">dialogClickListener</span><span class="symbol">:</span>&nbsp;<span class="identifier">DialogClickListener</span><span class="symbol">!</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$showTranslationInfoAlertDialog(pl.netigen.core.language.info.TranslationInfoDialogFragment.DialogClickListener, androidx.appcompat.app.AppCompatActivity)/appCompatActivity">appCompatActivity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html"><span class="identifier">AppCompatActivity</span></a><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show-translation-info-dialog-if-needed.html">showTranslationInfoDialogIfNeeded</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">showTranslationInfoDialogIfNeeded</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.language.ChangeLanguageHelper$showTranslationInfoDialogIfNeeded(pl.netigen.core.language.info.TranslationInfoDialogFragment.Builder)/builder">builder</span><span class="symbol">:</span>&nbsp;<span class="identifier">Builder</span><span class="symbol">!</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

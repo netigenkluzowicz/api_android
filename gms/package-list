@@ -1,0 +1,6 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+pl.netigen.gms.ads
+pl.netigen.gms.gdpr
+pl.netigen.gms.payments

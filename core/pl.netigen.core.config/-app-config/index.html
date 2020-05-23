@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AppConfig - core</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">core</a>&nbsp;/&nbsp;<a href="../index.html">pl.netigen.core.config</a>&nbsp;/&nbsp;<a href="./index.html">AppConfig</a><br/>
+<br/>
+<h1>AppConfig</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">AppConfig</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">IAppConfig</span></code>
+<p><a href="#">IAppConfig</a> implementation which provides also <a href="market-link-prefix.html">marketLinkPrefix</a> for linking Application to current <a href="#">Store</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p><a href="#">IAppConfig</a> implementation which provides also <a href="market-link-prefix.html">marketLinkPrefix</a> for linking Application to current <a href="#">Store</a></p>
+<code><span class="identifier">AppConfig</span><span class="symbol">(</span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/bannerAdId">bannerAdId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/interstitialAdId">interstitialAdId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/rewardedAdId">rewardedAdId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/store">store</span><span class="symbol">:</span>&nbsp;<span class="identifier">Store</span><span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/bannerLayoutIdName">bannerLayoutIdName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;"adsLayout"<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/isBannerAdaptive">isBannerAdaptive</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/testDevices">testDevices</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/inDebugMode">inDebugMode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/adMobPublisherIds">adMobPublisherIds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;arrayOf(NETIGEN_ADMOB_PUBLISHER_ID)<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/isNoAdsAvailable">isNoAdsAvailable</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/maxConsentWaitTime">maxConsentWaitTime</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_MAX_CONSENT_WAIT_TIME_MS<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/maxInterstitialWaitTime">maxInterstitialWaitTime</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS<span class="symbol">, </span><span class="identifier" id="pl.netigen.core.config.AppConfig$<init>(kotlin.String, kotlin.String, kotlin.String, pl.netigen.coreapi.main.Store, kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)), kotlin.Boolean, kotlin.Array((kotlin.String)), kotlin.Boolean, kotlin.Long, kotlin.Long, kotlin.Boolean)/useDefaultRateUs">useDefaultRateUs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="ad-mob-publisher-ids.html">adMobPublisherIds</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">adMobPublisherIds</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="banner-ad-id.html">bannerAdId</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">bannerAdId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="banner-layout-id-name.html">bannerLayoutIdName</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">bannerLayoutIdName</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="in-debug-mode.html">inDebugMode</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">inDebugMode</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="interstitial-ad-id.html">interstitialAdId</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">interstitialAdId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-banner-adaptive.html">isBannerAdaptive</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">isBannerAdaptive</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-no-ads-available.html">isNoAdsAvailable</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">isNoAdsAvailable</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="max-consent-wait-time.html">maxConsentWaitTime</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">maxConsentWaitTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="max-interstitial-wait-time.html">maxInterstitialWaitTime</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">maxInterstitialWaitTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rewarded-ad-id.html">rewardedAdId</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">rewardedAdId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="store.html">store</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">store</span><span class="symbol">: </span><span class="identifier">Store</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="test-devices.html">testDevices</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">testDevices</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="use-default-rate-us.html">useDefaultRateUs</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">useDefaultRateUs</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="market-link-prefix.html">marketLinkPrefix</a></h4>
+</td>
+<td>
+<p>Used for linking Application to current <a href="#">Store</a>,
+as in <a href="../../pl.netigen.core.utils/-utils/open-market-link.html">Utils.openMarketLink()</a></p>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">marketLinkPrefix</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-n-e-t-i-g-e-n_-a-d-m-o-b_-p-u-b-l-i-s-h-e-r_-i-d.html">NETIGEN_ADMOB_PUBLISHER_ID</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">NETIGEN_ADMOB_PUBLISHER_ID</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

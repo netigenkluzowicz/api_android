@@ -16,6 +16,7 @@
 <h4><a href="-ad-consent-status/index.html">AdConsentStatus</a></h4>
 </td>
 <td>
+<p>Possible values of Gdpr ads consent status</p>
 <code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">AdConsentStatus</span></code></td>
 </tr>
 <tr>
@@ -23,13 +24,30 @@
 <h4><a href="-check-g-d-p-r-location-status/index.html">CheckGDPRLocationStatus</a></h4>
 </td>
 <td>
+<p>Possible user GDPR location statuses:</p>
 <code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CheckGDPRLocationStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-g-d-p-r-click-listener/index.html">GDPRClickListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">GDPRClickListener</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-i-core-splash-fragment.html">ICoreSplashFragment</a></h4>
+</td>
+<td>
+<p>Used for Gdpr pop-up fragment, see <a href="-i-g-d-p-r-consent/index.html">IGDPRConsent</a></p>
+<code><span class="keyword">interface </span><span class="identifier">ICoreSplashFragment</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-g-d-p-r-click-listener/index.html"><span class="identifier">GDPRClickListener</span></a></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="-i-g-d-p-r-consent/index.html">IGDPRConsent</a></h4>
 </td>
 <td>
+<p>Its used for collect user consent for displaying ads, and ask them if we can provide personalized ads</p>
 <code><span class="keyword">interface </span><span class="identifier">IGDPRConsent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-i-g-d-p-r-texts/index.html"><span class="identifier">IGDPRTexts</span></a></code></td>
 </tr>
 <tr>
@@ -37,7 +55,7 @@
 <h4><a href="-i-g-d-p-r-consent-config/index.html">IGDPRConsentConfig</a></h4>
 </td>
 <td>
-<p>Configuration for Gdpr Consent</p>
+<p>Configurations for Gdpr Consent, as for now only List of Admob publisher ids is needed</p>
 <code><span class="keyword">interface </span><span class="identifier">IGDPRConsentConfig</span></code></td>
 </tr>
 <tr>
@@ -45,6 +63,8 @@
 <h4><a href="-i-g-d-p-r-texts/index.html">IGDPRTexts</a></h4>
 </td>
 <td>
+<p>List of texts for Consent PopUp
+See implementations for more info</p>
 <code><span class="keyword">interface </span><span class="identifier">IGDPRTexts</span></code></td>
 </tr>
 </tbody>

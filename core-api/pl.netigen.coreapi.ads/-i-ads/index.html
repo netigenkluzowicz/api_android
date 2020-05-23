@@ -9,6 +9,16 @@
 <br/>
 <h1>IAds</h1>
 <code><span class="keyword">interface </span><span class="identifier">IAds</span></code>
+<p>Universal interface for managing ads, such as:</p>
+<ul><li>initializing ads SDk</li>
+<li>displaying and loading <a href="../-i-banner-ad/index.html">IBannerAd</a>, <a href="../-i-interstitial-ad/index.html">IInterstitialAd</a> and <a href="../-i-rewarded-ad/index.html">IRewardedAd</a></li>
+<li>turning on/off personalized ads</li>
+<li>enabling and disabling all ads</li>
+<li>provides time minimum limit between IInterstitialAd displays</li>
+<li>showing test/production ads</li>
+</ul>
+<p>See: <a href="https://developer.huawei.com/consumer/en/monetize">Mobile Ads SDK</a></p>
+<p>See: <a href="https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide">HUAWEI Ads SDK</a></p>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -17,6 +27,7 @@
 <h4><a href="banner-ad.html">bannerAd</a></h4>
 </td>
 <td>
+<p>Provides <a href="../-i-banner-ad/index.html">IBannerAd</a></p>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">bannerAd</span><span class="symbol">: </span><a href="../-i-banner-ad/index.html"><span class="identifier">IBannerAd</span></a></code></td>
 </tr>
 <tr>
@@ -24,6 +35,7 @@
 <h4><a href="interstitial-ad.html">interstitialAd</a></h4>
 </td>
 <td>
+<p>Provides <a href="../-i-interstitial-ad/index.html">IInterstitialAd</a></p>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">interstitialAd</span><span class="symbol">: </span><a href="../-i-interstitial-ad/index.html"><span class="identifier">IInterstitialAd</span></a></code></td>
 </tr>
 <tr>
@@ -31,6 +43,7 @@
 <h4><a href="personalized-ads-enabled.html">personalizedAdsEnabled</a></h4>
 </td>
 <td>
+<p>Set this to turn off/on personalized ads</p>
 <code><span class="keyword">abstract</span> <span class="keyword">var </span><span class="identifier">personalizedAdsEnabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
 </tr>
 <tr>
@@ -38,6 +51,7 @@
 <h4><a href="rewarded-ad.html">rewardedAd</a></h4>
 </td>
 <td>
+<p>Provides <a href="../-i-rewarded-ad/index.html">IRewardedAd</a></p>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">rewardedAd</span><span class="symbol">: </span><a href="../-i-rewarded-ad/index.html"><span class="identifier">IRewardedAd</span></a></code></td>
 </tr>
 </tbody>
@@ -50,6 +64,7 @@
 <h4><a href="disable.html">disable</a></h4>
 </td>
 <td>
+<p>Disable all ads, hide banners, cancel and/or stop loading ads</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">disable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -57,6 +72,7 @@
 <h4><a href="enable.html">enable</a></h4>
 </td>
 <td>
+<p>Enables ads, starts loading and showing them</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">enable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
@@ -69,6 +85,7 @@
 <h4><a href="../../pl.netigen.coreapi.main/-i-core-main-v-m/index.html">ICoreMainVM</a></h4>
 </td>
 <td>
+<p>This implementations, provides access to api modules:</p>
 <code><span class="keyword">interface </span><span class="identifier">ICoreMainVM</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../pl.netigen.coreapi.payments/-i-payments/index.html"><span class="identifier">IPayments</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">IAds</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.network/-i-network-status/index.html"><span class="identifier">INetworkStatus</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.gdpr/-i-g-d-p-r-consent/index.html"><span class="identifier">IGDPRConsent</span></a><span class="symbol">, </span><a href="../../pl.netigen.coreapi.main/-i-app-config/index.html"><span class="identifier">IAppConfig</span></a></code></td>
 </tr>
 </tbody>
