@@ -2,8 +2,8 @@
 title: LanguageModel.setSelected - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.language](../index.html) / [LanguageModel](index.html) / [setSelected](./set-selected.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [setSelected](./set-selected.html)
 
 # setSelected
 
-`open fun setSelected(selected: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`open fun setSelected(selected: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

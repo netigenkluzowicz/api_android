@@ -2,13 +2,13 @@
 title: Payments.<init> - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [Payments](index.html) / [&lt;init&gt;](./-init-.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Payments](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 
 `Payments(activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`)`
 
-Base class for [IPayments](../-i-payments/index.html) implementations
+Base class for [IPayments](../-i-payments/index.md) implementations
 
 Provides also access to payments repository and default sku values
 

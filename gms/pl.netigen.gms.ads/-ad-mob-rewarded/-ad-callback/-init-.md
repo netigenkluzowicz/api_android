@@ -2,8 +2,8 @@
 title: AdMobRewarded.AdCallback.<init> - gms
 ---
 
-[gms](../../../index.html) / [pl.netigen.gms.ads](../../index.html) / [AdMobRewarded](../index.html) / [AdCallback](index.html) / [&lt;init&gt;](./-init-.html)
+[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdCallback](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 
-`AdCallback(onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`)`
+`AdCallback(onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`)`

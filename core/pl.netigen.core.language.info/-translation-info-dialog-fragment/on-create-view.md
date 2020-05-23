@@ -2,7 +2,7 @@
 title: TranslationInfoDialogFragment.onCreateView - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.language.info](../index.html) / [TranslationInfoDialogFragment](index.html) / [onCreateView](./on-create-view.html)
+[core](../../index.md) / [pl.netigen.core.language.info](../index.md) / [TranslationInfoDialogFragment](index.md) / [onCreateView](./on-create-view.html)
 
 # onCreateView
 

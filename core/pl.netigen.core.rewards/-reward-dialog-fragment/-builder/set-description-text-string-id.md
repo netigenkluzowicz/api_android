@@ -2,8 +2,8 @@
 title: RewardDialogFragment.Builder.setDescriptionTextStringId - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [RewardDialogFragment](../index.html) / [Builder](index.html) / [setDescriptionTextStringId](./set-description-text-string-id.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [setDescriptionTextStringId](./set-description-text-string-id.html)
 
 # setDescriptionTextStringId
 
-`open fun setDescriptionTextStringId(descriptionTextStringId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!`
+`open fun setDescriptionTextStringId(descriptionTextStringId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!`

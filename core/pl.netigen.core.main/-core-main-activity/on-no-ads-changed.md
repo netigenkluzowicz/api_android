@@ -2,8 +2,8 @@
 title: CoreMainActivity.onNoAdsChanged - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainActivity](index.html) / [onNoAdsChanged](./on-no-ads-changed.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [onNoAdsChanged](./on-no-ads-changed.html)
 
 # onNoAdsChanged
 
-`open fun onNoAdsChanged(noAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`open fun onNoAdsChanged(noAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

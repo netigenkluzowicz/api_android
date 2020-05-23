@@ -2,8 +2,8 @@
 title: CoreMainActivity.showGdprPopUp - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainActivity](index.html) / [showGdprPopUp](./show-gdpr-pop-up.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [showGdprPopUp](./show-gdpr-pop-up.html)
 
 # showGdprPopUp
 
-`open fun showGdprPopUp(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`open fun showGdprPopUp(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

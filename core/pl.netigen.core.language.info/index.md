@@ -2,11 +2,11 @@
 title: pl.netigen.core.language.info - core
 ---
 
-[core](../index.html) / [pl.netigen.core.language.info](./index.html)
+[core](../index.md) / [pl.netigen.core.language.info](./index.md)
 
 ## Package pl.netigen.core.language.info
 
 ### Types
 
-| [TranslationInfoDialogFragment](-translation-info-dialog-fragment/index.html) | `open class TranslationInfoDialogFragment : `[`BaseDialogFragment`](../pl.netigen.core.utils/-base-dialog-fragment/index.html) |
+| [TranslationInfoDialogFragment](-translation-info-dialog-fragment/index.md) | `open class TranslationInfoDialogFragment : `[`BaseDialogFragment`](../pl.netigen.core.utils/-base-dialog-fragment/index.md) |
 

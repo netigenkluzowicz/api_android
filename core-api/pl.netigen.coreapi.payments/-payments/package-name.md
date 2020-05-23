@@ -2,11 +2,11 @@
 title: Payments.packageName - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [Payments](index.html) / [packageName](./package-name.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [Payments](index.md) / [packageName](./package-name.html)
 
 # packageName
 
-`open val packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`open val packageName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
 
 Application package name for default no ads sku
 

@@ -2,8 +2,8 @@
 title: ChangeLanguageDialogFragment.Builder.create - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [ChangeLanguageDialogFragment](../index.html) / [Builder](index.html) / [create](./create.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [create](./create.html)
 
 # create
 
-`open fun create(): `[`ChangeLanguageDialogFragment`](../index.html)`!`
+`open fun create(): `[`ChangeLanguageDialogFragment`](../index.md)`!`

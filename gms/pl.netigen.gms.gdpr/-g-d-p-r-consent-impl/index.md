@@ -2,7 +2,7 @@
 title: GDPRConsentImpl - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.gdpr](../index.html) / [GDPRConsentImpl](./index.html)
+[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](./index.md)
 
 # GDPRConsentImpl
 
@@ -22,10 +22,10 @@ title: GDPRConsentImpl - gms
 ### Functions
 
 | [requestGDPRLocation](request-g-d-p-r-location.html) | `fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus>` |
-| [saveAdConsentStatus](save-ad-consent-status.html) | `fun saveAdConsentStatus(adConsentStatus: AdConsentStatus): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [saveAdConsentStatus](save-ad-consent-status.html) | `fun saveAdConsentStatus(adConsentStatus: AdConsentStatus): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 
 ### Companion Object Properties
 
-| [PREFERENCES_KEY](-p-r-e-f-e-r-e-n-c-e-s_-k-e-y.html) | `const val PREFERENCES_KEY: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-| [PREFERENCES_NAME](-p-r-e-f-e-r-e-n-c-e-s_-n-a-m-e.html) | `const val PREFERENCES_NAME: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [PREFERENCES_KEY](-p-r-e-f-e-r-e-n-c-e-s_-k-e-y.html) | `const val PREFERENCES_KEY: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
+| [PREFERENCES_NAME](-p-r-e-f-e-r-e-n-c-e-s_-n-a-m-e.html) | `const val PREFERENCES_NAME: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
 

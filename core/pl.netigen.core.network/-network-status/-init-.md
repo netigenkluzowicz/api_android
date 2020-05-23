@@ -2,7 +2,7 @@
 title: NetworkStatus.<init> - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.network](../index.html) / [NetworkStatus](index.html) / [&lt;init&gt;](./-init-.html)
+[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

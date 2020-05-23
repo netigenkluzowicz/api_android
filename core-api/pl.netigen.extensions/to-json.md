@@ -2,8 +2,8 @@
 title: toJson - core-api
 ---
 
-[core-api](../index.html) / [pl.netigen.extensions](index.html) / [toJson](./to-json.html)
+[core-api](../index.md) / [pl.netigen.extensions](index.md) / [toJson](./to-json.html)
 
 # toJson
 
-`fun <reified T> T.toJson(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`fun <reified T> T.toJson(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)

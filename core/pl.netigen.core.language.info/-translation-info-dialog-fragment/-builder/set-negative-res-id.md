@@ -2,8 +2,8 @@
 title: TranslationInfoDialogFragment.Builder.setNegativeResId - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.language.info](../../index.html) / [TranslationInfoDialogFragment](../index.html) / [Builder](index.html) / [setNegativeResId](./set-negative-res-id.html)
+[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setNegativeResId](./set-negative-res-id.html)
 
 # setNegativeResId
 
-`open fun setNegativeResId(negativeResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!`
+`open fun setNegativeResId(negativeResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!`

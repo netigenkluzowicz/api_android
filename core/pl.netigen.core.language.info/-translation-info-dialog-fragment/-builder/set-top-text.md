@@ -2,8 +2,8 @@
 title: TranslationInfoDialogFragment.Builder.setTopText - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.language.info](../../index.html) / [TranslationInfoDialogFragment](../index.html) / [Builder](index.html) / [setTopText](./set-top-text.html)
+[core](../../../index.md) / [pl.netigen.core.language.info](../../index.md) / [TranslationInfoDialogFragment](../index.md) / [Builder](index.md) / [setTopText](./set-top-text.html)
 
 # setTopText
 
-`open fun setTopText(textContent1: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): Builder!`
+`open fun setTopText(textContent1: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)`): Builder!`

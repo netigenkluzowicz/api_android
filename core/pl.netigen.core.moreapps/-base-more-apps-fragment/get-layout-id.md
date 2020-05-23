@@ -2,8 +2,8 @@
 title: BaseMoreAppsFragment.getLayoutId - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.moreapps](../index.html) / [BaseMoreAppsFragment](index.html) / [getLayoutId](./get-layout-id.html)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [getLayoutId](./get-layout-id.html)
 
 # getLayoutId
 
-`abstract fun getLayoutId(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+`abstract fun getLayoutId(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)

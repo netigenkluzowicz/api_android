@@ -2,11 +2,11 @@
 title: IAdsConfig.inDebugMode - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IAdsConfig](index.html) / [inDebugMode](./in-debug-mode.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IAdsConfig](index.md) / [inDebugMode](./in-debug-mode.html)
 
 # inDebugMode
 
-`abstract val inDebugMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+`abstract val inDebugMode: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)
 
 Sets debug mode on/off, when:
 

@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreViewModelsFactory](./index.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](./index.md)
 
 # CoreViewModelsFactory
 
@@ -12,11 +12,11 @@ title: CoreViewModelsFactory - core
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | [ICoreViewModelsFactory](#) using companion object for providing Api modules singletons for created view models`CoreViewModelsFactory(coreMainActivity: `[`CoreMainActivity`](../-core-main-activity/index.html)`)` |
+| [&lt;init&gt;](-init-.html) | [ICoreViewModelsFactory](#) using companion object for providing Api modules singletons for created view models`CoreViewModelsFactory(coreMainActivity: `[`CoreMainActivity`](../-core-main-activity/index.md)`)` |
 
 ### Properties
 
-| [coreMainActivity](core-main-activity.html) | `open val coreMainActivity: `[`CoreMainActivity`](../-core-main-activity/index.html) |
+| [coreMainActivity](core-main-activity.html) | `open val coreMainActivity: `[`CoreMainActivity`](../-core-main-activity/index.md) |
 | [networkStatus](network-status.html) | `open val networkStatus: INetworkStatus` |
 
 ### Functions
@@ -25,5 +25,5 @@ title: CoreViewModelsFactory - core
 
 ### Companion Object Functions
 
-| [cleanAds](clean-ads.html) | Used to clean up ads instance after [CoreMainVM](#) is cleared(activity is killed)`fun cleanAds(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [cleanAds](clean-ads.html) | Used to clean up ads instance after [CoreMainVM](#) is cleared(activity is killed)`fun cleanAds(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

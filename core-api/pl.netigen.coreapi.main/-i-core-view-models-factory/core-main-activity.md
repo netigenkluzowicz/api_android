@@ -2,11 +2,11 @@
 title: ICoreViewModelsFactory.coreMainActivity - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](index.html) / [coreMainActivity](./core-main-activity.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [coreMainActivity](./core-main-activity.html)
 
 # coreMainActivity
 
-`abstract val coreMainActivity: `[`ICoreMainActivity`](../-i-core-main-activity/index.html)
+`abstract val coreMainActivity: `[`ICoreMainActivity`](../-i-core-main-activity/index.md)
 
 Main api activity provides context for Api modules
 

@@ -2,8 +2,8 @@
 title: ConstGDPR.textPolicy2 - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.gdpr](../index.html) / [ConstGDPR](index.html) / [textPolicy2](./text-policy2.html)
+[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [ConstGDPR](index.md) / [textPolicy2](./text-policy2.html)
 
 # textPolicy2
 
-`var textPolicy2: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`var textPolicy2: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)

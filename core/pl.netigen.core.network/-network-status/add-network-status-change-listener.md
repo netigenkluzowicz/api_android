@@ -2,8 +2,8 @@
 title: NetworkStatus.addNetworkStatusChangeListener - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.network](../index.html) / [NetworkStatus](index.html) / [addNetworkStatusChangeListener](./add-network-status-change-listener.html)
+[core](../../index.md) / [pl.netigen.core.network](../index.md) / [NetworkStatus](index.md) / [addNetworkStatusChangeListener](./add-network-status-change-listener.html)
 
 # addNetworkStatusChangeListener
 
-`fun addNetworkStatusChangeListener(networkStatusChangeListener: NetworkStatusChangeListener): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun addNetworkStatusChangeListener(networkStatusChangeListener: NetworkStatusChangeListener): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

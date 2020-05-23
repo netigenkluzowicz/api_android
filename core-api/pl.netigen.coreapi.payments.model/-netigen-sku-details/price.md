@@ -2,11 +2,11 @@
 title: NetigenSkuDetails.price - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [NetigenSkuDetails](index.html) / [price](./price.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [NetigenSkuDetails](index.md) / [price](./price.html)
 
 # price
 
-`val price: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`
+`val price: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`?`
 
 Formatted price of the item, including its currency sign.
 

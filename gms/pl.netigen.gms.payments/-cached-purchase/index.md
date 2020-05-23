@@ -2,7 +2,7 @@
 title: CachedPurchase - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [CachedPurchase](./index.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [CachedPurchase](./index.md)
 
 # CachedPurchase
 
@@ -15,11 +15,11 @@ title: CachedPurchase - gms
 ### Properties
 
 | [data](data.html) | `val data: Purchase` |
-| [id](id.html) | `var id: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
-| [purchaseToken](purchase-token.html) | `val purchaseToken: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [id](id.html) | `var id: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md) |
+| [purchaseToken](purchase-token.html) | `val purchaseToken: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
 
 ### Functions
 
-| [equals](equals.html) | `fun equals(other: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
-| [hashCode](hash-code.html) | `fun hashCode(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [equals](equals.html) | `fun equals(other: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.md)`?): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
+| [hashCode](hash-code.html) | `fun hashCode(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md) |
 

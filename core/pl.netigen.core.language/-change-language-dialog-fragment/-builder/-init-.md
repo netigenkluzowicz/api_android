@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.<init> - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [ChangeLanguageDialogFragment](../index.html) / [Builder](index.html) / [&lt;init&gt;](./-init-.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

@@ -2,11 +2,11 @@
 title: IRewardedAd - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IRewardedAd](./index.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IRewardedAd](./index.md)
 
 # IRewardedAd
 
-`interface IRewardedAd : `[`IAd`](../-i-ad/index.html)
+`interface IRewardedAd : `[`IAd`](../-i-ad/index.md)
 
 Manages rewarded ads:
 
@@ -19,9 +19,9 @@ Rewarded ad  allow you to reward users with in-app items for interacting with vi
 
 ### Properties
 
-| [isLoaded](is-loaded.html) | Informs is ad ready to show`abstract val isLoaded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [isLoaded](is-loaded.html) | Informs is ad ready to show`abstract val isLoaded: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md) |
 
 ### Functions
 
-| [showRewardedAd](show-rewarded-ad.html) | Shows rewarded ad and provides information if user should be given with reward`abstract fun showRewardedAd(onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [showRewardedAd](show-rewarded-ad.html) | Shows rewarded ad and provides information if user should be given with reward`abstract fun showRewardedAd(onRewardResult: (`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

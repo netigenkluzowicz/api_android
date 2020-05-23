@@ -2,11 +2,11 @@
 title: ICoreViewModelsFactory.appConfig - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](index.html) / [appConfig](./app-config.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [appConfig](./app-config.html)
 
 # appConfig
 
-`abstract val appConfig: `[`IAppConfig`](../-i-app-config/index.html)
+`abstract val appConfig: `[`IAppConfig`](../-i-app-config/index.md)
 
-Provides [IAppConfig](../-i-app-config/index.html) to Api view models
+Provides [IAppConfig](../-i-app-config/index.md) to Api view models
 

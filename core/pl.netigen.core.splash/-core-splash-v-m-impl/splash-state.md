@@ -2,7 +2,7 @@
 title: CoreSplashVMImpl.splashState - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.splash](../index.html) / [CoreSplashVMImpl](index.html) / [splashState](./splash-state.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [CoreSplashVMImpl](index.md) / [splashState](./splash-state.html)
 
 # splashState
 

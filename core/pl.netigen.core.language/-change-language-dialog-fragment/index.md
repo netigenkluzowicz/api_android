@@ -2,18 +2,18 @@
 title: ChangeLanguageDialogFragment - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.language](../index.html) / [ChangeLanguageDialogFragment](./index.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](./index.md)
 
 # ChangeLanguageDialogFragment
 
-`open class ChangeLanguageDialogFragment : `[`BaseDialogFragment`](../../pl.netigen.core.utils/-base-dialog-fragment/index.html)
+`open class ChangeLanguageDialogFragment : `[`BaseDialogFragment`](../../pl.netigen.core.utils/-base-dialog-fragment/index.md)
 
 Dialog for show user possibility to change language of application
 
 ### Types
 
-| [Builder](-builder/index.html) | `open class Builder` |
-| [LanguageClickListener](-language-click-listener/index.html) | `interface LanguageClickListener` |
+| [Builder](-builder/index.md) | `open class Builder` |
+| [LanguageClickListener](-language-click-listener/index.md) | `interface LanguageClickListener` |
 
 ### Constructors
 
@@ -21,10 +21,10 @@ Dialog for show user possibility to change language of application
 
 ### Functions
 
-| [bindListener](bind-listener.html) | `open fun bindListener(languageClickListener: LanguageClickListener!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [initiateList](initiate-list.html) | `open fun initiateList(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onCreate](on-create.html) | `open fun onCreate(savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [bindListener](bind-listener.html) | `open fun bindListener(languageClickListener: LanguageClickListener!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [initiateList](initiate-list.html) | `open fun initiateList(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onCreate](on-create.html) | `open fun onCreate(savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 | [onCreateView](on-create-view.html) | `open fun onCreateView(inflater: `[`LayoutInflater`](https://developer.android.com/reference/android/view/LayoutInflater.html)`, container: `[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup.html)`?, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`View`](https://developer.android.com/reference/android/view/View.html)`?` |
-| [onResume](on-resume.html) | `open fun onResume(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onViewCreated](on-view-created.html) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onResume](on-resume.html) | `open fun onResume(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onViewCreated](on-view-created.html) | `open fun onViewCreated(view: `[`View`](https://developer.android.com/reference/android/view/View.html)`, savedInstanceState: `[`Bundle`](https://developer.android.com/reference/android/os/Bundle.html)`?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

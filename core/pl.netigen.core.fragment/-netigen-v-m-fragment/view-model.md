@@ -2,7 +2,7 @@
 title: NetigenVMFragment.viewModel - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.fragment](../index.html) / [NetigenVMFragment](index.html) / [viewModel](./view-model.html)
+[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenVMFragment](index.md) / [viewModel](./view-model.html)
 
 # viewModel
 

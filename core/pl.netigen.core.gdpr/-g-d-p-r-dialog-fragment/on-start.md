@@ -2,8 +2,8 @@
 title: GDPRDialogFragment.onStart - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.gdpr](../index.html) / [GDPRDialogFragment](index.html) / [onStart](./on-start.html)
+[core](../../index.md) / [pl.netigen.core.gdpr](../index.md) / [GDPRDialogFragment](index.md) / [onStart](./on-start.html)
 
 # onStart
 
-`fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun onStart(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

@@ -2,11 +2,11 @@
 title: ISplashConfig.maxConsentWaitTime - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.splash](../index.html) / [ISplashConfig](index.html) / [maxConsentWaitTime](./max-consent-wait-time.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxConsentWaitTime](./max-consent-wait-time.html)
 
 # maxConsentWaitTime
 
-`abstract val maxConsentWaitTime: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)
+`abstract val maxConsentWaitTime: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.md)
 
 Max white time on first splash launch to fetch consent information from web services
 

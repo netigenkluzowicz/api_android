@@ -2,11 +2,11 @@
 title: IRateUs.increaseOpeningCounter - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.rateus](../index.html) / [IRateUs](index.html) / [increaseOpeningCounter](./increase-opening-counter.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.rateus](../index.md) / [IRateUs](index.md) / [increaseOpeningCounter](./increase-opening-counter.html)
 
 # increaseOpeningCounter
 
-`abstract fun increaseOpeningCounter(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`abstract fun increaseOpeningCounter(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
 
 It should be called to count number of times user launches app
 

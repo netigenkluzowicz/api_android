@@ -2,11 +2,11 @@
 title: IGDPRConsent.saveAdConsentStatus - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.gdpr](../index.html) / [IGDPRConsent](index.html) / [saveAdConsentStatus](./save-ad-consent-status.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [IGDPRConsent](index.md) / [saveAdConsentStatus](./save-ad-consent-status.html)
 
 # saveAdConsentStatus
 
-`abstract fun saveAdConsentStatus(adConsentStatus: `[`AdConsentStatus`](../-ad-consent-status/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`abstract fun saveAdConsentStatus(adConsentStatus: `[`AdConsentStatus`](../-ad-consent-status/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
 
 Saves current consent status:
 

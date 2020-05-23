@@ -2,7 +2,7 @@
 title: NetigenVMFragment.<init> - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.fragment](../index.html) / [NetigenVMFragment](index.html) / [&lt;init&gt;](./-init-.html)
+[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenVMFragment](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

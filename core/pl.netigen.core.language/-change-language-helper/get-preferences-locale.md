@@ -2,8 +2,8 @@
 title: ChangeLanguageHelper.getPreferencesLocale - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.language](../index.html) / [ChangeLanguageHelper](index.html) / [getPreferencesLocale](./get-preferences-locale.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageHelper](index.md) / [getPreferencesLocale](./get-preferences-locale.html)
 
 # getPreferencesLocale
 
-`open static fun getPreferencesLocale(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!`
+`open static fun getPreferencesLocale(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!`

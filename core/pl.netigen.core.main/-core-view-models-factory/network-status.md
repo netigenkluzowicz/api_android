@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory.networkStatus - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreViewModelsFactory](index.html) / [networkStatus](./network-status.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [networkStatus](./network-status.html)
 
 # networkStatus
 

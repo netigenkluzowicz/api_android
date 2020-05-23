@@ -2,7 +2,7 @@
 title: PurchaseTypeConverter - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.payments](../index.html) / [PurchaseTypeConverter](./index.html)
+[gms](../../index.md) / [pl.netigen.gms.payments](../index.md) / [PurchaseTypeConverter](./index.md)
 
 # PurchaseTypeConverter
 
@@ -14,6 +14,6 @@ title: PurchaseTypeConverter - gms
 
 ### Functions
 
-| [toPurchase](to-purchase.html) | `fun toPurchase(data: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): Purchase` |
-| [toString](to-string.html) | `fun toString(purchase: Purchase): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [toPurchase](to-purchase.html) | `fun toPurchase(data: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`): Purchase` |
+| [toString](to-string.html) | `fun toString(purchase: Purchase): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
 

@@ -2,8 +2,8 @@
 title: CoreMainActivity.splashActive - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainActivity](index.html) / [splashActive](./splash-active.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainActivity](index.md) / [splashActive](./splash-active.html)
 
 # splashActive
 
-`open val splashActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+`open val splashActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)

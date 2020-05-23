@@ -2,8 +2,8 @@
 title: SplashTimerImpl.cancelInterstitialTimer - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.splash](../index.html) / [SplashTimerImpl](index.html) / [cancelInterstitialTimer](./cancel-interstitial-timer.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [cancelInterstitialTimer](./cancel-interstitial-timer.html)
 
 # cancelInterstitialTimer
 
-`fun cancelInterstitialTimer(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun cancelInterstitialTimer(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

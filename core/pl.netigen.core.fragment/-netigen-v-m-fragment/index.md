@@ -2,11 +2,11 @@
 title: NetigenVMFragment - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.fragment](../index.html) / [NetigenVMFragment](./index.html)
+[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenVMFragment](./index.md)
 
 # NetigenVMFragment
 
-`open class NetigenVMFragment : `[`NetigenFragment`](../-netigen-fragment/index.html)
+`open class NetigenVMFragment : `[`NetigenFragment`](../-netigen-fragment/index.md)
 
 Base fragment for Api, provides [canCommitFragments](../-netigen-fragment/can-commit-fragments.html), and [ICoreMainVM](#)
 

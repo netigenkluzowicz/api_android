@@ -2,7 +2,7 @@
 title: GDPRConsentImpl.adConsentStatus - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.gdpr](../index.html) / [GDPRConsentImpl](index.html) / [adConsentStatus](./ad-consent-status.html)
+[gms](../../index.md) / [pl.netigen.gms.gdpr](../index.md) / [GDPRConsentImpl](index.md) / [adConsentStatus](./ad-consent-status.html)
 
 # adConsentStatus
 

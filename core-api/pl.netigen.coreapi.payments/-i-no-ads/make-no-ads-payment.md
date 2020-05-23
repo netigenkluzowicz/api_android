@@ -2,11 +2,11 @@
 title: INoAds.makeNoAdsPayment - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.payments](../index.html) / [INoAds](index.html) / [makeNoAdsPayment](./make-no-ads-payment.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments](../index.md) / [INoAds](index.md) / [makeNoAdsPayment](./make-no-ads-payment.html)
 
 # makeNoAdsPayment
 
-`abstract fun makeNoAdsPayment(activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`, noAdsSku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "${packageName}.noads"): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`abstract fun makeNoAdsPayment(activity: `[`Activity`](https://developer.android.com/reference/android/app/Activity.html)`, noAdsSku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)` = "${packageName}.noads"): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)
 
 Makes call to current payment implementation to launch billing flow for an no ads in-app purchase.
 It will show the purchase screen to the user

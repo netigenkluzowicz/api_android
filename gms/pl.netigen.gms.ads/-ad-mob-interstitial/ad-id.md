@@ -2,14 +2,14 @@
 title: AdMobInterstitial.adId - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobInterstitial](index.html) / [adId](./ad-id.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobInterstitial](index.md) / [adId](./ad-id.html)
 
 # adId
 
-`val adId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`val adId: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
 
-Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) identifier
+Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) identifier
 
 ### Property
 
-`adId` - Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) identifier
+`adId` - Current ad [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) identifier

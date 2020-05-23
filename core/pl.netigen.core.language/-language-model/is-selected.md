@@ -2,8 +2,8 @@
 title: LanguageModel.isSelected - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.language](../index.html) / [LanguageModel](index.html) / [isSelected](./is-selected.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [LanguageModel](index.md) / [isSelected](./is-selected.html)
 
 # isSelected
 
-`open fun isSelected(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+`open fun isSelected(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)

@@ -2,7 +2,7 @@
 title: AdMobAds.<init> - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [AdMobAds](index.html) / [&lt;init&gt;](./-init-.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [AdMobAds](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

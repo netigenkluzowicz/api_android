@@ -2,8 +2,8 @@
 title: AppInfo.isAd - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.moreapps](../index.html) / [AppInfo](index.html) / [isAd](./is-ad.html)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [AppInfo](index.md) / [isAd](./is-ad.html)
 
 # isAd
 
-`val isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+`val isAd: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)

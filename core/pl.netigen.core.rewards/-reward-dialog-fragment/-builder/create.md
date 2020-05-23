@@ -2,8 +2,8 @@
 title: RewardDialogFragment.Builder.create - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.rewards](../../index.html) / [RewardDialogFragment](../index.html) / [Builder](index.html) / [create](./create.html)
+[core](../../../index.md) / [pl.netigen.core.rewards](../../index.md) / [RewardDialogFragment](../index.md) / [Builder](index.md) / [create](./create.html)
 
 # create
 
-`open fun create(coreMainActivity: `[`CoreMainActivity`](../../../pl.netigen.core.main/-core-main-activity/index.html)`!): `[`RewardDialogFragment`](../index.html)`!`
+`open fun create(coreMainActivity: `[`CoreMainActivity`](../../../pl.netigen.core.main/-core-main-activity/index.md)`!): `[`RewardDialogFragment`](../index.md)`!`

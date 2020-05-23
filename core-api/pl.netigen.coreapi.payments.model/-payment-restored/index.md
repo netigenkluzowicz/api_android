@@ -2,7 +2,7 @@
 title: PaymentRestored - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [PaymentRestored](./index.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentRestored](./index.md)
 
 # PaymentRestored
 
@@ -12,9 +12,9 @@ Represents payment restored from billing service with given sku(product Id)
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | Represents payment restored from billing service with given sku(product Id)`PaymentRestored(sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)` |
+| [&lt;init&gt;](-init-.html) | Represents payment restored from billing service with given sku(product Id)`PaymentRestored(sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`)` |
 
 ### Properties
 
-| [sku](sku.html) | Payment event sku(product Id)`val sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [sku](sku.html) | Payment event sku(product Id)`val sku: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md) |
 

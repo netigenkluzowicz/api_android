@@ -2,8 +2,8 @@
 title: SplashTimerImpl.startConsentTimer - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.splash](../index.html) / [SplashTimerImpl](index.html) / [startConsentTimer](./start-consent-timer.html)
+[core](../../index.md) / [pl.netigen.core.splash](../index.md) / [SplashTimerImpl](index.md) / [startConsentTimer](./start-consent-timer.html)
 
 # startConsentTimer
 
-`fun startConsentTimer(onConsentTimeLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun startConsentTimer(onConsentTimeLimit: () -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

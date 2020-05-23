@@ -2,8 +2,8 @@
 title: RateUs.openRateDialog - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.rateus](../index.html) / [RateUs](index.html) / [openRateDialog](./open-rate-dialog.html)
+[core](../../index.md) / [pl.netigen.core.rateus](../index.md) / [RateUs](index.md) / [openRateDialog](./open-rate-dialog.html)
 
 # openRateDialog
 
-`fun openRateDialog(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun openRateDialog(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

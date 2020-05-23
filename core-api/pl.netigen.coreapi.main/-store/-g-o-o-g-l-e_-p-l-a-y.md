@@ -2,7 +2,7 @@
 title: Store.GOOGLE_PLAY - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [Store](index.html) / [GOOGLE_PLAY](./-g-o-o-g-l-e_-p-l-a-y.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [Store](index.md) / [GOOGLE_PLAY](./-g-o-o-g-l-e_-p-l-a-y.html)
 
 # GOOGLE_PLAY
 

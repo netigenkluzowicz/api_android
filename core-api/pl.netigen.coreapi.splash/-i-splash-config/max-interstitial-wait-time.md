@@ -2,11 +2,11 @@
 title: ISplashConfig.maxInterstitialWaitTime - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.splash](../index.html) / [ISplashConfig](index.html) / [maxInterstitialWaitTime](./max-interstitial-wait-time.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.splash](../index.md) / [ISplashConfig](index.md) / [maxInterstitialWaitTime](./max-interstitial-wait-time.html)
 
 # maxInterstitialWaitTime
 
-`abstract val maxInterstitialWaitTime: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)
+`abstract val maxInterstitialWaitTime: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.md)
 
 Max white time for load splash interstitial ad, it is start counting after consent operations are finished
 

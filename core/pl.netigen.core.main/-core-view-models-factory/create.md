@@ -2,7 +2,7 @@
 title: CoreViewModelsFactory.create - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreViewModelsFactory](index.html) / [create](./create.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreViewModelsFactory](index.md) / [create](./create.html)
 
 # create
 

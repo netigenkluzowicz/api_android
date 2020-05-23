@@ -2,7 +2,7 @@
 title: LanguagesRecyclerViewAdapter.LanguageRowViewHolder - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [LanguagesRecyclerViewAdapter](../index.html) / [LanguageRowViewHolder](./index.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [LanguagesRecyclerViewAdapter](../index.md) / [LanguageRowViewHolder](./index.md)
 
 # LanguageRowViewHolder
 
@@ -18,5 +18,5 @@ title: LanguagesRecyclerViewAdapter.LanguageRowViewHolder - core
 
 ### Functions
 
-| [bind](bind.html) | `open fun bind(languageModel: `[`LanguageModel`](../../-language-model/index.html)`!, typeface: `[`Typeface`](https://developer.android.com/reference/android/graphics/Typeface.html)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [bind](bind.html) | `open fun bind(languageModel: `[`LanguageModel`](../../-language-model/index.md)`!, typeface: `[`Typeface`](https://developer.android.com/reference/android/graphics/Typeface.html)`!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

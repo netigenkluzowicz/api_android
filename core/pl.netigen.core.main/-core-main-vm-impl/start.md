@@ -2,8 +2,8 @@
 title: CoreMainVmImpl.start - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.main](../index.html) / [CoreMainVmImpl](index.html) / [start](./start.html)
+[core](../../index.md) / [pl.netigen.core.main](../index.md) / [CoreMainVmImpl](index.md) / [start](./start.html)
 
 # start
 
-`fun start(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun start(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

@@ -2,11 +2,11 @@
 title: pl.netigen.core.network - core
 ---
 
-[core](../index.html) / [pl.netigen.core.network](./index.html)
+[core](../index.md) / [pl.netigen.core.network](./index.md)
 
 ## Package pl.netigen.core.network
 
 ### Types
 
-| [NetworkStatus](-network-status/index.html) | `class NetworkStatus : INetworkStatus` |
+| [NetworkStatus](-network-status/index.md) | `class NetworkStatus : INetworkStatus` |
 

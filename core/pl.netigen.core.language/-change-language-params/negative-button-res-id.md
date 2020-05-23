@@ -2,8 +2,8 @@
 title: ChangeLanguageParams.negativeButtonResId - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.language](../index.html) / [ChangeLanguageParams](index.html) / [negativeButtonResId](./negative-button-res-id.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageParams](index.md) / [negativeButtonResId](./negative-button-res-id.html)
 
 # negativeButtonResId
 
-`@StringRes var negativeButtonResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
+`@StringRes var negativeButtonResId: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md)

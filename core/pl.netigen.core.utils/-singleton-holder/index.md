@@ -2,11 +2,11 @@
 title: SingletonHolder - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.utils](../index.html) / [SingletonHolder](./index.html)
+[core](../../index.md) / [pl.netigen.core.utils](../index.md) / [SingletonHolder](./index.md)
 
 # SingletonHolder
 
-`open class SingletonHolder<out T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`, in A, in B>`
+`open class SingletonHolder<out T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.md)`, in A, in B>`
 
 ### Constructors
 

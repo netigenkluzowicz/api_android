@@ -2,8 +2,8 @@
 title: MutableSingleLiveEvent.call - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [MutableSingleLiveEvent](index.html) / [call](./call.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](index.md) / [call](./call.html)
 
 # call
 
-`open fun call(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`open fun call(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

@@ -2,8 +2,8 @@
 title: ChangeLanguageDialogFragment.Builder.setLanguageCodes - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [ChangeLanguageDialogFragment](../index.html) / [Builder](index.html) / [setLanguageCodes](./set-language-codes.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageCodes](./set-language-codes.html)
 
 # setLanguageCodes
 
-`open fun setLanguageCodes(languageCodes: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!>!): Builder!`
+`open fun setLanguageCodes(languageCodes: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`!>!): Builder!`

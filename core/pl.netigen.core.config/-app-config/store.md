@@ -2,7 +2,7 @@
 title: AppConfig.store - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.config](../index.html) / [AppConfig](index.html) / [store](./store.html)
+[core](../../index.md) / [pl.netigen.core.config](../index.md) / [AppConfig](index.md) / [store](./store.html)
 
 # store
 

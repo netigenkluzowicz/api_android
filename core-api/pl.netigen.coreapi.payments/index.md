@@ -2,16 +2,16 @@
 title: pl.netigen.coreapi.payments - core-api
 ---
 
-[core-api](../index.html) / [pl.netigen.coreapi.payments](./index.html)
+[core-api](../index.md) / [pl.netigen.coreapi.payments](./index.md)
 
 ## Package pl.netigen.coreapi.payments
 
 ### Types
 
-| [INoAds](-i-no-ads/index.html) | Interface for no ads Payments, which turns on/off ads in whole application`interface INoAds` |
-| [IPayments](-i-payments/index.html) | Interface for payments, extends [INoAds](-i-no-ads/index.html)`interface IPayments : `[`INoAds`](-i-no-ads/index.html) |
-| [IPaymentsRepo](-i-payments-repo/index.html) | Interface for current payments repository implementation`interface IPaymentsRepo` |
-| [NoAdsNotAvailable](-no-ads-not-available/index.html) | [INoAds](-i-no-ads/index.html) implementation when we have no no-ads payment`object NoAdsNotAvailable : `[`INoAds`](-i-no-ads/index.html) |
-| [Payments](-payments/index.html) | Base class for [IPayments](-i-payments/index.html) implementations`abstract class Payments : `[`IPayments`](-i-payments/index.html)`, `[`IPaymentsRepo`](-i-payments-repo/index.html) |
-| [Security](-security/index.html) | `class Security` |
+| [INoAds](-i-no-ads/index.md) | Interface for no ads Payments, which turns on/off ads in whole application`interface INoAds` |
+| [IPayments](-i-payments/index.md) | Interface for payments, extends [INoAds](-i-no-ads/index.md)`interface IPayments : `[`INoAds`](-i-no-ads/index.md) |
+| [IPaymentsRepo](-i-payments-repo/index.md) | Interface for current payments repository implementation`interface IPaymentsRepo` |
+| [NoAdsNotAvailable](-no-ads-not-available/index.md) | [INoAds](-i-no-ads/index.md) implementation when we have no no-ads payment`object NoAdsNotAvailable : `[`INoAds`](-i-no-ads/index.md) |
+| [Payments](-payments/index.md) | Base class for [IPayments](-i-payments/index.md) implementations`abstract class Payments : `[`IPayments`](-i-payments/index.md)`, `[`IPaymentsRepo`](-i-payments-repo/index.md) |
+| [Security](-security/index.md) | `class Security` |
 

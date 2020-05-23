@@ -2,11 +2,11 @@
 title: ICoreMainVM.currentIsNoAdsActive - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreMainVM](index.html) / [currentIsNoAdsActive](./current-is-no-ads-active.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreMainVM](index.md) / [currentIsNoAdsActive](./current-is-no-ads-active.html)
 
 # currentIsNoAdsActive
 
-`abstract val currentIsNoAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+`abstract val currentIsNoAdsActive: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)
 
 Indicating that no ads in-app purchase is active or inactive
 

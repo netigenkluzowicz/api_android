@@ -2,11 +2,11 @@
 title: pl.netigen.core.config - core
 ---
 
-[core](../index.html) / [pl.netigen.core.config](./index.html)
+[core](../index.md) / [pl.netigen.core.config](./index.md)
 
 ## Package pl.netigen.core.config
 
 ### Types
 
-| [AppConfig](-app-config/index.html) | [IAppConfig](#) implementation which provides also [marketLinkPrefix](-app-config/market-link-prefix.html) for linking Application to current [Store](#)`open class AppConfig : IAppConfig` |
+| [AppConfig](-app-config/index.md) | [IAppConfig](#) implementation which provides also [marketLinkPrefix](-app-config/market-link-prefix.html) for linking Application to current [Store](#)`open class AppConfig : IAppConfig` |
 

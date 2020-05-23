@@ -2,8 +2,8 @@
 title: fromJson - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [kotlin.String](index.html) / [fromJson](./from-json.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [kotlin.String](index.md) / [fromJson](./from-json.html)
 
 # fromJson
 
-`fun <reified T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.fromJson(): T`
+`fun <reified T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)`.fromJson(): T`

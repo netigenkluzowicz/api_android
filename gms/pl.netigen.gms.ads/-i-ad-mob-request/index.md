@@ -2,7 +2,7 @@
 title: IAdMobRequest - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [IAdMobRequest](./index.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [IAdMobRequest](./index.md)
 
 # IAdMobRequest
 
@@ -16,5 +16,5 @@ Provides an [AdRequest](#) contains targeting information used to fetch an ad in
 
 ### Inheritors
 
-| [AdMobAds](../-ad-mob-ads/index.html) | [IAds](#) implementation with Google Mobile Ads SDK`class AdMobAds : IAds, `[`IAdMobRequest`](./index.html) |
+| [AdMobAds](../-ad-mob-ads/index.md) | [IAds](#) implementation with Google Mobile Ads SDK`class AdMobAds : IAds, `[`IAdMobRequest`](./index.md) |
 

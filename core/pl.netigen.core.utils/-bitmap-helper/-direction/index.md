@@ -2,7 +2,7 @@
 title: BitmapHelper.Direction - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.utils](../../index.html) / [BitmapHelper](../index.html) / [Direction](./index.html)
+[core](../../../index.md) / [pl.netigen.core.utils](../../index.md) / [BitmapHelper](../index.md) / [Direction](./index.md)
 
 # Direction
 

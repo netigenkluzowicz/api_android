@@ -2,12 +2,12 @@
 title: pl.netigen.core.rateus - core
 ---
 
-[core](../index.html) / [pl.netigen.core.rateus](./index.html)
+[core](../index.md) / [pl.netigen.core.rateus](./index.md)
 
 ## Package pl.netigen.core.rateus
 
 ### Types
 
-| [RateFragment](-rate-fragment/index.html) | [BaseDialogFragment](../pl.netigen.core.utils/-base-dialog-fragment/index.html) used for show users "Rate us" dialog, see [IRateUs](#)`class RateFragment : `[`BaseDialogFragment`](../pl.netigen.core.utils/-base-dialog-fragment/index.html) |
-| [RateUs](-rate-us/index.html) | [IRateUs](#) implementation`class RateUs : IRateUs` |
+| [RateFragment](-rate-fragment/index.md) | [BaseDialogFragment](../pl.netigen.core.utils/-base-dialog-fragment/index.md) used for show users "Rate us" dialog, see [IRateUs](#)`class RateFragment : `[`BaseDialogFragment`](../pl.netigen.core.utils/-base-dialog-fragment/index.md) |
+| [RateUs](-rate-us/index.md) | [IRateUs](#) implementation`class RateUs : IRateUs` |
 

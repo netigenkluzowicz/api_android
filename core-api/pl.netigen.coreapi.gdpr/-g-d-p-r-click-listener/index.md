@@ -2,7 +2,7 @@
 title: GDPRClickListener - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.gdpr](../index.html) / [GDPRClickListener](./index.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.gdpr](../index.md) / [GDPRClickListener](./index.md)
 
 # GDPRClickListener
 
@@ -10,10 +10,10 @@ title: GDPRClickListener - core-api
 
 ### Functions
 
-| [clickPay](click-pay.html) | `abstract fun clickPay(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onConsentAccepted](on-consent-accepted.html) | `abstract fun onConsentAccepted(personalizedAds: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [clickPay](click-pay.html) | `abstract fun clickPay(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onConsentAccepted](on-consent-accepted.html) | `abstract fun onConsentAccepted(personalizedAds: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 
 ### Inheritors
 
-| [ICoreSplashFragment](../-i-core-splash-fragment.html) | Used for Gdpr pop-up fragment, see [IGDPRConsent](../-i-g-d-p-r-consent/index.html)`interface ICoreSplashFragment : `[`GDPRClickListener`](./index.html) |
+| [ICoreSplashFragment](../-i-core-splash-fragment.html) | Used for Gdpr pop-up fragment, see [IGDPRConsent](../-i-g-d-p-r-consent/index.md)`interface ICoreSplashFragment : `[`GDPRClickListener`](./index.md) |
 

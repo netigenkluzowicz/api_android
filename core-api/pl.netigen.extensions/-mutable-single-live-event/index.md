@@ -2,11 +2,11 @@
 title: MutableSingleLiveEvent - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.extensions](../index.html) / [MutableSingleLiveEvent](./index.html)
+[core-api](../../index.md) / [pl.netigen.extensions](../index.md) / [MutableSingleLiveEvent](./index.md)
 
 # MutableSingleLiveEvent
 
-`open class MutableSingleLiveEvent<T> : `[`SingleLiveEvent`](../-single-live-event/index.html)`<T>`
+`open class MutableSingleLiveEvent<T> : `[`SingleLiveEvent`](../-single-live-event/index.md)`<T>`
 
 ### Constructors
 
@@ -14,7 +14,7 @@ title: MutableSingleLiveEvent - core-api
 
 ### Functions
 
-| [call](call.html) | `open fun call(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [postValue](post-value.html) | `open fun postValue(value: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [setValue](set-value.html) | `open fun setValue(t: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [call](call.html) | `open fun call(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [postValue](post-value.html) | `open fun postValue(value: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [setValue](set-value.html) | `open fun setValue(t: T?): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

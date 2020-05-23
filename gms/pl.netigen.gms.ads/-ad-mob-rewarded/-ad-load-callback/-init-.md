@@ -2,7 +2,7 @@
 title: AdMobRewarded.AdLoadCallback.<init> - gms
 ---
 
-[gms](../../../index.html) / [pl.netigen.gms.ads](../../index.html) / [AdMobRewarded](../index.html) / [AdLoadCallback](index.html) / [&lt;init&gt;](./-init-.html)
+[gms](../../../index.md) / [pl.netigen.gms.ads](../../index.md) / [AdMobRewarded](../index.md) / [AdLoadCallback](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

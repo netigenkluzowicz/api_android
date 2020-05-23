@@ -2,11 +2,11 @@
 title: PaymentError.errorMessage - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [PaymentError](index.html) / [errorMessage](./error-message.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.payments.model](../index.md) / [PaymentError](index.md) / [errorMessage](./error-message.html)
 
 # errorMessage
 
-`val errorMessage: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`val errorMessage: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
 
 This error debug message
 

@@ -2,11 +2,11 @@
 title: NetigenFragment.canCommitFragments - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.fragment](../index.html) / [NetigenFragment](index.html) / [canCommitFragments](./can-commit-fragments.html)
+[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenFragment](index.md) / [canCommitFragments](./can-commit-fragments.html)
 
 # canCommitFragments
 
-`val canCommitFragments: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
+`val canCommitFragments: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.md)
 
 Indicates if we can safe perform Fragment transaction
 as [commit()](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentTransaction.html#commit()) or [popBackStack()](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentManager.html#popBackStack()) and others

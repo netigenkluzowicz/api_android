@@ -2,7 +2,7 @@
 title: RewardsListener - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.rewards](../index.html) / [RewardsListener](./index.html)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [RewardsListener](./index.md)
 
 # RewardsListener
 
@@ -10,6 +10,6 @@ title: RewardsListener - core
 
 ### Functions
 
-| [onFail](on-fail.html) | `abstract fun onFail(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [onSuccess](on-success.html) | `abstract fun onSuccess(rewardedItems: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`RewardItem`](../-reward-item/index.html)`!>!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [onFail](on-fail.html) | `abstract fun onFail(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
+| [onSuccess](on-success.html) | `abstract fun onSuccess(rewardedItems: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.md)`<`[`RewardItem`](../-reward-item/index.md)`!>!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md) |
 

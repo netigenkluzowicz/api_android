@@ -2,8 +2,8 @@
 title: ChangeLanguageDialogFragment.bindListener - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.language](../index.html) / [ChangeLanguageDialogFragment](index.html) / [bindListener](./bind-listener.html)
+[core](../../index.md) / [pl.netigen.core.language](../index.md) / [ChangeLanguageDialogFragment](index.md) / [bindListener](./bind-listener.html)
 
 # bindListener
 
-`open fun bindListener(languageClickListener: LanguageClickListener!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`open fun bindListener(languageClickListener: LanguageClickListener!): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.md)

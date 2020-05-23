@@ -2,7 +2,7 @@
 title: LayoutMargins - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.rewards](../index.html) / [LayoutMargins](./index.html)
+[core](../../index.md) / [pl.netigen.core.rewards](../index.md) / [LayoutMargins](./index.md)
 
 # LayoutMargins
 
@@ -10,5 +10,5 @@ title: LayoutMargins - core
 
 ### Types
 
-| [Builder](-builder/index.html) | `open class Builder` |
+| [Builder](-builder/index.md) | `open class Builder` |
 

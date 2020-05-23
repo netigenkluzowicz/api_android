@@ -2,11 +2,11 @@
 title: ICoreViewModelsFactory.networkStatus - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.main](../index.html) / [ICoreViewModelsFactory](index.html) / [networkStatus](./network-status.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.main](../index.md) / [ICoreViewModelsFactory](index.md) / [networkStatus](./network-status.html)
 
 # networkStatus
 
-`abstract val networkStatus: `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.html)
+`abstract val networkStatus: `[`INetworkStatus`](../../pl.netigen.coreapi.network/-i-network-status/index.md)
 
-Provides [INetworkStatus](../../pl.netigen.coreapi.network/-i-network-status/index.html) to Api view models
+Provides [INetworkStatus](../../pl.netigen.coreapi.network/-i-network-status/index.md) to Api view models
 

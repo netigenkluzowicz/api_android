@@ -2,11 +2,11 @@
 title: IBannerAd - core-api
 ---
 
-[core-api](../../index.html) / [pl.netigen.coreapi.ads](../index.html) / [IBannerAd](./index.html)
+[core-api](../../index.md) / [pl.netigen.coreapi.ads](../index.md) / [IBannerAd](./index.md)
 
 # IBannerAd
 
-`interface IBannerAd : `[`IAd`](../-i-ad/index.html)
+`interface IBannerAd : `[`IAd`](../-i-ad/index.md)
 
 Manages Banner ad:
 
@@ -23,5 +23,5 @@ adaptive banners let developers specify the ad-width and use this to determine t
 
 ### Functions
 
-| [getHeightInPixels](get-height-in-pixels.html) | Measures current banner implementation exact height in pixels`abstract fun getHeightInPixels(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
+| [getHeightInPixels](get-height-in-pixels.html) | Measures current banner implementation exact height in pixels`abstract fun getHeightInPixels(): `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.md) |
 

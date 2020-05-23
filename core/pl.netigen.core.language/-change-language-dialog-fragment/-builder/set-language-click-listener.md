@@ -2,7 +2,7 @@
 title: ChangeLanguageDialogFragment.Builder.setLanguageClickListener - core
 ---
 
-[core](../../../index.html) / [pl.netigen.core.language](../../index.html) / [ChangeLanguageDialogFragment](../index.html) / [Builder](index.html) / [setLanguageClickListener](./set-language-click-listener.html)
+[core](../../../index.md) / [pl.netigen.core.language](../../index.md) / [ChangeLanguageDialogFragment](../index.md) / [Builder](index.md) / [setLanguageClickListener](./set-language-click-listener.html)
 
 # setLanguageClickListener
 

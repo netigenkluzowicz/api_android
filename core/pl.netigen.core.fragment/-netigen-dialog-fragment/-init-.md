@@ -2,7 +2,7 @@
 title: NetigenDialogFragment.<init> - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.fragment](../index.html) / [NetigenDialogFragment](index.html) / [&lt;init&gt;](./-init-.html)
+[core](../../index.md) / [pl.netigen.core.fragment](../index.md) / [NetigenDialogFragment](index.md) / [&lt;init&gt;](./-init-.html)
 
 # &lt;init&gt;
 

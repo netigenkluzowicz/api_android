@@ -2,7 +2,7 @@
 title: IAdMobRequest.getAdRequest - gms
 ---
 
-[gms](../../index.html) / [pl.netigen.gms.ads](../index.html) / [IAdMobRequest](index.html) / [getAdRequest](./get-ad-request.html)
+[gms](../../index.md) / [pl.netigen.gms.ads](../index.md) / [IAdMobRequest](index.md) / [getAdRequest](./get-ad-request.html)
 
 # getAdRequest
 

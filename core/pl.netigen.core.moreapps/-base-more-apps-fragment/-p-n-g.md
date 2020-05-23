@@ -2,8 +2,8 @@
 title: BaseMoreAppsFragment.PNG - core
 ---
 
-[core](../../index.html) / [pl.netigen.core.moreapps](../index.html) / [BaseMoreAppsFragment](index.html) / [PNG](./-p-n-g.html)
+[core](../../index.md) / [pl.netigen.core.moreapps](../index.md) / [BaseMoreAppsFragment](index.md) / [PNG](./-p-n-g.html)
 
 # PNG
 
-`static val PNG: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+`static val PNG: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.md)
