@@ -6,9 +6,15 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatDialogFragment
 import pl.netigen.core.fragment.NetigenDialogFragment
+import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.toPx
 
+/**
+ * see [NetigenDialogFragment]
+ *
+ */
 abstract class BaseDialogFragment : NetigenDialogFragment() {
 
     companion object {
