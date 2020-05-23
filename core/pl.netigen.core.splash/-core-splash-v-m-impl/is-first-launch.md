@@ -1,9 +1,0 @@
----
-title: CoreSplashVMImpl.isFirstLaunch - core
----
-
-[core](../../index.html) / [pl.netigen.core.splash](../index.html) / [CoreSplashVMImpl](index.html) / [isFirstLaunch](./is-first-launch.html)
-
-# isFirstLaunch
-
-`val isFirstLaunch: `[`MutableLiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/MutableLiveData.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`

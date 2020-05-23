@@ -1,9 +1,0 @@
----
-title: PaymentErrorType.SERVICE_DISCONNECTED - core-api
----
-
-[core-api](../../index.html) / [pl.netigen.coreapi.payments.model](../index.html) / [PaymentErrorType](index.html) / [SERVICE_DISCONNECTED](./-s-e-r-v-i-c-e_-d-i-s-c-o-n-n-e-c-t-e-d.html)
-
-# SERVICE_DISCONNECTED
-
-`SERVICE_DISCONNECTED`
