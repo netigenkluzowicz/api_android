@@ -1,4 +1,4 @@
-$dokka.format:html
+$dokka.format:jekyll
 $dokka.linkExtension:html
 $dokka.location:pl.netigen.extensions$filter(androidx.lifecycle.LiveData((pl.netigen.extensions.filter.T)), kotlin.Function1((pl.netigen.extensions.filter.T, kotlin.Boolean)))pl.netigen.extensions/androidx.lifecycle.-live-data/filter.html
 $dokka.location:pl.netigen.extensions$fromJson(kotlin.String)pl.netigen.extensions/kotlin.-string/from-json.html
