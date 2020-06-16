@@ -14,7 +14,8 @@ import pl.netigen.extensions.SingleLiveEvent
  */
 interface IPaymentsRepo {
     /**
-     * [SingleLiveEvent] indicating last payment event it can be success [PaymentEvent.PaymentSuccess], [PaymentEvent.PaymentRestored] or [PaymentEvent.Error]
+     * [SingleLiveEvent] indicating last payment event it can be success [PaymentEvent.PaymentSuccess()],
+     * [PaymentEvent.PaymentRestored()] or [PaymentEvent.Error()]
      *
      * This should be used for show information about billing flow to the users
      *

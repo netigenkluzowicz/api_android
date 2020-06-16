@@ -34,24 +34,6 @@ android {
     }
 }
 
-dokka {
-    configuration {
-       /*
-       outputFormat = 'javadoc'
-        outputDirectory = "$buildDir/javadoc"*/
-
-        //used for publish web documentation
-        outputFormat = 'jekyll'
-        outputDirectory = 'C:\\AndroidProjects\\api_android_pages'
-
-        externalDocumentationLink {
-            // Root URL of the generated documentation to link with. The trailing slash is required!
-            url = new URL("https://developer.android.com/reference/kotlin/")
-            packageListUrl = new URL("https://developer.android.com/reference/androidx/package-list")
-        }
-    }
-}
-
 dependencies {
 
     api Libraries.kotlinStdlibJdk7
