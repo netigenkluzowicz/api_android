@@ -63,6 +63,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
         super.onResume()
         Timber.d("()")
         canCommitFragments = true
+        coreMainVM.interstitialAdIsInBackground(false)
     }
 
     @CallSuper
@@ -70,6 +71,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
         super.onPause()
         Timber.d("()")
         canCommitFragments = false
+        coreMainVM.interstitialAdIsInBackground(true)
     }
 
     @CallSuper
