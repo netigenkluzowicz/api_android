@@ -58,6 +58,10 @@ class AdMobAds(
         rewardedAd.enabled = enabled
     }
 
+    override fun interstitialAdIsInBackground(isInBackground: Boolean) {
+        interstitialAd.isInBackground = isInBackground
+    }
+
     companion object {
         const val TEST_BANNER_ID: String = "ca-app-pub-3940256099942544/6300978111"
         const val TEST_INTERSTITIAL_ID: String = "ca-app-pub-3940256099942544/1033173712"

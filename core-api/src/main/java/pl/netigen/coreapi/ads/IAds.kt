@@ -8,4 +8,5 @@ interface IAds {
 
     fun disable()
     fun enable()
+    fun interstitialAdIsInBackground(isInBackground: Boolean)
 }
