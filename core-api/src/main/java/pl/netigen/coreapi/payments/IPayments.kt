@@ -3,6 +3,7 @@ package pl.netigen.coreapi.payments
 import android.app.Activity
 import android.content.Intent
 import androidx.lifecycle.LiveData
+import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 import pl.netigen.coreapi.payments.model.PaymentEvent
 import pl.netigen.extensions.SingleLiveEvent
@@ -75,4 +76,10 @@ interface IPayments : INoAds {
      * @see Activity.onActivityResult
      */
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent)
+
+    /**
+     * It is called on [onStart()][Activity.onStart] of [ICoreMainActivity] implementation
+     *
+     */
+    fun onActivityStart()
 }

@@ -9,7 +9,7 @@ interface PurchaseDao {
     @Query("SELECT * FROM purchase_table")
     fun getPurchasesFlow(): Flow<List<CachedPurchase>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(purchase: CachedPurchase)
 
     @Transaction

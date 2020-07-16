@@ -1,7 +1,9 @@
 package pl.netigen.coreapi.payments
 
+import android.app.Activity
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
+import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 import pl.netigen.coreapi.payments.model.PaymentEvent
 import pl.netigen.extensions.SingleLiveEvent
@@ -13,6 +15,12 @@ import pl.netigen.extensions.SingleLiveEvent
  * @see IPayments
  */
 interface IPaymentsRepo {
+    /**
+     * It is called on [onStart()][Activity.onStart] of [ICoreMainActivity] implementation
+     *
+     */
+    fun onActivityStart()
+
     /**
      * [SingleLiveEvent] indicating last payment event it can be success [PaymentEvent.PaymentSuccess()],
      * [PaymentEvent.PaymentRestored()] or [PaymentEvent.Error()]

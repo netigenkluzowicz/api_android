@@ -35,6 +35,7 @@ class CoreMainVmImpl(
 
     override fun start() {
         launchMain { payments.noAdsActive.collect { onNoAdsChange(it) } }
+        payments.onActivityStart()
     }
 
     override fun resetAdsPreferences() = showGdprResetAds.postValue(Unit)

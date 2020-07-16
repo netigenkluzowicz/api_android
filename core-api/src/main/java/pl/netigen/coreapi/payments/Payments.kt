@@ -29,4 +29,5 @@ abstract class Payments(activity: Activity) : IPayments, IPaymentsRepo {
     override val inAppSkuDetailsLD by lazy { paymentsRepo.inAppSkuDetailsLD }
     override val subsSkuDetailsLD by lazy { paymentsRepo.subsSkuDetailsLD }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) = Unit
+    override fun onActivityStart() = paymentsRepo.onActivityStart()
 }
