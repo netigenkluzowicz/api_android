@@ -17,7 +17,7 @@ object Versions {
     const val junit = "4.12"
     const val testRunner = "1.2.0"
     const val espressoCore = "3.2.0"
-    const val billing = "2.2.0"
+    const val billing = "3.0.0"
     const val navigation = "2.2.2"
     const val coroutines = "1.3.5"
     const val room = "2.2.5"
@@ -66,7 +66,7 @@ object Libraries {
 
     val cropper = "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}"
 
-    val billing = "com.android.billingclient:billing:${Versions.billing}"
+    val billing = "com.android.billingclient:billing-ktx:${Versions.billing}"
 
     val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     val roomCompiler = "androidx.room:room-compiler:${Versions.room}"

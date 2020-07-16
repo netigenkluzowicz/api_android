@@ -311,7 +311,6 @@ public class PaymentManager implements IPaymentManager, PurchasesUpdatedListener
                     ConsumeParams consumeParams =
                             ConsumeParams.newBuilder()
                                     .setPurchaseToken(purchaseToken)
-                                    .setDeveloperPayload("")
                                     .build();
                     billingClient.consumeAsync(consumeParams, onConsumeListener);
                 } else {
