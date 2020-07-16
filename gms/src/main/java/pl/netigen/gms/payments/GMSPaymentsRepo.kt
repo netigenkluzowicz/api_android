@@ -26,7 +26,7 @@ class GMSPaymentsRepo(
         private val isDebugMode: Boolean = false,
         private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
-    private var queryJob: Job = Job()
+    private var queryJob: Job? = null
     private var lastError: PaymentError? = null
     private var application = activity.application
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
@@ -86,8 +86,8 @@ class GMSPaymentsRepo(
     }
 
     private fun queryPurchasesIfNotRunning() {
-        Timber.d("queryPurchasesIfNeeded() called %s", queryJob.isActive)
-        if (!queryJob.isActive) {
+        Timber.d("queryPurchasesIfNeeded() called %s", queryJob?.isActive == true)
+        if (queryJob?.isActive == true) {
             queryJob = CoroutineScope(Job() + Dispatchers.IO).launch {
                 queryPurchasesAsync()
             }
