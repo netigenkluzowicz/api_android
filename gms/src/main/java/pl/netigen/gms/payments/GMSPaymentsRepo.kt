@@ -86,6 +86,10 @@ class GMSPaymentsRepo(
     }
 
     private fun queryPurchasesIfNotRunning() {
+        if (!gmsBillingClient.isReady ) {
+            connectToPlayBillingService()
+            return
+        }
         if (!queryStarted) {
             queryStarted = true
             CoroutineScope(Job() + Dispatchers.IO).launch {
