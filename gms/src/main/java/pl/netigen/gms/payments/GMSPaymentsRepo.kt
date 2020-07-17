@@ -86,7 +86,7 @@ class GMSPaymentsRepo(
     }
 
     private fun queryPurchasesIfNotRunning() {
-        if (!gmsBillingClient.isReady ) {
+        if (!gmsBillingClient.isReady) {
             connectToPlayBillingService()
             return
         }
@@ -197,6 +197,7 @@ class GMSPaymentsRepo(
             Timber.d("non-consumables content $nonConsumables")
             handleConsumablePurchasesAsync(consumables)
             acknowledgeNonConsumablePurchasesAsync(nonConsumables)
+            localCacheBillingClient.purchaseDao().deleteAll()
             localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
         } catch (e: Exception) {
             Timber.e(e)
