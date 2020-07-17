@@ -26,7 +26,7 @@ class GMSPaymentsRepo(
         private val isDebugMode: Boolean = false,
         private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
-    private var queryJob: Job? = null
+    private var queryStarted: Boolean = false
     private var lastError: PaymentError? = null
     private var application = activity.application
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
@@ -86,9 +86,9 @@ class GMSPaymentsRepo(
     }
 
     private fun queryPurchasesIfNotRunning() {
-        Timber.d("queryPurchasesIfNeeded() called %s", queryJob?.isActive == true)
-        if (queryJob?.isActive == true) {
-            queryJob = CoroutineScope(Job() + Dispatchers.IO).launch {
+        if (!queryStarted) {
+            queryStarted = true
+            CoroutineScope(Job() + Dispatchers.IO).launch {
                 queryPurchasesAsync()
             }
         }
@@ -197,6 +197,7 @@ class GMSPaymentsRepo(
         } catch (e: Exception) {
             Timber.e(e)
             onDeveloperError(e)
+            queryStarted = false
         }
     }
 
@@ -236,6 +237,7 @@ class GMSPaymentsRepo(
                 _lastPaymentEvent.postValue(paymentRestored)
                 debugEvent(paymentRestored.toString())
                 localCacheBillingClient.purchaseDao().insert(purchase)
+                queryStarted = false
             }
         }
     }
@@ -251,6 +253,7 @@ class GMSPaymentsRepo(
                     postError(billingResult)
                 }
             }
+            queryStarted = false
         }
     }
 
