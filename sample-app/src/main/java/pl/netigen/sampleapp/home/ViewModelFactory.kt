@@ -33,6 +33,6 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
         get() = FlavoursConst.getGDPRConsentImpl(coreMainActivity.application, appConfig)
 
     override val payments: IPayments
-        get() = FlavoursConst.getPaymentsImpl(coreMainActivity, appConfig)
+        get() = FlavoursConst.getPaymentsImpl(coreMainActivity)
 
 }

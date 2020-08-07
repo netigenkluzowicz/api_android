@@ -7,12 +7,11 @@ apply plugin: 'org.jetbrains.dokka'
 
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionName version
     }
     buildTypes {
@@ -42,15 +41,15 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     testImplementation 'androidx.test:core:1.2.0'
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
-    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$Versions.kotlin"
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3'
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:1.3.72"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.8-1.4.0-rc'
     testImplementation "io.mockk:mockk:1.10.0"
     testImplementation "org.robolectric:robolectric:4.3.1"
     testImplementation "androidx.test.ext:junit:1.1.1"
     testImplementation "androidx.test:core:1.2.0"
     testImplementation "com.jraska.livedata:testing-ktx:1.1.0"
 
-    androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$Versions.kotlin"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:1.3.72"
     androidTestImplementation("io.mockk:mockk-android:1.10.0")
     androidTestImplementation "androidx.test:core:1.2.0"
     androidTestImplementation "androidx.test.ext:junit:1.1.1"
