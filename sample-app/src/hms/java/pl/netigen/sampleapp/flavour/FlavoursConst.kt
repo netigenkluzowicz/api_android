@@ -15,7 +15,8 @@ object FlavoursConst {
     const val REWARDED_AD_ID: String = TEST_REWARDED_ID
 
 
-    fun getPaymentsImpl(coreMainActivity: CoreMainActivity): IPayments = HMSPayments(coreMainActivity)
+    @Suppress("UNUSED_PARAMETER")
+    fun getPaymentsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig): IPayments = HMSPayments(coreMainActivity)
     fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = HMSAds(coreMainActivity, appConfig)
     fun getGDPRConsentImpl(application: Application, appConfig: AppConfig) = GDPRConsentImpl(application, appConfig)
 }

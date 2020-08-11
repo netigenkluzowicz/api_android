@@ -14,15 +14,15 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
 
     override val appConfig by lazy {
         AppConfig(
-            bannerAdId = FlavoursConst.BANNER_AD_ID,
-            interstitialAdId = FlavoursConst.INTERSTITIAL_AD_ID,
-            rewardedAdId = FlavoursConst.REWARDED_AD_ID,
-            inDebugMode = true,
-            store = when (BuildConfig.FLAVOR) {
-                "hms" -> Store.HUAWEI
-                "gms" -> Store.GOOGLE_PLAY
-                else -> Store.GOOGLE_PLAY
-            }
+                bannerAdId = FlavoursConst.BANNER_AD_ID,
+                interstitialAdId = FlavoursConst.INTERSTITIAL_AD_ID,
+                rewardedAdId = FlavoursConst.REWARDED_AD_ID,
+                inDebugMode = true,
+                store = when (BuildConfig.FLAVOR) {
+                    "hms" -> Store.HUAWEI
+                    "gms" -> Store.GOOGLE_PLAY
+                    else -> Store.GOOGLE_PLAY
+                }
         )
     }
 
@@ -33,6 +33,6 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
         get() = FlavoursConst.getGDPRConsentImpl(coreMainActivity.application, appConfig)
 
     override val payments: IPayments
-        get() = FlavoursConst.getPaymentsImpl(coreMainActivity)
+        get() = FlavoursConst.getPaymentsImpl(coreMainActivity, appConfig)
 
 }
