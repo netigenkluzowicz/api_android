@@ -17,7 +17,7 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
                 bannerAdId = FlavoursConst.BANNER_AD_ID,
                 interstitialAdId = FlavoursConst.INTERSTITIAL_AD_ID,
                 rewardedAdId = FlavoursConst.REWARDED_AD_ID,
-                inDebugMode = true,
+                inDebugMode = BuildConfig.DEBUG,
                 store = when (BuildConfig.FLAVOR) {
                     "hms" -> Store.HUAWEI
                     "gms" -> Store.GOOGLE_PLAY
