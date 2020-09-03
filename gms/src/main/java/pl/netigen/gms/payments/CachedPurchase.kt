@@ -8,6 +8,7 @@ import com.android.billingclient.api.Purchase
 data class CachedPurchase(val data: Purchase) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
+
     @Ignore
     val purchaseToken = data.purchaseToken
 

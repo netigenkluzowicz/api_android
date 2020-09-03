@@ -58,7 +58,7 @@ class GDPRConsentImpl(private val application: Application, private val config: 
             AdConsentStatus.NON_PERSONALIZED_SHOWED -> ConsentStatus.NON_PERSONALIZED
             AdConsentStatus.UNINITIALIZED -> ConsentStatus.UNKNOWN
         }
-        Consent.getInstance(application).setConsentStatus(personalized);
+        Consent.getInstance(application).setConsentStatus(personalized)
         application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
             .edit()
             .putInt(PREFERENCES_KEY, adConsentStatus.ordinal)

@@ -1,15 +1,1 @@
-<manifest package="pl.netigen.hms"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <application>
-<!--todo remove this when admob removed-->
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:noHistory="true" />
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="${admobId}" />
-
-    </application>
-</manifest>
+<manifest package="pl.netigen.hms" />

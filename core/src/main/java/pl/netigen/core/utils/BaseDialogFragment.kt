@@ -4,11 +4,11 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.*
-import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatDialogFragment
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
 import pl.netigen.core.fragment.NetigenDialogFragment
-import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.toPx
 
 /**

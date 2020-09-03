@@ -20,26 +20,26 @@ import timber.log.Timber
 import java.util.*
 
 class GMSPaymentsRepo(
-        private val activity: Activity,
-        private val inAppSkuList: List<String>,
-        private val noAdsInAppSkuList: List<String>,
-        private val isDebugMode: Boolean = false,
-        private val consumablesInAppSkuList: List<String> = emptyList()
+    private val activity: Activity,
+    private val inAppSkuList: List<String>,
+    private val noAdsInAppSkuList: List<String>,
+    private val isDebugMode: Boolean = false,
+    private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
     private var queryStarted: Boolean = false
     private var lastError: PaymentError? = null
     private var application = activity.application
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
     private val gmsBillingClient: BillingClient = BillingClient
-            .newBuilder(application)
-            .enablePendingPurchases()
-            .setListener(this)
-            .build()
+        .newBuilder(application)
+        .enablePendingPurchases()
+        .setListener(this)
+        .build()
     override val inAppSkuDetailsLD by lazy { localCacheBillingClient.skuDetailsDao().inAppSkuDetailsLiveData() }
     override val subsSkuDetailsLD by lazy { localCacheBillingClient.skuDetailsDao().subscriptionSkuDetailsLiveData() }
 
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
-            .map { list -> list.any { it.data.sku in noAdsInAppSkuList } }
+        .map { list -> list.any { it.data.sku in noAdsInAppSkuList } }
 
     private val _lastPaymentEvent = MutableSingleLiveEvent<PaymentEvent>()
 
@@ -102,7 +102,7 @@ class GMSPaymentsRepo(
         val responseCode = billingResult.responseCode
         val index = if (responseCode < 0) responseCode - 3 else responseCode + 2
         val paymentErrorType = PaymentErrorType.values()
-                .getOrElse(index) { PaymentErrorType.DEVELOPER_ERROR }
+            .getOrElse(index) { PaymentErrorType.DEVELOPER_ERROR }
         postError(paymentErrorType, billingResult.debugMessage)
     }
 
@@ -207,7 +207,7 @@ class GMSPaymentsRepo(
     }
 
     private fun isSignatureValid(purchase: Purchase): Boolean =
-            Security.verifyPurchase(Security.BASE_64_ENCODED_PUBLIC_KEY, purchase.originalJson, purchase.signature)
+        Security.verifyPurchase(Security.BASE_64_ENCODED_PUBLIC_KEY, purchase.originalJson, purchase.signature)
 
     private fun handleConsumablePurchasesAsync(consumables: List<Purchase>) {
         Timber.d("consumables = [$consumables]")
@@ -305,7 +305,7 @@ class GMSPaymentsRepo(
     private fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
         Timber.d("activity = [$activity], netigenSkuDetails = [$netigenSkuDetails]")
         netigenSkuDetails.originalJson?.let { launchBillingFlow(activity, SkuDetails(it)) }
-                ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
+            ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
     }
 
     private fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {

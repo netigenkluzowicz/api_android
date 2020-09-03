@@ -41,6 +41,9 @@ public class PremiumFragment extends AppCompatDialogFragment {
     private int pageMargin;
     private int viewPagerPadding;
 
+    public PremiumFragment() {
+    }
+
     public static PremiumFragment newInstance(Premium premiumBuilder) {
         PremiumFragment fragment = new PremiumFragment();
 
@@ -50,10 +53,6 @@ public class PremiumFragment extends AppCompatDialogFragment {
 
     private void setArguments(Premium premiumBuilder) {
         this.premiumBuilder = premiumBuilder;
-    }
-
-
-    public PremiumFragment() {
     }
 
     @Override

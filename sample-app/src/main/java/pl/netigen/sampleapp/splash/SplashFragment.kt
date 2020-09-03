@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import pl.netigen.extensions.safeNavigate
 import pl.netigen.core.splash.CoreSplashFragment
+import pl.netigen.extensions.safeNavigate
 import pl.netigen.sampleapp.R
 import timber.log.Timber
 

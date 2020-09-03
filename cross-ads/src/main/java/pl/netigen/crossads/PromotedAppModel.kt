@@ -6,10 +6,13 @@ import pl.netigen.crossads.R
 class PromotedAppModel {
     @SerializedName("name")
     var name: String? = null
+
     @SerializedName("package_name")
     var packageName: String? = null
+
     @SerializedName("promoteAppGraphic")
     var iconLink: String? = null
+
     @SerializedName("promoteAppPackageName")
     var promotePackageName: String? = null
 

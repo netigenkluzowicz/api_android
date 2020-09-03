@@ -24,8 +24,8 @@ class HMSInterstitial(
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
     override var enabled: Boolean = true
 ) : IInterstitialAd, LifecycleObserver {
+    override var isInBackground: Boolean = false
     private var onClosedOrNotShowed: ((Boolean) -> Unit)? = null
-    private var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd = InterstitialAd(activity)
     private val disabled get() = !enabled

@@ -7,7 +7,6 @@ import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import pl.netigen.core.gdpr.GDPRDialogFragment
-import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.core.rateus.RateUs
 import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.coreapi.gdpr.AdConsentStatus
@@ -15,6 +14,7 @@ import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.main.ICoreMainVM
+import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.extensions.observe
 import timber.log.Timber
 

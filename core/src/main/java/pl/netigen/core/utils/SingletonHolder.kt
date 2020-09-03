@@ -2,6 +2,7 @@ package pl.netigen.core.utils
 
 open class SingletonHolder<out T : Any, in A, in B>(creator: (A, B) -> T) {
     private var creator: ((A, B) -> T)? = creator
+
     @Volatile
     private var instance: T? = null
 

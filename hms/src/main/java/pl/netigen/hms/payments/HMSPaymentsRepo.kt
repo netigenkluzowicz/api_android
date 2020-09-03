@@ -30,11 +30,11 @@ import timber.log.Timber.d
 
 
 class HMSPaymentsRepo(
-        private val activity: Activity,
-        private val inAppSkuList: List<String>,
-        private val noAdsInAppSkuList: List<String>,
-        private val consumablesInAppSkuList: List<String> = emptyList(),
-        private val consumeTestPurchase: Boolean = false
+    private val activity: Activity,
+    private val inAppSkuList: List<String>,
+    private val noAdsInAppSkuList: List<String>,
+    private val consumablesInAppSkuList: List<String> = emptyList(),
+    private val consumeTestPurchase: Boolean = false
 ) : IPaymentsRepo {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
     override val inAppSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()  // TODO: 14.05.2020
@@ -44,7 +44,7 @@ class HMSPaymentsRepo(
 
     override val lastPaymentEvent: SingleLiveEvent<PaymentEvent> = MutableSingleLiveEvent() // TODO: 14.05.2020
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
-            .map { list -> list.any { it.data.productId in noAdsInAppSkuList } }
+        .map { list -> list.any { it.data.productId in noAdsInAppSkuList } }
 
     init {
         d("()")

@@ -115,7 +115,7 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
         }
     }
 
-    override fun onConsentAccepted(personalizedAds: Boolean)  {
+    override fun onConsentAccepted(personalizedAds: Boolean) {
         d("personalizedAds = [$personalizedAds]")
         splashVM.setPersonalizedAds(personalizedAds)
     }

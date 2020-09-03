@@ -48,7 +48,7 @@ class HMSAds(
     }
 
     override fun enable() = setEnabled(true)
-
+    override fun interstitialAdIsInBackground(isInBackground: Boolean) = Unit
     override fun disable() = setEnabled(false)
 
     private fun setEnabled(enabled: Boolean) {
