@@ -93,6 +93,26 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     }
 
     @CallSuper
+    override fun onResume() {
+        super.onResume()
+        Timber.d("()")
+        coreMainVM.interstitialAdIsInBackground(false)
+    }
+
+    @CallSuper
+    override fun onPause() {
+        super.onPause()
+        Timber.d("()")
+        coreMainVM.interstitialAdIsInBackground(true)
+    }
+
+    @CallSuper
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Timber.d("()")
+    }
+
+    @CallSuper
     override fun onStart() {
         super.onStart()
         coreMainVM.start()

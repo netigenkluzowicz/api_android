@@ -29,6 +29,7 @@ interface IInterstitialAd : IAd {
      * @return Load success/failure callback as [Flow]<[Boolean]>
      */
     fun load(): Flow<Boolean>
+    var isInBackground: Boolean
 
     /**
      * Shows ad if it is loaded and minimum time between this ads passed (limit can be ignored by [forceShow] = true)

@@ -45,4 +45,5 @@ interface IAds {
      *
      */
     fun enable()
+    fun interstitialAdIsInBackground(isInBackground: Boolean)
 }
