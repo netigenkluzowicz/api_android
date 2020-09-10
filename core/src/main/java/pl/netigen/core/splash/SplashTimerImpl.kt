@@ -1,11 +1,18 @@
 package pl.netigen.core.splash
 
+import pl.netigen.coreapi.splash.ISplashConfig
 import pl.netigen.coreapi.splash.ISplashConfig.Companion.DEFAULT_MAX_CONSENT_WAIT_TIME_MS
 import pl.netigen.coreapi.splash.ISplashConfig.Companion.DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
 import pl.netigen.coreapi.splash.ISplashTimer
 import java.util.*
 import kotlin.concurrent.schedule
 
+/**
+ * [ISplashTimer] implementation
+ *
+ * @property consentTimeLimit see: [ISplashConfig.maxConsentWaitTime]
+ * @property maxInterstitialWaitTime see: [ISplashConfig.maxInterstitialWaitTime]
+ */
 class SplashTimerImpl(
     private val consentTimeLimit: Long = DEFAULT_MAX_CONSENT_WAIT_TIME_MS,
     private val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS

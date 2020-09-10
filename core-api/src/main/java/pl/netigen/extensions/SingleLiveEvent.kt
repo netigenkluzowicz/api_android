@@ -16,7 +16,6 @@
 
 package pl.netigen.extensions
 
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer

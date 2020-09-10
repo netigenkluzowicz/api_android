@@ -1,6 +1,7 @@
 package pl.netigen.core.splash
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
@@ -22,19 +23,30 @@ import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
 import timber.log.Timber.d
 
+/**
+ * [SplashVM] implementation
+ *
+ * @property gdprConsent [IGDPRConsent] instance
+ * @property ads [IAds] instance
+ * @property noAdsPurchases [INoAds] instance
+ * @property networkStatus [INetworkStatus] instance
+ * @property appConfig [IAppConfig] instance
+ * @property splashTimer ISplashTimer instance, for default it's [SplashTimerImpl]
+ *
+ * @param application provides [Application] context for this [AndroidViewModel]
+ */
 class CoreSplashVMImpl(
     application: Application,
-    private val gdprConsent: IGDPRConsent,
+    override val gdprConsent: IGDPRConsent,
     private val ads: IAds,
     private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,
     private val appConfig: IAppConfig,
     private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
-) : SplashVM(application), INoAds by noAdsPurchases {
+) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
-    override val isNoAdsAvailable: Boolean = appConfig.isNoAdsAvailable
     private var isRunning = false
     private var finished = false
 

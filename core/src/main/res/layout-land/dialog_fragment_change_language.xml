@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="270dp"
-    android:layout_height="270dp"
-    android:layout_gravity="center|top"
-    android:layout_marginTop="@dimen/medium_space_netigen_api"
-    android:background="@drawable/background_language_dialog">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="@dimen/medium_space_netigen_api"
+        android:background="@drawable/background_language_dialog">
 
     <TextView
-        android:id="@+id/textView_choose_language_title"
-        style="@style/DialogTitleTextView"
-        android:text="@string/change_language_netigen"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView_languages"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/textView_choose_language_title"
+            style="@style/DialogTitleTextView"
+            android:text="@string/change_language_netigen"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView_languages"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/divider_title_list"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/dialog_neutral_button_bg"
-        app:layout_constraintTop_toBottomOf="@id/textView_choose_language_title" />
+            android:id="@+id/divider_title_list"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dialog_neutral_button_bg"
+            app:layout_constraintTop_toBottomOf="@id/textView_choose_language_title" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_languages"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/medium_space_netigen_api"
-        android:layout_marginRight="@dimen/medium_space_netigen_api"
-        app:layout_constraintBottom_toTopOf="@+id/divider_list_buttons"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider_title_list"
-        tools:listitem="@layout/item_language" />
+            android:id="@+id/recyclerView_languages"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/medium_space_netigen_api"
+            android:layout_marginRight="@dimen/medium_space_netigen_api"
+            app:layout_constraintBottom_toTopOf="@+id/divider_list_buttons"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_title_list"
+            tools:listitem="@layout/item_language" />
 
     <View
-        android:id="@+id/divider_list_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="@dimen/medium_space_netigen_api"
-        android:background="@color/dialog_neutral_button_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button_change_language_ok"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_languages" />
+            android:id="@+id/divider_list_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/medium_space_netigen_api"
+            android:background="@color/dialog_neutral_button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/button_change_language_ok"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView_languages" />
 
     <TextView
-        android:id="@+id/button_change_language_ok"
-        style="@style/PositiveDialogButtonNetigenApi"
-        android:text="@string/ok_netigen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider_list_buttons" />
+            android:id="@+id/button_change_language_ok"
+            style="@style/PositiveDialogButtonNetigenApi"
+            android:text="@string/ok_netigen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_list_buttons" />
 
     <TextView
-        android:id="@+id/button_change_language_dismiss"
-        style="@style/NeutralDialogButtonNetigenApi"
-        android:text="@string/cancel_netigen"
-        app:layout_constraintEnd_toStartOf="@id/button_change_language_ok"
-        app:layout_constraintTop_toTopOf="@id/button_change_language_ok" />
+            android:id="@+id/button_change_language_dismiss"
+            style="@style/NeutralDialogButtonNetigenApi"
+            android:text="@string/cancel_netigen"
+            app:layout_constraintEnd_toStartOf="@id/button_change_language_ok"
+            app:layout_constraintTop_toTopOf="@id/button_change_language_ok" />
 </androidx.constraintlayout.widget.ConstraintLayout>

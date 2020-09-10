@@ -4,7 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.content.IntentSender.SendIntentException
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.map
 import com.huawei.hmf.tasks.OnSuccessListener
 import com.huawei.hmf.tasks.Task
 import com.huawei.hms.iap.Iap
@@ -19,6 +22,9 @@ import kotlinx.coroutines.launch
 import org.json.JSONException
 import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import pl.netigen.coreapi.payments.model.PaymentEvent
+import pl.netigen.extensions.MutableSingleLiveEvent
+import pl.netigen.extensions.SingleLiveEvent
 import timber.log.Timber
 import timber.log.Timber.d
 
@@ -31,8 +37,12 @@ class HMSPaymentsRepo(
     private val consumeTestPurchase: Boolean = false
 ) : IPaymentsRepo {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
-    override val inAppSkuDetails = MutableLiveData<List<NetigenSkuDetails>>()
-    override val subsSkuDetails = MutableLiveData<List<NetigenSkuDetails>>()
+    override val inAppSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()  // TODO: 14.05.2020
+    override val subsSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>() // TODO: 14.05.2020
+
+    override fun onActivityStart() = Unit
+
+    override val lastPaymentEvent: SingleLiveEvent<PaymentEvent> = MutableSingleLiveEvent() // TODO: 14.05.2020
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
         .map { list -> list.any { it.data.productId in noAdsInAppSkuList } }
 
@@ -41,7 +51,9 @@ class HMSPaymentsRepo(
         obtainOwnedPurchases()
     }
 
-    override fun endConnection() = Unit
+
+    override val ownedPurchasesSkuLD: LiveData<List<String>>
+        get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.productId } }
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         if (requestCode == REQ_CODE_BUY) {
@@ -79,10 +91,11 @@ class HMSPaymentsRepo(
         return req
     }
 
-    fun makeNoAdsPurchase(activity: Activity, noAdsString: String) {
-        d("activity = [$activity], noAdsString = [$noAdsString]")
+
+    fun makePurchase(activity: Activity, skuId: String) {
+        d("activity = [$activity], skuId = [$skuId]")
         val mClient = Iap.getIapClient(activity)
-        val task = mClient.createPurchaseIntent(createPurchaseIntentReq(noAdsString))
+        val task = mClient.createPurchaseIntent(createPurchaseIntentReq(skuId))
         task.addOnSuccessListener(OnSuccessListener { result ->
             d("createPurchaseIntent, onSuccess")
             if (result == null) {

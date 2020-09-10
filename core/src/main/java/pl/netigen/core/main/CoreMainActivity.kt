@@ -5,46 +5,80 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import pl.netigen.core.gdpr.GDPRDialogFragment
+import pl.netigen.core.rateus.RateUs
+import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.coreapi.gdpr.AdConsentStatus
+import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
+import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.main.ICoreMainVM
+import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.extensions.observe
 import timber.log.Timber
 
-abstract class CoreMainActivity : AppCompatActivity() {
-    var canCommitFragments: Boolean = true
-    private var noAdsActive: Boolean = false
-    private var splashActive: Boolean = false
-    abstract val viewModelFactory: ViewModelProvider.Factory
-    val coreMainVM: ICoreMainVM by viewModels<CoreMainVM> { viewModelFactory }
+/**
+ * Implements [ICoreMainActivity]
+ */
+abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
+    override val canCommitFragments: Boolean
+        get() = !supportFragmentManager.isStateSaved
 
-    open fun onSplashOpened() {
+    private var _noAdsActive: Boolean = false
+    override val noAdsActive: Boolean
+        get() = _noAdsActive
+
+    private var _splashActive: Boolean = false
+    override val splashActive: Boolean
+        get() = _splashActive
+
+    override val coreMainVM: ICoreMainVM by viewModels<CoreMainVM> { viewModelFactory }
+
+    override fun onSplashOpened() {
         Timber.d("()")
-        splashActive = true
+        _splashActive = true
         hideAds()
     }
 
-    open fun onSplashClosed() {
+    val rateUs by lazy { RateUs.Builder(this).createRateUs() }
+
+    /**
+     * It's called when [CoreSplashFragment] is closed
+     * If [CoreMainVM.useDefaultRateUs] is true check for Rate Us show, see: [IRateUs]
+     *
+     */
+    override fun onSplashClosed() {
         Timber.d("()")
-        splashActive = false
+        _splashActive = false
         if (noAdsActive) hideAds() else showAds()
+        if (coreMainVM.useDefaultRateUs) {
+            rateUs.openRateDialogIfNeeded()
+        }
     }
 
+    /**
+     * Starts observing [ICoreMainVM.noAdsActive] and [ICoreMainVM.showGdprResetAds]
+     *
+     */
     @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.d("savedInstanceState = [$savedInstanceState]")
         coreMainVM.noAdsActive.asLiveData().observe(this, this::onNoAdsChanged)
-        coreMainVM.showGdprResetAds.observe(this) { showGdprPopUp() }
+        coreMainVM.showGdprResetAds.observe(this) {
+            if (canCommitFragments) {
+                showGdprPopUp()
+            }
+        }
     }
 
-    private fun showGdprPopUp() {
+    override fun showGdprPopUp() {
+        Timber.d("()")
         val fragment = GDPRDialogFragment.newInstance()
         fragment.show(supportFragmentManager.beginTransaction().addToBackStack(null), null)
         fragment.setIsPayOptions(coreMainVM.isNoAdsAvailable)
-        fragment.bindGDPRListener(object : GDPRDialogFragment.GDPRClickListener {
+        fragment.bindGDPRListener(object : GDPRClickListener {
             override fun onConsentAccepted(personalizedAds: Boolean) {
                 coreMainVM.personalizedAdsEnabled = personalizedAds
                 val adConsentStatus = if (personalizedAds) AdConsentStatus.PERSONALIZED_SHOWED else AdConsentStatus.NON_PERSONALIZED_SHOWED
@@ -52,7 +86,7 @@ abstract class CoreMainActivity : AppCompatActivity() {
             }
 
             override fun clickPay() {
-                fragment.dismiss()
+                fragment.dismissAllowingStateLoss()
                 coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
             }
         })
@@ -62,7 +96,6 @@ abstract class CoreMainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Timber.d("()")
-        canCommitFragments = true
         coreMainVM.interstitialAdIsInBackground(false)
     }
 
@@ -70,7 +103,6 @@ abstract class CoreMainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         Timber.d("()")
-        canCommitFragments = false
         coreMainVM.interstitialAdIsInBackground(true)
     }
 
@@ -78,7 +110,6 @@ abstract class CoreMainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         Timber.d("()")
-        canCommitFragments = false
     }
 
     @CallSuper
@@ -87,8 +118,8 @@ abstract class CoreMainActivity : AppCompatActivity() {
         coreMainVM.start()
     }
 
-    open fun onNoAdsChanged(noAdsActive: Boolean) {
-        this.noAdsActive = noAdsActive
+    override fun onNoAdsChanged(noAdsActive: Boolean) {
+        this._noAdsActive = noAdsActive
         if (splashActive) return
         if (noAdsActive) {
             hideAds()
@@ -106,6 +137,4 @@ abstract class CoreMainActivity : AppCompatActivity() {
         }
     }
 
-    abstract fun hideAds()
-    abstract fun showAds()
 }

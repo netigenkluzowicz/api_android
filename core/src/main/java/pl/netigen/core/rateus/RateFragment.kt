@@ -8,10 +8,14 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.dialog_fragment_rate_us_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
+import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.extensions.setTint
 
-class RateFragment(
-) : BaseDialogFragment() {
+/**
+ * [BaseDialogFragment] used for show users "Rate us" dialog, see [IRateUs]
+ *
+ */
+class RateFragment : BaseDialogFragment() {
 
     private var onClickYes: (() -> Unit)? = null
     private var onClickNo: (() -> Unit)? = null
@@ -62,21 +66,21 @@ class RateFragment(
     private fun setNeutralButtonListener() {
         rateUsFragmentLaterTextView.setOnClickListener {
             onClickLater?.let { it1 -> it1() }
-            dismiss()
+            dismissAllowingStateLoss()
         }
     }
 
     private fun setPositiveButtonListener() {
         rateUsFragmentYesTextView.setOnClickListener {
             onClickYes?.let { it1 -> it1() }
-            dismiss()
+            dismissAllowingStateLoss()
         }
     }
 
     private fun setNegativeButtonListener() {
         closeRateUs.setOnClickListener {
             onClickNo?.let { it1 -> it1() }
-            dismiss()
+            dismissAllowingStateLoss()
         }
     }
 }

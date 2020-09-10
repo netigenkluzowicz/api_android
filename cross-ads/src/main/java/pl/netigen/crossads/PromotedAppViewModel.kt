@@ -44,11 +44,11 @@ class PromotedAppViewModel(application: Application) : AndroidViewModel(applicat
 
     private val webservice by lazy {
         Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(providesOkHttpClient())
-                .addConverterFactory(GsonConverterFactory.create(provideGson()))
-                .build()
-                .create(PromotedAppWebservice::class.java)
+            .baseUrl(BASE_URL)
+            .client(providesOkHttpClient())
+            .addConverterFactory(GsonConverterFactory.create(provideGson()))
+            .build()
+            .create(PromotedAppWebservice::class.java)
     }
 
     private suspend fun getPromotedApplication(packageName: String): PromotedAppModel? {
@@ -59,7 +59,7 @@ class PromotedAppViewModel(application: Application) : AndroidViewModel(applicat
         }
     }
 
-     fun preparePromotedIconPath(promotedIcon: PromotedAppModel): String {
+    fun preparePromotedIconPath(promotedIcon: PromotedAppModel): String {
         return BASE_URL + promotedIcon.iconLink!!
     }
 

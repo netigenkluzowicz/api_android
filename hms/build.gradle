@@ -6,12 +6,11 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 29
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 28
+        minSdkVersion 19
+        targetSdkVersion 29
         versionName version
     }
     buildTypes {
@@ -37,7 +36,13 @@ dependencies {
     api project(path: ':core-api')
 
     api Libraries.appcompat
-    api 'com.huawei.hms:iap:4.0.1.300'
+    api 'com.huawei.hms:iap:5.0.1.300'
+
+    implementation 'com.huawei.agconnect:agconnect-crash:1.4.0.300'
+    implementation 'com.huawei.agconnect:agconnect-core:1.4.0.300'
+    implementation 'com.huawei.hms:ads-lite:13.4.31.300'
+    implementation 'com.huawei.hms:ads-consent:3.4.29.303'
+    implementation 'com.huawei.hms:hianalytics:5.0.0.301'
 
     kapt Libraries.roomCompiler
     api Libraries.roomKTX

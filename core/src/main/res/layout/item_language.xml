@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground">
 
     <androidx.appcompat.widget.AppCompatRadioButton
-        android:id="@+id/radio_button_select_language"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:gravity="left|center"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:supportsRtl="false"
-        android:textColor="@color/dialog_text_view"
-        android:theme="@style/SelectedLanguageRadioButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Polish" />
+            android:id="@+id/radio_button_select_language"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="left|center"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:supportsRtl="false"
+            android:textColor="@color/dialog_text_view"
+            android:theme="@style/SelectedLanguageRadioButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Polish" />
 </androidx.constraintlayout.widget.ConstraintLayout>

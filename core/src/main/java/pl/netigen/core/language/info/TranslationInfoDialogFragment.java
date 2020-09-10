@@ -24,9 +24,11 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
     private TextView buttonChangeLanguageOk;
     private TextView buttonChangeLanguageDismiss;
 
-    public interface DialogClickListener {
-        void onNegativeButtonClicked();
-        void onPositiveButtonClicked();
+    public static TranslationInfoDialogFragment newInstance(TranslationInfoParams translationInfoParams) {
+        TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment();
+        fragment.translationInfoParams = translationInfoParams;
+        fragment.dialogClickListener = translationInfoParams.dialogClickListener;
+        return fragment;
     }
 
     @androidx.annotation.Nullable
@@ -38,13 +40,6 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
     ) {
 
         return inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
-    }
-
-    public static TranslationInfoDialogFragment newInstance(TranslationInfoParams translationInfoParams) {
-        TranslationInfoDialogFragment fragment = new TranslationInfoDialogFragment();
-        fragment.translationInfoParams = translationInfoParams;
-        fragment.dialogClickListener = translationInfoParams.dialogClickListener;
-        return fragment;
     }
 
     @Override
@@ -77,7 +72,6 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
         TextView textViewTranslationInfoTitle = view.findViewById(R.id.textView_translation_info_title);
         textViewTranslationInfoTitle.setText(translationInfoParams.titleResId);
     }
-
 
     public void setPositiveButton(View view) {
         buttonChangeLanguageOk = view.findViewById(R.id.button_positive);
@@ -116,6 +110,12 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
             ViewTintExtensionKt
                     .setTint(buttonChangeLanguageDismiss.getBackground(), context, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY);
         }
+    }
+
+    public interface DialogClickListener {
+        void onNegativeButtonClicked();
+
+        void onPositiveButtonClicked();
     }
 
     public static class Builder {
