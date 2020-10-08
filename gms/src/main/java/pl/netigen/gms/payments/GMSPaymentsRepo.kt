@@ -26,6 +26,7 @@ class GMSPaymentsRepo(
     private val isDebugMode: Boolean = false,
     private val consumablesInAppSkuList: List<String> = emptyList()
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
+    private var makingPurchaseActive: Boolean = false
     private var queryStarted: Boolean = false
     private var lastError: PaymentError? = null
     private var application = activity.application
@@ -197,7 +198,11 @@ class GMSPaymentsRepo(
             Timber.d("non-consumables content $nonConsumables")
             handleConsumablePurchasesAsync(consumables)
             acknowledgeNonConsumablePurchasesAsync(nonConsumables)
-            localCacheBillingClient.purchaseDao().deleteAll()
+            if (!makingPurchaseActive) {
+                localCacheBillingClient.purchaseDao().deleteAll()
+            } else {
+                makingPurchaseActive = false
+            }
             localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
         } catch (e: Exception) {
             Timber.e(e)
@@ -311,6 +316,7 @@ class GMSPaymentsRepo(
     private fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {
         Timber.d("activity = [$activity], skuDetails = [$skuDetails]")
         val purchaseParams = BillingFlowParams.newBuilder().setSkuDetails(skuDetails).build()
+        makingPurchaseActive = true
         gmsBillingClient.launchBillingFlow(activity, purchaseParams)
     }
 
