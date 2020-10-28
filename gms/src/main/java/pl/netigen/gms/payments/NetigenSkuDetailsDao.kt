@@ -17,7 +17,7 @@ interface NetigenSkuDetailsDao {
     @Transaction
     fun insertOrUpdate(skuDetails: SkuDetails, isNoAds: Boolean = false) = skuDetails.apply {
         val originalJson = toString().substring("SkuDetails: ".length)
-        val detail = NetigenSkuDetails(sku, type, isNoAds, price, title, description, originalJson)
+        val detail = NetigenSkuDetails(sku, type, isNoAds, price, priceAmountMicros, priceCurrencyCode, title, description, originalJson)
         insert(detail)
     }
 
