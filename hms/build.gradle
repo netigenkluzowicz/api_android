@@ -36,10 +36,10 @@ dependencies {
     api project(path: ':core-api')
 
     api Libraries.appcompat
-    api 'com.huawei.hms:iap:5.0.1.300'
+    api 'com.huawei.hms:iap:5.0.2.300'
 
-    implementation 'com.huawei.agconnect:agconnect-crash:1.4.0.300'
-    implementation 'com.huawei.agconnect:agconnect-core:1.4.0.300'
+    implementation 'com.huawei.agconnect:agconnect-crash:1.4.1.300'
+    implementation 'com.huawei.agconnect:agconnect-core:1.4.1.300'
     implementation 'com.huawei.hms:ads-lite:13.4.31.300'
     implementation 'com.huawei.hms:ads-consent:3.4.29.303'
     implementation 'com.huawei.hms:hianalytics:5.0.0.301'
