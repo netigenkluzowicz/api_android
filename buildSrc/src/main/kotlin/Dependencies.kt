@@ -7,6 +7,7 @@ object Versions {
     const val glide = "4.11.0"
     const val appcompat = "1.2.0"
     const val consentLibrary = "1.0.8"
+    const val userMessagingPlatform = "1.0.0"
     const val coreKTX = "1.3.2"
     const val lifecycle = "2.2.0"
     const val lifecycleKTX = "2.2.0"
@@ -33,6 +34,8 @@ object Libraries {
 
     val playServicesAds = "com.google.android.gms:play-services-ads:${Versions.playServicesAds}"
     val consentLibrary = "com.google.android.ads.consent:consent-library:${Versions.consentLibrary}"
+
+    val userMessagingPlatform = "com.google.android.ump:user-messaging-platform:${Versions.userMessagingPlatform}"
 
     val lifecycleExt = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     val viewModelKTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"

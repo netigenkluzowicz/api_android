@@ -38,6 +38,7 @@ dependencies {
 
     api Libraries.playServicesAds
     api Libraries.consentLibrary
+    api Libraries.userMessagingPlatform
     api Libraries.appcompat
     api Libraries.billing
 
