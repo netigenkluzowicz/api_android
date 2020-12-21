@@ -20,7 +20,7 @@ object Versions {
     const val espressoCore = "3.2.0"
     const val billing = "3.0.1"
     const val navigation = "2.2.2"
-    const val coroutines = "1.3.9"
+    const val coroutines = "1.4.2"
     const val room = "2.2.5"
     const val timber = "4.7.1"
 }
@@ -33,7 +33,6 @@ object Libraries {
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     val playServicesAds = "com.google.android.gms:play-services-ads:${Versions.playServicesAds}"
-    val consentLibrary = "com.google.android.ads.consent:consent-library:${Versions.consentLibrary}"
 
     val userMessagingPlatform = "com.google.android.ump:user-messaging-platform:${Versions.userMessagingPlatform}"
 
