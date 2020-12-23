@@ -36,14 +36,14 @@ import timber.log.Timber.d
  * @param application provides [Application] context for this [AndroidViewModel]
  */
 class CoreSplashVMImpl(
-    application: Application,
-    override val gdprConsent: IGDPRConsent,
-    private val ads: IAds,
-    private val noAdsPurchases: INoAds,
-    private val networkStatus: INetworkStatus,
-    private val appConfig: IAppConfig,
-    private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
-    val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
+        application: Application,
+        override val gdprConsent: IGDPRConsent,
+        private val ads: IAds,
+        private val noAdsPurchases: INoAds,
+        private val networkStatus: INetworkStatus,
+        private val appConfig: IAppConfig,
+        private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
+        val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
 ) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -135,6 +135,7 @@ class CoreSplashVMImpl(
             CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
             CheckGDPRLocationStatus.UE -> showGdprPopUp()
             CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
+            CheckGDPRLocationStatus.FORM_SHOWED -> startLoadingInterstitial()
         }
     }
 

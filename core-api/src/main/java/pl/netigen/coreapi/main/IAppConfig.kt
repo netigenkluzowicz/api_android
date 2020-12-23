@@ -1,14 +1,12 @@
 package pl.netigen.coreapi.main
 
 import pl.netigen.coreapi.ads.IAdsConfig
-import pl.netigen.coreapi.gdpr.IGDPRConsentConfig
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.splash.ISplashConfig
 
 /**
  * Keeps configuration for entire Api/Application:
  * - Ads configuration [IAdsConfig]
- * - UE GDPR consent configuration [IGDPRConsentConfig]
  * - splash base configuration [ISplashConfig]
  * - if no-ads payment is available in application
  * - if debug mode is enabled for ads and payments
@@ -16,7 +14,7 @@ import pl.netigen.coreapi.splash.ISplashConfig
  * - if use default ["Rate us"][IRateUs]
  *
  */
-interface IAppConfig : IAdsConfig, IGDPRConsentConfig, ISplashConfig {
+interface IAppConfig : IAdsConfig, ISplashConfig {
     override val isNoAdsAvailable: Boolean
 
     /**

@@ -17,5 +17,5 @@ object FlavoursConst {
         GMSPayments(coreMainActivity, inDebugMode = appConfig.inDebugMode)
 
     fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = AdMobAds(coreMainActivity, appConfig)
-    fun getGDPRConsentImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = GDPRConsentImpl(coreMainActivity, appConfig)
+    fun getGDPRConsentImpl(coreMainActivity: CoreMainActivity) = GDPRConsentImpl(coreMainActivity)
 }

@@ -53,7 +53,7 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
             return
         }
         val fragment =
-            requireActivity().supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
+                requireActivity().supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
         if (fragment != null) {
             onGdprPopupVisible(fragment)
         } else {
@@ -78,8 +78,8 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
         val newInstance = GDPRDialogFragment.newInstance()
         gdprDialogFragment = newInstance
         newInstance.show(
-            fragmentActivity.supportFragmentManager.beginTransaction().addToBackStack(null),
-            GDPR_POP_UP_TAG
+                fragmentActivity.supportFragmentManager.beginTransaction().addToBackStack(null),
+                GDPR_POP_UP_TAG
         )
         bindGdprFragment(newInstance)
     }
