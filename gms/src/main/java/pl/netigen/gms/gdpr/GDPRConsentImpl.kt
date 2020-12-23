@@ -13,7 +13,10 @@ import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
-import pl.netigen.coreapi.gdpr.*
+import pl.netigen.coreapi.gdpr.AdConsentStatus
+import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
+import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.gdpr.IGDPRTexts
 import timber.log.Timber
 
 
@@ -39,7 +42,8 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
                 val consentInformation = UserMessagingPlatform.getConsentInformation(activity);
                 val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
 
-                    override fun onConsentInfoUpdateFailure(p0: FormError?) {
+                    override fun onConsentInfoUpdateFailure(formError: FormError?) {
+                        Timber.d("p0 = [$formError]")
                         try {
                             sendBlocking(CheckGDPRLocationStatus.ERROR)
                         } catch (e: Exception) {
@@ -53,29 +57,12 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
                         try {
                             val consentStatus = consentInformation.consentStatus
                             val isInEea = consentStatus == REQUIRED
-                            if (consentInformation.isConsentFormAvailable) {
-                                UserMessagingPlatform.loadConsentForm(
-                                        activity,
-                                        { form ->
-                                            consentForm = form
-                                            if (consentStatus == REQUIRED) {
-                                                consentForm?.show(activity) {
-                                                    if (it != null) {
-                                                        sendBlocking(CheckGDPRLocationStatus.FORM_SHOWED)
-                                                        saveAdConsentStatus(consentInformation.consentType)
-                                                    } else {
-                                                        sendBlocking(CheckGDPRLocationStatus.ERROR)
-                                                    }
-                                                }
-                                            } else {
-                                                saveAdConsentStatus(AdConsentStatus.PERSONALIZED_NON_UE)
-                                                sendBlocking(CheckGDPRLocationStatus.NON_UE)
-                                            }
-                                        },
-                                        {
-                                            sendBlocking(if (isInEea) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
-                                        }
-                                )
+                            if (isInEea && consentInformation.isConsentFormAvailable) {
+                                sendBlocking(CheckGDPRLocationStatus.FORM_SHOW_REQUIRED)
+                            } else if (isInEea) {
+                                sendBlocking(CheckGDPRLocationStatus.ERROR)
+                            } else {
+                                sendBlocking(CheckGDPRLocationStatus.NON_UE)
                             }
 
 
@@ -94,14 +81,80 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
                 awaitClose {}
             }
 
-    private fun saveAdConsentStatus(adConsentStatus: Int) {
-        when (adConsentStatus) {
-            UNKNOWN -> saveAdConsentStatus(AdConsentStatus.UNINITIALIZED)
-            NON_PERSONALIZED -> saveAdConsentStatus(AdConsentStatus.NON_PERSONALIZED_SHOWED)
-            PERSONALIZED -> saveAdConsentStatus(AdConsentStatus.PERSONALIZED_SHOWED)
+
+    override fun loadForm(): Flow<Boolean> =
+            callbackFlow {
+                val callback = object : UserMessagingPlatform.OnConsentFormLoadSuccessListener, UserMessagingPlatform.OnConsentFormLoadFailureListener {
+                    override fun onConsentFormLoadSuccess(form: ConsentForm?) {
+                        Timber.d("form = [$form]")
+                        try {
+                            consentForm = form
+                            if (form != null) {
+                                sendBlocking(true)
+                            } else {
+                                sendBlocking(false)
+                            }
+                        } catch (e: Exception) {
+                            Timber.e(e)
+                        } finally {
+                            channel.close()
+                        }
+                    }
+
+                    override fun onConsentFormLoadFailure(formError: FormError?) {
+                        Timber.d("formError = [$formError]")
+                        try {
+                            saveAdConsentStatus(ConsentInformation.ConsentType.UNKNOWN)
+                            sendBlocking(false)
+                        } catch (e: Exception) {
+                            Timber.e(e)
+                        } finally {
+                            channel.close()
+                        }
+                    }
+                }
+
+                UserMessagingPlatform.loadConsentForm(activity, callback, callback)
+
+                awaitClose {}
+            }
+
+    override fun showForm(): Flow<Boolean> = callbackFlow {
+        val consentInformation = UserMessagingPlatform.getConsentInformation(activity);
+        val callback = ConsentForm.OnConsentFormDismissedListener { formError ->
+            try {
+                if (formError == null) {
+                    saveAdConsentStatus(consentInformation.consentType)
+                    sendBlocking(true)
+                } else {
+                    Timber.d("dismiss error: $formError")
+                    sendBlocking(false)
+                }
+            } catch (e: Exception) {
+                Timber.e(e)
+            } finally {
+                channel.close()
+            }
         }
+        val consentForm1 = consentForm
+        if (consentForm1 != null) {
+            consentForm1.show(activity, callback)
+        } else {
+            sendBlocking(false)
+            channel.close()
+        }
+
+        awaitClose {}
     }
 
+    private fun saveAdConsentStatus(adConsentStatus: Int) {
+        saveAdConsentStatus(when (adConsentStatus) {
+            UNKNOWN -> AdConsentStatus.UNINITIALIZED
+            NON_PERSONALIZED -> AdConsentStatus.NON_PERSONALIZED_SHOWED
+            PERSONALIZED -> AdConsentStatus.PERSONALIZED_SHOWED
+            else -> AdConsentStatus.UNINITIALIZED
+        })
+    }
 
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {
         activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)

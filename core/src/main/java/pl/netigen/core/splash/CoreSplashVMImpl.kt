@@ -135,7 +135,37 @@ class CoreSplashVMImpl(
             CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
             CheckGDPRLocationStatus.UE -> showGdprPopUp()
             CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
-            CheckGDPRLocationStatus.FORM_SHOWED -> startLoadingInterstitial()
+            CheckGDPRLocationStatus.FORM_SHOW_REQUIRED -> loadForm()
+        }
+    }
+
+    private fun loadForm() {
+        launch(coroutineDispatcherIo) {
+            noAdsPurchases.noAdsActive.collect {
+                if (isActive) {
+                    onAdsFlowChanged(it)
+                }
+            }
+        }
+
+        launch {
+            gdprConsent.loadForm().collect {
+                when (it) {
+                    false -> showGdprPopUp()
+                    true -> showForm()
+                }
+            }
+        }
+    }
+
+    private fun showForm() {
+        launch {
+            gdprConsent.showForm().collect {
+                when (it) {
+                    false -> showGdprPopUp()
+                    true -> startLoadingInterstitial()
+                }
+            }
         }
     }
 
@@ -198,6 +228,9 @@ class CoreSplashVMImpl(
                     if (it == CheckGDPRLocationStatus.UE) {
                         splashTimer.cancelTimers()
                         showGdprPopUp()
+                    } else if (it == CheckGDPRLocationStatus.FORM_SHOW_REQUIRED) {
+                        splashTimer.cancelTimers()
+                        loadForm()
                     }
                 }
             }
