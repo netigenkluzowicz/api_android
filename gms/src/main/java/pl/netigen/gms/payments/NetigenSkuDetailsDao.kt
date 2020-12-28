@@ -8,11 +8,8 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 
 @Dao
 interface NetigenSkuDetailsDao {
-    @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.SUBS}'")
-    fun subscriptionSkuDetailsLiveData(): LiveData<List<NetigenSkuDetails>>
-
-    @Query("SELECT * FROM NetigenSkuDetails WHERE type = '${BillingClient.SkuType.INAPP}'")
-    fun inAppSkuDetailsLiveData(): LiveData<List<NetigenSkuDetails>>
+    @Query("SELECT * FROM NetigenSkuDetails")
+    fun skuDetailsLiveData(): LiveData<List<NetigenSkuDetails>>
 
     @Transaction
     fun insertOrUpdate(skuDetails: SkuDetails, isNoAds: Boolean = false) = skuDetails.apply {

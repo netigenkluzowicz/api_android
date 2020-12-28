@@ -20,27 +20,26 @@ import pl.netigen.extensions.SingleLiveEvent
  */
 interface IPayments : INoAds {
     /**
-     * List of all payments sku available in Application
+     * List of all IN_APP payments sku available in Application
      * for default it is only one default no-ads sku: [packageName] +".noads"
      */
     val inAppSkuList: List<String>
 
     /**
-     * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available in app payments
+     * List of all SUBSCRIPTION payments sku available in Application
+     * for default it is empty
+     */
+    val subscriptionsSkuList: List<String>
+
+    /**
+     * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available IN_APP and SUBSCRIPTION payments
      *
      * warning this currently not working/tested in HMS!!
      */
-    val inAppSkuDetailsLD: LiveData<List<NetigenSkuDetails>>
+    val skuDetailsLD: LiveData<List<NetigenSkuDetails>>
 
     /**
-     * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available subscriptions
-     *
-     * warning this currently not working/tested in HMS!!
-     */
-    val subsSkuDetailsLD: LiveData<List<NetigenSkuDetails>>
-
-    /**
-     * [LiveData] with list of payments owned by user (this payments [String] sku)
+     * [LiveData] with list of IN_APP and SUBSCRIPTION payments owned by user (this payments [String] sku)
      *
      * This is updated with each start of application, and with user interaction with payments
      */

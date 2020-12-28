@@ -33,12 +33,10 @@ class HMSPaymentsRepo(
     private val activity: Activity,
     private val inAppSkuList: List<String>,
     private val noAdsInAppSkuList: List<String>,
-    private val consumablesInAppSkuList: List<String> = emptyList(),
     private val consumeTestPurchase: Boolean = false
 ) : IPaymentsRepo {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
-    override val inAppSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()  // TODO: 14.05.2020
-    override val subsSkuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>() // TODO: 14.05.2020
+    override val skuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()  // TODO: 14.05.2020
 
     override fun onActivityStart() = Unit
 

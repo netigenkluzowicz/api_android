@@ -26,8 +26,7 @@ abstract class Payments(activity: Activity) : IPayments, IPaymentsRepo {
     override val ownedPurchasesSkuLD: LiveData<List<String>> by lazy { paymentsRepo.ownedPurchasesSkuLD }
     override val lastPaymentEvent: SingleLiveEvent<PaymentEvent> by lazy { paymentsRepo.lastPaymentEvent }
     override val noAdsActive by lazy { paymentsRepo.noAdsActive }
-    override val inAppSkuDetailsLD by lazy { paymentsRepo.inAppSkuDetailsLD }
-    override val subsSkuDetailsLD by lazy { paymentsRepo.subsSkuDetailsLD }
+    override val skuDetailsLD by lazy { paymentsRepo.skuDetailsLD }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) = Unit
     override fun onActivityStart() = paymentsRepo.onActivityStart()
 }
