@@ -80,7 +80,9 @@ class GMSPaymentsRepo(
 
     private fun billingSetupOk() {
         Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
-        querySkuDetailsAsync(inAppSkuList)
+        querySkuDetailsAsync(BillingClient.SkuType.INAPP, inAppSkuList)
+        //TODO we should decide whether we want to deal with subs sku separately, but it seems like a right way to me
+        //querySkuDetailsAsync(BillingClient.SkuType.SUBS, subSkuList)
         queryPurchasesIfNotRunning()
     }
 
@@ -117,9 +119,9 @@ class GMSPaymentsRepo(
         lastError = error
     }
 
-    private fun querySkuDetailsAsync(skuList: List<String>) {
-        Timber.d(skuList.joinToString("\n"))
-        val params = SkuDetailsParams.newBuilder().setSkusList(skuList).build()
+    private fun querySkuDetailsAsync(@BillingClient.SkuType skuType: String, skuList: List<String>) {
+        Timber.d("${skuList.joinToString("\n")} skuType $skuType")
+        val params = SkuDetailsParams.newBuilder().setSkusList(skuList).setType(skuType).build()
         gmsBillingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
             when (billingResult.responseCode) {
                 BillingClient.BillingResponseCode.OK -> {
