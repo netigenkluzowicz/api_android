@@ -29,6 +29,7 @@ class GMSPaymentsRepo(
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
     private var makingPurchaseActive: Boolean = false
     private var queryStarted: Boolean = false
+    private var isConnecting: Boolean = false;
     private var lastError: PaymentError? = null
     private var application = activity.application
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
@@ -55,7 +56,8 @@ class GMSPaymentsRepo(
 
     private fun connectToPlayBillingService(): Boolean {
         Timber.d("()")
-        if (!gmsBillingClient.isReady) {
+        if (!gmsBillingClient.isReady && !isConnecting) {
+            isConnecting = true
             gmsBillingClient.startConnection(this)
             return true
         }
@@ -70,6 +72,7 @@ class GMSPaymentsRepo(
 
     override fun onBillingSetupFinished(billingResult: BillingResult) {
         Timber.d("()")
+        isConnecting = false
         if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
             billingSetupOk()
         } else {
@@ -351,6 +354,7 @@ class GMSPaymentsRepo(
 
     override fun onBillingServiceDisconnected() {
         Timber.d("()")
-        connectToPlayBillingService()
+        isConnecting = false
+        debugEvent("SERVICE_DISCONNECTED")
     }
 }
