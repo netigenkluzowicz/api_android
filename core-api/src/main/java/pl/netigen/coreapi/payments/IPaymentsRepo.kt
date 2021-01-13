@@ -46,20 +46,11 @@ interface IPaymentsRepo {
     val noAdsActive: Flow<Boolean>
 
     /**
-     * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available in app payments
+     * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available IN_APP and SUBSCRIPTION payments
      *
      * warning this currently not working/tested in HMS!!
      *
-     * @see IPayments.inAppSkuDetailsLD
+     * @see IPayments.skuDetailsLD
      */
-    val inAppSkuDetailsLD: LiveData<List<NetigenSkuDetails>>
-
-    /**
-     * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available subscriptions
-     *
-     * warning this currently not working/tested in HMS!!
-     *
-     * @see IPayments.subsSkuDetailsLD
-     */
-    val subsSkuDetailsLD: LiveData<List<NetigenSkuDetails>>
+    val skuDetailsLD: LiveData<List<NetigenSkuDetails>>
 }

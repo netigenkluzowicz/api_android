@@ -5,13 +5,14 @@ import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.d
 
 class GMSPayments(
-    private val activity: Activity,
-    override val inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
-    override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
-    inDebugMode: Boolean = false
+        private val activity: Activity,
+        override val inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+        override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+        override val subscriptionsSkuList: List<String> = emptyList(),
+        inDebugMode: Boolean = false
 ) : Payments(activity) {
 
-    override val paymentsRepo = GMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, inDebugMode)
+    override val paymentsRepo = GMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, subscriptionsSkuList, inDebugMode)
 
     override fun makePurchase(activity: Activity, sku: String) {
         d("activity = [$activity], skuString = [$sku]")

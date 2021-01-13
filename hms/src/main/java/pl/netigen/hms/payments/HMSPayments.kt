@@ -6,14 +6,14 @@ import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.d
 
 class HMSPayments(
-    activity: Activity,
-    override val inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
-    override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
-    consumablesInAppSkuList: List<String> = emptyList(),
-    consumeTestPurchase: Boolean = false
+        activity: Activity,
+        override val inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+        override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+        override val subscriptionsSkuList: List<String> = emptyList(),
+        consumeTestPurchase: Boolean = false
 ) : Payments(activity) {
 
-    override val paymentsRepo = HMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, consumablesInAppSkuList, consumeTestPurchase)
+    override val paymentsRepo = HMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, consumeTestPurchase)
 
     override fun makePurchase(activity: Activity, sku: String) {
         d("activity = [$activity], skuString = [$sku]")
