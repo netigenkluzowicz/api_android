@@ -65,12 +65,6 @@ class RateUs private constructor(
                         { clickLater() }).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
             }
         }
-
-
-    }
-
-    override fun openInAppDialog() {
-
     }
 
     override fun clickYes() {

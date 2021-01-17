@@ -76,6 +76,5 @@ object Libraries {
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     val playCore = "com.google.android.play:core:${Versions.playCore}"
-    val playCoreKTX = "com.google.android.play:core-ktx:${Versions.playCore}"
 }
 

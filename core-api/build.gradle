@@ -71,7 +71,6 @@ dependencies {
     api Libraries.timber
 
     api Libraries.playCore
-    api Libraries.playCoreKTX
 }
 
 
