@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.play.core.review.ReviewManagerFactory
 import pl.netigen.core.utils.Utils
 import pl.netigen.coreapi.rateus.IRateUs
+import timber.log.Timber
 
 /**
  * [IRateUs] implementation
@@ -36,7 +37,10 @@ class RateUs private constructor(
         return sharedPreferences.getBoolean(KEY_IS_RATE_US_OPEN, true)
     }
 
-    override fun doNotShowRateUsAgain() = sharedPreferences.edit().putBoolean(KEY_IS_RATE_US_OPEN, false).apply()
+    override fun doNotShowRateUsAgain() {
+        Timber.d("()")
+        sharedPreferences.edit().putBoolean(KEY_IS_RATE_US_OPEN, false).apply()
+    }
 
     override fun openRateDialogIfNeeded(): Boolean {
         if (shouldOpenRateUs()) {
@@ -51,14 +55,18 @@ class RateUs private constructor(
     }
 
     override fun openRateDialog() {
+        Timber.d("()")
         val manager = ReviewManagerFactory.create(appCompatActivity)
         val request = manager.requestReviewFlow()
         request.addOnCompleteListener { task ->
+            Timber.d("task = [$task]")
             if (task.isSuccessful) {
+                Timber.d("Show New Rate Us")
                 val reviewInfo = task.result
                 val flow = manager.launchReviewFlow(appCompatActivity, reviewInfo)
                 flow.addOnCompleteListener { doNotShowRateUsAgain() }
             } else {
+                Timber.d("Show Old Rate Us")
                 RateFragment.newInstance(
                         { clickYes() },
                         { clickNo() },
