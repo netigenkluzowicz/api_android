@@ -49,6 +49,8 @@ interface IRateUs {
      */
     fun openRateDialog()
 
+    fun openInAppDialog()
+
     /**
      * Called on click in dialog
      *

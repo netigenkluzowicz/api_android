@@ -3,6 +3,7 @@ package pl.netigen.core.rateus
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.play.core.review.ReviewManagerFactory
 import pl.netigen.core.utils.Utils
 import pl.netigen.coreapi.rateus.IRateUs
 
@@ -12,8 +13,8 @@ import pl.netigen.coreapi.rateus.IRateUs
  * @property appCompatActivity [AppCompatActivity] context for this module
  */
 class RateUs private constructor(
-    private val appCompatActivity: AppCompatActivity,
-    override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
+        private val appCompatActivity: AppCompatActivity,
+        override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
 ) : IRateUs {
     companion object {
         private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
@@ -50,7 +51,26 @@ class RateUs private constructor(
     }
 
     override fun openRateDialog() {
-        RateFragment.newInstance({ clickYes() }, { clickNo() }, { clickLater() }).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
+        val manager = ReviewManagerFactory.create(appCompatActivity)
+        val request = manager.requestReviewFlow()
+        request.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val reviewInfo = task.result
+                val flow = manager.launchReviewFlow(appCompatActivity, reviewInfo)
+                flow.addOnCompleteListener { doNotShowRateUsAgain() }
+            } else {
+                RateFragment.newInstance(
+                        { clickYes() },
+                        { clickNo() },
+                        { clickLater() }).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
+            }
+        }
+
+
+    }
+
+    override fun openInAppDialog() {
+
     }
 
     override fun clickYes() {

@@ -22,6 +22,7 @@ object Versions {
     const val coroutines = "1.4.2"
     const val room = "2.2.6"
     const val timber = "4.7.1"
+    const val playCore = "1.9.0"
 }
 
 object Libraries {
@@ -73,5 +74,8 @@ object Libraries {
     val roomKTX = "androidx.room:room-ktx:${Versions.room}"
 
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
+    val playCore = "com.google.android.play:core:${Versions.playCore}"
+    val playCoreKTX = "com.google.android.play:core-ktx:${Versions.playCore}"
 }
 
