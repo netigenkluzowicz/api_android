@@ -27,7 +27,11 @@ open class AppConfig(
 ) : IAppConfig {
 
     init {
-        marketLinkPrefix = if (store == Store.SAMSUNG) "samsungapps://ProductDetail/" else "market://details?id="
+        marketLinkPrefix = when (store) {
+            Store.SAMSUNG -> "samsungapps://ProductDetail/"
+            Store.HUAWEI -> "appmarket://details?id="
+            else -> "market://details?id="
+        }
     }
 
     companion object {
