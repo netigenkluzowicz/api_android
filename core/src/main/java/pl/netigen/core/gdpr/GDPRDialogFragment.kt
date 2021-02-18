@@ -1,12 +1,14 @@
 package pl.netigen.core.gdpr
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
@@ -17,6 +19,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
@@ -31,6 +34,8 @@ import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.setDialogSizeAsMatchParent
 import pl.netigen.extensions.setTint
+import timber.log.Timber
+
 
 /**
  * Fragment for showing GDPR user consent, see [IGDPRConsent]
@@ -77,6 +82,16 @@ class GDPRDialogFragment : NetigenDialogFragment() {
                 WebView(it.createConfigurationContext(Configuration()))
             else
                 WebView(it.applicationContext)
+        }
+        webViewGdpr?.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                return try {
+                    activity?.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                    true
+                } catch (e: Exception) {
+                    false
+                }
+            }
         }
         view.findViewById<FrameLayout>(R.id.containerGDPRInfo).addView(webViewGdpr)
     }
@@ -204,7 +219,9 @@ class GDPRDialogFragment : NetigenDialogFragment() {
         if (showOnlineVersion()) {
             offlinePrivacyPolicyTextView.visibility = View.GONE
             webViewGdpr?.visibility = View.VISIBLE
-            webViewGdpr?.loadUrl(getLinkForMobiles())
+            val linkForMobiles = getLinkForMobiles()
+            Timber.d(": %s", linkForMobiles)
+            webViewGdpr?.loadUrl(linkForMobiles)
         } else {
             webViewGdpr?.visibility = View.GONE
             offlinePrivacyPolicyTextView.visibility = View.VISIBLE
@@ -245,9 +262,9 @@ class GDPRDialogFragment : NetigenDialogFragment() {
 
         context?.let {
             val netigenApiAccentColor =
-                String.format("#%06x", ContextCompat.getColor(it, R.color.dialog_accent) and 0xffffff).replace("#", "")
+                    String.format("#%06x", ContextCompat.getColor(it, R.color.dialog_accent) and 0xffffff).replace("#", "")
             link =
-                NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(it) + NETIGEN_APP_COLOR + netigenApiAccentColor + INSIDE_WEB_VIEW_MARGIN_0
+                    NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(it) + NETIGEN_APP_COLOR + netigenApiAccentColor + INSIDE_WEB_VIEW_MARGIN_0
         }
 
         return link
