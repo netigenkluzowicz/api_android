@@ -31,7 +31,7 @@ abstract class Payments(activity: Activity) : IPayments, IPaymentsRepo {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) = Unit
     override fun onActivityStart() = paymentsRepo.onActivityStart()
 
-    fun isSaleTime(netigenSkuDetails: NetigenSkuDetails?, netigenInfoSkuDetails: NetigenSkuDetails?): Boolean {
+    override fun isSaleTime(netigenSkuDetails: NetigenSkuDetails?, netigenInfoSkuDetails: NetigenSkuDetails?): Boolean {
         val infoPrice = netigenInfoSkuDetails?.priceAmountMicros
         val salePrice = netigenSkuDetails?.priceAmountMicros
         return if (infoPrice != null && salePrice != null) infoPrice > salePrice else false
