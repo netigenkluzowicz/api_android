@@ -81,4 +81,6 @@ interface IPayments : INoAds {
      *
      */
     fun onActivityStart()
+
+    fun isSaleTime(netigenSkuDetails: NetigenSkuDetails?, netigenInfoSkuDetails: NetigenSkuDetails?): Boolean
 }

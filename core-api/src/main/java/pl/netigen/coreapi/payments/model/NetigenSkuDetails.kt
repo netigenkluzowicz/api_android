@@ -3,6 +3,8 @@ package pl.netigen.coreapi.payments.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import pl.netigen.coreapi.payments.INoAds
+import java.text.NumberFormat
+import java.util.*
 
 /**
  * Represents an in-app product's or subscription's  details.
@@ -29,5 +31,48 @@ data class NetigenSkuDetails(
         val priceCurrencyCode: String? = null,
         val title: String? = null,
         val description: String? = null,
-        val originalJson: String? = null
-)
+        val originalJson: String? = null,
+) {
+    fun getDoublePrice(): Double? =
+            try {
+                StringBuilder(priceAmountMicros!!.toString()).insert(priceAmountMicros.toString().length - 6, ".").toString().toDouble()
+            } catch (e: Exception) {
+                null
+            }
+
+    fun replacePrice(priceToReplace: Double?): NetigenSkuDetails =
+            copy(price = createPriceWithSymbol(
+                    price = price,
+                    priceToReplace = NumberFormat.getNumberInstance(Locale.getDefault()).format(priceToReplace)
+            ))
+
+    private fun createPriceWithSymbol(price: String?, priceToReplace: String?): String? {
+        var priceWithSymbol: String? = null
+        if (price != null) {
+            with(price) {
+                if (first().isDigit()) {
+                    priceWithSymbol = ""
+                    priceWithSymbol += "$priceToReplace "
+                    forEachIndexed { index, c ->
+                        if (c.isDigit().not() && this[if (index < 0) 0 else index - 1].isDigit().not()) {
+                            priceWithSymbol += c
+                        }
+                    }
+                } else if (last().isDigit()) {
+                    priceWithSymbol = ""
+                    forEachIndexed { index, c ->
+                        if (c.isDigit().not() && this[if (index > length) length else index + 1].isDigit().not()) {
+                            priceWithSymbol += c
+                        }
+                    }
+                    priceWithSymbol += " $priceToReplace"
+                }
+            }
+        }
+        return priceWithSymbol
+    }
+
+    companion object {
+        const val EMPTY_PRICE = "--,--"
+    }
+}
