@@ -1,6 +1,23 @@
-buildscript {
-    ext.kotlin_version = '1.4.21'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+ext.versionMajor = 3
+ext.versionMinor = 3
+ext.versionPatch = 5
+
+private Integer generateVersionCode() {
+    return ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
+}
+
+private String generateVersionName() {
+    return "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}";
+}
+
+buildscript {
+    ext.kotlin_version = '1.4.31'
+    ext.multidex_version = '1.0.3'
+    ext.junit_version = '4.13.2'
+    ext.anroidx_test_junit_version = '1.1.2'
+    ext.espresso_version = '3.3.0'
 
     repositories {
         google()
@@ -9,7 +26,7 @@ buildscript {
         maven { url 'http://developer.huawei.com/repo/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath 'com.android.tools.build:gradle:4.1.3'
         classpath "com.github.dcendents:android-maven-gradle-plugin:${Versions.androidMavenGradlePlugin}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.kotlin}"
