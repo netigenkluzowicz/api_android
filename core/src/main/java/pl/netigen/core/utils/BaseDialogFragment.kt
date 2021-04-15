@@ -22,9 +22,9 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
         private const val DIALOG_WIDTH_DP_LANDSCAPE = 420
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
         setDialogWindow()
+        super.onCreate(savedInstanceState)
     }
 
     private fun setDialogWindow() {
