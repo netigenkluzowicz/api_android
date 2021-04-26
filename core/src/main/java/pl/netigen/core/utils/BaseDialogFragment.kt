@@ -22,15 +22,17 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
         private const val DIALOG_WIDTH_DP_LANDSCAPE = 420
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
         setDialogWindow()
+        super.onCreate(savedInstanceState)
     }
 
     private fun setDialogWindow() {
-        dialog?.window?.let { window ->
-            window.requestFeature(Window.FEATURE_NO_TITLE)
-            window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val dialog = dialog
+        if (dialog == null || dialog.window == null) return
+        else {
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
     }
 
