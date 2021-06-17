@@ -18,6 +18,7 @@ import timber.log.Timber.d
 abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
     private val splashVM: ISplashVM by activityViewModels<SplashVM> { coreMainActivity.viewModelFactory }
     private var consentNotShowed: Boolean = false
+    private var onFinishedNotCalled: Boolean = false
     private var gdprDialogFragment: GDPRDialogFragment? = null
     private val coreMainActivity
         get() = requireActivity() as CoreMainActivity
@@ -35,8 +36,16 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
                 SplashState.UNINITIALIZED -> onUninitialized()
                 SplashState.SHOW_GDPR_CONSENT -> tryShowGdprPopup()
                 SplashState.LOADING -> onLoading()
-                SplashState.FINISHED -> onFinished()
+                SplashState.FINISHED -> tryCallOnFinished()
             }
+        }
+    }
+
+    private fun tryCallOnFinished() {
+        if (canCommitFragments) {
+            onFinished()
+        } else {
+            onFinishedNotCalled = true
         }
     }
 
@@ -107,11 +116,9 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
     override fun onResume() {
         super.onResume()
         if (consentNotShowed) {
-            if (canCommitFragments) {
-                tryShowGdprPopup()
-            } else {
-                onFinished()
-            }
+            tryShowGdprPopup()
+        } else if (onFinishedNotCalled) {
+            onFinished()
         }
     }
 

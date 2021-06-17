@@ -9,11 +9,11 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.netigen.bestclassicmetronome"
+        versionCode generateVersionCode()
+        versionName generateVersionName()
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName version
-        manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~7696317395"]
+        manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~2760027390"]
     }
 
     flavorDimensions "services"
@@ -49,19 +49,19 @@ android {
 }
 
 dependencies {
-    debugImplementation 'com.android.support:multidex:1.0.3'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation project(path: ':core')
-    gmsImplementation project(path: ':gms')
-    hmsImplementation project(path: ':hms')
+    debugImplementation "com.android.support:multidex:$versions.multidex"
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation project(path: ":core")
+    gmsImplementation project(path: ":gms")
+    hmsImplementation project(path: ":hms")
 
     implementation Libraries.navigationFragmentKTX
     implementation Libraries.navigationFragment
     implementation Libraries.navigationUi
     implementation Libraries.navigationUiKTX
 
-    testImplementation 'junit:junit:4.13.1'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    testImplementation "junit:junit:$versions.test.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.test.x_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.test.espresso"
 }

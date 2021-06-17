@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
+import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 import pl.netigen.coreapi.payments.model.PaymentEvent
 import pl.netigen.extensions.SingleLiveEvent
 
@@ -26,8 +27,13 @@ abstract class Payments(activity: Activity) : IPayments, IPaymentsRepo {
     override val ownedPurchasesSkuLD: LiveData<List<String>> by lazy { paymentsRepo.ownedPurchasesSkuLD }
     override val lastPaymentEvent: SingleLiveEvent<PaymentEvent> by lazy { paymentsRepo.lastPaymentEvent }
     override val noAdsActive by lazy { paymentsRepo.noAdsActive }
-    override val inAppSkuDetailsLD by lazy { paymentsRepo.inAppSkuDetailsLD }
-    override val subsSkuDetailsLD by lazy { paymentsRepo.subsSkuDetailsLD }
+    override val skuDetailsLD by lazy { paymentsRepo.skuDetailsLD }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) = Unit
     override fun onActivityStart() = paymentsRepo.onActivityStart()
+
+    override fun isSaleTime(netigenSkuDetails: NetigenSkuDetails?, netigenInfoSkuDetails: NetigenSkuDetails?): Boolean {
+        val infoPrice = netigenInfoSkuDetails?.priceAmountMicros
+        val salePrice = netigenSkuDetails?.priceAmountMicros
+        return if (infoPrice != null && salePrice != null) infoPrice > salePrice else false
+    }
 }
