@@ -44,7 +44,9 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
                 val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
 
                     override fun onConsentInfoUpdateFailure(formError: FormError?) {
-                        Timber.d("p0 = [$formError]")
+                        if (formError != null) {
+                            Timber.d("p0 = [${formError.message}]")
+                        }
                         try {
                             sendBlocking(CheckGDPRLocationStatus.ERROR)
                         } catch (e: Exception) {
@@ -103,7 +105,9 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
                     }
 
                     override fun onConsentFormLoadFailure(formError: FormError?) {
-                        Timber.d("formError = [$formError]")
+                        if (formError != null) {
+                            Timber.d("formError = [${formError.message}]")
+                        }
                         try {
                             saveAdConsentStatus(ConsentInformation.ConsentType.UNKNOWN)
                             sendBlocking(false)

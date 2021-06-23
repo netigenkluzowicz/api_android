@@ -8,12 +8,12 @@ apply plugin: 'com.huawei.agconnect'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.netigen.bestclassicmetronome"
+        applicationId "pl.netigen.frequencygenerator"
         versionCode generateVersionCode()
         versionName generateVersionName()
         minSdkVersion 21
         targetSdkVersion 29
-        manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~2760027390"]
+        manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~3707111800"]
     }
 
     flavorDimensions "services"
