@@ -6,13 +6,13 @@ apply plugin: 'com.huawei.agconnect'
 
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         versionCode generateVersionCode()
         versionName generateVersionName()
         applicationId "pl.netigen.sampleapp"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~2760027390"]
     }
 
