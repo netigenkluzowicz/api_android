@@ -7,9 +7,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.OnUserEarnedRewardListener
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
-import com.google.android.gms.ads.rewarded.RewardedAdCallback
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
 import pl.netigen.coreapi.ads.IRewardedAd
@@ -32,8 +32,8 @@ class AdMobRewarded(
     override val adId: String = "",
     override var enabled: Boolean = adId.isNotEmpty()
 ) : IRewardedAd, LifecycleObserver {
-    override val isLoaded: Boolean get() = isEnabled && rewardedAd.isLoaded
-    private var rewardedAd = RewardedAd(activity, adId)
+    override val isLoaded: Boolean get() = isEnabled && rewardedAd != null
+    private var rewardedAd: RewardedAd? = null
     private val isEnabled: Boolean get() = enabled && adId.isNotEmpty()
     private var retryCount = 0
 
@@ -47,7 +47,7 @@ class AdMobRewarded(
             load()
             return onRewardResult(false)
         }
-        rewardedAd.show(activity, AdCallback(onRewardResult))
+        //rewardedAd.show(activity, AdCallback(onRewardResult))
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
@@ -57,11 +57,13 @@ class AdMobRewarded(
     }
 
     private fun load() {
-        if (isEnabled) rewardedAd.loadAd(adMobRequest.getAdRequest(), AdLoadCallback())
+        //todo  if (isEnabled) rewardedAd.loadAd(adMobRequest.getAdRequest(), AdLoadCallback())
     }
 
-    inner class AdCallback(val onRewardResult: (Boolean) -> Unit) : RewardedAdCallback() {
+  /*  todo
+  inner class AdCallback(val onRewardResult: (Boolean) -> Unit) : OnUserEarnedRewardListener() {
         private var success = false
+
 
         override fun onRewardedAdClosed() = rewardAdCallbackResult(success)
 
@@ -92,5 +94,5 @@ class AdMobRewarded(
                 load()
             }
         }
-    }
+    }*/
 }
