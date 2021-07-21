@@ -70,10 +70,8 @@ class AdMobInterstitial(
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
                     try {
                         d("()")
-                        if (this@AdMobInterstitial.interstitialAd != interstitialAd) {
-                            trySendBlocking(true)
-                            this@AdMobInterstitial.interstitialAd = interstitialAd
-                        }
+                        this@AdMobInterstitial.interstitialAd = interstitialAd
+                        trySendBlocking(true)
                     } catch (e: Exception) {
                         Timber.e(e)
                     } finally {
@@ -128,8 +126,8 @@ class AdMobInterstitial(
     fun onAdClosed(onClosedOrNotShowed: (Boolean) -> Unit) {
         d("onAdClosed")
         onClosedOrNotShowed(true)
+        interstitialAd = null
         loadIfShouldBeLoaded()
-        interstitialAd?.fullScreenContentCallback = null
     }
 
     override fun loadIfShouldBeLoaded() {
@@ -145,6 +143,7 @@ class AdMobInterstitial(
 
             override fun onAdLoaded(interstitialAd: InterstitialAd) {
                 d("interstitialAd = [$interstitialAd]")
+                this@AdMobInterstitial.interstitialAd = interstitialAd
             }
         })
     }
@@ -170,13 +169,21 @@ class AdMobInterstitial(
         isInBackground = true
     }
 
-    override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
-        d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
-        when {
-            disabled -> onClosedOrNotShowed(false)
-            isInBackground -> onCanNotShow(onClosedOrNotShowed)
-            isLoaded -> onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
-            else -> onCanNotShow(onClosedOrNotShowed)
+    override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) = when {
+        disabled -> {
+            d("disabled")
+            onClosedOrNotShowed(false)
+        }
+        isInBackground -> {
+            d("isInBackground")
+            onCanNotShow(onClosedOrNotShowed)
+        }
+        isLoaded -> {
+            onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
+        }
+        else -> {
+            d("notLoaded")
+            onCanNotShow(onClosedOrNotShowed)
         }
     }
 }
