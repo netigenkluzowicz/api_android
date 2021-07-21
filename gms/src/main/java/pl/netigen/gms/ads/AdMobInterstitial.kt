@@ -2,7 +2,6 @@ package pl.netigen.gms.ads
 
 import android.content.Context
 import android.os.SystemClock
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
@@ -56,7 +55,6 @@ class AdMobInterstitial(
     override fun load(): Flow<Boolean> =
         callbackFlow {
             val callback = object : InterstitialAdLoadCallback() {
-                ov
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
                     try {
                         d(loadAdError.message)
@@ -83,7 +81,7 @@ class AdMobInterstitial(
                     }
                 }
             }
-            InterstitialAd.load(activity, adId, adMobRequest.getAdRequest())
+            InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), callback)
             awaitClose {}
         }
 
@@ -102,36 +100,53 @@ class AdMobInterstitial(
 
     private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
         d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
-        interstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
+        interstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
-
+                d("onAdDismissedFullScreenContent")
+                onAdClosed(onClosedOrNotShowed)
             }
 
             override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
+                Timber.e(adError?.message)
+                onAdClosed(onClosedOrNotShowed)
             }
 
             override fun onAdShowedFullScreenContent() {
+                d("onAdShowedFullScreenContent")
+                onAdClosed(onClosedOrNotShowed)
             }
         }
-        lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
-        interstitialAd.show()
+        val interstitialAd1 = interstitialAd
+        if (interstitialAd1 != null) {
+            lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
+            interstitialAd1.show(activity)
+        } else {
+            onClosedOrNotShowed(false)
+        }
     }
 
-    fun onAdClosed() {
+    fun onAdClosed(onClosedOrNotShowed: (Boolean) -> Unit) {
         d("onAdClosed")
         onClosedOrNotShowed(true)
         loadIfShouldBeLoaded()
-        interstitialAd.adListener = null
+        interstitialAd?.fullScreenContentCallback = null
     }
 
     override fun loadIfShouldBeLoaded() {
         d("()")
-        if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        interstitialAd.adListener = object : AdListener() {
-            override fun onAdLoaded() = d("()")
-            override fun onAdFailedToLoad(errorCode: Int) = d("p0 = [$errorCode]")
-        }
-        interstitialAd.loadAd(adMobRequest.getAdRequest())
+        if (interstitialAd != null || disabled) return
+
+        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                d("loadAdError = [$loadAdError]")
+                interstitialAd = null
+
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                d("interstitialAd = [$interstitialAd]")
+            }
+        })
     }
 
     private fun validateLastShowTime(currentTime: Long) =
