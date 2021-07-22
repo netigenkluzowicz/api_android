@@ -8,6 +8,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
+import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
 import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber.d
 
@@ -31,6 +32,7 @@ class AdMobRewarded(
     override val isLoaded: Boolean get() = isEnabled && rewardedAd != null
     private var rewardedAd: RewardedAd? = null
     private val isEnabled: Boolean get() = enabled && adId.isNotEmpty()
+    private var retryCount = 0
 
     init {
         d("()")
@@ -77,7 +79,9 @@ class AdMobRewarded(
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private fun onCreate() {
         d("()")
-        load()
+        if (enabled) {
+            load()
+        }
     }
 
     private fun load() {
@@ -90,7 +94,11 @@ class AdMobRewarded(
 
             override fun onAdFailedToLoad(loadAdError: LoadAdError) {
                 d("loadAdError = [${loadAdError.message}]")
-                load()
+                if (enabled && retryCount <= REWARD_AD_MAX_RETRY_COUNT) {
+                    retryCount++
+                    d("retry load: $retryCount")
+                    load()
+                }
             }
         }
         )
