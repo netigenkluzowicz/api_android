@@ -8,9 +8,9 @@ apply plugin: 'com.huawei.agconnect'
 android {
     compileSdkVersion 30
     defaultConfig {
+        applicationId "pl.netigen.frequencygenerator"
         versionCode generateVersionCode()
         versionName generateVersionName()
-        applicationId "pl.netigen.sampleapp"
         minSdkVersion 21
         targetSdkVersion 30
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713

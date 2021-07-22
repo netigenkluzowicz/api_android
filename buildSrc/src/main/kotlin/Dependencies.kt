@@ -7,8 +7,6 @@ object Versions {
     const val glide = "4.12.0"
     const val appcompat = "1.2.0"
     const val userMessagingPlatform = "1.0.0"
-    const val coreKTX = "1.3.2"
-    const val kotlin = "1.4.31"
     const val coreKTX = "1.6.0"
     const val kotlin = "1.5.21"
     const val retrofit = "2.9.0"
