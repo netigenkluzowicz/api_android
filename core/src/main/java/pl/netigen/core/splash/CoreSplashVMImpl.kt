@@ -36,14 +36,14 @@ import timber.log.Timber.d
  * @param application provides [Application] context for this [AndroidViewModel]
  */
 class CoreSplashVMImpl(
-    application: Application,
-    override val gdprConsent: IGDPRConsent,
-    private val ads: IAds,
-    private val noAdsPurchases: INoAds,
-    private val networkStatus: INetworkStatus,
-    private val appConfig: IAppConfig,
-    private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
-    val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
+        application: Application,
+        override val gdprConsent: IGDPRConsent,
+        private val ads: IAds,
+        private val noAdsPurchases: INoAds,
+        private val networkStatus: INetworkStatus,
+        private val appConfig: IAppConfig,
+        private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
+        val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
 ) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -135,6 +135,37 @@ class CoreSplashVMImpl(
             CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
             CheckGDPRLocationStatus.UE -> showGdprPopUp()
             CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
+            CheckGDPRLocationStatus.FORM_SHOW_REQUIRED -> loadForm()
+        }
+    }
+
+    private fun loadForm() {
+        launch(coroutineDispatcherIo) {
+            noAdsPurchases.noAdsActive.collect {
+                if (isActive) {
+                    onAdsFlowChanged(it)
+                }
+            }
+        }
+
+        launch {
+            gdprConsent.loadForm().collect {
+                when (it) {
+                    false -> showGdprPopUp()
+                    true -> showForm()
+                }
+            }
+        }
+    }
+
+    private fun showForm() {
+        launch {
+            gdprConsent.showForm().collect {
+                when (it) {
+                    false -> showGdprPopUp()
+                    true -> startLoadingInterstitial()
+                }
+            }
         }
     }
 
@@ -197,6 +228,9 @@ class CoreSplashVMImpl(
                     if (it == CheckGDPRLocationStatus.UE) {
                         splashTimer.cancelTimers()
                         showGdprPopUp()
+                    } else if (it == CheckGDPRLocationStatus.FORM_SHOW_REQUIRED) {
+                        splashTimer.cancelTimers()
+                        loadForm()
                     }
                 }
             }

@@ -21,8 +21,8 @@ import timber.log.Timber
  * @param activity Activity context used for ads
  */
 class AdMobAds(
-    activity: ComponentActivity,
-    private val adsConfig: IAdsConfig
+        activity: ComponentActivity,
+        private val adsConfig: IAdsConfig
 ) : IAds, IAdMobRequest {
     override var personalizedAdsEnabled = false
     override val bannerAd: IBannerAd
@@ -37,8 +37,8 @@ class AdMobAds(
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
         rewardedAd = AdMobRewarded(activity, this, rewardedId)
         val requestConfiguration = RequestConfiguration.Builder()
-            .setTestDeviceIds(adsConfig.testDevices)
-            .build()
+                .setTestDeviceIds(adsConfig.testDevices)
+                .build()
         MobileAds.setRequestConfiguration(requestConfiguration)
     }
 
@@ -49,13 +49,12 @@ class AdMobAds(
         return Triple(bannerId, interstitialId, rewardedId)
     }
 
-    override fun getAdRequest(): AdRequest {
-        val builder = AdRequest.Builder()
-        if (personalizedAdsEnabled) return builder.build()
-        val extras = Bundle()
-        extras.putString("npa", "1")
-        return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()
-    }
+    override fun getAdRequest(): AdRequest = AdRequest.Builder().build()
+    /*   val builder = AdRequest.Builder()
+       if (personalizedAdsEnabled) return builder.build()
+       val extras = Bundle()
+       extras.putString("npa", "1")
+       return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()*/
 
     override fun enable() = setEnabled(true)
 

@@ -42,6 +42,8 @@ interface IGDPRConsent : IGDPRTexts {
      * @param adConsentStatus Collected consent information to save
      */
     fun saveAdConsentStatus(adConsentStatus: AdConsentStatus)
+    fun loadForm(): Flow<Boolean>
+    fun showForm(): Flow<Boolean>
 }
 
 /**

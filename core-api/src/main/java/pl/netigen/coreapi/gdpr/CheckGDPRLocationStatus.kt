@@ -8,5 +8,5 @@ package pl.netigen.coreapi.gdpr
  *
  */
 enum class CheckGDPRLocationStatus {
-    UE, NON_UE, ERROR
+    UE, NON_UE, ERROR, FORM_SHOW_REQUIRED
 }
