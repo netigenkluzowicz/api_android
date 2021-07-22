@@ -69,6 +69,8 @@ dependencies {
     api Libraries.glide
     kapt Libraries.glideCompiler
     api Libraries.timber
+
+    api Libraries.playCore
 }
 
 
