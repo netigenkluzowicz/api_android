@@ -28,13 +28,6 @@ interface IAdsConfig {
     val rewardedAdId: String
 
     /**
-     * When true (default value) adaptive banner instead of smart banner is used (available only in Admob)
-     *
-     * See: [Adaptive Banners](https://developers.google.com/admob/android/banner/adaptive)
-     */
-    val isBannerAdaptive: Boolean
-
-    /**
      * Id of [RelativeLayout] for banner ad placement
      */
     val bannerLayoutIdName: String

@@ -33,7 +33,7 @@ class AdMobAds(
         Timber.d(this.toString())
         MobileAds.initialize(activity)
         val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
-        bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.isBannerAdaptive)
+        bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
         rewardedAd = AdMobRewarded(activity, this, rewardedId)
         val requestConfiguration = RequestConfiguration.Builder()

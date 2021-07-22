@@ -16,7 +16,6 @@ open class AppConfig(
     override val rewardedAdId: String = "",
     final override val store: Store,
     override val bannerLayoutIdName: String = "adsLayout",
-    override val isBannerAdaptive: Boolean = true,
     override val testDevices: List<String> = emptyList(),
     override val inDebugMode: Boolean = false,
     override val adMobPublisherIds: Array<String> = arrayOf(NETIGEN_ADMOB_PUBLISHER_ID),
