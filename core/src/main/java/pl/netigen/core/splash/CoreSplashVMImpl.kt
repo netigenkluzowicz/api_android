@@ -65,6 +65,9 @@ class CoreSplashVMImpl(
                 }
             }
         }
+        if (!networkStatus.isConnectedOrConnecting || finished) return finish()
+        loadForm()
+        loadInterstitial()
     }
 
     private fun onAdsFlowChanged(purchased: Boolean) {
@@ -85,45 +88,6 @@ class CoreSplashVMImpl(
 
     private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
 
-    private fun onFirstLaunch() {
-        d("()")
-        if (finished) return finish()
-        if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
-        isFirstLaunch.postValue(true)
-        launch {
-            gdprConsent.requestGDPRLocation().collect {
-                if (isActive) {
-                    d("requestGDPRLocation: + $it")
-                    splashTimer.cancelInterstitialTimer()
-                    onFirstLaunchCheckGdpr(it)
-                }
-            }
-        }
-    }
-
-    private fun showGdprPopUp() {
-        d("()")
-        cancelJobs()
-        launch(coroutineDispatcherIo) {
-            noAdsPurchases.noAdsActive.collect {
-                if (isActive) {
-                    onAdsFlowChanged(it)
-                }
-            }
-        }
-        updateState(SplashState.SHOW_GDPR_CONSENT)
-    }
-
-    private fun onFirstLaunchCheckGdpr(it: CheckGDPRLocationStatus) {
-        d("it = [$it]")
-        when (it) {
-            CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
-            CheckGDPRLocationStatus.UE -> showGdprPopUp()
-            CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
-            CheckGDPRLocationStatus.FORM_SHOW_REQUIRED -> loadForm()
-        }
-    }
-
     private fun loadForm() {
         launch(coroutineDispatcherIo) {
             noAdsPurchases.noAdsActive.collect {
@@ -132,36 +96,18 @@ class CoreSplashVMImpl(
                 }
             }
         }
-
-        launch {
-            gdprConsent.loadForm().collect {
-                when (it) {
-                    false -> showGdprPopUp()
-                    true -> showForm()
-                }
+        gdprConsent.loadGdpr {
+            when (it) {
+                false -> updateState(SplashState.LOADING)
+                true -> showForm()
             }
         }
     }
 
     private fun showForm() {
-        launch {
-            gdprConsent.showForm().collect {
-                when (it) {
-                    false -> showGdprPopUp()
-                    true -> startLoadingInterstitial()
-                }
-            }
-        }
-    }
-
-    private fun startLoadingInterstitial() {
-        d("()")
-        if (!networkStatus.isConnectedOrConnecting || finished) return finish()
-        updateState(SplashState.LOADING)
-        when {
-            finished -> finish()
-            ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-            else -> loadInterstitial()
+        updateState(SplashState.SHOW_GDPR_CONSENT)
+        gdprConsent.showGdpr {
+            gdprConsent.saveAdConsentStatus(it)
         }
     }
 
@@ -169,7 +115,9 @@ class CoreSplashVMImpl(
         splashTimer.startInterstitialTimer { onLoadInterstitialResult(false) }
         ads.interstitialAd.load {
             splashTimer.cancelInterstitialTimer()
-            onLoadInterstitialResult(it)
+            if (!finished) {
+                onLoadInterstitialResult(it)
+            }
         }
     }
 
@@ -187,27 +135,11 @@ class CoreSplashVMImpl(
         }
     }
 
-    private fun checkConsentNextLaunch() {
-        launch {
-            gdprConsent.requestGDPRLocation().collect {
-                if (isActive) {
-                    d("requestGDPRLocation: + $it")
-                    if (it == CheckGDPRLocationStatus.UE) {
-                        showGdprPopUp()
-                    } else if (it == CheckGDPRLocationStatus.FORM_SHOW_REQUIRED) {
-                        loadForm()
-                    }
-                }
-            }
-        }
-    }
-
     override fun setPersonalizedAds(personalizedAdsApproved: Boolean) {
         d("personalizedAdsApproved = [$personalizedAdsApproved]")
         val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) PERSONALIZED_SHOWED else NON_PERSONALIZED_SHOWED
         gdprConsent.saveAdConsentStatus(adConsentStatus)
         ads.personalizedAdsEnabled = personalizedAdsApproved
-        startLoadingInterstitial()
     }
 
     override fun onCleared() {

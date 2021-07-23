@@ -24,7 +24,7 @@ class GDPRConsentImpl(private val application: Application) : IGDPRConsent, IGDP
         emit(AdConsentStatus.values().getOrElse(value) { AdConsentStatus.UNINITIALIZED })
     }
 
-    override fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> =
+    fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> =
             callbackFlow {
                 val callback = object : ConsentUpdateListener {
                     override fun onSuccess(consentStatus: ConsentStatus?, isNeedConsent: Boolean, adProviders: MutableList<AdProvider>?) {
@@ -66,9 +66,9 @@ class GDPRConsentImpl(private val application: Application) : IGDPRConsent, IGDP
                 .apply()
     }
 
-    override fun loadForm() = flowOf(false)
+    override fun loadGdpr(): Unit = flowOf(false)
 
-    override fun showForm() = flowOf(false)
+    override fun showGdpr(): Unit = flowOf(false)
 
     companion object {
         const val PREFERENCES_NAME = "GDPRConsent"
