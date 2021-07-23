@@ -16,21 +16,6 @@ import kotlinx.coroutines.flow.Flow
  *
  */
 interface IGDPRConsent : IGDPRTexts {
-    /**
-     * Provides current Ad consent status
-     */
-    val adConsentStatus: Flow<AdConsentStatus>
-
-    /**
-     * Request check if user is located in place where we should display consent to him
-     *
-     * @return Location Status:
-     * - [CheckGDPRLocationStatus.UE] - Consent should be displayed
-     * - [CheckGDPRLocationStatus.NON_UE] - Consent can be skipped
-     * - [CheckGDPRLocationStatus.ERROR] - Consent should be displayed because location is unknown
-     *
-     */
-    fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus>
 
     /**
      * Saves current consent status:

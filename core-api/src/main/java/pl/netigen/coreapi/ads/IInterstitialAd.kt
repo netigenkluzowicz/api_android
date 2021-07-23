@@ -26,9 +26,13 @@ interface IInterstitialAd : IAd {
     /**
      * Loads ad and provides load success/failure callback
      *
-     * @return Load success/failure callback as [Flow]<[Boolean]>
+     * @param onLoadSuccess Callback called when ad is loaded or an error occurred
      */
-    fun load(): Flow<Boolean>
+    fun load(onLoadSuccess: (Boolean) -> Unit)
+
+    /**
+     * Indicates is activity alive or in background
+     */
     var isInBackground: Boolean
 
     /**

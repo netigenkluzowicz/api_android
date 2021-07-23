@@ -36,14 +36,14 @@ import timber.log.Timber.d
  * @param application provides [Application] context for this [AndroidViewModel]
  */
 class CoreSplashVMImpl(
-        application: Application,
-        override val gdprConsent: IGDPRConsent,
-        private val ads: IAds,
-        private val noAdsPurchases: INoAds,
-        private val networkStatus: INetworkStatus,
-        private val appConfig: IAppConfig,
-        private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
-        val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
+    application: Application,
+    override val gdprConsent: IGDPRConsent,
+    private val ads: IAds,
+    private val noAdsPurchases: INoAds,
+    private val networkStatus: INetworkStatus,
+    private val appConfig: IAppConfig,
+    private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxInterstitialWaitTime),
+    val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
 ) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -51,7 +51,7 @@ class CoreSplashVMImpl(
     private var finished = false
 
     override fun start() {
-        d(isRunning.toString())
+        d("()")
         if (!isRunning) init()
     }
 
@@ -62,20 +62,6 @@ class CoreSplashVMImpl(
             noAdsPurchases.noAdsActive.collect {
                 if (isActive) {
                     onAdsFlowChanged(it)
-                }
-            }
-        }
-
-        splashTimer.startConsentTimer { onFirstLaunch() }
-        launch {
-            gdprConsent.adConsentStatus.collect {
-                if (isActive) {
-                    splashTimer.cancelTimers()
-                    when {
-                        finished -> finish()
-                        it == UNINITIALIZED -> onFirstLaunch()
-                        else -> onNextLaunch(it)
-                    }
                 }
             }
         }
@@ -91,7 +77,7 @@ class CoreSplashVMImpl(
     private fun finish() {
         d("()")
         cancelJobs()
-        splashTimer.cancelTimers()
+        splashTimer.cancelInterstitialTimer()
         finished = true
         updateState(SplashState.FINISHED)
     }
@@ -104,12 +90,11 @@ class CoreSplashVMImpl(
         if (finished) return finish()
         if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
         isFirstLaunch.postValue(true)
-        splashTimer.startConsentTimer { showGdprPopUp() }
         launch {
             gdprConsent.requestGDPRLocation().collect {
                 if (isActive) {
                     d("requestGDPRLocation: + $it")
-                    splashTimer.cancelTimers()
+                    splashTimer.cancelInterstitialTimer()
                     onFirstLaunchCheckGdpr(it)
                 }
             }
@@ -169,19 +154,6 @@ class CoreSplashVMImpl(
         }
     }
 
-    private fun onNextLaunch(adConsentStatus: AdConsentStatus) {
-        d("it = [$adConsentStatus]")
-        startLoadingInterstitial()
-        if (adConsentStatus == PERSONALIZED_NON_UE) checkConsentNextLaunch()
-    }
-
-    private fun initOnNonUeLocation() {
-        d("()")
-        ads.personalizedAdsEnabled = true
-        gdprConsent.saveAdConsentStatus(PERSONALIZED_NON_UE)
-        startLoadingInterstitial()
-    }
-
     private fun startLoadingInterstitial() {
         d("()")
         if (!networkStatus.isConnectedOrConnecting || finished) return finish()
@@ -195,13 +167,9 @@ class CoreSplashVMImpl(
 
     private fun loadInterstitial() {
         splashTimer.startInterstitialTimer { onLoadInterstitialResult(false) }
-        launch {
-            ads.interstitialAd.load().collect {
-                if (isActive) {
-                    splashTimer.cancelTimers()
-                    onLoadInterstitialResult(it)
-                }
-            }
+        ads.interstitialAd.load {
+            splashTimer.cancelInterstitialTimer()
+            onLoadInterstitialResult(it)
         }
     }
 
@@ -224,12 +192,9 @@ class CoreSplashVMImpl(
             gdprConsent.requestGDPRLocation().collect {
                 if (isActive) {
                     d("requestGDPRLocation: + $it")
-                    splashTimer.cancelConsentTimer()
                     if (it == CheckGDPRLocationStatus.UE) {
-                        splashTimer.cancelTimers()
                         showGdprPopUp()
                     } else if (it == CheckGDPRLocationStatus.FORM_SHOW_REQUIRED) {
-                        splashTimer.cancelTimers()
                         loadForm()
                     }
                 }

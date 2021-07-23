@@ -40,7 +40,7 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
     override fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> =
             callbackFlow {
                 val consentInformation = UserMessagingPlatform.getConsentInformation(activity);
-                Timber.d("activity " + activity)
+                Timber.d("activity %s", activity)
                 val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
 
                     override fun onConsentInfoUpdateFailure(formError: FormError?) {

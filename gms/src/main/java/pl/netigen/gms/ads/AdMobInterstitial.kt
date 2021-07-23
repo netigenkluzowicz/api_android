@@ -52,36 +52,21 @@ class AdMobInterstitial(
         activity.lifecycle.addObserver(this)
     }
 
-    override fun load(): Flow<Boolean> =
-        callbackFlow {
-            val callback = object : InterstitialAdLoadCallback() {
-                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                    try {
-                        d(loadAdError.message)
-                        interstitialAd = null
-                        trySendBlocking(false)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
-                }
-
-                override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                    try {
-                        d("()")
-                        this@AdMobInterstitial.interstitialAd = interstitialAd
-                        trySendBlocking(true)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
-                }
+    override fun load(onLoadSuccess: (Boolean) -> Unit) {
+        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                d(loadAdError.message)
+                interstitialAd = null
+                onLoadSuccess(false)
             }
-            InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), callback)
-            awaitClose {}
-        }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                d("interstitialAd = [$interstitialAd]")
+                this@AdMobInterstitial.interstitialAd = interstitialAd
+                onLoadSuccess(true)
+            }
+        })
+    }
 
     override val isLoaded: Boolean
         get() = interstitialAd != null
