@@ -30,8 +30,10 @@ class AdMobAds(
     override val rewardedAd: IRewardedAd
 
     init {
-        Timber.d(this.toString())
-        MobileAds.initialize(activity)
+        Timber.d("init started")
+        MobileAds.initialize(activity) {
+            Timber.d("initialization complete")
+        }
         val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
         bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName)
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
@@ -50,11 +52,6 @@ class AdMobAds(
     }
 
     override fun getAdRequest(): AdRequest = AdRequest.Builder().build()
-    /*   val builder = AdRequest.Builder()
-       if (personalizedAdsEnabled) return builder.build()
-       val extras = Bundle()
-       extras.putString("npa", "1")
-       return builder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()*/
 
     override fun enable() = setEnabled(true)
 

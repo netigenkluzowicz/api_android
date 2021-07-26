@@ -5,8 +5,6 @@ import android.content.Context
 import androidx.activity.ComponentActivity
 import com.google.android.ump.*
 import com.google.android.ump.ConsentInformation.ConsentStatus.REQUIRED
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
@@ -23,18 +21,22 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
     var consentForm: ConsentForm? = null;
 
 
-    override val adConsentStatus: Flow<AdConsentStatus> = flow {
-        val value =
-            activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(
-                PREFERENCES_KEY, AdConsentStatus.UNINITIALIZED.ordinal
-            )
-        emit(AdConsentStatus.values().getOrElse(value) { AdConsentStatus.UNINITIALIZED })
-    }
-
-
     override fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit) {
         Timber.d("checkGDPRLocationStatus = [$onGdprStatus]")
-        val consentInformation = UserMessagingPlatform.getConsentInformation(activity);
+
+        val debugSettings = ConsentDebugSettings.Builder(activity)
+            .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+            .addTestDeviceHashedId("2724FEAEF7B2BA9FA832362496620CE7")
+            .build()
+
+        val params = ConsentRequestParameters.Builder()
+            .setConsentDebugSettings(debugSettings)
+            .build()
+
+        val consentInformation = UserMessagingPlatform.getConsentInformation(activity)
+        consentInformation.reset();
+
+
         val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
 
             override fun onConsentInfoUpdateFailure(formError: FormError?) {
@@ -58,9 +60,6 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
             }
         }
 
-        val params = ConsentRequestParameters.Builder()
-            .setTagForUnderAgeOfConsent(false)
-            .build();
         consentInformation.requestConsentInfoUpdate(activity, params, callback, callback)
     }
 
@@ -91,13 +90,17 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
         Timber.d("gdprResult = [$gdprResult]")
         val consentForm1 = consentForm
         if (consentForm1 != null) {
-            consentForm1.show(activity) {
-
-            }
+            consentForm1.show(activity) { gdprResult(adConsentStatus()) }
         } else {
-            sendBlocking(false)
-            channel.close()
+            gdprResult(AdConsentStatus.NON_PERSONALIZED_ERROR)
         }
+    }
+
+    private fun adConsentStatus() = when (UserMessagingPlatform.getConsentInformation(activity).consentStatus) {
+        ConsentInformation.ConsentStatus.UNKNOWN -> AdConsentStatus.NON_PERSONALIZED_ERROR
+        ConsentInformation.ConsentType.NON_PERSONALIZED -> AdConsentStatus.NON_PERSONALIZED_SHOWED
+        ConsentInformation.ConsentType.PERSONALIZED -> AdConsentStatus.PERSONALIZED_SHOWED
+        else -> AdConsentStatus.NON_PERSONALIZED_ERROR
     }
 
 

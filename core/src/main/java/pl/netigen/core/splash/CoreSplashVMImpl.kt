@@ -117,13 +117,14 @@ class CoreSplashVMImpl(
 
     private fun showForm() {
         d("()")
-        updateState(SplashState.SHOW_GDPR_CONSENT)
+        updateState(SplashState.SHOW_GDPR_POP_UP)
         gdprConsent.showGdpr {
             when (it) {
                 PERSONALIZED_NON_UE -> setPersonalizedAds(true)
                 PERSONALIZED_SHOWED -> setPersonalizedAds(true)
                 NON_PERSONALIZED_SHOWED -> setPersonalizedAds(false)
                 UNINITIALIZED -> setPersonalizedAds(false)
+                NON_PERSONALIZED_ERROR -> setPersonalizedAds(false)
             }
             ads.interstitialAd.showIfCanBeShowed(true) { finish() }
         }
@@ -144,7 +145,7 @@ class CoreSplashVMImpl(
 
     private fun onInterstitialLoaded() {
         d("()")
-        if (currentState != SplashState.SHOW_GDPR_CONSENT) {
+        if (currentState != SplashState.SHOW_GDPR_POP_UP) {
             ads.interstitialAd.showIfCanBeShowed(true) { finish() }
         }
     }

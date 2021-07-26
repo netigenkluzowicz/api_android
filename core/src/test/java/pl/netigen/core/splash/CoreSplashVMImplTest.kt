@@ -104,9 +104,9 @@ class CoreSplashVMImplTest {
         coreSplashVMImpl.start()
         assertEquals(SplashState.LOADING, coreSplashVMImpl.splashState.value)
         gdprConsentPublisher.sendBlocking(CheckGDPRLocationStatus.UE)
-        assertEquals(SplashState.SHOW_GDPR_CONSENT, coreSplashVMImpl.splashState.value)
+        assertEquals(SplashState.SHOW_GDPR_POP_UP, coreSplashVMImpl.splashState.value)
         adsPublisher.sendBlocking(true)
-        assertEquals(SplashState.SHOW_GDPR_CONSENT, coreSplashVMImpl.splashState.value)
+        assertEquals(SplashState.SHOW_GDPR_POP_UP, coreSplashVMImpl.splashState.value)
     }
 
     @Test
@@ -134,7 +134,7 @@ class CoreSplashVMImplTest {
 
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
         coreSplashVMImpl.start()
-        assertEquals(SplashState.SHOW_GDPR_CONSENT, coreSplashVMImpl.splashState.value)
+        assertEquals(SplashState.SHOW_GDPR_POP_UP, coreSplashVMImpl.splashState.value)
         noAdsActivePublisher.sendBlocking(true)
         assertEquals(SplashState.FINISHED, coreSplashVMImpl.splashState.value)
     }
@@ -143,7 +143,7 @@ class CoreSplashVMImplTest {
     fun `SplashVM has GDPR_POP_UP status when there is first launch with no internet`() = runBlockingTest {
         setUpMocks(isConnectedOrConnecting = false)
         coreSplashVMImpl.start()
-        assertEquals(SplashState.SHOW_GDPR_CONSENT, coreSplashVMImpl.splashState.value)
+        assertEquals(SplashState.SHOW_GDPR_POP_UP, coreSplashVMImpl.splashState.value)
     }
 
     @Test

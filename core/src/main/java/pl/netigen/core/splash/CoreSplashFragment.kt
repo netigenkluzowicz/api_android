@@ -9,6 +9,7 @@ import pl.netigen.core.fragment.NetigenFragment
 import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.gdpr.ICoreSplashFragment
+import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
@@ -34,7 +35,7 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
             d(it.toString())
             when (it) {
                 SplashState.UNINITIALIZED -> onUninitialized()
-                SplashState.SHOW_GDPR_CONSENT -> tryShowGdprPopup()
+                SplashState.SHOW_GDPR_POP_UP -> if (splashVM.store == Store.HUAWEI) tryShowGdprPopup() else onLoading()
                 SplashState.LOADING -> onLoading()
                 SplashState.FINISHED -> tryCallOnFinished()
             }
@@ -62,7 +63,7 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
             return
         }
         val fragment =
-                requireActivity().supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
+            requireActivity().supportFragmentManager.findFragmentByTag(GDPR_POP_UP_TAG) as GDPRDialogFragment?
         if (fragment != null) {
             onGdprPopupVisible(fragment)
         } else {
@@ -87,8 +88,8 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
         val newInstance = GDPRDialogFragment.newInstance()
         gdprDialogFragment = newInstance
         newInstance.show(
-                fragmentActivity.supportFragmentManager.beginTransaction().addToBackStack(null),
-                GDPR_POP_UP_TAG
+            fragmentActivity.supportFragmentManager.beginTransaction().addToBackStack(null),
+            GDPR_POP_UP_TAG
         )
         bindGdprFragment(newInstance)
     }

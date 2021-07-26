@@ -14,7 +14,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        manifestPlaceholders = [admobId: "ca-app-pub-3940256099942544~3347511713"]
+        manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~3707111800"]
     }
 
     flavorDimensions "services"

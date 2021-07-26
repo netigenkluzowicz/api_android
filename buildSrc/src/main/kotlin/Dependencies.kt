@@ -10,7 +10,6 @@ object Versions {
     const val coreKTX = "1.6.0"
     const val kotlin = "1.5.21"
     const val retrofit = "2.9.0"
-    const val cropper = "2.8.0"
     const val junit = "4.12"
     const val testRunner = "1.3.0"
     const val espressoCore = "3.2.0"
@@ -62,8 +61,6 @@ object Libraries {
     val junit = "junit:junit:${Versions.junit}"
     val testRunner = "androidx.test:runner:${Versions.testRunner}"
     val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
-
-    val cropper = "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}"
 
     val billing = "com.android.billingclient:billing-ktx:${Versions.billing}"
 
