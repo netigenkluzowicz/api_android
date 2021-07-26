@@ -24,17 +24,10 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
     override fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit) {
         Timber.d("checkGDPRLocationStatus = [$onGdprStatus]")
 
-        val debugSettings = ConsentDebugSettings.Builder(activity)
-            .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
-            .addTestDeviceHashedId("2724FEAEF7B2BA9FA832362496620CE7")
-            .build()
+        val consentInformation = UserMessagingPlatform.getConsentInformation(activity)
 
         val params = ConsentRequestParameters.Builder()
-            .setConsentDebugSettings(debugSettings)
-            .build()
-
-        val consentInformation = UserMessagingPlatform.getConsentInformation(activity)
-        consentInformation.reset();
+            .build();
 
 
         val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
