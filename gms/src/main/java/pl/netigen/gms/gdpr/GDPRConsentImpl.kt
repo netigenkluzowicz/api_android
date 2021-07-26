@@ -2,17 +2,10 @@ package pl.netigen.gms.gdpr
 
 import android.app.Activity
 import android.content.Context
-import android.util.Log
 import androidx.activity.ComponentActivity
 import com.google.android.ump.*
 import com.google.android.ump.ConsentInformation.ConsentStatus.REQUIRED
-import com.google.android.ump.ConsentInformation.ConsentStatus.UNKNOWN
-import com.google.android.ump.ConsentInformation.ConsentType.NON_PERSONALIZED
-import com.google.android.ump.ConsentInformation.ConsentType.PERSONALIZED
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
@@ -38,52 +31,38 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
         emit(AdConsentStatus.values().getOrElse(value) { AdConsentStatus.UNINITIALIZED })
     }
 
-    override fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> =
-        callbackFlow {
-            val consentInformation = UserMessagingPlatform.getConsentInformation(activity);
-            Timber.d("activity %s", activity)
-            val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
 
-                override fun onConsentInfoUpdateFailure(formError: FormError?) {
-                    if (formError != null) {
-                        Timber.d("p0 = [${formError.message}]")
-                    }
-                    try {
-                        sendBlocking(CheckGDPRLocationStatus.ERROR)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
+    override fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit) {
+        Timber.d("checkGDPRLocationStatus = [$onGdprStatus]")
+        val consentInformation = UserMessagingPlatform.getConsentInformation(activity);
+        val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
+
+            override fun onConsentInfoUpdateFailure(formError: FormError?) {
+                if (formError != null) {
+                    Timber.d("p0 = [${formError.message}]")
                 }
+                onGdprStatus(CheckGDPRLocationStatus.ERROR)
 
-                override fun onConsentInfoUpdateSuccess() {
-                    try {
-                        val consentStatus = consentInformation.consentStatus
-                        val isInEea = consentStatus == REQUIRED
-                        if (isInEea && consentInformation.isConsentFormAvailable) {
-                            sendBlocking(CheckGDPRLocationStatus.FORM_SHOW_REQUIRED)
-                        } else if (isInEea) {
-                            sendBlocking(CheckGDPRLocationStatus.ERROR)
-                        } else {
-                            sendBlocking(CheckGDPRLocationStatus.NON_UE)
-                        }
+            }
 
-
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
+            override fun onConsentInfoUpdateSuccess() {
+                val consentStatus = consentInformation.consentStatus
+                val isInEea = consentStatus == REQUIRED
+                if (isInEea && consentInformation.isConsentFormAvailable) {
+                    onGdprStatus(CheckGDPRLocationStatus.UE)
+                } else if (isInEea) {
+                    onGdprStatus(CheckGDPRLocationStatus.ERROR)
+                } else {
+                    onGdprStatus(CheckGDPRLocationStatus.NON_UE)
                 }
             }
-            val params = ConsentRequestParameters.Builder()
-                .setTagForUnderAgeOfConsent(false)
-                .build();
-            consentInformation.requestConsentInfoUpdate(activity, params, callback, callback)
-
-            awaitClose {}
         }
+
+        val params = ConsentRequestParameters.Builder()
+            .setTagForUnderAgeOfConsent(false)
+            .build();
+        consentInformation.requestConsentInfoUpdate(activity, params, callback, callback)
+    }
 
     override fun loadGdpr(onLoadSuccess: (Boolean) -> Unit) {
         val callback = object : UserMessagingPlatform.OnConsentFormLoadSuccessListener,

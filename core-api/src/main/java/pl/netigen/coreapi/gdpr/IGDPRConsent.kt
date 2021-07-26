@@ -37,7 +37,7 @@ interface IGDPRConsent : IGDPRTexts {
      * - [CheckGDPRLocationStatus.ERROR] - Consent should be displayed because location is unknown
      *
      */
-    fun requestGDPRLocation(checkGDPRLocationStatus: CheckGDPRLocationStatus)
+    fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit)
 
     /**
      * Loads gdpr popup/form and provides load success/failure callback

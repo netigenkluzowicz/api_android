@@ -45,7 +45,8 @@ class CoreSplashVMImpl(
     private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxInterstitialWaitTime),
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
 ) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
-    override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
+    private var currentState = SplashState.UNINITIALIZED
+    override val splashState: MutableLiveData<SplashState> = MutableLiveData(currentState)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
     private var isRunning = false
     private var finished = false
@@ -66,8 +67,21 @@ class CoreSplashVMImpl(
             }
         }
         if (!networkStatus.isConnectedOrConnecting || finished) return finish()
-        loadForm()
+        loadGdprStatus()
         loadInterstitial()
+    }
+
+    private fun loadGdprStatus() {
+        d("()")
+        gdprConsent.requestGDPRLocation {
+            when (it) {
+                CheckGDPRLocationStatus.UE -> {
+                    loadForm()
+                }
+                CheckGDPRLocationStatus.NON_UE -> setPersonalizedAds(true)
+                CheckGDPRLocationStatus.ERROR -> setPersonalizedAds(false)
+            }
+        }
     }
 
     private fun onAdsFlowChanged(purchased: Boolean) {
@@ -86,16 +100,13 @@ class CoreSplashVMImpl(
     }
 
 
-    private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
+    private fun updateState(splashState: SplashState) {
+        currentState = splashState
+        this.splashState.postValue(currentState)
+    }
 
     private fun loadForm() {
-        launch(coroutineDispatcherIo) {
-            noAdsPurchases.noAdsActive.collect {
-                if (isActive) {
-                    onAdsFlowChanged(it)
-                }
-            }
-        }
+        d("()")
         gdprConsent.loadGdpr {
             when (it) {
                 false -> updateState(SplashState.LOADING)
@@ -105,13 +116,21 @@ class CoreSplashVMImpl(
     }
 
     private fun showForm() {
+        d("()")
         updateState(SplashState.SHOW_GDPR_CONSENT)
         gdprConsent.showGdpr {
-            gdprConsent.saveAdConsentStatus(it)
+            when (it) {
+                PERSONALIZED_NON_UE -> setPersonalizedAds(true)
+                PERSONALIZED_SHOWED -> setPersonalizedAds(true)
+                NON_PERSONALIZED_SHOWED -> setPersonalizedAds(false)
+                UNINITIALIZED -> setPersonalizedAds(false)
+            }
+            ads.interstitialAd.showIfCanBeShowed(true) { finish() }
         }
     }
 
     private fun loadInterstitial() {
+        d("()")
         splashTimer.startInterstitialTimer { onLoadInterstitialResult(false) }
         ads.interstitialAd.load {
             splashTimer.cancelInterstitialTimer()
@@ -125,11 +144,13 @@ class CoreSplashVMImpl(
 
     private fun onInterstitialLoaded() {
         d("()")
-        ads.interstitialAd.showIfCanBeShowed(true) { finish() }
-        cancelJobs()
+        if (currentState != SplashState.SHOW_GDPR_CONSENT) {
+            ads.interstitialAd.showIfCanBeShowed(true) { finish() }
+        }
     }
 
     private fun cancelJobs() {
+        d("()")
         if (viewModelScope.isActive) {
             viewModelScope.cancel("CancelJobs")
         }
