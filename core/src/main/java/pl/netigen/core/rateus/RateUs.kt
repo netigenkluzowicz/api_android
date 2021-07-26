@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.play.core.review.ReviewManagerFactory
+import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.utils.Utils
+import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.rateus.IRateUs
 import timber.log.Timber
 
@@ -14,8 +16,9 @@ import timber.log.Timber
  * @property appCompatActivity [AppCompatActivity] context for this module
  */
 class RateUs private constructor(
-        private val appCompatActivity: AppCompatActivity,
-        override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
+    private val appCompatActivity: AppCompatActivity,
+    private val showOldDialog: Boolean = false,
+    override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
 ) : IRateUs {
     companion object {
         private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
@@ -56,6 +59,14 @@ class RateUs private constructor(
 
     override fun openRateDialog() {
         Timber.d("()")
+        if (showOldDialog) {
+            RateFragment.newInstance({ clickYes() }, { clickNo() }, { clickLater() }).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
+        } else {
+            loadNewDialog()
+        }
+    }
+
+    private fun loadNewDialog() {
         val manager = ReviewManagerFactory.create(appCompatActivity)
         val request = manager.requestReviewFlow()
         request.addOnCompleteListener { task ->
@@ -63,14 +74,7 @@ class RateUs private constructor(
             if (task.isSuccessful) {
                 Timber.d("Show New Rate Us")
                 val reviewInfo = task.result
-                val flow = manager.launchReviewFlow(appCompatActivity, reviewInfo)
-                flow.addOnCompleteListener { doNotShowRateUsAgain() }
-            } else {
-                Timber.d("Show Old Rate Us")
-                RateFragment.newInstance(
-                        { clickYes() },
-                        { clickNo() },
-                        { clickLater() }).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
+                manager.launchReviewFlow(appCompatActivity, reviewInfo)
             }
         }
     }
@@ -86,7 +90,10 @@ class RateUs private constructor(
 
     override fun clickLater() = sharedPreferences.edit().putInt(KEY_NUMBER_OF_OPENINGS, 0).apply()
 
-    class Builder(private val appCompatActivity: AppCompatActivity) {
-        fun createRateUs(): RateUs = RateUs(appCompatActivity)
+    class Builder(
+        private val coreMainActivity: CoreMainActivity,
+        private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
+    ) {
+        fun createRateUs(): RateUs = RateUs(coreMainActivity, coreMainActivity.coreMainVM.store == Store.HUAWEI, numberOfChecksBeforeShowingDialog)
     }
 }
