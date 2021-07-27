@@ -2,10 +2,20 @@ package pl.netigen.core.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.play.core.appupdate.AppUpdateInfo
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.InstallState
+import com.google.android.play.core.install.InstallStateUpdatedListener
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.InstallStatus
+import com.google.android.play.core.install.model.UpdateAvailability
 import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.rateus.RateUs
 import pl.netigen.core.splash.CoreSplashFragment
@@ -13,8 +23,8 @@ import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainActivity
+import pl.netigen.coreapi.main.ICoreMainActivity.Companion.UPDATE_REQUEST_CODE
 import pl.netigen.coreapi.main.ICoreMainVM
-import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.extensions.observe
 import timber.log.Timber
 
@@ -68,7 +78,58 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                 showGdprPopUp()
             }
         }
+        checkForUpdate();
     }
+
+    private fun checkForUpdate() {
+        val appUpdateManager = AppUpdateManagerFactory.create(application)
+        val appUpdateInfoTask = appUpdateManager.appUpdateInfo
+        appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+            Timber.d("appUpdateInfo = [$appUpdateInfo]")
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                && (appUpdateInfo.clientVersionStalenessDays() ?: -1) >= coreMainVM.daysForFlexibleUpdate
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
+            ) {
+                requestUpdate(appUpdateManager, appUpdateInfo)
+            }
+        }
+    }
+
+    private fun requestUpdate(appUpdateManager: AppUpdateManager, appUpdateInfo: AppUpdateInfo) {
+        appUpdateManager.startUpdateFlowForResult(
+            appUpdateInfo, AppUpdateType.FLEXIBLE, this, UPDATE_REQUEST_CODE
+        )
+        val listener = object : InstallStateUpdatedListener {
+            val manager = appUpdateManager
+            override fun onStateUpdate(state: InstallState) {
+                Timber.d("state = [$state]")
+                when (state.installStatus()) {
+                    InstallStatus.DOWNLOADED -> {
+                        popupSnackbarForCompleteUpdate(appUpdateManager)
+                        manager.unregisterListener(this)
+                    }
+                    else -> manager.unregisterListener(this)
+                }
+            }
+        }
+        appUpdateManager.registerListener(listener)
+
+    }
+
+    private fun popupSnackbarForCompleteUpdate(appUpdateManager: AppUpdateManager) {
+        val findViewById : View? = findViewById(android.R.id.content)
+        findViewById?.let {
+            Snackbar.make(
+                it,
+                "An update has just been downloaded.",
+                Snackbar.LENGTH_INDEFINITE
+            ).apply {
+                setAction("RESTART") { appUpdateManager.completeUpdate() }
+                show()
+            }
+        }
+    }
+
 
     override fun showGdprPopUp() {
         Timber.d("()")
@@ -133,5 +194,4 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             coreMainVM.onActivityResult(requestCode, resultCode, data)
         }
     }
-
 }

@@ -13,6 +13,7 @@ import pl.netigen.coreapi.payments.INoAds
  * - shows GDPR pop up on [ICoreMainVM.resetAdsPreferences] called
  */
 interface ICoreMainActivity {
+
     /**
      * Indicates if we can safe perform Fragment transaction
      * as [commit()][FragmentTransaction.commit] or [popBackStack()][FragmentManager.popBackStack] and others
@@ -77,4 +78,9 @@ interface ICoreMainActivity {
      * @param noAdsActive true when no-ads payment is active
      */
     fun onNoAdsChanged(noAdsActive: Boolean)
+
+
+    companion object {
+        const val UPDATE_REQUEST_CODE: Int = 77
+    }
 }
