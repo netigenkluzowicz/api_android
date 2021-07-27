@@ -31,9 +31,4 @@ interface IAppConfig : IAdsConfig, ISplashConfig {
      * - [Huawei AppGallery](https://huaweimobileservices.com/appgallery/)
      */
     val store: Store
-
-    /**
-     * Indicates If use default ["Rate us"][IRateUs]
-     */
-    val useDefaultRateUs: Boolean
 }

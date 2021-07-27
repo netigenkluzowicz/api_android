@@ -45,16 +45,13 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
 
     /**
      * It's called when [CoreSplashFragment] is closed
-     * If [CoreMainVM.useDefaultRateUs] is true check for Rate Us show, see: [IRateUs]
      *
      */
     override fun onSplashClosed() {
         Timber.d("()")
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
-        if (coreMainVM.useDefaultRateUs) {
-            rateUs.openRateDialogIfNeeded()
-        }
+        rateUs.openRateDialogIfNeeded()
     }
 
     /**
