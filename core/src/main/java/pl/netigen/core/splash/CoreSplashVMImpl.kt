@@ -50,6 +50,7 @@ class CoreSplashVMImpl(
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
     private var isRunning = false
     private var finished = false
+    private var isPurchased = false;
 
     override fun start() {
         d("()")
@@ -75,9 +76,7 @@ class CoreSplashVMImpl(
         d("()")
         gdprConsent.requestGDPRLocation {
             when (it) {
-                CheckGDPRLocationStatus.UE -> {
-                    loadForm()
-                }
+                CheckGDPRLocationStatus.UE -> loadForm()
                 CheckGDPRLocationStatus.NON_UE -> setPersonalizedAds(true)
                 CheckGDPRLocationStatus.ERROR -> setPersonalizedAds(false)
             }
@@ -86,6 +85,7 @@ class CoreSplashVMImpl(
 
     private fun onAdsFlowChanged(purchased: Boolean) {
         d("purchased = [$purchased]")
+        isPurchased = purchased;
         if (purchased) {
             finish()
         }
@@ -107,6 +107,7 @@ class CoreSplashVMImpl(
 
     private fun loadForm() {
         d("()")
+        if (isPurchased) return
         gdprConsent.loadGdpr {
             when (it) {
                 false -> updateState(SplashState.LOADING)
@@ -117,6 +118,7 @@ class CoreSplashVMImpl(
 
     private fun showForm() {
         d("()")
+        if (isPurchased) return
         updateState(SplashState.SHOW_GDPR_POP_UP)
         gdprConsent.showGdpr {
             when (it) {
