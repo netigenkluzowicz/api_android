@@ -45,8 +45,12 @@ open class CoreMainVmImpl(
         if (appConfig.store == Store.HUAWEI) {
             showGdprResetAds.postValue(Unit)
         } else {
-            gdprConsent.showGdpr {
-                saveAdConsentStatus(it)
+            gdprConsent.loadGdpr {
+                if (it) {
+                    gdprConsent.showGdpr { adConsentStatus ->
+                        saveAdConsentStatus(adConsentStatus)
+                    }
+                }
             }
         }
     }
