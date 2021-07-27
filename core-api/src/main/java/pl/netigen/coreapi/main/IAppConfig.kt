@@ -31,4 +31,13 @@ interface IAppConfig : IAdsConfig, ISplashConfig {
      * - [Huawei AppGallery](https://huaweimobileservices.com/appgallery/)
      */
     val store: Store
+
+    /**
+     * Number of days after which the information about the application update will be shown to the user
+     */
+    val daysForFlexibleUpdate: Int
+
+    companion object {
+        const val DEFAULT_DAYS_FOR_FLEXIBLE_UPDATE: Int = 3
+    }
 }

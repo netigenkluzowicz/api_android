@@ -2,6 +2,7 @@ package pl.netigen.core.config
 
 import pl.netigen.core.config.AppConfig.Companion.marketLinkPrefix
 import pl.netigen.coreapi.main.IAppConfig
+import pl.netigen.coreapi.main.IAppConfig.Companion.DEFAULT_DAYS_FOR_FLEXIBLE_UPDATE
 import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.splash.ISplashConfig.Companion.DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
 
@@ -19,7 +20,7 @@ open class AppConfig(
     override val inDebugMode: Boolean = false,
     override val isNoAdsAvailable: Boolean = true,
     override val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
-    override val useDefaultRateUs: Boolean = true
+    override val daysForFlexibleUpdate : Int = DEFAULT_DAYS_FOR_FLEXIBLE_UPDATE
 ) : IAppConfig {
 
     init {

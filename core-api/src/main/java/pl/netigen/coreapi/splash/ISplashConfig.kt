@@ -17,6 +17,7 @@ interface ISplashConfig {
      */
     val maxInterstitialWaitTime: Long
 
+
     companion object {
         const val DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS = 7_000L
     }
