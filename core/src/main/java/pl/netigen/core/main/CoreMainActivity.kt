@@ -26,6 +26,7 @@ import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.UPDATE_REQUEST_CODE
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
+import pl.netigen.extensions.toPx
 import timber.log.Timber
 
 /**
@@ -113,19 +114,40 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         }
         val listener = object : InstallStateUpdatedListener {
             override fun onStateUpdate(state: InstallState) {
-                Timber.d("state = [$state]")
                 when (state.installStatus()) {
                     InstallStatus.DOWNLOADED -> {
+                        Timber.d("DOWNLOADED")
                         popupSnackbarForCompleteUpdate(appUpdateManager)
                         appUpdateManager.unregisterListener(this)
                     }
                     InstallStatus.DOWNLOADING -> {
                         val bytesDownloaded = state.bytesDownloaded()
                         val totalBytesToDownload = state.totalBytesToDownload()
-                        Timber.d("downloading: $bytesDownloaded / $totalBytesToDownload")
+                        Timber.d("DOWNLOADING: $bytesDownloaded / $totalBytesToDownload")
 
                     }
-                    else -> appUpdateManager.unregisterListener(this)
+                    InstallStatus.CANCELED -> {
+                        Timber.d("CANCELED")
+                        appUpdateManager.unregisterListener(this)
+                    }
+                    InstallStatus.FAILED -> {
+                        Timber.d("FAILED")
+                        appUpdateManager.unregisterListener(this)
+                    }
+                    InstallStatus.INSTALLED -> {
+                        Timber.d("INSTALLED")
+                        appUpdateManager.unregisterListener(this)
+                    }
+                    InstallStatus.INSTALLING -> {
+                        Timber.d("INSTALLING")
+                    }
+                    InstallStatus.PENDING -> {
+                        Timber.d("PENDING")
+                    }
+                    InstallStatus.UNKNOWN -> {
+                        Timber.d("UNKNOWN")
+                        appUpdateManager.unregisterListener(this)
+                    }
                 }
             }
         }
@@ -144,7 +166,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         Timber.d("appUpdateManager = [$appUpdateManager]")
         val findViewById: View? = findViewById(android.R.id.content)
         findViewById?.let {
-            Snackbar.make(
+            val snackbar = Snackbar.make(
                 it,
                 "An update has just been downloaded.",
                 Snackbar.LENGTH_INDEFINITE
@@ -152,6 +174,8 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                 setAction("RESTART") { appUpdateManager.completeUpdate() }
                 show()
             }
+            snackbar.view.translationY = 60.toPx().toFloat()
+            snackbar
         }
     }
 
