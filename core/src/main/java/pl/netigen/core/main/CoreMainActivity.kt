@@ -3,6 +3,7 @@ package pl.netigen.core.main
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
 import pl.netigen.extensions.toPx
 import timber.log.Timber
+
 
 /**
  * Implements [ICoreMainActivity]
@@ -172,10 +174,15 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                 Snackbar.LENGTH_INDEFINITE
             ).apply {
                 setAction("RESTART") { appUpdateManager.completeUpdate() }
-                show()
             }
-            snackbar.view.translationY = 60.toPx().toFloat()
-            snackbar
+            val params = snackbar.view.layoutParams as ViewGroup.MarginLayoutParams
+            params.setMargins(
+                params.leftMargin,
+                params.topMargin,
+                params.rightMargin,
+                params.bottomMargin + 60.toPx()
+            )
+            snackbar.show()
         }
     }
 
