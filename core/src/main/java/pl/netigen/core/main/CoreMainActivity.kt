@@ -62,6 +62,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
         rateUs.openRateDialogIfNeeded()
+        checkForUpdate();
     }
 
     /**
@@ -78,7 +79,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                 showGdprPopUp()
             }
         }
-        checkForUpdate();
     }
 
     private fun checkForUpdate() {
@@ -96,6 +96,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     }
 
     private fun requestUpdate(appUpdateManager: AppUpdateManager, appUpdateInfo: AppUpdateInfo) {
+        Timber.d("appUpdateManager = [$appUpdateManager], appUpdateInfo = [$appUpdateInfo]")
         appUpdateManager.startUpdateFlowForResult(
             appUpdateInfo, AppUpdateType.FLEXIBLE, this, UPDATE_REQUEST_CODE
         )
