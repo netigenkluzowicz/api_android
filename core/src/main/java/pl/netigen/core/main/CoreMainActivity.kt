@@ -86,13 +86,50 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         val appUpdateInfoTask = appUpdateManager.appUpdateInfo
         appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
             Timber.d("appUpdateInfo = [$appUpdateInfo]")
-            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+            val updateAvailability = appUpdateInfo.updateAvailability()
+            when (updateAvailability) {
+                UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS -> {
+                    Timber.d("DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS")
+                    if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
+                        popupSnackbarForCompleteUpdate(appUpdateManager)
+                    }
+                }
+                UpdateAvailability.UNKNOWN -> {
+                    Timber.d("UNKNOWN")
+                }
+                UpdateAvailability.UPDATE_AVAILABLE -> {
+                    Timber.d("UPDATE_AVAILABLE")
+                }
+                UpdateAvailability.UPDATE_NOT_AVAILABLE -> {
+                    Timber.d("UPDATE_NOT_AVAILABLE")
+                }
+            }
+            if (updateAvailability == UpdateAvailability.UPDATE_AVAILABLE
                 && (appUpdateInfo.clientVersionStalenessDays() ?: -1) >= coreMainVM.daysForFlexibleUpdate
                 && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
             ) {
                 requestUpdate(appUpdateManager, appUpdateInfo)
             }
         }
+        val listener = object : InstallStateUpdatedListener {
+            override fun onStateUpdate(state: InstallState) {
+                Timber.d("state = [$state]")
+                when (state.installStatus()) {
+                    InstallStatus.DOWNLOADED -> {
+                        popupSnackbarForCompleteUpdate(appUpdateManager)
+                        appUpdateManager.unregisterListener(this)
+                    }
+                    InstallStatus.DOWNLOADING -> {
+                        val bytesDownloaded = state.bytesDownloaded()
+                        val totalBytesToDownload = state.totalBytesToDownload()
+                        Timber.d("downloading: $bytesDownloaded / $totalBytesToDownload")
+
+                    }
+                    else -> appUpdateManager.unregisterListener(this)
+                }
+            }
+        }
+        appUpdateManager.registerListener(listener)
     }
 
     private fun requestUpdate(appUpdateManager: AppUpdateManager, appUpdateInfo: AppUpdateInfo) {
@@ -100,25 +137,12 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         appUpdateManager.startUpdateFlowForResult(
             appUpdateInfo, AppUpdateType.FLEXIBLE, this, UPDATE_REQUEST_CODE
         )
-        val listener = object : InstallStateUpdatedListener {
-            val manager = appUpdateManager
-            override fun onStateUpdate(state: InstallState) {
-                Timber.d("state = [$state]")
-                when (state.installStatus()) {
-                    InstallStatus.DOWNLOADED -> {
-                        popupSnackbarForCompleteUpdate(appUpdateManager)
-                        manager.unregisterListener(this)
-                    }
-                    else -> manager.unregisterListener(this)
-                }
-            }
-        }
-        appUpdateManager.registerListener(listener)
 
     }
 
     private fun popupSnackbarForCompleteUpdate(appUpdateManager: AppUpdateManager) {
-        val findViewById : View? = findViewById(android.R.id.content)
+        Timber.d("appUpdateManager = [$appUpdateManager]")
+        val findViewById: View? = findViewById(android.R.id.content)
         findViewById?.let {
             Snackbar.make(
                 it,
