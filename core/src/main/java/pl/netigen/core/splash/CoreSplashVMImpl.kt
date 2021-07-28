@@ -134,10 +134,14 @@ class CoreSplashVMImpl(
 
     private fun loadInterstitial() {
         d("()")
-        splashTimer.startInterstitialTimer { onLoadInterstitialResult(false) }
+        splashTimer.startInterstitialTimer {
+            if (currentState != SplashState.SHOW_GDPR_POP_UP) {
+                onLoadInterstitialResult(false)
+            }
+        }
         ads.interstitialAd.load {
             splashTimer.cancelInterstitialTimer()
-            if (!finished) {
+            if (!finished && currentState != SplashState.SHOW_GDPR_POP_UP) {
                 onLoadInterstitialResult(it)
             }
         }
@@ -147,9 +151,7 @@ class CoreSplashVMImpl(
 
     private fun onInterstitialLoaded() {
         d("()")
-        if (currentState != SplashState.SHOW_GDPR_POP_UP) {
-            ads.interstitialAd.showIfCanBeShowed(true) { finish() }
-        }
+        ads.interstitialAd.showIfCanBeShowed(true) { finish() }
     }
 
     private fun cancelJobs() {
