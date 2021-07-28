@@ -3,7 +3,6 @@ package pl.netigen.core.main
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +26,6 @@ import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.UPDATE_REQUEST_CODE
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
-import pl.netigen.extensions.toPx
 import timber.log.Timber
 
 
@@ -166,8 +164,8 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
 
     private fun popupSnackbarForCompleteUpdate(appUpdateManager: AppUpdateManager) {
         Timber.d("appUpdateManager = [$appUpdateManager]")
-        val findViewById: View? = findViewById(android.R.id.content)
-        findViewById?.let {
+        val contentView: View? = findViewById(android.R.id.content)
+        contentView?.let {
             val snackbar = Snackbar.make(
                 it,
                 "An update has just been downloaded.",
@@ -175,13 +173,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             ).apply {
                 setAction("RESTART") { appUpdateManager.completeUpdate() }
             }
-            val params = snackbar.view.layoutParams as ViewGroup.MarginLayoutParams
-            params.setMargins(
-                params.leftMargin,
-                params.topMargin,
-                params.rightMargin,
-                params.bottomMargin + 60.toPx()
-            )
+            snackbar.anchorView = findViewById(resources.getIdentifier(coreMainVM.bannerLayoutIdName, "id", packageName))
             snackbar.show()
         }
     }
