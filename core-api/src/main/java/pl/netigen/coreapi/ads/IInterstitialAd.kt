@@ -1,7 +1,5 @@
 package pl.netigen.coreapi.ads
 
-import kotlinx.coroutines.flow.Flow
-
 /**
  * Manages Interstitial Ad:
  * - loading

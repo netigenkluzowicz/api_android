@@ -50,7 +50,7 @@ class CoreSplashVMImpl(
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
     private var isRunning = false
     private var finished = false
-    private var isPurchased = false;
+    private var isPurchased = false
 
     override fun start() {
         d("()")
@@ -85,7 +85,7 @@ class CoreSplashVMImpl(
 
     private fun onAdsFlowChanged(purchased: Boolean) {
         d("purchased = [$purchased]")
-        isPurchased = purchased;
+        isPurchased = purchased
         if (purchased) {
             finish()
         }

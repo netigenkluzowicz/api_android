@@ -120,8 +120,8 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
 
     public static class Builder {
 
-        private TranslationInfoParams translationInfoParams;
-        private AppCompatActivity appCompatActivity;
+        private final TranslationInfoParams translationInfoParams;
+        private final AppCompatActivity appCompatActivity;
 
         public Builder(AppCompatActivity appCompatActivity) {
             this.appCompatActivity = appCompatActivity;

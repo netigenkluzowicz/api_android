@@ -6,7 +6,7 @@ import io.mockk.*
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.channels.sendBlocking
+import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
@@ -120,7 +120,7 @@ class CoreSplashVMImplTest {
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
         coreSplashVMImpl.start()
         assertEquals(SplashState.LOADING, coreSplashVMImpl.splashState.value)
-        noAdsActivePublisher.sendBlocking(true)
+        noAdsActivePublisher.trySendBlocking(true)
         assertEquals(SplashState.FINISHED, coreSplashVMImpl.splashState.value)
     }
 
@@ -135,7 +135,7 @@ class CoreSplashVMImplTest {
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
         coreSplashVMImpl.start()
         assertEquals(SplashState.SHOW_GDPR_POP_UP, coreSplashVMImpl.splashState.value)
-        noAdsActivePublisher.sendBlocking(true)
+        noAdsActivePublisher.trySendBlocking(true)
         assertEquals(SplashState.FINISHED, coreSplashVMImpl.splashState.value)
     }
 

@@ -30,7 +30,7 @@ public class ChangeLanguageHelper {
     private static final String KEY_WAS_TRANSLATION_DIALOG_SHOWN = "KEY_WAS_TRANSLATION_DIALOG_SHOWN";
     private static final String KEY_USER_LOCALE = "KEY_USER_LOCALE";
     private static final String TAG = "ChangeLanguageHelper";
-    private static String[] arrayOfProperlyTranslatedLanguages = new String[]{"pl", "pt"/*, "ru"*/, "es", "de", "ko", "en"};
+    private static final String[] arrayOfProperlyTranslatedLanguages = new String[]{"pl", "pt"/*, "ru"*/, "es", "de", "ko", "en"};
     private static SharedPreferences sharedPreferences;
 
     public static void setLocaleAndRestartApp(String lang, AppCompatActivity currentActivity, Class activityToLaunch) {

@@ -1,7 +1,5 @@
 package pl.netigen.coreapi.gdpr
 
-import kotlinx.coroutines.flow.Flow
-
 /**
  * Its used for collect user consent for displaying ads, and ask them if we can provide personalized ads
  *

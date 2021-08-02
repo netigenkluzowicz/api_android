@@ -1,8 +1,6 @@
 package pl.netigen.gms.ads
 
-import android.os.Bundle
 import androidx.activity.ComponentActivity
-import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
@@ -21,8 +19,8 @@ import timber.log.Timber
  * @param activity Activity context used for ads
  */
 class AdMobAds(
-        activity: ComponentActivity,
-        private val adsConfig: IAdsConfig
+    activity: ComponentActivity,
+    private val adsConfig: IAdsConfig
 ) : IAds, IAdMobRequest {
     override var personalizedAdsEnabled = false
     override val bannerAd: IBannerAd
@@ -39,8 +37,8 @@ class AdMobAds(
         interstitialAd = AdMobInterstitial(activity, this, interstitialId)
         rewardedAd = AdMobRewarded(activity, this, rewardedId)
         val requestConfiguration = RequestConfiguration.Builder()
-                .setTestDeviceIds(adsConfig.testDevices)
-                .build()
+            .setTestDeviceIds(adsConfig.testDevices)
+            .build()
         MobileAds.setRequestConfiguration(requestConfiguration)
     }
 

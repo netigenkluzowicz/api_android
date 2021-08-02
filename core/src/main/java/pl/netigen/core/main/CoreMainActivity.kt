@@ -63,7 +63,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
         rateUs.openRateDialogIfNeeded()
-        checkForUpdate();
+        checkForUpdate()
     }
 
     /**

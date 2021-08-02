@@ -23,28 +23,30 @@ import java.util.*
  */
 @Entity
 data class NetigenSkuDetails(
-        @PrimaryKey val sku: String,
-        val type: String? = null,
-        val isNoAds: Boolean,
-        val price: String? = null,
-        val priceAmountMicros: Long? = null,
-        val priceCurrencyCode: String? = null,
-        val title: String? = null,
-        val description: String? = null,
-        val originalJson: String? = null,
+    @PrimaryKey val sku: String,
+    val type: String? = null,
+    val isNoAds: Boolean,
+    val price: String? = null,
+    val priceAmountMicros: Long? = null,
+    val priceCurrencyCode: String? = null,
+    val title: String? = null,
+    val description: String? = null,
+    val originalJson: String? = null,
 ) {
     fun getDoublePrice(): Double? =
-            try {
-                StringBuilder(priceAmountMicros!!.toString()).insert(priceAmountMicros.toString().length - 6, ".").toString().toDouble()
-            } catch (e: Exception) {
-                null
-            }
+        try {
+            StringBuilder(priceAmountMicros!!.toString()).insert(priceAmountMicros.toString().length - 6, ".").toString().toDouble()
+        } catch (e: Exception) {
+            null
+        }
 
     fun replacePrice(priceToReplace: Double?): NetigenSkuDetails =
-            copy(price = createPriceWithSymbol(
-                    price = price,
-                    priceToReplace = NumberFormat.getNumberInstance(Locale.getDefault()).format(priceToReplace)
-            ))
+        copy(
+            price = createPriceWithSymbol(
+                price = price,
+                priceToReplace = NumberFormat.getNumberInstance(Locale.getDefault()).format(priceToReplace)
+            )
+        )
 
     private fun createPriceWithSymbol(price: String?, priceToReplace: String?): String? {
         var priceWithSymbol: String? = null

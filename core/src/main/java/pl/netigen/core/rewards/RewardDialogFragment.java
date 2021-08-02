@@ -250,8 +250,8 @@ public class RewardDialogFragment extends AppCompatDialogFragment {
 
     public static class Builder {
 
-        private CoreMainActivity coreMainActivity;
-        private RewardParams rewardParams;
+        private final CoreMainActivity coreMainActivity;
+        private final RewardParams rewardParams;
 
         public Builder(CoreMainActivity coreMainActivity) {
             this.coreMainActivity = coreMainActivity;

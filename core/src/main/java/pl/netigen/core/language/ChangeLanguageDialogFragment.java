@@ -237,8 +237,8 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
 
     public static class Builder {
 
-        private ChangeLanguageParams changeLanguageParams;
-        private AppCompatActivity appCompatActivity;
+        private final ChangeLanguageParams changeLanguageParams;
+        private final AppCompatActivity appCompatActivity;
 
         public Builder(AppCompatActivity appCompatActivity) {
             this.appCompatActivity = appCompatActivity;
