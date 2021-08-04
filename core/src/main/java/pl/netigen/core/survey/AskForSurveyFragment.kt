@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.dialog_fragment_rate_us_netigen_api.*
-import kotlinx.android.synthetic.main.dialog_fragment_survey_netigen_api.*
+import kotlinx.android.synthetic.main.dialog_fragment_ask_for_survey_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
 import pl.netigen.extensions.setTint
@@ -38,7 +37,7 @@ class AskForSurveyFragment : BaseDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.dialog_fragment_survey_netigen_api, container, false)
+        return inflater.inflate(R.layout.dialog_fragment_ask_for_survey_netigen_api, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
