@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
+import pl.netigen.coreapi.survey.SurveyData
 import timber.log.Timber
 
 /**
@@ -60,10 +61,10 @@ class Survey private constructor(
     }
 
     override fun openSurveyDialog() {
-        TODO("Not yet implemented")
+        SurveyFragment.newInstance({ clickSend() }, { clickCancel() }).show(appCompatActivity.supportFragmentManager, "SurveyDialog")
     }
 
-    override fun clickSend() {
+    override fun clickSend(surveyData: SurveyData)  {
         TODO("Not yet implemented")
     }
 

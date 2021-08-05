@@ -27,4 +27,8 @@
     <string name="later_netigen">Later</string>
     <string name="rate_us_netigen">Rate Us</string>
     <string name="settings_normal_netigen">Settings</string>
+    <string name="send_netigen">Send</string>
+    <string name="survey_question1_netigen">What we should improve?</string>
+    <string name="your_answer_is_hint_survey_netigen">Your answer is...</string>
+    <string name="survey_question2_netigen">What new features would you like to have?</string>
 </resources>

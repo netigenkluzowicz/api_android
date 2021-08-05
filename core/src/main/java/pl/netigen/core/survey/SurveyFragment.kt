@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.dialog_fragment_survey_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
+import pl.netigen.coreapi.survey.SurveyData
 import pl.netigen.extensions.setTint
 
 /**
@@ -16,21 +17,21 @@ import pl.netigen.extensions.setTint
  */
 class SurveyFragment : BaseDialogFragment() {
 
-    private var onClickYes: (() -> Unit)? = null
-    private var onClickNo: (() -> Unit)? = null
+    private var onClickSend: ((SurveyData) -> Unit)? = null
+    private var onClickCancel: (() -> Unit)? = null
 
     companion object {
-        fun newInstance(onClickYes: () -> Unit, onClickNo: () -> Unit): SurveyFragment {
+        fun newInstance(onSend: ((SurveyData) -> Unit), onCancel: () -> Unit): SurveyFragment {
             val fragment = SurveyFragment()
-            fragment.onClickYes = onClickYes
-            fragment.onClickNo = onClickNo
+            fragment.onClickSend = onSend
+            fragment.onClickCancel = onCancel
             return fragment
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (onClickYes == null) {
+        if (onClickSend == null) {
             dismissAllowingStateLoss()
             return
         }
@@ -48,7 +49,7 @@ class SurveyFragment : BaseDialogFragment() {
 
     private fun setButtonsBackgroundTints() {
         context?.let {
-            surveyFragmentYesTextView.background.setTint(it, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY)
+            surveyFragmentSendTextView.background.setTint(it, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY)
             surveyFragmentCancelTextView.background.setTint(it, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY)
         }
     }
@@ -60,15 +61,18 @@ class SurveyFragment : BaseDialogFragment() {
 
 
     private fun setPositiveButtonListener() {
-        surveyFragmentYesTextView.setOnClickListener {
-            onClickYes?.let { it() }
-            dismissAllowingStateLoss()
+        val packageName = surveyFragmentSendTextView.context.packageName
+        surveyFragmentSendTextView.setOnClickListener {
+            onClickSend?.let { sendData(it, packageName) } ?: dismissAllowingStateLoss()
         }
     }
 
+    private fun sendData(callback: (SurveyData) -> Unit, packageName: String) =
+        callback(SurveyData(packageName, surveyAnswer1.text.toString(), surveyAnswer2.text.toString()))
+
     private fun setNegativeButtonListener() {
         surveyFragmentCancelTextView.setOnClickListener {
-            onClickNo?.let { it() }
+            onClickCancel?.let { it() }
             dismissAllowingStateLoss()
         }
     }

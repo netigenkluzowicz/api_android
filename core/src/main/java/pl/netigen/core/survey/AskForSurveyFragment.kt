@@ -48,7 +48,7 @@ class AskForSurveyFragment : BaseDialogFragment() {
 
     private fun setButtonsBackgroundTints() {
         context?.let {
-            surveyFragmentYesTextView.background.setTint(it, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY)
+            surveyFragmentSendTextView.background.setTint(it, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY)
             surveyFragmentLaterTextView.background.setTint(it, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY)
         }
     }
@@ -60,16 +60,16 @@ class AskForSurveyFragment : BaseDialogFragment() {
 
 
     private fun setPositiveButtonListener() {
-        surveyFragmentYesTextView.setOnClickListener {
-            onClickYes?.let { it() }
+        surveyFragmentSendTextView.setOnClickListener {
             dismissAllowingStateLoss()
+            onClickYes?.let { it() }
         }
     }
 
     private fun setNegativeButtonListener() {
         closeSurvey.setOnClickListener {
-            onClickNo?.let { it() }
             dismissAllowingStateLoss()
+            onClickNo?.let { it() }
         }
     }
 }

@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@id/surveyImage" />
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/surveyInfo"
+            android:id="@+id/surveyQuestion1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:minHeight="64dp"
@@ -65,7 +65,7 @@
             android:paddingEnd="@dimen/medium_space_netigen_api"
             android:paddingRight="@dimen/medium_space_netigen_api"
             android:text="@string/ask_for_survey_netigen"
-            android:textColor="#535368"
+            android:textColor="#4d4d4d"
             android:textSize="@dimen/dialogInfoTextSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,13 +75,13 @@
             android:id="@+id/surveyFragmentLaterTextView"
             style="@style/NeutralDialogButtonNetigenApi"
             android:text="@string/no_netigen"
-            app:layout_constraintEnd_toStartOf="@+id/surveyFragmentYesTextView"
+            app:layout_constraintEnd_toStartOf="@+id/surveyFragmentSendTextView"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/surveyFragmentYesTextView" />
+            app:layout_constraintTop_toTopOf="@id/surveyFragmentSendTextView" />
 
     <TextView
-            android:id="@+id/surveyFragmentYesTextView"
+            android:id="@+id/surveyFragmentSendTextView"
             style="@style/PositiveDialogButtonNetigenApi"
             android:layout_marginTop="@dimen/big_space_netigen_api"
             android:text="@string/yes_netigen"
@@ -90,5 +90,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/surveyFragmentLaterTextView"
-            app:layout_constraintTop_toBottomOf="@id/surveyInfo" />
+            app:layout_constraintTop_toBottomOf="@id/surveyQuestion1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

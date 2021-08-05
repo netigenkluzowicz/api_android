@@ -1,7 +1,5 @@
 package pl.netigen.coreapi.survey
 
-import pl.netigen.coreapi.main.Store
-
 interface ISurvey {
     /**
      * Called on click in dialog asking for Survey
@@ -26,8 +24,10 @@ interface ISurvey {
     /**
      * Called on click in dialog,
      *
+     * @param surveyData data sent from dialog
+     *
      */
-    fun clickSend()
+    fun clickSend(surveyData: SurveyData)
 
     /**
      * Checks if user launches app enough times to ask for Survey
@@ -36,7 +36,7 @@ interface ISurvey {
      *
      * @return if Ask For Survey dialog is opened
      */
-    fun openAskForSurveyDialogIfNeeded(launchCount : Int): Boolean
+    fun openAskForSurveyDialogIfNeeded(launchCount: Int): Boolean
 
     /**
      *

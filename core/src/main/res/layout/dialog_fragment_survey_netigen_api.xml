@@ -18,45 +18,96 @@
             android:paddingEnd="@dimen/medium_space_netigen_api"
             android:paddingRight="@dimen/medium_space_netigen_api"
             android:text="Quick survey"
-            android:textColor="@color/dialog_accent"
+            android:textColor="#4d4d4d"
             android:textSize="@dimen/title_text_size_netigen_api"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/surveyInfo"
+            android:id="@+id/surveyQuestion1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="64dp"
-            android:gravity="center"
+            android:gravity="start|center"
+            android:minHeight="50dp"
             android:paddingStart="@dimen/medium_space_netigen_api"
             android:paddingLeft="@dimen/medium_space_netigen_api"
             android:paddingEnd="@dimen/medium_space_netigen_api"
             android:paddingRight="@dimen/medium_space_netigen_api"
-            android:text="@string/ask_for_survey_netigen"
-            android:textColor="#535368"
+            android:text="@string/survey_question1_netigen"
+            android:textColor="#4d4d4d"
             android:textSize="@dimen/dialogInfoTextSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/surveyTitle" />
 
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/surveyAnswer1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:hint="@string/your_answer_is_hint_survey_netigen"
+            android:minHeight="64dp"
+            android:paddingStart="@dimen/medium_space_netigen_api"
+            android:paddingLeft="@dimen/medium_space_netigen_api"
+            android:paddingEnd="@dimen/medium_space_netigen_api"
+            android:paddingRight="@dimen/medium_space_netigen_api"
+            android:textColor="#4d4d4d"
+            android:textSize="@dimen/dialogInfoTextSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/surveyQuestion1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/surveyQuestion2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start|center"
+            android:minHeight="50dp"
+            android:paddingStart="@dimen/medium_space_netigen_api"
+            android:paddingLeft="@dimen/medium_space_netigen_api"
+            android:paddingEnd="@dimen/medium_space_netigen_api"
+            android:paddingRight="@dimen/medium_space_netigen_api"
+            android:text="@string/survey_question2_netigen"
+            android:textColor="#4d4d4d"
+            android:textSize="@dimen/dialogInfoTextSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/surveyAnswer1" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/surveyAnswer2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:hint="@string/your_answer_is_hint_survey_netigen"
+            android:minHeight="64dp"
+            android:paddingStart="@dimen/medium_space_netigen_api"
+            android:paddingLeft="@dimen/medium_space_netigen_api"
+            android:paddingEnd="@dimen/medium_space_netigen_api"
+            android:paddingRight="@dimen/medium_space_netigen_api"
+            android:textColor="#4d4d4d"
+            android:textSize="@dimen/dialogInfoTextSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/surveyQuestion2" />
+
     <TextView
             android:id="@+id/surveyFragmentCancelTextView"
             style="@style/NeutralDialogButtonNetigenApi"
             android:text="@string/cancel_netigen"
-            app:layout_constraintEnd_toStartOf="@+id/surveyFragmentYesTextView"
+            app:layout_constraintEnd_toStartOf="@+id/surveyFragmentSendTextView"
             app:layout_constraintHorizontal_bias="0.7"
-            app:layout_constraintTop_toTopOf="@id/surveyFragmentYesTextView" />
+            app:layout_constraintTop_toTopOf="@id/surveyFragmentSendTextView" />
 
     <TextView
-            android:id="@+id/surveyFragmentYesTextView"
+            android:id="@+id/surveyFragmentSendTextView"
             style="@style/PositiveDialogButtonNetigenApi"
             android:layout_marginTop="@dimen/big_space_netigen_api"
-            android:text="@string/yes_netigen"
+            android:text="@string/send_netigen"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintTop_toBottomOf="@id/surveyInfo" />
+            app:layout_constraintTop_toBottomOf="@id/surveyAnswer2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
