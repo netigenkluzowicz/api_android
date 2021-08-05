@@ -32,8 +32,17 @@ interface ISurvey {
     /**
      * Checks if user launches app enough times to ask for Survey
      *
+     * @param launchCount number of app launches
+     *
      * @return if Ask For Survey dialog is opened
      */
-    fun openAskForSurveyDialogIfNeeded(): Boolean
+    fun openAskForSurveyDialogIfNeeded(launchCount : Int): Boolean
+
+    /**
+     *
+     * Shows Survey dialog
+     *
+     */
+    fun openSurveyDialog()
 
 }

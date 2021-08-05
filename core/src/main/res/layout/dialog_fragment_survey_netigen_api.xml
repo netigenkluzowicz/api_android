@@ -25,10 +25,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/surveyFragmentAskForRateTextView"
+            android:id="@+id/surveyInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="64"
+            android:minHeight="64dp"
             android:gravity="center"
             android:paddingStart="@dimen/medium_space_netigen_api"
             android:paddingLeft="@dimen/medium_space_netigen_api"
@@ -58,5 +58,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintTop_toBottomOf="@id/surveyFragmentAskForRateTextView" />
+            app:layout_constraintTop_toBottomOf="@id/surveyInfo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
