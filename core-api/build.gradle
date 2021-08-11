@@ -58,7 +58,7 @@ dependencies {
     api Libraries.runtimeKTX
     api Libraries.kotlinStdlibJdk7
 
-    api Libraries.retrofit
+    api Libraries.okhttp
 
     api Libraries.navigationFragment
     api Libraries.navigationUi

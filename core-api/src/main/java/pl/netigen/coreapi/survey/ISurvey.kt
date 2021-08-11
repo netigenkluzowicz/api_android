@@ -31,4 +31,7 @@ interface ISurvey {
      */
     fun openSurveyDialog()
 
+    companion object {
+        const val BASE_URL = "https://feedback.netigen.eu/survey/"
+    }
 }

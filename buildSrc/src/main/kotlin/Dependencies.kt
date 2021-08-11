@@ -9,6 +9,7 @@ object Versions {
     const val userMessagingPlatform = "1.0.0"
     const val coreKTX = "1.6.0"
     const val kotlin = "1.5.21"
+    const val okhttp = "4.9.0"
     const val retrofit = "2.9.0"
     const val junit = "4.12"
     const val testRunner = "1.3.0"
@@ -54,6 +55,8 @@ object Libraries {
 
     val coreKTX = "androidx.core:core-ktx:${Versions.coreKTX}"
     val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+
+    val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
 
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
