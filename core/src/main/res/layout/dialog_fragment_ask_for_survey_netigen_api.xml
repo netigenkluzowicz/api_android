@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@id/surveyTitle" />
 
     <TextView
-            android:id="@+id/surveyFragmentLaterTextView"
+            android:id="@+id/surveyFragmentNoTextView"
             style="@style/NeutralDialogButtonNetigenApi"
             android:text="@string/no_netigen"
             app:layout_constraintEnd_toStartOf="@+id/surveyFragmentSendTextView"
@@ -89,6 +89,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/surveyFragmentLaterTextView"
+            app:layout_constraintStart_toEndOf="@+id/surveyFragmentNoTextView"
             app:layout_constraintTop_toBottomOf="@id/surveyQuestion1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

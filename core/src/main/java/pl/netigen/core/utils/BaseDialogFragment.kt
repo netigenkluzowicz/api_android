@@ -22,17 +22,8 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setDialogWindow()
         super.onCreate(savedInstanceState)
-    }
-
-    private fun setDialogWindow() {
-        val dialog = dialog
-        if (dialog == null || dialog.window == null) return
-        else {
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        }
+        setStyle(STYLE_NO_TITLE, 0);
     }
 
     override fun onStart() {
