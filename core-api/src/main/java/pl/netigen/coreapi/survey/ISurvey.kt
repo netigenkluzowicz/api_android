@@ -16,20 +16,6 @@ interface ISurvey {
     fun clickNo()
 
     /**
-     * Called on click in dialog, after user Cancels(closes) Survey Dialog
-     *
-     */
-    fun clickCancel()
-
-    /**
-     * Called on click in dialog,
-     *
-     * @param surveyData data sent from dialog
-     *
-     */
-    fun clickSend(surveyData: SurveyData)
-
-    /**
      * Checks if user launches app enough times to ask for Survey
      *
      * @param launchCount number of app launches

@@ -17,24 +17,8 @@ import pl.netigen.extensions.setTint
  */
 class SurveyFragment : BaseDialogFragment() {
 
-    private var onClickSend: ((SurveyData) -> Unit)? = null
-    private var onClickCancel: (() -> Unit)? = null
-
     companion object {
-        fun newInstance(onSend: ((SurveyData) -> Unit), onCancel: () -> Unit): SurveyFragment {
-            val fragment = SurveyFragment()
-            fragment.onClickSend = onSend
-            fragment.onClickCancel = onCancel
-            return fragment
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (onClickSend == null) {
-            dismissAllowingStateLoss()
-            return
-        }
+        fun newInstance(): SurveyFragment = SurveyFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -63,17 +47,14 @@ class SurveyFragment : BaseDialogFragment() {
     private fun setPositiveButtonListener() {
         val packageName = surveyFragmentSendTextView.context.packageName
         surveyFragmentSendTextView.setOnClickListener {
-            onClickSend?.let { sendData(it, packageName) } ?: dismissAllowingStateLoss()
-        }
-    }
-
-    private fun sendData(callback: (SurveyData) -> Unit, packageName: String) =
-        callback(SurveyData(packageName, surveyAnswer1.text.toString(), surveyAnswer2.text.toString()))
-
-    private fun setNegativeButtonListener() {
-        surveyFragmentCancelTextView.setOnClickListener {
-            onClickCancel?.let { it() }
+            sendData(packageName)
             dismissAllowingStateLoss()
         }
     }
+
+    private fun sendData(packageName: String) =
+        viewModel.sendSurvey(SurveyData(packageName, surveyAnswer1.text.toString(), surveyAnswer2.text.toString()))
+
+
+    private fun setNegativeButtonListener() = surveyFragmentCancelTextView.setOnClickListener { dismissAllowingStateLoss() }
 }

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
-import pl.netigen.coreapi.survey.SurveyData
 import timber.log.Timber
 
 /**
@@ -24,9 +23,7 @@ class Survey private constructor(
         private const val NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG = 6
     }
 
-    private val sharedPreferences: SharedPreferences by lazy {
-        appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
-    }
+    private val sharedPreferences: SharedPreferences by lazy { appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE) }
 
     override fun openAskForSurveyDialogIfNeeded(launchCount: Int): Boolean {
         if (shouldOpenAskFragment(launchCount)) {
@@ -37,6 +34,8 @@ class Survey private constructor(
     }
 
     fun shouldOpenAskFragment(launchCount: Int): Boolean {
+        //todo test
+        return true
         if (appCompatActivity.supportFragmentManager.isStateSaved) return false
         return launchCount >= numberOfChecksBeforeShowingDialog && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)
     }
@@ -48,29 +47,22 @@ class Survey private constructor(
     }
 
     override fun clickYes() {
-        doNotShowRateUsAgain()
+        doNotShowSurveyAgain()
         openSurveyDialog()
     }
 
     override fun clickNo() {
-        doNotShowRateUsAgain()
+        doNotShowSurveyAgain()
     }
 
-    private fun doNotShowRateUsAgain() {
+    private fun doNotShowSurveyAgain() {
         sharedPreferences.edit().putBoolean(KEY_SURVEY_OPEN, false).apply()
     }
 
     override fun openSurveyDialog() {
-        SurveyFragment.newInstance({ clickSend() }, { clickCancel() }).show(appCompatActivity.supportFragmentManager, "SurveyDialog")
+        SurveyFragment.newInstance().show(appCompatActivity.supportFragmentManager, "SurveyDialog")
     }
 
-    override fun clickSend(surveyData: SurveyData)  {
-        TODO("Not yet implemented")
-    }
-
-    override fun clickCancel() {
-        TODO("Not yet implemented")
-    }
 
     class Builder(
         private val coreMainActivity: CoreMainActivity,

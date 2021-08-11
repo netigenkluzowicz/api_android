@@ -11,6 +11,7 @@ import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
+import pl.netigen.coreapi.survey.SurveyData
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.launchMain
 
@@ -53,6 +54,10 @@ open class CoreMainVmImpl(
                 }
             }
         }
+    }
+
+    override fun sendSurvey(surveyData: SurveyData) {
+        TODO("Not yet implemented")
     }
 
     final override val showGdprResetAds: MutableSingleLiveEvent<Unit> = MutableSingleLiveEvent()
