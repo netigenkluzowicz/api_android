@@ -1,5 +1,8 @@
 package pl.netigen.coreapi.survey
 
+import androidx.annotation.Keep
+
+@Keep
 data class SurveyData(
     val packageName: String,
     val answer1: String,
