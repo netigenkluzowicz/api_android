@@ -21,11 +21,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/img_rate_us_tint"
-            app:tint="@color/dialog_accent"
             app:layout_constraintBottom_toBottomOf="@id/rateUsImage"
             app:layout_constraintEnd_toEndOf="@id/rateUsImage"
             app:layout_constraintStart_toStartOf="@id/rateUsImage"
-            app:layout_constraintTop_toTopOf="@id/rateUsImage" />
+            app:layout_constraintTop_toTopOf="@id/rateUsImage"
+            app:tint="@color/dialog_accent" />
 
     <ImageView
             android:id="@+id/closeRateUs"

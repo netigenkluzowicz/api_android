@@ -6,11 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
+import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
@@ -36,7 +36,7 @@ import timber.log.Timber.d
  * @param activity [ComponentActivity] for this ad [Context] and [Lifecycle] events
  */
 class AdMobInterstitial(
-    activity: ComponentActivity,
+    private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
@@ -44,50 +44,32 @@ class AdMobInterstitial(
 ) : IInterstitialAd, LifecycleObserver {
     override var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
-    private var interstitialAd: InterstitialAd = InterstitialAd(activity)
+    private var interstitialAd: InterstitialAd? = null
     private val disabled get() = !enabled
 
     init {
         d(this.toString())
-        interstitialAd.adUnitId = adId
         activity.lifecycle.addObserver(this)
     }
 
-    override fun load(): Flow<Boolean> =
-        callbackFlow {
-            val callback = object : AdListener() {
-                override fun onAdFailedToLoad(errorCode: Int) {
-                    try {
-                        d(errorCode.toString())
-                        interstitialAd.adListener = null
-                        sendBlocking(false)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
-                }
-
-                override fun onAdLoaded() {
-                    try {
-                        d("()")
-                        interstitialAd.adListener = null
-                        sendBlocking(true)
-
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
-                }
+    override fun load(onLoadSuccess: (Boolean) -> Unit) {
+        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                d(loadAdError.message)
+                interstitialAd = null
+                onLoadSuccess(false)
             }
-            interstitialAd.adListener = callback
-            interstitialAd.loadAd(adMobRequest.getAdRequest())
-            awaitClose {}
-        }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                d("interstitialAd = [$interstitialAd]")
+                this@AdMobInterstitial.interstitialAd = interstitialAd
+                onLoadSuccess(true)
+            }
+        })
+    }
 
     override val isLoaded: Boolean
-        get() = interstitialAd.isLoaded
+        get() = interstitialAd != null
 
     private fun onInterstitialReadyToShow(forceShow: Boolean = false, onClosedOrNotShowed: (Boolean) -> Unit) {
         d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
@@ -101,26 +83,54 @@ class AdMobInterstitial(
 
     private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
         d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
-        interstitialAd.adListener = object : AdListener() {
-            override fun onAdClosed() {
-                d("onAdClosed")
-                onClosedOrNotShowed(true)
-                loadIfShouldBeLoaded()
-                interstitialAd.adListener = null
+        interstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdDismissedFullScreenContent() {
+                d("onAdDismissedFullScreenContent")
+                onAdClosed(onClosedOrNotShowed)
+            }
+
+            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
+                Timber.e(adError?.message)
+                onAdClosed(onClosedOrNotShowed)
+            }
+
+            override fun onAdShowedFullScreenContent() {
+                d("onAdShowedFullScreenContent")
+                onAdClosed(onClosedOrNotShowed)
             }
         }
-        lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
-        interstitialAd.show()
+        val interstitialAd1 = interstitialAd
+        if (interstitialAd1 != null) {
+            lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
+            interstitialAd1.show(activity)
+        } else {
+            onClosedOrNotShowed(false)
+        }
+    }
+
+    fun onAdClosed(onClosedOrNotShowed: (Boolean) -> Unit) {
+        d("onAdClosed")
+        onClosedOrNotShowed(true)
+        interstitialAd = null
+        loadIfShouldBeLoaded()
     }
 
     override fun loadIfShouldBeLoaded() {
         d("()")
-        if (interstitialAd.isLoading || interstitialAd.isLoaded || disabled) return
-        interstitialAd.adListener = object : AdListener() {
-            override fun onAdLoaded() = d("()")
-            override fun onAdFailedToLoad(errorCode: Int) = d("p0 = [$errorCode]")
-        }
-        interstitialAd.loadAd(adMobRequest.getAdRequest())
+        if (interstitialAd != null || disabled) return
+
+        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                d("loadAdError = [$loadAdError]")
+                interstitialAd = null
+
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                d("interstitialAd = [$interstitialAd]")
+                this@AdMobInterstitial.interstitialAd = interstitialAd
+            }
+        })
     }
 
     private fun validateLastShowTime(currentTime: Long) =
@@ -144,13 +154,21 @@ class AdMobInterstitial(
         isInBackground = true
     }
 
-    override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
-        d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
-        when {
-            disabled -> onClosedOrNotShowed(false)
-            isInBackground -> onCanNotShow(onClosedOrNotShowed)
-            interstitialAd.isLoaded -> onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
-            else -> onCanNotShow(onClosedOrNotShowed)
+    override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) = when {
+        disabled -> {
+            d("disabled")
+            onClosedOrNotShowed(false)
+        }
+        isInBackground -> {
+            d("isInBackground")
+            onCanNotShow(onClosedOrNotShowed)
+        }
+        isLoaded -> {
+            onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
+        }
+        else -> {
+            d("notLoaded")
+            onCanNotShow(onClosedOrNotShowed)
         }
     }
 }

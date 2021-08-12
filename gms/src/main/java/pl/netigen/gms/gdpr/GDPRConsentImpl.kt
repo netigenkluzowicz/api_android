@@ -1,64 +1,104 @@
 package pl.netigen.gms.gdpr
 
-import android.app.Application
+import android.app.Activity
 import android.content.Context
-import com.google.ads.consent.ConsentInfoUpdateListener
-import com.google.ads.consent.ConsentInformation
-import com.google.ads.consent.ConsentStatus
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.flow
-import pl.netigen.coreapi.gdpr.*
+import androidx.activity.ComponentActivity
+import com.google.android.ump.*
+import com.google.android.ump.ConsentInformation.ConsentStatus.REQUIRED
+import pl.netigen.coreapi.gdpr.AdConsentStatus
+import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
+import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.gdpr.IGDPRTexts
 import timber.log.Timber
 
+
 /**
- * [IGDPRConsent] implementation with using [googleads-consent-sdk-android](https://github.com/googleads/googleads-consent-sdk-android)
+ * [IGDPRConsent] implementation with using [User Messaging Platform](https://developers.google.com/admob/ump/android/quick-start)
  *
- * @property application [Application] context for this implementation
- * @property config [IGDPRConsentConfig] with list of Admob publisher IDs
+ * @property activity [Activity] context for this implementation
  */
-class GDPRConsentImpl(private val application: Application, private val config: IGDPRConsentConfig) : IGDPRConsent, IGDPRTexts by ConstGDPR {
-    val consentInformation: ConsentInformation = ConsentInformation.getInstance(application)
-    override val adConsentStatus: Flow<AdConsentStatus> = flow {
-        val value =
-            application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(
-                PREFERENCES_KEY, AdConsentStatus.UNINITIALIZED.ordinal
-            )
-        emit(AdConsentStatus.values().getOrElse(value) { AdConsentStatus.UNINITIALIZED })
-    }
+class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, IGDPRTexts by ConstGDPR {
+    var consentForm: ConsentForm? = null;
 
-    override fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> =
-        callbackFlow {
-            val callback = object : ConsentInfoUpdateListener {
-                override fun onConsentInfoUpdated(consentStatus: ConsentStatus) {
-                    try {
-                        val isInEea = consentInformation.isRequestLocationInEeaOrUnknown
-                        sendBlocking(if (isInEea) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
+
+    override fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit) {
+        Timber.d("checkGDPRLocationStatus = [$onGdprStatus]")
+
+        val consentInformation = UserMessagingPlatform.getConsentInformation(activity)
+
+        val params = ConsentRequestParameters.Builder()
+            .build();
+
+
+        val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
+
+            override fun onConsentInfoUpdateFailure(formError: FormError?) {
+                if (formError != null) {
+                    Timber.d("p0 = [${formError.message}]")
                 }
+                onGdprStatus(CheckGDPRLocationStatus.ERROR)
 
-                override fun onFailedToUpdateConsentInfo(errorDescription: String) {
-                    try {
-                        sendBlocking(CheckGDPRLocationStatus.ERROR)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
+            }
+
+            override fun onConsentInfoUpdateSuccess() {
+                val consentStatus = consentInformation.consentStatus
+                val isInEea = consentStatus == REQUIRED
+                if (isInEea && consentInformation.isConsentFormAvailable) {
+                    onGdprStatus(CheckGDPRLocationStatus.UE)
+                } else if (isInEea) {
+                    onGdprStatus(CheckGDPRLocationStatus.ERROR)
+                } else {
+                    onGdprStatus(CheckGDPRLocationStatus.NON_UE)
                 }
             }
-            consentInformation.requestConsentInfoUpdate(config.adMobPublisherIds, callback)
-            awaitClose {}
         }
 
+        consentInformation.requestConsentInfoUpdate(activity, params, callback, callback)
+    }
+
+    override fun loadGdpr(onLoadSuccess: (Boolean) -> Unit) {
+        val callback = object : UserMessagingPlatform.OnConsentFormLoadSuccessListener,
+            UserMessagingPlatform.OnConsentFormLoadFailureListener {
+            override fun onConsentFormLoadSuccess(form: ConsentForm?) {
+                Timber.d("form = [$form]")
+                consentForm = form
+                if (form != null) {
+                    onLoadSuccess(true)
+                } else {
+                    onLoadSuccess(false)
+                }
+            }
+
+            override fun onConsentFormLoadFailure(formError: FormError?) {
+                if (formError != null) {
+                    Timber.d("formError = [${formError.message}]")
+                }
+                onLoadSuccess(false)
+            }
+        }
+        UserMessagingPlatform.loadConsentForm(activity, callback, callback)
+    }
+
+    override fun showGdpr(gdprResult: (AdConsentStatus) -> Unit) {
+        Timber.d("gdprResult = [$gdprResult]")
+        val consentForm1 = consentForm
+        if (consentForm1 != null) {
+            consentForm1.show(activity) { gdprResult(adConsentStatus()) }
+        } else {
+            gdprResult(AdConsentStatus.NON_PERSONALIZED_ERROR)
+        }
+    }
+
+    private fun adConsentStatus() = when (UserMessagingPlatform.getConsentInformation(activity).consentStatus) {
+        ConsentInformation.ConsentStatus.UNKNOWN -> AdConsentStatus.NON_PERSONALIZED_ERROR
+        ConsentInformation.ConsentType.NON_PERSONALIZED -> AdConsentStatus.NON_PERSONALIZED_SHOWED
+        ConsentInformation.ConsentType.PERSONALIZED -> AdConsentStatus.PERSONALIZED_SHOWED
+        else -> AdConsentStatus.NON_PERSONALIZED_ERROR
+    }
+
+
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {
-        application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
+        activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
             .edit()
             .putInt(PREFERENCES_KEY, adConsentStatus.ordinal)
             .apply()

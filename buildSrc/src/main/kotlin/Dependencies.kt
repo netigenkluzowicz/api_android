@@ -1,24 +1,24 @@
 object Versions {
     const val legacySupportV13 = "1.0.0"
-    const val playServicesAds = "19.8.0"
+    const val playServicesAds = "20.2.0"
     const val constraintLayout = "1.1.3"
-    const val material = "1.3.0"
-    const val gson = "2.8.6"
+    const val material = "1.4.0"
+    const val gson = "2.8.7"
     const val glide = "4.12.0"
     const val appcompat = "1.2.0"
-    const val consentLibrary = "1.0.8"
-    const val coreKTX = "1.3.2"
-    const val kotlin = "1.4.31"
+    const val userMessagingPlatform = "1.0.0"
+    const val coreKTX = "1.6.0"
+    const val kotlin = "1.5.21"
     const val retrofit = "2.9.0"
-    const val cropper = "2.8.0"
     const val junit = "4.12"
     const val testRunner = "1.3.0"
     const val espressoCore = "3.2.0"
     const val billing = "3.0.3"
     const val navigation = "2.3.5"
-    const val coroutines = "1.4.3"
+    const val coroutines = "1.5.1"
     const val room = "2.3.0"
     const val timber = "4.7.1"
+    const val playCore = "1.9.0"
 }
 
 object Libraries {
@@ -29,7 +29,8 @@ object Libraries {
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     val playServicesAds = "com.google.android.gms:play-services-ads:${Versions.playServicesAds}"
-    val consentLibrary = "com.google.android.ads.consent:consent-library:${Versions.consentLibrary}"
+
+    val userMessagingPlatform = "com.google.android.ump:user-messaging-platform:${Versions.userMessagingPlatform}"
 
     val lifecycleExt = "androidx.lifecycle:lifecycle-extensions:2.2.0"
     val viewModelKTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
@@ -61,8 +62,6 @@ object Libraries {
     val testRunner = "androidx.test:runner:${Versions.testRunner}"
     val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
 
-    val cropper = "com.theartofdev.edmodo:android-image-cropper:${Versions.cropper}"
-
     val billing = "com.android.billingclient:billing-ktx:${Versions.billing}"
 
     val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
@@ -70,5 +69,7 @@ object Libraries {
     val roomKTX = "androidx.room:room-ktx:${Versions.room}"
 
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
+    val playCore = "com.google.android.play:core:${Versions.playCore}"
 }
 

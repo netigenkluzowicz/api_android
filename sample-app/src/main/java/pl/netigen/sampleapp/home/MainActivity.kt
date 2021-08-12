@@ -35,6 +35,7 @@ class MainActivity : CoreMainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_main)
+        Timber.d("activity %s", this)
     }
 
 }

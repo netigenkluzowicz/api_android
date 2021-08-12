@@ -42,16 +42,18 @@ class CoreSplashVMImpl(
     private val noAdsPurchases: INoAds,
     private val networkStatus: INetworkStatus,
     private val appConfig: IAppConfig,
-    private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxConsentWaitTime, appConfig.maxInterstitialWaitTime),
+    private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxInterstitialWaitTime),
     val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
 ) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
-    override val splashState: MutableLiveData<SplashState> = MutableLiveData(SplashState.UNINITIALIZED)
+    private var currentState = SplashState.UNINITIALIZED
+    override val splashState: MutableLiveData<SplashState> = MutableLiveData(currentState)
     override val isFirstLaunch: MutableLiveData<Boolean> = MutableLiveData(false)
     private var isRunning = false
     private var finished = false
+    private var isPurchased = false;
 
     override fun start() {
-        d(isRunning.toString())
+        d("()")
         if (!isRunning) init()
     }
 
@@ -65,24 +67,25 @@ class CoreSplashVMImpl(
                 }
             }
         }
+        if (!networkStatus.isConnectedOrConnecting || finished) return finish()
+        loadGdprStatus()
+        loadInterstitial()
+    }
 
-        splashTimer.startConsentTimer { onFirstLaunch() }
-        launch {
-            gdprConsent.adConsentStatus.collect {
-                if (isActive) {
-                    splashTimer.cancelTimers()
-                    when {
-                        finished -> finish()
-                        it == UNINITIALIZED -> onFirstLaunch()
-                        else -> onNextLaunch(it)
-                    }
-                }
+    private fun loadGdprStatus() {
+        d("()")
+        gdprConsent.requestGDPRLocation {
+            when (it) {
+                CheckGDPRLocationStatus.UE -> loadForm()
+                CheckGDPRLocationStatus.NON_UE -> setPersonalizedAds(true)
+                CheckGDPRLocationStatus.ERROR -> setPersonalizedAds(false)
             }
         }
     }
 
     private fun onAdsFlowChanged(purchased: Boolean) {
         d("purchased = [$purchased]")
+        isPurchased = purchased;
         if (purchased) {
             finish()
         }
@@ -91,85 +94,55 @@ class CoreSplashVMImpl(
     private fun finish() {
         d("()")
         cancelJobs()
-        splashTimer.cancelTimers()
+        splashTimer.cancelInterstitialTimer()
         finished = true
         updateState(SplashState.FINISHED)
     }
 
 
-    private fun updateState(splashState: SplashState) = this.splashState.postValue(splashState)
+    private fun updateState(splashState: SplashState) {
+        currentState = splashState
+        this.splashState.postValue(currentState)
+    }
 
-    private fun onFirstLaunch() {
+    private fun loadForm() {
         d("()")
-        if (finished) return finish()
-        if (!networkStatus.isConnectedOrConnecting) return showGdprPopUp()
-        isFirstLaunch.postValue(true)
-        splashTimer.startConsentTimer { showGdprPopUp() }
-        launch {
-            gdprConsent.requestGDPRLocation().collect {
-                if (isActive) {
-                    d("requestGDPRLocation: + $it")
-                    splashTimer.cancelTimers()
-                    onFirstLaunchCheckGdpr(it)
-                }
+        if (isPurchased) return
+        gdprConsent.loadGdpr {
+            when (it) {
+                false -> updateState(SplashState.LOADING)
+                true -> showForm()
             }
         }
     }
 
-    private fun showGdprPopUp() {
+    private fun showForm() {
         d("()")
-        cancelJobs()
-        launch(coroutineDispatcherIo) {
-            noAdsPurchases.noAdsActive.collect {
-                if (isActive) {
-                    onAdsFlowChanged(it)
-                }
+        if (isPurchased) return
+        updateState(SplashState.SHOW_GDPR_POP_UP)
+        gdprConsent.showGdpr {
+            when (it) {
+                PERSONALIZED_NON_UE -> setPersonalizedAds(true)
+                PERSONALIZED_SHOWED -> setPersonalizedAds(true)
+                NON_PERSONALIZED_SHOWED -> setPersonalizedAds(false)
+                UNINITIALIZED -> setPersonalizedAds(false)
+                NON_PERSONALIZED_ERROR -> setPersonalizedAds(false)
             }
-        }
-        updateState(SplashState.SHOW_GDPR_CONSENT)
-    }
-
-    private fun onFirstLaunchCheckGdpr(it: CheckGDPRLocationStatus) {
-        d("it = [$it]")
-        when (it) {
-            CheckGDPRLocationStatus.NON_UE -> initOnNonUeLocation()
-            CheckGDPRLocationStatus.UE -> showGdprPopUp()
-            CheckGDPRLocationStatus.ERROR -> showGdprPopUp()
-        }
-    }
-
-    private fun onNextLaunch(adConsentStatus: AdConsentStatus) {
-        d("it = [$adConsentStatus]")
-        startLoadingInterstitial()
-        if (adConsentStatus == PERSONALIZED_NON_UE) checkConsentNextLaunch()
-    }
-
-    private fun initOnNonUeLocation() {
-        d("()")
-        ads.personalizedAdsEnabled = true
-        gdprConsent.saveAdConsentStatus(PERSONALIZED_NON_UE)
-        startLoadingInterstitial()
-    }
-
-    private fun startLoadingInterstitial() {
-        d("()")
-        if (!networkStatus.isConnectedOrConnecting || finished) return finish()
-        updateState(SplashState.LOADING)
-        when {
-            finished -> finish()
-            ads.interstitialAd.isLoaded -> onLoadInterstitialResult(true)
-            else -> loadInterstitial()
+            ads.interstitialAd.showIfCanBeShowed(true) { finish() }
         }
     }
 
     private fun loadInterstitial() {
-        splashTimer.startInterstitialTimer { onLoadInterstitialResult(false) }
-        launch {
-            ads.interstitialAd.load().collect {
-                if (isActive) {
-                    splashTimer.cancelTimers()
-                    onLoadInterstitialResult(it)
-                }
+        d("()")
+        splashTimer.startInterstitialTimer {
+            if (currentState != SplashState.SHOW_GDPR_POP_UP) {
+                onLoadInterstitialResult(false)
+            }
+        }
+        ads.interstitialAd.load {
+            splashTimer.cancelInterstitialTimer()
+            if (!finished && currentState != SplashState.SHOW_GDPR_POP_UP) {
+                onLoadInterstitialResult(it)
             }
         }
     }
@@ -179,27 +152,12 @@ class CoreSplashVMImpl(
     private fun onInterstitialLoaded() {
         d("()")
         ads.interstitialAd.showIfCanBeShowed(true) { finish() }
-        cancelJobs()
     }
 
     private fun cancelJobs() {
+        d("()")
         if (viewModelScope.isActive) {
             viewModelScope.cancel("CancelJobs")
-        }
-    }
-
-    private fun checkConsentNextLaunch() {
-        launch {
-            gdprConsent.requestGDPRLocation().collect {
-                if (isActive) {
-                    d("requestGDPRLocation: + $it")
-                    splashTimer.cancelConsentTimer()
-                    if (it == CheckGDPRLocationStatus.UE) {
-                        splashTimer.cancelTimers()
-                        showGdprPopUp()
-                    }
-                }
-            }
         }
     }
 
@@ -208,7 +166,6 @@ class CoreSplashVMImpl(
         val adConsentStatus: AdConsentStatus = if (personalizedAdsApproved) PERSONALIZED_SHOWED else NON_PERSONALIZED_SHOWED
         gdprConsent.saveAdConsentStatus(adConsentStatus)
         ads.personalizedAdsEnabled = personalizedAdsApproved
-        startLoadingInterstitial()
     }
 
     override fun onCleared() {

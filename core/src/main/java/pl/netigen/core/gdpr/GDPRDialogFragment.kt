@@ -262,9 +262,9 @@ class GDPRDialogFragment : NetigenDialogFragment() {
 
         context?.let {
             val netigenApiAccentColor =
-                    String.format("#%06x", ContextCompat.getColor(it, R.color.dialog_accent) and 0xffffff).replace("#", "")
+                String.format("#%06x", ContextCompat.getColor(it, R.color.dialog_accent) and 0xffffff).replace("#", "")
             link =
-                    NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(it) + NETIGEN_APP_COLOR + netigenApiAccentColor + INSIDE_WEB_VIEW_MARGIN_0
+                NETIGEN_PRIVACY_FOR_PACKAGE_NAME_URL + getApplicationName(it) + NETIGEN_APP_COLOR + netigenApiAccentColor + INSIDE_WEB_VIEW_MARGIN_0
         }
 
         return link

@@ -36,42 +36,22 @@ class HMSInterstitial(
         activity.lifecycle.addObserver(this)
     }
 
-    override fun load(): Flow<Boolean> =
-        callbackFlow {
-            val callback = object : AdListener() {
-                override fun onAdFailed(errorCode: Int) {
-                    super.onAdFailed(errorCode)
-                    d("errorCode = [$errorCode]")
-                    try {
-                        d(errorCode.toString())
-                        interstitialAd.adListener = null
-                        sendBlocking(false)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
-                }
-
-                override fun onAdLoaded() {
-                    super.onAdLoaded()
-                    d("()")
-                    try {
-                        d("()")
-                        interstitialAd.adListener = null
-                        sendBlocking(true)
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    } finally {
-                        channel.close()
-                    }
-                }
+    override fun load(onLoadSuccess: (Boolean) -> Unit) {
+        interstitialAd.adListener = object : AdListener() {
+            override fun onAdFailed(errorCode: Int) {
+                d("errorCode = [$errorCode]")
+                interstitialAd.adListener = null
+                onLoadSuccess(false)
             }
-            interstitialAd.adListener = callback
-            interstitialAd.loadAd(AdParam.Builder().build())
 
-            awaitClose {}
+            override fun onAdLoaded() {
+                interstitialAd.adListener = null
+                onLoadSuccess(true)
+            }
         }
+        interstitialAd.loadAd(AdParam.Builder().build())
+    }
+
 
     override val isLoaded: Boolean
         get() = interstitialAd.isLoaded

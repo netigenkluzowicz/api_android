@@ -16,21 +16,6 @@ import kotlinx.coroutines.flow.Flow
  *
  */
 interface IGDPRConsent : IGDPRTexts {
-    /**
-     * Provides current Ad consent status
-     */
-    val adConsentStatus: Flow<AdConsentStatus>
-
-    /**
-     * Request check if user is located in place where we should display consent to him
-     *
-     * @return Location Status:
-     * - [CheckGDPRLocationStatus.UE] - Consent should be displayed
-     * - [CheckGDPRLocationStatus.NON_UE] - Consent can be skipped
-     * - [CheckGDPRLocationStatus.ERROR] - Consent should be displayed because location is unknown
-     *
-     */
-    fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus>
 
     /**
      * Saves current consent status:
@@ -42,6 +27,31 @@ interface IGDPRConsent : IGDPRTexts {
      * @param adConsentStatus Collected consent information to save
      */
     fun saveAdConsentStatus(adConsentStatus: AdConsentStatus)
+
+    /**
+     * Request check if user is located in place where we should display consent to him
+     *
+     * @return Location Status:
+     * - [CheckGDPRLocationStatus.UE] - Consent should be displayed
+     * - [CheckGDPRLocationStatus.NON_UE] - Consent can be skipped
+     * - [CheckGDPRLocationStatus.ERROR] - Consent should be displayed because location is unknown
+     *
+     */
+    fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit)
+
+    /**
+     * Loads gdpr popup/form and provides load success/failure callback
+     *
+     * @param onLoadSuccess Callback called when form is loaded or an error occurred
+     */
+    fun loadGdpr(onLoadSuccess: (Boolean) -> Unit)
+
+    /**
+     * Shows gdpr popup/form and passes resulted consent status from user
+     *
+     * @param gdprResult Callback provides AdConsentStatus from user
+     */
+    fun showGdpr(gdprResult: (AdConsentStatus) -> Unit)
 }
 
 /**

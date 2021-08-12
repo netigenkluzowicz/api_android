@@ -1,6 +1,5 @@
 package pl.netigen.sampleapp.flavour
 
-import android.app.Application
 import pl.netigen.core.config.AppConfig
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.payments.IPayments
@@ -18,5 +17,5 @@ object FlavoursConst {
     @Suppress("UNUSED_PARAMETER")
     fun getPaymentsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig): IPayments = HMSPayments(coreMainActivity)
     fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = HMSAds(coreMainActivity, appConfig)
-    fun getGDPRConsentImpl(application: Application, appConfig: AppConfig) = GDPRConsentImpl(application, appConfig)
+    fun getGDPRConsentImpl(coreMainActivity: CoreMainActivity) = GDPRConsentImpl(coreMainActivity.application)
 }

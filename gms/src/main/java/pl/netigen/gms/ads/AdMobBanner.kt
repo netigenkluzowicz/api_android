@@ -23,7 +23,6 @@ import timber.log.Timber
  * @property adMobRequest Provides [AdRequest] for this ad
  * @property adId Current ad [String] identifier
  * @property bannerLayoutIdName Id of [RelativeLayout] for banner ad placement
- * @property isAdaptiveBanner When true (default value) adaptive banner instead of smart banner is used
  *
  * See: [Adaptive Banners](https://developers.google.com/admob/android/banner/adaptive)
  * @property enabled Indicates is current ad active
@@ -33,7 +32,6 @@ class AdMobBanner(
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
-    private val isAdaptiveBanner: Boolean = true,
     override var enabled: Boolean = true
 ) : IBannerAd, LifecycleObserver {
     private lateinit var bannerView: AdView
@@ -50,7 +48,6 @@ class AdMobBanner(
     override fun getHeightInPixels(): Int = adSize.getHeightInPixels(activity)
 
     private fun getAdSize(): AdSize {
-        if (!isAdaptiveBanner) return AdSize.SMART_BANNER
         val display = activity.windowManager.defaultDisplay
         val outMetrics = DisplayMetrics()
         display.getMetrics(outMetrics)

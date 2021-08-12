@@ -6,11 +6,11 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'org.jetbrains.dokka'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionName version
     }
     buildTypes {
@@ -69,6 +69,8 @@ dependencies {
     api Libraries.glide
     kapt Libraries.glideCompiler
     api Libraries.timber
+
+    api Libraries.playCore
 }
 
 
