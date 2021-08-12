@@ -19,6 +19,7 @@ import com.google.android.play.core.install.model.UpdateAvailability
 import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.rateus.RateUs
 import pl.netigen.core.splash.CoreSplashFragment
+import pl.netigen.core.survey.Survey
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
@@ -54,6 +55,8 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
 
     val rateUs by lazy { RateUs.Builder(this).createRateUs() }
 
+    val survey by lazy { Survey.Builder(this).createSurvey() }
+
     /**
      * It's called when [CoreSplashFragment] is closed
      *
@@ -63,7 +66,8 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
         rateUs.openRateDialogIfNeeded()
-        checkForUpdate();
+        survey.openAskForSurveyDialogIfNeeded(rateUs.numberOfChecksBeforeShowingDialog)
+        checkForUpdate()
     }
 
     /**

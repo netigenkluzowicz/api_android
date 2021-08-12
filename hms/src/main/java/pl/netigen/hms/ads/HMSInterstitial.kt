@@ -8,13 +8,8 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.huawei.hms.ads.AdListener
 import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.InterstitialAd
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IInterstitialAd
-import timber.log.Timber
 import timber.log.Timber.d
 
 

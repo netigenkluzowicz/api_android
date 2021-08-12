@@ -32,7 +32,7 @@ public class LayoutMargins {
 
     public static class Builder {
 
-        private LayoutMargins layoutMargins;
+        private final LayoutMargins layoutMargins;
 
         public Builder() {
             layoutMargins = new LayoutMargins();

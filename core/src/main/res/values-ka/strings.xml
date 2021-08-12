@@ -1,16 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="msg_browser_not_found_netigen">ბროუზერი ვერ მოიძებნა !!!</string>
+
+    <string name="msg_browser_not_found_netigen">ბრაუზერი არ არის ნაპოვნი !!!</string>
     <string name="cancel_netigen">გაუქმება</string>
     <string name="change_language_netigen">Ენის შეცვლა</string>
-    <string name="translation_information_title_netigen">თარგმანი ინფორმაცია</string>
-    <string name="translation_information_content1_netigen">ეს პროგრამა თარგმნილია Google Translate- ით. ინგლისური ამ განაცხადის ორიგინალური ენაა. გახსოვდეთ,
-        რომ თარგმანში შეცდომები შეიძლება იყოს.
-    </string>
-    <string name="translation_information_content2_netigen">თუ გსურთ ენის ენის შეცვლა ინგლისურ ენაზე, შეგიძლიათ გააკეთოთ ეს პარამეტრებში.</string>
-    <string name="do_you_like_this_app_netigen">მოგწონთ ეს პროგრამა?</string>
-    <string name="please_support_us_netigen">გთხოვთ, დაგვიკავშირდეთ ამ აპლიკაციის შეფასებით. Გმადლობთ!</string>
+    <string name="translation_information_title_netigen">თარგმანი</string>
+    <string name="translation_information_content1_netigen">ეს პროგრამა თარგმნილია Google Translate- ის მიერ. ინგლისური არის ამ განაცხადის ორიგინალური ენა. გახსოვდეთ, რომ თარგმანში გარკვეული შეცდომები შეიძლება იყოს.</string>
+    <string name="translation_information_content2_netigen">თუ გსურთ შეცვალოთ აპლიკაციის ენა ინგლისურად, შეგიძლიათ გააკეთოთ ასე პარამეტრები.</string>
+    <string name="do_you_like_this_app_netigen">მოგწონს ეს აპლიკაცია?</string>
+    <string name="please_support_us_netigen">გთხოვთ, დაგვეხმაროთ ამ აპლიკაციის შეფასება. Გმადლობთ!</string>
     <string name="later_netigen">მოგვიანებით</string>
     <string name="rate_us_netigen">Შეგვაფასეთ</string>
-    <string name="settings_normal_netigen">პარამეტრები</string>
+    <string name="settings_normal_netigen">შეხვედრა</string>
+    <string name="send_netigen">გაგზავნა</string>
+    <string name="survey_question1_netigen">რა უნდა გავაუმჯობესოთ?</string>
+    <string name="your_answer_is_hint_survey_netigen">შეიყვანეთ პასუხი…</string>
+    <string name="survey_question2_netigen">რა ახალი თვისებები გსურთ?</string>
+    <string name="improving_the_app_netigen">აპლიკაციის გაუმჯობესება</string>
+    <string name="ask_for_survey_netigen">გნებავთ გითხრათ, რა უნდა გავაუმჯობესოთ აპლიკაციაში?</string>
 </resources>

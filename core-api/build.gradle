@@ -9,7 +9,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionName version
     }
@@ -57,6 +57,8 @@ dependencies {
     api Libraries.liveDataKTX
     api Libraries.runtimeKTX
     api Libraries.kotlinStdlibJdk7
+
+    api Libraries.okhttp
 
     api Libraries.navigationFragment
     api Libraries.navigationUi

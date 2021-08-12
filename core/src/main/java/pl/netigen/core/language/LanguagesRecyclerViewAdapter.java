@@ -20,11 +20,11 @@ import pl.netigen.core.R;
 
 public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<LanguagesRecyclerViewAdapter.LanguageRowViewHolder> {
 
-    private ArrayList<LanguageModel> languageModelArrayList;
+    private final ArrayList<LanguageModel> languageModelArrayList;
     private RadioButton lastCheckedRB;
     private LanguageModel selectedLanguageModel;
-    private Typeface typeface;
-    private CompoundButton.OnCheckedChangeListener ls = (new CompoundButton.OnCheckedChangeListener() {
+    private final Typeface typeface;
+    private final CompoundButton.OnCheckedChangeListener ls = (new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView,
                                      boolean isChecked) {
@@ -80,7 +80,7 @@ public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<Languages
     public static class LanguageRowViewHolder extends RecyclerView.ViewHolder {
 
         public AppCompatRadioButton radioButtonSelectLanguage;
-        private View itemView;
+        private final View itemView;
 
         public LanguageRowViewHolder(View itemView) {
             super(itemView);

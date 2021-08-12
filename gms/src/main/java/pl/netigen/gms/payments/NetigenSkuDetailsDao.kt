@@ -2,7 +2,6 @@ package pl.netigen.gms.payments
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.SkuDetails
 import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 

@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="msg_browser_not_found_netigen">Webbläsaren hittades inte !!!</string>
+
+    <string name="msg_browser_not_found_netigen">Browser inte hittad !!!</string>
     <string name="cancel_netigen">Annullera</string>
     <string name="change_language_netigen">Ändra språk</string>
     <string name="translation_information_title_netigen">Översättningsinformation</string>
-    <string name="translation_information_content1_netigen">Den här applikationen har översatts av Google Translate. Engelska är
-        originalspråket för denna ansökan. Kom ihåg att det kan finnas några misstag i översättning.
-    </string>
-    <string name="translation_information_content2_netigen">Om du vill ändra app språk till engelska kan du göra det i
-        inställningarna.
-    </string>
+    <string name="translation_information_content1_netigen">Denna ansökan har översatts av Google Translate. Engelska är det ursprungliga språket i den här applikationen. Kom ihåg att det kan finnas några misstag i översättning.</string>
+    <string name="translation_information_content2_netigen">Om du vill ändra appspråket till engelska kan du göra det i inställningar.</string>
     <string name="do_you_like_this_app_netigen">Gillar du den här appen?</string>
-    <string name="please_support_us_netigen">Stöd oss genom att betygsätta denna app. Tack!</string>
+    <string name="please_support_us_netigen">Vänligen stödja oss för att betygsätta den här appen. Tack!</string>
     <string name="later_netigen">Senare</string>
     <string name="rate_us_netigen">Gradera oss</string>
     <string name="settings_normal_netigen">inställningar</string>
+    <string name="send_netigen">Skicka</string>
+    <string name="survey_question1_netigen">Vad vi borde förbättra?</string>
+    <string name="your_answer_is_hint_survey_netigen">Ange svaret…</string>
+    <string name="survey_question2_netigen">Vilka nya funktioner skulle du vilja ha?</string>
+    <string name="improving_the_app_netigen">Förbättra appen</string>
+    <string name="ask_for_survey_netigen">Vill du berätta för oss vad vi ska förbättra i appen?</string>
 </resources>

@@ -12,11 +12,15 @@ import pl.netigen.coreapi.main.ICoreMainVM
  * Base [AppCompatDialogFragment] for Api, provides [canCommitFragments], and [ICoreMainVM]
  *
  */
-open class NetigenDialogFragment : AppCompatDialogFragment() {
+open class NetigenDialogFragment : AppCompatDialogFragment {
     /**
      * Provides access to Api by [ICoreMainVM]
      */
     val viewModel: ICoreMainVM by activityViewModels<CoreMainVM> { (activity as CoreMainActivity).viewModelFactory }
+
+    constructor() : super() {
+
+    }
 
     /**
      * Indicates if we can safe perform Fragment transaction

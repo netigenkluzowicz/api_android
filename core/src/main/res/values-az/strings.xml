@@ -1,16 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+
     <string name="msg_browser_not_found_netigen">Brauzer tapılmadı !!!</string>
-    <string name="cancel_netigen">Ləğv et</string>
-    <string name="change_language_netigen">Dili dəyişin</string>
-    <string name="translation_information_title_netigen">Tərcümə məlumatları</string>
-    <string name="translation_information_content1_netigen">Bu proqram Google Translate tərəfindən tərcümə edilmişdir. İngilis dili bu proqramın orijinal
-        dili. Tərcümədə bəzi səhvlər ola biləcəyini unutmayın.
-    </string>
-    <string name="translation_information_content2_netigen">Proqram dilini ingilis dilinə dəyişmək istəyirsinizsə, bunu ayarlarda edə bilərsiniz.</string>
+    <string name="cancel_netigen">Lax etmək</string>
+    <string name="change_language_netigen">Duluqdurmaq</string>
+    <string name="translation_information_title_netigen">Tərcümə haqqında məlumat</string>
+    <string name="translation_information_content1_netigen">Bu proqram Google Translate tərəfindən tərcümə edilmişdir. İngilis dili bu tətbiqin orijinal dilidir. Xahiş edirəm, tərcümədə bəzi səhvlər ola biləcəyini unutmayın.</string>
+    <string name="translation_information_content2_netigen">Tətbiq dilini ingilis dilinə dəyişdirmək istəyirsinizsə, bunu parametrlərdə edə bilərsiniz.</string>
     <string name="do_you_like_this_app_netigen">Bu proqramlar xoşunuza gəlirmi?</string>
-    <string name="please_support_us_netigen">Xahiş edirəm bu tətbiqə reytinq verərək bizə dəstək olun. Çox sağ ol!</string>
-    <string name="later_netigen">Daha sonra</string>
+    <string name="please_support_us_netigen">Xahiş edirəm bu tətbiq reytinqi ilə bizə dəstək olun. Çox sağ ol!</string>
+    <string name="later_netigen">Sonradan</string>
     <string name="rate_us_netigen">Bizi qiymətləndirin</string>
-    <string name="settings_normal_netigen">Ayarlar</string>
+    <string name="settings_normal_netigen">Parametr</string>
+    <string name="send_netigen">Göndər</string>
+    <string name="survey_question1_netigen">Nə yaxşılaşdırmalıyıq?</string>
+    <string name="your_answer_is_hint_survey_netigen">Cavabı daxil edin…</string>
+    <string name="survey_question2_netigen">Hansı yeni xüsusiyyətləri istərdiniz?</string>
+    <string name="improving_the_app_netigen">Tətbiqin təkmilləşdirilməsi</string>
+    <string name="ask_for_survey_netigen">Tətbiqdə nə inkişaf etdirəcəyimizi bizə izah etmək istərdinizmi?</string>
 </resources>

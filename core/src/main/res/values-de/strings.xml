@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+
     <string name="msg_browser_not_found_netigen">Browser nicht gefunden !!!</string>
     <string name="cancel_netigen">Stornieren</string>
     <string name="change_language_netigen">Sprache ändern</string>
@@ -14,4 +14,10 @@
     <string name="later_netigen">Später</string>
     <string name="rate_us_netigen">Bewertung</string>
     <string name="settings_normal_netigen">Einstellungen</string>
+    <string name="send_netigen">Senden</string>
+    <string name="survey_question1_netigen">Was sollten wir uns verbessern?</string>
+    <string name="your_answer_is_hint_survey_netigen">Geben Sie die Antwort ein…</string>
+    <string name="survey_question2_netigen">Welche neuen Funktionen möchten Sie haben?</string>
+    <string name="improving_the_app_netigen">Verbesserung der App.</string>
+    <string name="ask_for_survey_netigen">Möchten Sie uns sagen, was wir in der App verbessern sollten?</string>
 </resources>

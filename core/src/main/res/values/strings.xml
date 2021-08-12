@@ -21,7 +21,15 @@
     <string name="translation_information_content2_netigen">If you want to change the app language to English you can do so in settings.</string>
     <string name="do_you_like_this_app_netigen">Do you like this app?</string>
     <string name="please_support_us_netigen">Please support us by rating this app. Thank you!</string>
+
     <string name="later_netigen">Later</string>
     <string name="rate_us_netigen">Rate Us</string>
     <string name="settings_normal_netigen">Settings</string>
+
+    <string name="send_netigen">Send</string>
+    <string name="survey_question1_netigen">What we should improve?</string>
+    <string name="your_answer_is_hint_survey_netigen">Enter the answer…</string>
+    <string name="survey_question2_netigen">What new features would you like to have?</string>
+    <string name="improving_the_app_netigen">Improving the app</string>
+    <string name="ask_for_survey_netigen">Would you like to tell us what we should improve in the app?</string>
 </resources>

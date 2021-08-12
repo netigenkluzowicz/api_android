@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="msg_browser_not_found_netigen">ब्राउजर भेटिएन !!!</string>
-    <string name="cancel_netigen">रद्द गर्नुहोस्</string>
+
+    <string name="msg_browser_not_found_netigen">ब्राउजर फेला परेन !!!</string>
+    <string name="cancel_netigen">रद्द गर्नु</string>
     <string name="change_language_netigen">भाषा परिवर्तन गर्नुहोस्</string>
     <string name="translation_information_title_netigen">अनुवाद जानकारी</string>
-    <string name="translation_information_content1_netigen">यो अनुप्रयोग Google अनुवाद द्वारा अनुवाद गरिएको छ। अंग्रेजी यस अनुप्रयोगको मूल भाषा हो। कृपया याद
-        गर्नुहोस् कि अनुवादमा केही गल्ती हुन सक्छ।
-    </string>
-    <string name="translation_information_content2_netigen">यदि तपाईं अंग्रेजीमा एप भाषा परिवर्तन गर्न चाहनुहुन्छ भने तपाइँ सेटिङहरूमा त्यसो गर्न
-        सक्नुहुन्छ।
-    </string>
-    <string name="do_you_like_this_app_netigen">के तपाईंलाई यो अनुप्रयोग मनपर्‍यो?</string>
-    <string name="please_support_us_netigen">कृपया हामीलाई यो अनुप्रयोगको दर्जा दिएर समर्थन गर्नुहोस्। धन्यवाद!</string>
+    <string name="translation_information_content1_netigen">यो अनुप्रयोग गुगल अनुवाद द्वारा अनुवाद गरिएको छ। अंग्रेजी यस अनुप्रयोगको मूल भाषा हो। कृपया याद राख्नुहोस् कि अनुवादमा केहि गल्तीहरू हुन सक्छन्।</string>
+    <string name="translation_information_content2_netigen">यदि तपाईं अंग्रेजीमा अनुप्रयोग भाषा परिवर्तन गर्न चाहानुहुन्छ भने तपाईं सेटिंग्समा त्यसो गर्न सक्नुहुनेछ।</string>
+    <string name="do_you_like_this_app_netigen">के तपाईंलाई यो अनुप्रयोग मनपर्दछ?</string>
+    <string name="please_support_us_netigen">कृपया हामीलाई यो अनुप्रयोग रेटिंग गरेर समर्थन गर्नुहोस्। धन्यवाद!</string>
     <string name="later_netigen">पछि</string>
-    <string name="rate_us_netigen">हामीलाई मूल्याङ्कन गर्नुहोस्</string>
-    <string name="settings_normal_netigen">सेटिङ्हरू</string>
+    <string name="rate_us_netigen">हामीलाई दरबार दिनु</string>
+    <string name="settings_normal_netigen">बतंग</string>
+    <string name="send_netigen">पठाउनु</string>
+    <string name="survey_question1_netigen">हामीले के सुधार गर्नुपर्छ?</string>
+    <string name="your_answer_is_hint_survey_netigen">उत्तर प्रविष्ट गर्नुहोस्…</string>
+    <string name="survey_question2_netigen">तपाई के नयाँ सुविधाहरू पाउन चाहानुहुन्छ?</string>
+    <string name="improving_the_app_netigen">अनुप्रयोग सुधार गर्दै</string>
+    <string name="ask_for_survey_netigen">के तपाईं हामीलाई कुन कुरामा सुधार गर्नुपर्दछ भनेर बताउन चाहानुहुन्छ?</string>
 </resources>
