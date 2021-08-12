@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="msg_browser_not_found_netigen">Penyemak imbas tidak dijumpai !!!</string>
-    <string name="cancel_netigen">Batalkan</string>
+
+    <string name="msg_browser_not_found_netigen">Pelayar tidak dijumpai !!!</string>
+    <string name="cancel_netigen">Membatalkan</string>
     <string name="change_language_netigen">Tukar bahasa</string>
     <string name="translation_information_title_netigen">Maklumat terjemahan</string>
-    <string name="translation_information_content1_netigen">Permohonan ini telah diterjemahkan oleh Terjemahan Google. Bahasa Inggeris adalah bahasa asal
-        permohonan ini. Sila ingat bahawa terdapat beberapa kesilapan dalam terjemahan.
-    </string>
-    <string name="translation_information_content2_netigen">Jika anda ingin menukar bahasa apl kepada bahasa Inggeris, anda boleh melakukannya dalam
-        tetapan.
-    </string>
+    <string name="translation_information_content1_netigen">Aplikasi ini telah diterjemahkan oleh Terjemahan Google. Bahasa Inggeris adalah bahasa asal aplikasi ini. Sila ingat bahawa terdapat beberapa kesilapan dalam terjemahan.</string>
+    <string name="translation_information_content2_netigen">Jika anda ingin menukar bahasa aplikasi ke Bahasa Inggeris, anda boleh melakukannya dalam Tetapan.</string>
     <string name="do_you_like_this_app_netigen">Adakah anda suka aplikasi ini?</string>
     <string name="please_support_us_netigen">Sila menyokong kami dengan menilai aplikasi ini. Terima kasih!</string>
     <string name="later_netigen">Kemudian</string>
-    <string name="rate_us_netigen">Beri Nilai Kami</string>
+    <string name="rate_us_netigen">Rate US.</string>
     <string name="settings_normal_netigen">Tetapan</string>
+    <string name="send_netigen">Hantar</string>
+    <string name="survey_question1_netigen">Apa yang perlu kita lakukan?</string>
+    <string name="your_answer_is_hint_survey_netigen">Masukkan jawapan…</string>
+    <string name="survey_question2_netigen">Apakah ciri-ciri baru yang anda mahukan?</string>
+    <string name="improving_the_app_netigen">Memperbaiki aplikasinya</string>
+    <string name="ask_for_survey_netigen">Adakah anda ingin memberitahu kami apa yang perlu diperbaiki dalam aplikasinya?</string>
 </resources>

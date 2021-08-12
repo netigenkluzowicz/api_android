@@ -1,16 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+
     <string name="msg_browser_not_found_netigen">Браузер не знайдено !!!</string>
     <string name="cancel_netigen">Скасувати</string>
     <string name="change_language_netigen">Змінити мову</string>
-    <string name="translation_information_title_netigen">Переклад інформації</string>
-    <string name="translation_information_content1_netigen">Цю програму переклав Перекладач Google. Англійська мова є початковою мовою цієї програми. Зверніть
-        увагу, що в перекладі можуть бути помилки
-    </string>
-    <string name="translation_information_content2_netigen">Якщо ви хочете змінити мову програми на англійську, ви можете це зробити в налаштуваннях.</string>
-    <string name="do_you_like_this_app_netigen">Вам подобається цей додаток?</string>
-    <string name="please_support_us_netigen">Підтримайте нас, оцінивши цю програму. Дякую!</string>
+    <string name="translation_information_title_netigen">Інформація про переклад</string>
+    <string name="translation_information_content1_netigen">Ця програма була перекладена компанією Google Translate. Англійська мова - це оригінальна мова цієї програми. Будь ласка, пам\'ятайте, що в перекладі можуть бути деякі помилки.</string>
+    <string name="translation_information_content2_netigen">Якщо ви хочете змінити мову програми для англійської мови, ви можете зробити це у налаштуваннях.</string>
+    <string name="do_you_like_this_app_netigen">Вам подобається ця програма?</string>
+    <string name="please_support_us_netigen">Будь ласка, підтримуйте нас за допомогою цього додатка. Дякую!</string>
     <string name="later_netigen">Пізніше</string>
     <string name="rate_us_netigen">Оцініть нас</string>
     <string name="settings_normal_netigen">Налаштування</string>
+    <string name="send_netigen">Надсилати</string>
+    <string name="survey_question1_netigen">Що ми повинні покращити?</string>
+    <string name="your_answer_is_hint_survey_netigen">Введіть відповідь…</string>
+    <string name="survey_question2_netigen">Які нові функції ви хотіли б мати?</string>
+    <string name="improving_the_app_netigen">Поліпшення програми</string>
+    <string name="ask_for_survey_netigen">Хочете розповісти нам, що ми повинні покращити в додатку?</string>
 </resources>

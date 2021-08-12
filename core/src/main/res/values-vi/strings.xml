@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+
     <string name="msg_browser_not_found_netigen">Không tìm thấy trình duyệt !!!</string>
     <string name="cancel_netigen">Hủy bỏ</string>
     <string name="change_language_netigen">Thay đổi ngôn ngữ</string>
-    <string name="translation_information_title_netigen">Thông tin dịch thuật</string>
-    <string name="translation_information_content1_netigen">Ứng dụng này đã được dịch bởi Google Dịch. Tiếng Anh là ngôn ngữ gốc của ứng dụng này. Xin nhớ
-        rằng có thể có một số sai lầm trong dịch thuật.
-    </string>
-    <string name="translation_information_content2_netigen">Nếu bạn muốn thay đổi ngôn ngữ ứng dụng sang tiếng Anh, bạn có thể thực hiện trong cài đặt.
-    </string>
+    <string name="translation_information_title_netigen">Thông tin dịch</string>
+    <string name="translation_information_content1_netigen">Ứng dụng này đã được dịch bởi Google Dịch. Tiếng Anh là ngôn ngữ ban đầu của ứng dụng này. Hãy nhớ rằng có thể có một số sai lầm trong dịch thuật.</string>
+    <string name="translation_information_content2_netigen">Nếu bạn muốn thay đổi ngôn ngữ ứng dụng sang tiếng Anh, bạn có thể làm như vậy trong Cài đặt.</string>
     <string name="do_you_like_this_app_netigen">Bạn có thích ứng dụng này không?</string>
-    <string name="please_support_us_netigen">Hãy ủng hộ chúng tôi bằng cách đánh giá ứng dụng này. Cảm ơn bạn!</string>
+    <string name="please_support_us_netigen">Vui lòng hỗ trợ chúng tôi bằng cách đánh giá ứng dụng này. Cảm ơn bạn!</string>
     <string name="later_netigen">Một lát sau</string>
     <string name="rate_us_netigen">Đánh giá chúng tôi</string>
     <string name="settings_normal_netigen">Cài đặt</string>
+    <string name="send_netigen">Gửi</string>
+    <string name="survey_question1_netigen">Những gì chúng ta nên cải thiện?</string>
+    <string name="your_answer_is_hint_survey_netigen">Nhập câu trả lời…</string>
+    <string name="survey_question2_netigen">Những tính năng mới bạn muốn có?</string>
+    <string name="improving_the_app_netigen">Cải thiện ứng dụng</string>
+    <string name="ask_for_survey_netigen">Bạn có muốn nói với chúng tôi những gì chúng ta nên cải thiện trong ứng dụng?</string>
 </resources>

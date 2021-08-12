@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+
     <string name="msg_browser_not_found_netigen">A böngésző nem található !!!</string>
     <string name="cancel_netigen">Megszünteti</string>
     <string name="change_language_netigen">Válts nyelvet</string>
     <string name="translation_information_title_netigen">Fordítási információk</string>
-    <string name="translation_information_content1_netigen">Ezt az alkalmazást a Google Fordító lefordította. Az alkalmazás eredeti nyelve az angol. Kérjük,
-        ne feledje, hogy a fordításban lehetnek hibák.
-    </string>
-    <string name="translation_information_content2_netigen">Ha az alkalmazás nyelvét angolra szeretné módosítani, akkor ezt a beállításokban is elvégezheti.
-    </string>
+    <string name="translation_information_content1_netigen">Ezt az alkalmazást a Google Fordító lefordította. Az angol nyelv az alkalmazás eredeti nyelve. Kérjük, ne feledje, hogy van néhány hiba a fordításban.</string>
+    <string name="translation_information_content2_netigen">Ha meg szeretné változtatni az alkalmazás nyelvet angolul, akkor a beállításokban megteheti.</string>
     <string name="do_you_like_this_app_netigen">Tetszik ez az alkalmazás?</string>
-    <string name="please_support_us_netigen">Kérjük, támogasson minket az alkalmazás értékelésével. Köszönöm!</string>
-    <string name="later_netigen">Később</string>
+    <string name="please_support_us_netigen">Kérjük, támogass minket az alkalmazás értékelésével. Köszönöm!</string>
+    <string name="later_netigen">A későbbiekben</string>
     <string name="rate_us_netigen">Értékelj minket</string>
     <string name="settings_normal_netigen">Beállítások</string>
+    <string name="send_netigen">Küld</string>
+    <string name="survey_question1_netigen">Mire kell javítanunk?</string>
+    <string name="your_answer_is_hint_survey_netigen">Adja meg a választ…</string>
+    <string name="survey_question2_netigen">Milyen új funkciókat szeretne?</string>
+    <string name="improving_the_app_netigen">Az alkalmazás javítása</string>
+    <string name="ask_for_survey_netigen">Szeretné elmondani nekünk, hogy mit javítanunk kell az alkalmazásban?</string>
 </resources>

@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+
     <string name="msg_browser_not_found_netigen">Browser tidak ditemukan !!!</string>
     <string name="cancel_netigen">Membatalkan</string>
     <string name="change_language_netigen">Ganti BAHASA</string>
-    <string name="translation_information_title_netigen">Informasi terjemahan</string>
-    <string name="translation_information_content1_netigen">Aplikasi ini telah diterjemahkan oleh Google Translate. Bahasa Inggris adalah bahasa asli aplikasi
-        ini. Harap diingat bahwa mungkin ada beberapa kesalahan dalam terjemahan.
-    </string>
-    <string name="translation_information_content2_netigen">Jika Anda ingin mengubah bahasa aplikasi ke Bahasa Inggris, Anda dapat melakukannya di
-        pengaturan.
-    </string>
+    <string name="translation_information_title_netigen">Informasi Penerjemahan.</string>
+    <string name="translation_information_content1_netigen">Aplikasi ini telah diterjemahkan oleh Google Translate. Bahasa Inggris adalah bahasa asli dari aplikasi ini. Harap diingat bahwa mungkin ada beberapa kesalahan dalam terjemahan.</string>
+    <string name="translation_information_content2_netigen">Jika Anda ingin mengubah bahasa aplikasi menjadi bahasa Inggris, Anda dapat melakukannya dalam pengaturan.</string>
     <string name="do_you_like_this_app_netigen">Apakah Anda suka aplikasi ini?</string>
-    <string name="please_support_us_netigen">Tolong dukung kami dengan memberi peringkat aplikasi ini. Terima kasih!</string>
-    <string name="later_netigen">Kemudian</string>
-    <string name="rate_us_netigen">Beri kami</string>
+    <string name="please_support_us_netigen">Harap dukung kami dengan memberi peringkat aplikasi ini. Terima kasih!</string>
+    <string name="later_netigen">Nanti</string>
+    <string name="rate_us_netigen">Nilai kami</string>
     <string name="settings_normal_netigen">Pengaturan</string>
+    <string name="send_netigen">Mengirim</string>
+    <string name="survey_question1_netigen">Apa yang harus kita perbaiki?</string>
+    <string name="your_answer_is_hint_survey_netigen">Masukkan jawaban…</string>
+    <string name="survey_question2_netigen">Fitur-fitur baru apa yang ingin Anda miliki?</string>
+    <string name="improving_the_app_netigen">Meningkatkan aplikasi</string>
+    <string name="ask_for_survey_netigen">Apakah Anda ingin memberi tahu kami apa yang harus kami perbaiki di aplikasi?</string>
 </resources>

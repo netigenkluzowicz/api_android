@@ -1,16 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="msg_browser_not_found_netigen">متصفح غير موجود!</string>
-    <string name="cancel_netigen">إلغاء</string>
-    <string name="change_language_netigen">غير اللغة</string>
+
+    <string name="msg_browser_not_found_netigen">لم يتم العثور على المتصفح !!!</string>
+    <string name="cancel_netigen">يلغي</string>
+    <string name="change_language_netigen">تغيير اللغة</string>
     <string name="translation_information_title_netigen">معلومات الترجمة</string>
-    <string name="translation_information_content1_netigen">تمت ترجمة هذا التطبيق بواسطة خدمة الترجمة من Google. اللغة الإنجليزية هي اللغة الأصلية لهذا
-        التطبيق. يرجى تذكر أنه قد يكون هناك بعض الأخطاء في الترجمة.
-    </string>
-    <string name="translation_information_content2_netigen">إذا كنت تريد تغيير لغة التطبيق إلى الإنجليزية ، فيمكنك القيام بذلك في الإعدادات.</string>
+    <string name="translation_information_content1_netigen">تمت ترجمة هذا التطبيق من قبل Google Translate. اللغة الإنجليزية هي اللغة الأصلية لهذا التطبيق. يرجى تذكر أنه يمكن أن يكون هناك بعض الأخطاء في الترجمة.</string>
+    <string name="translation_information_content2_netigen">إذا كنت ترغب في تغيير لغة التطبيق إلى اللغة الإنجليزية، يمكنك القيام بذلك في الإعدادات.</string>
     <string name="do_you_like_this_app_netigen">هل مثل هذا التطبيق؟</string>
-    <string name="please_support_us_netigen">يرجى دعم لنا عن طريق تصنيف هذا التطبيق. شكرا لكم!</string>
-    <string name="later_netigen">في وقت لاحق</string>
+    <string name="please_support_us_netigen">يرجى دعمنا حسب تصنيف هذا التطبيق. شكرا لك!</string>
+    <string name="later_netigen">لاحقا</string>
     <string name="rate_us_netigen">قيمنا</string>
-    <string name="settings_normal_netigen">الإعدادات</string>
+    <string name="settings_normal_netigen">إعدادات</string>
+    <string name="send_netigen">يرسل</string>
+    <string name="survey_question1_netigen">ماذا يجب أن نحسن؟</string>
+    <string name="your_answer_is_hint_survey_netigen">أدخل الإجابة…</string>
+    <string name="survey_question2_netigen">ما هي ميزات جديدة ترغب في الحصول عليها؟</string>
+    <string name="improving_the_app_netigen">تحسين التطبيق</string>
+    <string name="ask_for_survey_netigen">هل ترغب في إخبارنا بما يجب أن نحسن في التطبيق؟</string>
 </resources>

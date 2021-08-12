@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="msg_browser_not_found_netigen">Blaaier nie gevind nie !!!</string>
-    <string name="cancel_netigen">kanselleer</string>
+
+    <string name="msg_browser_not_found_netigen">Browser nie gevind nie !!!</string>
+    <string name="cancel_netigen">Kanselleer</string>
     <string name="change_language_netigen">Verander taal</string>
     <string name="translation_information_title_netigen">Vertaalinligting</string>
-    <string name="translation_information_content1_netigen">Hierdie aansoek is vertaal deur Google Translate. Engels is die
-        oorspronklike taal van hierdie aansoek. Onthou asseblief dat daar foute in vertaling kan wees.
-    </string>
-    <string name="translation_information_content2_netigen">As jy die programtaal na Engels wil verander, kan jy dit doen in
-        instellings.
-    </string>
-    <string name="do_you_like_this_app_netigen">Hou u van hierdie program?</string>
-    <string name="please_support_us_netigen">Ondersteun ons asseblief deur hierdie app te beoordeel. Dankie!</string>
+    <string name="translation_information_content1_netigen">Hierdie aansoek is vertaal deur Google Translate. Engels is die oorspronklike taal van hierdie aansoek. Onthou asseblief dat daar \'n paar foute in vertaling kan wees.</string>
+    <string name="translation_information_content2_netigen">As jy die app taal na Engels wil verander, kan jy dit in instellings doen.</string>
+    <string name="do_you_like_this_app_netigen">Hou jy van hierdie inligting?</string>
+    <string name="please_support_us_netigen">Ondersteun ons asseblief deur hierdie program te beoordeel. Dankie!</string>
     <string name="later_netigen">Later</string>
     <string name="rate_us_netigen">Gradeer ons</string>
-    <string name="settings_normal_netigen">instellings</string>
+    <string name="settings_normal_netigen">Instelling</string>
+    <string name="send_netigen">Stuur</string>
+    <string name="survey_question1_netigen">Wat moet ons verbeter?</string>
+    <string name="your_answer_is_hint_survey_netigen">Tik die antwoord in…</string>
+    <string name="survey_question2_netigen">Watter nuwe funksies wil jy hê?</string>
+    <string name="improving_the_app_netigen">Verbetering van die program</string>
+    <string name="ask_for_survey_netigen">Wil jy ons vertel wat ons in die app moet verbeter?</string>
 </resources>
