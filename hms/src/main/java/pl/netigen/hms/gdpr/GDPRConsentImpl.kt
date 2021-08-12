@@ -6,51 +6,13 @@ import com.huawei.hms.ads.consent.bean.AdProvider
 import com.huawei.hms.ads.consent.constant.ConsentStatus
 import com.huawei.hms.ads.consent.inter.Consent
 import com.huawei.hms.ads.consent.inter.ConsentUpdateListener
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOf
-import pl.netigen.coreapi.gdpr.*
+import pl.netigen.coreapi.gdpr.AdConsentStatus
+import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
+import pl.netigen.coreapi.gdpr.IGDPRConsent
+import pl.netigen.coreapi.gdpr.IGDPRTexts
 import timber.log.Timber
 
 class GDPRConsentImpl(private val application: Application) : IGDPRConsent, IGDPRTexts by ConstGDPR {
-    override val adConsentStatus: Flow<AdConsentStatus> = flow {
-        val value =
-                application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(
-                        PREFERENCES_KEY, AdConsentStatus.UNINITIALIZED.ordinal
-                )
-        emit(AdConsentStatus.values().getOrElse(value) { AdConsentStatus.UNINITIALIZED })
-    }
-
-    fun requestGDPRLocation(): Flow<CheckGDPRLocationStatus> =
-            callbackFlow {
-                val callback = object : ConsentUpdateListener {
-                    override fun onSuccess(consentStatus: ConsentStatus?, isNeedConsent: Boolean, adProviders: MutableList<AdProvider>?) {
-                        try {
-                            Timber.d("consentStatus = [$consentStatus], isNeedConsent = [$isNeedConsent], adProviders = [$adProviders]")
-                            sendBlocking(if (isNeedConsent) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
-                        } catch (e: Exception) {
-                        } finally {
-                            channel.close()
-                        }
-                    }
-
-                    override fun onFail(errorDescription: String?) {
-                        try {
-                            Timber.d("errorDescription = [$errorDescription]")
-                            sendBlocking(CheckGDPRLocationStatus.ERROR)
-                        } catch (e: Exception) {
-                        } finally {
-                            channel.close()
-                        }
-                    }
-                }
-                Consent.getInstance(application).requestConsentUpdate(callback)
-                awaitClose {}
-            }
-
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {
         Timber.d("adConsentStatus = [$adConsentStatus]")
         val personalized = when (adConsentStatus) {
@@ -58,17 +20,36 @@ class GDPRConsentImpl(private val application: Application) : IGDPRConsent, IGDP
             AdConsentStatus.PERSONALIZED_SHOWED -> ConsentStatus.PERSONALIZED
             AdConsentStatus.NON_PERSONALIZED_SHOWED -> ConsentStatus.NON_PERSONALIZED
             AdConsentStatus.UNINITIALIZED -> ConsentStatus.UNKNOWN
+            AdConsentStatus.NON_PERSONALIZED_ERROR -> ConsentStatus.NON_PERSONALIZED
         }
         Consent.getInstance(application).setConsentStatus(personalized)
         application.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
-                .edit()
-                .putInt(PREFERENCES_KEY, adConsentStatus.ordinal)
-                .apply()
+            .edit()
+            .putInt(PREFERENCES_KEY, adConsentStatus.ordinal)
+            .apply()
     }
 
-    override fun loadGdpr(): Unit = flowOf(false)
+    override fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit) {
+        val callback = object : ConsentUpdateListener {
+            override fun onSuccess(consentStatus: ConsentStatus?, isNeedConsent: Boolean, adProviders: MutableList<AdProvider>?) {
+                Timber.d("consentStatus = [$consentStatus], isNeedConsent = [$isNeedConsent], adProviders = [$adProviders]")
+                onGdprStatus(if (isNeedConsent) CheckGDPRLocationStatus.UE else CheckGDPRLocationStatus.NON_UE)
+            }
 
-    override fun showGdpr(): Unit = flowOf(false)
+            override fun onFail(errorDescription: String?) {
+                Timber.d("errorDescription = [$errorDescription]")
+                onGdprStatus(CheckGDPRLocationStatus.ERROR)
+            }
+        }
+        Consent.getInstance(application).requestConsentUpdate(callback)
+    }
+
+    //todo show gdpr popup
+    override fun loadGdpr(onLoadSuccess: (Boolean) -> Unit) = onLoadSuccess(false)
+
+    //todo show gdpr popup
+    override fun showGdpr(gdprResult: (AdConsentStatus) -> Unit) = gdprResult(AdConsentStatus.NON_PERSONALIZED_ERROR)
+
 
     companion object {
         const val PREFERENCES_NAME = "GDPRConsent"
