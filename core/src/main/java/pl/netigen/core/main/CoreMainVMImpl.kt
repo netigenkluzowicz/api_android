@@ -64,6 +64,7 @@ open class CoreMainVmImpl(
     }
 
     override fun sendSurvey(surveyData: SurveyData) {
+        if (!surveyData.isValid()) return
         val client = OkHttpClient()
         val json = surveyData.toJson()
         val contentType = "application/json; charset=utf-8".toMediaTypeOrNull()
