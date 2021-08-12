@@ -34,8 +34,6 @@ class Survey private constructor(
     }
 
     fun shouldOpenAskFragment(launchCount: Int): Boolean {
-        //todo test
-        return true
         if (appCompatActivity.supportFragmentManager.isStateSaved) return false
         return launchCount >= numberOfChecksBeforeShowingDialog && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)
     }
