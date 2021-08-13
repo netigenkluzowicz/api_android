@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import pl.netigen.core.R
 import pl.netigen.core.fragment.NetigenDialogFragment
 import pl.netigen.extensions.toPx
 
@@ -22,10 +23,7 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val activity = activity
-        val themeId = activity?.packageManager?.getActivityInfo(activity.componentName, 0)?.themeResource
-            ?: android.R.style.Theme_Material_Light_Dialog_NoActionBar
-        setStyle(STYLE_NO_TITLE, themeId);
+        setStyle(STYLE_NO_TITLE, R.style.Theme_CustomAlertDialog);
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
