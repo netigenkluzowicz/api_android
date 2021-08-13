@@ -33,5 +33,6 @@ interface ISurvey {
 
     companion object {
         const val BASE_URL = "https://feedback.netigen.eu/survey/"
+        const val FORCE_SHOW = -100;
     }
 }
