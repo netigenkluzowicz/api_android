@@ -21,7 +21,8 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val activity = activity
-        val themeId = activity?.packageManager?.getActivityInfo(activity.componentName, 0)?.themeResource ?: 0
+        val themeId = activity?.packageManager?.getActivityInfo(activity.componentName, 0)?.themeResource
+            ?: android.R.style.Theme_Material_Light_Dialog_NoActionBar
         setStyle(STYLE_NO_TITLE, themeId);
     }
 

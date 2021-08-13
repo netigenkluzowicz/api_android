@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.home_fragment.*
 import pl.netigen.core.fragment.NetigenVMFragment
+import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.sampleapp.R
 import timber.log.Timber.d
 
@@ -20,7 +21,7 @@ class HomeFragment : NetigenVMFragment() {
         testInterstitial.setOnClickListener { viewModel.interstitialAd.showIfCanBeShowed { d("testInterstitial.success:$it") } }
         testInterstitialForce.setOnClickListener { viewModel.interstitialAd.showIfCanBeShowed(true) { d("testInterstitialForce.success:$it") } }
         testReward.setOnClickListener { viewModel.rewardedAd.showRewardedAd { d("testReward.success:$it") } }
-        testNoAds.setOnClickListener { viewModel.makeNoAdsPayment(requireActivity()) }
+        testNoAds.setOnClickListener { (activity as CoreMainActivity).survey.openAskForSurveyDialogIfNeeded(10) }
         testResetAds.setOnClickListener { viewModel.resetAdsPreferences() }
     }
 }
