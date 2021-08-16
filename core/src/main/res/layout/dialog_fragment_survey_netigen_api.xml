@@ -4,6 +4,7 @@
         android:layout_width="@dimen/pop_up_portrait_width"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:minWidth="280dp"
         android:background="@drawable/background_language_dialog">
 
     <TextView

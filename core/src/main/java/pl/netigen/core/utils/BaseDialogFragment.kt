@@ -1,9 +1,12 @@
 package pl.netigen.core.utils
 
+import android.app.Dialog
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
+import pl.netigen.core.R
 import pl.netigen.core.fragment.NetigenDialogFragment
 import pl.netigen.extensions.toPx
 
@@ -20,14 +23,12 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val activity = activity
-        val themeId = activity?.packageManager?.getActivityInfo(activity.componentName, 0)?.themeResource ?: 0
-        setStyle(STYLE_NO_TITLE, themeId);
+        setStyle(STYLE_NO_TITLE, R.style.Theme_CustomAlertDialog);
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         manageDialogSize()
+        super.onViewCreated(view, savedInstanceState)
     }
 
     protected fun setDialogSize(dp: Int) {

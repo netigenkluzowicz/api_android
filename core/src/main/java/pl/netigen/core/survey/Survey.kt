@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
+import pl.netigen.coreapi.survey.ISurvey.Companion.FORCE_SHOW
 import timber.log.Timber
 
 /**
@@ -34,6 +35,7 @@ class Survey private constructor(
     }
 
     fun shouldOpenAskFragment(launchCount: Int): Boolean {
+        if (launchCount == FORCE_SHOW) return true
         if (appCompatActivity.supportFragmentManager.isStateSaved) return false
         return launchCount >= numberOfChecksBeforeShowingDialog && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)
     }
