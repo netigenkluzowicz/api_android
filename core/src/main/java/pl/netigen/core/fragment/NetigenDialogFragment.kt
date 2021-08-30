@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
+import pl.netigen.core.R
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainVM
@@ -12,15 +13,11 @@ import pl.netigen.coreapi.main.ICoreMainVM
  * Base [AppCompatDialogFragment] for Api, provides [canCommitFragments], and [ICoreMainVM]
  *
  */
-open class NetigenDialogFragment : AppCompatDialogFragment {
+open class NetigenDialogFragment : AppCompatDialogFragment() {
     /**
      * Provides access to Api by [ICoreMainVM]
      */
     val viewModel: ICoreMainVM by activityViewModels<CoreMainVM> { (activity as CoreMainActivity).viewModelFactory }
-
-    constructor() : super() {
-
-    }
 
     /**
      * Indicates if we can safe perform Fragment transaction
@@ -34,4 +31,16 @@ open class NetigenDialogFragment : AppCompatDialogFragment {
      */
     val canCommitFragments
         get() = !childFragmentManager.isStateSaved
+
+    /**
+     *
+     * Override this for changing style for current dialog
+     *
+     */
+    val dialogStyle: Int =  R.style.CoffeeDialog
+
+    /**
+     *
+     */
+    open fun setStyle(dialogStyle: Int) {}
 }
