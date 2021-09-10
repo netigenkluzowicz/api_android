@@ -92,7 +92,6 @@ class AdMobInterstitial(
 
             override fun onAdShowedFullScreenContent() {
                 d("onAdShowedFullScreenContent")
-                onAdClosed(onClosedOrNotShowed)
             }
         }
         val interstitialAd1 = interstitialAd
