@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">Non</string>
+    <string name="yes_netigen">Oui</string>
+    <string name="quick_survey_netigen">Enquête rapide</string>
+</resources>

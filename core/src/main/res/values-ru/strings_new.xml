@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">Нет</string>
+    <string name="yes_netigen">да</string>
+    <string name="quick_survey_netigen">Быстрый опрос</string>
+</resources>

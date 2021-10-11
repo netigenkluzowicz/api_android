@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">Numara</string>
+    <string name="yes_netigen">Evet</string>
+    <string name="quick_survey_netigen">Hızlı Anket</string>
+</resources>

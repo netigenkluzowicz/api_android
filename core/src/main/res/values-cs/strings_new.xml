@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">Ne</string>
+    <string name="yes_netigen">Ano</string>
+    <string name="quick_survey_netigen">Rychlý dotazník</string>
+</resources>

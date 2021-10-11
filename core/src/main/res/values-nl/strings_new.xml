@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">Nee</string>
+    <string name="yes_netigen">Ja</string>
+    <string name="quick_survey_netigen">Snelle onderzoek</string>
+</resources>
