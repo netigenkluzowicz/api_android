@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">نه</string>
+    <string name="yes_netigen">آره</string>
+    <string name="quick_survey_netigen">بررسی سریع</string>
+</resources>

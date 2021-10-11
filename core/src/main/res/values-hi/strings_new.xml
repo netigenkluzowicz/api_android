@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">नहीं</string>
+    <string name="yes_netigen">हां</string>
+    <string name="quick_survey_netigen">तुरंत सर्वेक्षण</string>
+</resources>

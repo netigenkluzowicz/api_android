@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">Nem</string>
+    <string name="yes_netigen">Igen</string>
+    <string name="quick_survey_netigen">Gyors felmérés</string>
+</resources>

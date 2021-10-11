@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_netigen">Nu</string>
+    <string name="yes_netigen">da</string>
+    <string name="quick_survey_netigen">Ancheta rapidă</string>
+</resources>

@@ -42,15 +42,7 @@ class AskForSurveyFragment : BaseDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setButtonsBackgroundTints()
         setClickListeners()
-    }
-
-    private fun setButtonsBackgroundTints() {
-        context?.let {
-            surveyFragmentSendTextView.background.setTint(it, R.color.dialog_accent, PorterDuff.Mode.MULTIPLY)
-            surveyFragmentNoTextView.background.setTint(it, R.color.dialog_neutral_button_bg, PorterDuff.Mode.MULTIPLY)
-        }
     }
 
     private fun setClickListeners() {

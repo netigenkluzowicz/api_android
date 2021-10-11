@@ -7,6 +7,7 @@ import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
 import pl.netigen.coreapi.survey.ISurvey.Companion.FORCE_SHOW
+import pl.netigen.coreapi.survey.ISurvey.Companion.NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
 import timber.log.Timber
 
 /**
@@ -21,7 +22,6 @@ class Survey private constructor(
     companion object {
         private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
         private const val KEY_SURVEY_OPEN = "KEY_SURVEY_OPEN"
-        private const val NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG = 6
     }
 
     private val sharedPreferences: SharedPreferences by lazy { appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE) }

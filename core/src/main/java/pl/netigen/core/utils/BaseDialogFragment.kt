@@ -1,6 +1,5 @@
 package pl.netigen.core.utils
 
-import android.app.Dialog
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Gravity
@@ -16,6 +15,7 @@ import pl.netigen.extensions.toPx
  */
 abstract class BaseDialogFragment : NetigenDialogFragment() {
 
+
     companion object {
         private const val DIALOG_WIDTH_DP_PORTRAIT = 280
         private const val DIALOG_WIDTH_DP_LANDSCAPE = 420
@@ -23,7 +23,7 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NO_TITLE, R.style.Theme_CustomAlertDialog);
+        setStyle(STYLE_NO_TITLE, dialogStyle);
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

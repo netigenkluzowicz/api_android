@@ -2,7 +2,7 @@
 
 ext.versionMajor = 3
 ext.versionMinor = 4
-ext.versionPatch = 2
+ext.versionPatch = 3
 
 private Integer generateVersionCode() {
     return ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
@@ -14,7 +14,7 @@ private String generateVersionName() {
 
 buildscript {
     ext.versions = [
-            kotlin              : '1.5.21',
+            kotlin              : '1.5.31',
             gradle              : '4.2.2',
             android_maven_gradle: '2.1',
             multidex            : '1.0.3',
