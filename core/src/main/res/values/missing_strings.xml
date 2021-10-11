@@ -12,8 +12,6 @@
     <string name="website_netigen">Website</string>
     <string name="facebook_netigen">Facebook</string>
     <string name="about_txt_netigen">\n<b>Ringtones</b> for Android\n\nDeveloped by <b>NETIGEN</b> Kluzowicz\u00A0sp.j\n\nPlease, send comments, feature requests or report bugs to:\nmobile@netigen.pl\n</string>
-    <string name="yes_netigen" translatable="false">Yes</string>
-    <string name="no_netigen" translatable="false">No</string>
 
     <string name="more_apps_netigen">More Apps</string>
     <string name="information_netigen">Information</string>

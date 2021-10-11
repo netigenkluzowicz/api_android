@@ -32,4 +32,8 @@
     <string name="survey_question2_netigen">What new features would you like to have?</string>
     <string name="improving_the_app_netigen">Improving the app</string>
     <string name="ask_for_survey_netigen">Would you like to tell us what we should improve in the app?</string>
+
+    <string name="no_netigen">No</string>
+    <string name="yes_netigen">Yes</string>
+    <string name="quick_survey_netigen">Quick survey</string>
 </resources>

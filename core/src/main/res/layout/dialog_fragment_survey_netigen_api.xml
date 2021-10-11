@@ -18,7 +18,7 @@
             android:paddingLeft="@dimen/medium_space_netigen_api"
             android:paddingEnd="@dimen/medium_space_netigen_api"
             android:paddingRight="@dimen/medium_space_netigen_api"
-            android:text="Quick survey"
+            android:text="@string/quick_survey_netigen"
             android:textColor="#4d4d4d"
             android:textSize="@dimen/title_text_size_netigen_api"
             app:layout_constraintEnd_toEndOf="parent"
