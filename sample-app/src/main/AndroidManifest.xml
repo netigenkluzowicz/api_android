@@ -14,7 +14,8 @@
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
                 android:name="pl.netigen.sampleapp.home.MainActivity"
-                android:screenOrientation="fullUser">
+                android:screenOrientation="fullUser"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
