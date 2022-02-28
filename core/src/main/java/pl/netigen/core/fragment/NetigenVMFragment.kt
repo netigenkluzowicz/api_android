@@ -13,5 +13,5 @@ open class NetigenVMFragment : NetigenFragment() {
     /**
      * Provides access to Api by [ICoreMainVM]
      */
-    val viewModel: ICoreMainVM by activityViewModels<CoreMainVM> { (activity as CoreMainActivity).viewModelFactory }
+    val coreMainVM: ICoreMainVM by activityViewModels<CoreMainVM> { (activity as CoreMainActivity).viewModelFactory }
 }
