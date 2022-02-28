@@ -19,10 +19,10 @@ class HomeFragment : NetigenVMFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = init()
 
     private fun init() {
-        testInterstitial.setOnClickListener { viewModel.interstitialAd.showIfCanBeShowed { d("testInterstitial.success:$it") } }
-        testInterstitialForce.setOnClickListener { viewModel.interstitialAd.showIfCanBeShowed(true) { d("testInterstitialForce.success:$it") } }
-        testReward.setOnClickListener { viewModel.rewardedAd.showRewardedAd { d("testReward.success:$it") } }
+        testInterstitial.setOnClickListener { coreMainVM.interstitialAd.showIfCanBeShowed { d("testInterstitial.success:$it") } }
+        testInterstitialForce.setOnClickListener { coreMainVM.interstitialAd.showIfCanBeShowed(true) { d("testInterstitialForce.success:$it") } }
+        testReward.setOnClickListener { coreMainVM.rewardedAd.showRewardedAd { d("testReward.success:$it") } }
         testNoAds.setOnClickListener { (activity as CoreMainActivity).survey.openAskForSurveyDialogIfNeeded(FORCE_SHOW) }
-        testResetAds.setOnClickListener { viewModel.resetAdsPreferences() }
+        testResetAds.setOnClickListener { coreMainVM.resetAdsPreferences() }
     }
 }
