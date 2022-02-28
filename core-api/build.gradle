@@ -36,7 +36,6 @@ android {
 dependencies {
 
     api Libraries.kotlinStdlibJdk7
-    api Libraries.lifecycleExt
 
     api Libraries.roomRuntime
     api Libraries.roomKTX
