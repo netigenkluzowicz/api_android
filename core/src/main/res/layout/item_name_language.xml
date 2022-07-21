@@ -8,7 +8,6 @@
         android:id="@+id/languageName"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:fontFamily="@font/josefinsans_regular"
         android:paddingStart="8dp"
         android:gravity="left|center"
         android:paddingEnd="8dp"
@@ -29,7 +28,6 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/languageName"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/languageName"
-        app:tint="@color/color_accent" />
+        app:layout_constraintTop_toTopOf="@id/languageName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
