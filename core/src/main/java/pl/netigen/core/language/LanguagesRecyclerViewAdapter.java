@@ -18,6 +18,10 @@ import java.util.ArrayList;
 
 import pl.netigen.core.R;
 
+/**
+ * @deprecated Use {@link pl.netigen.core.newlanguage.LanguageListAdapter}
+ */
+@Deprecated()
 public class LanguagesRecyclerViewAdapter extends RecyclerView.Adapter<LanguagesRecyclerViewAdapter.LanguageRowViewHolder> {
 
     private final ArrayList<LanguageModel> languageModelArrayList;

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import pl.netigen.core.fragment.NetigenVMFragment
-import pl.netigen.core.language.ChangeLanguageHelper
 import java.util.*
 
 
