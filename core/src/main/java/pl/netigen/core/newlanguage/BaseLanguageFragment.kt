@@ -55,14 +55,14 @@ abstract class BaseLanguageFragment<VB : ViewBinding> : NetigenVMFragment() {
             val nextLocale = Locale(languageCodes[i])
             var name = nextLocale.getDisplayName(nextLocale)
             name = name.substring(0, 1).uppercase() + name.substring(1)
-            val isSelected = languageCodes[i] == ChangeLanguagePreferences.preferencesLocale
+            val isSelected = languageCodes[i] == ChangeLanguageHelper.getPreferencesLocale()
             languageModels.add(LanguageModelDisplayable(id, languageCodes[i], name, isSelected))
         }
         return languageModels
     }
 
     private fun onItemClicked(languageModel: LanguageModelDisplayable) {
-        context?.let { ChangeLanguagePreferences.setLocale(languageModel.code, it) }
+        context?.let { ChangeLanguageHelper.setLocale(languageModel.code, it) }
         languageListAdapter.submitList(getList())
 
     }
