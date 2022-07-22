@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import pl.netigen.core.fragment.NetigenVMFragment
-import pl.netigen.core.language.ChangeLanguageHelper
-
 import java.util.*
 
 
@@ -23,7 +21,7 @@ abstract class BaseLanguageFragment<VB : ViewBinding> : NetigenVMFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        ChangeLanguageHelper.setActivityLocale(requireActivity())
+        ChangeLanguagePreferences.setActivityLocale(requireActivity())
     }
 
 
