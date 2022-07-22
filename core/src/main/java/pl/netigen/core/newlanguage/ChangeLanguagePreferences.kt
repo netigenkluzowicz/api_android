@@ -10,7 +10,7 @@ object ChangeLanguagePreferences {
     const val LANGUAGE_PREFERENCES = "LANGUAGE_PREFERENCES"
     private const val KEY_USER_LOCALE = "KEY_USER_LOCALE"
 
-    private var sharedPreferences: SharedPreferences? = null
+    lateinit var sharedPreferences: SharedPreferences
 
 
     fun setActivityLocale(activity: Activity) {
@@ -45,10 +45,12 @@ object ChangeLanguagePreferences {
         sharedPreferences = context.getSharedPreferences(LANGUAGE_PREFERENCES, Context.MODE_PRIVATE)
     }
 
-    var preferencesLocale: String?
-        get() = sharedPreferences!!.getString(KEY_USER_LOCALE, Locale.getDefault().language)
+    var preferencesLocale: String
+        get() {
+            return sharedPreferences.getString(KEY_USER_LOCALE, Locale.getDefault().language) ?: "en"
+        }
         set(userLocale) {
-            sharedPreferences!!.edit().putString(KEY_USER_LOCALE, userLocale).apply()
+            sharedPreferences.edit().putString(KEY_USER_LOCALE, userLocale).apply()
         }
 
 
