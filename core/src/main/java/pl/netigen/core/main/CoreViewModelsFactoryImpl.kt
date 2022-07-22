@@ -52,7 +52,7 @@ abstract class CoreViewModelsFactory(override val coreMainActivity: CoreMainActi
      * @param T The type parameter for the ViewModel.
      * @return a newly created [SplashVM] or [CoreMainVM]
      */
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SplashVM::class.java)) return getSplashVm() as T
         if (modelClass.isAssignableFrom(CoreMainVM::class.java)) return getCoreMainVm() as T
         throw IllegalArgumentException("Unknown ViewModel class")

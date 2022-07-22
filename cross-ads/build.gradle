@@ -40,7 +40,6 @@ dependencies {
     implementation Libraries.coreKTX
     implementation Libraries.kotlinStdlibJdk7
 
-    implementation Libraries.lifecycleExt
     implementation Libraries.viewModelKTX
     implementation Libraries.liveDataKTX
     implementation Libraries.runtimeKTX
