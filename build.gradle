@@ -2,7 +2,7 @@
 
 ext.versionMajor = 3
 ext.versionMinor = 4
-ext.versionPatch = 4
+ext.versionPatch = 7
 
 private Integer generateVersionCode() {
     return ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
@@ -36,7 +36,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        maven { url 'http://developer.huawei.com/repo/' }
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.gradle"
@@ -51,11 +51,11 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenCentral()
         google()
         jcenter()
-        maven { url 'http://developer.huawei.com/repo/' }
+        maven { url 'https://developer.huawei.com/repo/' }
         maven { url "https://jitpack.io" }
+        mavenCentral()
     }
 
 }

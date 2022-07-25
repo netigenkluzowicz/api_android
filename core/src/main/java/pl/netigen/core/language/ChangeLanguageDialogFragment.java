@@ -1,5 +1,8 @@
 package pl.netigen.core.language;
 
+import static pl.netigen.core.utils.Const.MARGIN_TOP;
+import static pl.netigen.core.utils.Const.SCREEN_HEIGHT_IN_DP;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -37,12 +40,10 @@ import pl.netigen.extensions.DialogFragmentExtensionsKt;
 import pl.netigen.extensions.ViewTintExtensionKt;
 import timber.log.Timber;
 
-import static pl.netigen.core.utils.Const.MARGIN_TOP;
-import static pl.netigen.core.utils.Const.SCREEN_HEIGHT_IN_DP;
-
 /**
- * Dialog for show user possibility to change language of application
+ * @deprecated Use {@link pl.netigen.core.newlanguage.BaseLanguageFragment}
  */
+@Deprecated()
 public class ChangeLanguageDialogFragment extends BaseDialogFragment {
 
     private static final String TAG = "ChangeLanguageDialog";

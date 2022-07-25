@@ -1,4 +1,4 @@
-package pl.netigen.core.language;
+package pl.netigen.core.newlanguage;
 
 import android.app.Activity;
 import android.content.Context;
