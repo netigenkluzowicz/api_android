@@ -10,15 +10,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import pl.netigen.core.R
-import pl.netigen.core.databinding.ItemNameLanguageBinding
-
-
+import pl.netigen.core.databinding.ItemNameLanguageNetigenApiBinding
 
 class LanguageListAdapter(private val onItemClicked: (LanguageModelDisplayable) -> Unit) :
     ListAdapter<LanguageModelDisplayable, LanguageListAdapter.LanguageViewHolder>(LanguageDiffCallback()) {
 
-
-    inner class LanguageViewHolder(private val binding: ItemNameLanguageBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class LanguageViewHolder(private val binding: ItemNameLanguageNetigenApiBinding) : RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
@@ -36,7 +33,7 @@ class LanguageListAdapter(private val onItemClicked: (LanguageModelDisplayable) 
                 } else {
                     languageChecked.visibility = VISIBLE
                     languageName.setTypeface(null, Typeface.BOLD)
-                    languageName.background = itemView.resources.getDrawable(R.drawable.checked_item)
+                    languageName.background = itemView.resources.getDrawable(R.drawable.checked_item_netigen_api, null)
                 }
             }
         }
@@ -47,9 +44,8 @@ class LanguageListAdapter(private val onItemClicked: (LanguageModelDisplayable) 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
-        return LanguageViewHolder(ItemNameLanguageBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return LanguageViewHolder(ItemNameLanguageNetigenApiBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
-
 }
 
 class LanguageDiffCallback : DiffUtil.ItemCallback<LanguageModelDisplayable>() {
@@ -62,4 +58,3 @@ class LanguageDiffCallback : DiffUtil.ItemCallback<LanguageModelDisplayable>() {
         return oldLanguageItem == newLanguageItem
     }
 }
-

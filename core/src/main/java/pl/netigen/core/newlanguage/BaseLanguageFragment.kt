@@ -11,7 +11,6 @@ import androidx.viewbinding.ViewBinding
 import pl.netigen.core.fragment.NetigenVMFragment
 import java.util.*
 
-
 abstract class BaseLanguageFragment<VB : ViewBinding> : NetigenVMFragment() {
 
     private var _binding: VB by autoCleaned()
@@ -23,7 +22,6 @@ abstract class BaseLanguageFragment<VB : ViewBinding> : NetigenVMFragment() {
         super.onAttach(context)
         ChangeLanguageHelper.setActivityLocale(requireActivity())
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = getViewBinding(inflater, container)
@@ -37,9 +35,7 @@ abstract class BaseLanguageFragment<VB : ViewBinding> : NetigenVMFragment() {
             recyclerView.itemAnimator = null
             languageListAdapter.submitList(getList())
         }
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,7 +59,6 @@ abstract class BaseLanguageFragment<VB : ViewBinding> : NetigenVMFragment() {
     private fun onItemClicked(languageModel: LanguageModelDisplayable) {
         context?.let { ChangeLanguageHelper.setLocale(languageModel.code, it) }
         languageListAdapter.submitList(getList())
-
     }
 
     abstract fun initView()

@@ -24,7 +24,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginRight="8dp"
-        android:src="@drawable/ic_done"
+        android:src="@drawable/ic_done_netigen_api"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/languageName"
         app:layout_constraintRight_toRightOf="parent"
