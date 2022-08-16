@@ -1,12 +1,12 @@
 object Versions {
     const val legacySupportV13 = "1.0.0"
-    const val playServicesAds = "20.5.0"
+    const val playServicesAds = "21.1.0"
     const val constraintLayout = "2.1.2"
     const val material = "1.4.0"
     const val gson = "2.8.7"
     const val glide = "4.12.0"
     const val appcompat = "1.4.0"
-    const val userMessagingPlatform = "1.0.0"
+    const val userMessagingPlatform = "2.0.0"
     const val coreKTX = "1.7.0"
     const val kotlin = "1.5.31"
     const val okhttp = "4.9.0"
@@ -19,7 +19,7 @@ object Versions {
     const val coroutines = "1.5.1"
     const val room = "2.4.0"
     const val timber = "4.7.1"
-    const val playCore = "1.10.2"
+    const val playCore = "1.10.3"
 }
 
 object Libraries {

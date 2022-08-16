@@ -8,9 +8,10 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.admanager.AdManagerAdRequest
+import com.google.android.gms.ads.admanager.AdManagerAdView
 import pl.netigen.coreapi.ads.IBannerAd
 import timber.log.Timber
 
@@ -20,7 +21,7 @@ import timber.log.Timber
  * See: [Banner Ads](https://developers.google.com/admob/android/banner)
  *
  * @property activity [ComponentActivity] for this ad placement and [Lifecycle] events
- * @property adMobRequest Provides [AdRequest] for this ad
+ * @property adMobRequest Provides [AdManagerAdRequest] for this ad
  * @property adId Current ad [String] identifier
  * @property bannerLayoutIdName Id of [RelativeLayout] for banner ad placement
  *
@@ -32,9 +33,9 @@ class AdMobBanner(
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
-    override var enabled: Boolean = true
+    override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
-    private lateinit var bannerView: AdView
+    private lateinit var bannerView: AdManagerAdView
     private var loadedBannerOrientation = 0
     private val disabled get() = !enabled
     private val adSize: AdSize = getAdSize()
@@ -63,7 +64,7 @@ class AdMobBanner(
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private fun onCreate() {
         Timber.d("()")
-        bannerView = AdView(activity)
+        bannerView = AdManagerAdView(activity)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -94,14 +95,14 @@ class AdMobBanner(
         }
         if (loadedBannerOrientation != activity.resources.configuration.orientation) {
             loadedBannerOrientation = activity.resources.configuration.orientation
-            bannerView = AdView(activity)
-            bannerView.adSize = adSize
+            bannerView = AdManagerAdView(activity)
+            bannerView.setAdSizes(adSize)
             bannerView.adUnitId = adId
         }
         bannerView.loadAd(adMobRequest.getAdRequest())
     }
 
-    private fun addView(layout: RelativeLayout, adView: AdView) {
+    private fun addView(layout: RelativeLayout, adView: AdManagerAdView) {
         Timber.d("layout = [$layout], adView = [$adView]")
         if (adView.parent != null) {
             (adView.parent as ViewGroup).removeView(adView)
@@ -110,7 +111,7 @@ class AdMobBanner(
         setBannerLayoutParams(adView)
     }
 
-    private fun setBannerLayoutParams(adView: AdView, height: Int = RelativeLayout.LayoutParams.WRAP_CONTENT) {
+    private fun setBannerLayoutParams(adView: AdManagerAdView, height: Int = RelativeLayout.LayoutParams.WRAP_CONTENT) {
         Timber.d("adView = [$adView], height = [$height]")
         val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height)
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP)

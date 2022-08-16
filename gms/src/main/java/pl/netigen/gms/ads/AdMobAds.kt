@@ -4,6 +4,7 @@ import androidx.activity.ComponentActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
+import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import pl.netigen.coreapi.ads.*
 import timber.log.Timber
 
@@ -49,7 +50,7 @@ class AdMobAds(
         return Triple(bannerId, interstitialId, rewardedId)
     }
 
-    override fun getAdRequest(): AdRequest = AdRequest.Builder().build()
+    override fun getAdRequest(): AdManagerAdRequest = AdManagerAdRequest.Builder().build()
 
     override fun enable() = setEnabled(true)
 
