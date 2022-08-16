@@ -6,14 +6,9 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.AdError
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.FullScreenContentCallback
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.admanager.AdManagerAdRequest
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAd
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback
+import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber
@@ -24,7 +19,7 @@ import timber.log.Timber.d
  *
  * See: [Interstitial Ads](https://developers.google.com/admob/android/interstitial)
  *
- * @property adMobRequest adMobRequest Provides [AdManagerAdRequest] for this ad
+ * @property adMobRequest adMobRequest Provides [AdRequest] for this ad
  * @property adId Current ad [String] identifier
  * @property minDelayBetweenInterstitial Minimum time after one ad was showed to show another ad,
  *
@@ -41,11 +36,11 @@ class AdMobInterstitial(
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
-    override var enabled: Boolean = true,
+    override var enabled: Boolean = true
 ) : IInterstitialAd, LifecycleObserver {
     override var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
-    private var adManager: AdManagerInterstitialAd? = null
+    private var interstitialAd: InterstitialAd? = null
     private val disabled get() = !enabled
 
     init {
@@ -54,26 +49,23 @@ class AdMobInterstitial(
     }
 
     override fun load(onLoadSuccess: (Boolean) -> Unit) {
-        AdManagerInterstitialAd.load(
-            activity, adId, adMobRequest.getAdRequest(),
-            object : AdManagerInterstitialAdLoadCallback() {
-                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                    d(loadAdError.message)
-                    adManager = null
-                    onLoadSuccess(false)
-                }
+        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                d(loadAdError.message)
+                interstitialAd = null
+                onLoadSuccess(false)
+            }
 
-                override fun onAdLoaded(interstitialAd: AdManagerInterstitialAd) {
-                    d("interstitialAd = [$interstitialAd]")
-                    this@AdMobInterstitial.adManager = interstitialAd
-                    onLoadSuccess(true)
-                }
-            },
-        )
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                d("interstitialAd = [$interstitialAd]")
+                this@AdMobInterstitial.interstitialAd = interstitialAd
+                onLoadSuccess(true)
+            }
+        })
     }
 
     override val isLoaded: Boolean
-        get() = adManager != null
+        get() = interstitialAd != null
 
     private fun onInterstitialReadyToShow(forceShow: Boolean = false, onClosedOrNotShowed: (Boolean) -> Unit) {
         d("forceShow = [$forceShow], onClosedOrNotShowed = [$onClosedOrNotShowed]")
@@ -87,14 +79,10 @@ class AdMobInterstitial(
 
     private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
         d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
-        adManager?.fullScreenContentCallback = object : FullScreenContentCallback() {
+        interstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
                 d("onAdDismissedFullScreenContent")
                 onAdClosed(onClosedOrNotShowed)
-            }
-
-            override fun onAdImpression() {
-                super.onAdImpression()
             }
 
             override fun onAdFailedToShowFullScreenContent(adError: AdError) {
@@ -106,7 +94,7 @@ class AdMobInterstitial(
                 d("onAdShowedFullScreenContent")
             }
         }
-        val interstitialAd1 = adManager
+        val interstitialAd1 = interstitialAd
         if (interstitialAd1 != null) {
             lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
             interstitialAd1.show(activity)
@@ -118,29 +106,26 @@ class AdMobInterstitial(
     fun onAdClosed(onClosedOrNotShowed: (Boolean) -> Unit) {
         d("onAdClosed")
         onClosedOrNotShowed(true)
-        adManager = null
+        interstitialAd = null
         loadIfShouldBeLoaded()
     }
 
     override fun loadIfShouldBeLoaded() {
         d("()")
-        if (adManager != null || disabled) return
+        if (interstitialAd != null || disabled) return
 
-        AdManagerInterstitialAd.load(
-            activity, adId, adMobRequest.getAdRequest(),
-            object : AdManagerInterstitialAdLoadCallback() {
-                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                    d("loadAdError = [$loadAdError]")
-                    adManager = null
+        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                d("loadAdError = [$loadAdError]")
+                interstitialAd = null
 
-                }
+            }
 
-                override fun onAdLoaded(interstitialAd: AdManagerInterstitialAd) {
-                    d("interstitialAd = [$interstitialAd]")
-                    this@AdMobInterstitial.adManager = interstitialAd
-                }
-            },
-        )
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                d("interstitialAd = [$interstitialAd]")
+                this@AdMobInterstitial.interstitialAd = interstitialAd
+            }
+        })
     }
 
     private fun validateLastShowTime(currentTime: Long) =
