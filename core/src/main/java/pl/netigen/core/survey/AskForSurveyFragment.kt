@@ -1,6 +1,5 @@
 package pl.netigen.core.survey
 
-import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.dialog_fragment_ask_for_survey_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
-import pl.netigen.extensions.setTint
 
 /**
  * [BaseDialogFragment] used for show users "Ask For Survey" dialog, see [ISurvey]
@@ -50,7 +48,6 @@ class AskForSurveyFragment : BaseDialogFragment() {
         setPositiveButtonListener()
     }
 
-
     private fun setPositiveButtonListener() {
         surveyFragmentSendTextView.setOnClickListener {
             dismissAllowingStateLoss()
@@ -61,7 +58,6 @@ class AskForSurveyFragment : BaseDialogFragment() {
     private fun setNegativeButtonListeners() {
         closeSurvey.setOnClickListener { close() }
         surveyFragmentNoTextView.setOnClickListener { close() }
-
     }
 
     private fun close() {

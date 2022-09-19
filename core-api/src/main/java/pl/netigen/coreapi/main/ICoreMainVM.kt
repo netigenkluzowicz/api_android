@@ -47,5 +47,4 @@ interface ICoreMainVM : IPayments, IAds, INetworkStatus, IGDPRConsent, IAppConfi
      * see: [INoAds.noAdsActive]
      */
     val currentIsNoAdsActive: Boolean
-
 }

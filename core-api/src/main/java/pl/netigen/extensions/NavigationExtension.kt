@@ -13,7 +13,7 @@ fun NavController.safeNavigate(@IdRes resId: Int, args: Bundle? = null, navOptio
     try {
         this.navigate(resId, args, navOptions)
     } catch (e: Exception) {
-        Timber.d("safeNavigate: Double navigation on id:${resId}")
+        Timber.d("safeNavigate: Double navigation on id:$resId")
     }
 }
 

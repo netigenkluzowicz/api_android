@@ -7,7 +7,7 @@ import pl.netigen.coreapi.survey.ISurvey.Companion.MIN_SURVEY_TEXTS_LENGTH
 data class SurveyData(
     val packageName: String,
     val answer1: String,
-    val answer2: String
+    val answer2: String,
 ) {
     fun isValid() = answer1.length >= MIN_SURVEY_TEXTS_LENGTH && answer2.length >= MIN_SURVEY_TEXTS_LENGTH
 }

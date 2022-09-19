@@ -20,5 +20,4 @@ class PromotedAppModel {
         const val defaultPromotedAppPackageName = "pl.netigen.notepad"
         val defaultPromotedAppIconResId = R.drawable.default_promoted_app
     }
-
 }

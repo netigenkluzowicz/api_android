@@ -37,6 +37,4 @@ class MainActivity : CoreMainActivity() {
         setContentView(R.layout.activity_sample_main)
         Timber.d("activity %s", this)
     }
-
 }
-

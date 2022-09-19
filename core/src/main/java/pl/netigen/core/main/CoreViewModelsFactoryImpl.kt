@@ -27,7 +27,7 @@ abstract class CoreViewModelsFactory(override val coreMainActivity: CoreMainActi
             singletonPayments(),
             networkStatus,
             singletonConsent(),
-            appConfig
+            appConfig,
         )
 
     private fun getSplashVm(): SplashVM = CoreSplashVMImpl(
@@ -36,7 +36,7 @@ abstract class CoreViewModelsFactory(override val coreMainActivity: CoreMainActi
         ads = singletonAds(),
         gdprConsent = singletonConsent(),
         noAdsPurchases = singletonPayments(),
-        appConfig = appConfig
+        appConfig = appConfig,
     )
 
     private fun singletonConsent() = getGdprConsent { gdprConsent }

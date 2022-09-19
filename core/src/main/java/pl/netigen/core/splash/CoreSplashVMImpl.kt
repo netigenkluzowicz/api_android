@@ -43,7 +43,7 @@ class CoreSplashVMImpl(
     private val networkStatus: INetworkStatus,
     private val appConfig: IAppConfig,
     private val splashTimer: ISplashTimer = SplashTimerImpl(appConfig.maxInterstitialWaitTime),
-    val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO
+    val coroutineDispatcherIo: CoroutineDispatcher = Dispatchers.IO,
 ) : SplashVM(application), INoAds by noAdsPurchases, IAppConfig by appConfig {
     private var currentState = SplashState.UNINITIALIZED
     override val splashState: MutableLiveData<SplashState> = MutableLiveData(currentState)
@@ -98,7 +98,6 @@ class CoreSplashVMImpl(
         finished = true
         updateState(SplashState.FINISHED)
     }
-
 
     private fun updateState(splashState: SplashState) {
         currentState = splashState

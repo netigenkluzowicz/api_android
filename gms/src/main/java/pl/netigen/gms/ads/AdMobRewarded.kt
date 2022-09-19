@@ -27,7 +27,7 @@ class AdMobRewarded(
     private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String = "",
-    override var enabled: Boolean = adId.isNotEmpty()
+    override var enabled: Boolean = adId.isNotEmpty(),
 ) : IRewardedAd, LifecycleObserver {
     override val isLoaded: Boolean get() = isEnabled && rewardedAd != null
     private var rewardedAd: RewardedAd? = null
@@ -46,7 +46,7 @@ class AdMobRewarded(
             return onRewardResult(false)
         }
         val rewardedAd1 = rewardedAd
-        var success = false;
+        var success = false
         if (rewardedAd1 != null) {
             rewardedAd1.show(activity) {
                 success = true
@@ -66,7 +66,7 @@ class AdMobRewarded(
                 override fun onAdDismissedFullScreenContent() {
                     d("()")
                     onRewardResult(success)
-                    rewardedAd = null;
+                    rewardedAd = null
                     load()
                     super.onAdDismissedFullScreenContent()
                 }
@@ -85,22 +85,25 @@ class AdMobRewarded(
     }
 
     private fun load() {
-        RewardedAd.load(activity, adId, adMobRequest.getAdRequest(), object : RewardedAdLoadCallback() {
-            override fun onAdLoaded(rewardedAd: RewardedAd) {
-                d("rewardedAd = [$rewardedAd]")
-                this@AdMobRewarded.rewardedAd = rewardedAd
-
-            }
-
-            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                d("loadAdError = [${loadAdError.message}]")
-                if (enabled && retryCount <= REWARD_AD_MAX_RETRY_COUNT) {
-                    retryCount++
-                    d("retry load: $retryCount")
-                    load()
+        RewardedAd.load(
+            activity,
+            adId,
+            adMobRequest.getAdRequest(),
+            object : RewardedAdLoadCallback() {
+                override fun onAdLoaded(rewardedAd: RewardedAd) {
+                    d("rewardedAd = [$rewardedAd]")
+                    this@AdMobRewarded.rewardedAd = rewardedAd
                 }
-            }
-        }
+
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    d("loadAdError = [${loadAdError.message}]")
+                    if (enabled && retryCount <= REWARD_AD_MAX_RETRY_COUNT) {
+                        retryCount++
+                        d("retry load: $retryCount")
+                        load()
+                    }
+                }
+            },
         )
     }
 }

@@ -38,7 +38,6 @@ fun DialogFragment.setDialogSize(widthDp: Int, heightDp: Int) {
     window?.setLayout(widthDp.toPx(), heightDp.toPx())
 }
 
-
 fun DialogFragment.setDialogSizeAsMatchParent() {
     val window = dialog?.window
     if (window != null) {

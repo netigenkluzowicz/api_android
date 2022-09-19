@@ -31,7 +31,6 @@ import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.splash.SplashState
 
-
 class CoreSplashVMImplTest {
     @get:Rule
     val rule = InstantTaskExecutorRule()
@@ -68,7 +67,7 @@ class CoreSplashVMImplTest {
             noAdsPurchases,
             networkStatus,
             coroutineDispatcherIo = Dispatchers.Main,
-            appConfig = appConfig
+            appConfig = appConfig,
         )
         every { ads.interstitialAd } returns interstitialAd
     }
@@ -76,7 +75,7 @@ class CoreSplashVMImplTest {
     @After
     fun after() {
         clearAllMocks()
-        Dispatchers.resetMain() //reset
+        Dispatchers.resetMain() // reset
         testDispatcher.cleanupTestCoroutines() // clear all
     }
 
@@ -92,12 +91,11 @@ class CoreSplashVMImplTest {
         assertEquals(SplashState.FINISHED, coreSplashVMImpl.splashState.value)
     }
 
-
     @Test
     fun `SplashVM states when location changes to ue`() = runBlockingTest {
         setUpMocks(
             isNoAdsActive = false,
-            lastKnownAdConsentStatus = AdConsentStatus.PERSONALIZED_NON_UE
+            lastKnownAdConsentStatus = AdConsentStatus.PERSONALIZED_NON_UE,
         )
         val gdprConsentPublisher = getFlowPublisher { gdprConsent.requestGDPRLocation() }
         val adsPublisher = getFlowPublisher { ads.interstitialAd.load() }
@@ -114,7 +112,7 @@ class CoreSplashVMImplTest {
         setUpMocks(
             isNoAdsActive = false,
             lastKnownAdConsentStatus = AdConsentStatus.UNINITIALIZED,
-            gdprLocationStatus = CheckGDPRLocationStatus.NON_UE
+            gdprLocationStatus = CheckGDPRLocationStatus.NON_UE,
         )
 
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
@@ -129,7 +127,7 @@ class CoreSplashVMImplTest {
         setUpMocks(
             isNoAdsActive = false,
             lastKnownAdConsentStatus = AdConsentStatus.UNINITIALIZED,
-            gdprLocationStatus = CheckGDPRLocationStatus.UE
+            gdprLocationStatus = CheckGDPRLocationStatus.UE,
         )
 
         val noAdsActivePublisher = getFlowPublisher { noAdsPurchases.noAdsActive }
@@ -172,19 +170,24 @@ class CoreSplashVMImplTest {
         lastKnownAdConsentStatus: AdConsentStatus = AdConsentStatus.UNINITIALIZED,
         isConnectedOrConnecting: Boolean = true,
         loadInterstitialAdResult: Boolean = true,
-        gdprLocationStatus: CheckGDPRLocationStatus = CheckGDPRLocationStatus.NON_UE
+        gdprLocationStatus: CheckGDPRLocationStatus = CheckGDPRLocationStatus.NON_UE,
 
     ) {
-
-        coEvery { noAdsPurchases.noAdsActive }.returns(flow {
-            emit(isNoAdsActive)
-        })
-        coEvery { gdprConsent.requestGDPRLocation() }.returns(flow {
-            emit(gdprLocationStatus)
-        })
-        coEvery { gdprConsent.adConsentStatus }.returns(flow {
-            emit(lastKnownAdConsentStatus)
-        })
+        coEvery { noAdsPurchases.noAdsActive }.returns(
+            flow {
+                emit(isNoAdsActive)
+            },
+        )
+        coEvery { gdprConsent.requestGDPRLocation() }.returns(
+            flow {
+                emit(gdprLocationStatus)
+            },
+        )
+        coEvery { gdprConsent.adConsentStatus }.returns(
+            flow {
+                emit(lastKnownAdConsentStatus)
+            },
+        )
 
         coEvery { ads.interstitialAd.load() }.returns(flow { emit(loadInterstitialAdResult) })
         every { networkStatus.isConnectedOrConnecting }.returns(isConnectedOrConnecting)

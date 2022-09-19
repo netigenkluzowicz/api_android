@@ -39,8 +39,12 @@ open class CoreMainVmImpl(
     val payments: IPayments,
     val networkStatus: INetworkStatus,
     val gdprConsent: IGDPRConsent,
-    val appConfig: IAppConfig
-) : CoreMainVM(application), IPayments by payments, IAds by ads, INetworkStatus by networkStatus, IGDPRConsent by gdprConsent,
+    val appConfig: IAppConfig,
+) : CoreMainVM(application),
+    IPayments by payments,
+    IAds by ads,
+    INetworkStatus by networkStatus,
+    IGDPRConsent by gdprConsent,
     IAppConfig by appConfig {
 
     @CallSuper
@@ -83,12 +87,10 @@ open class CoreMainVmImpl(
             override fun onResponse(call: Call, response: Response) {
                 Timber.d("call = [$call], response = [$response]")
                 response.use {
-
                 }
             }
-        })
+        },)
     }
-
 
     final override val showGdprResetAds: MutableSingleLiveEvent<Unit> = MutableSingleLiveEvent()
     final override var currentIsNoAdsActive: Boolean = false

@@ -36,7 +36,6 @@ import pl.netigen.extensions.setDialogSizeAsMatchParent
 import pl.netigen.extensions.setTint
 import timber.log.Timber
 
-
 /**
  * Fragment for showing GDPR user consent, see [IGDPRConsent]
  *
@@ -78,10 +77,11 @@ class GDPRDialogFragment : NetigenDialogFragment() {
 
     private fun createWebView(view: View) {
         activity?.let {
-            webViewGdpr = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            webViewGdpr = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 WebView(it.createConfigurationContext(Configuration()))
-            else
+            } else {
                 WebView(it.applicationContext)
+            }
         }
         webViewGdpr?.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -95,7 +95,6 @@ class GDPRDialogFragment : NetigenDialogFragment() {
         }
         view.findViewById<FrameLayout>(R.id.containerGDPRInfo).addView(webViewGdpr)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -271,5 +270,4 @@ class GDPRDialogFragment : NetigenDialogFragment() {
     }
 
     private fun getLinkForMobiles() = NETIGEN_PRIVACY_MOBILE_URL + INSIDE_WEB_VIEW_MARGIN_0
-
 }

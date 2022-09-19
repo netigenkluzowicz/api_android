@@ -17,7 +17,6 @@ import pl.netigen.coreapi.payments.model.*
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.SingleLiveEvent
 import timber.log.Timber
-import java.util.*
 
 class GMSPaymentsRepo(
     private val activity: Activity,
@@ -25,11 +24,11 @@ class GMSPaymentsRepo(
     private val noAdsInAppSkuList: List<String>,
     private val subscriptionsSkuList: List<String>,
     private val isDebugMode: Boolean = false,
-    private val consumablesInAppSkuList: List<String> = emptyList()
+    private val consumablesInAppSkuList: List<String> = emptyList(),
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
     private var makingPurchaseActive: Boolean = false
     private var queryStarted: Boolean = false
-    private var isConnecting: Boolean = false;
+    private var isConnecting: Boolean = false
     private var lastError: PaymentError? = null
     private var application = activity.application
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
@@ -192,11 +191,11 @@ class GMSPaymentsRepo(
                     }
                 } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {
                     Timber.d("Received a pending purchase of SKU: ${purchase.sku}")
-                    //TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
+                    // TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
                 }
             }
-            val (consumables, nonConsumables)
-                    = validPurchases.partition { consumablesInAppSkuList.contains(it.sku) }
+            val (consumables, nonConsumables) =
+                validPurchases.partition { consumablesInAppSkuList.contains(it.sku) }
             Timber.d("validPurchases content $validPurchases")
             Timber.d("consumables content $consumables")
             Timber.d("non-consumables content $nonConsumables")
@@ -226,7 +225,7 @@ class GMSPaymentsRepo(
             gmsBillingClient.consumeAsync(params) { billingResult, purchaseToken ->
                 when (billingResult.responseCode) {
                     BillingClient.BillingResponseCode.OK -> {
-                        //TODO Update the appropriate tables/databases to grant user the items
+                        // TODO Update the appropriate tables/databases to grant user the items
                         purchaseToken.apply { }
                     }
                     else -> {

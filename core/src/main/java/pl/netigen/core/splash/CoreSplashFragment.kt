@@ -89,7 +89,7 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
         gdprDialogFragment = newInstance
         newInstance.show(
             fragmentActivity.supportFragmentManager.beginTransaction().addToBackStack(null),
-            GDPR_POP_UP_TAG
+            GDPR_POP_UP_TAG,
         )
         bindGdprFragment(newInstance)
     }

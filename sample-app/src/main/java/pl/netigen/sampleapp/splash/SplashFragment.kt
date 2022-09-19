@@ -28,7 +28,7 @@ class SplashFragment : CoreSplashFragment() {
             null,
             NavOptions.Builder()
                 .setPopUpTo(R.id.splashFragment, true)
-                .build()
+                .build(),
         )
     }
 }

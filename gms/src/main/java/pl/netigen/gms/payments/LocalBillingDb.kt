@@ -15,7 +15,6 @@
  */
 package pl.netigen.gms.payments
 
-
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -28,7 +27,7 @@ import pl.netigen.coreapi.payments.model.NetigenSkuDetails
 @Database(
     entities = [NetigenSkuDetails::class, CachedPurchase::class],
     version = 2,
-    exportSchema = false
+    exportSchema = false,
 )
 @TypeConverters(PurchaseTypeConverter::class)
 abstract class LocalBillingDb : RoomDatabase() {

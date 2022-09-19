@@ -29,7 +29,6 @@ import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.extensions.observe
 import timber.log.Timber
 
-
 /**
  * Implements [ICoreMainActivity]
  */
@@ -109,9 +108,9 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                     Timber.d("UPDATE_NOT_AVAILABLE")
                 }
             }
-            if (updateAvailability == UpdateAvailability.UPDATE_AVAILABLE
-                && (appUpdateInfo.clientVersionStalenessDays() ?: -1) >= coreMainVM.daysForFlexibleUpdate
-                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
+            if (updateAvailability == UpdateAvailability.UPDATE_AVAILABLE &&
+                (appUpdateInfo.clientVersionStalenessDays() ?: -1) >= coreMainVM.daysForFlexibleUpdate &&
+                appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
             ) {
                 requestUpdate(appUpdateManager, appUpdateInfo)
             }
@@ -128,7 +127,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                         val bytesDownloaded = state.bytesDownloaded()
                         val totalBytesToDownload = state.totalBytesToDownload()
                         Timber.d("DOWNLOADING: $bytesDownloaded / $totalBytesToDownload")
-
                     }
                     InstallStatus.CANCELED -> {
                         Timber.d("CANCELED")
@@ -161,9 +159,11 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     private fun requestUpdate(appUpdateManager: AppUpdateManager, appUpdateInfo: AppUpdateInfo) {
         Timber.d("appUpdateManager = [$appUpdateManager], appUpdateInfo = [$appUpdateInfo]")
         appUpdateManager.startUpdateFlowForResult(
-            appUpdateInfo, AppUpdateType.FLEXIBLE, this, UPDATE_REQUEST_CODE
+            appUpdateInfo,
+            AppUpdateType.FLEXIBLE,
+            this,
+            UPDATE_REQUEST_CODE,
         )
-
     }
 
     private fun popupSnackbarForCompleteUpdate(appUpdateManager: AppUpdateManager) {
@@ -173,7 +173,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             val snackbar = Snackbar.make(
                 it,
                 "An update has just been downloaded.",
-                Snackbar.LENGTH_INDEFINITE
+                Snackbar.LENGTH_INDEFINITE,
             ).apply {
                 setAction("RESTART") { appUpdateManager.completeUpdate() }
             }
@@ -181,7 +181,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             snackbar.show()
         }
     }
-
 
     override fun showGdprPopUp() {
         Timber.d("()")
@@ -199,7 +198,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                 fragment.dismissAllowingStateLoss()
                 coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
             }
-        })
+        },)
     }
 
     @CallSuper

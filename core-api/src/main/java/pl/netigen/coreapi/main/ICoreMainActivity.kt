@@ -79,7 +79,6 @@ interface ICoreMainActivity {
      */
     fun onNoAdsChanged(noAdsActive: Boolean)
 
-
     companion object {
         const val UPDATE_REQUEST_CODE: Int = 77
     }

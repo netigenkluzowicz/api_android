@@ -12,12 +12,11 @@ import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERST
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber.d
 
-
 class HMSInterstitial(
     activity: ComponentActivity,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
-    override var enabled: Boolean = true
+    override var enabled: Boolean = true,
 ) : IInterstitialAd, LifecycleObserver {
     override var isInBackground: Boolean = false
     private var onClosedOrNotShowed: ((Boolean) -> Unit)? = null
@@ -46,7 +45,6 @@ class HMSInterstitial(
         }
         interstitialAd.loadAd(AdParam.Builder().build())
     }
-
 
     override val isLoaded: Boolean
         get() = interstitialAd.isLoaded
@@ -83,7 +81,6 @@ class HMSInterstitial(
                 super.onAdFailed(errorCode)
                 d("errorCode = [$errorCode]")
             }
-
 
             override fun onAdClicked() {
                 super.onAdClicked()

@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
-
 fun ViewModel.launchIO(block: suspend CoroutineScope.() -> Unit): Job = viewModelScope.launch(Dispatchers.IO) { block() }
 
 fun ViewModel.launchMain(block: suspend CoroutineScope.() -> Unit): Job = viewModelScope.launch(Dispatchers.Main) { block() }

@@ -30,5 +30,4 @@ interface PurchaseDao {
 
     @Query("SELECT * FROM purchase_table WHERE data = :purchase")
     suspend fun get(purchase: Purchase): CachedPurchase?
-
 }

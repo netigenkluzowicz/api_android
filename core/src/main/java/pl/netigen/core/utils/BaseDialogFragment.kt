@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import pl.netigen.core.R
 import pl.netigen.core.fragment.NetigenDialogFragment
 import pl.netigen.extensions.toPx
 
@@ -15,7 +14,6 @@ import pl.netigen.extensions.toPx
  */
 abstract class BaseDialogFragment : NetigenDialogFragment() {
 
-
     companion object {
         private const val DIALOG_WIDTH_DP_PORTRAIT = 280
         private const val DIALOG_WIDTH_DP_LANDSCAPE = 420
@@ -23,7 +21,7 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NO_TITLE, dialogStyle);
+        setStyle(STYLE_NO_TITLE, dialogStyle)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,10 +40,11 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
     private fun manageDialogSize() {
         val resources = context?.resources
 
-        if (resources != null)
+        if (resources != null) {
             when (resources.configuration.orientation) {
                 Configuration.ORIENTATION_LANDSCAPE -> setDialogSize(DIALOG_WIDTH_DP_LANDSCAPE)
                 else -> setDialogSize(DIALOG_WIDTH_DP_PORTRAIT)
             }
+        }
     }
 }

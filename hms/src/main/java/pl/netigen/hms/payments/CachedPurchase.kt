@@ -22,7 +22,6 @@ data class CachedPurchase(val data: InAppPurchaseData) {
     override fun hashCode(): Int {
         return data.hashCode()
     }
-
 }
 
 class InAppPurchaseDataTypeConverter {

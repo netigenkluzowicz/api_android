@@ -44,8 +44,8 @@ data class NetigenSkuDetails(
         copy(
             price = createPriceWithSymbol(
                 price = price,
-                priceToReplace = NumberFormat.getNumberInstance(Locale.getDefault()).format(priceToReplace)
-            )
+                priceToReplace = NumberFormat.getNumberInstance(Locale.getDefault()).format(priceToReplace),
+            ),
         )
 
     private fun createPriceWithSymbol(price: String?, priceToReplace: String?): String? {

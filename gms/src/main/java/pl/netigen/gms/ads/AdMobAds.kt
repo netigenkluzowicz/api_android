@@ -20,7 +20,7 @@ import timber.log.Timber
  */
 class AdMobAds(
     activity: ComponentActivity,
-    private val adsConfig: IAdsConfig
+    private val adsConfig: IAdsConfig,
 ) : IAds, IAdMobRequest {
     override var personalizedAdsEnabled = false
     override val bannerAd: IBannerAd

@@ -2,9 +2,7 @@ package pl.netigen.extensions
 
 import androidx.lifecycle.*
 
-
 fun <T> LiveData<T>.observeDistinct(lifecycleOwner: LifecycleOwner, observer: (T) -> Unit) = distinctUntilChanged().observe(lifecycleOwner, observer)
-
 
 fun <T> LiveData<T>.observe(lifecycleOwner: LifecycleOwner, observer: (T) -> Unit) = observe(lifecycleOwner, Observer(observer))
 
@@ -16,8 +14,9 @@ fun <F, S> LiveData<F>.zipLiveData(liveData: LiveData<S>): LiveData<Pair<F, S>> 
         fun update() {
             val localLastA = lastA
             val localLastB = lastB
-            if (localLastA != null && localLastB != null)
+            if (localLastA != null && localLastB != null) {
                 this.value = Pair(localLastA, localLastB)
+            }
         }
 
         addSource(this@zipLiveData) {
@@ -57,8 +56,9 @@ fun <F, S> LiveData<F>.withLatestFrom(liveData: LiveData<S>): LiveData<Pair<F, S
         fun update() {
             val localLastA = lastA
             val localLastB = lastB
-            if (localLastA != null && localLastB != null)
+            if (localLastA != null && localLastB != null) {
                 this.value = Pair(localLastA, localLastB)
+            }
         }
 
         addSource(this@withLatestFrom) {

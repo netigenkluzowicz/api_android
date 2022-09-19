@@ -13,7 +13,6 @@ object FlavoursConst {
     const val INTERSTITIAL_AD_ID: String = ""
     const val REWARDED_AD_ID: String = TEST_REWARDED_ID
 
-
     @Suppress("UNUSED_PARAMETER")
     fun getPaymentsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig): IPayments = HMSPayments(coreMainActivity)
     fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = HMSAds(coreMainActivity, appConfig)
