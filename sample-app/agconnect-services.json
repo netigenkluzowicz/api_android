@@ -1,27 +1,12 @@
 {
-	"agcgw":{
-		"backurl":"connect-dre.dbankcloud.cn",
-		"url":"connect-dre.hispace.hicloud.com"
-	},
 	"client":{
 		"cp_id":"890048000004105506",
-		"product_id":"9105385871708207494",
-		"client_id":"223873761647002624",
-		"client_secret":"3882CE93BF36332E063962359B35B23E17895045D0E11F5698F78806A8B94FFE",
-		"app_id":"101329677",
-		"package_name":"pl.netigen.frequencygenerator",
-		"api_key":"CV5ovpz2wmS78CxejI2LUD0CtQ6ilyX8TaFENJ1q1bqWrvnexiA1pqo//S2KRx3DJMsTZHh4f0u6vQmULJG8Y6HWezrY"
+		"product_id":"9105385871708316866",
+		"client_id":"251319803254408256",
+		"client_secret":"66618DD7BB6CE909AFCB9D584ABA4B955DBDE4489BEE02CEB450C859576F3685",
+		"app_id":"101490113",
+		"package_name":"pl.netigen.compass",
+		"api_key":"CV5uJZMpl7Aag3ROONokIUJ39ty4xmApjLuo85+cB4Cibi4J2DDEygdjPCL8zqsmt67UZlQsxkgBHBMBydG5IfmifmVQ"
 	},
-	"service":{
-		"analytics":{
-			"collector_url":"datacollector-dre.dt.hicloud.com,datacollector-dre.dt.dbankcloud.cn",
-			"resource_id":"p1",
-			"channel_id":""
-		},
-		"ml":{
-			"mlservice_url":"ml-api-dre.ai.dbankcloud.com,ml-api-dre.ai.dbankcloud.cn"
-		}
-	},
-	"region":"DE",
 	"configuration_version":"1.0"
 }

@@ -19,6 +19,9 @@ interface PurchaseDao {
         }
     }
 
+    @Query("SELECT * FROM purchase_table")
+    fun getPurchasesList(): List<CachedPurchase>
+
     @Delete
     suspend fun delete(vararg purchases: CachedPurchase)
 

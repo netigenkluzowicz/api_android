@@ -26,6 +26,7 @@ class GMSPaymentsRepo(
     private val isDebugMode: Boolean = false,
     private val consumablesInAppSkuList: List<String> = emptyList(),
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
+    private var productDetailsList: MutableList<ProductDetails> = mutableListOf()
     private var makingPurchaseActive: Boolean = false
     private var queryStarted: Boolean = false
     private var isConnecting: Boolean = false
@@ -40,7 +41,9 @@ class GMSPaymentsRepo(
     override val skuDetailsLD by lazy { localCacheBillingClient.skuDetailsDao().skuDetailsLiveData() }
 
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
-        .map { list -> list.any { it.data.sku in noAdsInAppSkuList } }
+        .map { list ->
+            list.any { it.data.products.any { s -> s in noAdsInAppSkuList } }
+        }
 
     private val _lastPaymentEvent = MutableSingleLiveEvent<PaymentEvent>()
 
@@ -48,6 +51,20 @@ class GMSPaymentsRepo(
 
     override val lastPaymentEvent: SingleLiveEvent<PaymentEvent>
         get() = _lastPaymentEvent
+
+    private val inAppProductsList =
+        inAppSkuList.map {
+            QueryProductDetailsParams.Product.newBuilder()
+                .setProductId(it)
+                .setProductType(BillingClient.ProductType.INAPP)
+                .build()
+        }
+    private val subscriptionsProductsList = subscriptionsSkuList.map {
+        QueryProductDetailsParams.Product.newBuilder()
+            .setProductId(it)
+            .setProductType(BillingClient.ProductType.SUBS)
+            .build()
+    }
 
     init {
         connectToPlayBillingService()
@@ -63,12 +80,6 @@ class GMSPaymentsRepo(
         return false
     }
 
-    // TODO: 10.05.2020 we should check if we should call this
-    fun endConnection() {
-        Timber.d("()")
-        gmsBillingClient.endConnection()
-    }
-
     override fun onBillingSetupFinished(billingResult: BillingResult) {
         Timber.d("()")
         isConnecting = false
@@ -82,10 +93,8 @@ class GMSPaymentsRepo(
 
     private fun billingSetupOk() {
         Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
-        querySkuDetailsAsync(BillingClient.SkuType.INAPP, inAppSkuList)
-        if (isSubscriptionSupported()) {
-            querySkuDetailsAsync(BillingClient.SkuType.SUBS, subscriptionsSkuList)
-        }
+        if (inAppProductsList.isNotEmpty()) querySkuDetailsAsync(inAppProductsList)
+        if (subscriptionsProductsList.isNotEmpty()) querySkuDetailsAsync(subscriptionsProductsList)
         queryPurchasesIfNotRunning()
     }
 
@@ -96,9 +105,7 @@ class GMSPaymentsRepo(
         }
         if (!queryStarted) {
             queryStarted = true
-            CoroutineScope(Job() + Dispatchers.IO).launch {
-                queryPurchasesAsync()
-            }
+            queryPurchasesAsync()
         }
     }
 
@@ -122,26 +129,19 @@ class GMSPaymentsRepo(
         lastError = error
     }
 
-    private fun querySkuDetailsAsync(@BillingClient.SkuType skuType: String, skuList: List<String>) {
-        Timber.d("${skuList.joinToString("\n")} skuType $skuType")
-        val params = SkuDetailsParams.newBuilder().setSkusList(skuList).setType(skuType).build()
-        gmsBillingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
+    private fun querySkuDetailsAsync(products: List<QueryProductDetailsParams.Product>) {
+        Timber.d("()")
+        val params = QueryProductDetailsParams.newBuilder().setProductList(products).build()
+        gmsBillingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->
             when (billingResult.responseCode) {
                 BillingClient.BillingResponseCode.OK -> {
-                    Timber.d("skuDetailsList ${skuDetailsList?.joinToString("\n")}")
-                    if (!skuDetailsList.isNullOrEmpty()) {
-                        skuDetailsList.forEach {
-                            CoroutineScope(Job() + Dispatchers.IO).launch {
-                                try {
-                                    Timber.d("inserting $it")
-                                    val isNoAd = (it.sku in noAdsInAppSkuList)
-                                    localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
-                                } catch (e: Exception) {
-                                    Timber.e(e)
-                                    postError(PaymentErrorType.DEVELOPER_ERROR, "querySkuDetailsAsync = ${e.message}")
-                                }
-                            }
+                    Timber.d("productDetailsList ${productDetailsList.joinToString("\n")}")
+                    if (productDetailsList.isNotEmpty()) {
+                        productDetailsList.forEach {
+                            val isNoAd = (it.productId in noAdsInAppSkuList)
+                            localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
                         }
+                        this.productDetailsList += productDetailsList
                     }
                 }
                 else -> {
@@ -152,35 +152,24 @@ class GMSPaymentsRepo(
         }
     }
 
-    private suspend fun queryPurchasesAsync() {
+    private fun queryPurchasesAsync() {
         Timber.d("()")
-        val purchasesResult = HashSet<Purchase>()
-        var result = gmsBillingClient.queryPurchases(BillingClient.SkuType.INAPP)
-        Timber.d(" IN_APP results: ${result.purchasesList?.size})")
-        result.purchasesList?.apply { purchasesResult.addAll(this) }
-        if (isSubscriptionSupported()) {
-            result = gmsBillingClient.queryPurchases(BillingClient.SkuType.SUBS)
-            result.purchasesList?.apply { purchasesResult.addAll(this) }
-            Timber.d("SUBS results: ${result.purchasesList?.size}")
+        gmsBillingClient.queryPurchasesAsync(
+            QueryPurchasesParams.newBuilder()
+                .setProductType(BillingClient.ProductType.INAPP)
+                .build(),
+        ) { _, purchaseList -> processPurchases(purchaseList) }
+        if (subscriptionsSkuList.isNotEmpty()) {
+            gmsBillingClient.queryPurchasesAsync(
+                QueryPurchasesParams.newBuilder()
+                    .setProductType(BillingClient.ProductType.SUBS)
+                    .build(),
+            ) { _, purchaseList -> processPurchases(purchaseList) }
         }
-        processPurchases(purchasesResult)
     }
 
-    private fun isSubscriptionSupported(): Boolean {
-        val billingResult = gmsBillingClient.isFeatureSupported(BillingClient.FeatureType.SUBSCRIPTIONS)
-        var succeeded = false
-        when (billingResult.responseCode) {
-            BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> connectToPlayBillingService()
-            BillingClient.BillingResponseCode.OK -> succeeded = true
-            else -> {
-                Timber.w(" error: ${billingResult.debugMessage}")
-                postError(billingResult)
-            }
-        }
-        return succeeded
-    }
-
-    private suspend fun processPurchases(purchasesResult: Set<Purchase>): Job = CoroutineScope(Job() + Dispatchers.IO).launch {
+    private fun processPurchases(purchasesResult: List<Purchase>): Job = CoroutineScope(Job() + Dispatchers.IO).launch {
+        Timber.d("()")
         try {
             val validPurchases = HashSet<Purchase>(purchasesResult.size)
             purchasesResult.forEach { purchase ->
@@ -190,23 +179,27 @@ class GMSPaymentsRepo(
                         validPurchases.add(purchase)
                     }
                 } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {
-                    Timber.d("Received a pending purchase of SKU: ${purchase.sku}")
+                    Timber.d("Received a pending purchase of products: ${purchase.products}")
                     // TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
                 }
             }
             val (consumables, nonConsumables) =
-                validPurchases.partition { consumablesInAppSkuList.contains(it.sku) }
+                validPurchases.partition { consumablesInAppSkuList.contains(it.products.first()) }
             Timber.d("validPurchases content $validPurchases")
             Timber.d("consumables content $consumables")
             Timber.d("non-consumables content $nonConsumables")
             handleConsumablePurchasesAsync(consumables)
             acknowledgeNonConsumablePurchasesAsync(nonConsumables)
+            val purchaseDao = localCacheBillingClient.purchaseDao()
             if (!makingPurchaseActive) {
-                localCacheBillingClient.purchaseDao().deleteAll()
+                val forDelete = purchaseDao.getPurchasesList().filter { cachedPurchase ->
+                    cachedPurchase.data.products.first() !in validPurchases.map { it.products.first() }
+                }.toTypedArray()
+                purchaseDao.delete(*forDelete)
             } else {
                 makingPurchaseActive = false
             }
-            localCacheBillingClient.purchaseDao().insert(*validPurchases.toTypedArray())
+            purchaseDao.insert(*validPurchases.toTypedArray())
         } catch (e: Exception) {
             Timber.e(e)
             onDeveloperError(e)
@@ -238,7 +231,7 @@ class GMSPaymentsRepo(
     }
 
     override val ownedPurchasesSkuLD: LiveData<List<String>>
-        get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.sku } }
+        get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.products }.flatten() }
 
     private suspend fun acknowledgeNonConsumablePurchasesAsync(nonConsumables: List<Purchase>) {
         Timber.d("nonConsumables = [$nonConsumables]")
@@ -246,7 +239,7 @@ class GMSPaymentsRepo(
             if (!purchase.isAcknowledged) {
                 acknowledgePurchase(purchase)
             } else if (localCacheBillingClient.purchaseDao().get(purchase) == null) {
-                val paymentRestored = PaymentRestored(purchase.sku)
+                val paymentRestored = PaymentRestored(purchase.products.first())
                 _lastPaymentEvent.postValue(paymentRestored)
                 debugEvent(paymentRestored.toString())
                 localCacheBillingClient.purchaseDao().insert(purchase)
@@ -272,7 +265,7 @@ class GMSPaymentsRepo(
 
     private fun onPurchaseAcknowledged(purchase: Purchase) {
         Timber.d("purchase = [$purchase]")
-        val paymentSuccess = PaymentSuccess(purchase.sku)
+        val paymentSuccess = PaymentSuccess(purchase.products.first())
         _lastPaymentEvent.postValue(paymentSuccess)
         debugEvent("PAYMENT_SUCCESS: $paymentSuccess")
     }
@@ -310,15 +303,22 @@ class GMSPaymentsRepo(
 
     private fun onDeveloperError(e: Exception) = postError(PaymentErrorType.DEVELOPER_ERROR, e.message ?: "")
 
-    private fun launchBillingFlow(activity: Activity, netigenSkuDetails: NetigenSkuDetails) {
-        Timber.d("activity = [$activity], netigenSkuDetails = [$netigenSkuDetails]")
-        netigenSkuDetails.originalJson?.let { launchBillingFlow(activity, SkuDetails(it)) }
-            ?: throw IllegalStateException("SkuDetail doesn't contain original json, you should first fetch it from db")
-    }
-
-    private fun launchBillingFlow(activity: Activity, skuDetails: SkuDetails) {
+    private fun launchBillingFlow(activity: Activity, skuDetails: NetigenSkuDetails) {
         Timber.d("activity = [$activity], skuDetails = [$skuDetails]")
-        val purchaseParams = BillingFlowParams.newBuilder().setSkuDetails(skuDetails).build()
+        if (productDetailsList.isEmpty()) {
+            postError(PaymentErrorType.ERROR, "Product details not loaded")
+            return
+        }
+
+        val details = productDetailsList.firstOrNull { it.productId == skuDetails.productId } ?: return
+        val params =
+            listOf(
+                BillingFlowParams.ProductDetailsParams.newBuilder()
+                    .setProductDetails(details)
+                    .build(),
+            )
+
+        val purchaseParams = BillingFlowParams.newBuilder().setProductDetailsParamsList(params).build()
         makingPurchaseActive = true
         gmsBillingClient.launchBillingFlow(activity, purchaseParams)
     }
@@ -329,7 +329,7 @@ class GMSPaymentsRepo(
             BillingClient.BillingResponseCode.OK -> {
                 Timber.d("${purchases?.joinToString("\n")}")
                 CoroutineScope(Job() + Dispatchers.IO).launch {
-                    purchases?.apply { processPurchases(this.toSet()) }
+                    purchases?.apply { processPurchases(this) }
                 }
             }
             BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
