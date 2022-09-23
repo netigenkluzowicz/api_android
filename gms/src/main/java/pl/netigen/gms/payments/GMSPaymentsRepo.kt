@@ -87,11 +87,12 @@ class GMSPaymentsRepo(
     }
 
     private fun queryPurchasesIfNotRunning() {
+        Timber.d("()")
         if (!gmsBillingClient.isReady) {
             connectToPlayBillingService()
             return
         }
-        if (purchaseInfoState == NotStarted) {
+        if (purchaseInfoState.isNotRunning()) {
             purchaseInfoState = PurchaseInfoState.Started
             queryPurchasesAsync()
         }
@@ -191,15 +192,11 @@ class GMSPaymentsRepo(
         }
         acknowledgeNonConsumablePurchasesAsync(validPurchases.toList())
         val purchaseDao = localCacheBillingClient.purchaseDao()
-        if (!makingPurchaseActive) {
-            val forDelete = purchaseDao.getPurchasesList().filter { cachedPurchase ->
-                shouldDelete(cachedPurchase, validPurchases)
-            }.toTypedArray()
-            purchaseDao.delete(*forDelete)
-        } else {
-            makingPurchaseActive = false
-        }
         purchaseDao.insert(*validPurchases.toTypedArray())
+        val forDelete = purchaseDao.getPurchasesList().filter { cachedPurchase ->
+            shouldDelete(cachedPurchase, validPurchases)
+        }.toTypedArray()
+        purchaseDao.delete(*forDelete)
         purchaseInfoState = PurchaseInfoState.Finished
     }
 
@@ -331,6 +328,7 @@ class GMSPaymentsRepo(
     override fun onBillingServiceDisconnected() {
         Timber.d("()")
         isConnecting = false
+        purchaseInfoState = NotStarted
         debugEvent("SERVICE_DISCONNECTED")
     }
 }

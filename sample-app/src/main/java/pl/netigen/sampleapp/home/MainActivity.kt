@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
+import androidx.lifecycle.asLiveData
 import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
+import pl.netigen.extensions.observe
 import pl.netigen.sampleapp.R
 import timber.log.Timber
 
@@ -36,5 +38,8 @@ class MainActivity : CoreMainActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sample_main)
         Timber.d("activity %s", this)
+        coreMainVM.noAdsActive.asLiveData().observe(this) {
+            Timber.d("gms_noAds:$it")
+        }
     }
 }
