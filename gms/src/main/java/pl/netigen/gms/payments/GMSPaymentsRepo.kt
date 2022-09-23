@@ -292,9 +292,12 @@ class GMSPaymentsRepo(
         }
 
         val details = productDetailsList.firstOrNull { it.productId == skuDetails.productId } ?: return
-        val params = listOf(
-            BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(details).build(),
-        )
+        val offerToken = details.subscriptionOfferDetails?.get(0)?.offerToken
+        val params = if (offerToken != null) {
+            listOf(BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(details).setOfferToken(offerToken).build())
+        } else {
+            listOf(BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(details).build())
+        }
 
         val purchaseParams = BillingFlowParams.newBuilder().setProductDetailsParamsList(params).build()
         makingPurchaseActive = true

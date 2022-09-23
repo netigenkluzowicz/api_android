@@ -21,6 +21,7 @@ class HomeFragment : NetigenVMFragment() {
         testInterstitialForce.setOnClickListener { coreMainVM.interstitialAd.showIfCanBeShowed(true) { d("testInterstitialForce.success:$it") } }
         testReward.setOnClickListener { coreMainVM.rewardedAd.showRewardedAd { d("testReward.success:$it") } }
         testNoAds.setOnClickListener { coreMainVM.makeNoAdsPayment(this.requireActivity()) }
+        testSubs.setOnClickListener { coreMainVM.makePurchase(this.requireActivity(), "pl.netigen.compass.subs_01") }
         testResetAds.setOnClickListener { coreMainVM.resetAdsPreferences() }
     }
 }

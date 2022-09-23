@@ -20,6 +20,7 @@
             android:text="Reset ads Preferences"
             app:layout_constraintBottom_toTopOf="@+id/testNoAds"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,10 +29,22 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="No ads"
-            app:layout_constraintBottom_toTopOf="@+id/testReward"
+            app:layout_constraintBottom_toTopOf="@+id/testSubs"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/testResetAds" />
+
+    <Button
+            android:id="@+id/testSubs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Subs"
+            app:layout_constraintBottom_toTopOf="@+id/testReward"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testNoAds" />
 
     <Button
             android:id="@+id/testReward"
@@ -40,8 +53,9 @@
             android:text="Show reward"
             app:layout_constraintBottom_toTopOf="@+id/testInterstitial"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testNoAds" />
+            app:layout_constraintTop_toBottomOf="@+id/testSubs" />
 
     <Button
             android:id="@+id/testInterstitial"
@@ -50,6 +64,7 @@
             android:text="show interstitial"
             app:layout_constraintBottom_toTopOf="@+id/testInterstitialForce"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/testReward" />
 
@@ -60,6 +75,7 @@
             android:text="Force show interstitial"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/testInterstitial" />
 
