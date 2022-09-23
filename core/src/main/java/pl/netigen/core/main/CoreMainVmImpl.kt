@@ -79,27 +79,24 @@ open class CoreMainVmImpl(
             .post(body)
             .build()
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                Timber.d("call = [$call], e = [$e]")
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                Timber.d("call = [$call], response = [$response]")
-                response.use {
+        client.newCall(request).enqueue(
+            object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Timber.d("call = [$call], e = [$e]")
                 }
-            }
-        },)
+
+                override fun onResponse(call: Call, response: Response) {
+                    Timber.d("call = [$call], response = [$response]")
+                    response.use {
+                    }
+                }
+            },
+        )
     }
 
     final override val showGdprResetAds: MutableSingleLiveEvent<Unit> = MutableSingleLiveEvent()
-    final override var currentIsNoAdsActive: Boolean = false
-        private set
 
-    private fun onNoAdsChange(noAdsActive: Boolean) {
-        currentIsNoAdsActive = noAdsActive
-        if (noAdsActive) ads.disable() else ads.enable()
-    }
+    private fun onNoAdsChange(noAdsActive: Boolean) = if (noAdsActive) ads.disable() else ads.enable()
 
     @CallSuper
     override fun onCleared() = CoreViewModelsFactory.cleanAds()
