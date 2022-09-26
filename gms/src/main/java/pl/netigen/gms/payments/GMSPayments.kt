@@ -2,7 +2,7 @@ package pl.netigen.gms.payments
 
 import android.app.Activity
 import pl.netigen.coreapi.payments.Payments
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 class GMSPayments(
     private val activity: Activity,

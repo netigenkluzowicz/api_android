@@ -88,8 +88,8 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
 
     private fun adConsentStatus() = when (UserMessagingPlatform.getConsentInformation(activity).consentStatus) {
         ConsentInformation.ConsentStatus.UNKNOWN -> AdConsentStatus.NON_PERSONALIZED_ERROR
-        ConsentInformation.ConsentType.NON_PERSONALIZED -> AdConsentStatus.NON_PERSONALIZED_SHOWED
-        ConsentInformation.ConsentType.PERSONALIZED -> AdConsentStatus.PERSONALIZED_SHOWED
+        ConsentInformation.ConsentStatus.NOT_REQUIRED -> AdConsentStatus.NON_PERSONALIZED_SHOWED
+        ConsentInformation.ConsentStatus.OBTAINED -> AdConsentStatus.PERSONALIZED_SHOWED
         else -> AdConsentStatus.NON_PERSONALIZED_ERROR
     }
 

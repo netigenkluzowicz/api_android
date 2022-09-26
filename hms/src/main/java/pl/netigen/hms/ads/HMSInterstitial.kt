@@ -10,7 +10,7 @@ import com.huawei.hms.ads.AdParam
 import com.huawei.hms.ads.InterstitialAd
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IInterstitialAd
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 class HMSInterstitial(
     activity: ComponentActivity,

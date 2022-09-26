@@ -21,7 +21,7 @@ import pl.netigen.coreapi.splash.ISplashTimer
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.launch
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 /**
  * [SplashVM] implementation

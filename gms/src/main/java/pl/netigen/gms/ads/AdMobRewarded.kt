@@ -10,7 +10,7 @@ import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
 import pl.netigen.coreapi.ads.IRewardedAd
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 /**
  * [IRewardedAd] implementation with [RewardedAd] from Google Mobile Ads SDK

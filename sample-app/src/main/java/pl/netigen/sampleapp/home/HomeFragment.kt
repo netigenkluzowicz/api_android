@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.home_fragment.*
 import pl.netigen.core.fragment.NetigenVMFragment
 import pl.netigen.sampleapp.R
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 class HomeFragment : NetigenVMFragment() {
 

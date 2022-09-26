@@ -26,7 +26,7 @@ import pl.netigen.coreapi.payments.model.PaymentEvent
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.SingleLiveEvent
 import timber.log.Timber
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 class HMSPaymentsRepo(
     private val activity: Activity,

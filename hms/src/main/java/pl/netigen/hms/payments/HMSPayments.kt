@@ -3,7 +3,7 @@ package pl.netigen.hms.payments
 import android.app.Activity
 import android.content.Intent
 import pl.netigen.coreapi.payments.Payments
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 class HMSPayments(
     activity: Activity,

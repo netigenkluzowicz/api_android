@@ -6,13 +6,16 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 /**
  * [IInterstitialAd] implementation with [InterstitialAd] from Google Mobile Ads SDK
@@ -90,8 +93,8 @@ class AdMobInterstitial(
                 onAdClosed(onClosedOrNotShowed)
             }
 
-            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                Timber.e(adError?.message)
+            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                Timber.e(adError.message)
                 onAdClosed(onClosedOrNotShowed)
             }
 

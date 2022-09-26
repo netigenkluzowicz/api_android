@@ -95,7 +95,7 @@ class AdMobBanner(
         if (loadedBannerOrientation != activity.resources.configuration.orientation) {
             loadedBannerOrientation = activity.resources.configuration.orientation
             bannerView = AdView(activity)
-            bannerView.adSize = adSize
+            bannerView.setAdSize(adSize)
             bannerView.adUnitId = adId
         }
         bannerView.loadAd(adMobRequest.getAdRequest())
