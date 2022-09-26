@@ -15,7 +15,7 @@ object Versions {
     const val testRunner = "1.3.0"
     const val espressoCore = "3.2.0"
     const val billing = "5.0.0"
-    const val navigation = "2.3.5"
+    const val navigation = "2.5.2"
     const val coroutines = "1.6.4"
     const val room = "2.4.3"
     const val timber = "5.0.1"
