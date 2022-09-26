@@ -15,7 +15,7 @@ fun SeekBar.observeUserChanges(onProgressChanged: (progress: Int) -> Unit) {
                 onProgressChanged(progress)
             }
         }
-    })
+    },)
 }
 
 fun SeekBar.observeChanges(onProgressChanged: (progress: Int) -> Unit) {
@@ -29,5 +29,5 @@ fun SeekBar.observeChanges(onProgressChanged: (progress: Int) -> Unit) {
         override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
             onProgressChanged(progress)
         }
-    })
+    },)
 }

@@ -14,7 +14,7 @@ import pl.netigen.coreapi.splash.ISplashVM
 import pl.netigen.coreapi.splash.SplashState
 import pl.netigen.coreapi.splash.SplashVM
 import pl.netigen.extensions.observe
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
     private val splashVM: ISplashVM by activityViewModels<SplashVM> { coreMainActivity.viewModelFactory }
@@ -89,7 +89,7 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
         gdprDialogFragment = newInstance
         newInstance.show(
             fragmentActivity.supportFragmentManager.beginTransaction().addToBackStack(null),
-            GDPR_POP_UP_TAG
+            GDPR_POP_UP_TAG,
         )
         bindGdprFragment(newInstance)
     }

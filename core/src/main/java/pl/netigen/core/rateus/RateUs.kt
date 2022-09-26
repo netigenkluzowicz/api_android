@@ -18,7 +18,7 @@ import timber.log.Timber
 class RateUs private constructor(
     private val appCompatActivity: AppCompatActivity,
     private val showOldDialog: Boolean = false,
-    override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
+    override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
 ) : IRateUs {
     companion object {
         private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
@@ -92,7 +92,7 @@ class RateUs private constructor(
 
     class Builder(
         private val coreMainActivity: CoreMainActivity,
-        private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
+        private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
     ) {
         fun createRateUs(): RateUs = RateUs(coreMainActivity, coreMainActivity.coreMainVM.store == Store.HUAWEI, numberOfChecksBeforeShowingDialog)
     }

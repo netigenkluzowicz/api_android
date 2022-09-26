@@ -6,13 +6,16 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber
-import timber.log.Timber.d
+import timber.log.Timber.Forest.d
 
 /**
  * [IInterstitialAd] implementation with [InterstitialAd] from Google Mobile Ads SDK
@@ -36,7 +39,7 @@ class AdMobInterstitial(
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
-    override var enabled: Boolean = true
+    override var enabled: Boolean = true,
 ) : IInterstitialAd, LifecycleObserver {
     override var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
@@ -49,19 +52,24 @@ class AdMobInterstitial(
     }
 
     override fun load(onLoadSuccess: (Boolean) -> Unit) {
-        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                d(loadAdError.message)
-                interstitialAd = null
-                onLoadSuccess(false)
-            }
+        InterstitialAd.load(
+            activity,
+            adId,
+            adMobRequest.getAdRequest(),
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    d(loadAdError.message)
+                    interstitialAd = null
+                    onLoadSuccess(false)
+                }
 
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                d("interstitialAd = [$interstitialAd]")
-                this@AdMobInterstitial.interstitialAd = interstitialAd
-                onLoadSuccess(true)
-            }
-        })
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    d("interstitialAd = [$interstitialAd]")
+                    this@AdMobInterstitial.interstitialAd = interstitialAd
+                    onLoadSuccess(true)
+                }
+            },
+        )
     }
 
     override val isLoaded: Boolean
@@ -85,8 +93,8 @@ class AdMobInterstitial(
                 onAdClosed(onClosedOrNotShowed)
             }
 
-            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                Timber.e(adError?.message)
+            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                Timber.e(adError.message)
                 onAdClosed(onClosedOrNotShowed)
             }
 
@@ -114,18 +122,22 @@ class AdMobInterstitial(
         d("()")
         if (interstitialAd != null || disabled) return
 
-        InterstitialAd.load(activity, adId, adMobRequest.getAdRequest(), object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                d("loadAdError = [$loadAdError]")
-                interstitialAd = null
+        InterstitialAd.load(
+            activity,
+            adId,
+            adMobRequest.getAdRequest(),
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    d("loadAdError = [$loadAdError]")
+                    interstitialAd = null
+                }
 
-            }
-
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                d("interstitialAd = [$interstitialAd]")
-                this@AdMobInterstitial.interstitialAd = interstitialAd
-            }
-        })
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    d("interstitialAd = [$interstitialAd]")
+                    this@AdMobInterstitial.interstitialAd = interstitialAd
+                }
+            },
+        )
     }
 
     private fun validateLastShowTime(currentTime: Long) =

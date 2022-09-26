@@ -20,5 +20,6 @@ fun Drawable.loopAnim(animatedView: View) {
                     this@loopAnim.startAnim()
                 }
             }
-        })
+        },
+    )
 }

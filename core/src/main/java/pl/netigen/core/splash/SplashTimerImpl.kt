@@ -12,7 +12,7 @@ import kotlin.concurrent.schedule
  * @property maxInterstitialWaitTime see: [ISplashConfig.maxInterstitialWaitTime]
  */
 class SplashTimerImpl(
-    private val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS
+    private val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
 ) : ISplashTimer {
     private var interstitialTimer: TimerTask? = null
 
@@ -24,5 +24,4 @@ class SplashTimerImpl(
     override fun cancelInterstitialTimer() {
         interstitialTimer?.cancel()
     }
-
 }

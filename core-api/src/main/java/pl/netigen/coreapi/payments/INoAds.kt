@@ -37,5 +37,5 @@ interface INoAds {
      *
      * For default it is [packageName] +".noads"
      */
-    fun makeNoAdsPayment(activity: Activity, noAdsSku: String = "${packageName}.noads")
+    fun makeNoAdsPayment(activity: Activity, noAdsSku: String = "$packageName.noads")
 }

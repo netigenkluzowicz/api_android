@@ -40,12 +40,4 @@ interface ICoreMainVM : IPayments, IAds, INetworkStatus, IGDPRConsent, IAppConfi
      *
      */
     val showGdprResetAds: SingleLiveEvent<Unit>
-
-    /**
-     * Indicating that no ads in-app purchase is active or inactive
-     *
-     * see: [INoAds.noAdsActive]
-     */
-    val currentIsNoAdsActive: Boolean
-
 }

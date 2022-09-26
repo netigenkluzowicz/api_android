@@ -11,7 +11,6 @@ import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketAddress
 
-
 class NetworkStatus(private val application: Application) : INetworkStatus {
     private val networkStatusChangeListeners: MutableList<NetworkStatusChangeListener> = mutableListOf()
     override val isConnectedOrConnecting: Boolean
@@ -37,7 +36,7 @@ class NetworkStatus(private val application: Application) : INetworkStatus {
             val sock = Socket()
             val socketAddress: SocketAddress = InetSocketAddress(
                 GOOGLE_DNS_HOSTNAME,
-                GOOGLE_DNS_PORT
+                GOOGLE_DNS_PORT,
             )
             sock.connect(socketAddress, CONNECTION_CHECK_TIMEOUT_MS)
             sock.close()
@@ -69,5 +68,4 @@ class NetworkStatus(private val application: Application) : INetworkStatus {
         const val CONNECTION_CHECK_TIMEOUT_MS = 1500
         const val GOOGLE_DNS_PORT = 53
     }
-
 }

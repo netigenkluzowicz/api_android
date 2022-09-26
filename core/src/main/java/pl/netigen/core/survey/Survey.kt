@@ -17,7 +17,7 @@ import timber.log.Timber
  */
 class Survey private constructor(
     private val appCompatActivity: AppCompatActivity,
-    private val numberOfChecksBeforeShowingDialog: Int
+    private val numberOfChecksBeforeShowingDialog: Int,
 ) : ISurvey {
     companion object {
         private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
@@ -43,7 +43,6 @@ class Survey private constructor(
     private fun openAskForSurveyDialog() {
         Timber.d("()")
         AskForSurveyFragment.newInstance({ clickYes() }, { clickNo() }).show(appCompatActivity.supportFragmentManager, "AskForSurveyDialog")
-
     }
 
     override fun clickYes() {
@@ -63,10 +62,9 @@ class Survey private constructor(
         SurveyFragment.newInstance().show(appCompatActivity.supportFragmentManager, "SurveyDialog")
     }
 
-
     class Builder(
         private val coreMainActivity: CoreMainActivity,
-        private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
+        private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
     ) {
         fun createSurvey(): Survey = Survey(coreMainActivity, numberOfChecksBeforeShowingDialog)
     }

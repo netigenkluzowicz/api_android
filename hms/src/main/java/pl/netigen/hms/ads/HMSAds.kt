@@ -7,10 +7,9 @@ import com.huawei.hms.ads.consent.constant.ConsentStatus
 import pl.netigen.coreapi.ads.*
 import timber.log.Timber
 
-
 class HMSAds(
     activity: ComponentActivity,
-    private val adsConfig: IAdsConfig
+    private val adsConfig: IAdsConfig,
 ) : IAds {
     override var personalizedAdsEnabled = false
         set(value) {

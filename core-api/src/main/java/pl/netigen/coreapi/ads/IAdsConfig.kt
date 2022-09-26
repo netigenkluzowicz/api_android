@@ -46,7 +46,6 @@ interface IAdsConfig {
      */
     val inDebugMode: Boolean
 
-
     companion object {
         /**
          * Minimum time after one [IInterstitialAd] ad was showed to show another ad, for default 60 seconds

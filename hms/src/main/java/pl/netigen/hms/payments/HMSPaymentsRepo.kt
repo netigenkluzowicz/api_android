@@ -26,17 +26,16 @@ import pl.netigen.coreapi.payments.model.PaymentEvent
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.SingleLiveEvent
 import timber.log.Timber
-import timber.log.Timber.d
-
+import timber.log.Timber.Forest.d
 
 class HMSPaymentsRepo(
     private val activity: Activity,
     private val inAppSkuList: List<String>,
     private val noAdsInAppSkuList: List<String>,
-    private val consumeTestPurchase: Boolean = false
+    private val consumeTestPurchase: Boolean = false,
 ) : IPaymentsRepo {
     private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(activity) }
-    override val skuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>()  // TODO: 14.05.2020
+    override val skuDetailsLD = MutableLiveData<List<NetigenSkuDetails>>() // TODO: 14.05.2020
 
     override fun onActivityStart() = Unit
 
@@ -48,7 +47,6 @@ class HMSPaymentsRepo(
         d("()")
         obtainOwnedPurchases()
     }
-
 
     override val ownedPurchasesSkuLD: LiveData<List<String>>
         get() = localCacheBillingClient.purchaseDao().getPurchasesFlow().asLiveData().map { list -> list.map { it.data.productId } }
@@ -89,31 +87,32 @@ class HMSPaymentsRepo(
         return req
     }
 
-
     fun makePurchase(activity: Activity, skuId: String) {
         d("activity = [$activity], skuId = [$skuId]")
         val mClient = Iap.getIapClient(activity)
         val task = mClient.createPurchaseIntent(createPurchaseIntentReq(skuId))
-        task.addOnSuccessListener(OnSuccessListener { result ->
-            d("createPurchaseIntent, onSuccess")
-            if (result == null) {
-                d("result is null")
-                return@OnSuccessListener
-            }
-            val status = result.status
-            if (status == null) {
-                d("status is null")
-                return@OnSuccessListener
-            }
-            // you should pull up the page to complete the payment process.
-            if (status.hasResolution()) {
-                try {
-                    status.startResolutionForResult(activity, REQ_CODE_BUY)
-                } catch (exp: SendIntentException) {
-                    Timber.e(exp)
+        task.addOnSuccessListener(
+            OnSuccessListener { result ->
+                d("createPurchaseIntent, onSuccess")
+                if (result == null) {
+                    d("result is null")
+                    return@OnSuccessListener
                 }
-            }
-        }).addOnFailureListener { e ->
+                val status = result.status
+                if (status == null) {
+                    d("status is null")
+                    return@OnSuccessListener
+                }
+                // you should pull up the page to complete the payment process.
+                if (status.hasResolution()) {
+                    try {
+                        status.startResolutionForResult(activity, REQ_CODE_BUY)
+                    } catch (exp: SendIntentException) {
+                        Timber.e(exp)
+                    }
+                }
+            },
+        ).addOnFailureListener { e ->
             Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
             if (e is IapApiException) {
                 val returnCode = e.statusCode
@@ -166,7 +165,6 @@ class HMSPaymentsRepo(
             CoroutineScope(Job() + Dispatchers.IO).launch {
                 localCacheBillingClient.purchaseDao().deleteAll()
             }
-
         }.addOnFailureListener { e ->
             Timber.e(e)
             Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
@@ -176,7 +174,6 @@ class HMSPaymentsRepo(
             }
         }
     }
-
 
     companion object {
         const val REQ_CODE_BUY = 4002

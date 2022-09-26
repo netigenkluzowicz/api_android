@@ -11,15 +11,13 @@ import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.gdpr.IGDPRTexts
 import timber.log.Timber
 
-
 /**
  * [IGDPRConsent] implementation with using [User Messaging Platform](https://developers.google.com/admob/ump/android/quick-start)
  *
  * @property activity [Activity] context for this implementation
  */
 class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, IGDPRTexts by ConstGDPR {
-    var consentForm: ConsentForm? = null;
-
+    var consentForm: ConsentForm? = null
 
     override fun requestGDPRLocation(onGdprStatus: (CheckGDPRLocationStatus) -> Unit) {
         Timber.d("checkGDPRLocationStatus = [$onGdprStatus]")
@@ -27,8 +25,7 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
         val consentInformation = UserMessagingPlatform.getConsentInformation(activity)
 
         val params = ConsentRequestParameters.Builder()
-            .build();
-
+            .build()
 
         val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
 
@@ -37,7 +34,6 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
                     Timber.d("p0 = [${formError.message}]")
                 }
                 onGdprStatus(CheckGDPRLocationStatus.ERROR)
-
             }
 
             override fun onConsentInfoUpdateSuccess() {
@@ -57,7 +53,8 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
     }
 
     override fun loadGdpr(onLoadSuccess: (Boolean) -> Unit) {
-        val callback = object : UserMessagingPlatform.OnConsentFormLoadSuccessListener,
+        val callback = object :
+            UserMessagingPlatform.OnConsentFormLoadSuccessListener,
             UserMessagingPlatform.OnConsentFormLoadFailureListener {
             override fun onConsentFormLoadSuccess(form: ConsentForm?) {
                 Timber.d("form = [$form]")
@@ -91,11 +88,10 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
 
     private fun adConsentStatus() = when (UserMessagingPlatform.getConsentInformation(activity).consentStatus) {
         ConsentInformation.ConsentStatus.UNKNOWN -> AdConsentStatus.NON_PERSONALIZED_ERROR
-        ConsentInformation.ConsentType.NON_PERSONALIZED -> AdConsentStatus.NON_PERSONALIZED_SHOWED
-        ConsentInformation.ConsentType.PERSONALIZED -> AdConsentStatus.PERSONALIZED_SHOWED
+        ConsentInformation.ConsentStatus.NOT_REQUIRED -> AdConsentStatus.NON_PERSONALIZED_SHOWED
+        ConsentInformation.ConsentStatus.OBTAINED -> AdConsentStatus.PERSONALIZED_SHOWED
         else -> AdConsentStatus.NON_PERSONALIZED_ERROR
     }
-
 
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {
         activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)

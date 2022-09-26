@@ -15,7 +15,7 @@ class SampleApplication : Application() {
                 override fun createStackElementTag(element: StackTraceElement): String {
                     return "$TAG.${element.className.substringAfterLast(".")}.${element.methodName}"
                 }
-            })
+            },)
         }
     }
 

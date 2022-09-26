@@ -9,7 +9,7 @@ import java.util.*
 /**
  * Represents an in-app product's or subscription's  details.
  *
- * @property sku This product Id
+ * @property productId This product Id
  * @property type SKU type (consumable, non-consumable, subscription)
  * @property isNoAds Indicates if this product turns off ads in app
  *
@@ -23,7 +23,7 @@ import java.util.*
  */
 @Entity
 data class NetigenSkuDetails(
-    @PrimaryKey val sku: String,
+    @PrimaryKey val productId: String,
     val type: String? = null,
     val isNoAds: Boolean,
     val price: String? = null,
@@ -44,8 +44,8 @@ data class NetigenSkuDetails(
         copy(
             price = createPriceWithSymbol(
                 price = price,
-                priceToReplace = NumberFormat.getNumberInstance(Locale.getDefault()).format(priceToReplace)
-            )
+                priceToReplace = NumberFormat.getNumberInstance(Locale.getDefault()).format(priceToReplace),
+            ),
         )
 
     private fun createPriceWithSymbol(price: String?, priceToReplace: String?): String? {

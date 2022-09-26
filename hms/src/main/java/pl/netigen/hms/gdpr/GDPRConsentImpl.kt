@@ -44,12 +44,11 @@ class GDPRConsentImpl(private val application: Application) : IGDPRConsent, IGDP
         Consent.getInstance(application).requestConsentUpdate(callback)
     }
 
-    //todo show gdpr popup
+    // todo show gdpr popup
     override fun loadGdpr(onLoadSuccess: (Boolean) -> Unit) = onLoadSuccess(false)
 
-    //todo show gdpr popup
+    // todo show gdpr popup
     override fun showGdpr(gdprResult: (AdConsentStatus) -> Unit) = gdprResult(AdConsentStatus.NON_PERSONALIZED_ERROR)
-
 
     companion object {
         const val PREFERENCES_NAME = "GDPRConsent"

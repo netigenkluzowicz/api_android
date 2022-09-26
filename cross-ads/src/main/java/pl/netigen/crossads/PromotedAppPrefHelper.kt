@@ -6,7 +6,6 @@ internal class PromotedAppPrefHelper(val context: Context) {
 
     private var sharedPreferences = context.getSharedPreferences(PROMOTED_APP_PREFERENCES_NAME, Context.MODE_PRIVATE)
 
-
     private fun getPromotedAppPackageName(): String? {
         return sharedPreferences.getString(PROMOTE_PACKAGE_NAME, defaultPackageName)
     }
@@ -64,6 +63,5 @@ internal class PromotedAppPrefHelper(val context: Context) {
         private const val PROMOTED_APP_PREFERENCES_NAME = "promote"
         private const val PROMOTE_PACKAGE_NAME = "promote_packagename"
         private const val PROMOTED_ICON_LINK = "promote_icon"
-
     }
 }

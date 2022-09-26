@@ -36,18 +36,20 @@ abstract class SingleLiveEvent<T> : LiveData<T> {
 
     private var subscribedObserver: Observer<in T>? = null
 
-
     @Synchronized
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         if (subscribedObserver != null) {
             Timber.w("Unsubscribing previous observer as only one can be registered to SingleLiveEvent")
         }
         subscribedObserver = observer
-        super.observe(owner, Observer {
-            if (pending.compareAndSet(true, false)) {
-                observer.onChanged(it)
-            }
-        })
+        super.observe(
+            owner,
+            Observer {
+                if (pending.compareAndSet(true, false)) {
+                    observer.onChanged(it)
+                }
+            },
+        )
     }
 
     override fun postValue(value: T?) {

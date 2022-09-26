@@ -32,7 +32,7 @@ class AdMobBanner(
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
-    override var enabled: Boolean = true
+    override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
     private lateinit var bannerView: AdView
     private var loadedBannerOrientation = 0
@@ -95,7 +95,7 @@ class AdMobBanner(
         if (loadedBannerOrientation != activity.resources.configuration.orientation) {
             loadedBannerOrientation = activity.resources.configuration.orientation
             bannerView = AdView(activity)
-            bannerView.adSize = adSize
+            bannerView.setAdSize(adSize)
             bannerView.adUnitId = adId
         }
         bannerView.loadAd(adMobRequest.getAdRequest())
@@ -131,5 +131,4 @@ class AdMobBanner(
         Timber.d("()")
         bannerView.destroy()
     }
-
 }

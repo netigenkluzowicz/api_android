@@ -11,13 +11,12 @@ import com.huawei.hms.ads.reward.RewardAdLoadListener
 import com.huawei.hms.ads.reward.RewardAdStatusListener
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
 import pl.netigen.coreapi.ads.IRewardedAd
-import timber.log.Timber.d
-
+import timber.log.Timber.Forest.d
 
 class HMSRewarded(
     private val activity: ComponentActivity,
     override val adId: String = "",
-    override var enabled: Boolean = adId.isNotEmpty()
+    override var enabled: Boolean = adId.isNotEmpty(),
 ) : IRewardedAd, LifecycleObserver {
     override val isLoaded: Boolean get() = isEnabled && rewardAd.isLoaded
     private var rewardAd = RewardAd(activity, adId)

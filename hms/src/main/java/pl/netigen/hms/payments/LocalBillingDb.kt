@@ -15,7 +15,6 @@
  */
 package pl.netigen.hms.payments
 
-
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -25,7 +24,7 @@ import androidx.room.TypeConverters
 @Database(
     entities = [CachedPurchase::class],
     version = 1,
-    exportSchema = false
+    exportSchema = false,
 )
 @TypeConverters(InAppPurchaseDataTypeConverter::class)
 abstract class LocalBillingDb : RoomDatabase() {

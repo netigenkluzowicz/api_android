@@ -22,7 +22,7 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
                 "hms" -> Store.HUAWEI
                 "gms" -> Store.GOOGLE_PLAY
                 else -> Store.GOOGLE_PLAY
-            }
+            },
         )
     }
 
@@ -34,5 +34,4 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
 
     override val payments: IPayments
         get() = FlavoursConst.getPaymentsImpl(coreMainActivity, appConfig)
-
 }

@@ -7,5 +7,4 @@ interface PromotedAppWebservice {
 
     @GET("http://promote-btn.netigen.pl/api/v1/apps/check-promote")
     suspend fun getPromoteApplicationAsync(@Query("package_name") packageName: String): PromotedAppModel
-
 }

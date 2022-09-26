@@ -43,7 +43,6 @@ class SurveyFragment : BaseDialogFragment() {
         setPositiveButtonListener()
     }
 
-
     private fun setPositiveButtonListener() {
         val packageName = surveyFragmentSendTextView.context.packageName
         surveyFragmentSendTextView.setOnClickListener {
@@ -54,7 +53,6 @@ class SurveyFragment : BaseDialogFragment() {
 
     private fun sendData(packageName: String) =
         viewModel.sendSurvey(SurveyData(packageName, surveyAnswer1.text.toString(), surveyAnswer2.text.toString()))
-
 
     private fun setNegativeButtonListener() = surveyFragmentCancelTextView.setOnClickListener { dismissAllowingStateLoss() }
 }
