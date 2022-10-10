@@ -37,11 +37,11 @@ interface NetigenSkuDetailsDao {
     fun toNetigenSkuDetails(productDetails: ProductDetails, noAds: Boolean): NetigenSkuDetails {
         val originalJson = productDetails.toString().substring("SkuDetails: ".length)
         val price = productDetails.oneTimePurchaseOfferDetails?.formattedPrice
-            ?: productDetails.subscriptionOfferDetails?.firstOrNull()?.pricingPhases?.pricingPhaseList?.firstOrNull()?.formattedPrice
+            ?: productDetails.subscriptionOfferDetails?.lastOrNull()?.pricingPhases?.pricingPhaseList?.lastOrNull()?.formattedPrice
         val priceAmountMicros = productDetails.oneTimePurchaseOfferDetails?.priceAmountMicros
-            ?: productDetails.subscriptionOfferDetails?.firstOrNull()?.pricingPhases?.pricingPhaseList?.firstOrNull()?.priceAmountMicros
+            ?: productDetails.subscriptionOfferDetails?.lastOrNull()?.pricingPhases?.pricingPhaseList?.lastOrNull()?.priceAmountMicros
         val priceCurrencyCode = productDetails.oneTimePurchaseOfferDetails?.priceCurrencyCode
-            ?: productDetails.subscriptionOfferDetails?.firstOrNull()?.pricingPhases?.pricingPhaseList?.firstOrNull()?.priceCurrencyCode
+            ?: productDetails.subscriptionOfferDetails?.lastOrNull()?.pricingPhases?.pricingPhaseList?.lastOrNull()?.priceCurrencyCode
 
         return NetigenSkuDetails(
             productDetails.productId,
