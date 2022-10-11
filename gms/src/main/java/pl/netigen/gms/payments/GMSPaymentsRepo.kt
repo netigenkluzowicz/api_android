@@ -9,7 +9,7 @@ import com.android.billingclient.api.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.payments.Security
@@ -26,9 +26,14 @@ class GMSPaymentsRepo(
     private val subscriptionsSkuList: List<String>,
     private val isDebugMode: Boolean = false,
 ) : IPaymentsRepo, PurchasesUpdatedListener, BillingClientStateListener {
-    private var productDetailsList: MutableList<ProductDetails> = mutableListOf()
+    private val initialState: PaymentsState by lazy { PaymentsState() }
+
+    private val _state = MutableStateFlow(initialState)
+    val paymentsStateFlow: StateFlow<PaymentsState> = _state.asStateFlow()
+    private val paymentState: PaymentsState get() = paymentsStateFlow.value
+    private fun setState(update: (old: PaymentsState) -> PaymentsState): PaymentsState = _state.updateAndGet(update)
+
     private var makingPurchaseActive: Boolean = false
-    private var purchaseInfoState: PurchaseInfoState = NotStarted
     private var isConnecting: Boolean = false
     private var lastError: PaymentError? = null
     private var application = activity.application
@@ -92,8 +97,8 @@ class GMSPaymentsRepo(
             connectToPlayBillingService()
             return
         }
-        if (purchaseInfoState.isNotRunning()) {
-            purchaseInfoState = PurchaseInfoState.Started
+        if (paymentState.purchaseInfoState.isNotRunning()) {
+            setState { paymentState.copy(purchaseInfoState = PurchaseInfoState.Started) }
             queryPurchasesAsync()
         }
     }
@@ -129,7 +134,7 @@ class GMSPaymentsRepo(
                             val isNoAd = (it.productId in noAdsInAppSkuList)
                             localCacheBillingClient.skuDetailsDao().insertOrUpdate(it, isNoAd)
                         }
-                        this.productDetailsList += productDetailsList
+                        onLoaded(productDetailsList)
                     }
                 }
                 else -> {
@@ -140,6 +145,15 @@ class GMSPaymentsRepo(
         }
     }
 
+    private fun onLoaded(productDetailsList: List<ProductDetails>) {
+        val newList = paymentState.productDetailsInfoState.productDetails + productDetailsList
+        when (paymentState.productDetailsInfoState) {
+            ProductDetailsInfoState.NotStarted -> setState { it.copy(productDetailsInfoState = ProductDetailsInfoState.OneLoaded(newList)) }
+            ProductDetailsInfoState.Started -> setState { it.copy(productDetailsInfoState = ProductDetailsInfoState.OneLoaded(newList)) }
+            else -> setState { it.copy(productDetailsInfoState = ProductDetailsInfoState.BothLoaded(newList)) }
+        }
+    }
+
     private fun queryPurchasesAsync() {
         Timber.d("()")
         if (subscriptionsSkuList.isNotEmpty()) {
@@ -147,7 +161,7 @@ class GMSPaymentsRepo(
                 QueryPurchasesParams.newBuilder().setProductType(BillingClient.ProductType.SUBS).build(),
             ) { _, purchaseList -> processPartPurchases(purchaseList) }
         } else {
-            purchaseInfoState = PurchaseInfoState.OneLoaded(emptyList())
+            setState { it.copy(purchaseInfoState = PurchaseInfoState.OneLoaded(emptyList())) }
         }
         gmsBillingClient.queryPurchasesAsync(
             QueryPurchasesParams.newBuilder().setProductType(BillingClient.ProductType.INAPP).build(),
@@ -157,7 +171,7 @@ class GMSPaymentsRepo(
     private fun processPartPurchases(purchasesResult: List<Purchase>) {
         Timber.d("purchasesResult = [$purchasesResult]")
         try {
-            purchaseInfoState = when (purchaseInfoState) {
+            val newState = when (val purchaseInfoState = paymentState.purchaseInfoState) {
                 is PurchaseInfoState.Started -> PurchaseInfoState.OneLoaded(purchasesResult)
                 is PurchaseInfoState.OneLoaded -> {
                     val newList = purchaseInfoState.purchases + purchasesResult
@@ -169,10 +183,11 @@ class GMSPaymentsRepo(
                     NotStarted
                 }
             }
+            setState { it.copy(purchaseInfoState = newState) }
         } catch (e: Exception) {
             Timber.e(e)
             onDeveloperError(e)
-            purchaseInfoState = NotStarted
+            setState { it.copy(purchaseInfoState = NotStarted) }
         }
     }
 
@@ -190,14 +205,15 @@ class GMSPaymentsRepo(
                 // TODO handle pending purchases, e.g. confirm with users about the pending purchases, prompt them to complete it, etc.
             }
         }
-        acknowledgeNonConsumablePurchasesAsync(validPurchases.toList())
+        val valid = validPurchases.toList()
+        acknowledgeNonConsumablePurchasesAsync(valid)
         val purchaseDao = localCacheBillingClient.purchaseDao()
         purchaseDao.insert(*validPurchases.toTypedArray())
         val forDelete = purchaseDao.getPurchasesList().filter { cachedPurchase ->
             shouldDelete(cachedPurchase, validPurchases)
         }.toTypedArray()
         purchaseDao.delete(*forDelete)
-        purchaseInfoState = PurchaseInfoState.Finished
+        setState { it.copy(purchaseInfoState = PurchaseInfoState.Processed(valid)) }
     }
 
     private fun shouldDelete(
@@ -254,6 +270,14 @@ class GMSPaymentsRepo(
         }
     }
 
+    fun purchaseOffer(activity: Activity, productDetails: ProductDetails, offerToken: String) {
+        Timber.d("xxx.+activity = [$activity], productDetails = [$productDetails], offerToken = [$offerToken]")
+        val params = listOf(BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(productDetails).setOfferToken(offerToken).build())
+        val purchaseParams = BillingFlowParams.newBuilder().setProductDetailsParamsList(params).build()
+        makingPurchaseActive = true
+        gmsBillingClient.launchBillingFlow(activity, purchaseParams)
+    }
+
     fun makePurchase(activity: Activity, skuId: String) {
         Timber.d("activity = [$activity], skuId = [$skuId]")
         CoroutineScope(Job() + Dispatchers.IO).launch {
@@ -283,13 +307,14 @@ class GMSPaymentsRepo(
 
     private fun launchBillingFlow(activity: Activity, skuDetails: NetigenSkuDetails) {
         Timber.d("activity = [$activity], skuDetails = [$skuDetails]")
-        if (productDetailsList.isEmpty()) {
+        val productDetails = paymentState.productDetailsInfoState.productDetails
+        if (productDetails.isEmpty()) {
             postError(PaymentErrorType.ERROR, "Product details not loaded")
             return
         }
 
-        val details = productDetailsList.firstOrNull { it.productId == skuDetails.productId } ?: return
-        val offerToken = details.subscriptionOfferDetails?.get(0)?.offerToken
+        val details = productDetails.firstOrNull { it.productId == skuDetails.productId } ?: return
+        val offerToken = details.subscriptionOfferDetails?.lastOrNull()?.offerToken
         val params = if (offerToken != null) {
             listOf(BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(details).setOfferToken(offerToken).build())
         } else {
@@ -328,7 +353,6 @@ class GMSPaymentsRepo(
     override fun onBillingServiceDisconnected() {
         Timber.d("()")
         isConnecting = false
-        purchaseInfoState = NotStarted
         debugEvent("SERVICE_DISCONNECTED")
     }
 }

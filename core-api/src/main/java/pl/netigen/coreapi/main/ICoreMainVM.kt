@@ -4,8 +4,8 @@ import android.app.Activity
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
-import pl.netigen.coreapi.payments.INoAds
 import pl.netigen.coreapi.payments.IPayments
+import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.survey.SurveyData
 import pl.netigen.extensions.SingleLiveEvent
 

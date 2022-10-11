@@ -20,6 +20,8 @@ class HMSPayments(
         paymentsRepo.makePurchase(activity, sku)
     }
 
+    override val paymentsStateFlow: Any = Unit
+    override fun purchaseSubscriptionOffer(activity: Activity, productDetails: Any, subscriptionOfferToken: String) = Unit
     override fun makeNoAdsPayment(activity: Activity, noAdsSku: String) {
         d("activity = [$activity], noAdsString = [$noAdsSku]")
         if (noAdsSku in noAdsInAppSkuList) makePurchase(activity, noAdsSku) else makePurchase(activity, noAdsInAppSkuList[0])
