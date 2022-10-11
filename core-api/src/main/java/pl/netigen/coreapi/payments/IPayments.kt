@@ -82,7 +82,6 @@ interface IPayments : INoAds {
      */
     fun onActivityStart()
 
-    @Deprecated("Use paymentsStateFlow")
     fun isSaleTime(netigenSkuDetails: NetigenSkuDetails?, netigenInfoSkuDetails: NetigenSkuDetails?): Boolean
 
     val paymentsStateFlow: Any
