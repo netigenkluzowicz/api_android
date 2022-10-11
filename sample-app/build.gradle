@@ -6,15 +6,13 @@ apply plugin: 'com.huawei.agconnect'
 
 
 android {
-    compileSdkVersion 33
-    signingConfigs {
-    }
+    compileSdkVersion 31
     defaultConfig {
-        applicationId "pl.netigen.compass"
+        applicationId "pl.netigen.frequencygenerator"
+        versionCode generateVersionCode()
+        versionName generateVersionName()
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 122
-        versionName "8.8.0"
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
         manifestPlaceholders = [admobId: "ca-app-pub-4699516034931013~3707111800"]
     }
