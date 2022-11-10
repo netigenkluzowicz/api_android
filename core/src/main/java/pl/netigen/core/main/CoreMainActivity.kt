@@ -64,9 +64,17 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         Timber.d("()")
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
-        rateUs.openRateDialogIfNeeded()
-        survey.openAskForSurveyDialogIfNeeded(rateUs.openingCounter)
+        checkRateUs()
+        checkSurvey()
         checkForUpdate()
+    }
+
+    open fun checkSurvey() {
+        survey.openAskForSurveyDialogIfNeeded(rateUs.openingCounter)
+    }
+
+    open fun checkRateUs() {
+        rateUs.openRateDialogIfNeeded()
     }
 
     /**
@@ -85,7 +93,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         }
     }
 
-    private fun checkForUpdate() {
+    open fun checkForUpdate() {
         val appUpdateManager = AppUpdateManagerFactory.create(application)
         val appUpdateInfoTask = appUpdateManager.appUpdateInfo
         appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
