@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">Mire kell javítanunk?</string>
     <string name="your_answer_is_hint_survey_netigen">Adja meg a választ…</string>
     <string name="survey_question2_netigen">Milyen új funkciókat szeretne?</string>
-    <string name="improving_the_app_netigen">Az alkalmazás javítása</string>
-    <string name="ask_for_survey_netigen">Szeretné elmondani nekünk, hogy mit javítanunk kell az alkalmazásban?</string>
 </resources>

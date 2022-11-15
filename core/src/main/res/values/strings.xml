@@ -30,7 +30,8 @@
     <string name="survey_question1_netigen">What we should improve?</string>
     <string name="your_answer_is_hint_survey_netigen">Enter the answer…</string>
     <string name="survey_question2_netigen">What new features would you like to have?</string>
-    <string name="improving_the_app_netigen">Improving the app</string>
-    <string name="ask_for_survey_netigen">Would you like to tell us what we should improve in the app?</string>
+    <string name="ask_feedback_netigen">Would you like\nto send us your feedback?</string>
+    <string name="help_us_survey_netigen">Help us develop the app\nby completing the survey.\n\nYour voice matters too!</string>
+    <string name="not_now_netigen">Not now</string>
 
 </resources>

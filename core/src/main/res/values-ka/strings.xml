@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">რა უნდა გავაუმჯობესოთ?</string>
     <string name="your_answer_is_hint_survey_netigen">შეიყვანეთ პასუხი…</string>
     <string name="survey_question2_netigen">რა ახალი თვისებები გსურთ?</string>
-    <string name="improving_the_app_netigen">აპლიკაციის გაუმჯობესება</string>
-    <string name="ask_for_survey_netigen">გნებავთ გითხრათ, რა უნდა გავაუმჯობესოთ აპლიკაციაში?</string>
 </resources>

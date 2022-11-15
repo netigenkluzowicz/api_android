@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">우리가 개선해야 할 것은 무엇입니까?</string>
     <string name="your_answer_is_hint_survey_netigen">대답을 입력하십시오…</string>
     <string name="survey_question2_netigen">어떤 새로운 기능을 갖고 싶습니까?</string>
-    <string name="improving_the_app_netigen">앱 개선</string>
-    <string name="ask_for_survey_netigen">앱에서 우리가 개선해야 할 것을 알려 주시겠습니까?</string>
 </resources>

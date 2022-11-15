@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">Hvad skal vi forbedre?</string>
     <string name="your_answer_is_hint_survey_netigen">Indtast svaret…</string>
     <string name="survey_question2_netigen">Hvilke nye funktioner vil du gerne have?</string>
-    <string name="improving_the_app_netigen">Forbedring af appen</string>
-    <string name="ask_for_survey_netigen">Vil du gerne fortælle os, hvad vi skal forbedre i appen?</string>
 </resources>

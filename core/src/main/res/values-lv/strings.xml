@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">Ko mums vajadzētu uzlabot?</string>
     <string name="your_answer_is_hint_survey_netigen">Ievadiet atbildi…</string>
     <string name="survey_question2_netigen">Kādas jaunās funkcijas jūs vēlētos?</string>
-    <string name="improving_the_app_netigen">Uzlabot lietotni</string>
-    <string name="ask_for_survey_netigen">Vai jūs vēlētos pastāstīt mums, kas mums būtu jāuzlabo lietotnē?</string>
 </resources>

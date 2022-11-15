@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">Nini tunapaswa kuboresha?</string>
     <string name="your_answer_is_hint_survey_netigen">Ingiza jibu…</string>
     <string name="survey_question2_netigen">Ni vipi vipya ambavyo ungependa kuwa navyo?</string>
-    <string name="improving_the_app_netigen">Kuboresha App.</string>
-    <string name="ask_for_survey_netigen">Ungependa kutuambia nini tunapaswa kuboresha katika programu?</string>
 </resources>

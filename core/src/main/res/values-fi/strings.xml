@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">Mitä meidän pitäisi parantaa?</string>
     <string name="your_answer_is_hint_survey_netigen">Anna vastaus…</string>
     <string name="survey_question2_netigen">Mitä uusia ominaisuuksia haluaisit olla?</string>
-    <string name="improving_the_app_netigen">Sovelluksen parantaminen</string>
-    <string name="ask_for_survey_netigen">Haluatko kertoa meille, mitä meidän pitäisi parantaa sovelluksessa?</string>
 </resources>

@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">สิ่งที่เราควรปรับปรุง?</string>
     <string name="your_answer_is_hint_survey_netigen">ป้อนคำตอบ…</string>
     <string name="survey_question2_netigen">คุณต้องการมีคุณสมบัติใหม่อะไรบ้าง</string>
-    <string name="improving_the_app_netigen">ปรับปรุงแอป</string>
-    <string name="ask_for_survey_netigen">คุณต้องการที่จะบอกเราว่าเราควรปรับปรุงอะไรในแอปหรือไม่</string>
 </resources>

@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">Бид юуг сайжруулах ёстой вэ?</string>
     <string name="your_answer_is_hint_survey_netigen">Хариултаа оруулна уу…</string>
     <string name="survey_question2_netigen">Та ямар шинэ боломжуудтай болохыг хүсч байна вэ?</string>
-    <string name="improving_the_app_netigen">Апп-ыг сайжруулах</string>
-    <string name="ask_for_survey_netigen">Апп-д биднийг сайжруулах ёстой зүйлийг бидэнд хэлэхийг хүсч байна уу?</string>
 </resources>

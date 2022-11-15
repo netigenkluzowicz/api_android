@@ -15,6 +15,4 @@
     <string name="survey_question1_netigen">Ne geliştirmeliyiz?</string>
     <string name="your_answer_is_hint_survey_netigen">Cevabı girin…</string>
     <string name="survey_question2_netigen">Hangi yeni özelliklere sahip olmak istersiniz?</string>
-    <string name="improving_the_app_netigen">Uygulamanın iyileştirilmesi</string>
-    <string name="ask_for_survey_netigen">Bize uygulamada ne geliştirmemiz gerektiğini söylemek ister misiniz?</string>
 </resources>
