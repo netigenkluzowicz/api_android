@@ -2,7 +2,6 @@ package pl.netigen.core.main
 
 import android.app.Application
 import androidx.annotation.CallSuper
-import kotlinx.coroutines.flow.collect
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -14,9 +13,7 @@ import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
-import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.survey.ISurvey
-import pl.netigen.coreapi.survey.SurveyData
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.launchMain
 import pl.netigen.extensions.toJson

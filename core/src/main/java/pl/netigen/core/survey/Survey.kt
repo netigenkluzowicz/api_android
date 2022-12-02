@@ -1,13 +1,17 @@
 package pl.netigen.core.survey
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import pl.netigen.core.main.CoreMainActivity
+import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
 import pl.netigen.coreapi.survey.ISurvey.Companion.FORCE_SHOW
 import pl.netigen.coreapi.survey.ISurvey.Companion.NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
+import pl.netigen.coreapi.survey.SurveyAction
 import timber.log.Timber
 
 /**
@@ -22,9 +26,22 @@ class Survey private constructor(
     companion object {
         private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
         private const val KEY_SURVEY_OPEN = "KEY_SURVEY_OPEN"
+        private const val interfaceName = "Android"
     }
 
     private val sharedPreferences: SharedPreferences by lazy { appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE) }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    override fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyAction: SurveyAction, exitSurvey: Boolean) -> Unit) {
+        webView.settings.javaScriptEnabled = true
+        webView.addJavascriptInterface(SurveyInterface(onNextAction), interfaceName)
+        val context = webView.context
+        val packageName = context.packageName
+        val locale = ChangeLanguageHelper.getCurrentAppLocale(context)
+        val apiLink = "https://apis.netigen.eu/survey-webview"
+        val url = "$apiLink?packageName=$packageName&appVersion=$appVersionName&platform=android&locale=$locale"
+        webView.loadUrl(url)
+    }
 
     override fun openAskForSurveyDialogIfNeeded(launchCount: Int): Boolean {
         if (shouldOpenAskFragment(launchCount)) {
@@ -47,7 +64,6 @@ class Survey private constructor(
 
     override fun clickYes() {
         doNotShowSurveyAgain()
-        openSurveyDialog()
     }
 
     override fun clickNo() {
@@ -56,10 +72,6 @@ class Survey private constructor(
 
     private fun doNotShowSurveyAgain() {
         sharedPreferences.edit().putBoolean(KEY_SURVEY_OPEN, false).apply()
-    }
-
-    override fun openSurveyDialog() {
-        SurveyFragment.newInstance().show(appCompatActivity.supportFragmentManager, "SurveyDialog")
     }
 
     class Builder(

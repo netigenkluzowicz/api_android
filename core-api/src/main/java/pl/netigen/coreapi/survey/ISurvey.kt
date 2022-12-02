@@ -1,5 +1,7 @@
 package pl.netigen.coreapi.survey
 
+import android.webkit.WebView
+
 interface ISurvey {
     /**
      * Called on click in dialog asking for Survey
@@ -24,17 +26,16 @@ interface ISurvey {
      */
     fun openAskForSurveyDialogIfNeeded(launchCount: Int): Boolean
 
-    /**
-     *
-     * Shows Survey dialog
-     *
-     */
-    fun openSurveyDialog()
-
     companion object {
         const val BASE_URL = "https://feedback.netigen.eu/survey/"
         const val FORCE_SHOW = -100
         const val MIN_SURVEY_TEXTS_LENGTH = 4
         const val NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG = 6
     }
+
+    fun showSurvey(
+        webView: WebView,
+        appVersionName: String,
+        onNextAction: (surveyAction: SurveyAction, exitSurvey: Boolean) -> Unit,
+    )
 }
