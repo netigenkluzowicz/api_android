@@ -13,7 +13,6 @@ import pl.netigen.core.utils.BaseDialogFragment
  *
  */
 class AskForSurveyFragment : BaseDialogFragment() {
-
     private var onClickYes: (() -> Unit)? = null
     private var onClickNo: (() -> Unit)? = null
 
@@ -34,9 +33,8 @@ class AskForSurveyFragment : BaseDialogFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.dialog_fragment_ask_for_survey_netigen_api, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        inflater.inflate(R.layout.dialog_fragment_ask_for_survey_netigen_api, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

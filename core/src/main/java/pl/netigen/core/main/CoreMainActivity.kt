@@ -73,9 +73,9 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         survey.openAskForSurveyDialogIfNeeded(rateUs.openingCounter)
     }
 
-    open fun checkRateUs() {
-        rateUs.openRateDialogIfNeeded()
-    }
+    abstract override fun openSurveyFragment()
+
+    open fun checkRateUs(): Boolean = rateUs.openRateDialogIfNeeded()
 
     /**
      * Starts observing [ICoreMainVM.noAdsActive] and [ICoreMainVM.showGdprResetAds]
@@ -195,18 +195,20 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         val fragment = GDPRDialogFragment.newInstance()
         fragment.show(supportFragmentManager.beginTransaction().addToBackStack(null), null)
         fragment.setIsPayOptions(coreMainVM.isNoAdsAvailable)
-        fragment.bindGDPRListener(object : GDPRClickListener {
-            override fun onConsentAccepted(personalizedAds: Boolean) {
-                coreMainVM.personalizedAdsEnabled = personalizedAds
-                val adConsentStatus = if (personalizedAds) AdConsentStatus.PERSONALIZED_SHOWED else AdConsentStatus.NON_PERSONALIZED_SHOWED
-                coreMainVM.saveAdConsentStatus(adConsentStatus)
-            }
+        fragment.bindGDPRListener(
+            object : GDPRClickListener {
+                override fun onConsentAccepted(personalizedAds: Boolean) {
+                    coreMainVM.personalizedAdsEnabled = personalizedAds
+                    val adConsentStatus = if (personalizedAds) AdConsentStatus.PERSONALIZED_SHOWED else AdConsentStatus.NON_PERSONALIZED_SHOWED
+                    coreMainVM.saveAdConsentStatus(adConsentStatus)
+                }
 
-            override fun clickPay() {
-                fragment.dismissAllowingStateLoss()
-                coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
-            }
-        },)
+                override fun clickPay() {
+                    fragment.dismissAllowingStateLoss()
+                    coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
+                }
+            },
+        )
     }
 
     @CallSuper

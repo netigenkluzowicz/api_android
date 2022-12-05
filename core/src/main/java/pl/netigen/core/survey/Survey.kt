@@ -17,31 +17,14 @@ import timber.log.Timber
 /**
  * [IRateUs] implementation
  *
- * @property appCompatActivity [AppCompatActivity] context for this module
+ * @property coreMainActivity [AppCompatActivity] context for this module
  */
 class Survey private constructor(
-    private val appCompatActivity: AppCompatActivity,
-    private val numberOfChecksBeforeShowingDialog: Int,
+    private val coreMainActivity: CoreMainActivity,
+    private val openingInterval: Int,
 ) : ISurvey {
-    companion object {
-        private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
-        private const val KEY_SURVEY_OPEN = "KEY_SURVEY_OPEN"
-        private const val interfaceName = "Android"
-    }
 
-    private val sharedPreferences: SharedPreferences by lazy { appCompatActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE) }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    override fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyAction: SurveyAction, exitSurvey: Boolean) -> Unit) {
-        webView.settings.javaScriptEnabled = true
-        webView.addJavascriptInterface(SurveyInterface(onNextAction), interfaceName)
-        val context = webView.context
-        val packageName = context.packageName
-        val locale = ChangeLanguageHelper.getCurrentAppLocale(context)
-        val apiLink = "https://apis.netigen.eu/survey-webview"
-        val url = "$apiLink?packageName=$packageName&appVersion=$appVersionName&platform=android&locale=$locale"
-        webView.loadUrl(url)
-    }
+    private val sharedPreferences: SharedPreferences by lazy { coreMainActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE) }
 
     override fun openAskForSurveyDialogIfNeeded(launchCount: Int): Boolean {
         if (shouldOpenAskFragment(launchCount)) {
@@ -51,33 +34,50 @@ class Survey private constructor(
         return false
     }
 
-    fun shouldOpenAskFragment(launchCount: Int): Boolean {
+    override fun shouldOpenAskFragment(launchCount: Int): Boolean {
         if (launchCount == FORCE_SHOW) return true
-        if (appCompatActivity.supportFragmentManager.isStateSaved) return false
-        return launchCount >= numberOfChecksBeforeShowingDialog && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)
+        if (coreMainActivity.supportFragmentManager.isStateSaved) return false
+        return launchCount >= openingInterval && launchCount % openingInterval == 0 && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)
     }
 
     private fun openAskForSurveyDialog() {
         Timber.d("()")
-        AskForSurveyFragment.newInstance({ clickYes() }, { clickNo() }).show(appCompatActivity.supportFragmentManager, "AskForSurveyDialog")
+        AskForSurveyFragment.newInstance({ clickYes() }, { clickNo() }).show(coreMainActivity.supportFragmentManager, "AskForSurveyDialog")
     }
 
     override fun clickYes() {
         doNotShowSurveyAgain()
+        coreMainActivity.openSurveyFragment()
     }
 
-    override fun clickNo() {
-        doNotShowSurveyAgain()
-    }
+    override fun clickNo() = doNotShowSurveyAgain()
 
-    private fun doNotShowSurveyAgain() {
-        sharedPreferences.edit().putBoolean(KEY_SURVEY_OPEN, false).apply()
-    }
+    override fun clickLater() = Unit
+
+    private fun doNotShowSurveyAgain() = sharedPreferences.edit().putBoolean(KEY_SURVEY_OPEN, false).apply()
 
     class Builder(
         private val coreMainActivity: CoreMainActivity,
         private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
     ) {
         fun createSurvey(): Survey = Survey(coreMainActivity, numberOfChecksBeforeShowingDialog)
+    }
+
+    companion object {
+        private const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
+        private const val KEY_SURVEY_OPEN = "KEY_SURVEY_OPEN"
+        private const val interfaceName = "Android"
+
+        @SuppressLint("SetJavaScriptEnabled")
+        fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyAction: SurveyAction, exitSurvey: Boolean) -> Unit) {
+            webView.settings.javaScriptEnabled = true
+            webView.addJavascriptInterface(SurveyInterface(onNextAction), interfaceName)
+            val context = webView.context
+            val packageName = context.packageName
+            val locale = ChangeLanguageHelper.getCurrentAppLocale(context)
+            val apiLink = "https://apis.netigen.eu/survey-webview"
+            val url = "$apiLink?packageName=$packageName&appVersion=$appVersionName&platform=android&locale=$locale"
+            webView.loadUrl(url)
+        }
     }
 }

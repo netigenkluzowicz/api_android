@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentTransaction
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.gdpr.ICoreSplashFragment
 import pl.netigen.coreapi.payments.INoAds
+import pl.netigen.coreapi.survey.ISurvey
 
 /**
  * Base and by design should be only Activity in application:
@@ -78,6 +79,12 @@ interface ICoreMainActivity {
      * @param noAdsActive true when no-ads payment is active
      */
     fun onNoAdsChanged(noAdsActive: Boolean)
+
+    /**
+     * Called when [ISurvey] fragment with Survey WebView  should be opened
+     *
+     */
+    fun openSurveyFragment()
 
     companion object {
         const val UPDATE_REQUEST_CODE: Int = 77

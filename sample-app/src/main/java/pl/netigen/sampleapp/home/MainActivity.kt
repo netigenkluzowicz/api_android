@@ -5,10 +5,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import androidx.lifecycle.asLiveData
+import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_sample_main.*
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
 import pl.netigen.extensions.observe
+import pl.netigen.extensions.safeNavigate
 import pl.netigen.sampleapp.R
 import timber.log.Timber
 
@@ -33,6 +35,8 @@ class MainActivity : CoreMainActivity() {
         layoutParams.bottomToBottom = UNSET
         navContainer.layoutParams = layoutParams
     }
+
+    override fun openSurveyFragment() = findNavController(R.id.layoutHomeContainer).safeNavigate(R.id.action_homeFragment_to_surveyFragment)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
