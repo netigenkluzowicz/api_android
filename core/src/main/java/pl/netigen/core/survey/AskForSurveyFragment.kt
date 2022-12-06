@@ -47,7 +47,7 @@ class AskForSurveyFragment : BaseDialogFragment() {
     }
 
     private fun setPositiveButtonListener() {
-        surveyFragmentSendTextView.setOnClickListener {
+        retry.setOnClickListener {
             dismissAllowingStateLoss()
             onClickYes?.let { it() }
         }

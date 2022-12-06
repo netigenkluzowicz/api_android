@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="@dimen/pop_up_portrait_width"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:background="@drawable/background_language_dialog"
         android:paddingBottom="16dp">
 
     <ImageView
             android:id="@+id/surveyImage"
-            android:layout_width="180dp"
-            android:layout_height="140dp"
-            android:src="@drawable/survey1_netigen"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/survey2_netigen"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
 
     <ImageView
             android:id="@+id/closeSurvey"
@@ -26,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-            android:id="@+id/surveyTitle"
+            android:id="@+id/noInternet"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -37,8 +39,8 @@
             android:paddingLeft="@dimen/medium_space_netigen_api"
             android:paddingEnd="@dimen/medium_space_netigen_api"
             android:paddingRight="@dimen/medium_space_netigen_api"
-            android:text="@string/share_thoughts_netigen"
-            android:textColor="#FF0000"
+            android:text="@string/no_internet_netigen"
+            android:textColor="@color/textColorBlack"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,50 +54,28 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_bold"
             android:gravity="top|center"
-            android:minHeight="96dp"
-            android:paddingStart="@dimen/medium_space_netigen_api"
-            android:paddingLeft="@dimen/medium_space_netigen_api"
-            android:paddingEnd="@dimen/medium_space_netigen_api"
-            android:paddingRight="@dimen/medium_space_netigen_api"
-            android:text="@string/help_us_survey_netigen"
+            android:text="@string/no_internet_survey_netigen"
             android:textColor="#7f7f7f"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/surveyTitle" />
-
-    <TextView
-            android:id="@+id/surveyFragmentNoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:background="@drawable/no_button_netigen"
-            android:fontFamily="@font/roboto_bold"
-            android:gravity="center"
-            android:minWidth="120dp"
-            android:text="@string/not_now_netigen"
-            android:textAllCaps="true"
-            android:textColor="@color/textColorBlack"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/retry"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/retry" />
+            app:layout_constraintTop_toBottomOf="@id/noInternet" />
 
     <TextView
             android:id="@+id/retry"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:layout_marginBottom="36dp"
             android:background="@drawable/ok_button_netigen"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
-            android:minWidth="120dp"
-            android:text="@string/ok_netigen"
+            android:minWidth="240dp"
+            android:text="@string/retry_netigen"
             android:textAllCaps="true"
             android:textColor="@color/colorWhite"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/surveyFragmentNoTextView"
-            app:layout_constraintTop_toBottomOf="@id/surveyQuestion1" />
+            app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

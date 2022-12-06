@@ -23,7 +23,7 @@ import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
-import kotlinx.android.synthetic.main.dialog_fragment_gdpr.*
+import kotlinx.android.synthetic.main.dialog_fragment_gdpr_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.fragment.NetigenDialogFragment
 import pl.netigen.core.main.CoreMainActivity

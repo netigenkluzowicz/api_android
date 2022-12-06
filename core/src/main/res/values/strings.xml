@@ -23,8 +23,11 @@
 
     <string name="settings_normal_netigen">Settings</string>
 
-    <string name="ask_feedback_netigen">Share your thoughts!</string>
     <string name="help_us_survey_netigen">Help us develop the app\nby completing the survey.\n\nYour voice matters too!</string>
     <string name="not_now_netigen">Not now</string>
+    <string name="share_thoughts_netigen">Share your thoughts!</string>
+    <string name="no_internet_netigen">No Internet</string>
+    <string name="retry_netigen">Retry</string>
+    <string name="no_internet_survey_netigen">Please, check your Internet connection and retry.</string>
 
 </resources>

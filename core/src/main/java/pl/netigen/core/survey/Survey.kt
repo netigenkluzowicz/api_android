@@ -3,7 +3,11 @@ package pl.netigen.core.survey
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
+import android.webkit.WebResourceError
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
@@ -79,6 +83,17 @@ class Survey private constructor(
             val apiLink = "https://apis.netigen.eu/survey-webview"
             val url = "$apiLink?packageName=$packageName&appVersion=$appVersionName&platform=android&locale=$locale"
             webView.loadUrl(url)
+            webView.webViewClient = object : WebViewClient() {
+                override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        Timber.d("xxx.+view = [$view], request = [$request], error = [${error?.description}]")
+                    }
+                }
+
+                override fun onReceivedError(view: WebView?, errorCode: Int, description: String?, failingUrl: String?) {
+                    Timber.d("xxx.+view = [$view], errorCode = [$errorCode], description = [$description], failingUrl = [$failingUrl]")
+                }
+            }
         }
     }
 }
