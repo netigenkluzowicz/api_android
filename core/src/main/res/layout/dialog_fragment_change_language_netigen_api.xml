@@ -33,7 +33,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider_title_list"
-        tools:listitem="@layout/item_language" />
+        tools:listitem="@layout/item_language_netigen_api" />
 
     <View
         android:id="@+id/divider_list_buttons"

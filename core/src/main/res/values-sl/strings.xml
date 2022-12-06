@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">Informacije za prevajanje</string>
     <string name="translation_information_content1_netigen">Ta aplikacija je prevedena Google Translates. Angleščina je izvirni jezik te aplikacije. Ne pozabite, da bi lahko bilo nekaj napak v prevodu.</string>
     <string name="translation_information_content2_netigen">Če želite spremeniti jezik aplikacije v angleščino, lahko to storite v nastavitvah.</string>
-    <string name="do_you_like_this_app_netigen">Ali vam je všeč ta aplikacija?</string>
     <string name="please_support_us_netigen">Prosimo, podprite nas z oceno te aplikacije. Hvala vam!</string>
-    <string name="later_netigen">Pozneje</string>
-    <string name="rate_us_netigen">Ocenite nas</string>
     <string name="settings_normal_netigen">Nastavitve</string>
-    <string name="send_netigen">Pošlji</string>
-    <string name="survey_question1_netigen">Kaj bi se morali izboljšati?</string>
-    <string name="your_answer_is_hint_survey_netigen">Vnesite odgovor…</string>
-    <string name="survey_question2_netigen">Katere nove funkcije želite imeti?</string>
 </resources>

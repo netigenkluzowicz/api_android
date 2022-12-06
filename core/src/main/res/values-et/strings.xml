@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">Tõlketeave</string>
     <string name="translation_information_content1_netigen">See rakendus on tõlkinud Google Translate. Inglise keel on selle rakenduse algne keel. Pidage meeles, et tõlkes võiks olla mõningaid vigu.</string>
     <string name="translation_information_content2_netigen">Kui soovite muuta rakenduse keelt inglise keelele, saate seda teha seadetes.</string>
-    <string name="do_you_like_this_app_netigen">Kas sulle meeldib see rakendus?</string>
     <string name="please_support_us_netigen">Palun toetage meid selle rakenduse hindamisega. Aitäh!</string>
-    <string name="later_netigen">Hiljem</string>
-    <string name="rate_us_netigen">Hinda meid</string>
     <string name="settings_normal_netigen">Seaded</string>
-    <string name="send_netigen">Saada</string>
-    <string name="survey_question1_netigen">Mida me peaksime parandama?</string>
-    <string name="your_answer_is_hint_survey_netigen">Sisestage vastus…</string>
-    <string name="survey_question2_netigen">Milliseid uusi funktsioone soovite?</string>
 </resources>

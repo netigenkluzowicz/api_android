@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">অনুবাদ তথ্য</string>
     <string name="translation_information_content1_netigen">এই অ্যাপ্লিকেশনটি গুগল অনুবাদ দ্বারা অনুবাদ করা হয়েছে। ইংরেজি এই অ্যাপ্লিকেশন মূল ভাষা। অনুগ্রহ করে মনে রাখবেন অনুবাদের মধ্যে কিছু ভুল হতে পারে।</string>
     <string name="translation_information_content2_netigen">যদি আপনি অ্যাপ ভাষাটি ইংরেজিতে পরিবর্তন করতে চান তবে আপনি সেটিংসে এটি করতে পারেন।</string>
-    <string name="do_you_like_this_app_netigen">আপনি এই অ্যাপ্লিকেশন পছন্দ করেন?</string>
     <string name="please_support_us_netigen">এই অ্যাপ্লিকেশন রেটিং দ্বারা আমাদের সমর্থন করুন। ধন্যবাদ!</string>
-    <string name="later_netigen">পরে</string>
-    <string name="rate_us_netigen">আমাদের ব্যাপারে আপনার মতামত দিন</string>
     <string name="settings_normal_netigen">সেটিংস</string>
-    <string name="send_netigen">পাঠান</string>
-    <string name="survey_question1_netigen">আমরা কি উন্নতি করা উচিত?</string>
-    <string name="your_answer_is_hint_survey_netigen">উত্তর লিখুন…</string>
-    <string name="survey_question2_netigen">আপনি কি নতুন বৈশিষ্ট্য আছে চান?</string>
 </resources>

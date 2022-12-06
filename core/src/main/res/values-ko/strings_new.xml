@@ -1,5 +1,4 @@
 <resources>
     <string name="no_netigen">아니요</string>
     <string name="yes_netigen">예</string>
-    <string name="quick_survey_netigen">빠른 설문 조사</string>
 </resources>

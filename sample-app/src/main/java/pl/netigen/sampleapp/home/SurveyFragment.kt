@@ -10,6 +10,7 @@ import pl.netigen.core.survey.Survey
 import pl.netigen.coreapi.survey.SurveyAction
 import pl.netigen.sampleapp.BuildConfig
 import pl.netigen.sampleapp.R
+import timber.log.Timber
 
 class SurveyFragment : NetigenVMFragment() {
 
@@ -20,6 +21,7 @@ class SurveyFragment : NetigenVMFragment() {
 
     private fun init() {
         Survey.showSurvey(webView, BuildConfig.VERSION_NAME) { surveyAction: SurveyAction, isExit: Boolean ->
+            Timber.d("xxx.+surveyAction = [$surveyAction], isExit = [$isExit]")
             if (isExit) {
                 requireActivity().onBackPressed()
             }

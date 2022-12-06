@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">अनुवाद जानकारी</string>
     <string name="translation_information_content1_netigen">यो अनुप्रयोग गुगल अनुवाद द्वारा अनुवाद गरिएको छ। अंग्रेजी यस अनुप्रयोगको मूल भाषा हो। कृपया याद राख्नुहोस् कि अनुवादमा केहि गल्तीहरू हुन सक्छन्।</string>
     <string name="translation_information_content2_netigen">यदि तपाईं अंग्रेजीमा अनुप्रयोग भाषा परिवर्तन गर्न चाहानुहुन्छ भने तपाईं सेटिंग्समा त्यसो गर्न सक्नुहुनेछ।</string>
-    <string name="do_you_like_this_app_netigen">के तपाईंलाई यो अनुप्रयोग मनपर्दछ?</string>
     <string name="please_support_us_netigen">कृपया हामीलाई यो अनुप्रयोग रेटिंग गरेर समर्थन गर्नुहोस्। धन्यवाद!</string>
-    <string name="later_netigen">पछि</string>
-    <string name="rate_us_netigen">हामीलाई दरबार दिनु</string>
     <string name="settings_normal_netigen">बतंग</string>
-    <string name="send_netigen">पठाउनु</string>
-    <string name="survey_question1_netigen">हामीले के सुधार गर्नुपर्छ?</string>
-    <string name="your_answer_is_hint_survey_netigen">उत्तर प्रविष्ट गर्नुहोस्…</string>
-    <string name="survey_question2_netigen">तपाई के नयाँ सुविधाहरू पाउन चाहानुहुन्छ?</string>
 </resources>

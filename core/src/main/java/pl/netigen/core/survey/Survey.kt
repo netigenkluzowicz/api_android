@@ -35,6 +35,7 @@ class Survey private constructor(
     }
 
     override fun shouldOpenAskFragment(launchCount: Int): Boolean {
+        if (coreMainActivity.coreMainVM.isConnectedOrConnecting.not()) return false
         if (launchCount == FORCE_SHOW) return true
         if (coreMainActivity.supportFragmentManager.isStateSaved) return false
         return launchCount >= openingInterval && launchCount % openingInterval == 0 && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)

@@ -70,7 +70,7 @@ class GDPRDialogFragment : NetigenDialogFragment() {
             }
         }
 
-        val view = inflater.inflate(R.layout.dialog_fragment_gdpr, container, false)
+        val view = inflater.inflate(R.layout.dialog_fragment_gdpr_netigen_api, container, false)
         createWebView(view)
         return view
     }

@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">תרגום מידע</string>
     <string name="translation_information_content1_netigen">יישום זה תורגם על ידי Google Translate. אנגלית היא השפה המקורית של יישום זה. זכור כי יכול להיות כמה טעויות בתרגום.</string>
     <string name="translation_information_content2_netigen">אם ברצונך לשנות את שפת האפליקציה לאנגלית תוכל לעשות זאת בהגדרות.</string>
-    <string name="do_you_like_this_app_netigen">האם אתה אוהב את האפליקציה הזו?</string>
     <string name="please_support_us_netigen">אנא התמיכה בארה"ב על ידי דירוג האפליקציה הזו. תודה!</string>
-    <string name="later_netigen">מאוחר יותר</string>
-    <string name="rate_us_netigen">דרג אותנו</string>
     <string name="settings_normal_netigen">הגדרות</string>
-    <string name="send_netigen">לִשְׁלוֹחַ</string>
-    <string name="survey_question1_netigen">מה אנחנו צריכים לשפר?</string>
-    <string name="your_answer_is_hint_survey_netigen">הזן את התשובה…</string>
-    <string name="survey_question2_netigen">אילו תכונות חדשות תרצה לקבל?</string>
 </resources>

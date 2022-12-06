@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">Käännöstiedot</string>
     <string name="translation_information_content1_netigen">Tämä sovellus on käännetty Google Käännä. Englanti on tämän sovelluksen alkuperäinen kieli. Muista, että käännöksessä voi olla joitain virheitä.</string>
     <string name="translation_information_content2_netigen">Jos haluat muuttaa sovelluksen kieltä englanniksi, voit tehdä niin asetuksissa.</string>
-    <string name="do_you_like_this_app_netigen">Pidätkö tästä sovelluksesta?</string>
     <string name="please_support_us_netigen">Tuemme meitä luokituksen perusteella. Kiitos!</string>
-    <string name="later_netigen">Myöhemmin</string>
-    <string name="rate_us_netigen">Anna meille arvosana</string>
     <string name="settings_normal_netigen">asetukset</string>
-    <string name="send_netigen">Lähettää</string>
-    <string name="survey_question1_netigen">Mitä meidän pitäisi parantaa?</string>
-    <string name="your_answer_is_hint_survey_netigen">Anna vastaus…</string>
-    <string name="survey_question2_netigen">Mitä uusia ominaisuuksia haluaisit olla?</string>
 </resources>

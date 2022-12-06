@@ -6,13 +6,6 @@
     <string name="translation_information_title_netigen">Taarifa ya tafsiri</string>
     <string name="translation_information_content1_netigen">Programu hii imetafsiriwa na Google Tafsiri. Kiingereza ni lugha ya awali ya programu hii. Tafadhali kumbuka kwamba kunaweza kuwa na makosa fulani katika tafsiri.</string>
     <string name="translation_information_content2_netigen">Ikiwa unataka kubadilisha lugha ya programu kwa Kiingereza unaweza kufanya hivyo katika mipangilio.</string>
-    <string name="do_you_like_this_app_netigen">Je! Unapenda programu hii?</string>
     <string name="please_support_us_netigen">Tafadhali tusaidie kwa rating programu hii. Asante!</string>
-    <string name="later_netigen">Baadae</string>
-    <string name="rate_us_netigen">Kiwango cha US.</string>
     <string name="settings_normal_netigen">Mipangilio</string>
-    <string name="send_netigen">Tuma</string>
-    <string name="survey_question1_netigen">Nini tunapaswa kuboresha?</string>
-    <string name="your_answer_is_hint_survey_netigen">Ingiza jibu…</string>
-    <string name="survey_question2_netigen">Ni vipi vipya ambavyo ungependa kuwa navyo?</string>
 </resources>
