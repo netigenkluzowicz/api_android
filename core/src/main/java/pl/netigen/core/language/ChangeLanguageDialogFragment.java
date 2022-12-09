@@ -83,7 +83,7 @@ public class ChangeLanguageDialogFragment extends BaseDialogFragment {
             @androidx.annotation.Nullable ViewGroup container,
             @androidx.annotation.Nullable Bundle savedInstanceState
     ) {
-        return inflater.inflate(R.layout.dialog_fragment_change_language, container, false);
+        return inflater.inflate(R.layout.dialog_fragment_change_language_netigen_api, container, false);
     }
 
     private void setLanguageCodesList(String jsonLanguageCodes) {

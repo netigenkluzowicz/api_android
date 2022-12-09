@@ -6,15 +6,6 @@
     <string name="translation_information_title_netigen">Tulkošanas informācija</string>
     <string name="translation_information_content1_netigen">Šo pieteikumu ir tulkojis Google tulkojums. Angļu valoda ir šīs programmas sākotnējā valoda. Lūdzu, atcerieties, ka var būt dažas kļūdas tulkojumā.</string>
     <string name="translation_information_content2_netigen">Ja vēlaties mainīt lietotnes valodu angļu valodā, jūs varat to izdarīt iestatījumos.</string>
-    <string name="do_you_like_this_app_netigen">Vai jums patīk šī lietotne?</string>
     <string name="please_support_us_netigen">Lūdzu, atbalstiet mūs, vērtējot šo lietotni. Paldies!</string>
-    <string name="later_netigen">Vēlāk</string>
-    <string name="rate_us_netigen">Novērtē mūs</string>
     <string name="settings_normal_netigen">Iestatījumi</string>
-    <string name="send_netigen">Nosūtīt</string>
-    <string name="survey_question1_netigen">Ko mums vajadzētu uzlabot?</string>
-    <string name="your_answer_is_hint_survey_netigen">Ievadiet atbildi…</string>
-    <string name="survey_question2_netigen">Kādas jaunās funkcijas jūs vēlētos?</string>
-    <string name="improving_the_app_netigen">Uzlabot lietotni</string>
-    <string name="ask_for_survey_netigen">Vai jūs vēlētos pastāstīt mums, kas mums būtu jāuzlabo lietotnē?</string>
 </resources>

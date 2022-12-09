@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/background_language_dialog"
+        android:paddingBottom="16dp">
+
+    <ImageView
+            android:id="@+id/surveyImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/survey2_netigen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+    <ImageView
+            android:id="@+id/closeSurvey"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="@dimen/small_space_netigen_api"
+            android:src="@drawable/bnt_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/noInternet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:minHeight="32dp"
+            android:paddingStart="@dimen/medium_space_netigen_api"
+            android:paddingLeft="@dimen/medium_space_netigen_api"
+            android:paddingEnd="@dimen/medium_space_netigen_api"
+            android:paddingRight="@dimen/medium_space_netigen_api"
+            android:text="@string/no_internet_netigen"
+            android:textColor="@color/textColorBlack"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/surveyImage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/surveyQuestion1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="top|center"
+            android:text="@string/no_internet_survey_netigen"
+            android:textColor="#7f7f7f"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noInternet" />
+
+    <TextView
+            android:id="@+id/retry"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="36dp"
+            android:background="@drawable/ok_button_netigen"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:minWidth="240dp"
+            android:text="@string/retry_netigen"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

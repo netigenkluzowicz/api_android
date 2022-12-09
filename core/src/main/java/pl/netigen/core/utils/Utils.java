@@ -5,13 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -59,18 +55,6 @@ public class Utils {
         }
     }
 
-    public static void showLinkifyDialog(final Activity activity, int titleId, int stringID) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
-        LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.linkify_dialog, null);
-        builder.setView(dialogView);
-        final AlertDialog dialog = builder.create();
-        ((TextView) dialogView.findViewById(R.id.title)).setText(activity.getString(titleId));
-        ((TextView) dialogView.findViewById(R.id.infoText)).setText(activity.getString(stringID));
-        dialogView.findViewById(R.id.button_ok).setOnClickListener(v -> dialog.dismiss());
-        dialog.show();
-    }
-
     public static void showInfoDialog(Activity activity, int titleId, int stringID) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
         builder.setTitle(titleId);
@@ -98,30 +82,6 @@ public class Utils {
             builder.setNegativeButton(negativeText, noOnClickListener);
         }
         final AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    public static void showDialog(Activity activity, @Nullable final View.OnClickListener okClick, @Nullable final View.OnClickListener cancelClick, String title, String msg) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Theme_CustomAlertDialog);
-        LayoutInflater inflater = activity.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-        builder.setView(dialogView);
-        final AlertDialog dialog = builder.create();
-        dialog.setCancelable(false);
-        ((TextView) dialogView.findViewById(R.id.title)).setText(title);
-        ((TextView) dialogView.findViewById(R.id.infoText)).setText(msg);
-        dialogView.findViewById(R.id.button_ok).setOnClickListener(v -> {
-            dialog.dismiss();
-            if (okClick != null) {
-                okClick.onClick(v);
-            }
-        });
-        dialogView.findViewById(R.id.button_cancel).setOnClickListener(v -> {
-            dialog.dismiss();
-            if (cancelClick != null) {
-                cancelClick.onClick(v);
-            }
-        });
         dialog.show();
     }
 

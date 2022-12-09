@@ -1,5 +1,8 @@
 package pl.netigen.coreapi.survey
 
+import android.webkit.WebView
+import pl.netigen.coreapi.BuildConfig
+
 interface ISurvey {
     /**
      * Called on click in dialog asking for Survey
@@ -16,6 +19,12 @@ interface ISurvey {
     fun clickNo()
 
     /**
+     * Called on click in for Survey dialog, after that it will be showed again
+     *
+     */
+    fun clickLater()
+
+    /**
      * Checks if user launches app enough times to ask for Survey
      *
      * @param launchCount number of app launches
@@ -25,16 +34,26 @@ interface ISurvey {
     fun openAskForSurveyDialogIfNeeded(launchCount: Int): Boolean
 
     /**
+     * Checks if user launches app enough times to ask for Survey
      *
-     * Shows Survey dialog
+     * @param launchCount number of app launches
      *
-     */
-    fun openSurveyDialog()
+     * @return if Ask For Survey dialog should be opened
+     * */
+    fun shouldOpenAskFragment(launchCount: Int): Boolean
 
     companion object {
-        const val BASE_URL = "https://feedback.netigen.eu/survey/"
-        const val FORCE_SHOW = -100
-        const val MIN_SURVEY_TEXTS_LENGTH = 4
         const val NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG = 6
     }
+
+    /**
+     * Launches Survey in WebView implemented in JS
+     *
+     * @param webView for showing survey content
+     * @param appVersionName current app release version name, use [BuildConfig.VERSION_NAME] for it
+     * @param onNextAction callback with [SurveyEvent]s from survey
+     *
+     * @see <a href="https://github.com/netigenkluzowicz/apis_strapi/blob/develop/documentation/webview-survey.md">Webview survey</a>
+     */
+    fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyEvent: SurveyEvent) -> Unit)
 }

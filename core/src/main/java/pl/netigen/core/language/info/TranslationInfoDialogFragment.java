@@ -39,7 +39,7 @@ public class TranslationInfoDialogFragment extends BaseDialogFragment {
             @androidx.annotation.Nullable Bundle savedInstanceState
     ) {
 
-        return inflater.inflate(R.layout.dialog_fragment_translation_info, container, false);
+        return inflater.inflate(R.layout.dialog_fragment_translation_info_netigen_api, container, false);
     }
 
     @Override

@@ -6,15 +6,6 @@
     <string name="translation_information_title_netigen">Informations sur la traduction</string>
     <string name="translation_information_content1_netigen">Cette application a été traduite par Google Translate. L\'anglais est la langue d\'origine de cette application. S\'il vous plaît rappelez-vous qu\'il pourrait y avoir des erreurs de traduction.</string>
     <string name="translation_information_content2_netigen">Si vous souhaitez modifier la langue de l\'application en anglais, vous pouvez le faire dans les paramètres.</string>
-    <string name="do_you_like_this_app_netigen">Aimez-vous cette application?</string>
     <string name="please_support_us_netigen">Veuillez nous soutenir par note cette application. Merci!</string>
-    <string name="later_netigen">Plus tard</string>
-    <string name="rate_us_netigen">Évaluez nous</string>
     <string name="settings_normal_netigen">Paramètres</string>
-    <string name="send_netigen">Envoyer</string>
-    <string name="survey_question1_netigen">Qu\'est-ce que nous devrions nous améliorer?</string>
-    <string name="your_answer_is_hint_survey_netigen">Entrez la réponse…</string>
-    <string name="survey_question2_netigen">Quelles nouvelles fonctionnalités aimeriez-vous avoir?</string>
-    <string name="improving_the_app_netigen">Améliorer l\'application</string>
-    <string name="ask_for_survey_netigen">Voulez-vous nous dire ce que nous devrions nous améliorer dans l\'application?</string>
 </resources>

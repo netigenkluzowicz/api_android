@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.play.core.review.ReviewManagerFactory
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.utils.Utils
-import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.rateus.IRateUs
 import timber.log.Timber
 
@@ -17,7 +16,6 @@ import timber.log.Timber
  */
 class RateUs private constructor(
     private val appCompatActivity: AppCompatActivity,
-    private val showOldDialog: Boolean = false,
     override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
 ) : IRateUs {
     companion object {
@@ -40,10 +38,7 @@ class RateUs private constructor(
         return sharedPreferences.getBoolean(KEY_IS_RATE_US_OPEN, true)
     }
 
-    override fun doNotShowRateUsAgain() {
-        Timber.d("()")
-        sharedPreferences.edit().putBoolean(KEY_IS_RATE_US_OPEN, false).apply()
-    }
+    override fun doNotShowRateUsAgain() = sharedPreferences.edit().putBoolean(KEY_IS_RATE_US_OPEN, false).apply()
 
     override fun openRateDialogIfNeeded(): Boolean {
         if (shouldOpenRateUs()) {
@@ -58,15 +53,6 @@ class RateUs private constructor(
     }
 
     override fun openRateDialog() {
-        Timber.d("()")
-        if (showOldDialog) {
-            RateFragment.newInstance({ clickYes() }, { clickNo() }, { clickLater() }).show(appCompatActivity.supportFragmentManager, "RateUsDialog")
-        } else {
-            loadNewDialog()
-        }
-    }
-
-    private fun loadNewDialog() {
         val manager = ReviewManagerFactory.create(appCompatActivity)
         val request = manager.requestReviewFlow()
         request.addOnCompleteListener { task ->
@@ -94,6 +80,6 @@ class RateUs private constructor(
         private val coreMainActivity: CoreMainActivity,
         private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
     ) {
-        fun createRateUs(): RateUs = RateUs(coreMainActivity, coreMainActivity.coreMainVM.store == Store.HUAWEI, numberOfChecksBeforeShowingDialog)
+        fun createRateUs(): RateUs = RateUs(coreMainActivity, numberOfChecksBeforeShowingDialog)
     }
 }

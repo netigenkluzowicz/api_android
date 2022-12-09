@@ -6,15 +6,6 @@
     <string name="translation_information_title_netigen">Vertaalinformatie</string>
     <string name="translation_information_content1_netigen">Deze applicatie is vertaald door Google Translate. Engels is de oorspronkelijke taal van deze applicatie. Vergeet niet dat er wat fouten in vertaling kunnen zijn.</string>
     <string name="translation_information_content2_netigen">Als u de app-taal naar het Engels wilt wijzigen, kunt u dit doen in instellingen.</string>
-    <string name="do_you_like_this_app_netigen">Vind je deze app leuk?</string>
     <string name="please_support_us_netigen">Steun ons door deze app te beoordelen. Bedankt!</string>
-    <string name="later_netigen">Later</string>
-    <string name="rate_us_netigen">Beoordeel ons</string>
     <string name="settings_normal_netigen">Instellingen</string>
-    <string name="send_netigen">Versturen</string>
-    <string name="survey_question1_netigen">Wat moeten we verbeteren?</string>
-    <string name="your_answer_is_hint_survey_netigen">Voer het antwoord in…</string>
-    <string name="survey_question2_netigen">Welke nieuwe functies wilt u?</string>
-    <string name="improving_the_app_netigen">De app verbeteren</string>
-    <string name="ask_for_survey_netigen">Wilt u ons vertellen wat we moeten verbeteren in de app?</string>
 </resources>

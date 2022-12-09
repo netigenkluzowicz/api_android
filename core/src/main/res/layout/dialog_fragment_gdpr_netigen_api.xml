@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingBottom="@dimen/medium_space_netigen_api">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="@dimen/medium_space_netigen_api"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="@dimen/medium_space_netigen_api"
+        android:background="@drawable/background_language_dialog"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerContainerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:background="@drawable/background_header_gdpr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/appIconImageViewGdpr"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/medium_space_netigen_api"
+                android:layout_marginRight="@dimen/medium_space_netigen_api"
+                app:layout_constraintBottom_toBottomOf="@+id/appNameTextViewGdpr"
+                app:layout_constraintEnd_toStartOf="@+id/appNameTextViewGdpr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/appNameTextViewGdpr" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appNameTextViewGdpr"
+                style="@style/GDPR_AppName"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/middleDividerHeaderGdpr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/appIconImageViewGdpr"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/middleDividerHeaderGdpr"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#90FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@id/headerContainerLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/headerContainerLayout" />
+
+            <ImageView
+                android:id="@+id/gdprIconImageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_shield"
+                app:layout_constraintBottom_toBottomOf="@+id/headerInfoTextViewGdpr"
+                app:layout_constraintStart_toStartOf="@+id/appIconImageViewGdpr"
+                app:layout_constraintTop_toTopOf="@+id/headerInfoTextViewGdpr" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/headerInfoTextViewGdpr"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginRight="@dimen/medium_space_netigen_api"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="left|center"
+                android:text="@string/gdpr_we_care_about_your_privacy_netigen"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/appNameTextViewGdpr"
+                app:layout_constraintTop_toBottomOf="@+id/middleDividerHeaderGdpr" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/containerGDPRInfo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/medium_space_netigen_api"
+            android:layout_marginTop="@dimen/medium_space_netigen_api"
+            android:layout_marginRight="@dimen/medium_space_netigen_api"
+            android:layout_marginBottom="@dimen/big_space_netigen_api"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/buttonYes"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerContainerLayout">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/offlinePrivacyPolicyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:textColor="@color/dialog_text_view"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/buttonYes"
+            style="@style/GDPR_AccentTextButton"
+            android:text="@string/gdpr_yes_continue_to_see_relevant_ads_netigen"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/buttonNo"
+            style="@style/GDPR_NeutralTextButton"
+            android:text="@string/gdpr_no_see_ads_that_are_less_relevant_netigen"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginBottom="@dimen/medium_space_netigen_api" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/buttonPay"
+            style="@style/GDPR_BoldTextButton"
+            android:layout_marginBottom="@dimen/medium_space_netigen_api"
+            android:text="@string/gdpr_pay_for_the_ad_free_version_netigen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/buttonPolicy"
+            style="@style/GDPR_AccentTextButton"
+            android:text="@string/gdpr_i_accept_privacy_policy_netigen"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/buttonBack"
+            style="@style/GDPR_NeutralTextButton"
+            android:gravity="center"
+            android:text="@string/gdpr_back_netigen"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

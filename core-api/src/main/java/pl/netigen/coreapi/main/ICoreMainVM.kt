@@ -5,8 +5,6 @@ import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
-import pl.netigen.coreapi.payments.IPaymentsRepo
-import pl.netigen.coreapi.survey.SurveyData
 import pl.netigen.extensions.SingleLiveEvent
 
 /**
@@ -32,8 +30,6 @@ interface ICoreMainVM : IPayments, IAds, INetworkStatus, IGDPRConsent, IAppConfi
      *
      */
     fun resetAdsPreferences()
-
-    fun sendSurvey(surveyData: SurveyData)
 
     /**
      * [ICoreMainActivity] will observe it and show [GDPRDialogFragment][pl.netigen.core.gdpr.GDPRDialogFragment] when [resetAdsPreferences] is called

@@ -9,15 +9,6 @@
     </string>
     <string name="translation_information_content2_netigen">Wenn Sie die App-Sprache in Englisch ändern möchten, können Sie dies in den Einstellungen tun.
     </string>
-    <string name="do_you_like_this_app_netigen">Magst du diese App?</string>
     <string name="please_support_us_netigen">Bitte unterstützen Sie uns, indem Sie diese App bewerten. Vielen Dank!</string>
-    <string name="later_netigen">Später</string>
-    <string name="rate_us_netigen">Bewertung</string>
     <string name="settings_normal_netigen">Einstellungen</string>
-    <string name="send_netigen">Senden</string>
-    <string name="survey_question1_netigen">Was sollten wir uns verbessern?</string>
-    <string name="your_answer_is_hint_survey_netigen">Geben Sie die Antwort ein…</string>
-    <string name="survey_question2_netigen">Welche neuen Funktionen möchten Sie haben?</string>
-    <string name="improving_the_app_netigen">Verbesserung der App.</string>
-    <string name="ask_for_survey_netigen">Möchten Sie uns sagen, was wir in der App verbessern sollten?</string>
 </resources>

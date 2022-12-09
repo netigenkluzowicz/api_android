@@ -6,15 +6,6 @@
     <string name="translation_information_title_netigen">Imininingwane yokuhumusha</string>
     <string name="translation_information_content1_netigen">Lolu hlelo lokusebenza luhunyushwe yi-Google Humusha. IsiNgisi ulimi lwangempela lwalolu hlelo lokusebenza. Uyacelwa ukuthi ukhumbule ukuthi kungahle kube namaphutha athile ekuhumusheni.</string>
     <string name="translation_information_content2_netigen">Uma ufuna ukushintsha ulimi lwe-app libe isiNgisi ungakwenza lokho kuzilungiselelo.</string>
-    <string name="do_you_like_this_app_netigen">Ngabe uyaluthanda lolu hlelo lokusebenza?</string>
     <string name="please_support_us_netigen">Sicela usisekele ngokulinganisa lolu hlelo lokusebenza. Ngiyabonga!</string>
-    <string name="later_netigen">Ukuhamba kwesikhathi</string>
-    <string name="rate_us_netigen">Silinganise</string>
     <string name="settings_normal_netigen">Amasethingi</string>
-    <string name="send_netigen">Thuma</string>
-    <string name="survey_question1_netigen">Yini okufanele sithuthukise?</string>
-    <string name="your_answer_is_hint_survey_netigen">Faka impendulo…</string>
-    <string name="survey_question2_netigen">Iziphi izinto ezintsha ongathanda ukuba nazo?</string>
-    <string name="improving_the_app_netigen">Ukuthuthukisa uhlelo lokusebenza</string>
-    <string name="ask_for_survey_netigen">Ungathanda ukusitshela ukuthi yini okufanele siyithuthukise kuhlelo lokusebenza?</string>
 </resources>

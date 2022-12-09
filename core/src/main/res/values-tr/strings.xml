@@ -6,15 +6,6 @@
     <string name="translation_information_title_netigen">Çeviri bilgileri</string>
     <string name="translation_information_content1_netigen">Bu uygulama Google Translate tarafından çevrilmiştir. İngilizce bu uygulamanın orijinal dilidir. Lütfen çeviride bazı hatalar olabileceğini unutmayın.</string>
     <string name="translation_information_content2_netigen">Uygulama dilini İngilizce olarak değiştirmek istiyorsanız, ayarlarda yapabilirsiniz.</string>
-    <string name="do_you_like_this_app_netigen">Bu uygulamayı beğendin mi?</string>
     <string name="please_support_us_netigen">Lütfen bu uygulamayı derecelendirerek bize destek verin. Teşekkürler!</string>
-    <string name="later_netigen">Daha sonra</string>
-    <string name="rate_us_netigen">Bizi değerlendirin</string>
     <string name="settings_normal_netigen">Ayarlar</string>
-    <string name="send_netigen">Göndermek</string>
-    <string name="survey_question1_netigen">Ne geliştirmeliyiz?</string>
-    <string name="your_answer_is_hint_survey_netigen">Cevabı girin…</string>
-    <string name="survey_question2_netigen">Hangi yeni özelliklere sahip olmak istersiniz?</string>
-    <string name="improving_the_app_netigen">Uygulamanın iyileştirilmesi</string>
-    <string name="ask_for_survey_netigen">Bize uygulamada ne geliştirmemiz gerektiğini söylemek ister misiniz?</string>
 </resources>

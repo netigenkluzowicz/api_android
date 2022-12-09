@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.home_fragment.*
 import pl.netigen.core.fragment.NetigenVMFragment
+import pl.netigen.extensions.safeNavigate
 import pl.netigen.sampleapp.R
 import timber.log.Timber.Forest.d
 
@@ -23,5 +24,6 @@ class HomeFragment : NetigenVMFragment() {
         testNoAds.setOnClickListener { coreMainVM.makeNoAdsPayment(this.requireActivity()) }
         testSubs.setOnClickListener { coreMainVM.makePurchase(this.requireActivity(), "pl.netigen.compass.subs_01") }
         testResetAds.setOnClickListener { coreMainVM.resetAdsPreferences() }
+        testSurvey.setOnClickListener { safeNavigate(R.id.action_homeFragment_to_surveyFragment) }
     }
 }
