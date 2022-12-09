@@ -3,6 +3,7 @@ package pl.netigen.core.main
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebView
 import androidx.activity.viewModels
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,8 @@ import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.UPDATE_REQUEST_CODE
 import pl.netigen.coreapi.main.ICoreMainVM
+import pl.netigen.coreapi.rateus.IRateUs
+import pl.netigen.coreapi.survey.ISurvey
 import pl.netigen.extensions.observe
 import timber.log.Timber
 
@@ -52,9 +55,9 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         hideAds()
     }
 
-    val rateUs by lazy { RateUs.Builder(this).createRateUs() }
+    override val rateUs by lazy { RateUs.Builder(this).createRateUs() }
 
-    val survey by lazy { Survey.Builder(this).createSurvey() }
+    override val survey by lazy { Survey.Builder(this).createSurvey() }
 
     /**
      * It's called when [CoreSplashFragment] is closed
@@ -69,13 +72,29 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         checkForUpdate()
     }
 
-    open fun checkSurvey() {
-        survey.openAskForSurveyDialogIfNeeded(rateUs.openingCounter)
-    }
+    /**
+     * Is be called in [onSplashOpened]
+     *
+     * @see [ISurvey.openAskForSurveyDialogIfNeeded]
+     *
+     * @return If Survey should be showed now
+     */
+    override fun checkSurvey() = survey.openAskForSurveyDialogIfNeeded(rateUs.openingCounter)
 
+    /**
+     * It's called when you should open Fragment with [WebView] for displaying Survey
+     * @see [Survey.showSurvey]
+     */
     abstract override fun openSurveyFragment()
 
-    open fun checkRateUs(): Boolean = rateUs.openRateDialogIfNeeded()
+    /**
+     * Is be called in [onSplashOpened]
+     *
+     * @see [IRateUs.openRateDialogIfNeeded]
+     *
+     * @return If Rate Us should be showed now
+     */
+    override fun checkRateUs(): Boolean = rateUs.openRateDialogIfNeeded()
 
     /**
      * Starts observing [ICoreMainVM.noAdsActive] and [ICoreMainVM.showGdprResetAds]

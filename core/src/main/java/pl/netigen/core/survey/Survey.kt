@@ -11,11 +11,12 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
+import pl.netigen.coreapi.BuildConfig
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
-import pl.netigen.coreapi.survey.ISurvey.Companion.FORCE_SHOW
 import pl.netigen.coreapi.survey.ISurvey.Companion.NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
-import pl.netigen.coreapi.survey.SurveyAction
+import pl.netigen.coreapi.survey.SurveyEvent
+import pl.netigen.coreapi.survey.SurveyInterface
 import timber.log.Timber
 
 /**
@@ -40,7 +41,6 @@ class Survey private constructor(
 
     override fun shouldOpenAskFragment(launchCount: Int): Boolean {
         if (coreMainActivity.coreMainVM.isConnectedOrConnecting.not()) return false
-        if (launchCount == FORCE_SHOW) return true
         if (coreMainActivity.supportFragmentManager.isStateSaved) return false
         return launchCount >= openingInterval && launchCount % openingInterval == 0 && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)
     }
@@ -61,6 +61,18 @@ class Survey private constructor(
 
     private fun doNotShowSurveyAgain() = sharedPreferences.edit().putBoolean(KEY_SURVEY_OPEN, false).apply()
 
+    /**
+     * Launches Survey in WebView implemented in JS
+     *
+     * @param webView for showing survey content
+     * @param appVersionName current app release version name, use [BuildConfig.VERSION_NAME] for it
+     * @param onNextAction callback with [SurveyEvent]s from survey
+     *
+     * @see <a href="https://github.com/netigenkluzowicz/apis_strapi/blob/develop/documentation/webview-survey.md">Webview survey</a>
+     */
+    override fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyEvent: SurveyEvent) -> Unit) =
+        Survey.showSurvey(webView, appVersionName, onNextAction)
+
     class Builder(
         private val coreMainActivity: CoreMainActivity,
         private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
@@ -74,7 +86,7 @@ class Survey private constructor(
         private const val interfaceName = "Android"
 
         @SuppressLint("SetJavaScriptEnabled")
-        fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyAction: SurveyAction, exitSurvey: Boolean) -> Unit) {
+        fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyAction: SurveyEvent) -> Unit) {
             webView.settings.javaScriptEnabled = true
             webView.addJavascriptInterface(SurveyInterface(onNextAction), interfaceName)
             val context = webView.context

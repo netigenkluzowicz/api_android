@@ -1,13 +1,62 @@
 https://jitpack.io/#netigenkluzowicz/api_android
 
-2.x branches are AndroidX migration branches 1.x branches are old Android support branches
+## Samples of usage:
+https://github.com/netigenkluzowicz/api_android/tree/develop/sample-app
+
+## WebView Survey
+
+It's implemented in WebView, docs: 
+
+https://github.com/netigenkluzowicz/apis_strapi/blob/develop/documentation/webview-survey.md
+
+
+In Main Activity override fun openSurveyFragment():
+
+```Kotlin
+class MainActivity : CoreMainActivity() {
+
+    override fun openSurveyFragment() = findNavController(R.id.layoutHomeContainer)
+        .safeNavigate(R.id.action_homeFragment_to_surveyFragment)
+
+}
+```
+Example of Survey Fragment:
+
+```Kotlin
+class SurveyFragment : NetigenVMFragment() {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        inflater.inflate(R.layout.fragment_survey, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = init()
+
+    private fun init() {
+        Survey.showSurvey(webView, BuildConfig.VERSION_NAME) { surveyEvent: SurveyEvent ->
+            Timber.d("xxx.+surveyAction = [$surveyEvent]")
+            // Log event to firebase
+            val defaultEvent = surveyEvent.defaultFirebaseEvent()
+            sendFirebaseEvent(defaultEvent.name, defaultEvent.bundle)
+            if (surveyEvent is SurveyEvent.ExitEvent) {
+                // survey exits so navigate back
+                requireActivity().onBackPressed()
+            }
+        }
+    }
+
+    // Log event to firebase
+    private fun sendFirebaseEvent(name: String, bundle: Bundle) {
+        firebaseAnalytics.logEvent(name, bundle)
+    }
+}
+```
+
 
 ## Add language fragment to application:
 
 You need to add this code to your Application:
 
 ```Kotlin
-      override fun onCreate() {
+override fun onCreate() {
     super.onCreate()
     ChangeLanguageHelper.setSharedPreferences(this)
 }
@@ -16,7 +65,7 @@ You need to add this code to your Application:
 This code to your Activity:
 
 ```Kotlin
-       override fun onCreate(savedInstanceState: Bundle?) {
+override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     ChangeLanguageHelper.setActivityLocale(this)
 }
@@ -25,7 +74,7 @@ This code to your Activity:
 This code to your Activity:
 
 ```Kotlin
-       override fun onCreate(savedInstanceState: Bundle?) {
+override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     ChangeLanguageHelper.setActivityLocale(this)
 }
@@ -34,10 +83,10 @@ This code to your Activity:
 This code to your Fragments or BaseFragment:
 
 ```Kotlin
-    override fun onAttach(context: Context) {
+override fun onAttach(context: Context) {
      super.onAttach(context)
      ChangeLanguageHelper.setActivityLocale(requireActivity())
-    }
+}
 
 ```
 If you need current language call up:
