@@ -9,7 +9,7 @@ android {
     compileSdkVersion 32
     defaultConfig {
         applicationId "pl.netigen.compass"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 31
         versionCode 122
         versionName "8.8.0"
