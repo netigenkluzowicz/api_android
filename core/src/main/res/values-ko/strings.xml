@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">브라우저를 찾을 수 없습니다 !!!</string>
-    <string name="cancel_netigen">취소</string>
-    <string name="change_language_netigen">언어 변경</string>
-    <string name="translation_information_title_netigen">번역 정보</string>
-    <string name="translation_information_content1_netigen">이 응용 프로그램은 Google 번역에 의해 번역되었습니다. 영어는이 응용 프로그램의 원래 언어입니다. 번역시 실수가있을 수 있음을 기억하십시오.</string>
-    <string name="translation_information_content2_netigen">앱 언어를 영어로 변경하려면 설정에서 그렇게 할 수 있습니다.</string>
-    <string name="please_support_us_netigen">이 앱을 평가하여 우리를 지원하십시오. 감사합니다!</string>
-    <string name="settings_normal_netigen">설정</string>
+  <string name="msg_browser_not_found_netigen">브라우저를 찾을 수 없습니다!!!</string>
+  <string name="cancel_netigen">취소</string>
+  <string name="change_language_netigen">언어 변경</string>
+  <string name="translation_information_title_netigen">번역 정보</string>
+  <string name="translation_information_content1_netigen">이 응용 프로그램은 Google 번역으로 번역되었습니다. 영어는 이 응용 프로그램의 원래 언어입니다. 번역에 약간의 오역이 있을 수 있음을 기억하십시오.</string>
+  <string name="translation_information_content2_netigen">앱 언어를 영어로 변경하려면 설정에서 변경할 수 있습니다.</string>
+  <string name="please_support_us_netigen">이 앱을 평가하여 지원해 주세요. 고맙습니다!</string>
+  <string name="settings_normal_netigen">설정</string>
+  <string name="help_us_survey_netigen">설문 조사를 완료하여\n앱 개발을 도와주세요.\n\n당신의 목소리도 중요합니다!</string>
+  <string name="not_now_netigen">지금은 아니다</string>
+  <string name="share_thoughts_netigen">당신의 생각을 함께 나누세요!</string>
+  <string name="no_internet_netigen">인터넷 없음</string>
+  <string name="retry_netigen">다시 해 보다</string>
+  <string name="no_internet_survey_netigen">인터넷 연결을 확인하고 다시 시도하십시오.</string>
 </resources>

@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Браузер не найден !!!</string>
-    <string name="cancel_netigen">Отмена</string>
-    <string name="change_language_netigen">изменение языка</string>
-    <string name="translation_information_title_netigen">Информация перевода</string>
-    <string name="translation_information_content1_netigen">Это приложение было переведено Google Translate. Английский - это оригинальный язык этого приложения. Пожалуйста, помните, что могут быть некоторые ошибки в переводе.</string>
-    <string name="translation_information_content2_netigen">Если вы хотите изменить язык приложения на английский, вы можете сделать это в настройках.</string>
-    <string name="please_support_us_netigen">Пожалуйста, поддержите нас рейтингом этого приложения. Спасибо!</string>
-    <string name="settings_normal_netigen">Настройки</string>
+  <string name="msg_browser_not_found_netigen">Браузер не найден!!!</string>
+  <string name="cancel_netigen">Отмена</string>
+  <string name="change_language_netigen">изменение языка</string>
+  <string name="translation_information_title_netigen">Информация о переводе</string>
+  <string name="translation_information_content1_netigen">Это приложение было переведено Google Translate. Английский является исходным языком этого приложения. Помните, что в переводе могут быть ошибки.</string>
+  <string name="translation_information_content2_netigen">Если вы хотите изменить язык приложения на английский, вы можете сделать это в настройках.</string>
+  <string name="please_support_us_netigen">Пожалуйста, поддержите нас, оценив это приложение. Благодарю вас!</string>
+  <string name="settings_normal_netigen">Настройки</string>
+  <string name="help_us_survey_netigen">Помогите нам разработать приложение\n, заполнив анкету.\n\nВаш голос тоже имеет значение!</string>
+  <string name="not_now_netigen">Не сейчас</string>
+  <string name="share_thoughts_netigen">Поделитесь своими мыслями!</string>
+  <string name="no_internet_netigen">Без интернета</string>
+  <string name="retry_netigen">Повторно</string>
+  <string name="no_internet_survey_netigen">Пожалуйста, проверьте подключение к Интернету и повторите попытку.</string>
 </resources>

@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Хөтөч олдсонгүй !!!</string>
-    <string name="cancel_netigen">Цуаах</string>
-    <string name="change_language_netigen">Хэл өөрчлөх</string>
-    <string name="translation_information_title_netigen">Орчуулга өгөх</string>
-    <string name="translation_information_content1_netigen">Энэ програмыг Google Translate орчуулав. Англи хэл бол энэ програмын анхны хэл юм. Орчуулгын зарим алдаа байж болох уу гэдгийг санаарай.</string>
-    <string name="translation_information_content2_netigen">Хэрэв та App Applic хэлийг англи хэл рүү өөрчлөхийг хүсч байвал та тохиргоонд хийж болно.</string>
-    <string name="please_support_us_netigen">Энэ апп-ыг үнэлж биднийг дэмжинэ. Баярлалаа!</string>
-    <string name="settings_normal_netigen">Тохиргоо</string>
+  <string name="msg_browser_not_found_netigen">Хөтөч олдсонгүй!!!</string>
+  <string name="cancel_netigen">Цуаах</string>
+  <string name="change_language_netigen">Хэл өөрчлөх</string>
+  <string name="translation_information_title_netigen">Орчуулгын мэдээлэл</string>
+  <string name="translation_information_content1_netigen">Энэ програмыг Google Translate орчуулсан. Англи хэл бол энэ програмын эх хэл юм. Орчуулга хийхэд зарим алдаа гарч болзошгүй гэдгийг санаарай.</string>
+  <string name="translation_information_content2_netigen">Хэрэв та програмын хэлийг англи хэл рүү өөрчлөхийг хүсвэл тохиргооноос үүнийг хийж болно.</string>
+  <string name="please_support_us_netigen">Энэ програмыг үнэлж биднийг дэмжээрэй. Баярлалаа!</string>
+  <string name="settings_normal_netigen">Тохиргоо</string>
+  <string name="help_us_survey_netigen">Судалгааг бөглөж\nпрограмыг хөгжүүлэхэд бидэнд тусална уу.\n\nТаны дуу хоолой бас чухал!</string>
+  <string name="not_now_netigen">Одоо биш</string>
+  <string name="share_thoughts_netigen">Санал бодлоо хуваалцаарай!</string>
+  <string name="no_internet_netigen">Интернет байхгүй</string>
+  <string name="retry_netigen">Уилах</string>
+  <string name="no_internet_survey_netigen">Интернэт холболтоо шалгаад дахин оролдоно уу.</string>
 </resources>

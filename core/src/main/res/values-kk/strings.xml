@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Браузер табылмады !!!</string>
-    <string name="cancel_netigen">Күшін жою</string>
-    <string name="change_language_netigen">Тілді өзгерту</string>
-    <string name="translation_information_title_netigen">Аударма туралы ақпарат</string>
-    <string name="translation_information_content1_netigen">Бұл қосымшаны Google Translate аударған. Ағылшын тілі - бұл қосымшаның түпнұсқа тілі. Есіңізде болсын, аударма кезінде кейбір қателіктер болуы мүмкін екенін ұмытпаңыз.</string>
-    <string name="translation_information_content2_netigen">Егер сіз бағдарламаның тілін ағылшын тіліне өзгерткіңіз келсе, оны параметрлерде жасай аласыз.</string>
-    <string name="please_support_us_netigen">Осы бағдарламаны бағалау арқылы бізді қолдаңыз. Рақмет сізге!</string>
-    <string name="settings_normal_netigen">Параметрлер</string>
+  <string name="msg_browser_not_found_netigen">Браузер табылмады!!!</string>
+  <string name="cancel_netigen">Күшін жою</string>
+  <string name="change_language_netigen">Тілді өзгерту</string>
+  <string name="translation_information_title_netigen">Аударма ақпараты</string>
+  <string name="translation_information_content1_netigen">Бұл қолданба Google Translate арқылы аударылған. Ағылшын тілі - бұл қолданбаның түпнұсқа тілі. Аудармада кейбір қателер болуы мүмкін екенін есте сақтаңыз.</string>
+  <string name="translation_information_content2_netigen">Қолданба тілін ағылшын тіліне өзгерткіңіз келсе, мұны параметрлерде орындауға болады.</string>
+  <string name="please_support_us_netigen">Осы қолданбаны бағалау арқылы бізге қолдау көрсетіңіз. Рақмет сізге!</string>
+  <string name="settings_normal_netigen">Параметрлер</string>
+  <string name="help_us_survey_netigen">Сауалнаманы толтыру арқылы\nқолданбасын дамытуға көмектесіңіз.\n\nСіздің дауысыңыз да маңызды!</string>
+  <string name="not_now_netigen">Қазір емес</string>
+  <string name="share_thoughts_netigen">Ойларыңызбен бөлісіңіз!</string>
+  <string name="no_internet_netigen">Интернет жоқ</string>
+  <string name="retry_netigen">Қайталау</string>
+  <string name="no_internet_survey_netigen">Интернет байланысын тексеріп, әрекетті қайталаңыз.</string>
 </resources>

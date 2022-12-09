@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Pārlūks nav atrasts !!!</string>
-    <string name="cancel_netigen">Atcelt</string>
-    <string name="change_language_netigen">Mainīt VALODU</string>
-    <string name="translation_information_title_netigen">Tulkošanas informācija</string>
-    <string name="translation_information_content1_netigen">Šo pieteikumu ir tulkojis Google tulkojums. Angļu valoda ir šīs programmas sākotnējā valoda. Lūdzu, atcerieties, ka var būt dažas kļūdas tulkojumā.</string>
-    <string name="translation_information_content2_netigen">Ja vēlaties mainīt lietotnes valodu angļu valodā, jūs varat to izdarīt iestatījumos.</string>
-    <string name="please_support_us_netigen">Lūdzu, atbalstiet mūs, vērtējot šo lietotni. Paldies!</string>
-    <string name="settings_normal_netigen">Iestatījumi</string>
+  <string name="msg_browser_not_found_netigen">Pārlūkprogramma nav atrasta!!!</string>
+  <string name="cancel_netigen">Atcelt</string>
+  <string name="change_language_netigen">Mainīt VALODU</string>
+  <string name="translation_information_title_netigen">Tulkošanas informācija</string>
+  <string name="translation_information_content1_netigen">Šo lietojumprogrammu ir pārtulkojis Google tulkotājs. Šīs lietojumprogrammas oriģinālvaloda ir angļu valoda. Lūdzu, ņemiet vērā, ka tulkojumā var būt dažas kļūdas.</string>
+  <string name="translation_information_content2_netigen">Ja vēlaties mainīt lietotnes valodu uz angļu valodu, varat to izdarīt iestatījumos.</string>
+  <string name="please_support_us_netigen">Lūdzu, atbalstiet mūs, novērtējot šo lietotni. Paldies!</string>
+  <string name="settings_normal_netigen">Iestatījumi</string>
+  <string name="help_us_survey_netigen">Palīdziet mums izstrādāt lietotni\n, aizpildot aptauju.\n\nArī jūsu balss ir svarīga!</string>
+  <string name="not_now_netigen">Ne tagad</string>
+  <string name="share_thoughts_netigen">Dalieties savās domās!</string>
+  <string name="no_internet_netigen">Nav interneta</string>
+  <string name="retry_netigen">Atkārtot</string>
+  <string name="no_internet_survey_netigen">Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
 </resources>

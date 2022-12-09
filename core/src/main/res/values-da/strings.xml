@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Browser ikke fundet !!!</string>
-    <string name="cancel_netigen">Afbestille</string>
-    <string name="change_language_netigen">Skift sprog</string>
-    <string name="translation_information_title_netigen">Oversættelsesoplysninger.</string>
-    <string name="translation_information_content1_netigen">Denne applikation er blevet oversat af Google Translate. Engelsk er det oprindelige sprog i denne ansøgning. Husk at der kunne være nogle fejl i oversættelse.</string>
-    <string name="translation_information_content2_netigen">Hvis du vil ændre appsproget til engelsk, kan du gøre det i indstillinger.</string>
-    <string name="please_support_us_netigen">Venligst støtte os efter vurdering denne app. Tak skal du have!</string>
-    <string name="settings_normal_netigen">Indstillinger.</string>
+  <string name="msg_browser_not_found_netigen">Browser ikke fundet!!!</string>
+  <string name="cancel_netigen">Afbestille</string>
+  <string name="change_language_netigen">Skift sprog</string>
+  <string name="translation_information_title_netigen">Oversættelsesoplysninger</string>
+  <string name="translation_information_content1_netigen">Denne applikation er blevet oversat af Google Translate. Engelsk er originalsproget i denne applikation. Husk, at der kan være nogle fejl i oversættelsen.</string>
+  <string name="translation_information_content2_netigen">Hvis du vil ændre app-sproget til engelsk, kan du gøre det i indstillinger.</string>
+  <string name="please_support_us_netigen">Støt os venligst ved at bedømme denne app. Tak skal du have!</string>
+  <string name="settings_normal_netigen">Indstillinger</string>
+  <string name="help_us_survey_netigen">Hjælp os med at udvikle appen\nved at udfylde undersøgelsen.\n\nDin stemme betyder også noget!</string>
+  <string name="not_now_netigen">Ikke nu</string>
+  <string name="share_thoughts_netigen">Del dine tanker!</string>
+  <string name="no_internet_netigen">Intet internet</string>
+  <string name="retry_netigen">Prøve igen</string>
+  <string name="no_internet_survey_netigen">Tjek venligst din internetforbindelse og prøv igen.</string>
 </resources>

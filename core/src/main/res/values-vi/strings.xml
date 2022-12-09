@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Không tìm thấy trình duyệt !!!</string>
-    <string name="cancel_netigen">Hủy bỏ</string>
-    <string name="change_language_netigen">Thay đổi ngôn ngữ</string>
-    <string name="translation_information_title_netigen">Thông tin dịch</string>
-    <string name="translation_information_content1_netigen">Ứng dụng này đã được dịch bởi Google Dịch. Tiếng Anh là ngôn ngữ ban đầu của ứng dụng này. Hãy nhớ rằng có thể có một số sai lầm trong dịch thuật.</string>
-    <string name="translation_information_content2_netigen">Nếu bạn muốn thay đổi ngôn ngữ ứng dụng sang tiếng Anh, bạn có thể làm như vậy trong Cài đặt.</string>
-    <string name="please_support_us_netigen">Vui lòng hỗ trợ chúng tôi bằng cách đánh giá ứng dụng này. Cảm ơn bạn!</string>
-    <string name="settings_normal_netigen">Cài đặt</string>
+  <string name="msg_browser_not_found_netigen">Không tìm thấy trình duyệt!!!</string>
+  <string name="cancel_netigen">Hủy bỏ</string>
+  <string name="change_language_netigen">Thay đổi ngôn ngữ</string>
+  <string name="translation_information_title_netigen">Thông tin dịch thuật</string>
+  <string name="translation_information_content1_netigen">Ứng dụng này đã được dịch bởi Google Dịch. Tiếng Anh là ngôn ngữ gốc của ứng dụng này. Xin hãy nhớ rằng có thể có một số sai sót trong bản dịch.</string>
+  <string name="translation_information_content2_netigen">Nếu bạn muốn thay đổi ngôn ngữ ứng dụng sang tiếng Anh, bạn có thể làm như vậy trong phần cài đặt.</string>
+  <string name="please_support_us_netigen">Hãy ủng hộ chúng tôi bằng cách đánh giá ứng dụng này. Cảm ơn bạn!</string>
+  <string name="settings_normal_netigen">Cài đặt</string>
+  <string name="help_us_survey_netigen">Hãy giúp chúng tôi phát triển ứng dụng\nbằng cách hoàn thành bản khảo sát.\n\nGiọng nói của bạn cũng quan trọng!</string>
+  <string name="not_now_netigen">Không phải bây giờ</string>
+  <string name="share_thoughts_netigen">Chia sẻ những suy nghĩ của bạn!</string>
+  <string name="no_internet_netigen">Không có mạng</string>
+  <string name="retry_netigen">Thử lại</string>
+  <string name="no_internet_survey_netigen">Vui lòng kiểm tra kết nối Internet của bạn và thử lại.</string>
 </resources>

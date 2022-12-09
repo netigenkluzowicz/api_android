@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Brskalnik ni na voljo !!!</string>
-    <string name="cancel_netigen">Prekliči</string>
-    <string name="change_language_netigen">Spremeni jezik</string>
-    <string name="translation_information_title_netigen">Informacije za prevajanje</string>
-    <string name="translation_information_content1_netigen">Ta aplikacija je prevedena Google Translates. Angleščina je izvirni jezik te aplikacije. Ne pozabite, da bi lahko bilo nekaj napak v prevodu.</string>
-    <string name="translation_information_content2_netigen">Če želite spremeniti jezik aplikacije v angleščino, lahko to storite v nastavitvah.</string>
-    <string name="please_support_us_netigen">Prosimo, podprite nas z oceno te aplikacije. Hvala vam!</string>
-    <string name="settings_normal_netigen">Nastavitve</string>
+  <string name="msg_browser_not_found_netigen">Brskalnik ni bil najden!!!</string>
+  <string name="cancel_netigen">Odpovedati</string>
+  <string name="change_language_netigen">Spremeni jezik</string>
+  <string name="translation_information_title_netigen">Informacije o prevodu</string>
+  <string name="translation_information_content1_netigen">To aplikacijo je prevedel Google Prevajalnik. Angleščina je izvirni jezik te aplikacije. Ne pozabite, da lahko pride do napak v prevodu.</string>
+  <string name="translation_information_content2_netigen">Če želite spremeniti jezik aplikacije v angleščino, lahko to storite v nastavitvah.</string>
+  <string name="please_support_us_netigen">Podprite nas tako, da ocenite to aplikacijo. Hvala vam!</string>
+  <string name="settings_normal_netigen">Nastavitve</string>
+  <string name="help_us_survey_netigen">Pomagajte nam razviti aplikacijo\ntako, da izpolnite anketo.\n\nTudi vaš glas je pomemben!</string>
+  <string name="not_now_netigen">Ne zdaj</string>
+  <string name="share_thoughts_netigen">Delite svoje misli!</string>
+  <string name="no_internet_netigen">Brez interneta</string>
+  <string name="retry_netigen">Poskusite</string>
+  <string name="no_internet_survey_netigen">Preverite internetno povezavo in poskusite znova.</string>
 </resources>

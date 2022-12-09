@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Tarayıcı bulunamadı !!!</string>
-    <string name="cancel_netigen">İptal</string>
-    <string name="change_language_netigen">Dili değiştir</string>
-    <string name="translation_information_title_netigen">Çeviri bilgileri</string>
-    <string name="translation_information_content1_netigen">Bu uygulama Google Translate tarafından çevrilmiştir. İngilizce bu uygulamanın orijinal dilidir. Lütfen çeviride bazı hatalar olabileceğini unutmayın.</string>
-    <string name="translation_information_content2_netigen">Uygulama dilini İngilizce olarak değiştirmek istiyorsanız, ayarlarda yapabilirsiniz.</string>
-    <string name="please_support_us_netigen">Lütfen bu uygulamayı derecelendirerek bize destek verin. Teşekkürler!</string>
-    <string name="settings_normal_netigen">Ayarlar</string>
+  <string name="msg_browser_not_found_netigen">Tarayıcı bulunamadı!!!</string>
+  <string name="cancel_netigen">İptal</string>
+  <string name="change_language_netigen">Dili değiştir</string>
+  <string name="translation_information_title_netigen">Çeviri bilgileri</string>
+  <string name="translation_information_content1_netigen">Bu uygulama Google Translate tarafından çevrilmiştir. İngilizce bu uygulamanın orijinal dilidir. Lütfen çeviride bazı hatalar olabileceğini unutmayın.</string>
+  <string name="translation_information_content2_netigen">Uygulama dilini İngilizce olarak değiştirmek isterseniz, bunu ayarlardan yapabilirsiniz.</string>
+  <string name="please_support_us_netigen">Lütfen bu uygulamayı derecelendirerek bizi destekleyin. Teşekkürler!</string>
+  <string name="settings_normal_netigen">Ayarlar</string>
+  <string name="help_us_survey_netigen">Anketi tamamlayarak\nuygulamasını geliştirmemize yardımcı olun.\n\nSesiniz de önemli!</string>
+  <string name="not_now_netigen">Şimdi değil</string>
+  <string name="share_thoughts_netigen">Düşüncelerini paylaş!</string>
+  <string name="no_internet_netigen">İnternet yok</string>
+  <string name="retry_netigen">Tekrarlamak</string>
+  <string name="no_internet_survey_netigen">Lütfen İnternet bağlantınızı kontrol edin ve tekrar deneyin.</string>
 </resources>

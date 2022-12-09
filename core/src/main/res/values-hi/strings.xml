@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">ब्राउज़र नहीं मिला !!!</string>
-    <string name="cancel_netigen">रद्द करना</string>
-    <string name="change_language_netigen">भाषा बदलो</string>
-    <string name="translation_information_title_netigen">अनुवाद जानकारी</string>
-    <string name="translation_information_content1_netigen">इस एप्लिकेशन का अनुवाद Google अनुवाद द्वारा किया गया है। अंग्रेजी इस आवेदन की मूल भाषा है। कृपया याद रखें कि अनुवाद में कुछ गलतियां हो सकती हैं।</string>
-    <string name="translation_information_content2_netigen">यदि आप ऐप भाषा को अंग्रेजी में बदलना चाहते हैं तो आप सेटिंग्स में ऐसा कर सकते हैं।</string>
-    <string name="please_support_us_netigen">कृपया इस ऐप को रेटिंग करके हमें समर्थन दें। शुक्रिया!</string>
-    <string name="settings_normal_netigen">समायोजन</string>
+  <string name="msg_browser_not_found_netigen">ब्राउज़र नहीं मिला!!!</string>
+  <string name="cancel_netigen">रद्द करना</string>
+  <string name="change_language_netigen">भाषा बदलो</string>
+  <string name="translation_information_title_netigen">अनुवाद की जानकारी</string>
+  <string name="translation_information_content1_netigen">इस एप्लिकेशन का अनुवाद Google अनुवाद द्वारा किया गया है। अंग्रेजी इस एप्लिकेशन की मूल भाषा है। कृपया याद रखें कि अनुवाद में कुछ गलतियाँ हो सकती हैं।</string>
+  <string name="translation_information_content2_netigen">अगर आप ऐप की भाषा को अंग्रेजी में बदलना चाहते हैं तो आप सेटिंग्स में ऐसा कर सकते हैं।</string>
+  <string name="please_support_us_netigen">कृपया इस ऐप को रेटिंग देकर हमारा समर्थन करें। आपको धन्यवाद!</string>
+  <string name="settings_normal_netigen">समायोजन</string>
+  <string name="help_us_survey_netigen">सर्वे पूरा करके\nऐप को विकसित करने में हमारी मदद करें।\n\nआपकी आवाज भी मायने रखती है!</string>
+  <string name="not_now_netigen">अभी नहीं</string>
+  <string name="share_thoughts_netigen">अपने विचारों को साझा करें!</string>
+  <string name="no_internet_netigen">इंटरनेट नहीं है</string>
+  <string name="retry_netigen">पुन: प्रयास करें</string>
+  <string name="no_internet_survey_netigen">कृपया, अपने इंटरनेट कनेक्शन की जाँच करें और पुनः प्रयास करें।</string>
 </resources>
