@@ -15,12 +15,17 @@ sealed class SurveyEvent {
     abstract val action: String
 
     /**
-     * Represents event from WebView Survey called when user quits or finishes survey
+     * Represents event from WebView Survey called when fragment should be closed
      */
     abstract class ExitEvent : SurveyEvent()
 
     /**
-     * Represents event from WebView Survey called when user quits survey
+     * Represents event when user exits error dialog
+     */
+    data class QuitFromError(override val action: String = "QuitFromError") : ExitEvent()
+
+    /**
+     * Represents event from WebView Survey called when user quits survey without finishing it
      * @param action action name, it's "QUIT_YES"
      * @param survey id of survey
      * @param question index of last showed question
