@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import okhttp3.internal.cache2.Relay.Companion.edit
 import pl.netigen.core.R
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
@@ -102,9 +103,13 @@ class Survey private constructor(
          */
         @SuppressLint("SetJavaScriptEnabled")
         fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyAction: SurveyEvent) -> Unit) {
-            webView.settings.javaScriptEnabled = true
-            webView.addJavascriptInterface(SurveyInterface(onNextAction), interfaceName)
             val context = webView.context
+            webView.settings.javaScriptEnabled = true
+            val action: (surveyAction: SurveyEvent) -> Unit = {
+                onNextAction(it)
+                if (it is SurveyEvent.Finish) saveAsFinished(context)
+            }
+            webView.addJavascriptInterface(SurveyInterface(action), interfaceName)
             val packageName = context.packageName
             val locale = ChangeLanguageHelper.getCurrentAppLocale(context)
             val apiLink = SURVEY_API_LINK
@@ -121,9 +126,14 @@ class Survey private constructor(
             }
         }
 
+        private fun saveAsFinished(context: Context) {
+            context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+                .edit().putBoolean(KEY_SURVEY_OPEN, false).apply()
+        }
+
         private fun showErrorInfo(
             webView: WebView,
-            context: Context?,
+            context: Context,
             onNextAction: (surveyAction: SurveyEvent) -> Unit,
             url: String,
             parentView: ViewGroup,
