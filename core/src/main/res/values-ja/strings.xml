@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">ブラウザが見つかりません！</string>
-    <string name="cancel_netigen">キャンセル</string>
-    <string name="change_language_netigen">言語を変更</string>
-    <string name="translation_information_title_netigen">翻訳情報</string>
-    <string name="translation_information_content1_netigen">このアプリケーションはGoogle Translateによって翻訳されました。 英語はこのアプリケーションの元の言語です。 翻訳にいくつかの間違いがある可能性があることを忘れないでください。</string>
-    <string name="translation_information_content2_netigen">アプリの言語を英語に変更したい場合は、設定で行うことができます。</string>
-    <string name="please_support_us_netigen">このアプリを評価することによって私たちをサポートしてください。 ありがとうございました！</string>
-    <string name="settings_normal_netigen">設定</string>
+  <string name="msg_browser_not_found_netigen">ブラウザが見つかりません!!!</string>
+  <string name="cancel_netigen">キャンセル</string>
+  <string name="change_language_netigen">言語を変更</string>
+  <string name="translation_information_title_netigen">翻訳情報</string>
+  <string name="translation_information_content1_netigen">このアプリケーションは、Google 翻訳によって翻訳されています。このアプリケーションの元の言語は英語です。翻訳に誤りがあるかもしれませんが、ご了承ください。</string>
+  <string name="translation_information_content2_netigen">アプリの言語を英語に変更したい場合は、設定で変更できます。</string>
+  <string name="please_support_us_netigen">このアプリを評価してサポートしてください。ありがとうございました！</string>
+  <string name="settings_normal_netigen">設定</string>
+  <string name="help_us_survey_netigen">アンケートに回答して、アプリ\nの開発にご協力ください。 SPEC1 SPEC2 あなたの声も大事！</string>
+  <string name="not_now_netigen">今はやめろ</string>
+  <string name="share_thoughts_netigen">考えを共有する！</string>
+  <string name="no_internet_netigen">インターネットなし</string>
+  <string name="retry_netigen">リトライ</string>
+  <string name="no_internet_survey_netigen">インターネット接続を確認して、再試行してください。</string>
 </resources>

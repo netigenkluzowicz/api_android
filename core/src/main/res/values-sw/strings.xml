@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Kivinjari haipatikani !!!</string>
-    <string name="cancel_netigen">Futa.</string>
-    <string name="change_language_netigen">Badilisha lugha</string>
-    <string name="translation_information_title_netigen">Taarifa ya tafsiri</string>
-    <string name="translation_information_content1_netigen">Programu hii imetafsiriwa na Google Tafsiri. Kiingereza ni lugha ya awali ya programu hii. Tafadhali kumbuka kwamba kunaweza kuwa na makosa fulani katika tafsiri.</string>
-    <string name="translation_information_content2_netigen">Ikiwa unataka kubadilisha lugha ya programu kwa Kiingereza unaweza kufanya hivyo katika mipangilio.</string>
-    <string name="please_support_us_netigen">Tafadhali tusaidie kwa rating programu hii. Asante!</string>
-    <string name="settings_normal_netigen">Mipangilio</string>
+  <string name="msg_browser_not_found_netigen">Kivinjari hakipatikani!!!</string>
+  <string name="cancel_netigen">Ghairi</string>
+  <string name="change_language_netigen">Badilisha lugha</string>
+  <string name="translation_information_title_netigen">Maelezo ya tafsiri</string>
+  <string name="translation_information_content1_netigen">Programu hii imetafsiriwa na Google Tafsiri. Kiingereza ndio lugha asili ya programu hii. Tafadhali kumbuka kuwa kunaweza kuwa na makosa katika tafsiri.</string>
+  <string name="translation_information_content2_netigen">Ikiwa unataka kubadilisha lugha ya programu hadi Kiingereza unaweza kufanya hivyo katika mipangilio.</string>
+  <string name="please_support_us_netigen">Tafadhali tuunge mkono kwa kukadiria programu hii. Asante!</string>
+  <string name="settings_normal_netigen">Mipangilio</string>
+  <string name="help_us_survey_netigen">Tusaidie kukuza programu\nkwa kukamilisha utafiti.\n\nSauti yako ni muhimu pia!</string>
+  <string name="not_now_netigen">Sio kwa sasa</string>
+  <string name="share_thoughts_netigen">Shiriki mawazo yako!</string>
+  <string name="no_internet_netigen">Hakuna Mtandao</string>
+  <string name="retry_netigen">Jaribu tena</string>
+  <string name="no_internet_survey_netigen">Tafadhali, angalia muunganisho wako wa Mtandao na ujaribu tena.</string>
 </resources>

@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Prohlížeč nebyl nalezen !!!</string>
-    <string name="cancel_netigen">zrušení</string>
-    <string name="change_language_netigen">Změnit jazyk</string>
-    <string name="translation_information_title_netigen">Informace o překladu</string>
-    <string name="translation_information_content1_netigen">Tato aplikace byla přeložena Google Translate. Angličtina je původním jazykem této aplikace. Nezapomeňte, že by v překladu mohly být nějaké chyby.</string>
-    <string name="translation_information_content2_netigen">Pokud chcete změnit jazyk aplikace do angličtiny, můžete tak učinit v nastavení.</string>
-    <string name="please_support_us_netigen">Prosím, podpořte nás podle hodnocení této aplikace. Děkuju!</string>
-    <string name="settings_normal_netigen">Nastavení</string>
+  <string name="msg_browser_not_found_netigen">Prohlížeč nenalezen!!!</string>
+  <string name="cancel_netigen">zrušení</string>
+  <string name="change_language_netigen">Změnit jazyk</string>
+  <string name="translation_information_title_netigen">Informace o překladu</string>
+  <string name="translation_information_content1_netigen">Tato aplikace byla přeložena službou Google Translate. Angličtina je původním jazykem této aplikace. Pamatujte, že v překladu mohou být nějaké chyby.</string>
+  <string name="translation_information_content2_netigen">Pokud chcete změnit jazyk aplikace na angličtinu, můžete tak učinit v nastavení.</string>
+  <string name="please_support_us_netigen">Podpořte nás hodnocením této aplikace. Děkuji!</string>
+  <string name="settings_normal_netigen">Nastavení</string>
+  <string name="help_us_survey_netigen">Pomozte nám vyvinout aplikaci\nvyplněním průzkumu.\n\nNa vašem hlasu také záleží!</string>
+  <string name="not_now_netigen">Teď ne</string>
+  <string name="share_thoughts_netigen">Sdílej svoje myšlenky!</string>
+  <string name="no_internet_netigen">Žádný internet</string>
+  <string name="retry_netigen">Opakovat</string>
+  <string name="no_internet_survey_netigen">Zkontrolujte prosím své internetové připojení a zkuste to znovu.</string>
 </resources>

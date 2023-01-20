@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Naršyklė nerasta !!!</string>
-    <string name="cancel_netigen">Atšaukti</string>
-    <string name="change_language_netigen">Pakeisti KALBĄ</string>
-    <string name="translation_information_title_netigen">Vertimas</string>
-    <string name="translation_information_content1_netigen">Ši programa buvo išversta "Google" versti. Anglų kalba yra pradinė šios programos kalba. Atminkite, kad vertimo metu gali būti klaidų.</string>
-    <string name="translation_information_content2_netigen">Jei norite pakeisti programos kalbą į anglų kalbą, galite tai padaryti nustatymuose.</string>
-    <string name="please_support_us_netigen">Prašome palaikyti mus pagal šią programą. Ačiū!</string>
-    <string name="settings_normal_netigen">Nustatymai. \ T</string>
+  <string name="msg_browser_not_found_netigen">Naršyklė nerasta!!!</string>
+  <string name="cancel_netigen">Atšaukti</string>
+  <string name="change_language_netigen">Pakeisti KALBĄ</string>
+  <string name="translation_information_title_netigen">Vertimo informacija</string>
+  <string name="translation_information_content1_netigen">Šią programą išvertė „Google“ vertėjas. Anglų kalba yra originali šios programos kalba. Atminkite, kad vertime gali būti klaidų.</string>
+  <string name="translation_information_content2_netigen">Jei norite pakeisti programos kalbą į anglų, tai galite padaryti nustatymuose.</string>
+  <string name="please_support_us_netigen">Prašome palaikyti mus įvertindami šią programą. Ačiū!</string>
+  <string name="settings_normal_netigen">Nustatymai</string>
+  <string name="help_us_survey_netigen">Padėkite mums sukurti programą\nužpildydami apklausą.\n\nJūsų balsas taip pat svarbus!</string>
+  <string name="not_now_netigen">Ne dabar</string>
+  <string name="share_thoughts_netigen">Pasidalinkite savo mintimis!</string>
+  <string name="no_internet_netigen">Nėra interneto</string>
+  <string name="retry_netigen">Bandyti</string>
+  <string name="no_internet_survey_netigen">Patikrinkite interneto ryšį ir bandykite dar kartą.</string>
 </resources>

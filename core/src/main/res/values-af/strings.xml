@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Browser nie gevind nie !!!</string>
-    <string name="cancel_netigen">Kanselleer</string>
-    <string name="change_language_netigen">Verander taal</string>
-    <string name="translation_information_title_netigen">Vertaalinligting</string>
-    <string name="translation_information_content1_netigen">Hierdie aansoek is vertaal deur Google Translate. Engels is die oorspronklike taal van hierdie aansoek. Onthou asseblief dat daar \'n paar foute in vertaling kan wees.</string>
-    <string name="translation_information_content2_netigen">As jy die app taal na Engels wil verander, kan jy dit in instellings doen.</string>
-    <string name="please_support_us_netigen">Ondersteun ons asseblief deur hierdie program te beoordeel. Dankie!</string>
-    <string name="settings_normal_netigen">Instelling</string>
+  <string name="msg_browser_not_found_netigen">Blaaier nie gevind nie!!!</string>
+  <string name="cancel_netigen">Kanselleer</string>
+  <string name="change_language_netigen">Verander taal</string>
+  <string name="translation_information_title_netigen">Vertaling inligting</string>
+  <string name="translation_information_content1_netigen">Hierdie toepassing is deur Google Translate vertaal. Engels is die oorspronklike taal van hierdie aansoek. Onthou asseblief dat daar\npaar foute in vertaling kan wees.</string>
+  <string name="translation_information_content2_netigen">As jy die programtaal na Engels wil verander, kan jy dit in instellings doen.</string>
+  <string name="please_support_us_netigen">Ondersteun ons asseblief deur hierdie toepassing te beoordeel. Dankie!</string>
+  <string name="settings_normal_netigen">Instellings</string>
+  <string name="help_us_survey_netigen">Help ons om die toepassing\nte ontwikkel deur die opname te voltooi.\n\nJou stem maak ook saak!</string>
+  <string name="not_now_netigen">Nie nou nie</string>
+  <string name="share_thoughts_netigen">Deel jou gedagtes!</string>
+  <string name="no_internet_netigen">Geen internet nie</string>
+  <string name="retry_netigen">Probeer weer</string>
+  <string name="no_internet_survey_netigen">Gaan asseblief jou internetverbinding na en probeer weer.</string>
 </resources>

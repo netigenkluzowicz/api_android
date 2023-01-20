@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Isiphequluli asitholakali !!!</string>
-    <string name="cancel_netigen">Hlikihla</string>
-    <string name="change_language_netigen">Shintsha ulimi</string>
-    <string name="translation_information_title_netigen">Imininingwane yokuhumusha</string>
-    <string name="translation_information_content1_netigen">Lolu hlelo lokusebenza luhunyushwe yi-Google Humusha. IsiNgisi ulimi lwangempela lwalolu hlelo lokusebenza. Uyacelwa ukuthi ukhumbule ukuthi kungahle kube namaphutha athile ekuhumusheni.</string>
-    <string name="translation_information_content2_netigen">Uma ufuna ukushintsha ulimi lwe-app libe isiNgisi ungakwenza lokho kuzilungiselelo.</string>
-    <string name="please_support_us_netigen">Sicela usisekele ngokulinganisa lolu hlelo lokusebenza. Ngiyabonga!</string>
-    <string name="settings_normal_netigen">Amasethingi</string>
+  <string name="msg_browser_not_found_netigen">Isiphequluli asitholakali!!!</string>
+  <string name="cancel_netigen">Hlikihla</string>
+  <string name="change_language_netigen">Shintsha ulimi</string>
+  <string name="translation_information_title_netigen">Ulwazi lokuhumusha</string>
+  <string name="translation_information_content1_netigen">Lolu hlelo lokusebenza luhunyushwe yi-Google Translate. IsiNgisi siwulimi lokuqala lwalolu hlelo lokusebenza. Sicela ukhumbule ukuthi kungase kube namaphutha ekuhumusheni.</string>
+  <string name="translation_information_content2_netigen">Uma ufuna ukushintsha ulimi lohlelo lokusebenza lube yisiNgisi ungakwenza lokho kuzilungiselelo.</string>
+  <string name="please_support_us_netigen">Sicela usisekele ngokulinganisa lolu hlelo lokusebenza. Ngiyabonga!</string>
+  <string name="settings_normal_netigen">Amasethingi</string>
+  <string name="help_us_survey_netigen">Sisize sithuthukise uhlelo lokusebenza\nngokuqedela inhlolovo.\n\nIzwi lakho libalulekile futhi!</string>
+  <string name="not_now_netigen">Hhayi manje</string>
+  <string name="share_thoughts_netigen">Yabelana ngemicabango yakho!</string>
+  <string name="no_internet_netigen">Ayikho i-inthanethi</string>
+  <string name="retry_netigen">MuntuLALA</string>
+  <string name="no_internet_survey_netigen">Sicela, uhlole uxhumano lwakho lwe-inthanethi bese uzama futhi.</string>
 </resources>

@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Pelayar tidak dijumpai !!!</string>
-    <string name="cancel_netigen">Membatalkan</string>
-    <string name="change_language_netigen">Tukar bahasa</string>
-    <string name="translation_information_title_netigen">Maklumat terjemahan</string>
-    <string name="translation_information_content1_netigen">Aplikasi ini telah diterjemahkan oleh Terjemahan Google. Bahasa Inggeris adalah bahasa asal aplikasi ini. Sila ingat bahawa terdapat beberapa kesilapan dalam terjemahan.</string>
-    <string name="translation_information_content2_netigen">Jika anda ingin menukar bahasa aplikasi ke Bahasa Inggeris, anda boleh melakukannya dalam Tetapan.</string>
-    <string name="please_support_us_netigen">Sila menyokong kami dengan menilai aplikasi ini. Terima kasih!</string>
-    <string name="settings_normal_netigen">Tetapan</string>
+  <string name="msg_browser_not_found_netigen">Pelayar tidak ditemui!!!</string>
+  <string name="cancel_netigen">Batalkan</string>
+  <string name="change_language_netigen">Tukar bahasa</string>
+  <string name="translation_information_title_netigen">Maklumat terjemahan</string>
+  <string name="translation_information_content1_netigen">Aplikasi ini telah diterjemahkan oleh Google Translate. Bahasa Inggeris adalah bahasa asal aplikasi ini. Sila ingat bahawa mungkin terdapat beberapa kesilapan dalam terjemahan.</string>
+  <string name="translation_information_content2_netigen">Jika anda ingin menukar bahasa apl kepada bahasa Inggeris, anda boleh berbuat demikian dalam tetapan.</string>
+  <string name="please_support_us_netigen">Sila sokong kami dengan menilai aplikasi ini. Terima kasih!</string>
+  <string name="settings_normal_netigen">Tetapan</string>
+  <string name="help_us_survey_netigen">Bantu kami membangunkan apl\ndengan melengkapkan tinjauan.\n\nSuara anda juga penting!</string>
+  <string name="not_now_netigen">Bukan sekarang</string>
+  <string name="share_thoughts_netigen">Kongsi pendapat anda!</string>
+  <string name="no_internet_netigen">Tiada Internet</string>
+  <string name="retry_netigen">Cuba semula</string>
+  <string name="no_internet_survey_netigen">Sila semak sambungan Internet anda dan cuba semula.</string>
 </resources>

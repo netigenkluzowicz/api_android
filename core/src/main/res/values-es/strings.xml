@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Navegador no encontrado !!!</string>
-    <string name="cancel_netigen">Cancelar</string>
-    <string name="change_language_netigen">Cambiar idioma</string>
-    <string name="translation_information_title_netigen">Información de traducción</string>
-    <string name="translation_information_content1_netigen">Esta aplicación ha sido traducida por el traductor de Google. El inglés es el idioma original de esta solicitud. Por favor, recuerde que podría haber algunos errores en la traducción.</string>
-    <string name="translation_information_content2_netigen">Si desea cambiar el idioma de la aplicación al inglés, puede hacerlo en la configuración.</string>
-    <string name="please_support_us_netigen">Por favor, ayúdenos por calificar esta aplicación. ¡Gracias!</string>
-    <string name="settings_normal_netigen">Ajustes</string>
+  <string name="msg_browser_not_found_netigen">¡Navegador no encontrado!</string>
+  <string name="cancel_netigen">Cancelar</string>
+  <string name="change_language_netigen">Cambiar idioma</string>
+  <string name="translation_information_title_netigen">Información de traducción</string>
+  <string name="translation_information_content1_netigen">Esta aplicación ha sido traducida por Google Translate. El inglés es el idioma original de esta aplicación. Recuerde que puede haber algunos errores en la traducción.</string>
+  <string name="translation_information_content2_netigen">Si desea cambiar el idioma de la aplicación a inglés, puede hacerlo en la configuración.</string>
+  <string name="please_support_us_netigen">Por favor apóyanos calificando esta aplicación. ¡Gracias!</string>
+  <string name="settings_normal_netigen">Ajustes</string>
+  <string name="help_us_survey_netigen">Ayúdanos a desarrollar la aplicación\ncompletando la encuesta.\n\n¡Tu voz también importa!</string>
+  <string name="not_now_netigen">no ahora</string>
+  <string name="share_thoughts_netigen">¡Comparte tus pensamientos!</string>
+  <string name="no_internet_netigen">Sin internet</string>
+  <string name="retry_netigen">Rever</string>
+  <string name="no_internet_survey_netigen">Por favor, comprueba tu conexión a Internet y vuelve a intentarlo.</string>
 </resources>

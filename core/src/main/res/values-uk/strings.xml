@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Браузер не знайдено !!!</string>
-    <string name="cancel_netigen">Скасувати</string>
-    <string name="change_language_netigen">Змінити мову</string>
-    <string name="translation_information_title_netigen">Інформація про переклад</string>
-    <string name="translation_information_content1_netigen">Ця програма була перекладена компанією Google Translate. Англійська мова - це оригінальна мова цієї програми. Будь ласка, пам\'ятайте, що в перекладі можуть бути деякі помилки.</string>
-    <string name="translation_information_content2_netigen">Якщо ви хочете змінити мову програми для англійської мови, ви можете зробити це у налаштуваннях.</string>
-    <string name="please_support_us_netigen">Будь ласка, підтримуйте нас за допомогою цього додатка. Дякую!</string>
-    <string name="settings_normal_netigen">Налаштування</string>
+  <string name="msg_browser_not_found_netigen">Браузер не знайдено!!!</string>
+  <string name="cancel_netigen">Скасувати</string>
+  <string name="change_language_netigen">Змінити мову</string>
+  <string name="translation_information_title_netigen">Інформація про переклад</string>
+  <string name="translation_information_content1_netigen">Ця програма була перекладена Google Translate. Англійська є мовою оригіналу цієї програми. Пам\'ятайте, що в перекладі можуть бути деякі помилки.</string>
+  <string name="translation_information_content2_netigen">Якщо ви хочете змінити мову програми на англійську, це можна зробити в налаштуваннях.</string>
+  <string name="please_support_us_netigen">Підтримайте нас, оцінивши цю програму. Дякую!</string>
+  <string name="settings_normal_netigen">Налаштування</string>
+  <string name="help_us_survey_netigen">Допоможіть нам розробити програму\n, заповнивши опитування.\n\nВаш голос також має значення!</string>
+  <string name="not_now_netigen">Не зараз</string>
+  <string name="share_thoughts_netigen">Поділіться своїми думками!</string>
+  <string name="no_internet_netigen">Немає Інтернету</string>
+  <string name="retry_netigen">Повторити</string>
+  <string name="no_internet_survey_netigen">Перевірте підключення до Інтернету та повторіть спробу.</string>
 </resources>

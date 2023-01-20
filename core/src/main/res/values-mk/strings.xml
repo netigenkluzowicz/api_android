@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Прелистувачот не е пронајден !!!</string>
-    <string name="cancel_netigen">Откажи</string>
-    <string name="change_language_netigen">Промени го јазикот</string>
-    <string name="translation_information_title_netigen">Информации за превод</string>
-    <string name="translation_information_content1_netigen">Оваа апликација е преведено од Google Translate. Англискиот е оригиналниот јазик на оваа апликација. Ве молиме запомнете дека може да има некои грешки во преводот.</string>
-    <string name="translation_information_content2_netigen">Ако сакате да го промените јазикот на апликацијата на англиски јазик можете да го направите тоа во поставките.</string>
-    <string name="please_support_us_netigen">Ве молиме поднесете ни со рејтинг оваа апликација. Ви благодарам!</string>
-    <string name="settings_normal_netigen">Поставки</string>
+  <string name="msg_browser_not_found_netigen">Прелистувачот не е пронајден!!!</string>
+  <string name="cancel_netigen">Откажи</string>
+  <string name="change_language_netigen">Промени го јазикот</string>
+  <string name="translation_information_title_netigen">Информации за превод</string>
+  <string name="translation_information_content1_netigen">Оваа апликација е преведена од Google Translate. Англискиот е оригиналниот јазик на оваа апликација. Запомнете дека може да има некои грешки во преводот.</string>
+  <string name="translation_information_content2_netigen">Ако сакате да го промените јазикот на апликацијата на англиски, можете да го направите тоа во поставките.</string>
+  <string name="please_support_us_netigen">Ве молиме поддржете не со оценување на оваа апликација. Ви благодарам!</string>
+  <string name="settings_normal_netigen">Поставки</string>
+  <string name="help_us_survey_netigen">Помогнете ни да ја развиеме апликацијата\nсо пополнување на анкетата.\n\nВашиот глас исто така е важен!</string>
+  <string name="not_now_netigen">Не сега</string>
+  <string name="share_thoughts_netigen">Споделете ги вашите размислувања!</string>
+  <string name="no_internet_netigen">Нема интернет</string>
+  <string name="retry_netigen">Повторно обидете се</string>
+  <string name="no_internet_survey_netigen">Ве молиме, проверете ја вашата интернет-врска и обидете се повторно.</string>
 </resources>

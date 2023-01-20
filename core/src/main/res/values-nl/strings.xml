@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">Browser niet gevonden !!!</string>
-    <string name="cancel_netigen">Annuleren</string>
-    <string name="change_language_netigen">Verander de taal</string>
-    <string name="translation_information_title_netigen">Vertaalinformatie</string>
-    <string name="translation_information_content1_netigen">Deze applicatie is vertaald door Google Translate. Engels is de oorspronkelijke taal van deze applicatie. Vergeet niet dat er wat fouten in vertaling kunnen zijn.</string>
-    <string name="translation_information_content2_netigen">Als u de app-taal naar het Engels wilt wijzigen, kunt u dit doen in instellingen.</string>
-    <string name="please_support_us_netigen">Steun ons door deze app te beoordelen. Bedankt!</string>
-    <string name="settings_normal_netigen">Instellingen</string>
+  <string name="msg_browser_not_found_netigen">Browser niet gevonden!!!</string>
+  <string name="cancel_netigen">Annuleren</string>
+  <string name="change_language_netigen">Taal wijzigen</string>
+  <string name="translation_information_title_netigen">Vertaling informatie</string>
+  <string name="translation_information_content1_netigen">Deze applicatie is vertaald door Google Translate. Engels is de originele taal van deze applicatie. Houd er rekening mee dat er fouten in de vertaling kunnen zitten.</string>
+  <string name="translation_information_content2_netigen">Als u de app-taal wilt wijzigen in Engels, kunt u dit doen in de instellingen.</string>
+  <string name="please_support_us_netigen">Steun ons alstublieft door deze app te beoordelen. Dank je!</string>
+  <string name="settings_normal_netigen">Instellingen</string>
+  <string name="help_us_survey_netigen">Help ons de app\nte ontwikkelen door de enquête in te vullen.\n\nUw stem doet er ook toe!</string>
+  <string name="not_now_netigen">Niet nu</string>
+  <string name="share_thoughts_netigen">Deel je gedachten!</string>
+  <string name="no_internet_netigen">Geen internet</string>
+  <string name="retry_netigen">Opnieuw proberen</string>
+  <string name="no_internet_survey_netigen">Controleer uw internetverbinding en probeer het opnieuw.</string>
 </resources>

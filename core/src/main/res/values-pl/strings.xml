@@ -8,4 +8,12 @@
     <string name="translation_information_content2_netigen">Jeśli chcesz zmienić język aplikacji na angielski, możesz to zrobić w ustawieniach.</string>
     <string name="please_support_us_netigen">Wesprzyj nas, oceniając tę aplikację. Dziękujemy!</string>
     <string name="settings_normal_netigen">Ustawienia</string>
+
+
+    <string name="help_us_survey_netigen">Pomoż nam rozwijać aplikację,\nuzupełniając ankietę.\n\nTwoje zdanie ma znaczenie!</string>
+    <string name="not_now_netigen">Nie teraz</string>
+    <string name="share_thoughts_netigen">Podziel się swoimi przemyśleniami!</string>
+    <string name="no_internet_netigen">Brak Internetu</string>
+    <string name="retry_netigen">Spróbuj ponownie</string>
+    <string name="no_internet_survey_netigen">Sprawdź połączenie z Internetem i spróbuj ponownie</string>
 </resources>

@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">مرورگر یافت نشد !!!</string>
-    <string name="cancel_netigen">لغو کردن</string>
-    <string name="change_language_netigen">تغییر زبان</string>
-    <string name="translation_information_title_netigen">اطلاعات ترجمه</string>
-    <string name="translation_information_content1_netigen">این برنامه توسط Google Translate ترجمه شده است. انگلیسی زبان اصلی این برنامه است. لطفا به یاد داشته باشید که برخی از اشتباهات در ترجمه وجود دارد.</string>
-    <string name="translation_information_content2_netigen">اگر می خواهید زبان برنامه را به زبان انگلیسی تغییر دهید، می توانید این کار را در تنظیمات انجام دهید.</string>
-    <string name="please_support_us_netigen">لطفا با امتیاز این برنامه از ما حمایت کنید. متشکرم!</string>
-    <string name="settings_normal_netigen">تنظیمات</string>
+  <string name="msg_browser_not_found_netigen">مرورگر پیدا نشد!!!</string>
+  <string name="cancel_netigen">لغو کردن</string>
+  <string name="change_language_netigen">تغییر زبان</string>
+  <string name="translation_information_title_netigen">اطلاعات ترجمه</string>
+  <string name="translation_information_content1_netigen">این اپلیکیشن توسط گوگل ترنسلیت ترجمه شده است. انگلیسی زبان اصلی این اپلیکیشن است. لطفاً به یاد داشته باشید که ممکن است اشتباهاتی در ترجمه وجود داشته باشد.</string>
+  <string name="translation_information_content2_netigen">اگر می خواهید زبان برنامه را به انگلیسی تغییر دهید، می توانید این کار را در تنظیمات انجام دهید.</string>
+  <string name="please_support_us_netigen">لطفا با رتبه بندی این برنامه از ما حمایت کنید. متشکرم!</string>
+  <string name="settings_normal_netigen">تنظیمات</string>
+  <string name="help_us_survey_netigen">با تکمیل نظرسنجی به ما در توسعه برنامه\nکمک کنید.\n\nصدای شما هم مهم است!</string>
+  <string name="not_now_netigen">الان نه</string>
+  <string name="share_thoughts_netigen">افکار خود را به اشتراک بگذارید</string>
+  <string name="no_internet_netigen">بدون اینترنت</string>
+  <string name="retry_netigen">مجدداً</string>
+  <string name="no_internet_survey_netigen">لطفاً اتصال اینترنت خود را بررسی کرده و دوباره امتحان کنید.</string>
 </resources>

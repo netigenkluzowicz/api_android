@@ -29,5 +29,6 @@
     <string name="no_internet_netigen">No Internet</string>
     <string name="retry_netigen">Retry</string>
     <string name="no_internet_survey_netigen">Please, check your Internet connection and retry.</string>
+    <string name="don_t_show_again">Don\'t show again</string>
 
 </resources>

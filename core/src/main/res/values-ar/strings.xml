@@ -1,11 +1,16 @@
 <resources>
-
-    <string name="msg_browser_not_found_netigen">لم يتم العثور على المتصفح !!!</string>
-    <string name="cancel_netigen">يلغي</string>
-    <string name="change_language_netigen">تغيير اللغة</string>
-    <string name="translation_information_title_netigen">معلومات الترجمة</string>
-    <string name="translation_information_content1_netigen">تمت ترجمة هذا التطبيق من قبل Google Translate. اللغة الإنجليزية هي اللغة الأصلية لهذا التطبيق. يرجى تذكر أنه يمكن أن يكون هناك بعض الأخطاء في الترجمة.</string>
-    <string name="translation_information_content2_netigen">إذا كنت ترغب في تغيير لغة التطبيق إلى اللغة الإنجليزية، يمكنك القيام بذلك في الإعدادات.</string>
-    <string name="please_support_us_netigen">يرجى دعمنا حسب تصنيف هذا التطبيق. شكرا لك!</string>
-    <string name="settings_normal_netigen">إعدادات</string>
+  <string name="msg_browser_not_found_netigen">المتصفح غير موجود !!!</string>
+  <string name="cancel_netigen">يلغي</string>
+  <string name="change_language_netigen">تغيير اللغة</string>
+  <string name="translation_information_title_netigen">معلومات الترجمة</string>
+  <string name="translation_information_content1_netigen">تمت ترجمة هذا التطبيق بواسطة مترجم جوجل. اللغة الإنجليزية هي اللغة الأصلية لهذا التطبيق. يرجى تذكر أنه قد تكون هناك بعض الأخطاء في الترجمة.</string>
+  <string name="translation_information_content2_netigen">إذا كنت تريد تغيير لغة التطبيق إلى اللغة الإنجليزية ، فيمكنك القيام بذلك في الإعدادات.</string>
+  <string name="please_support_us_netigen">الرجاء دعمنا من خلال تصنيف هذا التطبيق. شكرًا لك!</string>
+  <string name="settings_normal_netigen">إعدادات</string>
+  <string name="help_us_survey_netigen">ساعدنا في تطوير التطبيق\nمن خلال استكمال الاستبيان.\n\nصوتك مهم أيضًا!</string>
+  <string name="not_now_netigen">ليس الان</string>
+  <string name="share_thoughts_netigen">شارك افكارك!</string>
+  <string name="no_internet_netigen">لا انترنت</string>
+  <string name="retry_netigen">إعادة المحاولة</string>
+  <string name="no_internet_survey_netigen">من فضلك ، تحقق من اتصالك بالإنترنت وأعد المحاولة.</string>
 </resources>

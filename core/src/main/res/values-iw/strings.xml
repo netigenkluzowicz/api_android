@@ -1,0 +1,16 @@
+<resources>
+  <string name="msg_browser_not_found_netigen">הדפדפן לא נמצא!!!</string>
+  <string name="cancel_netigen">לְבַטֵל</string>
+  <string name="change_language_netigen">שנה שפה</string>
+  <string name="translation_information_title_netigen">מידע תרגום</string>
+  <string name="translation_information_content1_netigen">יישום זה תורגם על ידי Google Translate. אנגלית היא שפת המקור של יישום זה. אנא זכור שיכולות להיות כמה טעויות בתרגום.</string>
+  <string name="translation_information_content2_netigen">אם תרצו לשנות את שפת האפליקציה לאנגלית תוכלו לעשות זאת בהגדרות.</string>
+  <string name="please_support_us_netigen">אנא תמכו בנו על ידי דירוג האפליקציה הזו. תודה!</string>
+  <string name="settings_normal_netigen">הגדרות</string>
+  <string name="help_us_survey_netigen">עזרו לנו לפתח את האפליקציה\nעל ידי מילוי הסקר.\n\nגם הקול שלך חשוב!</string>
+  <string name="not_now_netigen">לא עכשיו</string>
+  <string name="share_thoughts_netigen">שתף את המחשבות שלך!</string>
+  <string name="no_internet_netigen">אין אינטרנט</string>
+  <string name="retry_netigen">נסה שוב</string>
+  <string name="no_internet_survey_netigen">אנא בדוק את חיבור האינטרנט שלך ונסה שוב.</string>
+</resources>
