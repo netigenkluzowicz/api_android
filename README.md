@@ -5,6 +5,12 @@ https://github.com/netigenkluzowicz/api_android/tree/develop/sample-app
 
 ## WebView Survey
 
+When there are no Surevy in app: 
+In MainActivity override:
+'''Kotlin
+    override fun checkSurvey(): Boolean = false
+'''
+
 It's implemented in WebView, docs: 
 
 https://github.com/netigenkluzowicz/apis_strapi/blob/develop/documentation/webview-survey.md
