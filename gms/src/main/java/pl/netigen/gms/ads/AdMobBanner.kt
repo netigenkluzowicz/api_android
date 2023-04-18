@@ -69,10 +69,10 @@ class AdMobBanner(
 
         val adWidth = (adWidthPixels / density).toInt()
         return if (loadedBannerOrientation != ORIENTATION_PORTRAIT) {
-            Timber.d("xxx.+ORIENTATION_PORTRAIT")
+            Timber.d("xxx.+ORIENTATION_LANDSCAPE")
             AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(activity, adWidth)
         } else {
-            Timber.d("xxx.+ORIENTATION_LANDSCAPE")
+            Timber.d("xxx.+ORIENTATION_PORTRAIT")
             AdSize.getPortraitAnchoredAdaptiveBannerAdSize(activity, adWidth)
         }
     }
