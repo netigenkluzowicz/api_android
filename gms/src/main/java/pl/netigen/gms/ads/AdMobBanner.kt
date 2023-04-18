@@ -38,7 +38,7 @@ class AdMobBanner(
     override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView? = null
-    private var loadedBannerOrientation = ORIENTATION_PORTRAIT
+    private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
     private val adSize: AdSize = getAdSize()
     private lateinit var bannerLayout: RelativeLayout
