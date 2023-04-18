@@ -40,7 +40,6 @@ class AdMobBanner(
     private var bannerView: AdView? = null
     private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
-    private val adSize: AdSize = getAdSize()
     private lateinit var bannerLayout: RelativeLayout
 
     init {
@@ -48,7 +47,7 @@ class AdMobBanner(
         activity.lifecycle.addObserver(this)
     }
 
-    override fun getHeightInPixels(): Int = adSize.getHeightInPixels(activity)
+    override fun getHeightInPixels(): Int = getAdSize().getHeightInPixels(activity)
     override fun onCreate(activity: AppCompatActivity) {
         if (activity != this.activity) {
             destroyBanner()
@@ -121,7 +120,7 @@ class AdMobBanner(
         bannerView = (bannerView ?: AdView(activity)).also {
             bannerLayout.addView(it)
             setBannerLayoutParams(it)
-            it.setAdSize(adSize)
+            it.setAdSize(getAdSize())
             it.adUnitId = adId
             loadedBannerOrientation = activity.resources.configuration.orientation
         }
