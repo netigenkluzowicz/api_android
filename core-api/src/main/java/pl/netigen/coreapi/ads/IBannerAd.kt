@@ -1,6 +1,8 @@
 package pl.netigen.coreapi.ads
 
+import android.app.Activity
 import android.widget.RelativeLayout
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * Manages Banner ad:
@@ -23,4 +25,5 @@ interface IBannerAd : IAd {
      * @return Banner height in px
      */
     fun getHeightInPixels(): Int
+    fun onCreate(activity: AppCompatActivity)
 }

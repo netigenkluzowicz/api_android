@@ -110,6 +110,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                 showGdprPopUp()
             }
         }
+        coreMainVM.bannerAd.onCreate(this)
     }
 
     open fun checkForUpdate() {

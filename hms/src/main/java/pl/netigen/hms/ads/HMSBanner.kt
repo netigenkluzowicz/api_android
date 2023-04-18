@@ -1,9 +1,11 @@
 package pl.netigen.hms.ads
 
+import android.app.Activity
 import android.view.ViewGroup
 import android.view.ViewParent
 import android.widget.RelativeLayout
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -30,6 +32,7 @@ class HMSBanner(
     }
 
     override fun getHeightInPixels(): Int = BannerAdSize.BANNER_SIZE_SMART.getHeightPx(activity)
+    override fun onCreate(activity: AppCompatActivity) = Unit
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private fun onCreate() {
