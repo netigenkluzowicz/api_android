@@ -1,7 +1,6 @@
 package pl.netigen.gms.ads
 
-import android.app.Activity
-import android.content.res.Configuration.ORIENTATION_PORTRAIT
+import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.view.ViewParent
@@ -64,15 +63,16 @@ class AdMobBanner(
 
         val density = outMetrics.density
 
-        val adWidthPixels = outMetrics.widthPixels.toFloat()
-
-        val adWidth = (adWidthPixels / density).toInt()
-        return if (loadedBannerOrientation != ORIENTATION_PORTRAIT) {
-            Timber.d("xxx.+ORIENTATION_LANDSCAPE")
-            AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(activity, adWidth)
-        } else {
-            Timber.d("xxx.+ORIENTATION_PORTRAIT")
+        return if (activity.resources.configuration.orientation != ORIENTATION_LANDSCAPE) {
+            val adWidthPixels = outMetrics.widthPixels.toFloat()
+            val adWidth = (adWidthPixels / density).toInt()
+            Timber.d("xxx.+ORIENTATION_PORTRAIT" + adWidth)
             AdSize.getPortraitAnchoredAdaptiveBannerAdSize(activity, adWidth)
+        } else {
+            val maxWidth = maxOf(outMetrics.heightPixels.toFloat(), outMetrics.widthPixels.toFloat())
+            val adWidth = (maxWidth / density).toInt()
+            Timber.d("xxx.+ORIENTATION_LANDSCAPE" + adWidth)
+            AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(activity, adWidth)
         }
     }
 
@@ -101,7 +101,10 @@ class AdMobBanner(
         if (disabled) {
             return
         }
-        if (loadedBannerOrientation != activity.resources.configuration.orientation || bannerView == null) {
+        if (loadedBannerOrientation != activity.resources.configuration.orientation ||
+            bannerView == null ||
+            getHeightInPixels() > getAdSize().height
+        ) {
             destroyBanner()
         }
         if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView) {
