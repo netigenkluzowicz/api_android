@@ -119,11 +119,12 @@ class AdMobBanner(
     }
 
     private fun createBanner() {
-        Timber.d("xxx.+()")
         bannerView = (bannerView ?: AdView(activity)).also {
             bannerLayout.addView(it)
             setBannerLayoutParams(it)
-            it.setAdSize(getAdSize())
+            val adSize = getAdSize()
+            it.setAdSize(adSize)
+            Timber.d("xxx.adSize: " + adSize.width + "|" + adSize.height)
             it.adUnitId = adId
             loadedBannerOrientation = activity.resources.configuration.orientation
         }
