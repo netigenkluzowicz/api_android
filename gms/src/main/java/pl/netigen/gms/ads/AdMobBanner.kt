@@ -13,6 +13,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import kotlinx.coroutines.NonDisposableHandle.parent
 import pl.netigen.coreapi.ads.IBannerAd
 import timber.log.Timber
 
@@ -85,10 +86,9 @@ class AdMobBanner(
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         Timber.d("xxx.+()")
-        if (disabled) {
-            return
-        }
-        if (loadedBannerOrientation != activity.resources.configuration.orientation ||
+        if (disabled) return
+
+        if (loadedBannerOrientation != activity.resources.configuration.orientation || bannerView == null ||
             bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView
         ) {
             loadBanner()
@@ -98,16 +98,12 @@ class AdMobBanner(
 
     private fun loadBanner() {
         Timber.d("xxx.+()")
-        if (disabled) {
-            return
-        }
-        if (loadedBannerOrientation != activity.resources.configuration.orientation ||
-            bannerView == null ||
-            getHeightInPixels() > getAdSize().height
-        ) {
+        if (disabled) return
+
+        if (loadedBannerOrientation != activity.resources.configuration.orientation || getHeightInPixels() > getAdSize().height) {
             destroyBanner()
         }
-        if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView) {
+        if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView || bannerView == null) {
             createBanner()
         }
         loadAd()
@@ -124,7 +120,6 @@ class AdMobBanner(
             setBannerLayoutParams(it)
             val adSize = getAdSize()
             it.setAdSize(adSize)
-            Timber.d("xxx.adSize: " + adSize.width + "|" + adSize.height)
             it.adUnitId = adId
             loadedBannerOrientation = activity.resources.configuration.orientation
         }
@@ -134,7 +129,7 @@ class AdMobBanner(
     private fun destroyBanner() {
         Timber.d("xxx.+()")
         val view = bannerView ?: return
-        (view.parent as ViewGroup).removeAllViews()
+        (view.parent as ViewGroup?)?.removeAllViews()
         view.destroy()
         bannerView = null
     }
@@ -149,9 +144,10 @@ class AdMobBanner(
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
         Timber.d("xxx.+()")
-        bannerView?.pause()
-        val parent: ViewParent? = bannerView?.parent
-        if (disabled && parent is ViewGroup) parent.removeView(bannerView)
+        val adView = bannerView ?: return
+        adView.pause()
+        val parent: ViewParent = adView.parent ?: return
+        if (disabled && parent is ViewGroup) parent.removeView(adView)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
