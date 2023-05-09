@@ -1,6 +1,8 @@
 package pl.netigen.core.main
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
@@ -25,6 +27,8 @@ import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainActivity
+import pl.netigen.coreapi.main.ICoreMainActivity.Companion.KEY_NUMBER_OF_OPENINGS
+import pl.netigen.coreapi.main.ICoreMainActivity.Companion.SHARED_PREFERENCES_NAME
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.UPDATE_REQUEST_CODE
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.coreapi.rateus.IRateUs
@@ -48,6 +52,14 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         get() = _splashActive
 
     override val coreMainVM: ICoreMainVM by viewModels<CoreMainVM> { viewModelFactory }
+
+
+    private val sharedPreferences: SharedPreferences by lazy {
+        getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+    }
+
+    override val openingCounter
+        get() = sharedPreferences.getInt(KEY_NUMBER_OF_OPENINGS, 0)
 
     override fun onSplashOpened() {
         Timber.d("()")
@@ -79,7 +91,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
      *
      * @return If Survey should be showed now
      */
-    override fun checkSurvey() = survey.openAskForSurveyDialogIfNeeded(rateUs.openingCounter)
+    override fun checkSurvey() = survey.openAskForSurveyDialogIfNeeded(openingCounter)
 
     /**
      * It's called when you should open Fragment with [WebView] for displaying Survey
@@ -231,6 +243,8 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         )
     }
 
+
+
     @CallSuper
     override fun onResume() {
         super.onResume()
@@ -256,6 +270,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         super.onStart()
         coreMainVM.start()
     }
+    override fun increaseOpeningCounter() = sharedPreferences.edit().putInt(KEY_NUMBER_OF_OPENINGS, openingCounter + 1).apply()
 
     override fun onNoAdsChanged(noAdsActive: Boolean) {
         this._noAdsActive = noAdsActive
