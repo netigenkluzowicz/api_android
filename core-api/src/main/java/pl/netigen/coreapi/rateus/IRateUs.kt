@@ -11,18 +11,6 @@ interface IRateUs {
      * After this number of calls [increaseOpeningCounter], rate us dialog will be showed
      */
     val numberOfChecksBeforeShowingDialog: Int
-
-    /**
-     * Counts calls of [increaseOpeningCounter]
-     */
-    val openingCounter: Int
-
-    /**
-     * It should be called to count number of times user launches app
-     *
-     */
-    fun increaseOpeningCounter()
-
     /**
      * Checks how many user uses app [openingCounter], and shows Rate Us dialog when this reach [numberOfChecksBeforeShowingDialog]
      *

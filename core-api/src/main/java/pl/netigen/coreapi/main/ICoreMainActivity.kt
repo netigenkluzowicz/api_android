@@ -103,7 +103,26 @@ interface ICoreMainActivity {
      */
     fun checkRateUs(): Boolean
 
+    /**
+     * It should be called to count number of times user launches app
+     *
+     */
+    fun increaseOpeningCounter()
+
+    /**
+     * Counts calls of [increaseOpeningCounter]
+     */
+    val openingCounter: Int
+
+
     companion object {
         const val UPDATE_REQUEST_CODE: Int = 77
+        const val SHARED_PREFERENCES_NAME = " pl.netigen.rateus.RateUs"
+        const val KEY_NUMBER_OF_OPENINGS = "KEY_NUMBER_OF_OPENINGS"
+        const val KEY_LAST_LAUNCH_TIME_COUNTER = "KEY_LAST_LAUNCH_TIME"
+        const val KEY_IS_RATE_US_OPEN = "KEY_IS_RATE_US_OPEN"
+        const val NUMBER_OF_CHECKS_BEFORE_SHOWING_RATE_US = 4
+        const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS = 20 * 60 * 1000L //20 minutes
+        const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS_DEBUG = 20 * 1000L //20 sec
     }
 }

@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "383581397171",
-    "project_id": "compass-c9d8e",
-    "storage_bucket": "compass-c9d8e.appspot.com"
+    "project_number": "446422329328",
+    "project_id": "perfect-tuner",
+    "storage_bucket": "perfect-tuner.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:383581397171:android:807e6b144b8024df1610c6",
+        "mobilesdk_app_id": "1:446422329328:android:d5d77d264751ce393d1f35",
         "android_client_info": {
-          "package_name": "pl.netigen.compass"
+          "package_name": "pl.netigen.toolstuner"
         }
       },
       "oauth_client": [
         {
-          "client_id": "383581397171-4ogs58vsqpnd3nlfu1e5b448j6ehdotr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "pl.netigen.compass",
-            "certificate_hash": "4fd3248429f6352c190eb63f6b433f85809934b4"
-          }
-        },
-        {
-          "client_id": "383581397171-bh19avgs5egv74640tufoqq689qhv2pg.apps.googleusercontent.com",
+          "client_id": "446422329328-9vdudia8s3psp3l77teih5m3rf63ut5a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAwkbSSsBpdWZ5yzkiLLEnfbNEUAy4_Lmg"
+          "current_key": "AIzaSyCYypxsF8yZq8g0KPDRLHzsIWfIycXv2mI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "383581397171-bh19avgs5egv74640tufoqq689qhv2pg.apps.googleusercontent.com",
+              "client_id": "446422329328-9vdudia8s3psp3l77teih5m3rf63ut5a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
