@@ -3,6 +3,7 @@ package pl.netigen.core.main
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.ApplicationInfo
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
@@ -27,8 +28,11 @@ import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainActivity
+import pl.netigen.coreapi.main.ICoreMainActivity.Companion.KEY_LAST_LAUNCH_TIME_COUNTER
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.KEY_NUMBER_OF_OPENINGS
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.SHARED_PREFERENCES_NAME
+import pl.netigen.coreapi.main.ICoreMainActivity.Companion.SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS
+import pl.netigen.coreapi.main.ICoreMainActivity.Companion.SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS_DEBUG
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.UPDATE_REQUEST_CODE
 import pl.netigen.coreapi.main.ICoreMainVM
 import pl.netigen.coreapi.rateus.IRateUs
@@ -40,6 +44,7 @@ import timber.log.Timber
  * Implements [ICoreMainActivity]
  */
 abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
+
     override val canCommitFragments: Boolean
         get() = !supportFragmentManager.isStateSaved
 
@@ -79,6 +84,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         Timber.d("()")
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
+        increaseOpeningCounter()
         checkRateUs()
         checkSurvey()
         checkForUpdate()
@@ -138,12 +144,15 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                         popupSnackbarForCompleteUpdate(appUpdateManager)
                     }
                 }
+
                 UpdateAvailability.UNKNOWN -> {
                     Timber.d("UNKNOWN")
                 }
+
                 UpdateAvailability.UPDATE_AVAILABLE -> {
                     Timber.d("UPDATE_AVAILABLE")
                 }
+
                 UpdateAvailability.UPDATE_NOT_AVAILABLE -> {
                     Timber.d("UPDATE_NOT_AVAILABLE")
                 }
@@ -163,29 +172,36 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                         popupSnackbarForCompleteUpdate(appUpdateManager)
                         appUpdateManager.unregisterListener(this)
                     }
+
                     InstallStatus.DOWNLOADING -> {
                         val bytesDownloaded = state.bytesDownloaded()
                         val totalBytesToDownload = state.totalBytesToDownload()
                         Timber.d("DOWNLOADING: $bytesDownloaded / $totalBytesToDownload")
                     }
+
                     InstallStatus.CANCELED -> {
                         Timber.d("CANCELED")
                         appUpdateManager.unregisterListener(this)
                     }
+
                     InstallStatus.FAILED -> {
                         Timber.d("FAILED")
                         appUpdateManager.unregisterListener(this)
                     }
+
                     InstallStatus.INSTALLED -> {
                         Timber.d("INSTALLED")
                         appUpdateManager.unregisterListener(this)
                     }
+
                     InstallStatus.INSTALLING -> {
                         Timber.d("INSTALLING")
                     }
+
                     InstallStatus.PENDING -> {
                         Timber.d("PENDING")
                     }
+
                     InstallStatus.UNKNOWN -> {
                         Timber.d("UNKNOWN")
                         appUpdateManager.unregisterListener(this)
@@ -244,7 +260,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     }
 
 
-
     @CallSuper
     override fun onResume() {
         super.onResume()
@@ -270,7 +285,22 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         super.onStart()
         coreMainVM.start()
     }
-    override fun increaseOpeningCounter() = sharedPreferences.edit().putInt(KEY_NUMBER_OF_OPENINGS, openingCounter + 1).apply()
+
+    override fun increaseOpeningCounter() {
+        val lastTimeOnSplashTimeMs = sharedPreferences.getLong(KEY_LAST_LAUNCH_TIME_COUNTER, 0L)
+        Timber.d("()$lastTimeOnSplashTimeMs")
+        val limit = if (0 != applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) {
+            SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS_DEBUG
+        } else {
+            SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS
+        }
+        val currentTimeMillis = System.currentTimeMillis()
+        if (currentTimeMillis - lastTimeOnSplashTimeMs > limit) {
+            sharedPreferences.edit().putInt(KEY_NUMBER_OF_OPENINGS, openingCounter + 1).apply()
+            sharedPreferences.edit().putLong(KEY_LAST_LAUNCH_TIME_COUNTER, currentTimeMillis).apply()
+            Timber.d("launched")
+        }
+    }
 
     override fun onNoAdsChanged(noAdsActive: Boolean) {
         this._noAdsActive = noAdsActive
