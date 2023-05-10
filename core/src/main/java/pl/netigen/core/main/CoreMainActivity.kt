@@ -303,6 +303,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     }
 
     override fun onNoAdsChanged(noAdsActive: Boolean) {
+        Timber.d("noAdsActive = [$noAdsActive]")
         this._noAdsActive = noAdsActive
         if (splashActive) return
         if (noAdsActive) {

@@ -122,7 +122,7 @@ interface ICoreMainActivity {
         const val KEY_LAST_LAUNCH_TIME_COUNTER = "KEY_LAST_LAUNCH_TIME"
         const val KEY_IS_RATE_US_OPEN = "KEY_IS_RATE_US_OPEN"
         const val NUMBER_OF_CHECKS_BEFORE_SHOWING_RATE_US = 4
-        const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS = 60 * 1000L //60 sec
-        const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS_DEBUG = 10 * 1000L //10 sec
+        const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS = 20 * 60 * 1000L //20 minutes
+        const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS_DEBUG = 20 * 1000L //20 sec
     }
 }
