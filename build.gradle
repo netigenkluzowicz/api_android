@@ -2,7 +2,7 @@
 
 ext.versionMajor = 3
 ext.versionMinor = 6
-ext.versionPatch = 5
+ext.versionPatch = 6
 
 private Integer generateVersionCode() {
     return ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
