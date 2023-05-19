@@ -39,7 +39,7 @@ class RateUs private constructor(
     override fun openRateDialogIfNeeded(): Boolean {
         if (shouldOpenRateUs()) {
             val counter = coreMainActivity.openingCounter
-            if (counter % numberOfChecksBeforeShowingDialog == numberOfChecksBeforeShowingDialog - 1) {
+            if (counter % numberOfChecksBeforeShowingDialog == numberOfChecksBeforeShowingDialog) {
                 openRateDialog()
                 return true
             }
