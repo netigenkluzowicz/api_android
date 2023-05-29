@@ -68,6 +68,7 @@ class AdMobInterstitial(
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
                     if (currentActivity != requestLoadActivity) {
+                        this@AdMobInterstitial.interstitialAd = null
                         onLoadSuccess(false)
                         loadIfShouldBeLoaded()
                     } else {
