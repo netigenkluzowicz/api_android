@@ -2,6 +2,7 @@ package pl.netigen.hms.ads
 
 import android.os.SystemClock
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -117,6 +118,8 @@ class HMSInterstitial(
         }
         interstitialAd.loadAd(AdParam.Builder().build())
     }
+
+    override fun onCreate(activity: AppCompatActivity) = Unit
 
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime

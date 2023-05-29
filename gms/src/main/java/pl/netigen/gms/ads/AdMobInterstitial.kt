@@ -3,6 +3,7 @@ package pl.netigen.gms.ads
 import android.content.Context
 import android.os.SystemClock
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -35,7 +36,7 @@ import timber.log.Timber.Forest.d
  * @param activity [ComponentActivity] for this ad [Context] and [Lifecycle] events
  */
 class AdMobInterstitial(
-    private val activity: ComponentActivity,
+    activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
@@ -45,6 +46,7 @@ class AdMobInterstitial(
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd? = null
     private val disabled get() = !enabled
+    private var currentActivity : ComponentActivity = activity
 
     init {
         d(this.toString())
@@ -53,7 +55,7 @@ class AdMobInterstitial(
 
     override fun load(onLoadSuccess: (Boolean) -> Unit) {
         InterstitialAd.load(
-            activity,
+            currentActivity,
             adId,
             adMobRequest.getAdRequest(),
             object : InterstitialAdLoadCallback() {
@@ -70,6 +72,16 @@ class AdMobInterstitial(
                 }
             },
         )
+    }
+
+    override fun onCreate(activity: AppCompatActivity) {
+        if (this.currentActivity != activity) {
+            currentActivity.lifecycle.removeObserver(this)
+            currentActivity = activity
+            currentActivity.lifecycle.addObserver(this)
+            interstitialAd = null
+            loadIfShouldBeLoaded()
+        }
     }
 
     override val isLoaded: Boolean
@@ -105,7 +117,7 @@ class AdMobInterstitial(
         val interstitialAd1 = interstitialAd
         if (interstitialAd1 != null) {
             lastInterstitialAdDisplayTime = SystemClock.elapsedRealtime()
-            interstitialAd1.show(activity)
+            interstitialAd1.show(currentActivity)
         } else {
             onClosedOrNotShowed(false)
         }
@@ -123,7 +135,7 @@ class AdMobInterstitial(
         if (interstitialAd != null || disabled) return
 
         InterstitialAd.load(
-            activity,
+            currentActivity,
             adId,
             adMobRequest.getAdRequest(),
             object : InterstitialAdLoadCallback() {

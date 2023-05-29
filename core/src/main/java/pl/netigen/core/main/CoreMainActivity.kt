@@ -129,6 +129,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             }
         }
         coreMainVM.bannerAd.onCreate(this)
+        coreMainVM.interstitialAd.onCreate(this)
     }
 
     open fun checkForUpdate() {
