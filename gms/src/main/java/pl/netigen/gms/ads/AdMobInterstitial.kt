@@ -103,7 +103,6 @@ class AdMobInterstitial(
     }
 
     private fun show(onClosedOrNotShowed: (Boolean) -> Unit) {
-        d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         interstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
                 d("onAdDismissedFullScreenContent")
@@ -161,7 +160,6 @@ class AdMobInterstitial(
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
-        d("onClosedOrNotShowed = [$onClosedOrNotShowed]")
         onClosedOrNotShowed(false)
         loadIfShouldBeLoaded()
     }
