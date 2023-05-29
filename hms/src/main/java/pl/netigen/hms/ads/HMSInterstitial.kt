@@ -119,7 +119,7 @@ class HMSInterstitial(
         interstitialAd.loadAd(AdParam.Builder().build())
     }
 
-    override fun onCreate(activity: AppCompatActivity) = Unit
+    override fun onResume(activity: AppCompatActivity) = Unit
 
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime

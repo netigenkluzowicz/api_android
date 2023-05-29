@@ -54,6 +54,7 @@ class AdMobInterstitial(
     }
 
     override fun load(onLoadSuccess: (Boolean) -> Unit) {
+        val requestLoadActivity = currentActivity
         InterstitialAd.load(
             currentActivity,
             adId,
@@ -66,16 +67,20 @@ class AdMobInterstitial(
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                    d("interstitialAd = [$interstitialAd]")
-                    this@AdMobInterstitial.interstitialAd = interstitialAd
-                    onLoadSuccess(true)
+                    if (currentActivity != requestLoadActivity) {
+                        onLoadSuccess(false)
+                        loadIfShouldBeLoaded()
+                    } else {
+                        this@AdMobInterstitial.interstitialAd = interstitialAd
+                        onLoadSuccess(true)
+                    }
                 }
             },
         )
     }
 
-    override fun onCreate(activity: AppCompatActivity) {
-        if (this.currentActivity != activity) {
+    override fun onResume(activity: AppCompatActivity) {
+        if (currentActivity != activity) {
             currentActivity.lifecycle.removeObserver(this)
             currentActivity = activity
             currentActivity.lifecycle.addObserver(this)
@@ -176,6 +181,7 @@ class AdMobInterstitial(
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private fun onDestroy() {
         currentActivity.lifecycle.removeObserver(this)
+        interstitialAd = null
     }
 
     override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) = when {

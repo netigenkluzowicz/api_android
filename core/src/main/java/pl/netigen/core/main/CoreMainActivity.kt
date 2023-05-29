@@ -129,7 +129,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             }
         }
         coreMainVM.bannerAd.onCreate(this)
-        coreMainVM.interstitialAd.onCreate(this)
     }
 
     open fun checkForUpdate() {
@@ -265,6 +264,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     override fun onResume() {
         super.onResume()
         Timber.d("()")
+        coreMainVM.interstitialAd.onResume(this)
         coreMainVM.interstitialAdIsInBackground(false)
     }
 

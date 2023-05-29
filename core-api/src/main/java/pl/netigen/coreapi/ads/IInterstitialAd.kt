@@ -48,5 +48,5 @@ interface IInterstitialAd : IAd {
      *
      */
     fun loadIfShouldBeLoaded()
-    fun onCreate(activity: AppCompatActivity)
+    fun onResume(activity: AppCompatActivity)
 }
