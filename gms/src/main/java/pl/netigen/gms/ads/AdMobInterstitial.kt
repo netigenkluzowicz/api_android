@@ -46,7 +46,7 @@ class AdMobInterstitial(
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd? = null
     private val disabled get() = !enabled
-    private var currentActivity : ComponentActivity = activity
+    private var currentActivity: ComponentActivity = activity
 
     init {
         d(this.toString())
@@ -173,18 +173,26 @@ class AdMobInterstitial(
         isInBackground = true
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    private fun onDestroy() {
+        currentActivity.lifecycle.removeObserver(this)
+    }
+
     override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) = when {
         disabled -> {
             d("disabled")
             onClosedOrNotShowed(false)
         }
+
         isInBackground -> {
             d("isInBackground")
             onCanNotShow(onClosedOrNotShowed)
         }
+
         isLoaded -> {
             onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
         }
+
         else -> {
             d("notLoaded")
             onCanNotShow(onClosedOrNotShowed)
