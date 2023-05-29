@@ -183,6 +183,18 @@ class AdMobInterstitial(
         interstitialAd = null
     }
 
+
+    override fun showIfCanBeShowed(activity: ComponentActivity, forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
+        if (activity != currentActivity) {
+            currentActivity = activity
+            interstitialAd = null
+            loadIfShouldBeLoaded()
+            onClosedOrNotShowed(false)
+        } else {
+            showIfCanBeShowed(forceShow, onClosedOrNotShowed)
+        }
+    }
+
     override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) = when {
         disabled -> {
             d("disabled")

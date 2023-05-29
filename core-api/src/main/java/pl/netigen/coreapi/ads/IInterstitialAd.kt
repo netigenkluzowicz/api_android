@@ -1,5 +1,6 @@
 package pl.netigen.coreapi.ads
 
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -48,5 +49,15 @@ interface IInterstitialAd : IAd {
      *
      */
     fun loadIfShouldBeLoaded()
+
     fun onResume(activity: AppCompatActivity)
+
+    /**
+     * Shows ad if it is loaded and minimum time between this ads passed (limit can be ignored by [forceShow] = true)
+     *
+     * @param activity activity for calling - use this in rotating activity
+     * @param forceShow If true time limit is ignored
+     * @param onClosedOrNotShowed Callback called when ad can't be showed or ad is closed
+     */
+    fun showIfCanBeShowed(activity: ComponentActivity, forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit)
 }
