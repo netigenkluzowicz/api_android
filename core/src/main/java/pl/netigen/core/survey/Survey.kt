@@ -12,11 +12,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import okhttp3.internal.cache2.Relay.Companion.edit
 import pl.netigen.core.R
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.coreapi.BuildConfig
+import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
 import pl.netigen.coreapi.survey.ISurvey.Companion.NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
@@ -38,10 +38,15 @@ class Survey private constructor(
 
     override fun openAskForSurveyDialogIfNeeded(launchCount: Int): Boolean {
         if (shouldOpenAskFragment(launchCount)) {
+            resetOpenTimer()
             openAskForSurveyDialog()
             return true
         }
         return false
+    }
+
+    private fun resetOpenTimer() {
+        sharedPreferences.edit().putLong(ICoreMainActivity.KEY_LAST_LAUNCH_TIME_COUNTER, 0L).apply()
     }
 
     override fun shouldOpenAskFragment(launchCount: Int): Boolean {

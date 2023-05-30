@@ -1,6 +1,6 @@
 object Versions {
     const val legacySupportV13 = "1.0.0"
-    const val playServicesAds = "22.0.0"
+    const val playServicesAds = "22.1.0"
     const val constraintLayout = "2.1.4"
     const val material = "1.6.1"
     const val gson = "2.9.1"

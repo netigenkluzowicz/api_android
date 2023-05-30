@@ -1,5 +1,7 @@
 package pl.netigen.coreapi.ads
 
+import androidx.appcompat.app.AppCompatActivity
+
 /**
  * Manages Interstitial Ad:
  * - loading
@@ -46,4 +48,7 @@ interface IInterstitialAd : IAd {
      *
      */
     fun loadIfShouldBeLoaded()
+
+    fun onResume(activity: AppCompatActivity)
+
 }
