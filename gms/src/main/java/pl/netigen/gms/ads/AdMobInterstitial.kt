@@ -138,31 +138,15 @@ class AdMobInterstitial(
     override fun loadIfShouldBeLoaded() {
         d("()")
         if (interstitialAd != null || disabled) return
-
-        InterstitialAd.load(
-            currentActivity,
-            adId,
-            adMobRequest.getAdRequest(),
-            object : InterstitialAdLoadCallback() {
-                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                    d("loadAdError = [$loadAdError]")
-                    interstitialAd = null
-                }
-
-                override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                    d("interstitialAd = [$interstitialAd]")
-                    this@AdMobInterstitial.interstitialAd = interstitialAd
-                }
-            },
-        )
+        load {}
     }
+
 
     private fun validateLastShowTime(currentTime: Long) =
         lastInterstitialAdDisplayTime == 0L || lastInterstitialAdDisplayTime + minDelayBetweenInterstitial < currentTime
 
     private fun onCanNotShow(onClosedOrNotShowed: (Boolean) -> Unit) {
         onClosedOrNotShowed(false)
-        loadIfShouldBeLoaded()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
@@ -183,17 +167,6 @@ class AdMobInterstitial(
         interstitialAd = null
     }
 
-
-    override fun showIfCanBeShowed(activity: ComponentActivity, forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
-        if (activity != currentActivity) {
-            currentActivity = activity
-            interstitialAd = null
-            loadIfShouldBeLoaded()
-            onClosedOrNotShowed(false)
-        } else {
-            showIfCanBeShowed(forceShow, onClosedOrNotShowed)
-        }
-    }
 
     override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) = when {
         disabled -> {

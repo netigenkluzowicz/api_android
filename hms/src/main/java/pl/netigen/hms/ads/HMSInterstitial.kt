@@ -119,9 +119,6 @@ class HMSInterstitial(
         interstitialAd.loadAd(AdParam.Builder().build())
     }
 
-    override fun showIfCanBeShowed(activity: ComponentActivity, forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) =
-        showIfCanBeShowed(forceShow, onClosedOrNotShowed)
-
     override fun onResume(activity: AppCompatActivity) = Unit
 
     private fun validateLastShowTime(currentTime: Long) =
