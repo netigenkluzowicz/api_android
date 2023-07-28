@@ -15,6 +15,6 @@ object FlavoursConst {
 
     @Suppress("UNUSED_PARAMETER")
     fun getPaymentsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig): IPayments = HMSPayments(coreMainActivity)
-    fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = HMSAds(coreMainActivity, appConfig)
+    fun getAdsImpl(coreMainActivity: CoreMainActivity, appConfig: AppConfig) = (coreMainActivity, appConfig)
     fun getGDPRConsentImpl(coreMainActivity: CoreMainActivity) = GDPRConsentImpl(coreMainActivity.application)
 }

@@ -23,7 +23,7 @@ android {
         gms {
             dimension "services"
         }
-        hms {
+        amazon {
             dimension "services"
         }
     }
@@ -54,7 +54,9 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation project(path: ":core")
-    gmsImplementation project(path: ":gms")
+    gmsImplementation project(path: ':gms-ads')
+    gmsImplementation project(path: ':gms-payments')
+    amazonImplementation project(path: ':amazon-payments')
 
     implementation Libraries.navigationFragmentKTX
     implementation Libraries.navigationFragment
