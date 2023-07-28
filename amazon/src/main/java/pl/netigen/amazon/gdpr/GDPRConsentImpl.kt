@@ -1,4 +1,4 @@
-package pl.netigen.hms.gdpr
+package pl.netigen.amazon.gdpr
 
 import android.app.Application
 import android.content.Context

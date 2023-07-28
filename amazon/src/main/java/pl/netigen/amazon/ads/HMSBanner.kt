@@ -1,6 +1,5 @@
-package pl.netigen.hms.ads
+package pl.netigen.amazon.ads
 
-import android.app.Activity
 import android.view.ViewGroup
 import android.view.ViewParent
 import android.widget.RelativeLayout

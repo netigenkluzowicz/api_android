@@ -55,7 +55,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation project(path: ":core")
     gmsImplementation project(path: ":gms")
-    hmsImplementation project(path: ":hms")
 
     implementation Libraries.navigationFragmentKTX
     implementation Libraries.navigationFragment

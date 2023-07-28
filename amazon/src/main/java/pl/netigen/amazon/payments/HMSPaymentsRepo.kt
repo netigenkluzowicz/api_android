@@ -1,4 +1,4 @@
-package pl.netigen.hms.payments
+package pl.netigen.amazon.payments
 
 import android.app.Activity
 import android.content.Intent

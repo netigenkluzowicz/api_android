@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pl.netigen.hms.payments
+package pl.netigen.amazon.payments
 
 import android.content.Context
 import androidx.room.Database

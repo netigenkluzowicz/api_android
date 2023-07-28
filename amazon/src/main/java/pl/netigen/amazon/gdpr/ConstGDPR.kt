@@ -1,4 +1,4 @@
-package pl.netigen.hms.gdpr
+package pl.netigen.amazon.gdpr
 
 import pl.netigen.coreapi.gdpr.IGDPRTexts
 

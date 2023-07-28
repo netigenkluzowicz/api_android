@@ -1,4 +1,4 @@
-package pl.netigen.hms.ads
+package pl.netigen.amazon.ads
 
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle

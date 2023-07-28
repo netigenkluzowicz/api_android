@@ -1,4 +1,4 @@
-package pl.netigen.hms.ads
+package pl.netigen.amazon.ads
 
 import android.os.SystemClock
 import androidx.activity.ComponentActivity
