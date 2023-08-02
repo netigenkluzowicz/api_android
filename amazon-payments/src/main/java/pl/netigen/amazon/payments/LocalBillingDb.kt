@@ -26,7 +26,7 @@ import androidx.room.TypeConverters
     version = 1,
     exportSchema = false,
 )
-@TypeConverters(InAppPurchaseDataTypeConverter::class)
+
 abstract class LocalBillingDb : RoomDatabase() {
     abstract fun purchaseDao(): PurchaseDao
 

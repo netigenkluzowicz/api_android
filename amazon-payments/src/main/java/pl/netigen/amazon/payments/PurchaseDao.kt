@@ -1,7 +1,6 @@
 package pl.netigen.amazon.payments
 
 import androidx.room.*
-import com.huawei.hms.iap.entity.InAppPurchaseData
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -18,6 +17,7 @@ interface PurchaseDao {
     @Query("DELETE FROM purchase_table")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM purchase_table WHERE data = :purchase")
-    suspend fun delete(purchase: InAppPurchaseData)
+
+    @Query("DELETE FROM purchase_table WHERE receiptId = :receiptId")
+    fun delete(receiptId: String)
 }

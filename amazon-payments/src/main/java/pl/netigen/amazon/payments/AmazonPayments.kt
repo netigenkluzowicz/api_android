@@ -1,7 +1,6 @@
 package pl.netigen.amazon.payments
 
 import android.app.Activity
-import android.content.Intent
 import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.Forest.d
 
@@ -16,7 +15,7 @@ class AmazonPayments(
 
     override fun makePurchase(activity: Activity, sku: String) {
         d("activity = [$activity], skuString = [$sku]")
-        paymentsRepo.makePurchase(activity, sku)
+        paymentsRepo.makePurchase(sku)
     }
 
     override val paymentsStateFlow: Any = Unit

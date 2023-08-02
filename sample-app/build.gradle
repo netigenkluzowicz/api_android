@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 32
     defaultConfig {
-        applicationId "pl.netigen.toolstuner"
+        applicationId "com.netigen.bestmirror"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode generateVersionCode()
