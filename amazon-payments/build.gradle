@@ -40,20 +40,6 @@ dependencies {
     implementation 'com.amazon.device:amazon-appstore-sdk:3.0.4'
 
 
-
-
-
-
-
-
-    api 'com.huawei.hms:iap:5.0.2.300'
-
-    implementation 'com.huawei.agconnect:agconnect-crash:1.4.1.300'
-    implementation 'com.huawei.agconnect:agconnect-core:1.4.1.300'
-    implementation 'com.huawei.hms:ads-lite:13.4.31.300'
-    implementation 'com.huawei.hms:ads-consent:3.4.29.303'
-    implementation 'com.huawei.hms:hianalytics:5.0.0.301'
-
     kapt Libraries.roomCompiler
     api Libraries.roomKTX
 }

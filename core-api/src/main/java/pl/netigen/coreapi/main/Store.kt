@@ -23,5 +23,6 @@ enum class Store {
      * For [Huawei AppGallery](https://huaweimobileservices.com/appgallery/) application target store.
      *
      */
-    HUAWEI
+    HUAWEI,
+    AMAZON
 }

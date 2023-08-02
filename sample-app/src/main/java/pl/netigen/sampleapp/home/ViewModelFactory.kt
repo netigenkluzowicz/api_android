@@ -1,3 +1,5 @@
+@file:Suppress("KotlinConstantConditions")
+
 package pl.netigen.sampleapp.home
 
 import pl.netigen.core.config.AppConfig
@@ -19,7 +21,7 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
             rewardedAdId = FlavoursConst.REWARDED_AD_ID,
             inDebugMode = BuildConfig.DEBUG,
             store = when (BuildConfig.FLAVOR) {
-                "hms" -> Store.HUAWEI
+                "amazon" -> Store.AMAZON
                 "gms" -> Store.GOOGLE_PLAY
                 else -> Store.GOOGLE_PLAY
             },

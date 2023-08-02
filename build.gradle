@@ -36,7 +36,6 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.gradle"
@@ -44,7 +43,6 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-        classpath "com.huawei.agconnect:agcp:$versions.huawei.agcp"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$versions.jetbrains.dokka_gradle"
     }
 }

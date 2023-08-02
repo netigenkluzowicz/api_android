@@ -69,14 +69,6 @@ interface IPayments : INoAds {
     fun makePurchase(activity: Activity, sku: String)
 
     /**
-     * Used only in HMS payments implementation, to handle billing events
-     * Not need to be called manually
-     *
-     * @see Activity.onActivityResult
-     */
-    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent)
-
-    /**
      * It is called on [onStart()][Activity.onStart] of [ICoreMainActivity] implementation
      *
      */
