@@ -18,6 +18,6 @@ interface PurchaseDao {
     suspend fun deleteAll()
 
 
-    @Query("DELETE FROM purchase_table WHERE receiptId = :receiptId")
-    fun delete(receiptId: String)
+    @Query("DELETE FROM purchase_table WHERE sku = :sku")
+    fun delete(sku: String)
 }

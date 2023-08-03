@@ -19,10 +19,5 @@ enum class Store {
      */
     SAMSUNG,
 
-    /**
-     * For [Huawei AppGallery](https://huaweimobileservices.com/appgallery/) application target store.
-     *
-     */
-    HUAWEI,
     AMAZON
 }

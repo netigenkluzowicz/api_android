@@ -14,7 +14,7 @@ object FlavoursConst {
     const val REWARDED_AD_ID: String = TEST_REWARDED_ID
 
     const val NO_ADS_KEY = ".noads"
-    const val SUBSCRIPTION_12 = ".subs_12_not_test"
+    const val SUBSCRIPTION_12 = ".subs_12"
     const val SUBSCRIPTION_1 = ".subs_01"
     const val NO_ADS_INFO_KEY = ".noads_info"
 

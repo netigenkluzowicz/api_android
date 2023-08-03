@@ -94,6 +94,9 @@ class AmazonPaymentsRepo(
                     amazonUserData = AmazonUserData(response.userData.userId, response.userData.marketplace)
                     handleReceipt(receipt)
                 }
+                if (response.hasMore()) {
+                    PurchasingService.getPurchaseUpdates(false)
+                }
             }
 
             PurchaseUpdatesResponse.RequestStatus.FAILED, PurchaseUpdatesResponse.RequestStatus.NOT_SUPPORTED -> {
@@ -105,7 +108,7 @@ class AmazonPaymentsRepo(
 
     private fun handleReceipt(receipt: Receipt) {
         if (receipt.isCanceled) {
-            localCacheBillingClient.purchaseDao().delete(receipt.receiptId)
+            localCacheBillingClient.purchaseDao().delete(receipt.sku)
         } else when (receipt.productType) {
             ProductType.ENTITLED -> handleIAP(receipt, amazonUserData)
             ProductType.SUBSCRIPTION -> handleSub(receipt, amazonUserData)
@@ -122,7 +125,11 @@ class AmazonPaymentsRepo(
     }
 
     private fun handleSub(receipt: Receipt, amazonUserData: AmazonUserData) {
-        d("receipt = [$receipt], userIapData = [$amazonUserData]")
+
+        CoroutineScope(Job() + Dispatchers.IO).launch {
+            localCacheBillingClient.purchaseDao().insert(CachedPurchase.from(receipt, amazonUserData))
+        }
+        PurchasingService.notifyFulfillment(receipt.receiptId, FulfillmentResult.FULFILLED)
 
     }
 
