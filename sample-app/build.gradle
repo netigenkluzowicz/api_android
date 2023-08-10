@@ -2,13 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.huawei.agconnect'
 
 
 android {
     compileSdkVersion 32
     defaultConfig {
-        applicationId "pl.netigen.toolstuner"
+        applicationId "pl.netigen.notepad"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode generateVersionCode()
@@ -23,7 +22,7 @@ android {
         gms {
             dimension "services"
         }
-        hms {
+        amazon {
             dimension "services"
         }
     }
@@ -54,8 +53,9 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation project(path: ":core")
-    gmsImplementation project(path: ":gms")
-    hmsImplementation project(path: ":hms")
+    implementation project(path: ':gms-ads')
+    gmsImplementation project(path: ':gms-payments')
+    amazonImplementation project(path: ':amazon-payments')
 
     implementation Libraries.navigationFragmentKTX
     implementation Libraries.navigationFragment

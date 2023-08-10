@@ -26,7 +26,7 @@ open class AppConfig(
     init {
         marketLinkPrefix = when (store) {
             Store.SAMSUNG -> "samsungapps://ProductDetail/"
-            Store.HUAWEI -> "appmarket://details?id="
+            Store.AMAZON -> "amzn://apps/android?p="
             else -> "market://details?id="
         }
     }

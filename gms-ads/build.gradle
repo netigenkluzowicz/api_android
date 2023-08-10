@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'org.jetbrains.dokka'
+
+
+android {
+    compileSdkVersion 32
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 32
+        versionName version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    api project(path: ':core-api')
+
+    api Libraries.playServicesAds
+    api Libraries.userMessagingPlatform
+    api Libraries.appcompat
+
+    kapt Libraries.roomCompiler
+    api Libraries.roomKTX
+}

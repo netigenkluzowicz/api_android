@@ -1,1 +1,1 @@
-include ':cross-ads', ':premium', ':legacy', ':core', ':payments', ':core-api', ':gms', ':hms',':sample-app'
+include ':cross-ads', ':premium', ':legacy', ':core', ':payments', ':core-api', ':gms-ads', ':gms-payments', ':sample-app', ':amazon-payments'

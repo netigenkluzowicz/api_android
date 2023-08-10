@@ -34,7 +34,7 @@ class HomeFragment : NetigenVMFragment() {
         testReward.setOnClickListener { coreMainVM.rewardedAd.showRewardedAd { d("testReward.success:$it") } }
         val activity = requireActivity()
         testNoAds.setOnClickListener { coreMainVM.makeNoAdsPayment(activity) }
-        testSubs.setOnClickListener { coreMainVM.makePurchase(activity, "pl.netigen.compass.subs_01") }
+        testSubs.setOnClickListener { coreMainVM.makePurchase(activity, activity.packageName + ".subs_01") }
         testResetAds.setOnClickListener { coreMainVM.resetAdsPreferences() }
         testSurvey.setOnClickListener { safeNavigate(pl.netigen.sampleapp.R.id.action_homeFragment_to_surveyFragment) }
         rotate.setOnClickListener {
@@ -49,4 +49,5 @@ class HomeFragment : NetigenVMFragment() {
             }
         }
     }
+
 }

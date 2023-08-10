@@ -229,7 +229,7 @@ class GDPRDialogFragment : NetigenDialogFragment() {
         }
     }
 
-    private fun showOnlineVersion() = viewModel.isConnectedOrConnecting && splashVM.store != Store.HUAWEI
+    private fun showOnlineVersion() = viewModel.isConnectedOrConnecting && splashVM.store != Store.AMAZON
 
     private fun onNoInternetConnection() {
         offlinePrivacyPolicyTextView.text = ""

@@ -35,7 +35,7 @@ abstract class CoreSplashFragment : NetigenFragment(), ICoreSplashFragment {
             d(it.toString())
             when (it) {
                 SplashState.UNINITIALIZED -> onUninitialized()
-                SplashState.SHOW_GDPR_POP_UP -> if (splashVM.store == Store.HUAWEI) tryShowGdprPopup() else onLoading()
+                SplashState.SHOW_GDPR_POP_UP -> onLoading()
                 SplashState.LOADING -> onLoading()
                 SplashState.FINISHED -> tryCallOnFinished()
             }

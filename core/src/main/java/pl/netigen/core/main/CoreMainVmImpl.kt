@@ -7,7 +7,6 @@ import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.IAppConfig
 import pl.netigen.coreapi.main.ICoreMainVM
-import pl.netigen.coreapi.main.Store
 import pl.netigen.coreapi.network.INetworkStatus
 import pl.netigen.coreapi.payments.IPayments
 import pl.netigen.extensions.MutableSingleLiveEvent
@@ -45,14 +44,10 @@ open class CoreMainVmImpl(
     }
 
     final override fun resetAdsPreferences() {
-        if (appConfig.store == Store.HUAWEI) {
-            showGdprResetAds.postValue(Unit)
-        } else {
-            gdprConsent.loadGdpr {
-                if (it) {
-                    gdprConsent.showGdpr { adConsentStatus ->
-                        saveAdConsentStatus(adConsentStatus)
-                    }
+        gdprConsent.loadGdpr {
+            if (it) {
+                gdprConsent.showGdpr { adConsentStatus ->
+                    saveAdConsentStatus(adConsentStatus)
                 }
             }
         }
