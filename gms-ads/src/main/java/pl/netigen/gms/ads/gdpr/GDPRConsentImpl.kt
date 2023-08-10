@@ -59,6 +59,7 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
 
     private fun shouldBeRefreshedByYear(): Boolean {
         val time = activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getLong(PREFERENCES_KEY_TIME, 0L)
+        @Suppress("DEPRECATION") //we need aprox year
         return time > 0L && System.currentTimeMillis() > time + DateUtils.YEAR_IN_MILLIS
     }
 
