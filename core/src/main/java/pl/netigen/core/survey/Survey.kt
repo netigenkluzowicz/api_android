@@ -15,7 +15,6 @@ import androidx.core.view.ViewCompat
 import pl.netigen.core.R
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
-import pl.netigen.coreapi.BuildConfig
 import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey

@@ -2,10 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.github.dcendents.android-maven'
+
 
 
 android {
+    namespace "pl.netigen.legacy"
     compileSdkVersion 32
 
     defaultConfig {

@@ -15,7 +15,7 @@ private String generateVersionName() {
 buildscript {
     ext.versions = [
             kotlin              : '1.7.10',
-            gradle              : '4.2.2',
+            gradle              : '8.1.0',
             android_maven_gradle: '2.1',
             multidex            : '1.0.3',
             test                : [
@@ -34,12 +34,10 @@ buildscript {
 
     repositories {
         google()
-        jcenter()
         mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.gradle"
-        classpath "com.github.dcendents:android-maven-gradle-plugin:$versions.android_maven_gradle"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
@@ -50,7 +48,6 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
         maven { url 'https://developer.huawei.com/repo/' }
         maven { url "https://jitpack.io" }
         mavenCentral()
