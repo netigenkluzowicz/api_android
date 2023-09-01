@@ -2,18 +2,21 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'maven-publish'
 
 apply plugin: 'org.jetbrains.dokka'
 
 android {
     namespace "pl.netigen.coreapi"
 
-    compileSdkVersion 32
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 32
         versionName version
+        aarMetadata {
+            minCompileSdk = 32
+        }
+
     }
     buildTypes {
         release {
