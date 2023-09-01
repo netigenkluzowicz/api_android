@@ -2,9 +2,14 @@ package pl.netigen.gms.gdpr
 
 import android.app.Activity
 import android.content.Context
+import android.text.format.DateUtils
 import androidx.activity.ComponentActivity
-import com.google.android.ump.*
+import com.google.android.ump.ConsentForm
+import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentInformation.ConsentStatus.REQUIRED
+import com.google.android.ump.ConsentRequestParameters
+import com.google.android.ump.FormError
+import com.google.android.ump.UserMessagingPlatform
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
@@ -38,10 +43,10 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
 
             override fun onConsentInfoUpdateSuccess() {
                 val consentStatus = consentInformation.consentStatus
-                val isInEea = consentStatus == REQUIRED
-                if (isInEea && consentInformation.isConsentFormAvailable) {
+                val shouldShow = consentStatus == REQUIRED || shouldBeRefreshedByYear()
+                if (shouldShow && consentInformation.isConsentFormAvailable) {
                     onGdprStatus(CheckGDPRLocationStatus.UE)
-                } else if (isInEea) {
+                } else if (shouldShow) {
                     onGdprStatus(CheckGDPRLocationStatus.ERROR)
                 } else {
                     onGdprStatus(CheckGDPRLocationStatus.NON_UE)
@@ -50,6 +55,12 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
         }
 
         consentInformation.requestConsentInfoUpdate(activity, params, callback, callback)
+    }
+
+    private fun shouldBeRefreshedByYear(): Boolean {
+        val time = activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE).getLong(PREFERENCES_KEY_TIME, 0L)
+        @Suppress("DEPRECATION") //we need aprox year
+        return time > 0L && System.currentTimeMillis() > time + DateUtils.YEAR_IN_MILLIS
     }
 
     override fun loadGdpr(onLoadSuccess: (Boolean) -> Unit) {
@@ -97,11 +108,13 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
         activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
             .edit()
             .putInt(PREFERENCES_KEY, adConsentStatus.ordinal)
+            .putLong(PREFERENCES_KEY_TIME, System.currentTimeMillis())
             .apply()
     }
 
     companion object {
         const val PREFERENCES_NAME = "GDPRConsent"
         const val PREFERENCES_KEY = "AdConsentStatus"
+        const val PREFERENCES_KEY_TIME = "AdConsentTime"
     }
 }
