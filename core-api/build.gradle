@@ -1,17 +1,28 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'maven-publish'
+plugins {
+  id 'com.android.library'
+  id 'kotlin-android'
+  id 'kotlin-kapt'
+  id 'maven-publish'
+  id 'org.jetbrains.dokka'
+}
 
-apply plugin: 'org.jetbrains.dokka'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+            }
+        }
+    }
+}
 
 android {
     namespace "pl.netigen.coreapi"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
+        compileSdk 33
         versionName version
         aarMetadata {
             minCompileSdk = 32
@@ -79,16 +90,3 @@ dependencies {
     api Libraries.playCore
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'pl.netigen'
-                artifactId = 'coreapi'
-                version = '4.0.2'
-            }
-        }
-    }
-}
