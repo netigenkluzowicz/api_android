@@ -5,6 +5,9 @@ package pl.netigen.coreapi.ads
  *
  */
 interface IAd {
+
+    fun enableYandex()
+
     /**
      * Indicates is current ad enabled
      */
@@ -14,4 +17,5 @@ interface IAd {
      * Current ad [String] identifier
      */
     val adId: String
+    val yandexAdId: String
 }

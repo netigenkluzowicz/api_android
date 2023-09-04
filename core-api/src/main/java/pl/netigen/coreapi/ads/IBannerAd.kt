@@ -1,6 +1,5 @@
 package pl.netigen.coreapi.ads
 
-import android.app.Activity
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 

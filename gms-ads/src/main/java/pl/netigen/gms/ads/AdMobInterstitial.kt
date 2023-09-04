@@ -39,6 +39,7 @@ class AdMobInterstitial(
     activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
+    override val yandexAdId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
     override var enabled: Boolean = true,
 ) : IInterstitialAd, LifecycleObserver {
@@ -88,6 +89,10 @@ class AdMobInterstitial(
             interstitialAd = null
             loadIfShouldBeLoaded()
         }
+    }
+
+    override fun enableYandex() {
+        TODO("Not yet implemented")
     }
 
     override val isLoaded: Boolean

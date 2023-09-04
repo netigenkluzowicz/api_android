@@ -7,11 +7,15 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.isActive
+import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.gdpr.AdConsentStatus
-import pl.netigen.coreapi.gdpr.AdConsentStatus.*
+import pl.netigen.coreapi.gdpr.AdConsentStatus.NON_PERSONALIZED_ERROR
+import pl.netigen.coreapi.gdpr.AdConsentStatus.NON_PERSONALIZED_SHOWED
+import pl.netigen.coreapi.gdpr.AdConsentStatus.PERSONALIZED_NON_UE
+import pl.netigen.coreapi.gdpr.AdConsentStatus.PERSONALIZED_SHOWED
+import pl.netigen.coreapi.gdpr.AdConsentStatus.UNINITIALIZED
 import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.main.IAppConfig
@@ -146,7 +150,12 @@ class CoreSplashVMImpl(
         }
     }
 
-    private fun onLoadInterstitialResult(success: Boolean) = if (success) onInterstitialLoaded() else finish()
+    private fun onLoadInterstitialResult(success: Boolean) = if (success) {
+        onInterstitialLoaded()
+    } else {
+        if (ChangeLanguageHelper.getPreferencesLocale() == "ru") ads.enableYandex()
+        finish()
+    }
 
     private fun onInterstitialLoaded() {
         d("()")

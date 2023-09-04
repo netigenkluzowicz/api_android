@@ -27,6 +27,7 @@ class AdMobRewarded(
     private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String = "",
+    override val yandexAdId: String = "",
     override var enabled: Boolean = adId.isNotEmpty(),
 ) : IRewardedAd, LifecycleObserver {
     override val isLoaded: Boolean get() = isEnabled && rewardedAd != null
@@ -74,6 +75,10 @@ class AdMobRewarded(
         } else {
             onRewardResult(false)
         }
+    }
+
+    override fun enableYandex() {
+        TODO("Not yet implemented")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)

@@ -4,7 +4,11 @@ import androidx.activity.ComponentActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
-import pl.netigen.coreapi.ads.*
+import pl.netigen.coreapi.ads.IAds
+import pl.netigen.coreapi.ads.IAdsConfig
+import pl.netigen.coreapi.ads.IBannerAd
+import pl.netigen.coreapi.ads.IInterstitialAd
+import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber
 
 /**
@@ -33,9 +37,9 @@ class AdMobAds(
             Timber.d("initialization complete")
         }
         val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
-        bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName)
-        interstitialAd = AdMobInterstitial(activity, this, interstitialId)
-        rewardedAd = AdMobRewarded(activity, this, rewardedId)
+        bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.bannerYandexAdId)
+        interstitialAd = AdMobInterstitial(activity, this, interstitialId, adsConfig.interstitialYandexAdId)
+        rewardedAd = AdMobRewarded(activity, this, rewardedId, adsConfig.rewardedYandexAdId)
         val requestConfiguration = RequestConfiguration.Builder()
             .setTestDeviceIds(adsConfig.testDevices)
             .build()
@@ -48,6 +52,13 @@ class AdMobAds(
         val rewardedId = if (adsConfig.inDebugMode && rewarded.isNotEmpty()) (TEST_REWARDED_ID) else (rewarded)
         return Triple(bannerId, interstitialId, rewardedId)
     }
+
+    override fun enableYandex() {
+        bannerAd.enableYandex()
+        interstitialAd.enableYandex()
+        rewardedAd.enableYandex()
+    }
+
 
     override fun getAdRequest(): AdRequest = AdRequest.Builder().build()
 

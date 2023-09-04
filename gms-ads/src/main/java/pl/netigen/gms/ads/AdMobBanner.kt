@@ -13,6 +13,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.yandex.mobile.ads.banner.BannerAdView
 import pl.netigen.coreapi.ads.IBannerAd
 import timber.log.Timber
 
@@ -34,13 +35,16 @@ class AdMobBanner(
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
+    override val yandexAdId: String,
     override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView? = null
     private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
-    private var currentActivity : ComponentActivity = activity
+    private var currentActivity: ComponentActivity = activity
     private lateinit var bannerLayout: RelativeLayout
+    private var bannerYandex: BannerAdView? = null
+    private var yanexActive = false
 
     init {
         Timber.d("xxx.+()")
@@ -57,6 +61,11 @@ class AdMobBanner(
             destroyBanner()
             currentActivity = activity
         }
+    }
+
+    override fun enableYandex() {
+        destroyBanner()
+        yanexActive = true
     }
 
 
@@ -131,10 +140,10 @@ class AdMobBanner(
 
     private fun destroyBanner() {
         Timber.d("xxx.+()")
-        val view = bannerView ?: return
+        val view = bannerView.also { it?.destroy() } ?: bannerYandex ?: return
         (view.parent as ViewGroup?)?.removeAllViews()
-        view.destroy()
         bannerView = null
+        bannerYandex = null
     }
 
     private fun setBannerLayoutParams(adView: AdView) {

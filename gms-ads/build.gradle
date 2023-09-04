@@ -47,6 +47,7 @@ android {
 
 dependencies {
     api project(path: ':core-api')
+    api "com.yandex.android:mobileads:6.0.0"
 
     api Libraries.playServicesAds
     api Libraries.userMessagingPlatform
