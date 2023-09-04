@@ -21,6 +21,7 @@ open class AppConfig(
     override val bannerLayoutIdName: String = "adsLayout",
     override val testDevices: List<String> = emptyList(),
     override val inDebugMode: Boolean = false,
+    override val debugForceYandex: Boolean = false,
     override val isNoAdsAvailable: Boolean = true,
     override val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
     override val daysForFlexibleUpdate: Int = DEFAULT_DAYS_FOR_FLEXIBLE_UPDATE,

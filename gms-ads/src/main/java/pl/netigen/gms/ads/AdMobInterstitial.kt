@@ -92,7 +92,6 @@ class AdMobInterstitial(
     }
 
     override fun enableYandex() {
-        TODO("Not yet implemented")
     }
 
     override val isLoaded: Boolean

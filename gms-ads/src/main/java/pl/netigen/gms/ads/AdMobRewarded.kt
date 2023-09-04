@@ -78,7 +78,6 @@ class AdMobRewarded(
     }
 
     override fun enableYandex() {
-        TODO("Not yet implemented")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)

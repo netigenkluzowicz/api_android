@@ -13,9 +13,14 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.yandex.mobile.ads.banner.BannerAdEventListener
+import com.yandex.mobile.ads.banner.BannerAdSize.stickySize
 import com.yandex.mobile.ads.banner.BannerAdView
+import com.yandex.mobile.ads.common.AdRequestError
+import com.yandex.mobile.ads.common.ImpressionData
 import pl.netigen.coreapi.ads.IBannerAd
 import timber.log.Timber
+import kotlin.math.roundToInt
 
 /**
  * [IBannerAd] implementation with [AdView] from Google Mobile Ads SDK
@@ -44,7 +49,7 @@ class AdMobBanner(
     private var currentActivity: ComponentActivity = activity
     private lateinit var bannerLayout: RelativeLayout
     private var bannerYandex: BannerAdView? = null
-    private var yanexActive = false
+    private var yandexActive = false
 
     init {
         Timber.d("xxx.+()")
@@ -64,8 +69,10 @@ class AdMobBanner(
     }
 
     override fun enableYandex() {
-        destroyBanner()
-        yanexActive = true
+        if (!yandexActive) {
+            destroyBanner()
+            yandexActive = true
+        }
     }
 
 
@@ -79,12 +86,10 @@ class AdMobBanner(
         return if (currentActivity.resources.configuration.orientation != ORIENTATION_LANDSCAPE) {
             val adWidthPixels = outMetrics.widthPixels.toFloat()
             val adWidth = (adWidthPixels / density).toInt()
-            Timber.d("xxx.+ORIENTATION_PORTRAIT" + adWidth)
             AdSize.getPortraitAnchoredAdaptiveBannerAdSize(currentActivity, adWidth)
         } else {
             val maxWidth = maxOf(outMetrics.heightPixels.toFloat(), outMetrics.widthPixels.toFloat())
             val adWidth = (maxWidth / density).toInt()
-            Timber.d("xxx.+ORIENTATION_LANDSCAPE" + adWidth)
             AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(currentActivity, adWidth)
         }
     }
@@ -118,15 +123,57 @@ class AdMobBanner(
         if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView || bannerView == null) {
             createBanner()
         }
-        loadAd()
+        loadAdMob()
     }
 
-    private fun loadAd() {
+    private fun loadAdMob() {
         Timber.d("xxx.+()")
         bannerView?.loadAd(adMobRequest.getAdRequest())
     }
 
     private fun createBanner() {
+        if (yandexActive) createYandex() else createAdmob()
+    }
+
+    private fun createYandex() {
+        bannerYandex = (bannerYandex ?: BannerAdView(currentActivity)).also {
+            bannerLayout.addView(it)
+            it.setAdUnitId(yandexAdId)
+            it.setAdSize(stickySize(currentActivity, currentActivity.resources.displayMetrics.run { widthPixels / density }.roundToInt()))
+            it.setBannerAdEventListener(
+                object : BannerAdEventListener {
+                    override fun onAdLoaded() {
+                        Timber.d("Banner ad loaded")
+                    }
+
+                    override fun onAdFailedToLoad(error: AdRequestError) {
+                        Timber.d(
+                            "Banner ad failed to load with code ${error.code}: ${error.description}",
+                        )
+                    }
+
+                    override fun onAdClicked() {
+                        Timber.d("Banner ad clicked")
+                    }
+
+                    override fun onLeftApplication() {
+                        Timber.d("Left application")
+                    }
+
+                    override fun onReturnedToApplication() {
+                        Timber.d("Returned to application")
+                    }
+
+                    override fun onImpression(data: ImpressionData?) {
+                        Timber.d("Impression: ${data?.rawData}")
+                    }
+                },
+            )
+            it.loadAd(com.yandex.mobile.ads.common.AdRequest.Builder().build())
+        }
+    }
+
+    private fun createAdmob() {
         bannerView = (bannerView ?: AdView(currentActivity)).also {
             bannerLayout.addView(it)
             setBannerLayoutParams(it)

@@ -97,6 +97,7 @@ class CoreSplashVMImpl(
 
     private fun finish() {
         d("()")
+        if (appConfig.debugForceYandex) ads.enableYandex()
         cancelJobs()
         splashTimer.cancelInterstitialTimer()
         finished = true
