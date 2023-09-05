@@ -37,9 +37,25 @@ class AdMobAds(
             Timber.d("initialization complete")
         }
         val (bannerId, interstitialId, rewardedId) = getIds(adsConfig.bannerAdId, adsConfig.interstitialAdId, adsConfig.rewardedAdId)
-        bannerAd = AdMobBanner(activity, this, bannerId, adsConfig.bannerLayoutIdName, adsConfig.bannerYandexAdId)
-        interstitialAd = AdMobInterstitial(activity, this, interstitialId, adsConfig.interstitialYandexAdId)
-        rewardedAd = AdMobRewarded(activity, this, rewardedId, adsConfig.rewardedYandexAdId)
+        bannerAd = AdMobBanner(
+            activity = activity,
+            adMobRequest = this,
+            adId = bannerId,
+            bannerLayoutIdName = adsConfig.bannerLayoutIdName,
+            yandexAdId = if (adsConfig.inDebugMode) "demo-banner-yandex" else adsConfig.bannerYandexAdId,
+        )
+        interstitialAd = AdMobInterstitial(
+            activity = activity,
+            adMobRequest = this,
+            adId = interstitialId,
+            yandexAdId = if (adsConfig.inDebugMode) "demo-interstitial-yandex" else adsConfig.interstitialYandexAdId,
+        )
+        rewardedAd = AdMobRewarded(
+            activity = activity,
+            adMobRequest = this,
+            adId = rewardedId,
+            yandexAdId = if (adsConfig.inDebugMode) "demo-rewarded-yandex" else adsConfig.rewardedYandexAdId,
+        )
         val requestConfiguration = RequestConfiguration.Builder()
             .setTestDeviceIds(adsConfig.testDevices)
             .build()
