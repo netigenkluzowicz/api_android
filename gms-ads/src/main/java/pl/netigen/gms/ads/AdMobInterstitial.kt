@@ -83,7 +83,6 @@ class AdMobInterstitial(
                 },
             )
         }.also { it.loadAd(AdRequestConfiguration.Builder(yandexAdId).build()) }
-
     }
 
     private fun loadAdmob(onLoadSuccess: (Boolean) -> Unit) {
