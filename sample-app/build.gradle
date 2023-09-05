@@ -60,7 +60,7 @@ dependencies {
     implementation project(path: ":core")
     implementation project(path: ':gms-ads')
     gmsImplementation project(path: ':gms-payments')
-  /*  amazonImplementation project(path: ':amazon-payments')*/
+    amazonImplementation project(path: ':amazon-payments')
 
     implementation Libraries.navigationFragmentKTX
     implementation Libraries.navigationFragment
