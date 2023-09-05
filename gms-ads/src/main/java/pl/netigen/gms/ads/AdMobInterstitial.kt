@@ -257,7 +257,10 @@ class AdMobInterstitial(
                     reloadYandex()
                 }
 
-                override fun onAdDismissed() = Unit
+                override fun onAdDismissed() {
+                    onClosedOrNotShowed(true)
+                    reloadYandex()
+                }
 
                 override fun onAdClicked() {
                     onClosedOrNotShowed(true)
