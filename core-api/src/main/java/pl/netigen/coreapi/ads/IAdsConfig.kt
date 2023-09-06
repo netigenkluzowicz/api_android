@@ -46,7 +46,7 @@ interface IAdsConfig : YandexAdsConfig {
      */
     val inDebugMode: Boolean
 
-    val debugForceYandex : Boolean
+    val inYandexDebugMode : Boolean
 
     companion object {
         /**

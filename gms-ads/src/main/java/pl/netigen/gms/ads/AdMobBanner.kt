@@ -187,10 +187,12 @@ class AdMobBanner(
 
     private fun destroyBanner() {
         Timber.d("xxx.+()")
-        val view = bannerView.also { it?.destroy() } ?: bannerYandex ?: return
-        (view.parent as ViewGroup?)?.removeAllViews()
-        bannerView = null
-        bannerYandex = null
+        currentActivity.runOnUiThread {
+            val view = bannerView.also { it?.destroy() } ?: bannerYandex ?: return@runOnUiThread
+            (view.parent as ViewGroup?)?.removeAllViews()
+            bannerView = null
+            bannerYandex = null
+        }
     }
 
     private fun setBannerLayoutParams(adView: AdView) {

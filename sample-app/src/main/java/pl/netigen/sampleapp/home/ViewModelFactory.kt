@@ -23,7 +23,7 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
             rewardedAdId = FlavoursConst.REWARDED_AD_ID,
             rewardedYandexAdId = FlavoursConst.YANDEX_REWARDED_AD_ID,
             inDebugMode = BuildConfig.DEBUG,
-            debugForceYandex = true && BuildConfig.DEBUG,
+            inYandexDebugMode = true && BuildConfig.DEBUG,
             store = when (BuildConfig.FLAVOR) {
                 "amazon" -> Store.AMAZON
                 "gms" -> Store.GOOGLE_PLAY

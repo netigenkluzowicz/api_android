@@ -97,7 +97,7 @@ class CoreSplashVMImpl(
 
     private fun finish() {
         d("()")
-        if (appConfig.debugForceYandex) ads.enableYandex()
+        if (appConfig.debugYandex) ads.enableYandex()
         cancelJobs()
         splashTimer.cancelInterstitialTimer()
         finished = true
@@ -154,7 +154,7 @@ class CoreSplashVMImpl(
     private fun onLoadInterstitialResult(success: Boolean) = if (success) {
         onInterstitialLoaded()
     } else {
-        if (ChangeLanguageHelper.getPreferencesLocale() == "ru") ads.enableYandex()
+        if (ChangeLanguageHelper.getPreferencesLocale() == "ru" || appConfig.debugYandex) ads.enableYandex()
         finish()
     }
 
