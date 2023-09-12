@@ -1,1 +1,1 @@
-include  ':legacy', ':core', ':core-api', ':gms-ads', ':gms-no-yandex',':gms-payments', ':sample-app', ':amazon-payments'
+include  ':legacy', ':core', ':core-api', ':gms-ads', ':gms-kids',':gms-payments', ':sample-app', ':amazon-payments'
