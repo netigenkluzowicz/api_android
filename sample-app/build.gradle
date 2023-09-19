@@ -5,7 +5,8 @@ apply plugin: 'kotlin-android-extensions'
 
 
 android {
-    compileSdkVersion 32
+    namespace "pl.netigen.sampleapp"
+    compileSdkVersion 33
     defaultConfig {
         applicationId "pl.netigen.notepad"
         minSdkVersion 21
@@ -14,6 +15,10 @@ android {
         versionName generateVersionName()
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
         manifestPlaceholders = [admobId: "ca-app-pub-3940256099942544~3347511713"]
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     flavorDimensions "services"
@@ -53,7 +58,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation project(path: ":core")
-    implementation project(path: ':gms-ads')
+    implementation project(path: ':gms-kids')
     gmsImplementation project(path: ':gms-payments')
     amazonImplementation project(path: ':amazon-payments')
 

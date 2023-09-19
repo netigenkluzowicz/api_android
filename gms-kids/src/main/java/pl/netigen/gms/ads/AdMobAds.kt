@@ -70,9 +70,6 @@ class AdMobAds(
     }
 
     override fun enableYandex() {
-        bannerAd.enableYandex()
-        interstitialAd.enableYandex()
-        rewardedAd.enableYandex()
     }
 
 

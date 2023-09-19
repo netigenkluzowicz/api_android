@@ -13,12 +13,6 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import com.yandex.mobile.ads.common.AdRequestConfiguration
-import com.yandex.mobile.ads.common.AdRequestError
-import com.yandex.mobile.ads.common.ImpressionData
-import com.yandex.mobile.ads.interstitial.InterstitialAdEventListener
-import com.yandex.mobile.ads.interstitial.InterstitialAdLoadListener
-import com.yandex.mobile.ads.interstitial.InterstitialAdLoader
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS
 import pl.netigen.coreapi.ads.IInterstitialAd
 import timber.log.Timber
@@ -54,8 +48,6 @@ class AdMobInterstitial(
     private var interstitialAd: InterstitialAd? = null
     private val disabled get() = !enabled
     private var currentActivity: ComponentActivity = activity
-    private var yandexActive = false
-    private var yandexAd: com.yandex.mobile.ads.interstitial.InterstitialAd? = null
 
     init {
         d(this.toString())
@@ -63,26 +55,7 @@ class AdMobInterstitial(
     }
 
     override fun load(onLoadSuccess: (Boolean) -> Unit) {
-        if (yandexActive) loadYandex(onLoadSuccess) else loadAdmob(onLoadSuccess)
-    }
-
-    private fun loadYandex(onLoadSuccess: (Boolean) -> Unit) {
-        InterstitialAdLoader(currentActivity).apply {
-            setAdLoadListener(
-                object : InterstitialAdLoadListener {
-                    override fun onAdLoaded(ad: com.yandex.mobile.ads.interstitial.InterstitialAd) {
-                        d("ad = [$ad]")
-                        onLoadSuccess(true)
-                        yandexAd = ad
-                    }
-
-                    override fun onAdFailedToLoad(error: AdRequestError) {
-                        d("error = [$error]")
-                        onLoadSuccess(false)
-                    }
-                },
-            )
-        }.also { it.loadAd(AdRequestConfiguration.Builder(yandexAdId).build()) }
+         loadAdmob(onLoadSuccess)
     }
 
     private fun loadAdmob(onLoadSuccess: (Boolean) -> Unit) {
@@ -123,8 +96,6 @@ class AdMobInterstitial(
     }
 
     override fun enableYandex() {
-        yandexActive = true
-        loadYandex {}
     }
 
     override val isLoaded: Boolean
@@ -216,8 +187,6 @@ class AdMobInterstitial(
             onCanNotShow(onClosedOrNotShowed)
         }
 
-        yandexActive -> showYandexAd(forceShow, onClosedOrNotShowed)
-
         isLoaded -> {
             onInterstitialReadyToShow(forceShow, onClosedOrNotShowed)
         }
@@ -228,54 +197,5 @@ class AdMobInterstitial(
         }
     }
 
-    private fun showYandexAd(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
-        val currentTime = SystemClock.elapsedRealtime()
-        when {
-            isInBackground -> {
-                onClosedOrNotShowed(false)
-                return
-            }
 
-            forceShow || validateLastShowTime(currentTime) -> Unit
-            else -> {
-                onClosedOrNotShowed(false)
-                return
-            }
-        }
-        val ad = yandexAd
-        if (ad == null) {
-            onClosedOrNotShowed(false)
-            loadYandex { }
-            return
-        }
-        ad.setAdEventListener(
-            object : InterstitialAdEventListener {
-                override fun onAdShown() = Unit
-
-                override fun onAdFailedToShow(p0: com.yandex.mobile.ads.common.AdError) {
-                    onClosedOrNotShowed(false)
-                    reloadYandex()
-                }
-
-                override fun onAdDismissed() {
-                    onClosedOrNotShowed(true)
-                    reloadYandex()
-                }
-
-                override fun onAdClicked() {
-                    onClosedOrNotShowed(true)
-                    reloadYandex()
-                }
-
-                override fun onAdImpression(p0: ImpressionData?) = Unit
-
-            },
-        )
-        ad.show(currentActivity)
-    }
-
-    private fun reloadYandex() {
-        yandexAd = null
-        loadYandex { }
-    }
 }

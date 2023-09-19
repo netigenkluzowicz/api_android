@@ -15,8 +15,10 @@ afterEvaluate {
 }
 
 
+
 android {
-    namespace "pl.netigen.legacy"
+
+    namespace "pl.netigen.gms.kids"
     compileSdkVersion 33
 
     defaultConfig {
@@ -38,13 +40,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':core-api')
 
+    api Libraries.playServicesAds
+    api Libraries.userMessagingPlatform
     api Libraries.appcompat
 
-    implementation Libraries.coreKTX
-    implementation Libraries.kotlinStdlibJdk7
+    kapt Libraries.roomCompiler
+    api Libraries.roomKTX
 }

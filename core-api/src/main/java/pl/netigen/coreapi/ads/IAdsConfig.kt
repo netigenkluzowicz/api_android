@@ -9,7 +9,7 @@ import android.widget.RelativeLayout
  * - list of test devices
  * - debug/release configuration
  */
-interface IAdsConfig {
+interface IAdsConfig : YandexAdsConfig {
     /**
      * [IBannerAd] ad identifier
      */
@@ -45,6 +45,8 @@ interface IAdsConfig {
      * - false - production ads will be displayed excluding test devices provided in [testDevices]
      */
     val inDebugMode: Boolean
+
+    val inYandexDebugMode : Boolean
 
     companion object {
         /**

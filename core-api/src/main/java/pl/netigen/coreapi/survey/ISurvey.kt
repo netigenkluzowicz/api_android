@@ -1,7 +1,6 @@
 package pl.netigen.coreapi.survey
 
 import android.webkit.WebView
-import pl.netigen.coreapi.BuildConfig
 
 interface ISurvey {
     /**
