@@ -1,5 +1,0 @@
-<resources>
-  <string name="no_netigen">KHÔNG</string>
-  <string name="yes_netigen">Đúng</string>
-  <string name="error_donate_not_loaded_netigen">Sự cố khi tải thông tin thanh toán</string>
-</resources>

@@ -1,5 +1,0 @@
-<resources>
-  <string name="no_netigen">Geen</string>
-  <string name="yes_netigen">Ja</string>
-  <string name="error_donate_not_loaded_netigen">Probleem met die laai van betalingsinligting</string>
-</resources>

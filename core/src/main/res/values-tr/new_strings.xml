@@ -1,5 +1,0 @@
-<resources>
-  <string name="no_netigen">HAYIR</string>
-  <string name="yes_netigen">Evet</string>
-  <string name="error_donate_not_loaded_netigen">Ödeme bilgileri yüklenirken sorun oluştu</string>
-</resources>

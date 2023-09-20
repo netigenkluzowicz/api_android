@@ -1,5 +1,0 @@
-<resources>
-  <string name="no_netigen">لا</string>
-  <string name="yes_netigen">نعم</string>
-  <string name="error_donate_not_loaded_netigen">مشكلة في تحميل معلومات الدفع</string>
-</resources>

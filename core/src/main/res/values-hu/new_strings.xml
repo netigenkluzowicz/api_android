@@ -1,5 +1,0 @@
-<resources>
-  <string name="no_netigen">Nem</string>
-  <string name="yes_netigen">Igen</string>
-  <string name="error_donate_not_loaded_netigen">Probléma a fizetési információk betöltésével</string>
-</resources>

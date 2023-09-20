@@ -1,5 +1,0 @@
-<resources>
-  <string name="no_netigen">Nie</string>
-  <string name="yes_netigen">Áno</string>
-  <string name="error_donate_not_loaded_netigen">Problém s načítaním informácií o platbe</string>
-</resources>
