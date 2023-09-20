@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">いいえ</string>
+  <string name="yes_netigen">はい</string>
+  <string name="error_donate_not_loaded_netigen">支払い情報の読み込みに関する問題</string>
+</resources>

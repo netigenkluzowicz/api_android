@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">Үгүй</string>
+  <string name="yes_netigen">Тиймээ</string>
+  <string name="error_donate_not_loaded_netigen">Төлбөрийн мэдээллийг ачаалахад асуудал гарлаа</string>
+</resources>

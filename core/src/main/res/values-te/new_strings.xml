@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">సంఖ్య</string>
+  <string name="yes_netigen">అవును</string>
+  <string name="error_donate_not_loaded_netigen">చెల్లింపు సమాచారాన్ని లోడ్ చేయడంలో సమస్య</string>
+</resources>

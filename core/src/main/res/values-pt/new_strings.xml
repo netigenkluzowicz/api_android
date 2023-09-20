@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">Não</string>
+  <string name="yes_netigen">Sim</string>
+  <string name="error_donate_not_loaded_netigen">Problema ao carregar informações de pagamento</string>
+</resources>

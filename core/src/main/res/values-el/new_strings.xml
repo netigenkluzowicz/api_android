@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">Οχι</string>
+  <string name="yes_netigen">Ναί</string>
+  <string name="error_donate_not_loaded_netigen">Πρόβλημα με τη φόρτωση των στοιχείων πληρωμής</string>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">Ei</string>
+  <string name="yes_netigen">Joo</string>
+  <string name="error_donate_not_loaded_netigen">Ongelma maksutietojen lataamisessa</string>
+</resources>

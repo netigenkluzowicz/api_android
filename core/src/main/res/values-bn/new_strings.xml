@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">না</string>
+  <string name="yes_netigen">হ্যাঁ</string>
+  <string name="error_donate_not_loaded_netigen">অর্থপ্রদানের তথ্য লোড করার সাথে সমস্যা</string>
+</resources>

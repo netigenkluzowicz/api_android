@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">ಸಂ</string>
+  <string name="yes_netigen">ಹೌದು</string>
+  <string name="error_donate_not_loaded_netigen">ಪಾವತಿ ಮಾಹಿತಿಯನ್ನು ಲೋಡ್ ಮಾಡುವಲ್ಲಿ ಸಮಸ್ಯೆ</string>
+</resources>

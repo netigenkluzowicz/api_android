@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">Hapana</string>
+  <string name="yes_netigen">Ndiyo</string>
+  <string name="error_donate_not_loaded_netigen">Tatizo la kupakia taarifa za malipo</string>
+</resources>

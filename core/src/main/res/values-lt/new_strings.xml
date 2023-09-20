@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">Nr</string>
+  <string name="yes_netigen">Taip</string>
+  <string name="error_donate_not_loaded_netigen">Problema įkeliant mokėjimo informaciją</string>
+</resources>

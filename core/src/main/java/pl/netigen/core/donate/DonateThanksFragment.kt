@@ -15,15 +15,15 @@ import kotlinx.android.synthetic.main.dialog_fragment_donate_webview_netigen_api
 import pl.netigen.core.R
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.core.utils.BaseDialogFragment
-import pl.netigen.coreapi.donate.DonateEvent
 import pl.netigen.coreapi.donate.DonateInterface
+import pl.netigen.extensions.toPx
 import timber.log.Timber
 
 /**
  * [BaseDialogFragment] used for show users "Ask For Survey" dialog, see [ISurvey]
  *
  */
-class DonateFragment : BaseDialogFragment() {
+class DonateThanksFragment : BaseDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.dialog_fragment_donate_webview_netigen_api, container, false)
@@ -35,8 +35,8 @@ class DonateFragment : BaseDialogFragment() {
 
     override fun setDialogSize(dp: Int) {
         dialog?.window?.let {
-            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            it.setGravity(Gravity.CENTER)
+            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 420.toPx())
+            it.setGravity(Gravity.BOTTOM)
         }
     }
 
@@ -45,17 +45,13 @@ class DonateFragment : BaseDialogFragment() {
         val context = webView.context
         webView.settings.javaScriptEnabled = true
         webView.addJavascriptInterface(
-            DonateInterface(::onNextAction),
+            DonateInterface { dismissAllowingStateLoss() },
             interfaceName,
         )
         val packageName = context.packageName
         val locale = ChangeLanguageHelper.getCurrentAppLocale(context)
         val apiLink = DONATE_API_LINK
-        val price1 = donates[0].priceText
-        val price2 = donates[1].priceText
-        val price3 = donates[2].priceText
-        val url =
-            "$apiLink?packageName=$packageName&platform=android&locale=$locale&options[0]=$price1&options[1]=$price2&options[2]=$price3"
+        val url = "$apiLink?packageName=$packageName&platform=android&locale=$locale"
         webView.loadUrl(url)
         webView.webViewClient = object : WebViewClient() {
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
@@ -69,28 +65,10 @@ class DonateFragment : BaseDialogFragment() {
         }
     }
 
-    private fun onNextAction(donateEvent: DonateEvent) {
-        when (donateEvent) {
-            is DonateEvent.DonateClick -> launchPayment(donateEvent)
-            is DonateEvent.Exit -> dismissAllowingStateLoss()
-            is DonateEvent.Unknown -> dismissAllowingStateLoss()
-        }
-    }
-
-    private fun launchPayment(donateEvent: DonateEvent.DonateClick) {
-        viewModel.makePurchase(requireActivity(), donates[donateEvent.productIndex].productId)
-        dismissAllowingStateLoss()
-    }
 
     companion object {
         private const val DONATE_API_LINK = "https://apis.netigen.eu/donate-webview"
         private const val interfaceName = "Android"
 
-        private var donates = emptyList<Donate.DonateInfo>()
-
-        fun newInstance(data: List<Donate.DonateInfo>): DonateFragment {
-            donates = data.sortedBy { it.productIndex }
-            return DonateFragment()
-        }
     }
 }
