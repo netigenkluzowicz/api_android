@@ -1,7 +1,6 @@
 package pl.netigen.core.main
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.ApplicationInfo
 import android.os.Bundle
@@ -20,6 +19,7 @@ import com.google.android.play.core.install.InstallStateUpdatedListener
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
+import pl.netigen.core.donate.Donate
 import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.rateus.RateUs
 import pl.netigen.core.splash.CoreSplashFragment
@@ -76,6 +76,8 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
 
     override val survey by lazy { Survey.Builder(this).createSurvey() }
 
+    private val donate: Donate = Donate()
+
     /**
      * It's called when [CoreSplashFragment] is closed
      *
@@ -88,6 +90,13 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         checkRateUs()
         checkSurvey()
         checkForUpdate()
+        checkDonate()
+    }
+
+    private fun checkDonate() {
+        coreMainVM.skuDetailsLD.observe(this) {
+            donate.updateDetails(it)
+        }
     }
 
     /**
@@ -206,6 +215,11 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                         Timber.d("UNKNOWN")
                         appUpdateManager.unregisterListener(this)
                     }
+
+                    InstallStatus.REQUIRES_UI_INTENT -> {
+                        Timber.d("REQUIRES_UI_INTENT")
+                        appUpdateManager.unregisterListener(this)
+                    }
                 }
             }
         }
@@ -314,4 +328,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             coreMainVM.interstitialAd.loadIfShouldBeLoaded()
         }
     }
+
+    fun showDonate() = donate.showDialog(this)
 }

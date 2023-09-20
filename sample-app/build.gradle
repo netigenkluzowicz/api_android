@@ -8,11 +8,11 @@ android {
     namespace "pl.netigen.sampleapp"
     compileSdkVersion 33
     defaultConfig {
-        applicationId "pl.netigen.notepad"
+        applicationId "pl.netigen.bestlevel"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode generateVersionCode()
-        versionName generateVersionName()
+        versionCode 30003
+        versionName "3.0.3"
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
         manifestPlaceholders = [admobId: "ca-app-pub-3940256099942544~3347511713"]
     }
