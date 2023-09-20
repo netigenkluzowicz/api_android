@@ -4,20 +4,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="16dp"
-        android:background="@color/colorWhite"
-        android:maxWidth="360dp"
-        android:maxHeight="630dp">
+        android:background="@color/transparent">
 
     <WebView
             android:id="@+id/webView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
             android:background="@color/textColorBlack"
-            android:minWidth="280dp"
-            android:minHeight="540dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="630dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="360dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
