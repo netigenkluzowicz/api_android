@@ -8,6 +8,7 @@ import pl.netigen.coreapi.payments.model.PaymentEvent
 import pl.netigen.coreapi.payments.model.PaymentSuccess
 import timber.log.Timber
 
+
 class Donate {
 
     fun updateDetails(skuDetails: List<NetigenSkuDetails>) {
@@ -30,8 +31,9 @@ class Donate {
             Utils.showShortToast(mainActivity, mainActivity.getString(R.string.error_donate_not_loaded_netigen))
             return
         }
+        if (mainActivity.supportFragmentManager.findFragmentByTag(TAG) != null) return
         DonateFragment.newInstance(donates)
-            .show(mainActivity.supportFragmentManager, "DonateFragment")
+            .show(mainActivity.supportFragmentManager, TAG)
     }
 
     fun checkShowCongrats(mainActivity: CoreMainActivity, paymentEvent: PaymentEvent) {
@@ -51,5 +53,6 @@ class Donate {
         fun matchesProductId(productId: String) = productId.contains(Regex("\\.donate\\d"))
         fun isPremium(productId: String) = productId.contains(Regex("\\.donate3"))
         private val donates = mutableListOf<DonateInfo>()
+        private const val TAG = "DonateFragment"
     }
 }
