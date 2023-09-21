@@ -26,12 +26,14 @@ class Donate {
 
 
     fun showDialog(mainActivity: CoreMainActivity) {
-        if (donates.isEmpty()) {
+        DonateThanksFragment.newInstance(true)
+            .show(mainActivity.supportFragmentManager, "DonateThanksFragment")
+      /*  if (donates.isEmpty()) {
             Utils.showShortToast(mainActivity, mainActivity.getString(R.string.error_donate_not_loaded_netigen))
             return
         }
         DonateFragment.newInstance(donates)
-            .show(mainActivity.supportFragmentManager, "DonateFragment")
+            .show(mainActivity.supportFragmentManager, "DonateFragment")*/
     }
 
     fun checkShowCongrats(mainActivity: CoreMainActivity, paymentEvent: PaymentEvent) {

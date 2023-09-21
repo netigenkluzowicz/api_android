@@ -26,7 +26,7 @@ import timber.log.Timber
 class DonateThanksFragment : BaseDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.dialog_fragment_donate_webview_netigen_api, container, false)
+        inflater.inflate(R.layout.dialog_fragment_donate_thanks_webview_netigen_api, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +35,7 @@ class DonateThanksFragment : BaseDialogFragment() {
 
     override fun setDialogSize(dp: Int) {
         dialog?.window?.let {
-            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 420.toPx())
+            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             it.setGravity(Gravity.BOTTOM)
         }
     }
