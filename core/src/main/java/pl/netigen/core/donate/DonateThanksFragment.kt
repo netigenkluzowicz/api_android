@@ -51,7 +51,7 @@ class DonateThanksFragment : BaseDialogFragment() {
         val packageName = context.packageName
         val locale = ChangeLanguageHelper.getCurrentAppLocale(context)
         val apiLink = DONATE_API_LINK
-        val url = "$apiLink?packageName=$packageName&platform=android&locale=$locale"
+        val url = "$apiLink?packageName=$packageName&platform=android&locale=$locale&premium=$isPremium"
         webView.loadUrl(url)
         webView.webViewClient = object : WebViewClient() {
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
@@ -69,6 +69,11 @@ class DonateThanksFragment : BaseDialogFragment() {
     companion object {
         private const val DONATE_API_LINK = "https://apis.netigen.eu/donate-webview"
         private const val interfaceName = "Android"
+        private var isPremium = false
 
+        fun newInstance(isPremium: Boolean): DonateThanksFragment {
+            DonateThanksFragment.isPremium = isPremium
+            return DonateThanksFragment()
+        }
     }
 }

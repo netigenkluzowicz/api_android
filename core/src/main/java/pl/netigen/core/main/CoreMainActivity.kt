@@ -94,8 +94,10 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     }
 
     private fun checkDonate() {
-        coreMainVM.skuDetailsLD.observe(this) { donate.updateDetails(it) }
-        coreMainVM.lastPaymentEvent.observe(this) { donate.checkShowCongrats(this, it) }
+        if (coreMainVM.donateActive) {
+            coreMainVM.skuDetailsLD.observe(this) { donate.updateDetails(it) }
+            coreMainVM.lastPaymentEvent.observe(this) { donate.checkShowCongrats(this, it) }
+        }
     }
 
     /**

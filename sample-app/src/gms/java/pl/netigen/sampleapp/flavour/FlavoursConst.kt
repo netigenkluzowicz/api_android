@@ -44,6 +44,7 @@ object FlavoursConst {
             inAppSkuList = inAppSkuList,
             noAdsInAppSkuList = inAppSkuListNoAds,
             subscriptionsSkuList = subscriptionsSkuList,
+            appConfig = appConfig,
         )
     }
 

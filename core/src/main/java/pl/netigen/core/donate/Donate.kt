@@ -37,7 +37,7 @@ class Donate {
     fun checkShowCongrats(mainActivity: CoreMainActivity, paymentEvent: PaymentEvent) {
         Timber.d("paymentEvent = [$paymentEvent]")
         if (paymentEvent is PaymentSuccess && matchesProductId(paymentEvent.sku)) {
-            DonateThanksFragment()
+            DonateThanksFragment.newInstance(isPremium(paymentEvent.sku))
                 .show(mainActivity.supportFragmentManager, "DonateThanksFragment")
         }
     }
@@ -49,6 +49,7 @@ class Donate {
 
     companion object {
         fun matchesProductId(productId: String) = productId.contains(Regex("\\.donate\\d"))
+        fun isPremium(productId: String) = productId.contains(Regex("\\.donate3"))
         private val donates = mutableListOf<DonateInfo>()
     }
 }

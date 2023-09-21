@@ -37,6 +37,8 @@ interface IAppConfig : IAdsConfig, ISplashConfig {
      */
     val daysForFlexibleUpdate: Int
 
+    val donateActive : Boolean
+
     val debugYandex: Boolean
         get() = inDebugMode && inYandexDebugMode
 

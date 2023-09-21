@@ -36,7 +36,7 @@ class DonateFragment : BaseDialogFragment() {
     override fun setDialogSize(dp: Int) {
         dialog?.window?.let {
             it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            it.setGravity(Gravity.CENTER)
+            it.setGravity(Gravity.BOTTOM)
         }
     }
 
