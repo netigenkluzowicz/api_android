@@ -37,7 +37,7 @@ class DonateFragment : BaseDialogFragment() {
     override fun setDialogSize(dp: Int) {
         val size630px = 630.toPx()
         val screenHeightPixels = resources.displayMetrics.heightPixels
-        val heightPx = if (screenHeightPixels < size630px) size630px else screenHeightPixels
+        val heightPx = if (screenHeightPixels > size630px) size630px else screenHeightPixels
 
         dialog?.window?.let {
             it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, heightPx)
