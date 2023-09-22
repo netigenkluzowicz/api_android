@@ -17,6 +17,7 @@ import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.core.utils.BaseDialogFragment
 import pl.netigen.coreapi.donate.DonateEvent
 import pl.netigen.coreapi.donate.DonateInterface
+import pl.netigen.extensions.toPx
 import timber.log.Timber
 
 /**
@@ -34,8 +35,12 @@ class DonateFragment : BaseDialogFragment() {
     }
 
     override fun setDialogSize(dp: Int) {
+        val size630px = 630.toPx()
+        val screenHeightPixels = resources.displayMetrics.heightPixels
+        val heightPx = if (screenHeightPixels < size630px) size630px else screenHeightPixels
+
         dialog?.window?.let {
-            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, heightPx)
             it.setGravity(Gravity.BOTTOM)
         }
     }
