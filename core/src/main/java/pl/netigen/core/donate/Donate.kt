@@ -27,7 +27,7 @@ class Donate {
 
 
     fun showDialog(mainActivity: CoreMainActivity) {
-        if (donates.isEmpty()) {
+        if (donates.isEmpty() || mainActivity.coreMainVM.isConnectedOrConnecting.not()) {
             Utils.showShortToast(mainActivity, mainActivity.getString(R.string.error_donate_not_loaded_netigen))
             return
         }

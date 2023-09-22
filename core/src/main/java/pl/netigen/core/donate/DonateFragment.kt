@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.dialog_fragment_donate_webview_netigen_api
 import pl.netigen.core.R
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.core.utils.BaseDialogFragment
+import pl.netigen.core.utils.Utils
 import pl.netigen.coreapi.donate.DonateEvent
 import pl.netigen.coreapi.donate.DonateInterface
 import pl.netigen.extensions.toPx
@@ -65,10 +66,14 @@ class DonateFragment : BaseDialogFragment() {
         webView.webViewClient = object : WebViewClient() {
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
                 Timber.d("view = [$view], request = [$request], error = [$error]")
+                Utils.showShortToast(requireActivity(), requireActivity().getString(R.string.error_donate_not_loaded_netigen))
+                dismissAllowingStateLoss()
             }
 
             override fun onReceivedError(view: WebView?, errorCode: Int, description: String?, failingUrl: String?) {
                 Timber.d("view = [$view], errorCode = [$errorCode], description = [$description], failingUrl = [$failingUrl]")
+                Utils.showShortToast(requireActivity(), requireActivity().getString(R.string.error_donate_not_loaded_netigen))
+                dismissAllowingStateLoss()
             }
 
         }
