@@ -1,6 +1,7 @@
 package pl.netigen.core.newlanguage;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +10,6 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
@@ -145,6 +145,12 @@ public class ChangeLanguageHelper {
     }
 
     public static String getPreferencesLocale() {
+        if (sharedPreferences == null) return Locale.getDefault().getLanguage();
+        return sharedPreferences.getString(KEY_USER_LOCALE, Locale.getDefault().getLanguage());
+    }
+
+    public static String getPreferencesLocale(Application application) {
+        if (sharedPreferences == null) setSharedPreferences(application);
         return sharedPreferences.getString(KEY_USER_LOCALE, Locale.getDefault().getLanguage());
     }
 
@@ -159,18 +165,13 @@ public class ChangeLanguageHelper {
     private static Context updateResources(Context activityContext, Context applicationContext) {
         sharedPreferences = activityContext.getSharedPreferences(LANGUAGE_PREFERENCES, Context.MODE_PRIVATE);
         String language = getPreferencesLocale();
-        Log.d(TAG, "updateResources: language " + language);
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
         Resources res = activityContext.getResources();
         Configuration config = new Configuration(res.getConfiguration());
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            config.setLocale(locale);
-        } else {
-            config.locale = locale;
-        }
+        config.setLocale(locale);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             activityContext.createConfigurationContext(config);
             applicationContext.createConfigurationContext(config);
