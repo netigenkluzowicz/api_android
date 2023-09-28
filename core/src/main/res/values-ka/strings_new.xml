@@ -1,4 +1,5 @@
 <resources>
-    <string name="no_netigen">არა</string>
-    <string name="yes_netigen">დიახ</string>
+  <string name="no_netigen">არა</string>
+  <string name="yes_netigen">დიახ</string>
+  <string name="error_donate_not_loaded_netigen">პრობლემა გადახდის ინფორმაციის ჩატვირთვასთან დაკავშირებით</string>
 </resources>

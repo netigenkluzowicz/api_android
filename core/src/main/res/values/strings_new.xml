@@ -3,4 +3,6 @@
 
     <string name="no_netigen">No</string>
     <string name="yes_netigen">Yes</string>
+    <string name="error_donate_not_loaded_netigen">Problem with loading payment information</string>
+
 </resources>

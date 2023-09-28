@@ -154,7 +154,7 @@ class CoreSplashVMImpl(
     private fun onLoadInterstitialResult(success: Boolean) = if (success) {
         onInterstitialLoaded()
     } else {
-        if (ChangeLanguageHelper.getPreferencesLocale() == "ru" || appConfig.debugYandex) ads.enableYandex()
+        if (ChangeLanguageHelper.getPreferencesLocale(getApplication()) == "ru" || appConfig.debugYandex) ads.enableYandex()
         finish()
     }
 

@@ -1,4 +1,5 @@
 <resources>
-    <string name="no_netigen">Nu</string>
-    <string name="yes_netigen">da</string>
+  <string name="no_netigen">Nu</string>
+  <string name="yes_netigen">da</string>
+  <string name="error_donate_not_loaded_netigen">Problemă la încărcarea informațiilor de plată</string>
 </resources>

@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">नाही</string>
+  <string name="yes_netigen">होय</string>
+  <string name="error_donate_not_loaded_netigen">पेमेंट माहिती लोड करताना समस्या</string>
+</resources>
