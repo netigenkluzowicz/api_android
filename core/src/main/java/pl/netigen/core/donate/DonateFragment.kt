@@ -56,6 +56,10 @@ class DonateFragment : BaseDialogFragment() {
         )
         val packageName = context.packageName
         val locale = ChangeLanguageHelper.getCurrentAppLocale(context)
+        if (donates.size != 3) {
+            dismissAllowingStateLoss()
+            return
+        }
         val apiLink = DONATE_API_LINK
         val price1 = donates[0].priceText
         val price2 = donates[1].priceText
