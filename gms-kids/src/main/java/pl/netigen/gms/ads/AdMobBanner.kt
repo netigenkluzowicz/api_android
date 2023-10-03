@@ -83,10 +83,9 @@ class AdMobBanner(
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    private fun onStart() {
+    override fun onStart(bannerLayout : RelativeLayout) {
         Timber.d("xxx.+()")
-        bannerLayout = currentActivity.findViewById(currentActivity.resources.getIdentifier(bannerLayoutIdName, "id", currentActivity.packageName))
+        this.bannerLayout = bannerLayout
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)

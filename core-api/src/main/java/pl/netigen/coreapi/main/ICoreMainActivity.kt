@@ -1,6 +1,7 @@
 package pl.netigen.coreapi.main
 
 import android.webkit.WebView
+import android.widget.RelativeLayout
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import pl.netigen.coreapi.ads.IBannerAd
@@ -125,4 +126,6 @@ interface ICoreMainActivity {
         const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS = 20 * 60 * 1000L //20 minutes
         const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS_DEBUG = 20 * 1000L //20 sec
     }
+
+    fun bannerView(): RelativeLayout
 }
