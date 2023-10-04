@@ -91,6 +91,7 @@ class AdMobBanner(
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         Timber.d("xxx.+()")
+        Timber.d("bannerLayout: " + bannerLayout)
         if (disabled) return
 
         if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || bannerView == null ||
@@ -102,29 +103,28 @@ class AdMobBanner(
     }
 
     private fun loadBanner() {
-        Timber.d("xxx.+()")
+        Timber.d("bannerLayout: " + bannerLayout)
         if (disabled) return
 
         if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || getHeightInPixels() > getAdSize().height) {
             destroyBanner()
         }
         if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView || bannerView == null) {
-            createBanner()
+            createAdmob()
         }
         loadAdMob()
     }
 
     private fun loadAdMob() {
-        Timber.d("xxx.+()")
+        Timber.d("bannerLayout: " + bannerLayout)
+        if (bannerView == null) createAdmob()
         bannerView?.loadAd(adMobRequest.getAdRequest())
     }
 
-    private fun createBanner() {
-         createAdmob()
-    }
 
 
     private fun createAdmob() {
+        Timber.d("bannerLayout: " + bannerLayout)
         bannerView = (bannerView ?: AdView(currentActivity)).also {
             bannerLayout.addView(it)
             setBannerLayoutParams(it)
@@ -137,7 +137,7 @@ class AdMobBanner(
 
 
     private fun destroyBanner() {
-        Timber.d("xxx.+()")
+        Timber.d("bannerLayout: " + bannerLayout)
         currentActivity.runOnUiThread {
             val view = bannerView.also { it?.destroy() } ?: return@runOnUiThread
             (view.parent as ViewGroup?)?.removeAllViews()
@@ -154,7 +154,7 @@ class AdMobBanner(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun onPause() {
-        Timber.d("xxx.+()")
+        Timber.d("bannerLayout: " + bannerLayout)
         val adView = bannerView ?: return
         adView.pause()
         val parent: ViewParent = adView.parent ?: return
