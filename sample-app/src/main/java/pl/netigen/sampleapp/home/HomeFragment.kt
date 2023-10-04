@@ -8,6 +8,7 @@ import android.view.Surface
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import kotlinx.android.synthetic.main.home_fragment.donate
 import kotlinx.android.synthetic.main.home_fragment.rotate
 import kotlinx.android.synthetic.main.home_fragment.testInterstitial
 import kotlinx.android.synthetic.main.home_fragment.testInterstitialForce
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.home_fragment.testReward
 import kotlinx.android.synthetic.main.home_fragment.testSubs
 import kotlinx.android.synthetic.main.home_fragment.testSurvey
 import pl.netigen.core.fragment.NetigenVMFragment
+import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.extensions.safeNavigate
 import timber.log.Timber.Forest.d
 
@@ -47,6 +49,9 @@ class HomeFragment : NetigenVMFragment() {
                     Surface.ROTATION_90, Surface.ROTATION_270 -> activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                 }
             }
+        }
+        donate.setOnClickListener {
+            (requireActivity() as CoreMainActivity).showDonate()
         }
     }
 

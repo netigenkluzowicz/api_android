@@ -1,4 +1,5 @@
 <resources>
-    <string name="no_netigen">不</string>
-    <string name="yes_netigen">是的</string>
+  <string name="no_netigen">不</string>
+  <string name="yes_netigen">是的</string>
+  <string name="error_donate_not_loaded_netigen">加载付款信息时出现问题</string>
 </resources>

@@ -2,8 +2,10 @@ package pl.netigen.gms.payments
 
 import android.app.Activity
 import com.android.billingclient.api.ProductDetails
+import pl.netigen.coreapi.main.IAppConfig
 import pl.netigen.coreapi.payments.Payments
 import timber.log.Timber.Forest.d
+
 
 class GMSPayments(
     private val activity: Activity,
@@ -11,8 +13,20 @@ class GMSPayments(
     override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
     override val subscriptionsSkuList: List<String> = emptyList(),
     inDebugMode: Boolean = false,
+    appConfig: IAppConfig,
 ) : Payments(activity) {
-    override val paymentsRepo = GMSPaymentsRepo(activity, inAppSkuList, noAdsInAppSkuList, subscriptionsSkuList, inDebugMode)
+    private val donateAddedList =
+        inAppSkuList + "${activity.packageName}.donate1" + "${activity.packageName}.donate2" + "${activity.packageName}.donate3"
+
+    private val donateAddedNoAdsList = noAdsInAppSkuList + "${activity.packageName}.donate3"
+
+    override val paymentsRepo = GMSPaymentsRepo(
+        activity = activity,
+        inAppSkuList = if (appConfig.donateActive) donateAddedList else inAppSkuList,
+        noAdsInAppSkuList = if (appConfig.donateActive) donateAddedNoAdsList else noAdsInAppSkuList,
+        subscriptionsSkuList = subscriptionsSkuList,
+        isDebugMode = inDebugMode,
+    )
     override val paymentsStateFlow = paymentsRepo.paymentsStateFlow
 
     override fun makePurchase(activity: Activity, sku: String) {
@@ -27,6 +41,6 @@ class GMSPayments(
 
     override fun makeNoAdsPayment(activity: Activity, noAdsSku: String) {
         d("activity = [$activity], noAdsString = [$noAdsSku]")
-        if (noAdsSku in noAdsInAppSkuList) makePurchase(activity, noAdsSku) else makePurchase(activity, noAdsInAppSkuList[0])
+        if (noAdsSku in donateAddedNoAdsList) makePurchase(activity, noAdsSku) else makePurchase(activity, donateAddedNoAdsList[0])
     }
 }

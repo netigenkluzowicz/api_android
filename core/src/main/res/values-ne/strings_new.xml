@@ -1,4 +1,5 @@
 <resources>
-    <string name="no_netigen">छैन</string>
-    <string name="yes_netigen">हुन्छ</string>
+  <string name="no_netigen">छैन</string>
+  <string name="yes_netigen">हो</string>
+  <string name="error_donate_not_loaded_netigen">भुक्तानी जानकारी लोड गर्दा समस्या</string>
 </resources>

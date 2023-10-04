@@ -1,4 +1,5 @@
 <resources>
-    <string name="no_netigen">아니요</string>
-    <string name="yes_netigen">예</string>
+  <string name="no_netigen">아니요</string>
+  <string name="yes_netigen">예</string>
+  <string name="error_donate_not_loaded_netigen">결제 정보 로드 문제</string>
 </resources>

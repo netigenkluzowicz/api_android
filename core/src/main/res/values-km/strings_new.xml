@@ -1,0 +1,5 @@
+<resources>
+  <string name="no_netigen">ទេ</string>
+  <string name="yes_netigen">បាទ</string>
+  <string name="error_donate_not_loaded_netigen">មានបញ្ហាជាមួយនឹងការផ្ទុកព័ត៌មានការទូទាត់</string>
+</resources>

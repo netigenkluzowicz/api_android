@@ -29,7 +29,7 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    protected fun setDialogSize(dp: Int) {
+    open fun setDialogSize(dp: Int) {
         dialog?.window?.let {
             val width = dp.toPx()
             it.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)

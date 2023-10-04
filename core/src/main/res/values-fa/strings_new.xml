@@ -1,4 +1,5 @@
 <resources>
-    <string name="no_netigen">نه</string>
-    <string name="yes_netigen">آره</string>
+  <string name="no_netigen">خیر</string>
+  <string name="yes_netigen">آره</string>
+  <string name="error_donate_not_loaded_netigen">مشکل در بارگیری اطلاعات پرداخت</string>
 </resources>
