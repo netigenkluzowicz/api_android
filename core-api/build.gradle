@@ -22,7 +22,6 @@ android {
         minSdkVersion 21
         targetSdkVersion 33
         compileSdk 33
-        versionName version
         aarMetadata {
             minCompileSdk = 32
         }
