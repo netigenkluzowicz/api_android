@@ -14,6 +14,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.IBannerAd
+import pl.netigen.coreapi.main.ICoreMainActivity
 import timber.log.Timber
 import kotlin.math.roundToInt
 
@@ -31,7 +32,7 @@ import kotlin.math.roundToInt
  * @property enabled Indicates is current ad active
  */
 class AdMobBanner(
-    activity: ComponentActivity,
+    private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
@@ -42,7 +43,8 @@ class AdMobBanner(
     private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
     private var currentActivity: ComponentActivity = activity
-    private lateinit var bannerLayout: RelativeLayout
+    private val bannerLayout: RelativeLayout
+        get() = (activity as ICoreMainActivity).bannerView()
 
     init {
         Timber.d("xxx.+()")
@@ -83,10 +85,6 @@ class AdMobBanner(
         }
     }
 
-    override fun onStart(bannerLayout : RelativeLayout) {
-        Timber.d("xxx.+()")
-        this.bannerLayout = bannerLayout
-    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {

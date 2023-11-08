@@ -25,5 +25,4 @@ interface IBannerAd : IAd {
      */
     fun getHeightInPixels(): Int
     fun onCreate(activity: AppCompatActivity)
-    fun onStart(bannerLayout: RelativeLayout)
 }

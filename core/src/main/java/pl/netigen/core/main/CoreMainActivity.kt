@@ -303,7 +303,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     override fun onStart() {
         super.onStart()
         coreMainVM.start()
-        coreMainVM.bannerAd.onStart(bannerView())
     }
 
     override fun increaseOpeningCounter() {
