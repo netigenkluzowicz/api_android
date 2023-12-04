@@ -26,6 +26,7 @@ open class AppConfig(
     override val donateActive: Boolean = true,
     override val maxInterstitialWaitTime: Long = DEFAULT_SPLASH_MAX_LOAD_INTERSTITIAL_WAIT_TIME_MS,
     override val daysForFlexibleUpdate: Int = DEFAULT_DAYS_FOR_FLEXIBLE_UPDATE,
+    override val showInterstitialAdOnSplash: Boolean = true,
 ) : IAppConfig {
 
     init {

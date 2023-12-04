@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
+import android.widget.RelativeLayout
 import androidx.activity.viewModels
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
@@ -62,6 +63,8 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     private val sharedPreferences: SharedPreferences by lazy {
         getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
     }
+
+    override fun bannerView(): RelativeLayout = findViewById(resources.getIdentifier(coreMainVM.bannerLayoutIdName, "id", packageName))
 
     override val openingCounter
         get() = sharedPreferences.getInt(KEY_NUMBER_OF_OPENINGS, 0)

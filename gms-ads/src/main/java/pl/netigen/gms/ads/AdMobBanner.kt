@@ -19,6 +19,7 @@ import com.yandex.mobile.ads.banner.BannerAdView
 import com.yandex.mobile.ads.common.AdRequestError
 import com.yandex.mobile.ads.common.ImpressionData
 import pl.netigen.coreapi.ads.IBannerAd
+import pl.netigen.coreapi.main.ICoreMainActivity
 import timber.log.Timber
 import kotlin.math.roundToInt
 
@@ -36,7 +37,7 @@ import kotlin.math.roundToInt
  * @property enabled Indicates is current ad active
  */
 class AdMobBanner(
-    activity: ComponentActivity,
+    private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
@@ -47,7 +48,9 @@ class AdMobBanner(
     private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
     private var currentActivity: ComponentActivity = activity
-    private lateinit var bannerLayout: RelativeLayout
+    private val bannerLayout: RelativeLayout
+        get() = (activity as ICoreMainActivity).bannerView()
+
     private var bannerYandex: BannerAdView? = null
     private var yandexActive = false
 
@@ -93,13 +96,6 @@ class AdMobBanner(
             AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(currentActivity, adWidth)
         }
     }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    private fun onStart() {
-        Timber.d("xxx.+()")
-        bannerLayout = currentActivity.findViewById(currentActivity.resources.getIdentifier(bannerLayoutIdName, "id", currentActivity.packageName))
-    }
-
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         Timber.d("xxx.+()")

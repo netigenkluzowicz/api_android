@@ -48,6 +48,8 @@ interface IAdsConfig : YandexAdsConfig {
 
     val inYandexDebugMode : Boolean
 
+    val showInterstitialAdOnSplash : Boolean
+
     companion object {
         /**
          * Minimum time after one [IInterstitialAd] ad was showed to show another ad, for default 60 seconds
