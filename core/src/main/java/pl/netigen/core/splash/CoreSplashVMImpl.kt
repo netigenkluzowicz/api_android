@@ -132,7 +132,7 @@ class CoreSplashVMImpl(
                 UNINITIALIZED -> setPersonalizedAds(false)
                 NON_PERSONALIZED_ERROR -> setPersonalizedAds(false)
             }
-            ads.interstitialAd.showIfCanBeShowed(true) { finish() }
+            showInterstitialIfCan()
         }
     }
 
@@ -152,15 +152,19 @@ class CoreSplashVMImpl(
     }
 
     private fun onLoadInterstitialResult(success: Boolean) = if (success) {
-        onInterstitialLoaded()
+        showInterstitialIfCan()
     } else {
         if (ChangeLanguageHelper.getPreferencesLocale(getApplication()) == "ru" || appConfig.debugYandex) ads.enableYandex()
         finish()
     }
 
-    private fun onInterstitialLoaded() {
+    private fun showInterstitialIfCan() {
         d("()")
-        ads.interstitialAd.showIfCanBeShowed(true) { finish() }
+        if (appConfig.showInterstitialAdOnSplash) {
+            ads.interstitialAd.showIfCanBeShowed(true) { finish() }
+        } else {
+            finish()
+        }
     }
 
     private fun cancelJobs() {
