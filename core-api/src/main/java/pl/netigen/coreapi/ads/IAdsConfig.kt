@@ -55,7 +55,7 @@ interface IAdsConfig : YandexAdsConfig {
 
     val inYandexDebugMode : Boolean
 
-    val showInterstitialAdOnSplash : Boolean
+    val showAnyAdOnSplash : Boolean
 
     companion object {
         /**

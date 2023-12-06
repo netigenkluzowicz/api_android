@@ -44,13 +44,12 @@ class OpenAppAd(
     var isShowingAd = false
     private var loadTime: Long = 0
 
-    init {
-        loadIfNeeded()
-    }
+    fun loadIfNeeded() = load { }
 
-    override fun loadIfNeeded() {
+    override fun load(onLoadSuccess: (Boolean) -> Unit) {
+        d("onLoadSuccess = [$onLoadSuccess]")
         if (isLoadingAd || isLoadedAndValid) {
-            return
+            return onLoadSuccess(true)
         }
 
         isLoadingAd = true
@@ -64,11 +63,13 @@ class OpenAppAd(
                     appOpenAd = ad
                     isLoadingAd = false
                     loadTime = Date().time
+                    onLoadSuccess(true)
                 }
 
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
                     d("loadAdError = [$loadAdError]")
                     isLoadingAd = false;
+                    onLoadSuccess(false)
                 }
             },
         )
@@ -77,7 +78,7 @@ class OpenAppAd(
     override val isLoadedAndValid: Boolean
         get() = appOpenAd != null && wasLoadTimeLessThan4HoursAgo()
 
-    override fun showIfCanBeShowed(onClosedOrNotShowed: (Boolean) -> Unit) {
+    override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
         if (isShowingAd) {
             d("The app open ad is already showing.")
             return
