@@ -17,6 +17,7 @@ open class AppConfig(
     override val bannerYandexAdId: String = "",
     override val interstitialYandexAdId: String = "",
     override val rewardedYandexAdId: String = "",
+    override val openAppAdId: String = "",
     final override val store: Store,
     override val bannerLayoutIdName: String = "adsLayout",
     override val testDevices: List<String> = emptyList(),

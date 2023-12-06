@@ -35,6 +35,11 @@ interface IAds {
     val rewardedAd: IRewardedAd
 
     /**
+     * Provides [IOpenAppAd]
+     */
+    val openAppAd: IOpenAppAd
+
+    /**
      * Disable all ads, hide banners, cancel and/or stop loading ads
      *
      */

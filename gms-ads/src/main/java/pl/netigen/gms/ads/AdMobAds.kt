@@ -8,6 +8,7 @@ import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IAdsConfig
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.ads.IInterstitialAd
+import pl.netigen.coreapi.ads.IOpenAppAd
 import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber
 
@@ -30,6 +31,7 @@ class AdMobAds(
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
     override val rewardedAd: IRewardedAd
+    override val openAppAd: IOpenAppAd
 
     init {
         Timber.d("init started")
@@ -56,11 +58,20 @@ class AdMobAds(
             adId = rewardedId,
             yandexAdId = if (adsConfig.inDebugMode) "demo-rewarded-yandex" else adsConfig.rewardedYandexAdId,
         )
+        openAppAd = OpenAppAd(
+            activity = activity,
+            adMobRequest = this,
+            adId = getOpenAppId(),
+        )
+
         val requestConfiguration = RequestConfiguration.Builder()
             .setTestDeviceIds(adsConfig.testDevices)
             .build()
         MobileAds.setRequestConfiguration(requestConfiguration)
     }
+
+    private fun getOpenAppId() =
+        if (adsConfig.inDebugMode && adsConfig.openAppAdId.isNotEmpty()) (TEST_OPEN_APP_ID) else (adsConfig.openAppAdId)
 
     private fun getIds(banner: String, interstitial: String, rewarded: String): Triple<String, String, String> {
         val bannerId = if (adsConfig.inDebugMode) (TEST_BANNER_ID) else (banner)
@@ -97,5 +108,6 @@ class AdMobAds(
         const val TEST_BANNER_ID: String = "ca-app-pub-3940256099942544/6300978111"
         const val TEST_INTERSTITIAL_ID: String = "ca-app-pub-3940256099942544/1033173712"
         const val TEST_REWARDED_ID: String = "ca-app-pub-3940256099942544/5224354917"
+        const val TEST_OPEN_APP_ID: String = "ca-app-pub-3940256099942544/9257395921"
     }
 }
