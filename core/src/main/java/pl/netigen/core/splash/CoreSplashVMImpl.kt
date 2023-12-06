@@ -104,7 +104,6 @@ class CoreSplashVMImpl(
         splashTimer.cancelInterstitialTimer()
         finished = true
         updateState(SplashState.FINISHED)
-        if (ads.openAppAd.active) ads.interstitialAd.loadIfShouldBeLoaded()
     }
 
     private fun updateState(splashState: SplashState) {
