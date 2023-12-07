@@ -45,6 +45,9 @@ interface IPaymentsRepo {
      */
     val noAdsActive: Flow<Boolean>
 
+
+    val paymentsStateFlow: Any
+
     /**
      * [LiveData] with list of [NetigenSkuDetails], use this to get information of current available IN_APP and SUBSCRIPTION payments
      *

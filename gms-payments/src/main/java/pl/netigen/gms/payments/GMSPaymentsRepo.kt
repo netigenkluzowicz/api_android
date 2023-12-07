@@ -49,7 +49,7 @@ class GMSPaymentsRepo(
     private val initialState: PaymentsState by lazy { PaymentsState() }
 
     private val _state = MutableStateFlow(initialState)
-    val paymentsStateFlow: StateFlow<PaymentsState> = _state.asStateFlow()
+    override val paymentsStateFlow: StateFlow<PaymentsState> = _state.asStateFlow()
     private val paymentState: PaymentsState get() = paymentsStateFlow.value
     private fun setState(update: (old: PaymentsState) -> PaymentsState): PaymentsState = _state.updateAndGet(update)
 

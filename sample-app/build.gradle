@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "pl.netigen.bestlevel"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 30003
         versionName "3.0.3"
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
