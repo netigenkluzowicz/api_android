@@ -1,26 +1,46 @@
 package pl.netigen.gms.payments
 
 import android.app.Activity
+import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.map
-import com.android.billingclient.api.*
+import com.android.billingclient.api.AcknowledgePurchaseParams
+import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingClientStateListener
+import com.android.billingclient.api.BillingFlowParams
+import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.ProductDetails
+import com.android.billingclient.api.Purchase
+import com.android.billingclient.api.PurchasesUpdatedListener
+import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.QueryPurchasesParams
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.updateAndGet
 import kotlinx.coroutines.launch
 import pl.netigen.coreapi.payments.IPaymentsRepo
 import pl.netigen.coreapi.payments.Security
-import pl.netigen.coreapi.payments.model.*
+import pl.netigen.coreapi.payments.model.NetigenSkuDetails
+import pl.netigen.coreapi.payments.model.PaymentError
+import pl.netigen.coreapi.payments.model.PaymentErrorType
+import pl.netigen.coreapi.payments.model.PaymentEvent
+import pl.netigen.coreapi.payments.model.PaymentRestored
+import pl.netigen.coreapi.payments.model.PaymentSuccess
 import pl.netigen.extensions.MutableSingleLiveEvent
 import pl.netigen.extensions.SingleLiveEvent
 import pl.netigen.gms.payments.PurchaseInfoState.NotStarted
 import timber.log.Timber
 
 class GMSPaymentsRepo(
-    private val activity: Activity,
+    private val context: Context,
     private val inAppSkuList: List<String>,
     private val noAdsInAppSkuList: List<String>,
     private val subscriptionsSkuList: List<String>,
@@ -36,9 +56,8 @@ class GMSPaymentsRepo(
     private var makingPurchaseActive: Boolean = false
     private var isConnecting: Boolean = false
     private var lastError: PaymentError? = null
-    private var application = activity.application
-    private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(application) }
-    private val gmsBillingClient: BillingClient = BillingClient.newBuilder(application).enablePendingPurchases().setListener(this).build()
+    private val localCacheBillingClient by lazy { LocalBillingDb.getInstance(context) }
+    private val gmsBillingClient: BillingClient = BillingClient.newBuilder(context).enablePendingPurchases().setListener(this).build()
     override val skuDetailsLD by lazy { localCacheBillingClient.skuDetailsDao().skuDetailsLiveData() }
 
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow().map { list ->
@@ -137,6 +156,7 @@ class GMSPaymentsRepo(
                         onLoaded(productDetailsList)
                     }
                 }
+
                 else -> {
                     Timber.e(billingResult.debugMessage)
                     postError(billingResult)
@@ -178,6 +198,7 @@ class GMSPaymentsRepo(
                     processAllPurchases(newList)
                     PurchaseInfoState.BothLoaded(newList)
                 }
+
                 else -> {
                     postError(PaymentErrorType.DEVELOPER_ERROR, "Wrong State: $purchaseInfoState")
                     NotStarted
@@ -264,8 +285,8 @@ class GMSPaymentsRepo(
 
     private fun debugEvent(message: String) {
         if (isDebugMode) {
-            activity.runOnUiThread {
-                Toast.makeText(activity, "GSM_PAYMENTS $message", Toast.LENGTH_LONG).show()
+            MainScope().launch {
+                Toast.makeText(context, "GSM_PAYMENTS $message", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -292,6 +313,7 @@ class GMSPaymentsRepo(
                             PaymentErrorType.DEVELOPER_ERROR,
                             "NetigenNoAdsSkuDetails with skuId = $skuId not found",
                         )
+
                         lastError1 != null -> postError(lastError1)
                         else -> postError(PaymentErrorType.ERROR, "Unknown error for skuId: $skuId")
                     }
@@ -333,16 +355,19 @@ class GMSPaymentsRepo(
                 Timber.d("${purchases?.joinToString("\n")}")
                 CoroutineScope(Job() + Dispatchers.IO).launch { purchases?.apply { processAllPurchases(this) } }
             }
+
             BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
                 Timber.d(billingResult.debugMessage)
                 CoroutineScope(Job() + Dispatchers.IO).launch { queryPurchasesAsync() }
                 _lastPaymentEvent.postValue(PaymentError(billingResult.debugMessage, PaymentErrorType.ITEM_ALREADY_OWNED))
                 debugEvent("ITEM_ALREADY_OWNED " + billingResult.debugMessage)
             }
+
             BillingClient.BillingResponseCode.SERVICE_DISCONNECTED -> {
                 connectToPlayBillingService()
                 debugEvent("SERVICE_DISCONNECTED")
             }
+
             else -> {
                 Timber.i(billingResult.debugMessage)
                 postError(billingResult)
