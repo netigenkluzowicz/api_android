@@ -28,6 +28,13 @@ interface IAdsConfig : YandexAdsConfig {
     val rewardedAdId: String
 
     /**
+     * [openAppAdId] ad identifier,
+     *
+     * for default set to empty String (""), indicating it is not used in application
+     */
+    val openAppAdId: String
+
+    /**
      * Id of [RelativeLayout] for banner ad placement
      */
     val bannerLayoutIdName: String
@@ -48,7 +55,7 @@ interface IAdsConfig : YandexAdsConfig {
 
     val inYandexDebugMode : Boolean
 
-    val showInterstitialAdOnSplash : Boolean
+    val showAnyAdOnSplash : Boolean
 
     companion object {
         /**

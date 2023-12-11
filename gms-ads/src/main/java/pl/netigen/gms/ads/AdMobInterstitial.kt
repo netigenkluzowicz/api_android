@@ -56,6 +56,7 @@ class AdMobInterstitial(
     private var currentActivity: ComponentActivity = activity
     private var yandexActive = false
     private var yandexAd: com.yandex.mobile.ads.interstitial.InterstitialAd? = null
+    private var isLoading = false
 
     init {
         d(this.toString())
@@ -63,6 +64,7 @@ class AdMobInterstitial(
     }
 
     override fun load(onLoadSuccess: (Boolean) -> Unit) {
+        isLoading = true
         if (yandexActive) loadYandex(onLoadSuccess) else loadAdmob(onLoadSuccess)
     }
 
@@ -74,11 +76,13 @@ class AdMobInterstitial(
                         d("ad = [$ad]")
                         onLoadSuccess(true)
                         yandexAd = ad
+                        isLoading = false
                     }
 
                     override fun onAdFailedToLoad(error: AdRequestError) {
                         d("error = [$error]")
                         onLoadSuccess(false)
+                        isLoading = false
                     }
                 },
             )
@@ -96,6 +100,7 @@ class AdMobInterstitial(
                     d(loadAdError.message)
                     interstitialAd = null
                     onLoadSuccess(false)
+                    isLoading = false
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
@@ -107,6 +112,7 @@ class AdMobInterstitial(
                         this@AdMobInterstitial.interstitialAd = interstitialAd
                         onLoadSuccess(true)
                     }
+                    isLoading = false
                 }
             },
         )
@@ -174,7 +180,7 @@ class AdMobInterstitial(
 
     override fun loadIfShouldBeLoaded() {
         d("()")
-        if (interstitialAd != null || disabled) return
+        if (interstitialAd != null || disabled || isLoading) return
         load {}
     }
 

@@ -10,6 +10,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.isActive
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.coreapi.ads.IAds
+import pl.netigen.coreapi.ads.OnSplashAd
 import pl.netigen.coreapi.gdpr.AdConsentStatus
 import pl.netigen.coreapi.gdpr.AdConsentStatus.NON_PERSONALIZED_ERROR
 import pl.netigen.coreapi.gdpr.AdConsentStatus.NON_PERSONALIZED_SHOWED
@@ -55,6 +56,7 @@ class CoreSplashVMImpl(
     private var isRunning = false
     private var finished = false
     private var isPurchased = false
+    private val onSplashAd: OnSplashAd = if (ads.openAppAd.active) ads.openAppAd else ads.interstitialAd
 
     override fun start() {
         d("()")
@@ -73,7 +75,7 @@ class CoreSplashVMImpl(
         }
         if (!networkStatus.isConnectedOrConnecting || finished) return finish()
         loadGdprStatus()
-        loadInterstitial()
+        loadSplashAd()
     }
 
     private fun loadGdprStatus() {
@@ -136,14 +138,14 @@ class CoreSplashVMImpl(
         }
     }
 
-    private fun loadInterstitial() {
+    private fun loadSplashAd() {
         d("()")
         splashTimer.startInterstitialTimer {
             if (currentState != SplashState.SHOW_GDPR_POP_UP) {
                 onLoadInterstitialResult(false)
             }
         }
-        ads.interstitialAd.load {
+        onSplashAd.load {
             splashTimer.cancelInterstitialTimer()
             if (!finished && currentState != SplashState.SHOW_GDPR_POP_UP) {
                 onLoadInterstitialResult(it)
@@ -160,11 +162,7 @@ class CoreSplashVMImpl(
 
     private fun showInterstitialIfCan() {
         d("()")
-        if (appConfig.showInterstitialAdOnSplash) {
-            ads.interstitialAd.showIfCanBeShowed(true) { finish() }
-        } else {
-            finish()
-        }
+        onSplashAd.showIfCanBeShowed(true) { finish() }
     }
 
     private fun cancelJobs() {

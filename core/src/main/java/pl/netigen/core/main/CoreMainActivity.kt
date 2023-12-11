@@ -89,6 +89,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         Timber.d("()")
         _splashActive = false
         if (noAdsActive) hideAds() else showAds()
+        coreMainVM.interstitialAd.loadIfShouldBeLoaded()
         increaseOpeningCounter()
         checkRateUs()
         checkSurvey()

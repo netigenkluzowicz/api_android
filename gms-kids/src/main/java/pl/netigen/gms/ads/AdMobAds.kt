@@ -8,6 +8,7 @@ import pl.netigen.coreapi.ads.IAds
 import pl.netigen.coreapi.ads.IAdsConfig
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.ads.IInterstitialAd
+import pl.netigen.coreapi.ads.IOpenAppAd
 import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber
 
@@ -30,6 +31,8 @@ class AdMobAds(
     override val bannerAd: IBannerAd
     override val interstitialAd: IInterstitialAd
     override val rewardedAd: IRewardedAd
+    override val openAppAd: IOpenAppAd
+        get() = throw Exception("Not available in kids app")
 
     init {
         Timber.d("init started")

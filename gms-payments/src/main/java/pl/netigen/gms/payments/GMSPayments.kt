@@ -1,6 +1,7 @@
 package pl.netigen.gms.payments
 
 import android.app.Activity
+import android.content.Context
 import com.android.billingclient.api.ProductDetails
 import pl.netigen.coreapi.main.IAppConfig
 import pl.netigen.coreapi.payments.Payments
@@ -8,20 +9,20 @@ import timber.log.Timber.Forest.d
 
 
 class GMSPayments(
-    private val activity: Activity,
-    override val inAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
-    override val noAdsInAppSkuList: List<String> = listOf("${activity.packageName}.noads"),
+    private val context: Context,
+    override val inAppSkuList: List<String> = listOf("${context.packageName}.noads"),
+    override val noAdsInAppSkuList: List<String> = listOf("${context.packageName}.noads"),
     override val subscriptionsSkuList: List<String> = emptyList(),
     inDebugMode: Boolean = false,
     appConfig: IAppConfig,
-) : Payments(activity) {
+) : Payments(context) {
     private val donateAddedList =
-        inAppSkuList + "${activity.packageName}.donate1" + "${activity.packageName}.donate2" + "${activity.packageName}.donate3"
+        inAppSkuList + "${context.packageName}.donate1" + "${context.packageName}.donate2" + "${context.packageName}.donate3"
 
-    private val donateAddedNoAdsList = noAdsInAppSkuList + "${activity.packageName}.donate3"
+    private val donateAddedNoAdsList = noAdsInAppSkuList + "${context.packageName}.donate3"
 
     override val paymentsRepo = GMSPaymentsRepo(
-        activity = activity,
+        context = context,
         inAppSkuList = if (appConfig.donateActive) donateAddedList else inAppSkuList,
         noAdsInAppSkuList = if (appConfig.donateActive) donateAddedNoAdsList else noAdsInAppSkuList,
         subscriptionsSkuList = subscriptionsSkuList,

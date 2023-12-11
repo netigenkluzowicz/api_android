@@ -40,7 +40,7 @@ object FlavoursConst {
             coreMainActivity.packageName + SUBSCRIPTION_12,
         )
         return GMSPayments(
-            activity = coreMainActivity,
+            context = coreMainActivity,
             inAppSkuList = inAppSkuList,
             noAdsInAppSkuList = inAppSkuListNoAds,
             subscriptionsSkuList = subscriptionsSkuList,
