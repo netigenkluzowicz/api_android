@@ -50,6 +50,8 @@ class AmazonPaymentsRepo(
 
     override val noAdsActive = localCacheBillingClient.purchaseDao().getPurchasesFlow()
         .map { list -> list.any { it.sku in noAdsInAppSkuList } }
+    override val paymentsStateFlow: Any
+        get() = Unit
 
 
     override fun onUserDataResponse(response: UserDataResponse?) {
@@ -81,6 +83,7 @@ class AmazonPaymentsRepo(
                 amazonUserData = AmazonUserData(response.userData.userId, response.userData.marketplace)
                 handleReceipt(response.receipt)
             }
+
             else -> Timber.e("userDataResponse $status")
         }
     }
