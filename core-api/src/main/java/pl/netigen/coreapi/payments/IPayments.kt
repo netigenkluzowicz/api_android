@@ -77,4 +77,6 @@ interface IPayments : INoAds {
     fun isSaleTime(netigenSkuDetails: NetigenSkuDetails?, netigenInfoSkuDetails: NetigenSkuDetails?): Boolean
 
     fun purchaseSubscriptionOffer(activity: Activity, productDetails: Any, subscriptionOfferToken: String)
+
+    val paymentsStateFlow: Any
 }
