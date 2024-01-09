@@ -58,6 +58,9 @@ class CoreSplashVMImpl(
     private var isPurchased = false
     private val onSplashAd: OnSplashAd = if (ads.openAppAd.active) ads.openAppAd else ads.interstitialAd
 
+    override val isPremium: Boolean
+        get() = isPurchased
+
     override fun start() {
         d("()")
         if (!isRunning) init()

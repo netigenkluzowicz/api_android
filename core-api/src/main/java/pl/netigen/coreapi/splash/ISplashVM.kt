@@ -19,6 +19,7 @@ import pl.netigen.coreapi.payments.INoAds
  *
  */
 interface ISplashVM : INoAds, IAppConfig {
+    val isPremium : Boolean
     val gdprConsent: IGDPRConsent
     val splashState: LiveData<SplashState>
     val isFirstLaunch: LiveData<Boolean>
