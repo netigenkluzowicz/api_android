@@ -49,7 +49,7 @@ class AdMobBanner(
     private val disabled get() = !enabled
     private var currentActivity: ComponentActivity = activity
     private val bannerLayout: RelativeLayout
-        get() = (activity as ICoreMainActivity).bannerView()
+        get() = (currentActivity as ICoreMainActivity).bannerView()
 
     private var bannerYandex: BannerAdView? = null
     private var yandexActive = false
