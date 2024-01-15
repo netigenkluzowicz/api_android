@@ -32,7 +32,19 @@ class AdMobAds(
     override val interstitialAd: IInterstitialAd
     override val rewardedAd: IRewardedAd
     override val openAppAd: IOpenAppAd
-        get() = throw Exception("Not available in kids app")
+        get() = object : IOpenAppAd {
+            override val isLoadedAndValid: Boolean = false
+
+            override fun load(onLoadSuccess: (Boolean) -> Unit) {
+            }
+
+            override fun showIfCanBeShowed(forceShow: Boolean, onClosedOrNotShowed: (Boolean) -> Unit) {
+            }
+
+            override var enabled: Boolean = false
+            override val adId: String = ""
+
+        }
 
     init {
         Timber.d("init started")

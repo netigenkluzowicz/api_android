@@ -22,7 +22,6 @@ class ViewModelFactory(override val coreMainActivity: CoreMainActivity) : CoreVi
             interstitialYandexAdId = FlavoursConst.YANDEX_INTERSTITIAL_AD_ID,
             rewardedAdId = FlavoursConst.REWARDED_AD_ID,
             rewardedYandexAdId = FlavoursConst.YANDEX_REWARDED_AD_ID,
-            openAppAdId = "ca-app-pub-3940256099942544/9257395921",
             inDebugMode = BuildConfig.DEBUG,
             inYandexDebugMode = false,
             store = when (BuildConfig.FLAVOR) {
