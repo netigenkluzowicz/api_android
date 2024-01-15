@@ -44,7 +44,7 @@ class AdMobBanner(
     private val disabled get() = !enabled
     private var currentActivity: ComponentActivity = activity
     private val bannerLayout: RelativeLayout
-        get() = (activity as ICoreMainActivity).bannerView()
+        get() = (currentActivity as ICoreMainActivity).bannerView()
 
     init {
         Timber.d("xxx.+()")
