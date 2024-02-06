@@ -129,7 +129,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
     override fun checkRateUs(): Boolean = rateUs.openRateDialogIfNeeded()
 
     /**
-     * Starts observing [ICoreMainVM.noAdsActive] and [ICoreMainVM.showGdprResetAds]
+     * Starts observing [ICoreMainVM.noAdsActive]
      *
      */
     @CallSuper
@@ -137,11 +137,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         super.onCreate(savedInstanceState)
         Timber.d("savedInstanceState = [$savedInstanceState]")
         coreMainVM.noAdsActive.asLiveData().observe(this, this::onNoAdsChanged)
-        coreMainVM.showGdprResetAds.observe(this) {
-            if (canCommitFragments) {
-                showGdprPopUp()
-            }
-        }
         coreMainVM.bannerAd.onCreate(this)
     }
 

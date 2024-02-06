@@ -53,8 +53,6 @@ open class CoreMainVmImpl(
         }
     }
 
-    final override val showGdprResetAds: MutableSingleLiveEvent<Unit> = MutableSingleLiveEvent()
-
     private fun onNoAdsChange(noAdsActive: Boolean) = if (noAdsActive) ads.disable() else ads.enable()
 
     @CallSuper

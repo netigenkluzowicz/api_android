@@ -30,10 +30,4 @@ interface ICoreMainVM : IPayments, IAds, INetworkStatus, IGDPRConsent, IAppConfi
      *
      */
     fun resetAdsPreferences()
-
-    /**
-     * [ICoreMainActivity] will observe it and show [GDPRDialogFragment][pl.netigen.core.gdpr.GDPRDialogFragment] when [resetAdsPreferences] is called
-     *
-     */
-    val showGdprResetAds: SingleLiveEvent<Unit>
 }

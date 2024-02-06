@@ -12,6 +12,4 @@ import androidx.lifecycle.AndroidViewModel
  *
  * @param application [Application]  context of this class
  */
-abstract class CoreMainVM(application: Application) : AndroidViewModel(application), ICoreMainVM {
-
-}
+abstract class CoreMainVM(application: Application) : AndroidViewModel(application), ICoreMainVM
