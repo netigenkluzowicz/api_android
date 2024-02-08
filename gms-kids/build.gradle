@@ -19,10 +19,10 @@ afterEvaluate {
 android {
 
     namespace "pl.netigen.gms.kids"
-    compileSdkVersion 33
+    compileSdk  33
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 33
     }
     buildTypes {

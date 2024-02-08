@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="174dp"
             android:alpha="0.1"
-            android:src="@drawable/rate_top_blob1"
+            android:src="@drawable/thanks_top_blob"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,12 +29,13 @@
             android:id="@+id/topImage"
             android:layout_width="0dp"
             android:layout_height="174dp"
-            android:src="@drawable/rate_top_blob1a"
+            android:src="@drawable/thanks_top_blob1a"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+            android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#141414"
@@ -43,71 +44,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topImage" />
 
-    <ImageView
-            android:id="@+id/closeImage"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:padding="12dp"
-            android:src="@drawable/close_rate_us_netigen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
             android:id="@+id/mainText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/rubik_medium"
             android:gravity="center"
             android:minHeight="32dp"
             android:paddingHorizontal="16dp"
-            android:text="@string/ask_to_rate_app_netigen"
+            android:text="@string/aks_rate_netigen"
             android:textColor="@color/netigen_main_color_text"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topImage" />
-
-    <LinearLayout
-            android:id="@+id/starsLayout"
+    <TextView
+            android:id="@+id/subText"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rubik_regular"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:text="@string/rate_us_netigen_sub_text"
+            android:alpha="0.5"
+            android:textColor="@color/netigen_main_color_text"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mainText"
-            app:layout_constraintWidth_max="320dp">
-
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:src="@drawable/star_netigen_off" />
-
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:src="@drawable/star_netigen_off" />
-
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:src="@drawable/star_netigen_off" />
-
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:src="@drawable/star_netigen_off" />
-
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:src="@drawable/star_netigen_off" />
-    </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/mainText" />
 
     <TextView
             android:id="@+id/confirmButton"
@@ -115,15 +81,32 @@
             android:layout_height="56dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginBottom="56dp"
-            android:background="@drawable/rate_disabled_button"
+            android:background="@drawable/rate_main_button"
             android:fontFamily="@font/rubik_medium"
             android:gravity="center"
-            android:text="@string/rate_us_exclamation_mark_netigen"
-            android:textColor="@color/netigen_button_color_text_inactive"
+            android:text="@string/rate_us_confirm_text_netigen"
+            android:textColor="@color/netigen_button_color_text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subText" />
+
+    <TextView
+            android:id="@+id/skip"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:alpha="0.5"
+            android:background="@drawable/rate_hidden_button"
+            android:fontFamily="@font/rubik_medium"
+            android:gravity="center"
+            android:text="@string/Skip"
+            android:textColor="@color/netigen_main_color_text"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/starsLayout" />
+            app:layout_constraintTop_toBottomOf="@id/confirmButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

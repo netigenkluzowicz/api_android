@@ -21,12 +21,9 @@ import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 import pl.netigen.core.donate.Donate
-import pl.netigen.core.gdpr.GDPRDialogFragment
 import pl.netigen.core.rateus.RateUs
 import pl.netigen.core.splash.CoreSplashFragment
 import pl.netigen.core.survey.Survey
-import pl.netigen.coreapi.gdpr.AdConsentStatus
-import pl.netigen.coreapi.gdpr.GDPRClickListener
 import pl.netigen.coreapi.main.CoreMainVM
 import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.KEY_LAST_LAUNCH_TIME_COUNTER
@@ -92,7 +89,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         coreMainVM.interstitialAd.loadIfShouldBeLoaded()
         increaseOpeningCounter()
         checkRateUs()
-        checkSurvey()
         checkForUpdate()
         checkDonate()
     }
@@ -251,28 +247,6 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
             snackbar.show()
         }
     }
-
-    override fun showGdprPopUp() {
-        Timber.d("()")
-        val fragment = GDPRDialogFragment.newInstance()
-        fragment.show(supportFragmentManager.beginTransaction().addToBackStack(null), null)
-        fragment.setIsPayOptions(coreMainVM.isNoAdsAvailable)
-        fragment.bindGDPRListener(
-            object : GDPRClickListener {
-                override fun onConsentAccepted(personalizedAds: Boolean) {
-                    coreMainVM.personalizedAdsEnabled = personalizedAds
-                    val adConsentStatus = if (personalizedAds) AdConsentStatus.PERSONALIZED_SHOWED else AdConsentStatus.NON_PERSONALIZED_SHOWED
-                    coreMainVM.saveAdConsentStatus(adConsentStatus)
-                }
-
-                override fun clickPay() {
-                    fragment.dismissAllowingStateLoss()
-                    coreMainVM.makeNoAdsPayment(this@CoreMainActivity)
-                }
-            },
-        )
-    }
-
 
     @CallSuper
     override fun onResume() {

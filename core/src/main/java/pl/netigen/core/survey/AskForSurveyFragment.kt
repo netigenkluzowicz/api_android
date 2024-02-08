@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.dialog_fragment_ask_for_survey_netigen_api.*
 import pl.netigen.core.R
 import pl.netigen.core.utils.BaseDialogFragment
 
@@ -45,13 +44,13 @@ class AskForSurveyFragment : BaseDialogFragment() {
     }
 
     private fun setPositiveButtonListener() {
-        confirmButton.setOnClickListener {
+        requireView().findViewById<View>(R.id.confirmButton).setOnClickListener {
             dismissAllowingStateLoss()
             onClickYes?.let { it() }
         }
     }
 
     private fun setNegativeButtonListeners() {
-        askSurveySkip.setOnClickListener { dismissAllowingStateLoss() }
+        requireView().findViewById<View>(R.id.skip).setOnClickListener { dismissAllowingStateLoss() }
     }
 }

@@ -18,7 +18,6 @@ import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.coreapi.main.ICoreMainActivity
 import pl.netigen.coreapi.rateus.IRateUs
 import pl.netigen.coreapi.survey.ISurvey
-import pl.netigen.coreapi.survey.ISurvey.Companion.NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG
 import pl.netigen.coreapi.survey.SurveyEvent
 import pl.netigen.coreapi.survey.SurveyInterface
 import timber.log.Timber
@@ -30,7 +29,6 @@ import timber.log.Timber
  */
 class Survey private constructor(
     private val coreMainActivity: CoreMainActivity,
-    private val openingInterval: Int,
 ) : ISurvey {
 
     private val sharedPreferences: SharedPreferences by lazy { coreMainActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE) }
@@ -52,7 +50,7 @@ class Survey private constructor(
 
     private fun openAskForSurveyDialog() {
         Timber.d("()")
-        AskForSurveyFragment.newInstance { clickYes() }.show(coreMainActivity.supportFragmentManager, "AskForSurveyDialog")
+        AskForSurveyFragment.newInstance(::clickYes).show(coreMainActivity.supportFragmentManager, "AskForSurveyDialog")
     }
 
     override fun clickYes() {
@@ -80,9 +78,8 @@ class Survey private constructor(
 
     class Builder(
         private val coreMainActivity: CoreMainActivity,
-        private val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_DIALOG,
     ) {
-        fun createSurvey(): Survey = Survey(coreMainActivity, numberOfChecksBeforeShowingDialog)
+        fun createSurvey(): Survey = Survey(coreMainActivity)
     }
 
     companion object {

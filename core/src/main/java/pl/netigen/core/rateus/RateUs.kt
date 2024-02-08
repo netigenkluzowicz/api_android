@@ -22,7 +22,6 @@ class RateUs private constructor(
     override val numberOfChecksBeforeShowingDialog: Int = NUMBER_OF_CHECKS_BEFORE_SHOWING_RATE_US,
 ) : IRateUs {
 
-
     private val sharedPreferences: SharedPreferences by lazy {
         coreMainActivity.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
     }

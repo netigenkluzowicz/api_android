@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="netigen_main_bg_color">#00FFDC</color>
+    <color name="netigen_main_bg_color_alpha">#8000FFDC</color>
+    <color name="netigen_disabled_btn_color">#1AFFFFFF</color>
+    <color name="netigen_main_color_text">#FFFFFF</color>
+    <color name="netigen_button_color_text">#141414</color>
+    <color name="netigen_button_color_text_inactive">#4DFFFFFF</color>
+</resources>
