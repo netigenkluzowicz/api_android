@@ -3,7 +3,6 @@ package pl.netigen.core.rateus
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.play.core.review.ReviewManagerFactory
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.utils.Utils
 import pl.netigen.coreapi.main.ICoreMainActivity
@@ -12,7 +11,6 @@ import pl.netigen.coreapi.main.ICoreMainActivity.Companion.KEY_NUMBER_OF_OPENING
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.NUMBER_OF_CHECKS_BEFORE_SHOWING_RATE_US
 import pl.netigen.coreapi.main.ICoreMainActivity.Companion.SHARED_PREFERENCES_NAME
 import pl.netigen.coreapi.rateus.IRateUs
-import timber.log.Timber
 
 /**
  * [IRateUs] implementation
@@ -50,17 +48,6 @@ class RateUs private constructor(
     }
 
     override fun openRateDialog() {
-        val manager = ReviewManagerFactory.create(coreMainActivity)
-        val request = manager.requestReviewFlow()
-        request.addOnCompleteListener { task ->
-            Timber.d("task = [$task]")
-            if (task.isSuccessful) {
-                resetCounterTime()
-                Timber.d("Show New Rate Us")
-                val reviewInfo = task.result
-                manager.launchReviewFlow(coreMainActivity, reviewInfo)
-            }
-        }
     }
 
     private fun resetCounterTime() {

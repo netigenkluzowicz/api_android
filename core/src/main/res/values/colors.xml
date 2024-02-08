@@ -23,4 +23,9 @@
     <color name="dialog_text_view">#4D4D4D</color>
     <color name="dialog_accent">#4D4D4D</color>
     <color name="dialog_neutral_button_bg">#C2C3C4</color>
+
+    <color name="netigen_main_bg_color">#00FFDC</color>
+    <color name="netigen_main_bg_color_alpha">#8000FFDC</color>
+    <color name="netigen_main_color_text">#FFFFFF</color>
+    <color name="netigen_button_color_text">#141414</color>
 </resources>

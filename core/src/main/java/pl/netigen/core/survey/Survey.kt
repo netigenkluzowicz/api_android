@@ -48,15 +48,11 @@ class Survey private constructor(
         sharedPreferences.edit().putLong(ICoreMainActivity.KEY_LAST_LAUNCH_TIME_COUNTER, 0L).apply()
     }
 
-    override fun shouldOpenAskFragment(launchCount: Int): Boolean {
-        if (coreMainActivity.coreMainVM.isConnectedOrConnecting.not()) return false
-        if (coreMainActivity.supportFragmentManager.isStateSaved) return false
-        return launchCount >= openingInterval && launchCount % openingInterval == 0 && sharedPreferences.getBoolean(KEY_SURVEY_OPEN, true)
-    }
+    override fun shouldOpenAskFragment(launchCount: Int): Boolean = false
 
     private fun openAskForSurveyDialog() {
         Timber.d("()")
-        AskForSurveyFragment.newInstance({ clickYes() }, { clickNo() }).show(coreMainActivity.supportFragmentManager, "AskForSurveyDialog")
+        AskForSurveyFragment.newInstance { clickYes() }.show(coreMainActivity.supportFragmentManager, "AskForSurveyDialog")
     }
 
     override fun clickYes() {
@@ -150,7 +146,7 @@ class Survey private constructor(
             info.id = noInternetLayoutId
             parentView.addView(info)
             info.findViewById<ImageView>(R.id.closeSurvey).setOnClickListener { onNextAction(SurveyEvent.QuitFromError()) }
-            info.findViewById<TextView>(R.id.retry).setOnClickListener {
+            info.findViewById<TextView>(R.id.confirmButton).setOnClickListener {
                 parentView.removeAllViews()
                 if (webView.parent == null) parentView.addView(webView)
                 webView.clearHistory()

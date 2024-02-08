@@ -14,13 +14,11 @@ import pl.netigen.core.utils.BaseDialogFragment
  */
 class AskForSurveyFragment : BaseDialogFragment() {
     private var onClickYes: (() -> Unit)? = null
-    private var onClickNotShowAgain: (() -> Unit)? = null
 
     companion object {
-        fun newInstance(onClickYes: () -> Unit, onClickNotShowAgain: () -> Unit): AskForSurveyFragment {
+        fun newInstance(onClickYes: () -> Unit): AskForSurveyFragment {
             val fragment = AskForSurveyFragment()
             fragment.onClickYes = onClickYes
-            fragment.onClickNotShowAgain = onClickNotShowAgain
             return fragment
         }
     }
@@ -47,17 +45,13 @@ class AskForSurveyFragment : BaseDialogFragment() {
     }
 
     private fun setPositiveButtonListener() {
-        retry.setOnClickListener {
+        confirmButton.setOnClickListener {
             dismissAllowingStateLoss()
             onClickYes?.let { it() }
         }
     }
 
     private fun setNegativeButtonListeners() {
-        closeSurvey.setOnClickListener { dismissAllowingStateLoss() }
-        surveyFragmentNoTextView.setOnClickListener { dismissAllowingStateLoss() }
-        surveyFragmentNoAgain.setOnClickListener {
-            onClickNotShowAgain?.let { it() }
-        }
+        askSurveySkip.setOnClickListener { dismissAllowingStateLoss() }
     }
 }
