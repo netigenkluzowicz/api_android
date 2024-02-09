@@ -48,7 +48,7 @@ class Survey private constructor(
 
     override fun shouldOpenAskFragment(launchCount: Int): Boolean = false
 
-    private fun openAskForSurveyDialog() {
+    override fun openAskForSurveyDialog() {
         Timber.d("()")
         AskForSurveyFragment.newInstance(::clickYes).show(coreMainActivity.supportFragmentManager, "AskForSurveyDialog")
     }
@@ -115,9 +115,10 @@ class Survey private constructor(
             val parentView = webView.parent as ViewGroup
             webView.webViewClient = object : WebViewClient() {
                 override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) showErrorInfo(webView, context, onNextAction, url, parentView)
+                    showErrorInfo(webView, context, onNextAction, url, parentView)
                 }
 
+                @Deprecated("Deprecated in Java")
                 override fun onReceivedError(view: WebView?, errorCode: Int, description: String?, failingUrl: String?) =
                     showErrorInfo(webView, context, onNextAction, url, parentView)
             }

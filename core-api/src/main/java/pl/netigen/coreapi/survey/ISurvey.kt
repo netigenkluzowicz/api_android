@@ -55,4 +55,5 @@ interface ISurvey {
      * @see <a href="https://github.com/netigenkluzowicz/apis_strapi/blob/develop/documentation/webview-survey.md">Webview survey</a>
      */
     fun showSurvey(webView: WebView, appVersionName: String, onNextAction: (surveyEvent: SurveyEvent) -> Unit)
+    fun openAskForSurveyDialog()
 }

@@ -1,24 +1,31 @@
-package pl.netigen.core.survey
+package pl.netigen.core.rateus
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.view.get
 import pl.netigen.core.R
 import pl.netigen.core.utils.AbstractBaseBottomFullDialog
 import pl.netigen.core.utils.BaseDialogFragment
+import pl.netigen.core.utils.Utils
 
 /**
  * [BaseDialogFragment] used for show users "Ask For Survey" dialog, see [ISurvey]
  *
  */
-class AskForSurveyFragment : AbstractBaseBottomFullDialog() {
-    private var onClickYes: (() -> Unit)? = null
+class RateUsAskGoogleFragment : AbstractBaseBottomFullDialog() {
+    private var onClickYes: ((Int) -> Unit)? = null
+    private var onClose: (() -> Unit)? = null
 
     companion object {
-        fun newInstance(onClickYes: () -> Unit): AskForSurveyFragment {
-            val fragment = AskForSurveyFragment()
+        fun newInstance(onClickYes: (Int) -> Unit = {}, onClose: (() -> Unit) = {}): RateUsAskGoogleFragment {
+            val fragment = RateUsAskGoogleFragment()
             fragment.onClickYes = onClickYes
+            fragment.onClose = onClose
             return fragment
         }
     }
@@ -32,7 +39,7 @@ class AskForSurveyFragment : AbstractBaseBottomFullDialog() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.dialog_fragment_ask_for_survey_netigen_api, container, false)
+        inflater.inflate(R.layout.new_rate_us_ask_netigen, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,18 +47,14 @@ class AskForSurveyFragment : AbstractBaseBottomFullDialog() {
     }
 
     private fun setClickListeners() {
-        setNegativeButtonListeners()
-        setPositiveButtonListener()
-    }
-
-    private fun setPositiveButtonListener() {
-        requireView().findViewById<View>(R.id.confirmButton).setOnClickListener {
+        val confirmBtn = requireView().findViewById<TextView>(R.id.confirmButton)
+        confirmBtn.setOnClickListener {
+            Utils.openMarketLink(requireActivity(), requireActivity().packageName)
             dismissAllowingStateLoss()
-            onClickYes?.let { it() }
         }
-    }
-
-    private fun setNegativeButtonListeners() {
-        requireView().findViewById<View>(R.id.skip).setOnClickListener { dismissAllowingStateLoss() }
+        requireView().findViewById<View>(R.id.skip).setOnClickListener {
+            dismissAllowingStateLoss()
+            onClose?.invoke()
+        }
     }
 }

@@ -47,7 +47,19 @@ class RateUs private constructor(
     }
 
     override fun openRateDialog() {
+        RateUsFragment.newInstance(onClickYes = ::onClickYes).show(coreMainActivity.supportFragmentManager, "RateUsFragment")
     }
+
+    private fun onClickYes(starsCount: Int) {
+        doNotShowRateUsAgain()
+        if (starsCount == 5) askRateGoogle() else askSurvey()
+    }
+
+    private fun askRateGoogle() {
+        RateUsAskGoogleFragment.newInstance().show(coreMainActivity.supportFragmentManager, "RateUsAskGoogleFragment")
+    }
+
+    private fun askSurvey() = coreMainActivity.survey.openAskForSurveyDialog()
 
     private fun resetCounterTime() {
         sharedPreferences.edit().putLong(ICoreMainActivity.KEY_LAST_LAUNCH_TIME_COUNTER, 0L).apply()

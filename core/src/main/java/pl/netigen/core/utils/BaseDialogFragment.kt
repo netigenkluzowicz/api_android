@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.view.Window
 import pl.netigen.core.fragment.NetigenDialogFragment
 import pl.netigen.extensions.toPx
 
@@ -30,12 +30,16 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    open fun setDialogSize(dp: Int) {
+    private fun setDialogSize(dp: Int) {
         dialog?.window?.let {
-            val width = dp.toPx()
-            it.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
-            it.setGravity(Gravity.CENTER)
+            setDialogSize(dp, it)
         }
+    }
+
+    open fun setDialogSize(widthDp: Int, window: Window) {
+        val width = widthDp.toPx()
+        window.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+        window.setGravity(Gravity.CENTER)
     }
 
     private fun manageDialogSize() {
@@ -48,5 +52,4 @@ abstract class BaseDialogFragment : NetigenDialogFragment() {
             }
         }
     }
-
 }

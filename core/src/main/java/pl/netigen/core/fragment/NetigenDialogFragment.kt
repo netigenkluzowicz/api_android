@@ -37,7 +37,7 @@ open class NetigenDialogFragment : AppCompatDialogFragment() {
      * Override this for changing style for current dialog
      *
      */
-    val dialogStyle: Int = R.style.CoffeeDialog
+    open val dialogStyle: Int = R.style.CoffeeDialog
 
     /**
      *

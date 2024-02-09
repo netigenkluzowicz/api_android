@@ -9,18 +9,21 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.get
 import pl.netigen.core.R
+import pl.netigen.core.utils.AbstractBaseBottomFullDialog
 import pl.netigen.core.utils.BaseDialogFragment
 
 /**
  * [BaseDialogFragment] used for show users "Ask For Survey" dialog, see [ISurvey]
  *
  */
-class RateUsFragment : BaseDialogFragment() {
+class RateUsFragment : AbstractBaseBottomFullDialog() {
     private var onRateStarsCountClick: ((Int) -> Unit)? = null
     private var onClose: (() -> Unit)? = null
 
+    private var clickedStarIndex: Int = -1
+
     companion object {
-        fun newInstance(onClickYes: (Int) -> Unit = {}, onClose: (() -> Unit)): RateUsFragment {
+        fun newInstance(onClickYes: (Int) -> Unit = {}, onClose: (() -> Unit) = {}): RateUsFragment {
             val fragment = RateUsFragment()
             fragment.onRateStarsCountClick = onClickYes
             fragment.onClose = onClose
@@ -57,16 +60,15 @@ class RateUsFragment : BaseDialogFragment() {
         val confirmBtn = requireView().findViewById<TextView>(R.id.confirmButton)
         val stars = requireView().findViewById<LinearLayout>(R.id.starsLayout)
 
-        var clickedStarIndex: Int
-
         for (i in 0 until stars.childCount) {
             stars[i].setOnClickListener {
                 clickedStarIndex = i
                 refreshStars(stars, clickedStarIndex)
                 confirmBtn.setTextColor(resources.getColor(R.color.netigen_button_color_text))
                 confirmBtn.setBackgroundResource(R.drawable.rate_main_button)
+                val clickedStarsCount = clickedStarIndex + 1
                 confirmBtn.setOnClickListener {
-                    onRateClick(clickedStarIndex + 1)
+                    onRateClick(clickedStarsCount)
                     dismissAllowingStateLoss()
                 }
             }
@@ -79,9 +81,7 @@ class RateUsFragment : BaseDialogFragment() {
 
     private fun refreshStars(stars: LinearLayout, clickedStarIndex: Int) {
         for (i in 0 until stars.childCount) {
-            stars[i].setOnClickListener {
-                (it as ImageView).setImageResource(if (clickedStarIndex >= i) (R.drawable.star_netigen_on) else (R.drawable.star_netigen_off))
-            }
+            (stars[i] as ImageView).setImageResource(if (clickedStarIndex >= i) (R.drawable.star_netigen_on) else (R.drawable.star_netigen_off))
         }
     }
 }

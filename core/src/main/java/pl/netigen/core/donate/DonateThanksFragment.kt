@@ -6,6 +6,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -31,11 +32,9 @@ class DonateThanksFragment : BaseDialogFragment() {
         setUp()
     }
 
-    override fun setDialogSize(dp: Int) {
-        dialog?.window?.let {
-            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            it.setGravity(Gravity.BOTTOM)
-        }
+    override fun setDialogSize(widthDp: Int, window: Window) {
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        window.setGravity(Gravity.BOTTOM)
     }
 
     @SuppressLint("SetJavaScriptEnabled")

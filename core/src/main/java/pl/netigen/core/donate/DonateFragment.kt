@@ -6,6 +6,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -25,7 +26,7 @@ import timber.log.Timber
  */
 class DonateFragment : BaseDialogFragment() {
 
-    private lateinit var webView : WebView
+    private lateinit var webView: WebView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.dialog_fragment_donate_webview_netigen_api, container, false)
@@ -35,15 +36,12 @@ class DonateFragment : BaseDialogFragment() {
         setUp()
     }
 
-    override fun setDialogSize(dp: Int) {
+    override fun setDialogSize(widthDp: Int, window: Window) {
         val size630px = 630.toPx()
         val screenHeightPixels = resources.displayMetrics.heightPixels
         val heightPx = if (screenHeightPixels > size630px) size630px else screenHeightPixels
-
-        dialog?.window?.let {
-            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, heightPx)
-            it.setGravity(Gravity.BOTTOM)
-        }
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, heightPx)
+        window.setGravity(Gravity.BOTTOM)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
