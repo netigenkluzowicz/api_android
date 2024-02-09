@@ -6,7 +6,7 @@ object Versions {
     const val gson = "2.9.1"
     const val glide = "4.13.2"
     const val appcompat = "1.5.1"
-    const val userMessagingPlatform = "2.0.0"
+    const val userMessagingPlatform = "2.2.0"
     const val coreKTX = "1.8.0"
     const val kotlin = "1.5.31"
     const val okhttp = "4.10.0"
