@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Ако сакате да го промените јазикот на апликацијата на англиски, можете да го направите тоа во поставките.</string>
   <string name="please_support_us_netigen">Ве молиме поддржете не со оценување на оваа апликација. Ви благодарам!</string>
   <string name="settings_normal_netigen">Поставки</string>
-  <string name="help_us_survey_netigen">Помогнете ни да ја развиеме апликацијата\nсо пополнување на анкетата.\n\nВашиот глас исто така е важен!</string>
+  <string name="help_us_survey_netigen">Помогнете ни да ја развиеме апликацијата\nсо пополнување на анкетата.</string>
   <string name="not_now_netigen">Не сега</string>
-  <string name="share_thoughts_netigen">Споделете ги вашите размислувања!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Нема интернет</string>
   <string name="retry_netigen">Повторно обидете се</string>
   <string name="no_internet_survey_netigen">Ве молиме, проверете ја вашата интернет-врска и обидете се повторно.</string>
+  <string name="don_t_show_again">Не прикажувај повторно</string>
+  <string name="share_opinion">Споделете го вашето мислење</string>
+  <string name="Skip">Прескокни</string>
+  <string name="ask_to_rate_app_netigen">Со колку ѕвезди ја оценувате нашата апликација?</string>
+  <string name="rate_us_exclamation_mark_netigen">Оценете не!</string>
+  <string name="aks_rate_netigen">Ќе ви бидеме благодарни доколку не оцените и на Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Ова ќе ни помогне да ја развиеме апликацијата!</string>
+  <string name="rate_us_confirm_text_netigen">Оценете не на Google Play</string>
 </resources>

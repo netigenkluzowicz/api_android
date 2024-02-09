@@ -1,0 +1,24 @@
+<resources>
+  <string name="msg_browser_not_found_netigen">ब्राउझर सापडला नाही !!!</string>
+  <string name="cancel_netigen">रद्द करा</string>
+  <string name="change_language_netigen">भाषा बदला</string>
+  <string name="translation_information_title_netigen">भाषांतर माहिती</string>
+  <string name="translation_information_content1_netigen">या ऍप्लिकेशनचे भाषांतर Google Translate द्वारे केले आहे. इंग्रजी ही या अनुप्रयोगाची मूळ भाषा आहे. कृपया लक्षात ठेवा की भाषांतरात काही चुका असू शकतात.</string>
+  <string name="translation_information_content2_netigen">तुम्हाला ॲपची भाषा इंग्रजीमध्ये बदलायची असल्यास तुम्ही सेटिंग्जमध्ये ते करू शकता.</string>
+  <string name="please_support_us_netigen">कृपया या ॲपला रेटिंग देऊन आमचे समर्थन करा. धन्यवाद!</string>
+  <string name="settings_normal_netigen">सेटिंग्ज</string>
+  <string name="help_us_survey_netigen">सर्वेक्षण पूर्ण करून\nॲप विकसित करण्यात आम्हाला मदत करा.</string>
+  <string name="not_now_netigen">आता नाही</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
+  <string name="no_internet_netigen">इंटरनेट नाही</string>
+  <string name="retry_netigen">पुन्हा प्रयत्न करा</string>
+  <string name="no_internet_survey_netigen">कृपया, तुमचे इंटरनेट कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.</string>
+  <string name="don_t_show_again">पुन्हा दाखवू नका</string>
+  <string name="share_opinion">तुमचे मत शेअर करा</string>
+  <string name="Skip">वगळा</string>
+  <string name="ask_to_rate_app_netigen">तुम्ही आमच्या ॲपला किती स्टार रेट करता?</string>
+  <string name="rate_us_exclamation_mark_netigen">आम्हाला रेट करा!</string>
+  <string name="aks_rate_netigen">तुम्ही आम्हाला Google Play वर देखील रेट केल्यास आम्ही आभारी राहू.</string>
+  <string name="rate_us_netigen_sub_text">हे आम्हाला ॲप विकसित करण्यात मदत करेल!</string>
+  <string name="rate_us_confirm_text_netigen">आम्हाला Google Play वर रेट करा</string>
+</resources>

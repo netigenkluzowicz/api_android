@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">अगर आप ऐप की भाषा को अंग्रेजी में बदलना चाहते हैं तो आप सेटिंग्स में ऐसा कर सकते हैं।</string>
   <string name="please_support_us_netigen">कृपया इस ऐप को रेटिंग देकर हमारा समर्थन करें। आपको धन्यवाद!</string>
   <string name="settings_normal_netigen">समायोजन</string>
-  <string name="help_us_survey_netigen">सर्वे पूरा करके\nऐप को विकसित करने में हमारी मदद करें।\n\nआपकी आवाज भी मायने रखती है!</string>
+  <string name="help_us_survey_netigen">सर्वेक्षण पूरा करके\nऐप विकसित करने में हमारी सहायता करें।</string>
   <string name="not_now_netigen">अभी नहीं</string>
-  <string name="share_thoughts_netigen">अपने विचारों को साझा करें!</string>
+  <string name="share_thoughts_netigen">इस पर ध्यान दें, धन्यवाद,\nżebyśmy पोपराविली w अप्लिकासी।</string>
   <string name="no_internet_netigen">इंटरनेट नहीं है</string>
   <string name="retry_netigen">पुन: प्रयास करें</string>
   <string name="no_internet_survey_netigen">कृपया, अपने इंटरनेट कनेक्शन की जाँच करें और पुनः प्रयास करें।</string>
+  <string name="don_t_show_again">दोबारा न दिखाएं</string>
+  <string name="share_opinion">अपनी राय साझा करें</string>
+  <string name="Skip">छोड़ें</string>
+  <string name="ask_to_rate_app_netigen">आप हमारे ऐप को कितने स्टार रेटिंग देते हैं?</string>
+  <string name="rate_us_exclamation_mark_netigen">हमें रेटिंग दें!</string>
+  <string name="aks_rate_netigen">यदि आप हमें Google Play पर भी रेटिंग देंगे तो हम आभारी होंगे।</string>
+  <string name="rate_us_netigen_sub_text">इससे हमें ऐप विकसित करने में मदद मिलेगी!</string>
+  <string name="rate_us_confirm_text_netigen">Google Play पर हमें रेट करें</string>
 </resources>

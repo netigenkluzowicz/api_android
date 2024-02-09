@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">如果您想将应用程序语言更改为英语，您可以在设置中进行。</string>
   <string name="please_support_us_netigen">请通过评价这个应用程序来支持我们。谢谢！</string>
   <string name="settings_normal_netigen">设置</string>
-  <string name="help_us_survey_netigen">通过完成调查帮助我们开发应用程序\n。\n\n你的声音也很重要！</string>
+  <string name="help_us_survey_netigen">完成调查，帮助我们开发应用程序\n。</string>
   <string name="not_now_netigen">现在不要</string>
-  <string name="share_thoughts_netigen">分享你的意见！</string>
+  <string name="share_thoughts_netigen">Daj znam znać，co chciałbyś，\nżebyśmy poprawili w aplikacji。</string>
   <string name="no_internet_netigen">没有互联网</string>
   <string name="retry_netigen">重试</string>
   <string name="no_internet_survey_netigen">请检查您的 Internet 连接并重试。</string>
+  <string name="don_t_show_again">不再显示</string>
+  <string name="share_opinion">分享您的意见</string>
+  <string name="Skip">跳过</string>
+  <string name="ask_to_rate_app_netigen">您给我们的应用程序评分多少颗星？</string>
+  <string name="rate_us_exclamation_mark_netigen">评价我们！</string>
+  <string name="aks_rate_netigen">如果您也在 Google Play 上给我们评分，我们将不胜感激。</string>
+  <string name="rate_us_netigen_sub_text">这将帮助我们开发应用程序！</string>
+  <string name="rate_us_confirm_text_netigen">在 Google Play 上评价我们</string>
 </resources>

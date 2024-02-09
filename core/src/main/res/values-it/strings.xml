@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Se vuoi cambiare la lingua dell\'app in inglese, puoi farlo nelle impostazioni.</string>
   <string name="please_support_us_netigen">Supportaci valutando questa app. Grazie!</string>
   <string name="settings_normal_netigen">Impostazioni</string>
-  <string name="help_us_survey_netigen">Aiutaci a sviluppare l\'app\ncompletando il sondaggio.\n\nAnche la tua voce è importante!</string>
+  <string name="help_us_survey_netigen">Aiutaci a sviluppare l\'app\ncompletando il sondaggio.</string>
   <string name="not_now_netigen">Non adesso</string>
-  <string name="share_thoughts_netigen">Condividi i tuoi pensieri!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Senza internet</string>
   <string name="retry_netigen">Riprovare</string>
   <string name="no_internet_survey_netigen">Per favore, controlla la tua connessione Internet e riprova.</string>
+  <string name="don_t_show_again">Non mostrare più</string>
+  <string name="share_opinion">Condividi la tua opinione</string>
+  <string name="Skip">Saltare</string>
+  <string name="ask_to_rate_app_netigen">Quante stelle valuti la nostra app?</string>
+  <string name="rate_us_exclamation_mark_netigen">Valutaci!</string>
+  <string name="aks_rate_netigen">Ti saremmo grati se volessi valutarci anche su Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Questo ci aiuterà a sviluppare l\'app!</string>
+  <string name="rate_us_confirm_text_netigen">Valutaci su Google Play</string>
 </resources>

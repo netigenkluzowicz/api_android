@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Ако желите да промените језик апликације у енглески, то можете учинити у подешавањима.</string>
   <string name="please_support_us_netigen">Подржите нас тако што ћете оценити ову апликацију. Хвала вам!</string>
   <string name="settings_normal_netigen">Подешавања</string>
-  <string name="help_us_survey_netigen">Помозите нам да развијемо апликацију СПЕЦ0 попуњавањем анкете. СПЕЦ1 СПЕЦ2 Ваш глас је такође важан!</string>
+  <string name="help_us_survey_netigen">Помозите нам да развијемо апликацију СПЕЦ0 попуњавањем анкете.</string>
   <string name="not_now_netigen">Не сада</string>
-  <string name="share_thoughts_netigen">Поделите своје мисли!</string>
+  <string name="share_thoughts_netigen">Дај знам знаћ, цо цхциаłбис, СПЕЦ0 зебисми поправили в апликацји.</string>
   <string name="no_internet_netigen">Нема Интернета</string>
   <string name="retry_netigen">Покушај поново</string>
   <string name="no_internet_survey_netigen">Проверите своју интернет везу и покушајте поново.</string>
+  <string name="don_t_show_again">Не приказуј поново</string>
+  <string name="share_opinion">Поделите своје мишљење</string>
+  <string name="Skip">Скип</string>
+  <string name="ask_to_rate_app_netigen">Колико звездица оцењујете нашу апликацију?</string>
+  <string name="rate_us_exclamation_mark_netigen">Оцените нас!</string>
+  <string name="aks_rate_netigen">Били бисмо вам захвални ако бисте нас оценили и на Гоогле Плаи-у.</string>
+  <string name="rate_us_netigen_sub_text">Ово ће нам помоћи да развијемо апликацију!</string>
+  <string name="rate_us_confirm_text_netigen">Оцените нас на Гоогле Плаи-у</string>
 </resources>

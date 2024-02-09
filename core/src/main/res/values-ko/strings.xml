@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">앱 언어를 영어로 변경하려면 설정에서 변경할 수 있습니다.</string>
   <string name="please_support_us_netigen">이 앱을 평가하여 지원해 주세요. 고맙습니다!</string>
   <string name="settings_normal_netigen">설정</string>
-  <string name="help_us_survey_netigen">설문 조사를 완료하여\n앱 개발을 도와주세요.\n\n당신의 목소리도 중요합니다!</string>
+  <string name="help_us_survey_netigen">설문조사를 완료하여\n앱 개발을 도와주세요.</string>
   <string name="not_now_netigen">지금은 아니다</string>
-  <string name="share_thoughts_netigen">당신의 생각을 함께 나누세요!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">인터넷 없음</string>
   <string name="retry_netigen">다시 해 보다</string>
   <string name="no_internet_survey_netigen">인터넷 연결을 확인하고 다시 시도하십시오.</string>
+  <string name="don_t_show_again">다시 표시하지 않음</string>
+  <string name="share_opinion">당신의 의견을 공유하세요</string>
+  <string name="Skip">건너뛰다</string>
+  <string name="ask_to_rate_app_netigen">우리 앱을 별점 몇 개로 평가하시나요?</string>
+  <string name="rate_us_exclamation_mark_netigen">우리를 평가해 주세요!</string>
+  <string name="aks_rate_netigen">Google Play에서도 평가해 주시면 감사하겠습니다.</string>
+  <string name="rate_us_netigen_sub_text">이것은 우리가 앱을 개발하는 데 도움이 될 것입니다!</string>
+  <string name="rate_us_confirm_text_netigen">Google Play에서 평가해 주세요.</string>
 </resources>

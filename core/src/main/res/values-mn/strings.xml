@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Хэрэв та програмын хэлийг англи хэл рүү өөрчлөхийг хүсвэл тохиргооноос үүнийг хийж болно.</string>
   <string name="please_support_us_netigen">Энэ програмыг үнэлж биднийг дэмжээрэй. Баярлалаа!</string>
   <string name="settings_normal_netigen">Тохиргоо</string>
-  <string name="help_us_survey_netigen">Судалгааг бөглөж\nпрограмыг хөгжүүлэхэд бидэнд тусална уу.\n\nТаны дуу хоолой бас чухал!</string>
+  <string name="help_us_survey_netigen">Судалгааг бөглөж\nпрограмыг хөгжүүлэхэд бидэнд тусална уу.</string>
   <string name="not_now_netigen">Одоо биш</string>
-  <string name="share_thoughts_netigen">Санал бодлоо хуваалцаарай!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Интернет байхгүй</string>
   <string name="retry_netigen">Уилах</string>
   <string name="no_internet_survey_netigen">Интернэт холболтоо шалгаад дахин оролдоно уу.</string>
+  <string name="don_t_show_again">Дахиж бүү харуул</string>
+  <string name="share_opinion">Санал бодлоо хуваалцаарай</string>
+  <string name="Skip">Алгасах</string>
+  <string name="ask_to_rate_app_netigen">Та манай програмыг хэдэн одоор үнэлдэг вэ?</string>
+  <string name="rate_us_exclamation_mark_netigen">Биднийг дүгнэнэ үү!</string>
+  <string name="aks_rate_netigen">Хэрэв та Google Play дээр биднийг үнэлвэл бид талархах болно.</string>
+  <string name="rate_us_netigen_sub_text">Энэ нь бидэнд програмыг хөгжүүлэхэд тусална!</string>
+  <string name="rate_us_confirm_text_netigen">Google Play дээр биднийг үнэлээрэй</string>
 </resources>

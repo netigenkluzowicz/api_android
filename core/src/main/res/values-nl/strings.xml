@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Als u de app-taal wilt wijzigen in Engels, kunt u dit doen in de instellingen.</string>
   <string name="please_support_us_netigen">Steun ons alstublieft door deze app te beoordelen. Dank je!</string>
   <string name="settings_normal_netigen">Instellingen</string>
-  <string name="help_us_survey_netigen">Help ons de app\nte ontwikkelen door de enquête in te vullen.\n\nUw stem doet er ook toe!</string>
+  <string name="help_us_survey_netigen">Help ons de app\nte ontwikkelen door de enquête in te vullen.</string>
   <string name="not_now_netigen">Niet nu</string>
-  <string name="share_thoughts_netigen">Deel je gedachten!</string>
+  <string name="share_thoughts_netigen">Als u dit wilt doen, kunt u\nde pop-up met toepassingen gebruiken.</string>
   <string name="no_internet_netigen">Geen internet</string>
   <string name="retry_netigen">Opnieuw proberen</string>
   <string name="no_internet_survey_netigen">Controleer uw internetverbinding en probeer het opnieuw.</string>
+  <string name="don_t_show_again">Niet meer weergeven</string>
+  <string name="share_opinion">Deel uw mening</string>
+  <string name="Skip">Overslaan</string>
+  <string name="ask_to_rate_app_netigen">Met hoeveel sterren beoordeelt u onze app?</string>
+  <string name="rate_us_exclamation_mark_netigen">Beoordeel ons!</string>
+  <string name="aks_rate_netigen">Wij zouden het op prijs stellen als u ons ook op Google Play zou willen beoordelen.</string>
+  <string name="rate_us_netigen_sub_text">Dit zal ons helpen de app te ontwikkelen!</string>
+  <string name="rate_us_confirm_text_netigen">Beoordeel ons op Google Play</string>
 </resources>

@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Jei norite pakeisti programos kalbą į anglų, tai galite padaryti nustatymuose.</string>
   <string name="please_support_us_netigen">Prašome palaikyti mus įvertindami šią programą. Ačiū!</string>
   <string name="settings_normal_netigen">Nustatymai</string>
-  <string name="help_us_survey_netigen">Padėkite mums sukurti programą\nužpildydami apklausą.\n\nJūsų balsas taip pat svarbus!</string>
+  <string name="help_us_survey_netigen">Padėkite mums sukurti programą\nužpildydami apklausą.</string>
   <string name="not_now_netigen">Ne dabar</string>
-  <string name="share_thoughts_netigen">Pasidalinkite savo mintimis!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Nėra interneto</string>
   <string name="retry_netigen">Bandyti</string>
   <string name="no_internet_survey_netigen">Patikrinkite interneto ryšį ir bandykite dar kartą.</string>
+  <string name="don_t_show_again">Daugiau nerodyti</string>
+  <string name="share_opinion">Pasidalinkite savo nuomone</string>
+  <string name="Skip">Praleisti</string>
+  <string name="ask_to_rate_app_netigen">Kiek žvaigždučių vertinate mūsų programą?</string>
+  <string name="rate_us_exclamation_mark_netigen">Įvertinkite mus!</string>
+  <string name="aks_rate_netigen">Būtume dėkingi, jei įvertintumėte mus ir „Google Play“.</string>
+  <string name="rate_us_netigen_sub_text">Tai padės mums sukurti programą!</string>
+  <string name="rate_us_confirm_text_netigen">Įvertinkite mus „Google Play“.</string>
 </resources>

@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">اگر می خواهید زبان برنامه را به انگلیسی تغییر دهید، می توانید این کار را در تنظیمات انجام دهید.</string>
   <string name="please_support_us_netigen">لطفا با رتبه بندی این برنامه از ما حمایت کنید. متشکرم!</string>
   <string name="settings_normal_netigen">تنظیمات</string>
-  <string name="help_us_survey_netigen">با تکمیل نظرسنجی به ما در توسعه برنامه\nکمک کنید.\n\nصدای شما هم مهم است!</string>
+  <string name="help_us_survey_netigen">با تکمیل نظرسنجی به ما در توسعه برنامه\nکمک کنید.</string>
   <string name="not_now_netigen">الان نه</string>
-  <string name="share_thoughts_netigen">افکار خود را به اشتراک بگذارید</string>
+  <string name="share_thoughts_netigen">Daj znam znać، co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">بدون اینترنت</string>
   <string name="retry_netigen">مجدداً</string>
   <string name="no_internet_survey_netigen">لطفاً اتصال اینترنت خود را بررسی کرده و دوباره امتحان کنید.</string>
+  <string name="don_t_show_again">دیگر نشان داده نشود</string>
+  <string name="share_opinion">نظر خود را به اشتراک بگذارید</string>
+  <string name="Skip">پرش کنید</string>
+  <string name="ask_to_rate_app_netigen">به برنامه ما چند ستاره می دهید؟</string>
+  <string name="rate_us_exclamation_mark_netigen">به ما رای دهید!</string>
+  <string name="aks_rate_netigen">اگر به ما در Google Play نیز امتیاز دهید، سپاسگزار خواهیم بود.</string>
+  <string name="rate_us_netigen_sub_text">این به ما کمک می کند تا برنامه را توسعه دهیم!</string>
+  <string name="rate_us_confirm_text_netigen">به ما در Google Play امتیاز دهید</string>
 </resources>

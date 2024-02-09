@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Jika Anda ingin mengubah bahasa aplikasi ke bahasa Inggris, Anda dapat melakukannya di pengaturan.</string>
   <string name="please_support_us_netigen">Tolong dukung kami dengan menilai aplikasi ini. Terima kasih!</string>
   <string name="settings_normal_netigen">Pengaturan</string>
-  <string name="help_us_survey_netigen">Bantu kami mengembangkan aplikasi\ndengan menyelesaikan survei.\n\nSuara Anda juga penting!</string>
+  <string name="help_us_survey_netigen">Bantu kami mengembangkan aplikasi\ndengan menyelesaikan survei.</string>
   <string name="not_now_netigen">Tidak sekarang</string>
-  <string name="share_thoughts_netigen">Bagikan pemikiran Anda!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Tidak ada internet</string>
   <string name="retry_netigen">Mencoba kembali</string>
   <string name="no_internet_survey_netigen">Silakan, periksa koneksi internet Anda dan coba lagi.</string>
+  <string name="don_t_show_again">Jangan tampilkan lagi</string>
+  <string name="share_opinion">Bagikan pendapat Anda</string>
+  <string name="Skip">Melewati</string>
+  <string name="ask_to_rate_app_netigen">Berapa banyak bintang yang Anda nilai untuk aplikasi kami?</string>
+  <string name="rate_us_exclamation_mark_netigen">Nilai kami!</string>
+  <string name="aks_rate_netigen">Kami akan berterima kasih jika Anda juga menilai kami di Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Ini akan membantu kami mengembangkan aplikasi!</string>
+  <string name="rate_us_confirm_text_netigen">Nilai kami di Google Play</string>
 </resources>

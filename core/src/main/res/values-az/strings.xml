@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Proqram dilini ingilis dilinə dəyişmək istəyirsinizsə, bunu ayarlarda edə bilərsiniz.</string>
   <string name="please_support_us_netigen">Zəhmət olmasa bu proqramı qiymətləndirərək bizə dəstək olun. Çox sağ ol!</string>
   <string name="settings_normal_netigen">Parametrlər</string>
-  <string name="help_us_survey_netigen">Sorğunu dolduraraq\ntətbiqini inkişaf etdirməyə kömək edin.\n\nSəsiniz də önəmlidir!</string>
+  <string name="help_us_survey_netigen">Sorğunu tamamlamaqla bizə\ntətbiqini inkişaf etdirməyə kömək edin.</string>
   <string name="not_now_netigen">İndi yox</string>
-  <string name="share_thoughts_netigen">Fikirlərinizi paylaşın!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili və aplikacji.</string>
   <string name="no_internet_netigen">İnternet yoxdur</string>
   <string name="retry_netigen">Yenidən cəhd etmək</string>
   <string name="no_internet_survey_netigen">Zəhmət olmasa, İnternet bağlantınızı yoxlayın və yenidən cəhd edin.</string>
+  <string name="don_t_show_again">Bir daha göstərməyin</string>
+  <string name="share_opinion">Fikrinizi paylaşın</string>
+  <string name="Skip">Keç</string>
+  <string name="ask_to_rate_app_netigen">Tətbiqimizi neçə ulduzla qiymətləndirirsiniz?</string>
+  <string name="rate_us_exclamation_mark_netigen">Bizi qiymətləndirin!</string>
+  <string name="aks_rate_netigen">Bizi Google Play-də də qiymətləndirsəniz, minnətdar olarıq.</string>
+  <string name="rate_us_netigen_sub_text">Bu, bizə proqramı inkişaf etdirməyə kömək edəcək!</string>
+  <string name="rate_us_confirm_text_netigen">Google Play-də bizə qiymət verin</string>
 </resources>

@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Om du vill ändra appens språk till engelska kan du göra det i inställningarna.</string>
   <string name="please_support_us_netigen">Vänligen stödja oss genom att betygsätta den här appen. Tack!</string>
   <string name="settings_normal_netigen">inställningar</string>
-  <string name="help_us_survey_netigen">Hjälp oss att utveckla appen\ngenom att fylla i enkäten.\n\nDin röst är också viktig!</string>
+  <string name="help_us_survey_netigen">Hjälp oss att utveckla appen\ngenom att fylla i enkäten.</string>
   <string name="not_now_netigen">Inte nu</string>
-  <string name="share_thoughts_netigen">Dela dina tankar!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Inget internet</string>
   <string name="retry_netigen">Försök igen</string>
   <string name="no_internet_survey_netigen">Kontrollera din internetanslutning och försök igen.</string>
+  <string name="don_t_show_again">Visa inte igen</string>
+  <string name="share_opinion">Dela din åsikt</string>
+  <string name="Skip">Hoppa</string>
+  <string name="ask_to_rate_app_netigen">Hur många stjärnor betygsätter du vår app?</string>
+  <string name="rate_us_exclamation_mark_netigen">Gradera oss!</string>
+  <string name="aks_rate_netigen">Vi skulle vara tacksamma om du också skulle betygsätta oss på Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Detta kommer att hjälpa oss att utveckla appen!</string>
+  <string name="rate_us_confirm_text_netigen">Betygsätt oss på Google Play</string>
 </resources>

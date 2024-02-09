@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Kui soovite muuta rakenduse keele inglise keeleks, saate seda teha seadetes.</string>
   <string name="please_support_us_netigen">Palun toetage meid, hinnates seda rakendust. Aitäh!</string>
   <string name="settings_normal_netigen">Sätted</string>
-  <string name="help_us_survey_netigen">Aidake meil rakendust\narendada, täites küsitluse.\n\nKa teie hääl on oluline!</string>
+  <string name="help_us_survey_netigen">Aidake meil rakendust\narendada, täites küsitluse.</string>
   <string name="not_now_netigen">Mitte praegu</string>
-  <string name="share_thoughts_netigen">Jaga oma mõtteid!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Internetti pole</string>
   <string name="retry_netigen">Uuesti proovima</string>
   <string name="no_internet_survey_netigen">Palun kontrollige oma Interneti-ühendust ja proovige uuesti.</string>
+  <string name="don_t_show_again">Ära näita enam</string>
+  <string name="share_opinion">Jagage oma arvamust</string>
+  <string name="Skip">Vahele jätma</string>
+  <string name="ask_to_rate_app_netigen">Mitme tärniga hindate meie rakendust?</string>
+  <string name="rate_us_exclamation_mark_netigen">Hinda meid!</string>
+  <string name="aks_rate_netigen">Oleksime tänulikud, kui hindaksite meid ka Google Plays.</string>
+  <string name="rate_us_netigen_sub_text">See aitab meil rakendust arendada!</string>
+  <string name="rate_us_confirm_text_netigen">Hinnake meid Google Plays</string>
 </resources>

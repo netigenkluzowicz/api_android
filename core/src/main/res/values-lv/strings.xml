@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Ja vēlaties mainīt lietotnes valodu uz angļu valodu, varat to izdarīt iestatījumos.</string>
   <string name="please_support_us_netigen">Lūdzu, atbalstiet mūs, novērtējot šo lietotni. Paldies!</string>
   <string name="settings_normal_netigen">Iestatījumi</string>
-  <string name="help_us_survey_netigen">Palīdziet mums izstrādāt lietotni\n, aizpildot aptauju.\n\nArī jūsu balss ir svarīga!</string>
+  <string name="help_us_survey_netigen">Palīdziet mums izstrādāt lietotni\n, aizpildot aptauju.</string>
   <string name="not_now_netigen">Ne tagad</string>
-  <string name="share_thoughts_netigen">Dalieties savās domās!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Nav interneta</string>
   <string name="retry_netigen">Atkārtot</string>
   <string name="no_internet_survey_netigen">Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
+  <string name="don_t_show_again">Nerādīt vēlreiz</string>
+  <string name="share_opinion">Dalieties savā viedoklī</string>
+  <string name="Skip">Izlaist</string>
+  <string name="ask_to_rate_app_netigen">Ar cik zvaigznēm jūs novērtējat mūsu lietotni?</string>
+  <string name="rate_us_exclamation_mark_netigen">Novērtē mūs!</string>
+  <string name="aks_rate_netigen">Mēs būtu pateicīgi, ja jūs arī novērtētu mūs pakalpojumā Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Tas mums palīdzēs izstrādāt lietotni!</string>
+  <string name="rate_us_confirm_text_netigen">Novērtējiet mūs pakalpojumā Google Play</string>
 </resources>
