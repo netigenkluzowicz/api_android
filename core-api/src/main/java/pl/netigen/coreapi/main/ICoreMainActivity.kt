@@ -121,5 +121,5 @@ interface ICoreMainActivity {
         const val SPLASH_COUNTER_REFRESH_TIME_LIMIT_MS_DEBUG = 20 * 1000L //20 sec
     }
 
-    fun bannerView(): RelativeLayout
+    fun bannerView(): RelativeLayout?
 }
