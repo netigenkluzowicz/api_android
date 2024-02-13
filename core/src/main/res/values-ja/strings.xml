@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">アプリの言語を英語に変更したい場合は、設定で変更できます。</string>
   <string name="please_support_us_netigen">このアプリを評価してサポートしてください。ありがとうございました！</string>
   <string name="settings_normal_netigen">設定</string>
-  <string name="help_us_survey_netigen">アンケートに回答して、アプリ\nの開発にご協力ください。 SPEC1 SPEC2 あなたの声も大事！</string>
+  <string name="help_us_survey_netigen">アンケートにご協力いただき、アプリSPEC0の開発にご協力ください。</string>
   <string name="not_now_netigen">今はやめろ</string>
-  <string name="share_thoughts_netigen">考えを共有する！</string>
+  <string name="share_thoughts_netigen">Daj znam znać、co chciałbyś、\nżebyśmy Poprawili w aplikacji。</string>
   <string name="no_internet_netigen">インターネットなし</string>
   <string name="retry_netigen">リトライ</string>
   <string name="no_internet_survey_netigen">インターネット接続を確認して、再試行してください。</string>
+  <string name="don_t_show_again">今後表示しない</string>
+  <string name="share_opinion">意見を共有してください</string>
+  <string name="Skip">スキップ</string>
+  <string name="ask_to_rate_app_netigen">私たちのアプリを星いくつで評価しますか?</string>
+  <string name="rate_us_exclamation_mark_netigen">私たちを評価してください！</string>
+  <string name="aks_rate_netigen">Google Playでも評価していただければ幸いです。</string>
+  <string name="rate_us_netigen_sub_text">これはアプリの開発に役立ちます。</string>
+  <string name="rate_us_confirm_text_netigen">Google Play で評価してください</string>
 </resources>

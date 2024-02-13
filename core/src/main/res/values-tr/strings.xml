@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Uygulama dilini İngilizce olarak değiştirmek isterseniz, bunu ayarlardan yapabilirsiniz.</string>
   <string name="please_support_us_netigen">Lütfen bu uygulamayı derecelendirerek bizi destekleyin. Teşekkürler!</string>
   <string name="settings_normal_netigen">Ayarlar</string>
-  <string name="help_us_survey_netigen">Anketi tamamlayarak\nuygulamasını geliştirmemize yardımcı olun.\n\nSesiniz de önemli!</string>
+  <string name="help_us_survey_netigen">Anketi tamamlayarak\nuygulamasını geliştirmemize yardımcı olun.</string>
   <string name="not_now_netigen">Şimdi değil</string>
-  <string name="share_thoughts_netigen">Düşüncelerini paylaş!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili ve aplikacji.</string>
   <string name="no_internet_netigen">İnternet yok</string>
   <string name="retry_netigen">Tekrarlamak</string>
   <string name="no_internet_survey_netigen">Lütfen İnternet bağlantınızı kontrol edin ve tekrar deneyin.</string>
+  <string name="don_t_show_again">tekrar gösterme</string>
+  <string name="share_opinion">Düşüncelerini paylaş</string>
+  <string name="Skip">Atlamak</string>
+  <string name="ask_to_rate_app_netigen">Uygulamamıza kaç yıldız veriyorsunuz?</string>
+  <string name="rate_us_exclamation_mark_netigen">Bizi değerlendirin!</string>
+  <string name="aks_rate_netigen">Bizi Google Play\'de de değerlendirirseniz minnettar oluruz.</string>
+  <string name="rate_us_netigen_sub_text">Bu, uygulamayı geliştirmemize yardımcı olacaktır!</string>
+  <string name="rate_us_confirm_text_netigen">Bizi Google Play\'de derecelendirin</string>
 </resources>

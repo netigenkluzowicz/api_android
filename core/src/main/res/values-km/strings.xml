@@ -1,0 +1,24 @@
+<resources>
+  <string name="msg_browser_not_found_netigen">រកមិនឃើញ browser !!!</string>
+  <string name="cancel_netigen">បោះបង់</string>
+  <string name="change_language_netigen">ប្ដូរ​ភាសា</string>
+  <string name="translation_information_title_netigen">ព័ត៌មានបកប្រែ</string>
+  <string name="translation_information_content1_netigen">កម្មវិធីនេះត្រូវបានបកប្រែដោយ Google Translate។ ភាសាអង់គ្លេសគឺជាភាសាដើមនៃកម្មវិធីនេះ។ សូមចងចាំថាវាអាចមានកំហុសមួយចំនួនក្នុងការបកប្រែ។</string>
+  <string name="translation_information_content2_netigen">ប្រសិនបើអ្នកចង់ផ្លាស់ប្តូរភាសាកម្មវិធីទៅជាភាសាអង់គ្លេស អ្នកអាចធ្វើដូច្នេះនៅក្នុងការកំណត់។</string>
+  <string name="please_support_us_netigen">សូមគាំទ្រពួកយើងដោយការវាយតម្លៃកម្មវិធីនេះ។ សូមអរគុណ!</string>
+  <string name="settings_normal_netigen">ការកំណត់</string>
+  <string name="help_us_survey_netigen">ជួយយើងបង្កើតកម្មវិធី\nដោយបំពេញការស្ទង់មតិ។</string>
+  <string name="not_now_netigen">មិនមែន​ឥឡូវ​ទេ</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji ។</string>
+  <string name="no_internet_netigen">គ្មានអ៊ីនធឺណិត</string>
+  <string name="retry_netigen">ព្យាយាមម្តងទៀត</string>
+  <string name="no_internet_survey_netigen">សូមពិនិត្យមើលការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក ហើយព្យាយាមម្តងទៀត។</string>
+  <string name="don_t_show_again">កុំបង្ហាញម្តងទៀត</string>
+  <string name="share_opinion">ចែករំលែកយោបល់របស់អ្នក។</string>
+  <string name="Skip">រំលង</string>
+  <string name="ask_to_rate_app_netigen">តើអ្នកវាយតម្លៃកម្មវិធីរបស់យើងប៉ុន្មានផ្កាយ?</string>
+  <string name="rate_us_exclamation_mark_netigen">វាយតម្លៃពួកយើង!</string>
+  <string name="aks_rate_netigen">យើងនឹងដឹងគុណប្រសិនបើអ្នកនឹងវាយតម្លៃពួកយើងនៅលើ Google Play ផងដែរ។</string>
+  <string name="rate_us_netigen_sub_text">វានឹងជួយយើងអភិវឌ្ឍកម្មវិធី!</string>
+  <string name="rate_us_confirm_text_netigen">វាយតម្លៃពួកយើងនៅលើ Google Play</string>
+</resources>

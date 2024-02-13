@@ -4,23 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.dialog_fragment_ask_for_survey_netigen_api.*
 import pl.netigen.core.R
+import pl.netigen.core.utils.AbstractBaseBottomFullDialog
 import pl.netigen.core.utils.BaseDialogFragment
 
 /**
  * [BaseDialogFragment] used for show users "Ask For Survey" dialog, see [ISurvey]
  *
  */
-class AskForSurveyFragment : BaseDialogFragment() {
+class AskForSurveyFragment : AbstractBaseBottomFullDialog() {
     private var onClickYes: (() -> Unit)? = null
-    private var onClickNotShowAgain: (() -> Unit)? = null
 
     companion object {
-        fun newInstance(onClickYes: () -> Unit, onClickNotShowAgain: () -> Unit): AskForSurveyFragment {
+        fun newInstance(onClickYes: () -> Unit): AskForSurveyFragment {
             val fragment = AskForSurveyFragment()
             fragment.onClickYes = onClickYes
-            fragment.onClickNotShowAgain = onClickNotShowAgain
             return fragment
         }
     }
@@ -47,17 +45,13 @@ class AskForSurveyFragment : BaseDialogFragment() {
     }
 
     private fun setPositiveButtonListener() {
-        retry.setOnClickListener {
+        requireView().findViewById<View>(R.id.confirmButton).setOnClickListener {
             dismissAllowingStateLoss()
             onClickYes?.let { it() }
         }
     }
 
     private fun setNegativeButtonListeners() {
-        closeSurvey.setOnClickListener { dismissAllowingStateLoss() }
-        surveyFragmentNoTextView.setOnClickListener { dismissAllowingStateLoss() }
-        surveyFragmentNoAgain.setOnClickListener {
-            onClickNotShowAgain?.let { it() }
-        }
+        requireView().findViewById<View>(R.id.skip).setOnClickListener { dismissAllowingStateLoss() }
     }
 }

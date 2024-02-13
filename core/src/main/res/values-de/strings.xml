@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Wenn Sie die App-Sprache auf Englisch ändern möchten, können Sie dies in den Einstellungen tun.</string>
   <string name="please_support_us_netigen">Bitte unterstützen Sie uns, indem Sie diese App bewerten. Vielen Dank!</string>
   <string name="settings_normal_netigen">Einstellungen</string>
-  <string name="help_us_survey_netigen">Helfen Sie uns bei der Entwicklung der App\n, indem Sie an der Umfrage teilnehmen.\n\nIhre Stimme zählt auch!</string>
+  <string name="help_us_survey_netigen">Helfen Sie uns bei der Entwicklung der App\n, indem Sie an der Umfrage teilnehmen.</string>
   <string name="not_now_netigen">Nicht jetzt</string>
-  <string name="share_thoughts_netigen">Teile deine Gedanken!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Kein Internet</string>
   <string name="retry_netigen">Wiederholen</string>
   <string name="no_internet_survey_netigen">Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</string>
+  <string name="don_t_show_again">Nicht mehr anzeigen</string>
+  <string name="share_opinion">Teile deine Meinung</string>
+  <string name="Skip">Überspringen</string>
+  <string name="ask_to_rate_app_netigen">Mit wie vielen Sternen bewerten Sie unsere App?</string>
+  <string name="rate_us_exclamation_mark_netigen">Bewerten Sie uns!</string>
+  <string name="aks_rate_netigen">Wir würden uns freuen, wenn Sie uns auch bei Google Play bewerten würden.</string>
+  <string name="rate_us_netigen_sub_text">Dies wird uns bei der Entwicklung der App helfen!</string>
+  <string name="rate_us_confirm_text_netigen">Bewerten Sie uns bei Google Play</string>
 </resources>

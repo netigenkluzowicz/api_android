@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Hvis du vil ændre app-sproget til engelsk, kan du gøre det i indstillinger.</string>
   <string name="please_support_us_netigen">Støt os venligst ved at bedømme denne app. Tak skal du have!</string>
   <string name="settings_normal_netigen">Indstillinger</string>
-  <string name="help_us_survey_netigen">Hjælp os med at udvikle appen\nved at udfylde undersøgelsen.\n\nDin stemme betyder også noget!</string>
+  <string name="help_us_survey_netigen">Hjælp os med at udvikle appen\nved at udfylde undersøgelsen.</string>
   <string name="not_now_netigen">Ikke nu</string>
-  <string name="share_thoughts_netigen">Del dine tanker!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Intet internet</string>
   <string name="retry_netigen">Prøve igen</string>
   <string name="no_internet_survey_netigen">Tjek venligst din internetforbindelse og prøv igen.</string>
+  <string name="don_t_show_again">Vis ikke igen</string>
+  <string name="share_opinion">Del din mening</string>
+  <string name="Skip">Springe</string>
+  <string name="ask_to_rate_app_netigen">Hvor mange stjerner bedømmer du vores app?</string>
+  <string name="rate_us_exclamation_mark_netigen">Bedøm os!</string>
+  <string name="aks_rate_netigen">Vi ville være taknemmelige, hvis du også ville bedømme os på Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Dette vil hjælpe os med at udvikle appen!</string>
+  <string name="rate_us_confirm_text_netigen">Bedøm os på Google Play</string>
 </resources>

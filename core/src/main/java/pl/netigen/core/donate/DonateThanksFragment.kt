@@ -6,17 +6,15 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import kotlinx.android.synthetic.main.dialog_fragment_ask_for_survey_netigen_api.*
-import kotlinx.android.synthetic.main.dialog_fragment_donate_webview_netigen_api.webView
 import pl.netigen.core.R
 import pl.netigen.core.newlanguage.ChangeLanguageHelper
 import pl.netigen.core.utils.BaseDialogFragment
 import pl.netigen.coreapi.donate.DonateInterface
-import pl.netigen.extensions.toPx
 import timber.log.Timber
 
 /**
@@ -25,6 +23,7 @@ import timber.log.Timber
  */
 class DonateThanksFragment : BaseDialogFragment() {
 
+    private lateinit var webView: WebView
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.dialog_fragment_donate_thanks_webview_netigen_api, container, false)
 
@@ -33,15 +32,14 @@ class DonateThanksFragment : BaseDialogFragment() {
         setUp()
     }
 
-    override fun setDialogSize(dp: Int) {
-        dialog?.window?.let {
-            it.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            it.setGravity(Gravity.BOTTOM)
-        }
+    override fun setDialogSize(widthDp: Int, window: Window) {
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        window.setGravity(Gravity.BOTTOM)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setUp() {
+        webView = requireView().findViewById(R.id.webView)
         val context = webView.context
         webView.settings.javaScriptEnabled = true
         webView.addJavascriptInterface(

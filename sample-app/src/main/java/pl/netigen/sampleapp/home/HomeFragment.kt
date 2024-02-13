@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.home_fragment.donate
+import kotlinx.android.synthetic.main.home_fragment.newrate
 import kotlinx.android.synthetic.main.home_fragment.rotate
 import kotlinx.android.synthetic.main.home_fragment.testInterstitial
 import kotlinx.android.synthetic.main.home_fragment.testInterstitialForce
@@ -39,6 +40,7 @@ class HomeFragment : NetigenVMFragment() {
         testSubs.setOnClickListener { coreMainVM.makePurchase(activity, activity.packageName + ".subs_01") }
         testResetAds.setOnClickListener { coreMainVM.resetAdsPreferences() }
         testSurvey.setOnClickListener { safeNavigate(pl.netigen.sampleapp.R.id.action_homeFragment_to_surveyFragment) }
+        newrate.setOnClickListener { (requireActivity() as CoreMainActivity).rateUs.openRateDialog() }
         rotate.setOnClickListener {
             val display = (activity.getSystemService(WINDOW_SERVICE) as WindowManager?)!!.defaultDisplay
 

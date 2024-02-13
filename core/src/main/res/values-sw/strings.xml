@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Ikiwa unataka kubadilisha lugha ya programu hadi Kiingereza unaweza kufanya hivyo katika mipangilio.</string>
   <string name="please_support_us_netigen">Tafadhali tuunge mkono kwa kukadiria programu hii. Asante!</string>
   <string name="settings_normal_netigen">Mipangilio</string>
-  <string name="help_us_survey_netigen">Tusaidie kukuza programu\nkwa kukamilisha utafiti.\n\nSauti yako ni muhimu pia!</string>
+  <string name="help_us_survey_netigen">Tusaidie kukuza programu\nkwa kukamilisha utafiti.</string>
   <string name="not_now_netigen">Sio kwa sasa</string>
-  <string name="share_thoughts_netigen">Shiriki mawazo yako!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Hakuna Mtandao</string>
   <string name="retry_netigen">Jaribu tena</string>
   <string name="no_internet_survey_netigen">Tafadhali, angalia muunganisho wako wa Mtandao na ujaribu tena.</string>
+  <string name="don_t_show_again">Usionyeshe tena</string>
+  <string name="share_opinion">Shiriki maoni yako</string>
+  <string name="Skip">Ruka</string>
+  <string name="ask_to_rate_app_netigen">Je, unakadiria programu yetu kuwa nyota ngapi?</string>
+  <string name="rate_us_exclamation_mark_netigen">Tukadirie!</string>
+  <string name="aks_rate_netigen">Tutashukuru ikiwa pia utatukadiria kwenye Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Hii itatusaidia kukuza programu!</string>
+  <string name="rate_us_confirm_text_netigen">Tukadirie kwenye Google Play</string>
 </resources>

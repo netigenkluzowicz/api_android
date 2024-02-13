@@ -23,12 +23,21 @@
 
     <string name="settings_normal_netigen">Settings</string>
 
-    <string name="help_us_survey_netigen">Help us develop the app\nby completing the survey.\n\nYour voice matters too!</string>
+    <string name="help_us_survey_netigen">Help us develop the app\nby completing the survey.</string>
     <string name="not_now_netigen">Not now</string>
-    <string name="share_thoughts_netigen">Share your thoughts!</string>
+    <string name="share_thoughts_netigen">Let us know what you would like us\nto improve in the app.</string>
     <string name="no_internet_netigen">No Internet</string>
     <string name="retry_netigen">Retry</string>
     <string name="no_internet_survey_netigen">Please, check your Internet connection and retry.</string>
     <string name="don_t_show_again">Don\'t show again</string>
+
+
+    <string name="share_opinion">Share your opinion</string>
+    <string name="Skip">Skip</string>
+    <string name="ask_to_rate_app_netigen">How many stars do you rate our app?</string>
+    <string name="rate_us_exclamation_mark_netigen">Rate us!</string>
+    <string name="aks_rate_netigen">We would be grateful if you would also rate us on Google Play.</string>
+    <string name="rate_us_netigen_sub_text">This will help us develop the app!</string>
+    <string name="rate_us_confirm_text_netigen">Rate us on Google Play</string>
 
 </resources>

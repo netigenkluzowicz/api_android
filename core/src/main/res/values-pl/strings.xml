@@ -16,4 +16,15 @@
     <string name="no_internet_netigen">Brak Internetu</string>
     <string name="retry_netigen">Spróbuj ponownie</string>
     <string name="no_internet_survey_netigen">Sprawdź połączenie z Internetem i spróbuj ponownie</string>
+
+    <string name="don_t_show_again">Nie pokazuj ponownie</string>
+
+
+    <string name="share_opinion">Podziel się opinią</string>
+    <string name="Skip">Pomiń</string>
+    <string name="ask_to_rate_app_netigen">Na ile gwiazdek oceniasz naszą aplikację?</string>
+    <string name="rate_us_exclamation_mark_netigen">Oceń nas!</string>
+    <string name="aks_rate_netigen">Bedzięmy wdzięczni, gdy ocenisz nas też na Google Play.</string>
+    <string name="rate_us_netigen_sub_text">Pomoże nam to rozwijać aplikację!</string>
+    <string name="rate_us_confirm_text_netigen">Oceń nas na Google Play</string>
 </resources>

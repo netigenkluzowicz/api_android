@@ -18,10 +18,10 @@ afterEvaluate {
 
 android {
     namespace "pl.netigen.amazon.payments"
-    compileSdkVersion 33
+    compileSdk  33
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 33
     }
     buildTypes {

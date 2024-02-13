@@ -1,0 +1,24 @@
+<resources>
+  <string name="msg_browser_not_found_netigen">Το πρόγραμμα περιήγησης δεν βρέθηκε!!!</string>
+  <string name="cancel_netigen">Ματαίωση</string>
+  <string name="change_language_netigen">Αλλαξε γλώσσα</string>
+  <string name="translation_information_title_netigen">Πληροφορίες μετάφρασης</string>
+  <string name="translation_information_content1_netigen">Αυτή η εφαρμογή έχει μεταφραστεί από τη Μετάφραση Google. Τα αγγλικά είναι η αρχική γλώσσα αυτής της εφαρμογής. Να θυμάστε ότι μπορεί να υπάρχουν κάποια λάθη στη μετάφραση.</string>
+  <string name="translation_information_content2_netigen">Εάν θέλετε να αλλάξετε τη γλώσσα της εφαρμογής σε Αγγλικά, μπορείτε να το κάνετε στις ρυθμίσεις.</string>
+  <string name="please_support_us_netigen">Υποστηρίξτε μας αξιολογώντας αυτήν την εφαρμογή. Ευχαριστώ!</string>
+  <string name="settings_normal_netigen">Ρυθμίσεις</string>
+  <string name="help_us_survey_netigen">Βοηθήστε μας να αναπτύξουμε την εφαρμογή\nσυμπληρώνοντας την έρευνα.</string>
+  <string name="not_now_netigen">Οχι τώρα</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
+  <string name="no_internet_netigen">Χωρίς Διαδίκτυο</string>
+  <string name="retry_netigen">Ξαναδοκιμάσετε</string>
+  <string name="no_internet_survey_netigen">Ελέγξτε τη σύνδεσή σας στο Διαδίκτυο και δοκιμάστε ξανά.</string>
+  <string name="don_t_show_again">Να μην εμφανιστεί ξανά</string>
+  <string name="share_opinion">Μοιραστείτε τη γνώμη σας</string>
+  <string name="Skip">Παραλείπω</string>
+  <string name="ask_to_rate_app_netigen">Με πόσα αστέρια βαθμολογείτε την εφαρμογή μας;</string>
+  <string name="rate_us_exclamation_mark_netigen">Βαθμολογήστε μας!</string>
+  <string name="aks_rate_netigen">Θα ήμασταν ευγνώμονες αν μας αξιολογούσατε και στο Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Αυτό θα μας βοηθήσει να αναπτύξουμε την εφαρμογή!</string>
+  <string name="rate_us_confirm_text_netigen">Βαθμολογήστε μας στο Google Play</string>
+</resources>

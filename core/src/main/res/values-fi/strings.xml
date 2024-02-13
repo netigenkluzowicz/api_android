@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Jos haluat vaihtaa sovelluksen kielen englanniksi, voit tehdä sen asetuksista.</string>
   <string name="please_support_us_netigen">Tue meitä arvioimalla tämä sovellus. Kiitos!</string>
   <string name="settings_normal_netigen">asetukset</string>
-  <string name="help_us_survey_netigen">Auta meitä kehittämään sovellusta\ntäyttämällä kysely.\n\nMyös äänelläsi on väliä!</string>
+  <string name="help_us_survey_netigen">Auta meitä kehittämään sovellusta\ntäyttämällä kysely.</string>
   <string name="not_now_netigen">Ei nyt</string>
-  <string name="share_thoughts_netigen">Jaa ajatuksesi!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Ei Internetiä</string>
   <string name="retry_netigen">Uudelleenarvioida</string>
   <string name="no_internet_survey_netigen">Tarkista Internet-yhteytesi ja yritä uudelleen.</string>
+  <string name="don_t_show_again">Älä näytä uudelleen</string>
+  <string name="share_opinion">Jaa mielipiteesi</string>
+  <string name="Skip">Ohita</string>
+  <string name="ask_to_rate_app_netigen">Kuinka monta tähteä annat sovelluksellemme?</string>
+  <string name="rate_us_exclamation_mark_netigen">Anna meille arvosana!</string>
+  <string name="aks_rate_netigen">Olisimme kiitollisia, jos arvioisit meidät myös Google Playssa.</string>
+  <string name="rate_us_netigen_sub_text">Tämä auttaa meitä kehittämään sovellusta!</string>
+  <string name="rate_us_confirm_text_netigen">Arvioi meidät Google Playssa</string>
 </resources>

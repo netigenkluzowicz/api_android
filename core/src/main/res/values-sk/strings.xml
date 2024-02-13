@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Ak chcete zmeniť jazyk aplikácie na angličtinu, môžete tak urobiť v nastaveniach.</string>
   <string name="please_support_us_netigen">Podporte nás hodnotením tejto aplikácie. Ďakujem!</string>
   <string name="settings_normal_netigen">nastavenie</string>
-  <string name="help_us_survey_netigen">Pomôžte nám vyvinúť aplikáciu\nvyplnením prieskumu.\n\nVáš hlas je tiež dôležitý!</string>
+  <string name="help_us_survey_netigen">Pomôžte nám vyvinúť aplikáciu\nvyplnením prieskumu.</string>
   <string name="not_now_netigen">Teraz nie</string>
-  <string name="share_thoughts_netigen">Zdieľaj svoje myšlienky!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Žiadny internet</string>
   <string name="retry_netigen">Skúsiť znova</string>
   <string name="no_internet_survey_netigen">Skontrolujte svoje internetové pripojenie a skúste to znova.</string>
+  <string name="don_t_show_again">Už viac nezobrazovať</string>
+  <string name="share_opinion">Podeľte sa o svoj názor</string>
+  <string name="Skip">Preskočiť</string>
+  <string name="ask_to_rate_app_netigen">Koľko hviezdičiek hodnotíte našu aplikáciu?</string>
+  <string name="rate_us_exclamation_mark_netigen">Ohodnoť nás!</string>
+  <string name="aks_rate_netigen">Boli by sme vďační, keby ste nás ohodnotili aj na Google Play.</string>
+  <string name="rate_us_netigen_sub_text">To nám pomôže vyvinúť aplikáciu!</string>
+  <string name="rate_us_confirm_text_netigen">Ohodnoťte nás na Google Play</string>
 </resources>

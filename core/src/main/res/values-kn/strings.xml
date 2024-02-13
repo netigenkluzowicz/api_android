@@ -1,0 +1,24 @@
+<resources>
+  <string name="msg_browser_not_found_netigen">ಬ್ರೌಸರ್ ಕಂಡುಬಂದಿಲ್ಲ !!!</string>
+  <string name="cancel_netigen">ರದ್ದುಮಾಡು</string>
+  <string name="change_language_netigen">ಭಾಷೆ ಬದಲಾಯಿಸಿ</string>
+  <string name="translation_information_title_netigen">ಅನುವಾದ ಮಾಹಿತಿ</string>
+  <string name="translation_information_content1_netigen">ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು Google ಅನುವಾದದಿಂದ ಅನುವಾದಿಸಲಾಗಿದೆ. ಈ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೂಲ ಭಾಷೆ ಇಂಗ್ಲಿಷ್ ಆಗಿದೆ. ಅನುವಾದದಲ್ಲಿ ಕೆಲವು ತಪ್ಪುಗಳಿರಬಹುದು ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ನೆನಪಿಡಿ.</string>
+  <string name="translation_information_content2_netigen">ನೀವು ಅಪ್ಲಿಕೇಶನ್ ಭಾಷೆಯನ್ನು ಇಂಗ್ಲಿಷ್‌ಗೆ ಬದಲಾಯಿಸಲು ಬಯಸಿದರೆ ನೀವು ಅದನ್ನು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಮಾಡಬಹುದು.</string>
+  <string name="please_support_us_netigen">ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ರೇಟಿಂಗ್ ಮಾಡುವ ಮೂಲಕ ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಬೆಂಬಲಿಸಿ. ಧನ್ಯವಾದ!</string>
+  <string name="settings_normal_netigen">ಸಂಯೋಜನೆಗಳು</string>
+  <string name="help_us_survey_netigen">ಸಮೀಕ್ಷೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸುವ ಮೂಲಕ ಅಪ್ಲಿಕೇಶನ್\nಅನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ನಮಗೆ ಸಹಾಯ ಮಾಡಿ.</string>
+  <string name="not_now_netigen">ಈಗ ಸಾಧ್ಯವಿಲ್ಲ</string>
+  <string name="share_thoughts_netigen">ದಜ್ ಝನಾಮ್ ಝನಾಕ್, ಕೊ ಚಿಯಾಲ್ಬಿಸ್, ಸ್ಪೆಕ್0 ಝೆಬಿಸ್ಮಿ ಪೊಪ್ರಾವಿಲಿ ಡಬ್ಲ್ಯೂ ಆಪ್ಲಿಕಾಜಿ.</string>
+  <string name="no_internet_netigen">ಇಂಟರ್ನೆಟ್ ಇಲ್ಲ</string>
+  <string name="retry_netigen">ಮರುಪ್ರಯತ್ನಿಸಿ</string>
+  <string name="no_internet_survey_netigen">ದಯವಿಟ್ಟು, ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಮರುಪ್ರಯತ್ನಿಸಿ.</string>
+  <string name="don_t_show_again">ಮತ್ತೆ ತೋರಿಸಬೇಡ</string>
+  <string name="share_opinion">ನಿಮ್ಮ ಅಭಿಪ್ರಾಯವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ</string>
+  <string name="Skip">ಬಿಟ್ಟುಬಿಡಿ</string>
+  <string name="ask_to_rate_app_netigen">ನಮ್ಮ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನೀವು ಎಷ್ಟು ನಕ್ಷತ್ರಗಳನ್ನು ರೇಟ್ ಮಾಡುತ್ತೀರಿ?</string>
+  <string name="rate_us_exclamation_mark_netigen">ನಮಗೆ ರೇಟ್ ಮಾಡಿ!</string>
+  <string name="aks_rate_netigen">ನೀವು Google Play ನಲ್ಲಿ ನಮಗೆ ರೇಟ್ ಮಾಡಿದರೆ ನಾವು ಕೃತಜ್ಞರಾಗಿರುತ್ತೇವೆ.</string>
+  <string name="rate_us_netigen_sub_text">ಇದು ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ನಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ!</string>
+  <string name="rate_us_confirm_text_netigen">Google Play ನಲ್ಲಿ ನಮಗೆ ರೇಟ್ ಮಾಡಿ</string>
+</resources>

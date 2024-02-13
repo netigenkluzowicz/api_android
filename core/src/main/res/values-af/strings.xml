@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">As jy die programtaal na Engels wil verander, kan jy dit in instellings doen.</string>
   <string name="please_support_us_netigen">Ondersteun ons asseblief deur hierdie toepassing te beoordeel. Dankie!</string>
   <string name="settings_normal_netigen">Instellings</string>
-  <string name="help_us_survey_netigen">Help ons om die toepassing\nte ontwikkel deur die opname te voltooi.\n\nJou stem maak ook saak!</string>
+  <string name="help_us_survey_netigen">Help ons om die toepassing\nte ontwikkel deur die opname te voltooi.</string>
   <string name="not_now_netigen">Nie nou nie</string>
-  <string name="share_thoughts_netigen">Deel jou gedagtes!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Geen internet nie</string>
   <string name="retry_netigen">Probeer weer</string>
   <string name="no_internet_survey_netigen">Gaan asseblief jou internetverbinding na en probeer weer.</string>
+  <string name="don_t_show_again">Moenie weer wys nie</string>
+  <string name="share_opinion">Deel jou mening</string>
+  <string name="Skip">Huppel</string>
+  <string name="ask_to_rate_app_netigen">Hoeveel sterre beoordeel jy ons toepassing?</string>
+  <string name="rate_us_exclamation_mark_netigen">Gradeer ons!</string>
+  <string name="aks_rate_netigen">Ons sal dankbaar wees as jy ons ook op Google Play sal gradeer.</string>
+  <string name="rate_us_netigen_sub_text">Dit sal ons help om die toepassing te ontwikkel!</string>
+  <string name="rate_us_confirm_text_netigen">Beoordeel ons op Google Play</string>
 </resources>

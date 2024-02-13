@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">আপনি যদি অ্যাপের ভাষা ইংরেজিতে পরিবর্তন করতে চান তাহলে সেটিংসে গিয়ে করতে পারেন।</string>
   <string name="please_support_us_netigen">এই অ্যাপ রেট দিয়ে আমাদের সমর্থন করুন. ধন্যবাদ!</string>
   <string name="settings_normal_netigen">সেটিংস</string>
-  <string name="help_us_survey_netigen">সমীক্ষা সম্পূর্ণ করে অ্যাপ\nডেভেলপ করতে আমাদের সাহায্য করুন।\n\nআপনার ভয়েসও গুরুত্বপূর্ণ!</string>
+  <string name="help_us_survey_netigen">সমীক্ষা সম্পূর্ণ করে অ্যাপ\nডেভেলপ করতে আমাদের সাহায্য করুন।</string>
   <string name="not_now_netigen">এখন না</string>
-  <string name="share_thoughts_netigen">আপনার চিন্তা শেয়ার করুন!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">কোন ইন্টারনেট নেই</string>
   <string name="retry_netigen">পুনরায় চেষ্টা করা</string>
   <string name="no_internet_survey_netigen">অনুগ্রহ করে, আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন এবং পুনরায় চেষ্টা করুন।</string>
+  <string name="don_t_show_again">আবার দেখাবেন না</string>
+  <string name="share_opinion">আপনার মতামত শেয়ার করুন</string>
+  <string name="Skip">এড়িয়ে যান</string>
+  <string name="ask_to_rate_app_netigen">আপনি আমাদের অ্যাপকে কত স্টার রেট দেন?</string>
+  <string name="rate_us_exclamation_mark_netigen">আমাদের ব্যাপারে আপনার মতামত দিন!</string>
+  <string name="aks_rate_netigen">আপনি Google Play-তে আমাদের রেট দিলে আমরা কৃতজ্ঞ থাকব।</string>
+  <string name="rate_us_netigen_sub_text">এটি আমাদের অ্যাপ্লিকেশন বিকাশ করতে সাহায্য করবে!</string>
+  <string name="rate_us_confirm_text_netigen">Google Play-তে আমাদের রেট দিন</string>
 </resources>

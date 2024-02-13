@@ -40,7 +40,7 @@ import timber.log.Timber.Forest.d
  *
  * @param application provides [Application] context for this [AndroidViewModel]
  */
-class CoreSplashVMImpl(
+open class CoreSplashVMImpl(
     application: Application,
     override val gdprConsent: IGDPRConsent,
     private val ads: IAds,

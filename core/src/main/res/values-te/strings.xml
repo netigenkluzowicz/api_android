@@ -1,0 +1,24 @@
+<resources>
+  <string name="msg_browser_not_found_netigen">బ్రౌజర్ కనుగొనబడలేదు!!!</string>
+  <string name="cancel_netigen">రద్దు చేయండి</string>
+  <string name="change_language_netigen">భాష మార్చు</string>
+  <string name="translation_information_title_netigen">అనువాద సమాచారం</string>
+  <string name="translation_information_content1_netigen">ఈ అప్లికేషన్ Google అనువాదం ద్వారా అనువదించబడింది. ఈ అప్లికేషన్ యొక్క అసలు భాష ఇంగ్లీష్. అనువాదంలో కొన్ని తప్పులు ఉండవచ్చని దయచేసి గుర్తుంచుకోండి.</string>
+  <string name="translation_information_content2_netigen">మీరు యాప్ లాంగ్వేజ్‌ని ఇంగ్లీషుకి మార్చాలనుకుంటే సెట్టింగ్‌లలో చేయవచ్చు.</string>
+  <string name="please_support_us_netigen">దయచేసి ఈ యాప్‌ను రేటింగ్ చేయడం ద్వారా మాకు మద్దతు ఇవ్వండి. ధన్యవాదాలు!</string>
+  <string name="settings_normal_netigen">సెట్టింగ్‌లు</string>
+  <string name="help_us_survey_netigen">సర్వేను పూర్తి చేయడం ద్వారా\nయాప్‌ను అభివృద్ధి చేయడంలో మాకు సహాయపడండి.</string>
+  <string name="not_now_netigen">ఇప్పుడు కాదు</string>
+  <string name="share_thoughts_netigen">డాజ్ జ్నామ్ znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
+  <string name="no_internet_netigen">ఇంటర్నెట్ లేదు</string>
+  <string name="retry_netigen">మళ్లీ ప్రయత్నించండి</string>
+  <string name="no_internet_survey_netigen">దయచేసి, మీ ఇంటర్నెట్ కనెక్షన్‌ని తనిఖీ చేసి, మళ్లీ ప్రయత్నించండి.</string>
+  <string name="don_t_show_again">మళ్లీ చూపవద్దు</string>
+  <string name="share_opinion">మీ అభిప్రాయాన్ని పంచుకోండి</string>
+  <string name="Skip">దాటవేయి</string>
+  <string name="ask_to_rate_app_netigen">మీరు మా యాప్‌ను ఎన్ని నక్షత్రాలతో రేట్ చేస్తారు?</string>
+  <string name="rate_us_exclamation_mark_netigen">మాకు రేట్ చేయండి!</string>
+  <string name="aks_rate_netigen">మీరు Google Playలో కూడా మాకు రేట్ చేస్తే మేము కృతజ్ఞులమై ఉంటాము.</string>
+  <string name="rate_us_netigen_sub_text">ఇది అనువర్తనాన్ని అభివృద్ధి చేయడంలో మాకు సహాయపడుతుంది!</string>
+  <string name="rate_us_confirm_text_netigen">Google Playలో మాకు రేట్ చేయండి</string>
+</resources>

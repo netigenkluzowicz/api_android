@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">თუ გსურთ შეცვალოთ აპის ენა ინგლისურად, ამის გაკეთება შეგიძლიათ პარამეტრებში.</string>
   <string name="please_support_us_netigen">გთხოვთ, მხარი დაგვიჭიროთ ამ აპლიკაციის შეფასებით. Გმადლობთ!</string>
   <string name="settings_normal_netigen">პარამეტრები</string>
-  <string name="help_us_survey_netigen">დაგვეხმარეთ აპის შემუშავებაში\nგამოკითხვის შესრულებით.\n\nშენი ხმაც მნიშვნელოვანია!</string>
+  <string name="help_us_survey_netigen">დაგვეხმარეთ აპის შემუშავებაში\nგამოკითხვის შესრულებით.</string>
   <string name="not_now_netigen">Ახლა არა</string>
-  <string name="share_thoughts_netigen">გაგვიზიარე შენი აზრები!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">არა ინტერნეტი</string>
   <string name="retry_netigen">გამოცხადება</string>
   <string name="no_internet_survey_netigen">გთხოვთ, შეამოწმოთ თქვენი ინტერნეტ კავშირი და ხელახლა სცადოთ.</string>
+  <string name="don_t_show_again">აღარ აჩვენო</string>
+  <string name="share_opinion">გაგვიზიარე შენი აზრი</string>
+  <string name="Skip">გამოტოვება</string>
+  <string name="ask_to_rate_app_netigen">რამდენი ვარსკვლავით აფასებთ ჩვენს აპლიკაციას?</string>
+  <string name="rate_us_exclamation_mark_netigen">Შეგვაფასეთ!</string>
+  <string name="aks_rate_netigen">მადლობელი ვიქნებით, თუ Google Play-ზეც დაგვაფასებთ.</string>
+  <string name="rate_us_netigen_sub_text">ეს დაგვეხმარება აპლიკაციის განვითარებაში!</string>
+  <string name="rate_us_confirm_text_netigen">შეგვაფასეთ Google Play-ზე</string>
 </resources>

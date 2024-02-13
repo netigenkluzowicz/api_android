@@ -19,7 +19,7 @@ android {
     namespace "pl.netigen.coreapi"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 33
         compileSdk 33
         aarMetadata {

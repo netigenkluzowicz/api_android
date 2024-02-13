@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven-publish'
 
 
@@ -19,10 +18,10 @@ afterEvaluate {
 android {
     namespace "pl.netigen.core"
 
-    compileSdkVersion 33
+    compileSdk 33
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 33
     }
     buildTypes {
@@ -48,8 +47,6 @@ android {
 
 dependencies {
     api project(path: ':core-api')
-
-
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'androidx.test:core:1.4.0'
     testImplementation 'androidx.arch.core:core-testing:2.1.0'

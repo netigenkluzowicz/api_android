@@ -6,10 +6,10 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     namespace "pl.netigen.sampleapp"
-    compileSdkVersion 33
+    compileSdk  33
     defaultConfig {
         applicationId "pl.netigen.bestlevel"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 33
         versionCode 30003
         versionName "3.0.3"

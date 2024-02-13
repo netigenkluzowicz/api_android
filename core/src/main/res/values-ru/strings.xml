@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Если вы хотите изменить язык приложения на английский, вы можете сделать это в настройках.</string>
   <string name="please_support_us_netigen">Пожалуйста, поддержите нас, оценив это приложение. Благодарю вас!</string>
   <string name="settings_normal_netigen">Настройки</string>
-  <string name="help_us_survey_netigen">Помогите нам разработать приложение\n, заполнив анкету.\n\nВаш голос тоже имеет значение!</string>
+  <string name="help_us_survey_netigen">Помогите нам разработать приложение\n, заполнив опрос.</string>
   <string name="not_now_netigen">Не сейчас</string>
-  <string name="share_thoughts_netigen">Поделитесь своими мыслями!</string>
+  <string name="share_thoughts_netigen">Если вы знаете, как выбрать\n, вы можете выбрать его в приложении.</string>
   <string name="no_internet_netigen">Без интернета</string>
   <string name="retry_netigen">Повторно</string>
   <string name="no_internet_survey_netigen">Пожалуйста, проверьте подключение к Интернету и повторите попытку.</string>
+  <string name="don_t_show_again">Больше не показывать</string>
+  <string name="share_opinion">Поделитесь своим мнением</string>
+  <string name="Skip">Пропускать</string>
+  <string name="ask_to_rate_app_netigen">На сколько звезд вы оцениваете наше приложение?</string>
+  <string name="rate_us_exclamation_mark_netigen">Оцените нас!</string>
+  <string name="aks_rate_netigen">Мы будем признательны, если вы также оцените нас в Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Это поможет нам развивать приложение!</string>
+  <string name="rate_us_confirm_text_netigen">Оцените нас в Google Play</string>
 </resources>

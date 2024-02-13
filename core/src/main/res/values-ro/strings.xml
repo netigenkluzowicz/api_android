@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Dacă doriți să schimbați limba aplicației în engleză, puteți face acest lucru în setări.</string>
   <string name="please_support_us_netigen">Vă rugăm să ne susțineți prin evaluarea acestei aplicații. Mulțumesc!</string>
   <string name="settings_normal_netigen">Setări</string>
-  <string name="help_us_survey_netigen">Ajutați-ne să dezvoltăm aplicația\ncompletând sondajul.\n\nȘi vocea ta contează!</string>
+  <string name="help_us_survey_netigen">Ajutați-ne să dezvoltăm aplicația\ncompletând sondajul.</string>
   <string name="not_now_netigen">Nu acum</string>
-  <string name="share_thoughts_netigen">Impartaseste-ti gandurile!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplicacji.</string>
   <string name="no_internet_netigen">Fara Internet</string>
   <string name="retry_netigen">Din nou</string>
   <string name="no_internet_survey_netigen">Vă rugăm să verificați conexiunea la internet și să încercați din nou.</string>
+  <string name="don_t_show_again">Nu mai afișa</string>
+  <string name="share_opinion">Împărtășește-ți părerea</string>
+  <string name="Skip">Ocolire</string>
+  <string name="ask_to_rate_app_netigen">Câte stele evaluezi aplicația noastră?</string>
+  <string name="rate_us_exclamation_mark_netigen">Ne evalua!</string>
+  <string name="aks_rate_netigen">V-am fi recunoscători dacă ne-ați evalua și pe Google Play.</string>
+  <string name="rate_us_netigen_sub_text">Acest lucru ne va ajuta să dezvoltăm aplicația!</string>
+  <string name="rate_us_confirm_text_netigen">Evaluează-ne pe Google Play</string>
 </resources>

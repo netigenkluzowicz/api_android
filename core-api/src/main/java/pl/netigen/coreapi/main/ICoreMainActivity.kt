@@ -62,12 +62,6 @@ interface ICoreMainActivity {
     fun onSplashClosed()
 
     /**
-     * Shows GDPR pop up on [ICoreMainVM.resetAdsPreferences] called
-     *
-     */
-    fun showGdprPopUp()
-
-    /**
      * Called when [IBannerAd] and other ads related views should be hided
      *
      */

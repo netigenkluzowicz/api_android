@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">Ha az alkalmazás nyelvét angolra szeretné módosítani, ezt a beállításokban teheti meg.</string>
   <string name="please_support_us_netigen">Kérjük, támogasson minket az alkalmazás értékelésével. Köszönöm!</string>
   <string name="settings_normal_netigen">Beállítások</string>
-  <string name="help_us_survey_netigen">Segítsen nekünk a\nalkalmazás fejlesztésében a kérdőív kitöltésével.\n\nAz Ön hangja is számít!</string>
+  <string name="help_us_survey_netigen">Segítsen nekünk a\nalkalmazás fejlesztésében a kérdőív kitöltésével.</string>
   <string name="not_now_netigen">Nem most</string>
-  <string name="share_thoughts_netigen">Oszd meg a gondolataidat!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili w aplikacji.</string>
   <string name="no_internet_netigen">Nincs internet</string>
   <string name="retry_netigen">Próbálja újra</string>
   <string name="no_internet_survey_netigen">Kérjük, ellenőrizze internetkapcsolatát, és próbálja újra.</string>
+  <string name="don_t_show_again">Ne mutasd újra</string>
+  <string name="share_opinion">Ossza meg véleményét</string>
+  <string name="Skip">Kihagyás</string>
+  <string name="ask_to_rate_app_netigen">Hány csillagra értékeli az alkalmazásunkat?</string>
+  <string name="rate_us_exclamation_mark_netigen">Értékelj minket!</string>
+  <string name="aks_rate_netigen">Hálásak lennénk, ha a Google Playen is értékelne minket.</string>
+  <string name="rate_us_netigen_sub_text">Ez segít nekünk az alkalmazás fejlesztésében!</string>
+  <string name="rate_us_confirm_text_netigen">Értékeljen minket a Google Playen</string>
 </resources>

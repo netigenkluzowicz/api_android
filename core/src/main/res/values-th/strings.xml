@@ -7,10 +7,18 @@
   <string name="translation_information_content2_netigen">หากคุณต้องการเปลี่ยนภาษาของแอพเป็นภาษาอังกฤษ คุณสามารถทำได้ในการตั้งค่า</string>
   <string name="please_support_us_netigen">โปรดสนับสนุนเราด้วยการให้คะแนนแอปนี้ ขอขอบคุณ!</string>
   <string name="settings_normal_netigen">การตั้งค่า</string>
-  <string name="help_us_survey_netigen">ช่วยเราพัฒนาแอป\nโดยตอบแบบสำรวจ\n\nเสียงของคุณก็สำคัญเช่นกัน!</string>
+  <string name="help_us_survey_netigen">ช่วยเราพัฒนาแอป\nโดยทำแบบสำรวจให้เสร็จสิ้น</string>
   <string name="not_now_netigen">ไม่ใช่ตอนนี้</string>
-  <string name="share_thoughts_netigen">แบ่งปันความคิดของคุณ!</string>
+  <string name="share_thoughts_netigen">Daj znam znać, co chciałbyś,\nżebyśmy poprawili พร้อมแอปพลิเคชัน</string>
   <string name="no_internet_netigen">ไม่มีอินเทอร์เน็ต</string>
   <string name="retry_netigen">ลองอีกครั้ง</string>
   <string name="no_internet_survey_netigen">โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณแล้วลองอีกครั้ง</string>
+  <string name="don_t_show_again">ไม่ต้องแสดงอีก</string>
+  <string name="share_opinion">แบ่งปันความคิดเห็นของคุณ</string>
+  <string name="Skip">ข้าม</string>
+  <string name="ask_to_rate_app_netigen">คุณให้คะแนนแอปของเรากี่ดาว?</string>
+  <string name="rate_us_exclamation_mark_netigen">ให้คะแนนเรา!</string>
+  <string name="aks_rate_netigen">เราจะขอบคุณมากหากคุณให้คะแนนเราบน Google Play</string>
+  <string name="rate_us_netigen_sub_text">สิ่งนี้จะช่วยเราพัฒนาแอป!</string>
+  <string name="rate_us_confirm_text_netigen">ให้คะแนนเราบน Google Play</string>
 </resources>
