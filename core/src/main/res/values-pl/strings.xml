@@ -17,6 +17,8 @@
     <string name="retry_netigen">Spróbuj ponownie</string>
     <string name="no_internet_survey_netigen">Sprawdź połączenie z Internetem i spróbuj ponownie</string>
 
+    <string name="don_t_show_again">Nie pokazuj ponownie</string>
+
 
     <string name="share_opinion">Podziel się opinią</string>
     <string name="Skip">Pomiń</string>
