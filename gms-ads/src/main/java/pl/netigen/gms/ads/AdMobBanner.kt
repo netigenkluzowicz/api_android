@@ -48,7 +48,7 @@ class AdMobBanner(
     private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
     private var currentActivity: ComponentActivity = activity
-    private val bannerLayout: RelativeLayout
+    private val bannerLayout: RelativeLayout?
         get() = (currentActivity as ICoreMainActivity).bannerView()
 
     private var bannerYandex: BannerAdView? = null
@@ -101,8 +101,9 @@ class AdMobBanner(
         Timber.d("xxx.+()")
         if (disabled) return
 
+        val bannerLayout1 = bannerLayout ?: return
         if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || bannerView == null ||
-            bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView
+            bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView
         ) {
             loadBanner()
         }
@@ -116,7 +117,8 @@ class AdMobBanner(
         if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || getHeightInPixels() > getAdSize().height) {
             destroyBanner()
         }
-        if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView || bannerView == null) {
+        val bannerLayout1 = bannerLayout ?: return
+        if (bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView || bannerView == null) {
             createBanner()
         }
         loadAdMob()
@@ -132,8 +134,9 @@ class AdMobBanner(
     }
 
     private fun createYandex() {
+        val bannerLayout1 = bannerLayout ?: return
         bannerYandex = (bannerYandex ?: BannerAdView(currentActivity)).also {
-            bannerLayout.addView(it)
+            bannerLayout1.addView(it)
             it.setAdUnitId(yandexAdId)
             it.setAdSize(stickySize(currentActivity, currentActivity.resources.displayMetrics.run { widthPixels / density }.roundToInt()))
             it.setBannerAdEventListener(
@@ -170,8 +173,9 @@ class AdMobBanner(
     }
 
     private fun createAdmob() {
+        val bannerLayout1 = bannerLayout ?: return
         bannerView = (bannerView ?: AdView(currentActivity)).also {
-            bannerLayout.addView(it)
+            bannerLayout1.addView(it)
             setBannerLayoutParams(it)
             val adSize = getAdSize()
             it.setAdSize(adSize)

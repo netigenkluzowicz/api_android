@@ -16,7 +16,6 @@ import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.main.ICoreMainActivity
 import timber.log.Timber
-import kotlin.math.roundToInt
 
 /**
  * [IBannerAd] implementation with [AdView] from Google Mobile Ads SDK
@@ -32,18 +31,18 @@ import kotlin.math.roundToInt
  * @property enabled Indicates is current ad active
  */
 class AdMobBanner(
-    private val activity: ComponentActivity,
-    private val adMobRequest: IAdMobRequest,
-    override val adId: String,
-    private val bannerLayoutIdName: String,
-    override val yandexAdId: String,
-    override var enabled: Boolean = true,
+        private val activity: ComponentActivity,
+        private val adMobRequest: IAdMobRequest,
+        override val adId: String,
+        private val bannerLayoutIdName: String,
+        override val yandexAdId: String,
+        override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView? = null
     private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
     private var currentActivity: ComponentActivity = activity
-    private val bannerLayout: RelativeLayout
+    private val bannerLayout: RelativeLayout?
         get() = (currentActivity as ICoreMainActivity).bannerView()
 
     init {
@@ -89,11 +88,12 @@ class AdMobBanner(
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         Timber.d("xxx.+()")
-        Timber.d("bannerLayout: " + bannerLayout)
+        val bannerLayout1 = bannerLayout ?: return
+        Timber.d("bannerLayout: " + bannerLayout1)
         if (disabled) return
 
         if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || bannerView == null ||
-            bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView
+                bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView
         ) {
             loadBanner()
         }
@@ -101,13 +101,14 @@ class AdMobBanner(
     }
 
     private fun loadBanner() {
-        Timber.d("bannerLayout: " + bannerLayout)
+        val bannerLayout1 = bannerLayout ?: return
+        Timber.d("bannerLayout: " + bannerLayout1)
         if (disabled) return
 
         if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || getHeightInPixels() > getAdSize().height) {
             destroyBanner()
         }
-        if (bannerLayout.childCount == 0 || bannerLayout.getChildAt(0) !== bannerView || bannerView == null) {
+        if (bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView || bannerView == null) {
             createAdmob()
         }
         loadAdMob()
@@ -120,11 +121,11 @@ class AdMobBanner(
     }
 
 
-
     private fun createAdmob() {
-        Timber.d("bannerLayout: " + bannerLayout)
+        val bannerLayout1 = bannerLayout ?: return
+        Timber.d("bannerLayout: " + bannerLayout1)
         bannerView = (bannerView ?: AdView(currentActivity)).also {
-            bannerLayout.addView(it)
+            bannerLayout1.addView(it)
             setBannerLayoutParams(it)
             val adSize = getAdSize()
             it.setAdSize(adSize)
@@ -137,9 +138,11 @@ class AdMobBanner(
     private fun destroyBanner() {
         Timber.d("bannerLayout: " + bannerLayout)
         currentActivity.runOnUiThread {
-            val view = bannerView.also { it?.destroy() } ?: return@runOnUiThread
-            (view.parent as ViewGroup?)?.removeAllViews()
-            bannerView = null
+            bannerView?.run {
+                this.destroy()
+                (this.parent as ViewGroup?)?.removeAllViews()
+                bannerView = null
+            }
         }
     }
 

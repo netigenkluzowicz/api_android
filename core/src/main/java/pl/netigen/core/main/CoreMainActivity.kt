@@ -61,7 +61,7 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
         getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
     }
 
-    override fun bannerView(): RelativeLayout = findViewById(resources.getIdentifier(coreMainVM.bannerLayoutIdName, "id", packageName))
+    override fun bannerView(): RelativeLayout? = findViewById(resources.getIdentifier(coreMainVM.bannerLayoutIdName, "id", packageName))
 
     override val openingCounter
         get() = sharedPreferences.getInt(KEY_NUMBER_OF_OPENINGS, 0)
