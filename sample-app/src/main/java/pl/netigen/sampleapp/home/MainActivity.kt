@@ -6,7 +6,8 @@ import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
 import androidx.lifecycle.asLiveData
 import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.activity_sample_main.*
+import kotlinx.android.synthetic.main.activity_sample_main.adsBorder
+import kotlinx.android.synthetic.main.activity_sample_main.layoutHomeContainer
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
 import pl.netigen.extensions.observe
@@ -44,6 +45,7 @@ class MainActivity : CoreMainActivity() {
         Timber.d("activity %s", this)
         coreMainVM.noAdsActive.asLiveData().observe(this) {
             Timber.d("gms_noAds:$it")
+
         }
     }
 }

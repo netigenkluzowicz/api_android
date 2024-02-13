@@ -16,7 +16,6 @@ import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.main.ICoreMainActivity
 import timber.log.Timber
-import kotlin.math.roundToInt
 
 /**
  * [IBannerAd] implementation with [AdView] from Google Mobile Ads SDK
@@ -32,12 +31,12 @@ import kotlin.math.roundToInt
  * @property enabled Indicates is current ad active
  */
 class AdMobBanner(
-    private val activity: ComponentActivity,
-    private val adMobRequest: IAdMobRequest,
-    override val adId: String,
-    private val bannerLayoutIdName: String,
-    override val yandexAdId: String,
-    override var enabled: Boolean = true,
+        private val activity: ComponentActivity,
+        private val adMobRequest: IAdMobRequest,
+        override val adId: String,
+        private val bannerLayoutIdName: String,
+        override val yandexAdId: String,
+        override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView? = null
     private var loadedBannerOrientation = -1
@@ -94,7 +93,7 @@ class AdMobBanner(
         if (disabled) return
 
         if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || bannerView == null ||
-            bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView
+                bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView
         ) {
             loadBanner()
         }
@@ -122,7 +121,6 @@ class AdMobBanner(
     }
 
 
-
     private fun createAdmob() {
         val bannerLayout1 = bannerLayout ?: return
         Timber.d("bannerLayout: " + bannerLayout1)
@@ -140,9 +138,11 @@ class AdMobBanner(
     private fun destroyBanner() {
         Timber.d("bannerLayout: " + bannerLayout)
         currentActivity.runOnUiThread {
-            val view = bannerView.also { it?.destroy() } ?: return@runOnUiThread
-            (view.parent as ViewGroup?)?.removeAllViews()
-            bannerView = null
+            bannerView?.run {
+                this.destroy()
+                (this.parent as ViewGroup?)?.removeAllViews()
+                bannerView = null
+            }
         }
     }
 
