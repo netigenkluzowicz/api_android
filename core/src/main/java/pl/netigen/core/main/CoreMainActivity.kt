@@ -150,17 +150,11 @@ abstract class CoreMainActivity : AppCompatActivity(), ICoreMainActivity {
                     }
                 }
 
-                UpdateAvailability.UNKNOWN -> {
-                    Timber.d("UNKNOWN")
-                }
+                UpdateAvailability.UNKNOWN -> Timber.d("UNKNOWN")
 
-                UpdateAvailability.UPDATE_AVAILABLE -> {
-                    Timber.d("UPDATE_AVAILABLE")
-                }
+                UpdateAvailability.UPDATE_AVAILABLE -> Timber.d("UPDATE_AVAILABLE")
 
-                UpdateAvailability.UPDATE_NOT_AVAILABLE -> {
-                    Timber.d("UPDATE_NOT_AVAILABLE")
-                }
+                UpdateAvailability.UPDATE_NOT_AVAILABLE -> Timber.d("UPDATE_NOT_AVAILABLE")
             }
             if (updateAvailability == UpdateAvailability.UPDATE_AVAILABLE &&
                 (appUpdateInfo.clientVersionStalenessDays() ?: -1) >= coreMainVM.daysForFlexibleUpdate &&
