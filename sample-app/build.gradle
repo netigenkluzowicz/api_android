@@ -58,6 +58,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation project(path: ":core")
+    api project(path: ":core-api")
     implementation project(path: ':gms-kids')
     gmsImplementation project(path: ':gms-payments')
     amazonImplementation project(path: ':amazon-payments')

@@ -8,13 +8,6 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import com.yandex.mobile.ads.common.AdRequestConfiguration
-import com.yandex.mobile.ads.common.AdRequestError
-import com.yandex.mobile.ads.common.ImpressionData
-import com.yandex.mobile.ads.rewarded.Reward
-import com.yandex.mobile.ads.rewarded.RewardedAdEventListener
-import com.yandex.mobile.ads.rewarded.RewardedAdLoadListener
-import com.yandex.mobile.ads.rewarded.RewardedAdLoader
 import pl.netigen.coreapi.ads.IAdsConfig.Companion.REWARD_AD_MAX_RETRY_COUNT
 import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber.Forest.d
@@ -34,15 +27,12 @@ class AdMobRewarded(
     private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String = "",
-    override val yandexAdId: String = "",
     override var enabled: Boolean = adId.isNotEmpty(),
 ) : IRewardedAd, LifecycleObserver {
     override val isLoaded: Boolean get() = isEnabled && rewardedAd != null
     private var rewardedAd: RewardedAd? = null
     private val isEnabled: Boolean get() = enabled && adId.isNotEmpty()
     private var retryCount = 0
-    private var yandexActive = false
-    private var yandexAd: com.yandex.mobile.ads.rewarded.RewardedAd? = null
 
 
     init {
@@ -52,43 +42,9 @@ class AdMobRewarded(
 
     override fun showRewardedAd(onRewardResult: (Boolean) -> Unit) {
         d("onRewardResult = [$onRewardResult]")
-        if (yandexActive && yandexAdId.isNotEmpty()) showYandex(onRewardResult) else showAdmob(onRewardResult)
+       showAdmob(onRewardResult)
     }
 
-    private fun showYandex(onRewardResult: (Boolean) -> Unit) {
-        val ad = yandexAd
-        if (ad == null || !enabled) {
-            loadYandex()
-            onRewardResult(false)
-            return
-        }
-
-        ad.setAdEventListener(
-            object : RewardedAdEventListener {
-                override fun onAdShown() = Unit
-
-                override fun onAdFailedToShow(p0: com.yandex.mobile.ads.common.AdError) {
-                    onRewardResult(false)
-                }
-
-                override fun onAdDismissed() {
-                    onRewardResult(false)
-                    yandexAd?.setAdEventListener(null)
-                    yandexAd = null
-                    loadYandex()
-                }
-
-                override fun onAdClicked() = Unit
-
-                override fun onAdImpression(p0: ImpressionData?) = Unit
-
-                override fun onRewarded(p0: Reward) {
-                    onRewardResult(true)
-                }
-            },
-        )
-        ad.show(activity)
-    }
 
     private fun showAdmob(onRewardResult: (Boolean) -> Unit) {
         if (!isLoaded) {
@@ -125,29 +81,6 @@ class AdMobRewarded(
         } else {
             onRewardResult(false)
         }
-    }
-
-    override fun enableYandex() {
-        yandexActive = true
-        loadYandex()
-    }
-
-    private fun loadYandex() {
-        RewardedAdLoader(activity).apply {
-            setAdLoadListener(
-                object : RewardedAdLoadListener {
-                    override fun onAdLoaded(ad: com.yandex.mobile.ads.rewarded.RewardedAd) {
-                        d("ad = [$ad]")
-                        yandexAd = ad
-                    }
-
-                    override fun onAdFailedToLoad(p0: AdRequestError) {
-                        d("p0 = [$p0]")
-                    }
-
-                },
-            )
-        }.also { it.loadAd(AdRequestConfiguration.Builder(yandexAdId).build()) }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
