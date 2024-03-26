@@ -27,7 +27,6 @@ class AdMobRewarded(
     private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String = "",
-    override val yandexAdId: String = "",
     override var enabled: Boolean = adId.isNotEmpty(),
 ) : IRewardedAd, LifecycleObserver {
     override val isLoaded: Boolean get() = isEnabled && rewardedAd != null
@@ -45,9 +44,6 @@ class AdMobRewarded(
         d("onRewardResult = [$onRewardResult]")
         showAdmob(onRewardResult)
     }
-
-    override fun enableYandex() = Unit
-
 
     private fun showAdmob(onRewardResult: (Boolean) -> Unit) {
         if (!isLoaded) {

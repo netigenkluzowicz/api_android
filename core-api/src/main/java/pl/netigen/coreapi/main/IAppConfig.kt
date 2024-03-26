@@ -39,9 +39,6 @@ interface IAppConfig : IAdsConfig, ISplashConfig {
 
     val donateActive : Boolean
 
-    val debugYandex: Boolean
-        get() = inDebugMode && inYandexDebugMode
-
     companion object {
         const val DEFAULT_DAYS_FOR_FLEXIBLE_UPDATE: Int = 3
     }
