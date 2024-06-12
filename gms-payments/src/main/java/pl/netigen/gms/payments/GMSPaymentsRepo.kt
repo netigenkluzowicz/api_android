@@ -105,8 +105,8 @@ class GMSPaymentsRepo(
 
     private fun billingSetupOk() {
         Timber.d(" Response: OK ${inAppSkuList.joinToString("\n")}")
-        if (inAppProductsList.isNotEmpty()) querySkuDetailsAsync(inAppProductsList)
-        if (subscriptionsProductsList.isNotEmpty()) querySkuDetailsAsync(subscriptionsProductsList)
+        if (inAppProductsList.isNotEmpty()) queryProductDetailsAsync(inAppProductsList)
+        if (subscriptionsProductsList.isNotEmpty()) queryProductDetailsAsync(subscriptionsProductsList)
         queryPurchasesIfNotRunning()
     }
 
@@ -141,7 +141,7 @@ class GMSPaymentsRepo(
         lastError = error
     }
 
-    private fun querySkuDetailsAsync(products: List<QueryProductDetailsParams.Product>) {
+    private fun queryProductDetailsAsync(products: List<QueryProductDetailsParams.Product>) {
         Timber.d("()")
         val params = QueryProductDetailsParams.newBuilder().setProductList(products).build()
         gmsBillingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->

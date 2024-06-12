@@ -85,6 +85,9 @@ dependencies {
     kapt Libraries.glideCompiler
     api Libraries.timber
 
-    api Libraries.playCore
+    api Libraries.playReview
+    api Libraries.playReviewKtx
+    api Libraries.playAppUpdate
+    api Libraries.playAppUpdateKtx
 }
 

@@ -14,12 +14,13 @@ object Versions {
     const val junit = "4.12"
     const val testRunner = "1.3.0"
     const val espressoCore = "3.2.0"
-    const val billing = "5.0.0"
+    const val billing = "5.2.1"
     const val navigation = "2.5.2"
     const val coroutines = "1.6.4"
     const val room = "2.4.3"
     const val timber = "5.0.1"
-    const val playCore = "1.10.2"
+    const val playReview = "2.0.1"
+    const val playAppUpdate = "2.1.0"
 }
 
 object Libraries {
@@ -72,5 +73,10 @@ object Libraries {
 
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
-    val playCore = "com.google.android.play:core:${Versions.playCore}"
+    val playReview = "com.google.android.play:review:${Versions.playReview}"
+    val playReviewKtx = "com.google.android.play:review-ktx:${Versions.playReview}"
+    val playAppUpdate = "com.google.android.play:app-update:${Versions.playAppUpdate}"
+    val playAppUpdateKtx = "com.google.android.play:app-update-ktx:${Versions.playAppUpdate}"
+
+
 }
