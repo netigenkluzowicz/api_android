@@ -19,7 +19,7 @@ afterEvaluate {
 android {
 
     namespace "pl.netigen.gms.ads"
-    compileSdk  33
+    compileSdk  34
 
     defaultConfig {
         minSdkVersion 23

@@ -4,24 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_survey.*
 import pl.netigen.core.fragment.NetigenVMFragment
 import pl.netigen.core.survey.Survey
 import pl.netigen.coreapi.survey.SurveyEvent
 import pl.netigen.coreapi.survey.SurveyEvent.Companion.defaultFirebaseEvent
 import pl.netigen.sampleapp.BuildConfig
-import pl.netigen.sampleapp.R
+import pl.netigen.sampleapp.databinding.FragmentSurveyBinding
 import timber.log.Timber
 
 class SurveyFragment : NetigenVMFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_survey, container, false)
+    lateinit var binding: FragmentSurveyBinding
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentSurveyBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = init()
 
     private fun init() {
-        Survey.showSurvey(webView, BuildConfig.VERSION_NAME) { surveyEvent: SurveyEvent ->
+        Survey.showSurvey(binding.webView, BuildConfig.VERSION_NAME) { surveyEvent: SurveyEvent ->
             Timber.d("xxx.+surveyAction = [$surveyEvent]")
             // Log event to firebase
             val defaultEvent = surveyEvent.defaultFirebaseEvent()

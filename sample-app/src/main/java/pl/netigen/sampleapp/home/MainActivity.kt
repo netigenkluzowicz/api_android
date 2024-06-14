@@ -1,13 +1,11 @@
 package pl.netigen.sampleapp.home
 
 import android.os.Bundle
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
-import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.UNSET
+import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.lifecycle.asLiveData
 import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.activity_sample_main.adsBorder
-import kotlinx.android.synthetic.main.activity_sample_main.layoutHomeContainer
 import pl.netigen.core.main.CoreMainActivity
 import pl.netigen.core.main.CoreViewModelsFactory
 import pl.netigen.extensions.observe
@@ -20,21 +18,11 @@ class MainActivity : CoreMainActivity() {
         get() = ViewModelFactory(this)
 
     override fun hideAds() {
-        Timber.d("()")
-        val navContainer = layoutHomeContainer.view ?: return
-        val layoutParams = navContainer.layoutParams as ConstraintLayout.LayoutParams
-        layoutParams.bottomToTop = UNSET
-        layoutParams.bottomToBottom = PARENT_ID
-        navContainer.layoutParams = layoutParams
+        findViewById<View>(R.id.adsLayout).visibility = GONE
     }
 
     override fun showAds() {
-        Timber.d("()")
-        val navContainer = layoutHomeContainer.view ?: return
-        val layoutParams = navContainer.layoutParams as ConstraintLayout.LayoutParams
-        layoutParams.bottomToTop = adsBorder.id
-        layoutParams.bottomToBottom = UNSET
-        navContainer.layoutParams = layoutParams
+        findViewById<View>(R.id.adsLayout).visibility = VISIBLE
     }
 
     override fun openSurveyFragment() = findNavController(R.id.layoutHomeContainer).safeNavigate(R.id.action_homeFragment_to_surveyFragment)
