@@ -35,7 +35,6 @@ class AdMobBanner(
         private val adMobRequest: IAdMobRequest,
         override val adId: String,
         private val bannerLayoutIdName: String,
-        override val yandexAdId: String,
         override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView? = null
@@ -60,9 +59,6 @@ class AdMobBanner(
             destroyBanner()
             currentActivity = activity
         }
-    }
-
-    override fun enableYandex() {
     }
 
 

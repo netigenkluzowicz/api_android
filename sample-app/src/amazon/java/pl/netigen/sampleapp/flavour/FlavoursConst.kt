@@ -14,9 +14,6 @@ object FlavoursConst {
     const val BANNER_AD_ID: String = TEST_BANNER_ID
     const val INTERSTITIAL_AD_ID: String = TEST_INTERSTITIAL_ID
     const val REWARDED_AD_ID: String = TEST_REWARDED_ID
-    const val YANDEX_BANNER_AD_ID = "R-M-2825340-1"
-    const val YANDEX_INTERSTITIAL_AD_ID = "R-M-2825340-3"
-    const val YANDEX_REWARDED_AD_ID: String = "R-M-2825340-4"
 
     const val NO_ADS_KEY = ".noads"
     const val SUBSCRIPTION_12 = ".subs_12"

@@ -13,15 +13,9 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.yandex.mobile.ads.banner.BannerAdEventListener
-import com.yandex.mobile.ads.banner.BannerAdSize.stickySize
-import com.yandex.mobile.ads.banner.BannerAdView
-import com.yandex.mobile.ads.common.AdRequestError
-import com.yandex.mobile.ads.common.ImpressionData
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.main.ICoreMainActivity
 import timber.log.Timber
-import kotlin.math.roundToInt
 
 /**
  * [IBannerAd] implementation with [AdView] from Google Mobile Ads SDK
@@ -41,7 +35,6 @@ class AdMobBanner(
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
     private val bannerLayoutIdName: String,
-    override val yandexAdId: String,
     override var enabled: Boolean = true,
 ) : IBannerAd, LifecycleObserver {
     private var bannerView: AdView? = null
@@ -51,8 +44,6 @@ class AdMobBanner(
     private val bannerLayout: RelativeLayout?
         get() = (currentActivity as ICoreMainActivity).bannerView()
 
-    private var bannerYandex: BannerAdView? = null
-    private var yandexActive = false
 
     init {
         Timber.d("xxx.+()")
@@ -68,13 +59,6 @@ class AdMobBanner(
             currentActivity.lifecycle.addObserver(this)
             destroyBanner()
             currentActivity = activity
-        }
-    }
-
-    override fun enableYandex() {
-        if (!yandexActive) {
-            destroyBanner()
-            yandexActive = true
         }
     }
 
@@ -96,6 +80,7 @@ class AdMobBanner(
             AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(currentActivity, adWidth)
         }
     }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun onResume() {
         Timber.d("xxx.+()")
@@ -130,47 +115,9 @@ class AdMobBanner(
     }
 
     private fun createBanner() {
-        if (yandexActive) createYandex() else createAdmob()
+        createAdmob()
     }
 
-    private fun createYandex() {
-        val bannerLayout1 = bannerLayout ?: return
-        bannerYandex = (bannerYandex ?: BannerAdView(currentActivity)).also {
-            bannerLayout1.addView(it)
-            it.setAdUnitId(yandexAdId)
-            it.setAdSize(stickySize(currentActivity, currentActivity.resources.displayMetrics.run { widthPixels / density }.roundToInt()))
-            it.setBannerAdEventListener(
-                object : BannerAdEventListener {
-                    override fun onAdLoaded() {
-                        Timber.d("Banner ad loaded")
-                    }
-
-                    override fun onAdFailedToLoad(error: AdRequestError) {
-                        Timber.d(
-                            "Banner ad failed to load with code ${error.code}: ${error.description}",
-                        )
-                    }
-
-                    override fun onAdClicked() {
-                        Timber.d("Banner ad clicked")
-                    }
-
-                    override fun onLeftApplication() {
-                        Timber.d("Left application")
-                    }
-
-                    override fun onReturnedToApplication() {
-                        Timber.d("Returned to application")
-                    }
-
-                    override fun onImpression(data: ImpressionData?) {
-                        Timber.d("Impression: ${data?.rawData}")
-                    }
-                },
-            )
-            it.loadAd(com.yandex.mobile.ads.common.AdRequest.Builder().build())
-        }
-    }
 
     private fun createAdmob() {
         val bannerLayout1 = bannerLayout ?: return
@@ -188,10 +135,9 @@ class AdMobBanner(
     private fun destroyBanner() {
         Timber.d("xxx.+()")
         currentActivity.runOnUiThread {
-            val view = bannerView.also { it?.destroy() } ?: bannerYandex ?: return@runOnUiThread
+            val view = bannerView.also { it?.destroy() } ?: return@runOnUiThread
             (view.parent as ViewGroup?)?.removeAllViews()
             bannerView = null
-            bannerYandex = null
         }
     }
 

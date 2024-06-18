@@ -8,11 +8,7 @@ import pl.netigen.coreapi.main.Store
  */
 interface IRateUs {
     /**
-     * After this number of calls [increaseOpeningCounter], rate us dialog will be showed
-     */
-    val numberOfChecksBeforeShowingDialog: Int
-    /**
-     * Checks how many user uses app [openingCounter], and shows Rate Us dialog when this reach [numberOfChecksBeforeShowingDialog]
+     * Checks how many user uses app [openingCounter], and shows Rate Us dialog when this
      *
      * @return if Rate Us dialog should be showed
      */
@@ -35,7 +31,7 @@ interface IRateUs {
      * Shows Rate Us dialog
      *
      */
-    fun openRateDialog()
+    fun openOurRateDialog()
 
     /**
      * Called on click in dialog
@@ -57,4 +53,5 @@ interface IRateUs {
      *
      */
     fun clickLater()
+    fun openGmsRateDialog()
 }

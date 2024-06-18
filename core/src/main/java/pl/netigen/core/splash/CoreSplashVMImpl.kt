@@ -1,6 +1,7 @@
 package pl.netigen.core.splash
 
 import android.app.Application
+import android.util.Log.d
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -102,7 +103,6 @@ open class CoreSplashVMImpl(
 
     private fun finish() {
         d("()")
-        if (appConfig.debugYandex) ads.enableYandex()
         cancelJobs()
         splashTimer.cancelInterstitialTimer()
         finished = true
@@ -159,7 +159,6 @@ open class CoreSplashVMImpl(
     private fun onLoadInterstitialResult(success: Boolean) = if (success) {
         showInterstitialIfCan()
     } else {
-        if (ChangeLanguageHelper.getPreferencesLocale(getApplication()) == "ru" || appConfig.debugYandex) ads.enableYandex()
         finish()
     }
 

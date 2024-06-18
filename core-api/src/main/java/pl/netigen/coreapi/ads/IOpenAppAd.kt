@@ -18,9 +18,4 @@ interface IOpenAppAd : OnSplashAd, IAd {
      * Indicates if ad is loaded and ready to show
      */
     val isLoadedAndValid: Boolean
-
-    override val yandexAdId: String
-        get() = ""
-
-    override fun enableYandex() = Unit
 }

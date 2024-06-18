@@ -64,19 +64,16 @@ class AdMobAds(
             adMobRequest = this,
             adId = bannerId,
             bannerLayoutIdName = adsConfig.bannerLayoutIdName,
-            yandexAdId = if (adsConfig.inDebugMode) "demo-banner-yandex" else adsConfig.bannerYandexAdId,
         )
         interstitialAd = AdMobInterstitial(
             activity = activity,
             adMobRequest = this,
             adId = interstitialId,
-            yandexAdId = if (adsConfig.inDebugMode) "demo-interstitial-yandex" else adsConfig.interstitialYandexAdId,
         )
         rewardedAd = AdMobRewarded(
             activity = activity,
             adMobRequest = this,
             adId = rewardedId,
-            yandexAdId = if (adsConfig.inDebugMode) "demo-rewarded-yandex" else adsConfig.rewardedYandexAdId,
         )
 
     }
@@ -87,10 +84,6 @@ class AdMobAds(
         val rewardedId = if (adsConfig.inDebugMode && rewarded.isNotEmpty()) (TEST_REWARDED_ID) else (rewarded)
         return Triple(bannerId, interstitialId, rewardedId)
     }
-
-    override fun enableYandex() {
-    }
-
 
     override fun getAdRequest(): AdRequest = AdRequest.Builder().build()
 

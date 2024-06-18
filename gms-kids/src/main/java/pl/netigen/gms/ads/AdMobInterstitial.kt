@@ -2,6 +2,7 @@ package pl.netigen.gms.ads
 
 import android.content.Context
 import android.os.SystemClock
+import android.util.Log.d
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -39,7 +40,6 @@ class AdMobInterstitial(
     activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String,
-    override val yandexAdId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
     override var enabled: Boolean = true,
 ) : IInterstitialAd, LifecycleObserver {
@@ -93,9 +93,6 @@ class AdMobInterstitial(
             interstitialAd = null
             loadIfShouldBeLoaded()
         }
-    }
-
-    override fun enableYandex() {
     }
 
     override val isLoaded: Boolean
