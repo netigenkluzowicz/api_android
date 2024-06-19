@@ -35,7 +35,7 @@ class HomeFragment : NetigenVMFragment() {
        binding.testSubs.setOnClickListener { coreMainVM.makePurchase(activity, activity.packageName + ".subs_01") }
        binding.testResetAds.setOnClickListener { coreMainVM.resetAdsPreferences() }
        binding.testSurvey.setOnClickListener { safeNavigate(pl.netigen.sampleapp.R.id.action_homeFragment_to_surveyFragment) }
-       binding.newrate.setOnClickListener { (requireActivity() as CoreMainActivity).rateUs.openRateDialog() }
+       binding.newrate.setOnClickListener { (requireActivity() as CoreMainActivity).rateUs.openOurRateDialog() }
        binding.rotate.setOnClickListener {
             val display = (activity.getSystemService(WINDOW_SERVICE) as WindowManager?)!!.defaultDisplay
 
