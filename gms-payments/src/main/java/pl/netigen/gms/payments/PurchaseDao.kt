@@ -23,7 +23,7 @@ interface PurchaseDao {
     fun getPurchasesList(): List<CachedPurchase>
 
     @Delete
-    suspend fun delete(vararg purchases: CachedPurchase)
+    suspend fun delete(vararg purchases: CachedPurchase) : Void
 
     @Query("DELETE FROM purchase_table")
     suspend fun deleteAll()

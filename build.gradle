@@ -14,7 +14,7 @@ private String generateVersionName() {
 
 buildscript {
     ext.versions = [
-            kotlin              : '1.7.10',
+            kotlin              : '1.9.24',
             gradle              : '8.1.1',
             multidex            : '1.0.3',
             test                : [
