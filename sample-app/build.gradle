@@ -27,9 +27,6 @@ android {
         gms {
             dimension "services"
         }
-        amazon {
-            dimension "services"
-        }
     }
 
     buildTypes {
@@ -61,7 +58,6 @@ dependencies {
     api project(path: ":core-api")
     implementation project(path: ':gms-kids')
     gmsImplementation project(path: ':gms-payments')
-    amazonImplementation project(path: ':amazon-payments')
 
     implementation Libraries.navigationFragmentKTX
     implementation Libraries.navigationFragment
