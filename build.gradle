@@ -15,7 +15,7 @@ private String generateVersionName() {
 buildscript {
     ext.versions = [
             kotlin              : '1.9.24',
-            gradle              : '8.1.1',
+            gradle              : '8.7.3',
             multidex            : '1.0.3',
             test                : [
                     junit   : '4.13.2',
@@ -24,7 +24,7 @@ buildscript {
 
             ],
             jetbrains           : [
-                    dokka_gradle: '0.10.1'
+                    dokka_gradle: '2.0.0'
             ]
     ]
 
@@ -34,7 +34,6 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.gradle"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$versions.jetbrains.dokka_gradle"
     }

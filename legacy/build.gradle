@@ -17,11 +17,11 @@ afterEvaluate {
 
 android {
     namespace "pl.netigen.legacy"
-    compileSdk  34
+    compileSdk 35
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdkVersion 35
     }
     buildTypes {
         release {
@@ -45,5 +45,5 @@ dependencies {
     api Libraries.appcompat
 
     implementation Libraries.coreKTX
-    implementation Libraries.kotlinStdlibJdk7
+    implementation Libraries.kotlinStdlib
 }

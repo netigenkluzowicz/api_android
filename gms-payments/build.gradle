@@ -18,11 +18,11 @@ afterEvaluate {
 android {
     namespace "pl.netigen.gms.payments"
 
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdkVersion 35
     }
     buildTypes {
         release {

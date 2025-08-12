@@ -19,8 +19,8 @@ android {
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 33
-        compileSdk 34
+        targetSdkVersion 35
+        compileSdk 35
         aarMetadata {
             minCompileSdk = 32
         }
@@ -48,7 +48,7 @@ android {
 
 dependencies {
 
-    api Libraries.kotlinStdlibJdk7
+    api Libraries.kotlinStdlib
 
     api Libraries.roomRuntime
     api Libraries.roomKTX
@@ -68,7 +68,7 @@ dependencies {
     api Libraries.coreKTX
     api Libraries.liveDataKTX
     api Libraries.runtimeKTX
-    api Libraries.kotlinStdlibJdk7
+    api Libraries.kotlinStdlib
 
     api Libraries.okhttp
 
