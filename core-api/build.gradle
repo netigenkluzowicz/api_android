@@ -56,8 +56,6 @@ dependencies {
 
     api Libraries.viewModelKTX
 
-    api Libraries.legacySupportV13
-
     api Libraries.constraintLayout
 
 

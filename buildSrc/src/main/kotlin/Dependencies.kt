@@ -1,5 +1,4 @@
 object Versions {
-    const val legacySupportV13 = "1.0.0"
     const val playServicesAds = "23.6.0"
     const val constraintLayout = "2.2.1"
     const val material = "1.12.0"
@@ -11,7 +10,7 @@ object Versions {
     const val kotlin = "1.9.24"
     const val okhttp = "4.12.0"
     const val retrofit = "2.11.0"
-    const val junit = "4.12"
+    const val junit = "4.13.2"
     const val testRunner = "1.7.0"
     const val espressoCore = "3.7.0"
     const val billing = "7.1.1"
@@ -24,8 +23,6 @@ object Versions {
 }
 
 object Libraries {
-    val legacySupportV13 = "androidx.legacy:legacy-support-v13:${Versions.legacySupportV13}"
-
     val material = "com.google.android.material:material:${Versions.material}"
 
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
