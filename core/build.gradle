@@ -42,6 +42,15 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    // TODO: Re-enable 'NullSafeMutableLiveData'.
+    // Context: AGP 8.7.3 + Kotlin 1.9.24 causes a crash in
+    // androidx.lifecycle.lint.NonNullableMutableLiveDataDetector
+    // ("Found class ... KaCallableMemberCall, but interface was expected")
+    // when running lintVital. Remove this disable in all modules after migrating to
+    // Kotlin 2.0.x (with Compose Compiler 1.6.x) or once AndroidX ships a fix.
+    lint {
+        disable "NullSafeMutableLiveData"
+    }
 }
 
 
