@@ -2,12 +2,10 @@ package pl.netigen.gms.ads
 
 import android.content.Context
 import android.os.SystemClock
-import android.util.Log.d
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -20,21 +18,22 @@ import timber.log.Timber
 import timber.log.Timber.Forest.d
 
 /**
- * [IInterstitialAd] implementation with [InterstitialAd] from Google Mobile Ads SDK
+ * [IInterstitialAd] implementation backed by [InterstitialAd].
  *
  * See: [Interstitial Ads](https://developers.google.com/admob/android/interstitial)
  *
- * @property adMobRequest adMobRequest Provides [AdRequest] for this ad
- * @property adId Current ad [String] identifier
- * @property minDelayBetweenInterstitial Minimum time after one ad was showed to show another ad,
+ * Registers itself as a [DefaultLifecycleObserver] on the provided
+ * [LifecycleOwner] to react to lifecycle events.
  *
- * for default = [60 seconds][DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS]
+ * @property adMobRequest provides [AdRequest] for this ad
+ * @property adId identifier of the interstitial placement
+ * @property minDelayBetweenInterstitial minimum time between interstitial impressions
+ *   (default: [DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS])
+ * @property enabled whether this ad is currently active
  *
- * @property enabled Current ad [String] identifier
- * @constructor
- * Initializes ad, starts observing activity [Lifecycle]
- *
- * @param activity [ComponentActivity] for this ad [Context] and [Lifecycle] events
+ * @constructor Initializes the ad and registers lifecycle observation.
+ * @param activity host [ComponentActivity] used as [Context]
+ * and [LifecycleOwner] for lifecycle callbacks
  */
 class AdMobInterstitial(
     activity: ComponentActivity,
@@ -42,7 +41,7 @@ class AdMobInterstitial(
     override val adId: String,
     private val minDelayBetweenInterstitial: Long = DEFAULT_DELAY_BETWEEN_INTERSTITIAL_ADS_MS,
     override var enabled: Boolean = true,
-) : IInterstitialAd, LifecycleObserver {
+) : IInterstitialAd, DefaultLifecycleObserver {
     override var isInBackground: Boolean = false
     private var lastInterstitialAdDisplayTime: Long = 0
     private var interstitialAd: InterstitialAd? = null
@@ -154,21 +153,18 @@ class AdMobInterstitial(
         onClosedOrNotShowed(false)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    private fun onResume() {
+    override fun onResume(owner: LifecycleOwner) {
         d("()")
         isInBackground = false
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    private fun onPause() {
+    override fun onPause(owner: LifecycleOwner) {
         d("()")
         isInBackground = true
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    private fun onDestroy() {
-        currentActivity.lifecycle.removeObserver(this)
+    override fun onDestroy(owner: LifecycleOwner) {
+        owner.lifecycle.removeObserver(this)
         interstitialAd = null
     }
 

@@ -1,34 +1,38 @@
 package pl.netigen.gms.ads
 
-import android.content.res.Configuration.ORIENTATION_LANDSCAPE
-import android.util.DisplayMetrics
+import android.content.Context
+import android.content.res.Configuration
 import android.view.ViewGroup
-import android.view.ViewParent
 import android.widget.RelativeLayout
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
-import com.google.android.gms.ads.AdRequest
+import androidx.core.view.isEmpty
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import pl.netigen.coreapi.ads.IBannerAd
 import pl.netigen.coreapi.main.ICoreMainActivity
 import timber.log.Timber
+import kotlin.math.max
 
 /**
- * [IBannerAd] implementation with [AdView] from Google Mobile Ads SDK
+ * [IBannerAd] implementation backed by [AdView]
  *
  * See: [Banner Ads](https://developers.google.com/admob/android/banner)
  *
- * @property currentActivity [ComponentActivity] for this ad placement and [Lifecycle] events
- * @property adMobRequest Provides [AdRequest] for this ad
- * @property adId Current ad [String] identifier
- * @property bannerLayoutIdName Id of [RelativeLayout] for banner ad placement
+ * Registers itself as a [DefaultLifecycleObserver] on the provided
+ * [LifecycleOwner] (`ComponentActivity`) to pause/resume/destroy the banner
+ * with lifecycle events.
+ *
+ * @property currentActivity the hosting [ComponentActivity] used as [Context]
+ * and as a [LifecycleOwner] for lifecycle callbacks
+ * @property adMobRequest provides [com.google.android.gms.ads.AdRequest] for this ad
+ * @property adId current ad identifier
+ * @property bannerLayoutIdName resource name of the [RelativeLayout] used for banner placement
+ * @property enabled whether this ad is currently active
  *
  * See: [Adaptive Banners](https://developers.google.com/admob/android/banner/adaptive)
- * @property enabled Indicates is current ad active
  */
 class AdMobBanner(
     private val activity: ComponentActivity,
@@ -36,7 +40,7 @@ class AdMobBanner(
     override val adId: String,
     private val bannerLayoutIdName: String,
     override var enabled: Boolean = true,
-) : IBannerAd, LifecycleObserver {
+) : IBannerAd, DefaultLifecycleObserver {
     private var bannerView: AdView? = null
     private var loadedBannerOrientation = -1
     private val disabled get() = !enabled
@@ -64,35 +68,21 @@ class AdMobBanner(
 
 
     private fun getAdSize(): AdSize {
-        val display = currentActivity.windowManager.defaultDisplay
-        val outMetrics = DisplayMetrics()
-        display.getMetrics(outMetrics)
+        val dm = currentActivity.resources.displayMetrics
+        val density = dm.density
+        val orientation = currentActivity.resources.configuration.orientation
 
-        val density = outMetrics.density
-
-        return if (currentActivity.resources.configuration.orientation != ORIENTATION_LANDSCAPE) {
-            val adWidthPixels = outMetrics.widthPixels.toFloat()
-            val adWidth = (adWidthPixels / density).toInt()
-            AdSize.getPortraitAnchoredAdaptiveBannerAdSize(currentActivity, adWidth)
+        val adWidthDp = if (orientation != Configuration.ORIENTATION_LANDSCAPE) {
+            (dm.widthPixels / density).toInt()
         } else {
-            val maxWidth = maxOf(outMetrics.heightPixels.toFloat(), outMetrics.widthPixels.toFloat())
-            val adWidth = (maxWidth / density).toInt()
-            AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(currentActivity, adWidth)
+            (max(dm.widthPixels, dm.heightPixels) / density).toInt()
         }
-    }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    private fun onResume() {
-        Timber.d("xxx.+()")
-        if (disabled) return
-
-        val bannerLayout1 = bannerLayout ?: return
-        if (loadedBannerOrientation != currentActivity.resources.configuration.orientation || bannerView == null ||
-            bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView
-        ) {
-            loadBanner()
+        return if (orientation != Configuration.ORIENTATION_LANDSCAPE) {
+            AdSize.getPortraitAnchoredAdaptiveBannerAdSize(currentActivity, adWidthDp)
+        } else {
+            AdSize.getLandscapeAnchoredAdaptiveBannerAdSize(currentActivity, adWidthDp)
         }
-        bannerView?.resume()
     }
 
     private fun loadBanner() {
@@ -103,7 +93,7 @@ class AdMobBanner(
             destroyBanner()
         }
         val bannerLayout1 = bannerLayout ?: return
-        if (bannerLayout1.childCount == 0 || bannerLayout1.getChildAt(0) !== bannerView || bannerView == null) {
+        if (bannerLayout1.isEmpty() || bannerLayout1.getChildAt(0) !== bannerView || bannerView == null) {
             createBanner()
         }
         loadAdMob()
@@ -148,18 +138,33 @@ class AdMobBanner(
         adView.requestLayout()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    private fun onPause() {
+    override fun onPause(owner: LifecycleOwner) {
         Timber.d("xxx.+()")
         val adView = bannerView ?: return
         adView.pause()
-        val parent: ViewParent = adView.parent ?: return
-        if (disabled && parent is ViewGroup) parent.removeView(adView)
+        val parent = adView.parent as? ViewGroup ?: return
+        if (disabled) parent.removeView(adView)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    private fun onDestroy() {
-        currentActivity.lifecycle.removeObserver(this)
+    override fun onDestroy(owner: LifecycleOwner) {
+        owner.lifecycle.removeObserver(this)       // zamiast currentActivity.lifecycle...
         destroyBanner()
+    }
+
+    override fun onResume(owner: LifecycleOwner) {
+        Timber.d("xxx.+()")
+        if (disabled) return
+
+        val bannerLayout1 = bannerLayout ?: return
+        val orientation = currentActivity.resources.configuration.orientation
+        if (
+            loadedBannerOrientation != orientation ||
+            bannerView == null ||
+            bannerLayout1.isEmpty() ||
+            bannerLayout1.getChildAt(0) !== bannerView
+        ) {
+            loadBanner()
+        }
+        bannerView?.resume()
     }
 }

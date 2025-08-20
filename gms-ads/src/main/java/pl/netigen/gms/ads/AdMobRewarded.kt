@@ -2,9 +2,8 @@ package pl.netigen.gms.ads
 
 import android.content.Context
 import androidx.activity.ComponentActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
@@ -13,22 +12,25 @@ import pl.netigen.coreapi.ads.IRewardedAd
 import timber.log.Timber.Forest.d
 
 /**
- * [IRewardedAd] implementation with [RewardedAd] from Google Mobile Ads SDK
+ * [IRewardedAd] implementation backed by [RewardedAd].
  *
- * @property adMobRequest adMobRequest Provides [AdRequest] for this ad
- * @property adId Current ad [String] identifier
- * @property enabled Current ad [String] identifier
- * @constructor
- * Initializes ad, starts observing activity [Lifecycle]
+ * Registers itself as a [DefaultLifecycleObserver] on the provided
+ * [LifecycleOwner] to react to lifecycle events.
  *
- * @param activity [ComponentActivity] for this ad [Context] and [Lifecycle] events
+ * @property adMobRequest provides [AdRequest] for this ad
+ * @property adId identifier of the rewarded placement
+ * @property enabled whether this ad is currently active
+ *
+ * @constructor Initializes the ad and registers lifecycle observation.
+ * @param activity host [ComponentActivity] used as [Context]
+ * and [LifecycleOwner] for lifecycle callbacks
  */
 class AdMobRewarded(
     private val activity: ComponentActivity,
     private val adMobRequest: IAdMobRequest,
     override val adId: String = "",
     override var enabled: Boolean = adId.isNotEmpty(),
-) : IRewardedAd, LifecycleObserver {
+) : IRewardedAd, DefaultLifecycleObserver {
     override val isLoaded: Boolean get() = isEnabled && rewardedAd != null
     private var rewardedAd: RewardedAd? = null
     private val isEnabled: Boolean get() = enabled && adId.isNotEmpty()
@@ -83,12 +85,15 @@ class AdMobRewarded(
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    private fun onCreate() {
+    override fun onCreate(owner: LifecycleOwner) {
         d("()")
         if (enabled) {
             load()
         }
+    }
+
+    override fun onDestroy(owner: LifecycleOwner) {
+        owner.lifecycle.removeObserver(this)
     }
 
     private fun load() {

@@ -31,9 +31,9 @@ object Libraries {
 
     val userMessagingPlatform = "com.google.android.ump:user-messaging-platform:${Versions.userMessagingPlatform}"
 
-    val viewModelKTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2"
-    val liveDataKTX = "androidx.lifecycle:lifecycle-livedata-ktx:2.9.2"
-    val runtimeKTX = "androidx.lifecycle:lifecycle-runtime-ktx:2.9.2"
+    val viewModelKTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7"
+    val liveDataKTX = "androidx.lifecycle:lifecycle-livedata-ktx:2.8.7"
+    val runtimeKTX = "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
 
     val navigationFragment = "androidx.navigation:navigation-fragment:${Versions.navigation}"
     val navigationUi = "androidx.navigation:navigation-ui:${Versions.navigation}"

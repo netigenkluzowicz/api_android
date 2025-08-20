@@ -58,9 +58,8 @@ public abstract class BaseMoreAppsFragment extends Fragment {
             AssetManager assets = activity.getAssets();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(assets.open(path), null, options);
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            float targetWidth = displayMetrics.widthPixels * getWidthScale();
+            DisplayMetrics dm = activity.getResources().getDisplayMetrics();
+            float targetWidth = dm.widthPixels * getWidthScale();
             float scale = targetWidth / options.outWidth;
             Bitmap imageBitmap = BitmapHelper.loadAndScaleBitmap(assets, path, (int) (options.outWidth * scale), (int) (options.outHeight * scale));
 
