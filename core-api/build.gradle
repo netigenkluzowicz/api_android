@@ -17,10 +17,11 @@ afterEvaluate {
 android {
     namespace "pl.netigen.coreapi"
 
+    compileSdk 35
+
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 35
-        compileSdk 35
+        minSdk 23
+        targetSdk 35
         aarMetadata {
             minCompileSdk = 32
         }
@@ -29,11 +30,11 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -66,7 +67,6 @@ dependencies {
     api Libraries.coreKTX
     api Libraries.liveDataKTX
     api Libraries.runtimeKTX
-    api Libraries.kotlinStdlib
 
     api Libraries.okhttp
 
