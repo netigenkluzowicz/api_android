@@ -36,25 +36,16 @@ class HomeFragment : NetigenVMFragment() {
        binding.testResetAds.setOnClickListener { coreMainVM.resetAdsPreferences() }
        binding.testSurvey.setOnClickListener { safeNavigate(pl.netigen.sampleapp.R.id.action_homeFragment_to_surveyFragment) }
        binding.newrate.setOnClickListener { (requireActivity() as CoreMainActivity).rateUs.openOurRateDialog() }
-        binding.rotate.setOnClickListener {
-           val activity = requireActivity()
-           val wm = activity.getSystemService(WINDOW_SERVICE) as WindowManager
+       binding.rotate.setOnClickListener {
+            val display = (activity.getSystemService(WINDOW_SERVICE) as WindowManager?)!!.defaultDisplay
 
-           val rotation = if (android.os.Build.VERSION.SDK_INT >= 30) {
-               activity.display?.rotation ?: Surface.ROTATION_0
-           } else {
-               @Suppress("DEPRECATION")
-               wm.defaultDisplay.rotation
-           }
-
-           coreMainVM.interstitialAd.showIfCanBeShowed(true) {
-               when (rotation) {
-                   Surface.ROTATION_0, Surface.ROTATION_180 ->
-                       activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                   Surface.ROTATION_90, Surface.ROTATION_270 ->
-                       activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-               }
-           }
+            val orientation: Int = display.rotation
+            coreMainVM.interstitialAd.showIfCanBeShowed(true) {
+                when (orientation) {
+                    Surface.ROTATION_0, Surface.ROTATION_180 -> activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                    Surface.ROTATION_90, Surface.ROTATION_270 -> activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+            }
         }
         binding.donate.setOnClickListener {
             (requireActivity() as CoreMainActivity).showDonate()

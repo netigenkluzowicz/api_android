@@ -15,7 +15,6 @@ import pl.netigen.coreapi.gdpr.CheckGDPRLocationStatus
 import pl.netigen.coreapi.gdpr.IGDPRConsent
 import pl.netigen.coreapi.gdpr.IGDPRTexts
 import timber.log.Timber
-import androidx.core.content.edit
 
 /**
  * [IGDPRConsent] implementation with using [User Messaging Platform](https://developers.google.com/admob/ump/android/quick-start)
@@ -35,8 +34,10 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
 
         val callback = object : ConsentInformation.OnConsentInfoUpdateFailureListener, ConsentInformation.OnConsentInfoUpdateSuccessListener {
 
-            override fun onConsentInfoUpdateFailure(formError: FormError) {
-                Timber.d("p0 = [${formError.message}]")
+            override fun onConsentInfoUpdateFailure(formError: FormError?) {
+                if (formError != null) {
+                    Timber.d("p0 = [${formError.message}]")
+                }
                 onGdprStatus(CheckGDPRLocationStatus.ERROR)
             }
 
@@ -66,14 +67,20 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
         val callback = object :
             UserMessagingPlatform.OnConsentFormLoadSuccessListener,
             UserMessagingPlatform.OnConsentFormLoadFailureListener {
-            override fun onConsentFormLoadSuccess(form: ConsentForm) {
+            override fun onConsentFormLoadSuccess(form: ConsentForm?) {
                 Timber.d("form = [$form]")
                 consentForm = form
-                onLoadSuccess(true)
+                if (form != null) {
+                    onLoadSuccess(true)
+                } else {
+                    onLoadSuccess(false)
+                }
             }
 
-            override fun onConsentFormLoadFailure(formError: FormError) {
-                Timber.d("formError = [${formError.message}]")
+            override fun onConsentFormLoadFailure(formError: FormError?) {
+                if (formError != null) {
+                    Timber.d("formError = [${formError.message}]")
+                }
                 onLoadSuccess(false)
             }
         }
@@ -99,10 +106,10 @@ class GDPRConsentImpl(private val activity: ComponentActivity) : IGDPRConsent, I
 
     override fun saveAdConsentStatus(adConsentStatus: AdConsentStatus) {
         activity.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
-            .edit {
-                putInt(PREFERENCES_KEY, adConsentStatus.ordinal)
-                    .putLong(PREFERENCES_KEY_TIME, System.currentTimeMillis())
-            }
+            .edit()
+            .putInt(PREFERENCES_KEY, adConsentStatus.ordinal)
+            .putLong(PREFERENCES_KEY_TIME, System.currentTimeMillis())
+            .apply()
     }
 
     companion object {
