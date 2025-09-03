@@ -1,1 +1,10 @@
+pluginManagement {
+  repositories {
+    google()
+    gradlePluginPortal()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+  }
+}
+
 include  ':legacy', ':core', ':core-api', ':gms-ads', ':gms-kids',':gms-payments', ':sample-app'

@@ -5,11 +5,11 @@ apply plugin: 'kotlin-kapt'
 
 android {
     namespace "pl.netigen.sampleapp"
-    compileSdk  34
+    compileSdk 35
     defaultConfig {
         applicationId "pl.netigen.bestlevel"
-        minSdkVersion 23
-        targetSdkVersion 33
+        minSdk 23
+        targetSdk 35
         versionCode 30003
         versionName "3.0.3"
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
@@ -32,12 +32,10 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            multiDexEnabled true
         }
 
         debug {
             minifyEnabled false
-            multiDexEnabled true
         }
 
     }
@@ -48,12 +46,14 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    lint {
+        disable "NullSafeMutableLiveData"
+    }
 }
 
 dependencies {
-    debugImplementation "com.android.support:multidex:$versions.multidex"
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
     implementation project(path: ":core")
     api project(path: ":core-api")
     implementation project(path: ':gms-kids')
